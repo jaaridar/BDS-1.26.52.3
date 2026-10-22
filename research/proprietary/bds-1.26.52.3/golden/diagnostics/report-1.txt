@@ -1,0 +1,14 @@
+seed: 1
+recheck: true
+capture exit: 1
+
+capture files:
+487 capture/seed-1/server/server.properties
+1664 capture/seed-1/server/Dedicated_Server.txt
+256133808 capture/seed-1/server/bedrock_server
+
+golden directory:
+total 4
+drwxr-xr-x 2 runner runner 4096 Oct 22 23:35 diagnostics
+
+server log tail:
