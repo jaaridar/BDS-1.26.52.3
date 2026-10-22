@@ -89,12 +89,16 @@ function propertiesFor(seed, levelName) {
 }
 
 class Server {
-  constructor(binary, cwd, verbose) {
+  constructor(binary, cwd, verbose, logFile) {
     this.binary = binary;
     this.cwd = cwd;
     this.verbose = verbose;
     this.lines = [];
     this.waiters = [];
+    // Written incrementally: if the server crashes during startup there is
+    // still a log to read afterwards.
+    this.logFile = logFile;
+    this.logStream = logFile ? fs.createWriteStream(logFile, { flags: 'a' }) : null;
   }
 
   start() {
@@ -109,6 +113,7 @@ class Server {
     const onData = (chunk) => {
       const text = chunk.toString('utf8');
       if (this.verbose) process.stdout.write(text);
+      if (this.logStream) this.logStream.write(text);
       this.lines.push(text);
       for (const waiter of [...this.waiters]) {
         if (waiter.pattern.test(text)) {
@@ -178,7 +183,18 @@ class Server {
   }
 }
 
-async function capture({ binary, seed, out, timeout, probe, verbose }) {
+async function capture(args) {
+  try {
+    return await captureInner(args);
+  } catch (error) {
+    const absOut = path.resolve(args.out);
+    fs.mkdirSync(absOut, { recursive: true });
+    fs.writeFileSync(path.join(absOut, 'error.txt'), `${error && error.stack || error}\n`);
+    throw error;
+  }
+}
+
+async function captureInner({ binary, seed, out, timeout, probe, verbose }) {
   const absOut = path.resolve(out);
   fs.rmSync(absOut, { recursive: true, force: true });
   fs.mkdirSync(absOut, { recursive: true });
@@ -199,7 +215,7 @@ async function capture({ binary, seed, out, timeout, probe, verbose }) {
   const levelName = 'golden';
   fs.writeFileSync(path.join(workDir, 'server.properties'), propertiesFor(seed, levelName));
 
-  const server = new Server(localBinary, workDir, verbose).start();
+  const server = new Server(localBinary, workDir, verbose, path.join(absOut, 'server.log')).start();
   const started = Date.now();
   try {
     await server.waitFor(/Server started\.?/i, 300000, 'server start');
@@ -251,6 +267,10 @@ async function capture({ binary, seed, out, timeout, probe, verbose }) {
     console.log(`requested ${saved.length} structure saves in ${Date.now() - started} ms`);
   } finally {
     await server.stop();
+    if (server.logStream) {
+      await new Promise((resolve) => server.logStream.end(resolve));
+    }
+    fs.writeFileSync(path.join(absOut, 'server-transcript.txt'), server.lines.join(''));
   }
 
   // --- collect -------------------------------------------------------------

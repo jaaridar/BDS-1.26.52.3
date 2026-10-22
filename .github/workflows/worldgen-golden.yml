@@ -131,6 +131,8 @@ jobs:
           } > "${OUTPUT_DIR}/diagnostics/report-${MODE}.txt"
           cp "${OUTPUT_DIR}/diagnostics/report-${MODE}.txt" capture/report.txt
           cp "capture/seed-${MODE}/server.log" "${OUTPUT_DIR}/diagnostics/server-${MODE}.log" 2>/dev/null || true
+          cp "capture/seed-${MODE}/server-transcript.txt" "${OUTPUT_DIR}/diagnostics/transcript-${MODE}.txt" 2>/dev/null || true
+          cp "capture/seed-${MODE}/error.txt" "${OUTPUT_DIR}/diagnostics/error-${MODE}.txt" 2>/dev/null || true
           cp "capture/seed-${MODE}/capture.json" "${OUTPUT_DIR}/diagnostics/capture-${MODE}.json" 2>/dev/null || true
           cat capture/report.txt
 
