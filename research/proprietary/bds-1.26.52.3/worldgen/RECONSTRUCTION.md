@@ -268,3 +268,60 @@ every CI run.
 | structure/jigsaw generation | low–medium | processors/jigsaw classes mapped, flow partial |
 
 Open items are tracked in section 5 as they are resolved.
+
+## 5. Slot inventory of the recovered corpus
+
+Counts below are what `data/function-index.tsv` currently holds (one row per
+decompiled function; provenance `collect-report.txt`).
+
+| class | slots recovered / total | notes |
+|---|---|---|
+| `WorldGenerator` | 46 / 60 | largest: slot 9 `0xca314e0` (4,450 B, 16 calls) — chunk generation driver |
+| `OverworldGeneratorMultinoise` | 27 / 68 | largest: slot 11 `0x517cd10` (6,391 B, 31 calls), slot 64 `0x5188b10` (6,189 B), slot 15 `0x517ab30` (5,706 B) |
+| `OverworldGenerator2d` | 15 / 68 | slot 64 `0x517ea80` (2,962 B) |
+| `BiomeSource3d` | 11 / 12 | complete apart from one trivial adaptor |
+| `FixedBiomeSource` | 12 / 12 | complete |
+| `XoroshiroRandom` | 11 / 18 | all non-trivial operations recovered |
+| `br::worldgen::WorldGenRandom` | 7 / 18 | wrapper around the RNG |
+| `VanillaSurfaceBuilders::*` | 7 / 7 each | `OverworldDefault`, `Mesa`, `LegacyMesa`, `Capped`, `OceanFrozen`, `Swamp`, `TheEnd`, plus `NoiseGradient` (6/7) |
+| `MultinoiseGenerationRulesBiomeComponentGlue` | 4 / 4 | cereal marshalling of the climate target vector |
+| `OverworldGenerationRulesBiomeComponentGlue` | 4 / 4 | marshalling of climate links/transforms |
+
+`OverworldGeneratorMultinoise` also carries two size-computation helpers
+(`vslot2` `0x5188760`, `vslot52` `0x51884e0`, `vslot51` `0x5188770`) that all
+compute the same quantity — the number of 4-block cells spanned by the
+dimension's vertical range (`0xa8`/`0xaa` of the generator context), with a
+constant `47` cell offset — which is the array shape used for every per-chunk
+noise/biome volume.
+
+The ceiling on this table is the target budget, not the binary: the triage
+report knows 1,099 world-generation vtable slots resolving to 842 distinct
+functions, and each decompile run covers the highest-scoring slice. Widening
+`--max-targets` (and adding shards) is the only cost to complete the table.
+
+## 6. Open items
+
+1. **Noise primitives.** `ImprovedNoise`/`NormalNoise`/`PerlinNoise` are
+   non-polymorphic, so they have no RTTI and no vtable: they can only be
+   reached through the call graph of the generator slots (the triage `--deep`
+   ring) or by matching their constant tables. They are the next target.
+2. **Density/aquifer/spline maths.** BDS ships no `noise_settings` JSON (the
+   `worldgen.brarchive` in every vanilla pack is a 16-byte placeholder), so the
+   terrain splines are compiled in and must come from pseudocode.
+3. **Full vtable coverage** for `OverworldGeneratorMultinoise` (27/68) and
+   `OverworldGenerator2d` (15/68).
+4. **Structure/jigsaw flow** — `br::worldgen::JigsawStructure`,
+   `StructureProcessor`, `ChunkStructureAccess` and the processor family are
+   mapped and their slots are known, but the assembly order is not yet traced.
+
+## 7. Provenance
+
+* Binary: `bedrock_server`, SHA-256 `0a490c71…f98f9207`, 256,133,808 bytes,
+  build ID `c0ff36e2…`, LLD 20.1.8 / clang 20.1.8.
+* Decompiler: Ghidra 12.1.4 (`Ghidra_12.1.4_PUBLIC_20260921.zip`,
+  SHA-256 `ddac49f9…87d2d4db`) run headless on GitHub runners, JDK 21.
+* Corpus: `collect-report.txt` (run id, per-shard counts, exit codes),
+  `coverage.txt` (class census), `triage/` (structure), `decompiled/`
+  (pseudocode), `data/` (decoded assets + function index).
+* Licensing: everything under `research/proprietary/` is analysis *of* Mojang's
+  binary and is not MIT-licensed OpenBDS source (see `docs/licensing.md`).
