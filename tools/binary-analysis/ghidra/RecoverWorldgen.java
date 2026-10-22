@@ -17,6 +17,10 @@
 //      and source-file paths are attributed to each function, which is what
 //      lets the generated pseudocode be mapped back to the original sources.
 //
+//   6. An operation-node pass: the biome/terrain layer graph is recovered the
+//      same way (see targets.txt), and its per-node evaluate slots are the
+//      actual filter/mixer/zoom rules.
+//
 // Output is bounded text evidence under research/proprietary/ and is NOT
 // MIT-licensed OpenBDS source.
 //
