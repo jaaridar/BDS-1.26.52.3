@@ -23,3 +23,28 @@ Aquifer	4
 Carver	4
 Jigsaw	3
 Heightmap	4
+
+# Operation-node graph: the biome/terrain layer DAG recovered from RTTI.
+# Each node's evaluate slot contains the actual filter/mixer/zoom rules.
+OperationNode	3
+FilterOperationNode	3
+MixerOperationNode	3
+ZoomOperationNode	3
+IslandOperationNode	3
+OceanMixerOperationNode	3
+RegionHillsOperationNode	3
+TransformationMixerOperationNode	3
+NormalNoiseOperationNode	3
+BiomeClimateSelectorOperationNode	3
+
+# Terrain / density / surface plumbing.
+NoiseUtils	3
+OverworldDefaultSurfaceBuilder	3
+NoiseGradientSurfaceBuilder	3
+CappedSurfaceBuilder	3
+MesaSurfaceBuilder	3
+SwampSurfaceBuilder	3
+OceanFrozenSurfaceBuilder	3
+TheEndSurfaceBuilder	3
+LegacyMesaSurfaceBuilder	3
+PositionalRandomFactory	3
