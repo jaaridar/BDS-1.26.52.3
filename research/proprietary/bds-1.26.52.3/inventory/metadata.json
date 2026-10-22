@@ -1,0 +1,28 @@
+{
+  "binary_name": "bedrock_server",
+  "expected_digest_matched": true,
+  "expected_sha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
+  "generated_at": "2026-10-22T12:49:35.711859+00:00",
+  "has_symtab": false,
+  "matching_string_bytes": 1475387,
+  "matching_strings": 8977,
+  "needed_libraries": [
+    "libpthread.so.0",
+    "libdl.so.2",
+    "libm.so.6",
+    "libgcc_s.so.1",
+    "libc.so.6",
+    "ld-linux-x86-64.so.2",
+    "librt.so.1"
+  ],
+  "priority_functions": 0,
+  "priority_functions_truncated": false,
+  "schema_version": 1,
+  "sha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
+  "size": 256133808,
+  "strings_truncated": false,
+  "symbols_scanned": 0,
+  "text_symbols_scanned": 0,
+  "worldgen_symbols": 0,
+  "worldgen_symbols_truncated": false
+}
