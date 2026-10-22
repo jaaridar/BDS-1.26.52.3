@@ -1,0 +1,8 @@
+# 49f4b30
+
+```asm
+049f4b30  PUSH RAX
+049f4b31  LEA RDI,[0x13f6512]
+049f4b38  CALL 0x04882e40
+049f4b3d  INT3
+```

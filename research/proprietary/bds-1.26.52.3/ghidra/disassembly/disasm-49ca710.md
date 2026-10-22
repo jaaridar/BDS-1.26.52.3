@@ -1,0 +1,19 @@
+# 49ca710  XoroshiroRandom::vslot2
+
+```asm
+049ca710  MOV RCX,qword ptr [RDI + 0x8]
+049ca714  MOV RDX,qword ptr [RDI + 0x10]
+049ca718  LEA RAX,[RDX + RCX*0x1]
+049ca71c  ROL RAX,0x11
+049ca720  ADD EAX,ECX
+049ca722  XOR RDX,RCX
+049ca725  ROL RCX,0x31
+049ca729  MOV RSI,RDX
+049ca72c  SHL RSI,0x15
+049ca730  XOR RSI,RCX
+049ca733  XOR RSI,RDX
+049ca736  MOV qword ptr [RDI + 0x8],RSI
+049ca73a  ROL RDX,0x1c
+049ca73e  MOV qword ptr [RDI + 0x10],RDX
+049ca742  RET
+```

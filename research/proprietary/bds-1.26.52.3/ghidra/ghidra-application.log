@@ -1,0 +1,1060 @@
+2026-10-22 13:06:12 INFO  (LoggingInitialization) Using log config file: jar:file:/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2026-10-22 13:06:12 INFO  (LoggingInitialization) Using log file: /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/research/proprietary/bds-1.26.52.3/ghidra/ghidra-application.log  
+2026-10-22 13:06:12 DEBUG (GhidraObjectInputFilter) Including serial input filter: FileSystem/data/client.rmi.serial.filter  
+2026-10-22 13:06:12 INFO  (Preferences) Loading user preferences: /home/runner/.config/ghidra/ghidra_12.1.4_PUBLIC/preferences  
+2026-10-22 13:06:12 INFO  (ClassSearcher) Searching for classes...  
+2026-10-22 13:06:13 INFO  (ClassSearcher) Class search complete (691 ms)  
+2026-10-22 13:06:14 INFO  (DefaultSSLContextInitializer) Initializing SSL Context  
+2026-10-22 13:06:14 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2026-10-22 13:06:14 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2026-10-22 13:06:14 INFO  (DefaultTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2026-10-22 13:06:14 INFO  (FileCacheMaintenanceDaemon) Starting cache cleanup: /var/tmp/runner-ghidra/fscache2  
+2026-10-22 13:06:14 INFO  (FileCacheMaintenanceDaemon) Finished cache cleanup, estimated storage used: 0  
+2026-10-22 13:07:58 INFO  (LoggingInitialization) Using log config file: jar:file:/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2026-10-22 13:07:58 INFO  (LoggingInitialization) Using log file: /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/research/proprietary/bds-1.26.52.3/ghidra/ghidra-application.log  
+2026-10-22 13:07:58 DEBUG (GhidraObjectInputFilter) Including serial input filter: FileSystem/data/client.rmi.serial.filter  
+2026-10-22 13:07:58 INFO  (Preferences) Loading user preferences: /home/runner/.config/ghidra/ghidra_12.1.4_PUBLIC/preferences  
+2026-10-22 13:07:58 INFO  (ClassSearcher) Searching for classes...  
+2026-10-22 13:07:59 INFO  (ClassSearcher) Class search complete (725 ms)  
+2026-10-22 13:08:00 INFO  (DefaultSSLContextInitializer) Initializing SSL Context  
+2026-10-22 13:08:00 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2026-10-22 13:08:00 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2026-10-22 13:08:00 INFO  (DefaultTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2026-10-22 13:08:00 INFO  (FileCacheMaintenanceDaemon) Starting cache cleanup: /var/tmp/runner-ghidra/fscache2  
+2026-10-22 13:08:00 INFO  (FileCacheMaintenanceDaemon) Finished cache cleanup, estimated storage used: 0  
+2026-10-22 13:08:00 INFO  (AnalyzeHeadless) Headless startup complete (2779 ms)  
+2026-10-22 13:08:00 INFO  (ClassSearcher) Class searcher loaded 59 extension points (20 false positives)  
+2026-10-22 13:08:00 INFO  (HeadlessAnalyzer) HEADLESS Script Paths:
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/Base/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/SystemEmulation/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/PDB/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/BytePatterns/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/Atmel/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Debug/Debugger-rmi-trace/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/VersionTracking/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/DATA/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Debug/Debugger/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/PIC/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/GnuDemangler/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/FunctionID/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/8051/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/ghidra
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/FileFormats/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/PyGhidra/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/BSim/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/MicrosoftCodeAnalyzer/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/DecompilerDependent/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/SwiftDemangler/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/JVM/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/Decompiler/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/WildcardAssembler/ghidra_scripts  
+2026-10-22 13:08:00 INFO  (HeadlessAnalyzer) HEADLESS: execution starts  
+2026-10-22 13:08:00 INFO  (HeadlessAnalyzer) Creating project: /home/runner/work/_temp/ghidra-projects/bds-worldgen  
+2026-10-22 13:08:00 DEBUG (DefaultProjectManager) No tools found; Installing default tools  
+2026-10-22 13:08:00 DEBUG (DefaultProjectManager) 	no recent project directories found  
+2026-10-22 13:08:01 INFO  (DefaultProject) Creating project: /home/runner/work/_temp/ghidra-projects/bds-worldgen  
+2026-10-22 13:08:01 INFO  (HeadlessAnalyzer) REPORT: Processing input files:   
+2026-10-22 13:08:01 INFO  (HeadlessAnalyzer)      project: /home/runner/work/_temp/ghidra-projects/bds-worldgen  
+2026-10-22 13:08:01 INFO  (HeadlessAnalyzer) IMPORTING: file:///home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/bedrock_server  
+2026-10-22 13:08:02 INFO  (ProgramLoader) Using Loader: Executable and Linking Format (ELF)  
+2026-10-22 13:08:02 INFO  (ProgramLoader) Using Language/Compiler: x86:LE:64:default:gcc  
+2026-10-22 13:08:02 INFO  (ProgramLoader) Using Library Search Path: [., /bin, /lib, /lib64, /lib/x86_64-linux-gnu, /lib/aarch64-linux-gnu, /usr/bin, /usr/lib, /usr/X11R6/bin, /usr/X11R6/lib, /usr/java/packages/lib, /usr/lib64]  
+2026-10-22 13:08:03 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2026-10-22 13:08:03 DEBUG (ElfHeader) Elf relocation table section .rela.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2026-10-22 13:08:03 DEBUG (ElfHeader) Elf relocation table section .rela.plt linked to symbol table section .dynsym affecting .got.plt  
+2026-10-22 13:08:04 DEBUG (ElfProgramBuilder) Discarding 8-byte alignment/filler segment_4.3 at 0eee8da8  
+2026-10-22 13:08:04 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_3.3 at 0eee29a7  
+2026-10-22 13:08:04 DEBUG (ElfProgramBuilder) Discarding 15-byte alignment/filler segment_3.5 at 0eee29b1  
+2026-10-22 13:08:04 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_3.7 at 0eee2ad5  
+2026-10-22 13:08:04 DEBUG (ElfProgramBuilder) Discarding 3-byte alignment/filler segment_3.9 at 0eee2d0d  
+2026-10-22 13:08:04 DEBUG (ElfProgramBuilder) Discarding 3-byte alignment/filler segment_2.10 at 00103ddd  
+2026-10-22 13:08:04 DEBUG (ElfProgramBuilder) Discarding 16-byte alignment/filler segment_2.13 at 01198330  
+2026-10-22 13:08:09 INFO  (ProgramLoader) Additional info:
+Loading file:///home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/bedrock_server?MD5=9cddcad5c0f4fc8e62fe9246691ddb8d...
+Skipping section [.tm_clone_table] with invalid size 0x0
+Setting block .fini_array to read-only
+Setting block .init_array to read-only
+Setting block .data.rel.ro to read-only
+Setting block .dynamic to read-only
+------------------------------------------------
+
+Linking the External Programs of 'bedrock_server' to imported libraries...
+  [libpthread.so.0] -> not found in project
+  [libdl.so.2] -> not found in project
+  [libm.so.6] -> not found in project
+  [libgcc_s.so.1] -> not found in project
+  [libc.so.6] -> not found in project
+  [ld-linux-x86-64.so.2] -> not found in project
+  [librt.so.1] -> not found in project
+------------------------------------------------
+
+Resolving External Symbols of [/bedrock_server] - 382 unresolved symbols, no external libraries configured - skipping
+  
+2026-10-22 13:08:09 INFO  (HeadlessAnalyzer) IMPORTING: Loaded 0 additional files  
+2026-10-22 13:08:09 INFO  (HeadlessAnalyzer) REPORT: Execute script: RecoverWorldgen.java '/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/research/proprietary/bds-1.26.52.3/ghidra' 'worldgen' '1200' '/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/targets.txt'   
+2026-10-22 13:08:11 INFO  (HeadlessAnalyzer) SCRIPT: /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/ghidra/RecoverWorldgen.java  
+2026-10-22 13:08:11 INFO  (GhidraScript) RecoverWorldgen.java> targets loaded: 10  
+2026-10-22 13:08:11 INFO  (GhidraScript) RecoverWorldgen.java> Blocks: data=7 exec=6  
+2026-10-22 13:08:11 INFO  (GhidraScript) RecoverWorldgen.java> .rela.dyn: 723948 relative relocation(s)  
+2026-10-22 13:08:11 INFO  (GhidraScript) RecoverWorldgen.java> .rela.plt: 0 relative relocation(s)  
+2026-10-22 13:08:11 INFO  (GhidraScript) RecoverWorldgen.java> relocation overlay entries: 723948  
+2026-10-22 13:08:12 INFO  (GhidraScript) RecoverWorldgen.java> type_info objects: 10094  
+2026-10-22 13:08:12 INFO  (GhidraScript) RecoverWorldgen.java> vtables: 6508  
+2026-10-22 13:08:12 INFO  (GhidraScript) RecoverWorldgen.java> selected classes: 787  
+2026-10-22 13:08:20 INFO  (GhidraScript) RecoverWorldgen.java> renamed slot functions: 1200  
+2026-10-22 13:08:20 INFO  (GhidraScript) RecoverWorldgen.java> string literals defined: 12  
+2026-10-22 13:08:20 INFO  (GhidraScript) RecoverWorldgen.java> functions analysed: 1200 (7772 ms)  
+2026-10-22 13:09:15 INFO  (GhidraScript) RecoverWorldgen.java> pseudocode: 1200 functions, 5726726 bytes, 4 file(s)  
+2026-10-22 13:09:15 INFO  (GhidraScript) RecoverWorldgen.java> done  
+2026-10-22 13:09:18 INFO  (LocalFileSystem) /bedrock_server: file created (runner)  
+2026-10-22 13:09:18 INFO  (HeadlessAnalyzer) REPORT: Save succeeded for: /bedrock_server (bds-worldgen:/bedrock_server)  
+2026-10-22 13:09:18 INFO  (HeadlessAnalyzer) REPORT: Import succeeded  
+2026-10-22 13:11:47 INFO  (LoggingInitialization) Using log config file: jar:file:/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2026-10-22 13:11:47 INFO  (LoggingInitialization) Using log file: /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/research/proprietary/bds-1.26.52.3/ghidra/ghidra-application.log  
+2026-10-22 13:11:47 DEBUG (GhidraObjectInputFilter) Including serial input filter: FileSystem/data/client.rmi.serial.filter  
+2026-10-22 13:11:47 INFO  (Preferences) Loading user preferences: /home/runner/.config/ghidra/ghidra_12.1.4_PUBLIC/preferences  
+2026-10-22 13:11:47 INFO  (ClassSearcher) Searching for classes...  
+2026-10-22 13:11:48 INFO  (ClassSearcher) Class search complete (555 ms)  
+2026-10-22 13:11:48 INFO  (DefaultSSLContextInitializer) Initializing SSL Context  
+2026-10-22 13:11:49 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2026-10-22 13:11:49 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2026-10-22 13:11:49 INFO  (DefaultTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2026-10-22 13:11:49 INFO  (FileCacheMaintenanceDaemon) Starting cache cleanup: /var/tmp/runner-ghidra/fscache2  
+2026-10-22 13:11:49 INFO  (FileCacheMaintenanceDaemon) Finished cache cleanup, estimated storage used: 0  
+2026-10-22 13:11:49 INFO  (AnalyzeHeadless) Headless startup complete (3003 ms)  
+2026-10-22 13:11:49 INFO  (ClassSearcher) Class searcher loaded 59 extension points (20 false positives)  
+2026-10-22 13:11:50 INFO  (HeadlessAnalyzer) HEADLESS Script Paths:
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/Base/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/SystemEmulation/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/PDB/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/BytePatterns/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/Atmel/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Debug/Debugger-rmi-trace/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/VersionTracking/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/DATA/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Debug/Debugger/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/PIC/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/GnuDemangler/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/FunctionID/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/8051/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/ghidra
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/FileFormats/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/PyGhidra/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/BSim/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/MicrosoftCodeAnalyzer/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/DecompilerDependent/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/SwiftDemangler/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/JVM/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/Decompiler/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/WildcardAssembler/ghidra_scripts  
+2026-10-22 13:11:50 INFO  (HeadlessAnalyzer) HEADLESS: execution starts  
+2026-10-22 13:11:50 INFO  (HeadlessAnalyzer) Creating project: /home/runner/work/_temp/ghidra-projects/bds-worldgen  
+2026-10-22 13:11:50 DEBUG (DefaultProjectManager) No tools found; Installing default tools  
+2026-10-22 13:11:50 DEBUG (DefaultProjectManager) 	no recent project directories found  
+2026-10-22 13:11:50 INFO  (DefaultProject) Creating project: /home/runner/work/_temp/ghidra-projects/bds-worldgen  
+2026-10-22 13:11:50 INFO  (HeadlessAnalyzer) REPORT: Processing input files:   
+2026-10-22 13:11:50 INFO  (HeadlessAnalyzer)      project: /home/runner/work/_temp/ghidra-projects/bds-worldgen  
+2026-10-22 13:11:50 INFO  (HeadlessAnalyzer) IMPORTING: file:///home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/bedrock_server  
+2026-10-22 13:11:52 INFO  (ProgramLoader) Using Loader: Executable and Linking Format (ELF)  
+2026-10-22 13:11:52 INFO  (ProgramLoader) Using Language/Compiler: x86:LE:64:default:gcc  
+2026-10-22 13:11:52 INFO  (ProgramLoader) Using Library Search Path: [., /bin, /lib, /lib64, /lib/x86_64-linux-gnu, /lib/aarch64-linux-gnu, /usr/bin, /usr/lib, /usr/X11R6/bin, /usr/X11R6/lib, /usr/java/packages/lib, /usr/lib64]  
+2026-10-22 13:11:52 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2026-10-22 13:11:52 DEBUG (ElfHeader) Elf relocation table section .rela.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2026-10-22 13:11:52 DEBUG (ElfHeader) Elf relocation table section .rela.plt linked to symbol table section .dynsym affecting .got.plt  
+2026-10-22 13:11:53 DEBUG (ElfProgramBuilder) Discarding 8-byte alignment/filler segment_4.3 at 0eee8da8  
+2026-10-22 13:11:53 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_3.3 at 0eee29a7  
+2026-10-22 13:11:53 DEBUG (ElfProgramBuilder) Discarding 15-byte alignment/filler segment_3.5 at 0eee29b1  
+2026-10-22 13:11:53 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_3.7 at 0eee2ad5  
+2026-10-22 13:11:53 DEBUG (ElfProgramBuilder) Discarding 3-byte alignment/filler segment_3.9 at 0eee2d0d  
+2026-10-22 13:11:53 DEBUG (ElfProgramBuilder) Discarding 3-byte alignment/filler segment_2.10 at 00103ddd  
+2026-10-22 13:11:53 DEBUG (ElfProgramBuilder) Discarding 16-byte alignment/filler segment_2.13 at 01198330  
+2026-10-22 13:11:58 INFO  (ProgramLoader) Additional info:
+Loading file:///home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/bedrock_server?MD5=9cddcad5c0f4fc8e62fe9246691ddb8d...
+Skipping section [.tm_clone_table] with invalid size 0x0
+Setting block .fini_array to read-only
+Setting block .init_array to read-only
+Setting block .data.rel.ro to read-only
+Setting block .dynamic to read-only
+------------------------------------------------
+
+Linking the External Programs of 'bedrock_server' to imported libraries...
+  [libpthread.so.0] -> not found in project
+  [libdl.so.2] -> not found in project
+  [libm.so.6] -> not found in project
+  [libgcc_s.so.1] -> not found in project
+  [libc.so.6] -> not found in project
+  [ld-linux-x86-64.so.2] -> not found in project
+  [librt.so.1] -> not found in project
+------------------------------------------------
+
+Resolving External Symbols of [/bedrock_server] - 382 unresolved symbols, no external libraries configured - skipping
+  
+2026-10-22 13:11:58 INFO  (HeadlessAnalyzer) IMPORTING: Loaded 0 additional files  
+2026-10-22 13:11:58 INFO  (HeadlessAnalyzer) REPORT: Execute script: RecoverWorldgen.java '/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/research/proprietary/bds-1.26.52.3/ghidra' 'worldgen' '1200' '/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/targets.txt'   
+2026-10-22 13:12:00 INFO  (HeadlessAnalyzer) SCRIPT: /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/ghidra/RecoverWorldgen.java  
+2026-10-22 13:12:00 INFO  (GhidraScript) RecoverWorldgen.java> targets loaded: 10  
+2026-10-22 13:12:00 INFO  (GhidraScript) RecoverWorldgen.java> Blocks: data=7 allData=26 exec=6  
+2026-10-22 13:12:00 INFO  (GhidraScript) RecoverWorldgen.java> .rela.dyn: 723948 relative relocation(s)  
+2026-10-22 13:12:00 INFO  (GhidraScript) RecoverWorldgen.java> .rela.plt: 0 relative relocation(s)  
+2026-10-22 13:12:00 INFO  (GhidraScript) RecoverWorldgen.java> relocation overlay entries: 723948  
+2026-10-22 13:12:03 INFO  (GhidraScript) RecoverWorldgen.java> type_info objects: 10094  
+2026-10-22 13:12:04 INFO  (GhidraScript) RecoverWorldgen.java> vtables: 6509  
+2026-10-22 13:12:08 INFO  (GhidraScript) RecoverWorldgen.java> seed diagnostics written: 1 distinct names referenced  
+2026-10-22 13:12:08 INFO  (GhidraScript) RecoverWorldgen.java> selected classes: 85  
+2026-10-22 13:12:13 INFO  (GhidraScript) RecoverWorldgen.java> renamed slot functions: 445  
+2026-10-22 13:12:13 INFO  (GhidraScript) RecoverWorldgen.java> string literals defined: 7  
+2026-10-22 13:12:13 INFO  (GhidraScript) RecoverWorldgen.java> functions analysed: 924 (5306 ms)  
+2026-10-22 13:12:32 INFO  (GhidraScript) RecoverWorldgen.java> pseudocode: 924 functions, 2666077 bytes, 2 file(s)  
+2026-10-22 13:12:32 INFO  (GhidraScript) RecoverWorldgen.java> done  
+2026-10-22 13:12:36 INFO  (LocalFileSystem) /bedrock_server: file created (runner)  
+2026-10-22 13:12:36 INFO  (HeadlessAnalyzer) REPORT: Save succeeded for: /bedrock_server (bds-worldgen:/bedrock_server)  
+2026-10-22 13:12:36 INFO  (HeadlessAnalyzer) REPORT: Import succeeded  
+2026-10-22 13:15:07 INFO  (LoggingInitialization) Using log config file: jar:file:/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2026-10-22 13:15:07 INFO  (LoggingInitialization) Using log file: /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/research/proprietary/bds-1.26.52.3/ghidra/ghidra-application.log  
+2026-10-22 13:15:07 DEBUG (GhidraObjectInputFilter) Including serial input filter: FileSystem/data/client.rmi.serial.filter  
+2026-10-22 13:15:07 INFO  (Preferences) Loading user preferences: /home/runner/.config/ghidra/ghidra_12.1.4_PUBLIC/preferences  
+2026-10-22 13:15:07 INFO  (ClassSearcher) Searching for classes...  
+2026-10-22 13:15:08 INFO  (ClassSearcher) Class search complete (996 ms)  
+2026-10-22 13:15:09 INFO  (DefaultSSLContextInitializer) Initializing SSL Context  
+2026-10-22 13:15:09 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2026-10-22 13:15:09 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2026-10-22 13:15:09 INFO  (DefaultTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2026-10-22 13:15:09 INFO  (FileCacheMaintenanceDaemon) Starting cache cleanup: /var/tmp/runner-ghidra/fscache2  
+2026-10-22 13:15:09 INFO  (FileCacheMaintenanceDaemon) Finished cache cleanup, estimated storage used: 0  
+2026-10-22 13:15:10 INFO  (AnalyzeHeadless) Headless startup complete (5184 ms)  
+2026-10-22 13:15:10 INFO  (ClassSearcher) Class searcher loaded 59 extension points (20 false positives)  
+2026-10-22 13:15:10 INFO  (HeadlessAnalyzer) HEADLESS Script Paths:
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/Base/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/SystemEmulation/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/PDB/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/BytePatterns/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/Atmel/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Debug/Debugger-rmi-trace/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/VersionTracking/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/DATA/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Debug/Debugger/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/PIC/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/GnuDemangler/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/FunctionID/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/8051/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/ghidra
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/FileFormats/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/PyGhidra/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/BSim/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/MicrosoftCodeAnalyzer/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/DecompilerDependent/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/SwiftDemangler/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/JVM/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/Decompiler/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/WildcardAssembler/ghidra_scripts  
+2026-10-22 13:15:10 INFO  (HeadlessAnalyzer) HEADLESS: execution starts  
+2026-10-22 13:15:10 INFO  (HeadlessAnalyzer) Creating project: /home/runner/work/_temp/ghidra-projects/bds-worldgen  
+2026-10-22 13:15:10 DEBUG (DefaultProjectManager) No tools found; Installing default tools  
+2026-10-22 13:15:10 DEBUG (DefaultProjectManager) 	no recent project directories found  
+2026-10-22 13:15:11 INFO  (DefaultProject) Creating project: /home/runner/work/_temp/ghidra-projects/bds-worldgen  
+2026-10-22 13:15:11 INFO  (HeadlessAnalyzer) REPORT: Processing input files:   
+2026-10-22 13:15:11 INFO  (HeadlessAnalyzer)      project: /home/runner/work/_temp/ghidra-projects/bds-worldgen  
+2026-10-22 13:15:11 INFO  (HeadlessAnalyzer) IMPORTING: file:///home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/bedrock_server  
+2026-10-22 13:15:14 INFO  (ProgramLoader) Using Loader: Executable and Linking Format (ELF)  
+2026-10-22 13:15:14 INFO  (ProgramLoader) Using Language/Compiler: x86:LE:64:default:gcc  
+2026-10-22 13:15:14 INFO  (ProgramLoader) Using Library Search Path: [., /bin, /lib, /lib64, /lib/x86_64-linux-gnu, /lib/aarch64-linux-gnu, /usr/bin, /usr/lib, /usr/X11R6/bin, /usr/X11R6/lib, /usr/java/packages/lib, /usr/lib64]  
+2026-10-22 13:15:15 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2026-10-22 13:15:15 DEBUG (ElfHeader) Elf relocation table section .rela.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2026-10-22 13:15:15 DEBUG (ElfHeader) Elf relocation table section .rela.plt linked to symbol table section .dynsym affecting .got.plt  
+2026-10-22 13:15:16 DEBUG (ElfProgramBuilder) Discarding 8-byte alignment/filler segment_4.3 at 0eee8da8  
+2026-10-22 13:15:16 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_3.3 at 0eee29a7  
+2026-10-22 13:15:16 DEBUG (ElfProgramBuilder) Discarding 15-byte alignment/filler segment_3.5 at 0eee29b1  
+2026-10-22 13:15:16 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_3.7 at 0eee2ad5  
+2026-10-22 13:15:16 DEBUG (ElfProgramBuilder) Discarding 3-byte alignment/filler segment_3.9 at 0eee2d0d  
+2026-10-22 13:15:16 DEBUG (ElfProgramBuilder) Discarding 3-byte alignment/filler segment_2.10 at 00103ddd  
+2026-10-22 13:15:16 DEBUG (ElfProgramBuilder) Discarding 16-byte alignment/filler segment_2.13 at 01198330  
+2026-10-22 13:15:24 INFO  (ProgramLoader) Additional info:
+Loading file:///home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/bedrock_server?MD5=9cddcad5c0f4fc8e62fe9246691ddb8d...
+Skipping section [.tm_clone_table] with invalid size 0x0
+Setting block .fini_array to read-only
+Setting block .init_array to read-only
+Setting block .data.rel.ro to read-only
+Setting block .dynamic to read-only
+------------------------------------------------
+
+Linking the External Programs of 'bedrock_server' to imported libraries...
+  [libpthread.so.0] -> not found in project
+  [libdl.so.2] -> not found in project
+  [libm.so.6] -> not found in project
+  [libgcc_s.so.1] -> not found in project
+  [libc.so.6] -> not found in project
+  [ld-linux-x86-64.so.2] -> not found in project
+  [librt.so.1] -> not found in project
+------------------------------------------------
+
+Resolving External Symbols of [/bedrock_server] - 382 unresolved symbols, no external libraries configured - skipping
+  
+2026-10-22 13:15:24 INFO  (HeadlessAnalyzer) IMPORTING: Loaded 0 additional files  
+2026-10-22 13:15:25 INFO  (HeadlessAnalyzer) REPORT: Execute script: RecoverWorldgen.java '/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/research/proprietary/bds-1.26.52.3/ghidra' 'worldgen' '1200' '/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/targets.txt'   
+2026-10-22 13:15:28 INFO  (HeadlessAnalyzer) SCRIPT: /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/ghidra/RecoverWorldgen.java  
+2026-10-22 13:15:28 INFO  (GhidraScript) RecoverWorldgen.java> targets loaded: 10  
+2026-10-22 13:15:28 INFO  (GhidraScript) RecoverWorldgen.java> image base: 0x100000  
+2026-10-22 13:15:28 INFO  (GhidraScript) RecoverWorldgen.java> Blocks: data=7 allData=26 exec=6  
+2026-10-22 13:15:28 INFO  (GhidraScript) RecoverWorldgen.java> .rela.dyn: 723948 relative relocation(s)  
+2026-10-22 13:15:28 INFO  (GhidraScript) RecoverWorldgen.java> .rela.plt: 0 relative relocation(s)  
+2026-10-22 13:15:28 INFO  (GhidraScript) RecoverWorldgen.java> relocation overlay entries: 723948  
+2026-10-22 13:15:32 INFO  (GhidraScript) RecoverWorldgen.java> type_info objects: 52109  
+2026-10-22 13:15:35 INFO  (GhidraScript) RecoverWorldgen.java> vtables: 50268  
+2026-10-22 13:15:42 INFO  (GhidraScript) RecoverWorldgen.java> seed diagnostics written: 12 distinct names referenced  
+2026-10-22 13:15:42 INFO  (GhidraScript) RecoverWorldgen.java> selected classes: 265  
+2026-10-22 13:16:01 INFO  (GhidraScript) RecoverWorldgen.java> renamed slot functions: 1200  
+2026-10-22 13:16:01 INFO  (GhidraScript) RecoverWorldgen.java> string literals defined: 43  
+2026-10-22 13:16:01 INFO  (GhidraScript) RecoverWorldgen.java> functions analysed: 1200 (18785 ms)  
+2026-10-22 13:16:53 INFO  (GhidraScript) RecoverWorldgen.java> pseudocode: 1200 functions, 3600048 bytes, 3 file(s)  
+2026-10-22 13:16:54 INFO  (GhidraScript) RecoverWorldgen.java> done  
+2026-10-22 13:16:55 INFO  (LocalFileSystem) /bedrock_server: file created (runner)  
+2026-10-22 13:16:56 INFO  (HeadlessAnalyzer) REPORT: Save succeeded for: /bedrock_server (bds-worldgen:/bedrock_server)  
+2026-10-22 13:16:56 INFO  (HeadlessAnalyzer) REPORT: Import succeeded  
+2026-10-22 13:18:58 INFO  (LoggingInitialization) Using log config file: jar:file:/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2026-10-22 13:18:58 INFO  (LoggingInitialization) Using log file: /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/research/proprietary/bds-1.26.52.3/ghidra/ghidra-application.log  
+2026-10-22 13:18:58 DEBUG (GhidraObjectInputFilter) Including serial input filter: FileSystem/data/client.rmi.serial.filter  
+2026-10-22 13:18:58 INFO  (Preferences) Loading user preferences: /home/runner/.config/ghidra/ghidra_12.1.4_PUBLIC/preferences  
+2026-10-22 13:18:58 INFO  (ClassSearcher) Searching for classes...  
+2026-10-22 13:18:59 INFO  (ClassSearcher) Class search complete (1058 ms)  
+2026-10-22 13:19:00 INFO  (DefaultSSLContextInitializer) Initializing SSL Context  
+2026-10-22 13:19:00 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2026-10-22 13:19:00 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2026-10-22 13:19:00 INFO  (DefaultTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2026-10-22 13:19:00 INFO  (FileCacheMaintenanceDaemon) Starting cache cleanup: /var/tmp/runner-ghidra/fscache2  
+2026-10-22 13:19:00 INFO  (FileCacheMaintenanceDaemon) Finished cache cleanup, estimated storage used: 0  
+2026-10-22 13:19:01 INFO  (AnalyzeHeadless) Headless startup complete (4233 ms)  
+2026-10-22 13:19:01 INFO  (ClassSearcher) Class searcher loaded 59 extension points (20 false positives)  
+2026-10-22 13:19:01 INFO  (HeadlessAnalyzer) HEADLESS Script Paths:
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/Base/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/SystemEmulation/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/PDB/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/BytePatterns/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/Atmel/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Debug/Debugger-rmi-trace/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/VersionTracking/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/DATA/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Debug/Debugger/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/PIC/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/GnuDemangler/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/FunctionID/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/8051/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/ghidra
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/FileFormats/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/PyGhidra/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/BSim/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/MicrosoftCodeAnalyzer/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/DecompilerDependent/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/SwiftDemangler/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/JVM/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/Decompiler/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/WildcardAssembler/ghidra_scripts  
+2026-10-22 13:19:01 INFO  (HeadlessAnalyzer) HEADLESS: execution starts  
+2026-10-22 13:19:01 INFO  (HeadlessAnalyzer) Creating project: /home/runner/work/_temp/ghidra-projects/bds-worldgen  
+2026-10-22 13:19:01 DEBUG (DefaultProjectManager) No tools found; Installing default tools  
+2026-10-22 13:19:01 DEBUG (DefaultProjectManager) 	no recent project directories found  
+2026-10-22 13:19:02 INFO  (DefaultProject) Creating project: /home/runner/work/_temp/ghidra-projects/bds-worldgen  
+2026-10-22 13:19:02 INFO  (HeadlessAnalyzer) REPORT: Processing input files:   
+2026-10-22 13:19:02 INFO  (HeadlessAnalyzer)      project: /home/runner/work/_temp/ghidra-projects/bds-worldgen  
+2026-10-22 13:19:02 INFO  (HeadlessAnalyzer) IMPORTING: file:///home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/bedrock_server  
+2026-10-22 13:19:05 INFO  (ProgramLoader) Using Loader: Executable and Linking Format (ELF)  
+2026-10-22 13:19:05 INFO  (ProgramLoader) Using Language/Compiler: x86:LE:64:default:gcc  
+2026-10-22 13:19:05 INFO  (ProgramLoader) Using Library Search Path: [., /bin, /lib, /lib64, /lib/x86_64-linux-gnu, /lib/aarch64-linux-gnu, /usr/bin, /usr/lib, /usr/X11R6/bin, /usr/X11R6/lib, /usr/java/packages/lib, /usr/lib64]  
+2026-10-22 13:19:06 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2026-10-22 13:19:06 DEBUG (ElfHeader) Elf relocation table section .rela.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2026-10-22 13:19:06 DEBUG (ElfHeader) Elf relocation table section .rela.plt linked to symbol table section .dynsym affecting .got.plt  
+2026-10-22 13:19:08 DEBUG (ElfProgramBuilder) Discarding 8-byte alignment/filler segment_4.3 at 0eee8da8  
+2026-10-22 13:19:08 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_3.3 at 0eee29a7  
+2026-10-22 13:19:08 DEBUG (ElfProgramBuilder) Discarding 15-byte alignment/filler segment_3.5 at 0eee29b1  
+2026-10-22 13:19:08 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_3.7 at 0eee2ad5  
+2026-10-22 13:19:08 DEBUG (ElfProgramBuilder) Discarding 3-byte alignment/filler segment_3.9 at 0eee2d0d  
+2026-10-22 13:19:08 DEBUG (ElfProgramBuilder) Discarding 3-byte alignment/filler segment_2.10 at 00103ddd  
+2026-10-22 13:19:08 DEBUG (ElfProgramBuilder) Discarding 16-byte alignment/filler segment_2.13 at 01198330  
+2026-10-22 13:19:16 INFO  (ProgramLoader) Additional info:
+Loading file:///home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/bedrock_server?MD5=9cddcad5c0f4fc8e62fe9246691ddb8d...
+Skipping section [.tm_clone_table] with invalid size 0x0
+Setting block .fini_array to read-only
+Setting block .init_array to read-only
+Setting block .data.rel.ro to read-only
+Setting block .dynamic to read-only
+------------------------------------------------
+
+Linking the External Programs of 'bedrock_server' to imported libraries...
+  [libpthread.so.0] -> not found in project
+  [libdl.so.2] -> not found in project
+  [libm.so.6] -> not found in project
+  [libgcc_s.so.1] -> not found in project
+  [libc.so.6] -> not found in project
+  [ld-linux-x86-64.so.2] -> not found in project
+  [librt.so.1] -> not found in project
+------------------------------------------------
+
+Resolving External Symbols of [/bedrock_server] - 382 unresolved symbols, no external libraries configured - skipping
+  
+2026-10-22 13:19:16 INFO  (HeadlessAnalyzer) IMPORTING: Loaded 0 additional files  
+2026-10-22 13:19:17 INFO  (HeadlessAnalyzer) REPORT: Execute script: RecoverWorldgen.java '/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/research/proprietary/bds-1.26.52.3/ghidra' 'worldgen' '4000' '/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/targets.txt'   
+2026-10-22 13:19:19 INFO  (HeadlessAnalyzer) SCRIPT: /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/ghidra/RecoverWorldgen.java  
+2026-10-22 13:19:19 INFO  (GhidraScript) RecoverWorldgen.java> targets loaded: 19  
+2026-10-22 13:19:19 INFO  (GhidraScript) RecoverWorldgen.java> image base: 0x100000  
+2026-10-22 13:19:19 INFO  (GhidraScript) RecoverWorldgen.java> Blocks: data=7 allData=26 exec=6  
+2026-10-22 13:19:20 INFO  (GhidraScript) RecoverWorldgen.java> .rela.dyn: 723948 relative relocation(s)  
+2026-10-22 13:19:20 INFO  (GhidraScript) RecoverWorldgen.java> .rela.plt: 0 relative relocation(s)  
+2026-10-22 13:19:20 INFO  (GhidraScript) RecoverWorldgen.java> relocation overlay entries: 723948  
+2026-10-22 13:19:23 INFO  (GhidraScript) RecoverWorldgen.java> type_info objects: 51998  
+2026-10-22 13:19:25 INFO  (GhidraScript) RecoverWorldgen.java> vtables: 50263  
+2026-10-22 13:19:30 INFO  (GhidraScript) RecoverWorldgen.java> seed diagnostics written: 12 distinct names referenced  
+2026-10-22 13:19:31 INFO  (GhidraScript) RecoverWorldgen.java> selected classes: 616  
+2026-10-22 13:19:56 INFO  (GhidraScript) RecoverWorldgen.java> renamed slot functions: 3197  
+2026-10-22 13:19:56 INFO  (GhidraScript) RecoverWorldgen.java> string literals defined: 66  
+2026-10-22 13:19:56 INFO  (GhidraScript) RecoverWorldgen.java> functions analysed: 4000 (24805 ms)  
+2026-10-22 13:25:43 INFO  (GhidraScript) RecoverWorldgen.java> pseudocode: 3831 functions, 12638953 bytes, 7 file(s)  
+2026-10-22 13:25:43 INFO  (GhidraScript) RecoverWorldgen.java> done  
+2026-10-22 13:25:45 INFO  (LocalFileSystem) /bedrock_server: file created (runner)  
+2026-10-22 13:25:45 INFO  (HeadlessAnalyzer) REPORT: Save succeeded for: /bedrock_server (bds-worldgen:/bedrock_server)  
+2026-10-22 13:25:45 INFO  (HeadlessAnalyzer) REPORT: Import succeeded  
+2026-10-22 13:27:31 INFO  (LoggingInitialization) Using log config file: jar:file:/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2026-10-22 13:27:31 INFO  (LoggingInitialization) Using log file: /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/research/proprietary/bds-1.26.52.3/ghidra/ghidra-application.log  
+2026-10-22 13:27:31 DEBUG (GhidraObjectInputFilter) Including serial input filter: FileSystem/data/client.rmi.serial.filter  
+2026-10-22 13:27:31 INFO  (Preferences) Loading user preferences: /home/runner/.config/ghidra/ghidra_12.1.4_PUBLIC/preferences  
+2026-10-22 13:27:31 INFO  (ClassSearcher) Searching for classes...  
+2026-10-22 13:27:32 INFO  (ClassSearcher) Class search complete (1154 ms)  
+2026-10-22 13:27:33 INFO  (DefaultSSLContextInitializer) Initializing SSL Context  
+2026-10-22 13:27:34 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2026-10-22 13:27:34 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2026-10-22 13:27:34 INFO  (DefaultTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2026-10-22 13:27:34 INFO  (FileCacheMaintenanceDaemon) Starting cache cleanup: /var/tmp/runner-ghidra/fscache2  
+2026-10-22 13:27:34 INFO  (FileCacheMaintenanceDaemon) Finished cache cleanup, estimated storage used: 0  
+2026-10-22 13:27:35 INFO  (AnalyzeHeadless) Headless startup complete (4832 ms)  
+2026-10-22 13:27:35 INFO  (ClassSearcher) Class searcher loaded 59 extension points (20 false positives)  
+2026-10-22 13:27:35 INFO  (HeadlessAnalyzer) HEADLESS Script Paths:
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/Base/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/SystemEmulation/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/PDB/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/BytePatterns/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/Atmel/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Debug/Debugger-rmi-trace/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/VersionTracking/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/DATA/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Debug/Debugger/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/PIC/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/GnuDemangler/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/FunctionID/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/8051/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/ghidra
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/FileFormats/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/PyGhidra/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/BSim/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/MicrosoftCodeAnalyzer/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/DecompilerDependent/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/SwiftDemangler/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/JVM/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/Decompiler/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/WildcardAssembler/ghidra_scripts  
+2026-10-22 13:27:35 INFO  (HeadlessAnalyzer) HEADLESS: execution starts  
+2026-10-22 13:27:35 INFO  (HeadlessAnalyzer) Creating project: /home/runner/work/_temp/ghidra-projects/bds-worldgen  
+2026-10-22 13:27:35 DEBUG (DefaultProjectManager) No tools found; Installing default tools  
+2026-10-22 13:27:35 DEBUG (DefaultProjectManager) 	no recent project directories found  
+2026-10-22 13:27:36 INFO  (DefaultProject) Creating project: /home/runner/work/_temp/ghidra-projects/bds-worldgen  
+2026-10-22 13:27:36 INFO  (HeadlessAnalyzer) REPORT: Processing input files:   
+2026-10-22 13:27:36 INFO  (HeadlessAnalyzer)      project: /home/runner/work/_temp/ghidra-projects/bds-worldgen  
+2026-10-22 13:27:36 INFO  (HeadlessAnalyzer) IMPORTING: file:///home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/bedrock_server  
+2026-10-22 13:27:38 INFO  (ProgramLoader) Using Loader: Executable and Linking Format (ELF)  
+2026-10-22 13:27:38 INFO  (ProgramLoader) Using Language/Compiler: x86:LE:64:default:gcc  
+2026-10-22 13:27:38 INFO  (ProgramLoader) Using Library Search Path: [., /bin, /lib, /lib64, /lib/x86_64-linux-gnu, /lib/aarch64-linux-gnu, /usr/bin, /usr/lib, /usr/X11R6/bin, /usr/X11R6/lib, /usr/java/packages/lib, /usr/lib64]  
+2026-10-22 13:27:39 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2026-10-22 13:27:39 DEBUG (ElfHeader) Elf relocation table section .rela.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2026-10-22 13:27:40 DEBUG (ElfHeader) Elf relocation table section .rela.plt linked to symbol table section .dynsym affecting .got.plt  
+2026-10-22 13:27:41 DEBUG (ElfProgramBuilder) Discarding 8-byte alignment/filler segment_4.3 at 0eee8da8  
+2026-10-22 13:27:41 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_3.3 at 0eee29a7  
+2026-10-22 13:27:41 DEBUG (ElfProgramBuilder) Discarding 15-byte alignment/filler segment_3.5 at 0eee29b1  
+2026-10-22 13:27:41 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_3.7 at 0eee2ad5  
+2026-10-22 13:27:41 DEBUG (ElfProgramBuilder) Discarding 3-byte alignment/filler segment_3.9 at 0eee2d0d  
+2026-10-22 13:27:41 DEBUG (ElfProgramBuilder) Discarding 3-byte alignment/filler segment_2.10 at 00103ddd  
+2026-10-22 13:27:41 DEBUG (ElfProgramBuilder) Discarding 16-byte alignment/filler segment_2.13 at 01198330  
+2026-10-22 13:27:49 INFO  (ProgramLoader) Additional info:
+Loading file:///home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/bedrock_server?MD5=9cddcad5c0f4fc8e62fe9246691ddb8d...
+Skipping section [.tm_clone_table] with invalid size 0x0
+Setting block .fini_array to read-only
+Setting block .init_array to read-only
+Setting block .data.rel.ro to read-only
+Setting block .dynamic to read-only
+------------------------------------------------
+
+Linking the External Programs of 'bedrock_server' to imported libraries...
+  [libpthread.so.0] -> not found in project
+  [libdl.so.2] -> not found in project
+  [libm.so.6] -> not found in project
+  [libgcc_s.so.1] -> not found in project
+  [libc.so.6] -> not found in project
+  [ld-linux-x86-64.so.2] -> not found in project
+  [librt.so.1] -> not found in project
+------------------------------------------------
+
+Resolving External Symbols of [/bedrock_server] - 382 unresolved symbols, no external libraries configured - skipping
+  
+2026-10-22 13:27:49 INFO  (HeadlessAnalyzer) IMPORTING: Loaded 0 additional files  
+2026-10-22 13:27:50 INFO  (HeadlessAnalyzer) REPORT: Execute script: RecoverWorldgen.java '/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/research/proprietary/bds-1.26.52.3/ghidra' 'worldgen' '4000' '/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/targets.txt'   
+2026-10-22 13:27:52 INFO  (HeadlessAnalyzer) SCRIPT: /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/ghidra/RecoverWorldgen.java  
+2026-10-22 13:27:52 INFO  (GhidraScript) RecoverWorldgen.java> targets loaded: 19  
+2026-10-22 13:27:52 INFO  (GhidraScript) RecoverWorldgen.java> image base: 0x100000  
+2026-10-22 13:27:52 INFO  (GhidraScript) RecoverWorldgen.java> Blocks: data=7 allData=26 exec=6  
+2026-10-22 13:27:53 INFO  (GhidraScript) RecoverWorldgen.java> .rela.dyn: 723948 relative relocation(s)  
+2026-10-22 13:27:53 INFO  (GhidraScript) RecoverWorldgen.java> .rela.plt: 0 relative relocation(s)  
+2026-10-22 13:27:53 INFO  (GhidraScript) RecoverWorldgen.java> relocation overlay entries: 723948  
+2026-10-22 13:27:56 INFO  (GhidraScript) RecoverWorldgen.java> type_info objects: 51998  
+2026-10-22 13:27:58 INFO  (GhidraScript) RecoverWorldgen.java> vtables: 50263  
+2026-10-22 13:28:03 INFO  (GhidraScript) RecoverWorldgen.java> seed diagnostics written: 12 distinct names referenced  
+2026-10-22 13:28:04 INFO  (GhidraScript) RecoverWorldgen.java> selected classes: 616  
+2026-10-22 13:28:34 INFO  (GhidraScript) RecoverWorldgen.java> renamed slot functions: 3197  
+2026-10-22 13:28:34 INFO  (GhidraScript) RecoverWorldgen.java> string literals defined: 66  
+2026-10-22 13:28:35 INFO  (GhidraScript) RecoverWorldgen.java> lambda-attributed functions: 0, renamed: 0  
+2026-10-22 13:28:35 INFO  (GhidraScript) RecoverWorldgen.java> functions analysed: 4000 (30547 ms)  
+2026-10-22 13:34:18 INFO  (GhidraScript) RecoverWorldgen.java> pseudocode: 3831 functions, 12638953 bytes, 7 file(s)  
+2026-10-22 13:34:18 INFO  (GhidraScript) RecoverWorldgen.java> done  
+2026-10-22 13:34:20 INFO  (LocalFileSystem) /bedrock_server: file created (runner)  
+2026-10-22 13:34:20 INFO  (HeadlessAnalyzer) REPORT: Save succeeded for: /bedrock_server (bds-worldgen:/bedrock_server)  
+2026-10-22 13:34:20 INFO  (HeadlessAnalyzer) REPORT: Import succeeded  
+2026-10-22 13:36:49 INFO  (LoggingInitialization) Using log config file: jar:file:/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2026-10-22 13:36:49 INFO  (LoggingInitialization) Using log file: /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/research/proprietary/bds-1.26.52.3/ghidra/ghidra-application.log  
+2026-10-22 13:36:49 DEBUG (GhidraObjectInputFilter) Including serial input filter: FileSystem/data/client.rmi.serial.filter  
+2026-10-22 13:36:49 INFO  (Preferences) Loading user preferences: /home/runner/.config/ghidra/ghidra_12.1.4_PUBLIC/preferences  
+2026-10-22 13:36:49 INFO  (ClassSearcher) Searching for classes...  
+2026-10-22 13:36:50 INFO  (ClassSearcher) Class search complete (833 ms)  
+2026-10-22 13:36:51 INFO  (DefaultSSLContextInitializer) Initializing SSL Context  
+2026-10-22 13:36:51 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2026-10-22 13:36:51 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2026-10-22 13:36:51 INFO  (DefaultTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2026-10-22 13:36:51 INFO  (FileCacheMaintenanceDaemon) Starting cache cleanup: /var/tmp/runner-ghidra/fscache2  
+2026-10-22 13:36:51 INFO  (FileCacheMaintenanceDaemon) Finished cache cleanup, estimated storage used: 0  
+2026-10-22 13:36:52 INFO  (AnalyzeHeadless) Headless startup complete (4237 ms)  
+2026-10-22 13:36:52 INFO  (ClassSearcher) Class searcher loaded 59 extension points (20 false positives)  
+2026-10-22 13:36:52 INFO  (HeadlessAnalyzer) HEADLESS Script Paths:
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/Base/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/SystemEmulation/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/PDB/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/BytePatterns/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/Atmel/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Debug/Debugger-rmi-trace/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/VersionTracking/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/DATA/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Debug/Debugger/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/PIC/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/GnuDemangler/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/FunctionID/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/8051/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/ghidra
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/FileFormats/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/PyGhidra/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/BSim/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/MicrosoftCodeAnalyzer/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/DecompilerDependent/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/SwiftDemangler/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/JVM/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/Decompiler/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/WildcardAssembler/ghidra_scripts  
+2026-10-22 13:36:52 INFO  (HeadlessAnalyzer) HEADLESS: execution starts  
+2026-10-22 13:36:52 INFO  (HeadlessAnalyzer) Creating project: /home/runner/work/_temp/ghidra-projects/bds-worldgen  
+2026-10-22 13:36:52 DEBUG (DefaultProjectManager) No tools found; Installing default tools  
+2026-10-22 13:36:52 DEBUG (DefaultProjectManager) 	no recent project directories found  
+2026-10-22 13:36:53 INFO  (DefaultProject) Creating project: /home/runner/work/_temp/ghidra-projects/bds-worldgen  
+2026-10-22 13:36:53 INFO  (HeadlessAnalyzer) REPORT: Processing input files:   
+2026-10-22 13:36:53 INFO  (HeadlessAnalyzer)      project: /home/runner/work/_temp/ghidra-projects/bds-worldgen  
+2026-10-22 13:36:53 INFO  (HeadlessAnalyzer) IMPORTING: file:///home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/bedrock_server  
+2026-10-22 13:36:55 INFO  (ProgramLoader) Using Loader: Executable and Linking Format (ELF)  
+2026-10-22 13:36:55 INFO  (ProgramLoader) Using Language/Compiler: x86:LE:64:default:gcc  
+2026-10-22 13:36:55 INFO  (ProgramLoader) Using Library Search Path: [., /bin, /lib, /lib64, /lib/x86_64-linux-gnu, /lib/aarch64-linux-gnu, /usr/bin, /usr/lib, /usr/X11R6/bin, /usr/X11R6/lib, /usr/java/packages/lib, /usr/lib64]  
+2026-10-22 13:36:56 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2026-10-22 13:36:56 DEBUG (ElfHeader) Elf relocation table section .rela.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2026-10-22 13:36:57 DEBUG (ElfHeader) Elf relocation table section .rela.plt linked to symbol table section .dynsym affecting .got.plt  
+2026-10-22 13:36:58 DEBUG (ElfProgramBuilder) Discarding 8-byte alignment/filler segment_4.3 at 0eee8da8  
+2026-10-22 13:36:58 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_3.3 at 0eee29a7  
+2026-10-22 13:36:58 DEBUG (ElfProgramBuilder) Discarding 15-byte alignment/filler segment_3.5 at 0eee29b1  
+2026-10-22 13:36:58 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_3.7 at 0eee2ad5  
+2026-10-22 13:36:58 DEBUG (ElfProgramBuilder) Discarding 3-byte alignment/filler segment_3.9 at 0eee2d0d  
+2026-10-22 13:36:58 DEBUG (ElfProgramBuilder) Discarding 3-byte alignment/filler segment_2.10 at 00103ddd  
+2026-10-22 13:36:58 DEBUG (ElfProgramBuilder) Discarding 16-byte alignment/filler segment_2.13 at 01198330  
+2026-10-22 13:37:05 INFO  (ProgramLoader) Additional info:
+Loading file:///home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/bedrock_server?MD5=9cddcad5c0f4fc8e62fe9246691ddb8d...
+Skipping section [.tm_clone_table] with invalid size 0x0
+Setting block .fini_array to read-only
+Setting block .init_array to read-only
+Setting block .data.rel.ro to read-only
+Setting block .dynamic to read-only
+------------------------------------------------
+
+Linking the External Programs of 'bedrock_server' to imported libraries...
+  [libpthread.so.0] -> not found in project
+  [libdl.so.2] -> not found in project
+  [libm.so.6] -> not found in project
+  [libgcc_s.so.1] -> not found in project
+  [libc.so.6] -> not found in project
+  [ld-linux-x86-64.so.2] -> not found in project
+  [librt.so.1] -> not found in project
+------------------------------------------------
+
+Resolving External Symbols of [/bedrock_server] - 382 unresolved symbols, no external libraries configured - skipping
+  
+2026-10-22 13:37:05 INFO  (HeadlessAnalyzer) IMPORTING: Loaded 0 additional files  
+2026-10-22 13:37:06 INFO  (HeadlessAnalyzer) REPORT: Execute script: RecoverWorldgen.java '/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/research/proprietary/bds-1.26.52.3/ghidra' 'worldgen' '5000' '/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/targets.txt'   
+2026-10-22 13:37:08 INFO  (HeadlessAnalyzer) SCRIPT: /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/ghidra/RecoverWorldgen.java  
+2026-10-22 13:37:08 INFO  (GhidraScript) RecoverWorldgen.java> targets loaded: 19  
+2026-10-22 13:37:08 INFO  (GhidraScript) RecoverWorldgen.java> image base: 0x100000  
+2026-10-22 13:37:08 INFO  (GhidraScript) RecoverWorldgen.java> Blocks: data=7 allData=26 exec=6  
+2026-10-22 13:37:08 INFO  (GhidraScript) RecoverWorldgen.java> .rela.dyn: 723948 relative relocation(s)  
+2026-10-22 13:37:08 INFO  (GhidraScript) RecoverWorldgen.java> .rela.plt: 0 relative relocation(s)  
+2026-10-22 13:37:08 INFO  (GhidraScript) RecoverWorldgen.java> relocation overlay entries: 723948  
+2026-10-22 13:37:12 INFO  (GhidraScript) RecoverWorldgen.java> type_info objects: 51998  
+2026-10-22 13:37:14 INFO  (GhidraScript) RecoverWorldgen.java> vtables: 50263  
+2026-10-22 13:37:19 INFO  (GhidraScript) RecoverWorldgen.java> seed diagnostics written: 12 distinct names referenced  
+2026-10-22 13:37:19 INFO  (GhidraScript) RecoverWorldgen.java> selected classes: 616  
+2026-10-22 13:37:44 INFO  (GhidraScript) RecoverWorldgen.java> renamed slot functions: 3219  
+2026-10-22 13:37:44 INFO  (GhidraScript) RecoverWorldgen.java> string literals defined: 97  
+2026-10-22 13:37:47 INFO  (GhidraScript) RecoverWorldgen.java> lambda-attributed functions: 0, renamed: 0  
+2026-10-22 13:37:47 INFO  (GhidraScript) RecoverWorldgen.java> functions analysed: 5000 (26922 ms)  
+2026-10-22 13:46:09 INFO  (GhidraScript) RecoverWorldgen.java> pseudocode: 4830 functions, 17123829 bytes, 9 file(s)  
+2026-10-22 13:46:09 INFO  (GhidraScript) RecoverWorldgen.java> constant references: 581  
+2026-10-22 13:46:10 INFO  (GhidraScript) RecoverWorldgen.java> done  
+2026-10-22 13:46:13 INFO  (LocalFileSystem) /bedrock_server: file created (runner)  
+2026-10-22 13:46:13 INFO  (HeadlessAnalyzer) REPORT: Save succeeded for: /bedrock_server (bds-worldgen:/bedrock_server)  
+2026-10-22 13:46:13 INFO  (HeadlessAnalyzer) REPORT: Import succeeded  
+2026-10-22 13:48:19 INFO  (LoggingInitialization) Using log config file: jar:file:/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2026-10-22 13:48:19 INFO  (LoggingInitialization) Using log file: /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/research/proprietary/bds-1.26.52.3/ghidra/ghidra-application.log  
+2026-10-22 13:48:19 DEBUG (GhidraObjectInputFilter) Including serial input filter: FileSystem/data/client.rmi.serial.filter  
+2026-10-22 13:48:19 INFO  (Preferences) Loading user preferences: /home/runner/.config/ghidra/ghidra_12.1.4_PUBLIC/preferences  
+2026-10-22 13:48:19 INFO  (ClassSearcher) Searching for classes...  
+2026-10-22 13:48:20 INFO  (ClassSearcher) Class search complete (561 ms)  
+2026-10-22 13:48:21 INFO  (DefaultSSLContextInitializer) Initializing SSL Context  
+2026-10-22 13:48:21 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2026-10-22 13:48:21 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2026-10-22 13:48:21 INFO  (DefaultTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2026-10-22 13:48:21 INFO  (FileCacheMaintenanceDaemon) Starting cache cleanup: /var/tmp/runner-ghidra/fscache2  
+2026-10-22 13:48:21 INFO  (FileCacheMaintenanceDaemon) Finished cache cleanup, estimated storage used: 0  
+2026-10-22 13:48:21 INFO  (AnalyzeHeadless) Headless startup complete (2835 ms)  
+2026-10-22 13:48:21 INFO  (ClassSearcher) Class searcher loaded 59 extension points (20 false positives)  
+2026-10-22 13:48:22 INFO  (HeadlessAnalyzer) HEADLESS Script Paths:
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/Base/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/SystemEmulation/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/PDB/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/BytePatterns/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/Atmel/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Debug/Debugger-rmi-trace/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/VersionTracking/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/DATA/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Debug/Debugger/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/PIC/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/GnuDemangler/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/FunctionID/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/8051/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/ghidra
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/FileFormats/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/PyGhidra/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/BSim/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/MicrosoftCodeAnalyzer/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/DecompilerDependent/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/SwiftDemangler/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/JVM/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/Decompiler/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/WildcardAssembler/ghidra_scripts  
+2026-10-22 13:48:22 INFO  (HeadlessAnalyzer) HEADLESS: execution starts  
+2026-10-22 13:48:22 INFO  (HeadlessAnalyzer) Creating project: /home/runner/work/_temp/ghidra-projects/bds-worldgen  
+2026-10-22 13:48:22 DEBUG (DefaultProjectManager) No tools found; Installing default tools  
+2026-10-22 13:48:22 DEBUG (DefaultProjectManager) 	no recent project directories found  
+2026-10-22 13:48:22 INFO  (DefaultProject) Creating project: /home/runner/work/_temp/ghidra-projects/bds-worldgen  
+2026-10-22 13:48:22 INFO  (HeadlessAnalyzer) REPORT: Processing input files:   
+2026-10-22 13:48:22 INFO  (HeadlessAnalyzer)      project: /home/runner/work/_temp/ghidra-projects/bds-worldgen  
+2026-10-22 13:48:22 INFO  (HeadlessAnalyzer) IMPORTING: file:///home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/bedrock_server  
+2026-10-22 13:48:24 INFO  (ProgramLoader) Using Loader: Executable and Linking Format (ELF)  
+2026-10-22 13:48:24 INFO  (ProgramLoader) Using Language/Compiler: x86:LE:64:default:gcc  
+2026-10-22 13:48:24 INFO  (ProgramLoader) Using Library Search Path: [., /bin, /lib, /lib64, /lib/x86_64-linux-gnu, /lib/aarch64-linux-gnu, /usr/bin, /usr/lib, /usr/X11R6/bin, /usr/X11R6/lib, /usr/java/packages/lib, /usr/lib64]  
+2026-10-22 13:48:25 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2026-10-22 13:48:25 DEBUG (ElfHeader) Elf relocation table section .rela.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2026-10-22 13:48:25 DEBUG (ElfHeader) Elf relocation table section .rela.plt linked to symbol table section .dynsym affecting .got.plt  
+2026-10-22 13:48:26 DEBUG (ElfProgramBuilder) Discarding 8-byte alignment/filler segment_4.3 at 0eee8da8  
+2026-10-22 13:48:26 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_3.3 at 0eee29a7  
+2026-10-22 13:48:26 DEBUG (ElfProgramBuilder) Discarding 15-byte alignment/filler segment_3.5 at 0eee29b1  
+2026-10-22 13:48:26 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_3.7 at 0eee2ad5  
+2026-10-22 13:48:26 DEBUG (ElfProgramBuilder) Discarding 3-byte alignment/filler segment_3.9 at 0eee2d0d  
+2026-10-22 13:48:26 DEBUG (ElfProgramBuilder) Discarding 3-byte alignment/filler segment_2.10 at 00103ddd  
+2026-10-22 13:48:26 DEBUG (ElfProgramBuilder) Discarding 16-byte alignment/filler segment_2.13 at 01198330  
+2026-10-22 13:48:31 INFO  (ProgramLoader) Additional info:
+Loading file:///home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/bedrock_server?MD5=9cddcad5c0f4fc8e62fe9246691ddb8d...
+Skipping section [.tm_clone_table] with invalid size 0x0
+Setting block .fini_array to read-only
+Setting block .init_array to read-only
+Setting block .data.rel.ro to read-only
+Setting block .dynamic to read-only
+------------------------------------------------
+
+Linking the External Programs of 'bedrock_server' to imported libraries...
+  [libpthread.so.0] -> not found in project
+  [libdl.so.2] -> not found in project
+  [libm.so.6] -> not found in project
+  [libgcc_s.so.1] -> not found in project
+  [libc.so.6] -> not found in project
+  [ld-linux-x86-64.so.2] -> not found in project
+  [librt.so.1] -> not found in project
+------------------------------------------------
+
+Resolving External Symbols of [/bedrock_server] - 382 unresolved symbols, no external libraries configured - skipping
+  
+2026-10-22 13:48:31 INFO  (HeadlessAnalyzer) IMPORTING: Loaded 0 additional files  
+2026-10-22 13:48:32 INFO  (HeadlessAnalyzer) REPORT: Execute script: RecoverWorldgen.java '/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/research/proprietary/bds-1.26.52.3/ghidra' 'worldgen' '5000' '/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/targets.txt'   
+2026-10-22 13:48:34 INFO  (HeadlessAnalyzer) SCRIPT: /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/ghidra/RecoverWorldgen.java  
+2026-10-22 13:48:34 INFO  (GhidraScript) RecoverWorldgen.java> targets loaded: 19  
+2026-10-22 13:48:34 INFO  (GhidraScript) RecoverWorldgen.java> image base: 0x100000  
+2026-10-22 13:48:34 INFO  (GhidraScript) RecoverWorldgen.java> Blocks: data=7 allData=26 exec=6  
+2026-10-22 13:48:34 INFO  (GhidraScript) RecoverWorldgen.java> .rela.dyn: 723948 relative relocation(s)  
+2026-10-22 13:48:34 INFO  (GhidraScript) RecoverWorldgen.java> .rela.plt: 0 relative relocation(s)  
+2026-10-22 13:48:34 INFO  (GhidraScript) RecoverWorldgen.java> relocation overlay entries: 723948  
+2026-10-22 13:48:37 INFO  (GhidraScript) RecoverWorldgen.java> type_info objects: 51998  
+2026-10-22 13:48:39 INFO  (GhidraScript) RecoverWorldgen.java> vtables: 50263  
+2026-10-22 13:48:44 INFO  (GhidraScript) RecoverWorldgen.java> seed diagnostics written: 12 distinct names referenced  
+2026-10-22 13:48:45 INFO  (GhidraScript) RecoverWorldgen.java> selected classes: 616  
+2026-10-22 13:49:02 INFO  (GhidraScript) RecoverWorldgen.java> code-scan targets: 272  
+2026-10-22 13:49:03 INFO  (GhidraScript) RecoverWorldgen.java> code references resolved to 485 functions  
+2026-10-22 13:49:03 INFO  (GhidraScript) RecoverWorldgen.java> code-reference functions added: 30, renamed: 485  
+2026-10-22 13:49:04 INFO  (GhidraScript) RecoverWorldgen.java> renamed slot functions: 3219  
+2026-10-22 13:49:04 INFO  (GhidraScript) RecoverWorldgen.java> string literals defined: 97  
+2026-10-22 13:49:06 INFO  (GhidraScript) RecoverWorldgen.java> lambda-attributed functions: 0, renamed: 0  
+2026-10-22 13:49:06 INFO  (GhidraScript) RecoverWorldgen.java> functions analysed: 5030 (20786 ms)  
+2026-10-22 13:57:29 INFO  (GhidraScript) RecoverWorldgen.java> pseudocode: 4860 functions, 17285975 bytes, 9 file(s)  
+2026-10-22 13:57:29 INFO  (GhidraScript) RecoverWorldgen.java> constant references: 581  
+2026-10-22 13:57:29 INFO  (GhidraScript) RecoverWorldgen.java> done  
+2026-10-22 13:57:33 INFO  (LocalFileSystem) /bedrock_server: file created (runner)  
+2026-10-22 13:57:33 INFO  (HeadlessAnalyzer) REPORT: Save succeeded for: /bedrock_server (bds-worldgen:/bedrock_server)  
+2026-10-22 13:57:33 INFO  (HeadlessAnalyzer) REPORT: Import succeeded  
+2026-10-22 14:12:30 INFO  (LoggingInitialization) Using log config file: jar:file:/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2026-10-22 14:12:30 INFO  (LoggingInitialization) Using log file: /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/research/proprietary/bds-1.26.52.3/ghidra/ghidra-application.log  
+2026-10-22 14:12:30 DEBUG (GhidraObjectInputFilter) Including serial input filter: FileSystem/data/client.rmi.serial.filter  
+2026-10-22 14:12:30 INFO  (Preferences) Loading user preferences: /home/runner/.config/ghidra/ghidra_12.1.4_PUBLIC/preferences  
+2026-10-22 14:12:30 INFO  (ClassSearcher) Searching for classes...  
+2026-10-22 14:12:30 INFO  (ClassSearcher) Class search complete (763 ms)  
+2026-10-22 14:12:31 INFO  (DefaultSSLContextInitializer) Initializing SSL Context  
+2026-10-22 14:12:32 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2026-10-22 14:12:32 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2026-10-22 14:12:32 INFO  (DefaultTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2026-10-22 14:12:32 INFO  (FileCacheMaintenanceDaemon) Starting cache cleanup: /var/tmp/runner-ghidra/fscache2  
+2026-10-22 14:12:32 INFO  (FileCacheMaintenanceDaemon) Finished cache cleanup, estimated storage used: 0  
+2026-10-22 14:12:33 INFO  (AnalyzeHeadless) Headless startup complete (5048 ms)  
+2026-10-22 14:12:33 INFO  (ClassSearcher) Class searcher loaded 59 extension points (20 false positives)  
+2026-10-22 14:12:33 INFO  (HeadlessAnalyzer) HEADLESS Script Paths:
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/Base/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/SystemEmulation/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/PDB/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/BytePatterns/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/Atmel/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Debug/Debugger-rmi-trace/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/VersionTracking/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/DATA/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Debug/Debugger/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/PIC/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/GnuDemangler/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/FunctionID/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/8051/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/ghidra
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/FileFormats/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/PyGhidra/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/BSim/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/MicrosoftCodeAnalyzer/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/DecompilerDependent/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/SwiftDemangler/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/JVM/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/Decompiler/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/WildcardAssembler/ghidra_scripts  
+2026-10-22 14:12:33 INFO  (HeadlessAnalyzer) HEADLESS: execution starts  
+2026-10-22 14:12:33 INFO  (HeadlessAnalyzer) Creating project: /home/runner/work/_temp/ghidra-projects/bds-worldgen  
+2026-10-22 14:12:33 DEBUG (DefaultProjectManager) No tools found; Installing default tools  
+2026-10-22 14:12:33 DEBUG (DefaultProjectManager) 	no recent project directories found  
+2026-10-22 14:12:34 INFO  (DefaultProject) Creating project: /home/runner/work/_temp/ghidra-projects/bds-worldgen  
+2026-10-22 14:12:34 INFO  (HeadlessAnalyzer) REPORT: Processing input files:   
+2026-10-22 14:12:34 INFO  (HeadlessAnalyzer)      project: /home/runner/work/_temp/ghidra-projects/bds-worldgen  
+2026-10-22 14:12:34 INFO  (HeadlessAnalyzer) IMPORTING: file:///home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/bedrock_server  
+2026-10-22 14:12:37 INFO  (ProgramLoader) Using Loader: Executable and Linking Format (ELF)  
+2026-10-22 14:12:37 INFO  (ProgramLoader) Using Language/Compiler: x86:LE:64:default:gcc  
+2026-10-22 14:12:37 INFO  (ProgramLoader) Using Library Search Path: [., /bin, /lib, /lib64, /lib/x86_64-linux-gnu, /lib/aarch64-linux-gnu, /usr/bin, /usr/lib, /usr/X11R6/bin, /usr/X11R6/lib, /usr/java/packages/lib, /usr/lib64]  
+2026-10-22 14:12:38 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2026-10-22 14:12:38 DEBUG (ElfHeader) Elf relocation table section .rela.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2026-10-22 14:12:38 DEBUG (ElfHeader) Elf relocation table section .rela.plt linked to symbol table section .dynsym affecting .got.plt  
+2026-10-22 14:12:39 DEBUG (ElfProgramBuilder) Discarding 8-byte alignment/filler segment_4.3 at 0eee8da8  
+2026-10-22 14:12:39 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_3.3 at 0eee29a7  
+2026-10-22 14:12:39 DEBUG (ElfProgramBuilder) Discarding 15-byte alignment/filler segment_3.5 at 0eee29b1  
+2026-10-22 14:12:39 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_3.7 at 0eee2ad5  
+2026-10-22 14:12:39 DEBUG (ElfProgramBuilder) Discarding 3-byte alignment/filler segment_3.9 at 0eee2d0d  
+2026-10-22 14:12:39 DEBUG (ElfProgramBuilder) Discarding 3-byte alignment/filler segment_2.10 at 00103ddd  
+2026-10-22 14:12:39 DEBUG (ElfProgramBuilder) Discarding 16-byte alignment/filler segment_2.13 at 01198330  
+2026-10-22 14:12:48 INFO  (ProgramLoader) Additional info:
+Loading file:///home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/bedrock_server?MD5=9cddcad5c0f4fc8e62fe9246691ddb8d...
+Skipping section [.tm_clone_table] with invalid size 0x0
+Setting block .fini_array to read-only
+Setting block .init_array to read-only
+Setting block .data.rel.ro to read-only
+Setting block .dynamic to read-only
+------------------------------------------------
+
+Linking the External Programs of 'bedrock_server' to imported libraries...
+  [libpthread.so.0] -> not found in project
+  [libdl.so.2] -> not found in project
+  [libm.so.6] -> not found in project
+  [libgcc_s.so.1] -> not found in project
+  [libc.so.6] -> not found in project
+  [ld-linux-x86-64.so.2] -> not found in project
+  [librt.so.1] -> not found in project
+------------------------------------------------
+
+Resolving External Symbols of [/bedrock_server] - 382 unresolved symbols, no external libraries configured - skipping
+  
+2026-10-22 14:12:48 INFO  (HeadlessAnalyzer) IMPORTING: Loaded 0 additional files  
+2026-10-22 14:12:49 INFO  (HeadlessAnalyzer) REPORT: Execute script: RecoverWorldgen.java '/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/research/proprietary/bds-1.26.52.3/ghidra' 'worldgen' '5000' '/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/targets.txt'   
+2026-10-22 14:12:51 INFO  (HeadlessAnalyzer) SCRIPT: /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/ghidra/RecoverWorldgen.java  
+2026-10-22 14:12:51 INFO  (GhidraScript) RecoverWorldgen.java> targets loaded: 19  
+2026-10-22 14:12:51 INFO  (GhidraScript) RecoverWorldgen.java> image base: 0x100000  
+2026-10-22 14:12:51 INFO  (GhidraScript) RecoverWorldgen.java> Blocks: data=7 allData=26 exec=6  
+2026-10-22 14:12:52 INFO  (GhidraScript) RecoverWorldgen.java> .rela.dyn: 723948 relative relocation(s)  
+2026-10-22 14:12:52 INFO  (GhidraScript) RecoverWorldgen.java> .rela.plt: 0 relative relocation(s)  
+2026-10-22 14:12:52 INFO  (GhidraScript) RecoverWorldgen.java> relocation overlay entries: 723948  
+2026-10-22 14:12:56 INFO  (GhidraScript) RecoverWorldgen.java> type_info objects: 51998  
+2026-10-22 14:12:59 INFO  (GhidraScript) RecoverWorldgen.java> vtables: 50263  
+2026-10-22 14:13:03 INFO  (GhidraScript) RecoverWorldgen.java> seed diagnostics written: 12 distinct names referenced  
+2026-10-22 14:13:03 INFO  (GhidraScript) RecoverWorldgen.java> selected classes: 616  
+2026-10-22 14:13:30 INFO  (GhidraScript) RecoverWorldgen.java> lambda enclosing names: 4583  
+2026-10-22 14:13:30 INFO  (GhidraScript) RecoverWorldgen.java> code-scan targets: 14021  
+2026-10-22 14:13:32 INFO  (GhidraScript) RecoverWorldgen.java> lea sites matched: 401 in 326 functions (16289 outside any known function)  
+2026-10-22 14:13:32 INFO  (GhidraScript) RecoverWorldgen.java> code references resolved to 326 functions  
+2026-10-22 14:13:32 INFO  (GhidraScript) RecoverWorldgen.java> code-reference functions added: 0, renamed: 326  
+2026-10-22 14:13:34 INFO  (GhidraScript) RecoverWorldgen.java> renamed slot functions: 3219  
+2026-10-22 14:13:34 INFO  (GhidraScript) RecoverWorldgen.java> string literals defined: 97  
+2026-10-22 14:13:37 INFO  (GhidraScript) RecoverWorldgen.java> lambda-attributed functions: 0, renamed: 0  
+2026-10-22 14:13:37 INFO  (GhidraScript) RecoverWorldgen.java> functions analysed: 5000 (33915 ms)  
+2026-10-22 14:22:05 INFO  (GhidraScript) RecoverWorldgen.java> pseudocode: 4830 functions, 17125597 bytes, 9 file(s)  
+2026-10-22 14:22:06 INFO  (GhidraScript) RecoverWorldgen.java> source paths in data: 330  
+2026-10-22 14:22:08 INFO  (GhidraScript) RecoverWorldgen.java> lea sites matched: 355 in 155 functions (15484 outside any known function)  
+2026-10-22 14:22:08 INFO  (GhidraScript) RecoverWorldgen.java> source-attributed functions: 155 over 37 files  
+2026-10-22 14:22:09 INFO  (GhidraScript) RecoverWorldgen.java> disassembly files: 400  
+2026-10-22 14:22:09 INFO  (GhidraScript) RecoverWorldgen.java> constant references: 581  
+2026-10-22 14:22:09 INFO  (GhidraScript) RecoverWorldgen.java> done  
+2026-10-22 14:22:13 INFO  (LocalFileSystem) /bedrock_server: file created (runner)  
+2026-10-22 14:22:13 INFO  (HeadlessAnalyzer) REPORT: Save succeeded for: /bedrock_server (bds-worldgen:/bedrock_server)  
+2026-10-22 14:22:13 INFO  (HeadlessAnalyzer) REPORT: Import succeeded  
+2026-10-22 14:40:43 INFO  (LoggingInitialization) Using log config file: jar:file:/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2026-10-22 14:40:43 INFO  (LoggingInitialization) Using log file: /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/research/proprietary/bds-1.26.52.3/ghidra/ghidra-application.log  
+2026-10-22 14:40:43 DEBUG (GhidraObjectInputFilter) Including serial input filter: FileSystem/data/client.rmi.serial.filter  
+2026-10-22 14:40:43 INFO  (Preferences) Loading user preferences: /home/runner/.config/ghidra/ghidra_12.1.4_PUBLIC/preferences  
+2026-10-22 14:40:43 INFO  (ClassSearcher) Searching for classes...  
+2026-10-22 14:40:44 INFO  (ClassSearcher) Class search complete (1024 ms)  
+2026-10-22 14:40:45 INFO  (DefaultSSLContextInitializer) Initializing SSL Context  
+2026-10-22 14:40:45 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2026-10-22 14:40:45 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2026-10-22 14:40:45 INFO  (DefaultTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2026-10-22 14:40:45 INFO  (FileCacheMaintenanceDaemon) Starting cache cleanup: /var/tmp/runner-ghidra/fscache2  
+2026-10-22 14:40:45 INFO  (FileCacheMaintenanceDaemon) Finished cache cleanup, estimated storage used: 0  
+2026-10-22 14:40:46 INFO  (AnalyzeHeadless) Headless startup complete (5098 ms)  
+2026-10-22 14:40:46 INFO  (ClassSearcher) Class searcher loaded 59 extension points (20 false positives)  
+2026-10-22 14:40:47 INFO  (HeadlessAnalyzer) HEADLESS Script Paths:
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/Base/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/SystemEmulation/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/PDB/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/BytePatterns/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/Atmel/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Debug/Debugger-rmi-trace/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/VersionTracking/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/DATA/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Debug/Debugger/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/PIC/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/GnuDemangler/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/FunctionID/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/8051/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/ghidra
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/FileFormats/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/PyGhidra/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/BSim/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/MicrosoftCodeAnalyzer/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/DecompilerDependent/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/SwiftDemangler/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/JVM/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/Decompiler/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/WildcardAssembler/ghidra_scripts  
+2026-10-22 14:40:47 INFO  (HeadlessAnalyzer) HEADLESS: execution starts  
+2026-10-22 14:40:47 INFO  (HeadlessAnalyzer) Creating project: /home/runner/work/_temp/ghidra-projects/bds-worldgen  
+2026-10-22 14:40:47 DEBUG (DefaultProjectManager) No tools found; Installing default tools  
+2026-10-22 14:40:47 DEBUG (DefaultProjectManager) 	no recent project directories found  
+2026-10-22 14:40:47 INFO  (DefaultProject) Creating project: /home/runner/work/_temp/ghidra-projects/bds-worldgen  
+2026-10-22 14:40:47 INFO  (HeadlessAnalyzer) REPORT: Processing input files:   
+2026-10-22 14:40:47 INFO  (HeadlessAnalyzer)      project: /home/runner/work/_temp/ghidra-projects/bds-worldgen  
+2026-10-22 14:40:47 INFO  (HeadlessAnalyzer) IMPORTING: file:///home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/bedrock_server  
+2026-10-22 14:40:50 INFO  (ProgramLoader) Using Loader: Executable and Linking Format (ELF)  
+2026-10-22 14:40:50 INFO  (ProgramLoader) Using Language/Compiler: x86:LE:64:default:gcc  
+2026-10-22 14:40:50 INFO  (ProgramLoader) Using Library Search Path: [., /bin, /lib, /lib64, /lib/x86_64-linux-gnu, /lib/aarch64-linux-gnu, /usr/bin, /usr/lib, /usr/X11R6/bin, /usr/X11R6/lib, /usr/java/packages/lib, /usr/lib64]  
+2026-10-22 14:40:51 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2026-10-22 14:40:51 DEBUG (ElfHeader) Elf relocation table section .rela.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2026-10-22 14:40:51 DEBUG (ElfHeader) Elf relocation table section .rela.plt linked to symbol table section .dynsym affecting .got.plt  
+2026-10-22 14:40:53 DEBUG (ElfProgramBuilder) Discarding 8-byte alignment/filler segment_4.3 at 0eee8da8  
+2026-10-22 14:40:53 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_3.3 at 0eee29a7  
+2026-10-22 14:40:53 DEBUG (ElfProgramBuilder) Discarding 15-byte alignment/filler segment_3.5 at 0eee29b1  
+2026-10-22 14:40:53 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_3.7 at 0eee2ad5  
+2026-10-22 14:40:53 DEBUG (ElfProgramBuilder) Discarding 3-byte alignment/filler segment_3.9 at 0eee2d0d  
+2026-10-22 14:40:53 DEBUG (ElfProgramBuilder) Discarding 3-byte alignment/filler segment_2.10 at 00103ddd  
+2026-10-22 14:40:53 DEBUG (ElfProgramBuilder) Discarding 16-byte alignment/filler segment_2.13 at 01198330  
+2026-10-22 14:41:02 INFO  (ProgramLoader) Additional info:
+Loading file:///home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/bedrock_server?MD5=9cddcad5c0f4fc8e62fe9246691ddb8d...
+Skipping section [.tm_clone_table] with invalid size 0x0
+Setting block .fini_array to read-only
+Setting block .init_array to read-only
+Setting block .data.rel.ro to read-only
+Setting block .dynamic to read-only
+------------------------------------------------
+
+Linking the External Programs of 'bedrock_server' to imported libraries...
+  [libpthread.so.0] -> not found in project
+  [libdl.so.2] -> not found in project
+  [libm.so.6] -> not found in project
+  [libgcc_s.so.1] -> not found in project
+  [libc.so.6] -> not found in project
+  [ld-linux-x86-64.so.2] -> not found in project
+  [librt.so.1] -> not found in project
+------------------------------------------------
+
+Resolving External Symbols of [/bedrock_server] - 382 unresolved symbols, no external libraries configured - skipping
+  
+2026-10-22 14:41:02 INFO  (HeadlessAnalyzer) IMPORTING: Loaded 0 additional files  
+2026-10-22 14:41:03 INFO  (HeadlessAnalyzer) REPORT: Execute script: RecoverWorldgen.java '/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/research/proprietary/bds-1.26.52.3/ghidra' 'worldgen' '6000' '/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/targets.txt'   
+2026-10-22 14:41:06 INFO  (HeadlessAnalyzer) SCRIPT: /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/ghidra/RecoverWorldgen.java  
+2026-10-22 14:41:06 INFO  (GhidraScript) RecoverWorldgen.java> targets loaded: 39  
+2026-10-22 14:41:06 INFO  (GhidraScript) RecoverWorldgen.java> image base: 0x100000  
+2026-10-22 14:41:06 INFO  (GhidraScript) RecoverWorldgen.java> Blocks: data=7 allData=26 exec=6  
+2026-10-22 14:41:06 INFO  (GhidraScript) RecoverWorldgen.java> .rela.dyn: 723948 relative relocation(s)  
+2026-10-22 14:41:06 INFO  (GhidraScript) RecoverWorldgen.java> .rela.plt: 0 relative relocation(s)  
+2026-10-22 14:41:06 INFO  (GhidraScript) RecoverWorldgen.java> relocation overlay entries: 723948  
+2026-10-22 14:41:10 INFO  (GhidraScript) RecoverWorldgen.java> type_info objects: 51998  
+2026-10-22 14:41:13 INFO  (GhidraScript) RecoverWorldgen.java> vtables: 50263  
+2026-10-22 14:41:18 INFO  (GhidraScript) RecoverWorldgen.java> seed diagnostics written: 12 distinct names referenced  
+2026-10-22 14:41:19 INFO  (GhidraScript) RecoverWorldgen.java> selected classes: 701  
+2026-10-22 14:41:48 INFO  (GhidraScript) RecoverWorldgen.java> lambda enclosing names: 4583  
+2026-10-22 14:41:48 INFO  (GhidraScript) RecoverWorldgen.java> code-scan targets: 14026  
+2026-10-22 14:41:50 INFO  (GhidraScript) RecoverWorldgen.java> lea sites matched: 411 in 335 functions (16289 outside any known function)  
+2026-10-22 14:41:50 INFO  (GhidraScript) RecoverWorldgen.java> code references resolved to 335 functions  
+2026-10-22 14:41:50 INFO  (GhidraScript) RecoverWorldgen.java> code-reference functions added: 0, renamed: 335  
+2026-10-22 14:41:51 INFO  (GhidraScript) RecoverWorldgen.java> renamed slot functions: 3504  
+2026-10-22 14:41:51 INFO  (GhidraScript) RecoverWorldgen.java> string literals defined: 114  
+2026-10-22 14:41:55 INFO  (GhidraScript) RecoverWorldgen.java> lambda-attributed functions: 0, renamed: 0  
+2026-10-22 14:41:55 INFO  (GhidraScript) RecoverWorldgen.java> functions analysed: 5823 (35845 ms)  
+2026-10-22 14:52:32 INFO  (GhidraScript) RecoverWorldgen.java> pseudocode: 5653 functions, 19701366 bytes, 10 file(s)  
+2026-10-22 14:52:33 INFO  (GhidraScript) RecoverWorldgen.java> source paths in data: 330  
+2026-10-22 14:52:34 INFO  (GhidraScript) RecoverWorldgen.java> lea sites matched: 385 in 174 functions (15454 outside any known function)  
+2026-10-22 14:52:34 INFO  (GhidraScript) RecoverWorldgen.java> source-attributed functions: 174 over 38 files  
+2026-10-22 14:52:35 INFO  (GhidraScript) RecoverWorldgen.java> disassembly files: 400  
+2026-10-22 14:52:35 INFO  (GhidraScript) RecoverWorldgen.java> constant references: 640  
+2026-10-22 14:52:35 INFO  (GhidraScript) RecoverWorldgen.java> done  
+2026-10-22 14:52:37 INFO  (LocalFileSystem) /bedrock_server: file created (runner)  
+2026-10-22 14:52:37 INFO  (HeadlessAnalyzer) REPORT: Save succeeded for: /bedrock_server (bds-worldgen:/bedrock_server)  
+2026-10-22 14:52:37 INFO  (HeadlessAnalyzer) REPORT: Import succeeded  
+2026-10-22 21:03:56 INFO  (LoggingInitialization) Using log config file: jar:file:/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml  
+2026-10-22 21:03:56 INFO  (LoggingInitialization) Using log file: /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/research/proprietary/bds-1.26.52.3/ghidra/ghidra-application.log  
+2026-10-22 21:03:56 DEBUG (GhidraObjectInputFilter) Including serial input filter: FileSystem/data/client.rmi.serial.filter  
+2026-10-22 21:03:56 INFO  (Preferences) Loading user preferences: /home/runner/.config/ghidra/ghidra_12.1.4_PUBLIC/preferences  
+2026-10-22 21:03:56 INFO  (ClassSearcher) Searching for classes...  
+2026-10-22 21:03:57 INFO  (ClassSearcher) Class search complete (786 ms)  
+2026-10-22 21:03:58 INFO  (DefaultSSLContextInitializer) Initializing SSL Context  
+2026-10-22 21:04:00 INFO  (SecureRandomFactory) Initializing Random Number Generator...  
+2026-10-22 21:04:00 INFO  (SecureRandomFactory) Random Number Generator initialization complete: NativePRNGNonBlocking  
+2026-10-22 21:04:00 INFO  (DefaultTrustManagerFactory) Trust manager disabled, cacerts have not been set  
+2026-10-22 21:04:00 INFO  (FileCacheMaintenanceDaemon) Starting cache cleanup: /var/tmp/runner-ghidra/fscache2  
+2026-10-22 21:04:00 INFO  (FileCacheMaintenanceDaemon) Finished cache cleanup, estimated storage used: 0  
+2026-10-22 21:04:01 INFO  (AnalyzeHeadless) Headless startup complete (6549 ms)  
+2026-10-22 21:04:01 INFO  (ClassSearcher) Class searcher loaded 59 extension points (20 false positives)  
+2026-10-22 21:04:02 INFO  (HeadlessAnalyzer) HEADLESS Script Paths:
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/Base/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/SystemEmulation/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/PDB/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/BytePatterns/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/Atmel/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Debug/Debugger-rmi-trace/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/VersionTracking/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/DATA/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Debug/Debugger/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/PIC/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/GnuDemangler/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/FunctionID/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/8051/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/ghidra
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/FileFormats/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/PyGhidra/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/BSim/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/MicrosoftCodeAnalyzer/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/DecompilerDependent/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/SwiftDemangler/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/JVM/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/Decompiler/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/WildcardAssembler/ghidra_scripts  
+2026-10-22 21:04:02 INFO  (HeadlessAnalyzer) HEADLESS: execution starts  
+2026-10-22 21:04:02 INFO  (HeadlessAnalyzer) Creating project: /home/runner/work/_temp/ghidra-projects/bds-worldgen  
+2026-10-22 21:04:02 DEBUG (DefaultProjectManager) No tools found; Installing default tools  
+2026-10-22 21:04:02 DEBUG (DefaultProjectManager) 	no recent project directories found  
+2026-10-22 21:04:02 INFO  (DefaultProject) Creating project: /home/runner/work/_temp/ghidra-projects/bds-worldgen  
+2026-10-22 21:04:02 INFO  (HeadlessAnalyzer) REPORT: Processing input files:   
+2026-10-22 21:04:02 INFO  (HeadlessAnalyzer)      project: /home/runner/work/_temp/ghidra-projects/bds-worldgen  
+2026-10-22 21:04:02 INFO  (HeadlessAnalyzer) IMPORTING: file:///home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/bedrock_server  
+2026-10-22 21:04:05 INFO  (ProgramLoader) Using Loader: Executable and Linking Format (ELF)  
+2026-10-22 21:04:05 INFO  (ProgramLoader) Using Language/Compiler: x86:LE:64:default:gcc  
+2026-10-22 21:04:05 INFO  (ProgramLoader) Using Library Search Path: [., /bin, /lib, /lib64, /lib/x86_64-linux-gnu, /lib/aarch64-linux-gnu, /usr/bin, /usr/lib, /usr/X11R6/bin, /usr/X11R6/lib, /usr/java/packages/lib, /usr/lib64]  
+2026-10-22 21:04:06 DEBUG (ElfHeader) Elf symbol table section .dynsym linked to string table section .dynstr  
+2026-10-22 21:04:06 DEBUG (ElfHeader) Elf relocation table section .rela.dyn linked to symbol table section .dynsym affecting PT_LOAD  
+2026-10-22 21:04:06 DEBUG (ElfHeader) Elf relocation table section .rela.plt linked to symbol table section .dynsym affecting .got.plt  
+2026-10-22 21:04:07 DEBUG (ElfProgramBuilder) Discarding 8-byte alignment/filler segment_4.3 at 0eee8da8  
+2026-10-22 21:04:07 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_3.3 at 0eee29a7  
+2026-10-22 21:04:07 DEBUG (ElfProgramBuilder) Discarding 15-byte alignment/filler segment_3.5 at 0eee29b1  
+2026-10-22 21:04:07 DEBUG (ElfProgramBuilder) Discarding 1-byte alignment/filler segment_3.7 at 0eee2ad5  
+2026-10-22 21:04:07 DEBUG (ElfProgramBuilder) Discarding 3-byte alignment/filler segment_3.9 at 0eee2d0d  
+2026-10-22 21:04:07 DEBUG (ElfProgramBuilder) Discarding 3-byte alignment/filler segment_2.10 at 00103ddd  
+2026-10-22 21:04:07 DEBUG (ElfProgramBuilder) Discarding 16-byte alignment/filler segment_2.13 at 01198330  
+2026-10-22 21:04:14 INFO  (ProgramLoader) Additional info:
+Loading file:///home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/bedrock_server?MD5=9cddcad5c0f4fc8e62fe9246691ddb8d...
+Skipping section [.tm_clone_table] with invalid size 0x0
+Setting block .fini_array to read-only
+Setting block .init_array to read-only
+Setting block .data.rel.ro to read-only
+Setting block .dynamic to read-only
+------------------------------------------------
+
+Linking the External Programs of 'bedrock_server' to imported libraries...
+  [libpthread.so.0] -> not found in project
+  [libdl.so.2] -> not found in project
+  [libm.so.6] -> not found in project
+  [libgcc_s.so.1] -> not found in project
+  [libc.so.6] -> not found in project
+  [ld-linux-x86-64.so.2] -> not found in project
+  [librt.so.1] -> not found in project
+------------------------------------------------
+
+Resolving External Symbols of [/bedrock_server] - 382 unresolved symbols, no external libraries configured - skipping
+  
+2026-10-22 21:04:14 INFO  (HeadlessAnalyzer) IMPORTING: Loaded 0 additional files  
+2026-10-22 21:04:14 INFO  (HeadlessAnalyzer) REPORT: Execute script: RecoverWorldgen.java '/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/research/proprietary/bds-1.26.52.3/ghidra' 'worldgen' '6000' '/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/targets.txt'   
+2026-10-22 21:04:17 INFO  (HeadlessAnalyzer) SCRIPT: /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/ghidra/RecoverWorldgen.java  
+2026-10-22 21:04:17 INFO  (GhidraScript) RecoverWorldgen.java> targets loaded: 39  
+2026-10-22 21:04:17 INFO  (GhidraScript) RecoverWorldgen.java> image base: 0x100000  
+2026-10-22 21:04:17 INFO  (GhidraScript) RecoverWorldgen.java> Blocks: data=7 allData=26 exec=6  
+2026-10-22 21:04:17 INFO  (GhidraScript) RecoverWorldgen.java> .rela.dyn: 723948 relative relocation(s)  
+2026-10-22 21:04:17 INFO  (GhidraScript) RecoverWorldgen.java> .rela.plt: 0 relative relocation(s)  
+2026-10-22 21:04:17 INFO  (GhidraScript) RecoverWorldgen.java> relocation overlay entries: 723948  
+2026-10-22 21:04:21 INFO  (GhidraScript) RecoverWorldgen.java> type_info objects: 51998  
+2026-10-22 21:04:23 INFO  (GhidraScript) RecoverWorldgen.java> vtables: 50263  
+2026-10-22 21:04:27 INFO  (GhidraScript) RecoverWorldgen.java> seed diagnostics written: 12 distinct names referenced  
+2026-10-22 21:04:28 INFO  (GhidraScript) RecoverWorldgen.java> selected classes: 701  
+2026-10-22 21:04:53 INFO  (GhidraScript) RecoverWorldgen.java> lambda enclosing names: 4583  
+2026-10-22 21:04:53 INFO  (GhidraScript) RecoverWorldgen.java> code-scan targets: 14026  
+2026-10-22 21:04:55 INFO  (GhidraScript) RecoverWorldgen.java> lea sites matched: 411 in 335 functions (16289 outside any known function)  
+2026-10-22 21:04:55 INFO  (GhidraScript) RecoverWorldgen.java> code references resolved to 335 functions  
+2026-10-22 21:04:55 INFO  (GhidraScript) RecoverWorldgen.java> code-reference functions added: 0, renamed: 335  
+2026-10-22 21:04:56 INFO  (GhidraScript) RecoverWorldgen.java> renamed slot functions: 3504  
+2026-10-22 21:04:56 INFO  (GhidraScript) RecoverWorldgen.java> string literals defined: 114  
+2026-10-22 21:05:00 INFO  (GhidraScript) RecoverWorldgen.java> lambda-attributed functions: 0, renamed: 0  
+2026-10-22 21:05:00 INFO  (GhidraScript) RecoverWorldgen.java> functions analysed: 5823 (31329 ms)  
+2026-10-22 21:15:09 INFO  (GhidraScript) RecoverWorldgen.java> pseudocode: 5653 functions, 19701366 bytes, 10 file(s)  
+2026-10-22 21:15:09 INFO  (GhidraScript) RecoverWorldgen.java> source paths in data: 330  
+2026-10-22 21:15:11 INFO  (GhidraScript) RecoverWorldgen.java> lea sites matched: 385 in 174 functions (15454 outside any known function)  
+2026-10-22 21:15:11 INFO  (GhidraScript) RecoverWorldgen.java> source-attributed functions: 174 over 38 files  
+2026-10-22 21:15:11 INFO  (GhidraScript) RecoverWorldgen.java> disassembly files: 400  
+2026-10-22 21:15:11 INFO  (GhidraScript) RecoverWorldgen.java> constant references: 640  
+2026-10-22 21:15:11 INFO  (GhidraScript) RecoverWorldgen.java> done  
+2026-10-22 21:15:15 INFO  (LocalFileSystem) /bedrock_server: file created (runner)  
+2026-10-22 21:15:15 INFO  (HeadlessAnalyzer) REPORT: Save succeeded for: /bedrock_server (bds-worldgen:/bedrock_server)  
+2026-10-22 21:15:15 INFO  (HeadlessAnalyzer) REPORT: Import succeeded  

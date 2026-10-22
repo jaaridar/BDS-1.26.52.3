@@ -1,0 +1,20 @@
+# 488fce0
+
+```asm
+0488fce0  PUSH RBX
+0488fce1  MOV RBX,qword ptr [RDI + 0x8]
+0488fce5  TEST RBX,RBX
+0488fce8  JZ 0x0488fcfc
+0488fcea  MOV RAX,-0x1
+0488fcf1  XADD.LOCK qword ptr [RBX + 0x8],RAX
+0488fcf7  TEST RAX,RAX
+0488fcfa  JZ 0x0488fcfe
+0488fcfc  POP RBX
+0488fcfd  RET
+0488fcfe  MOV RAX,qword ptr [RBX]
+0488fd01  MOV RDI,RBX
+0488fd04  CALL qword ptr [RAX + 0x10]
+0488fd07  MOV RDI,RBX
+0488fd0a  POP RBX
+0488fd0b  JMP 0x0412c2d0
+```

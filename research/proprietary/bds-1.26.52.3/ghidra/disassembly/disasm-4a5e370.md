@@ -1,0 +1,69 @@
+# 4a5e370  ReplacementBiomeSource<?, ?, long, ?, char, ?, ?*, short>::vslot0
+
+```asm
+04a5e370  PUSH R15
+04a5e372  PUSH R14
+04a5e374  PUSH RBX
+04a5e375  MOV RBX,RDI
+04a5e378  LEA RAX,[0xef52d08]
+04a5e37f  MOV qword ptr [RDI],RAX
+04a5e382  MOV RDI,qword ptr [RDI + 0x68]
+04a5e386  TEST RDI,RDI
+04a5e389  JZ 0x04a5e39b
+04a5e38b  MOV qword ptr [RBX + 0x70],RDI
+04a5e38f  MOV RSI,qword ptr [RBX + 0x78]
+04a5e393  SUB RSI,RDI
+04a5e396  CALL 0x0412a280
+04a5e39b  MOV RDI,qword ptr [RBX + 0x50]
+04a5e39f  TEST RDI,RDI
+04a5e3a2  JZ 0x04a5e3b4
+04a5e3a4  MOV qword ptr [RBX + 0x58],RDI
+04a5e3a8  MOV RSI,qword ptr [RBX + 0x60]
+04a5e3ac  SUB RSI,RDI
+04a5e3af  CALL 0x0412a280
+04a5e3b4  MOV RDI,qword ptr [RBX + 0x38]
+04a5e3b8  TEST RDI,RDI
+04a5e3bb  JZ 0x04a5e3cd
+04a5e3bd  MOV qword ptr [RBX + 0x40],RDI
+04a5e3c1  MOV RSI,qword ptr [RBX + 0x48]
+04a5e3c5  SUB RSI,RDI
+04a5e3c8  CALL 0x0412a280
+04a5e3cd  MOV R14,qword ptr [RBX + 0x20]
+04a5e3d1  TEST R14,R14
+04a5e3d4  JNZ 0x04a5e425
+04a5e3d6  MOV RDI,qword ptr [RBX + 0x10]
+04a5e3da  MOV qword ptr [RBX + 0x10],0x0
+04a5e3e2  TEST RDI,RDI
+04a5e3e5  JZ 0x04a5e3f4
+04a5e3e7  MOV RSI,qword ptr [RBX + 0x18]
+04a5e3eb  SHL RSI,0x3
+04a5e3ef  CALL 0x0412a280
+04a5e3f4  MOV RDI,qword ptr [RBX + 0x8]
+04a5e3f8  MOV qword ptr [RBX + 0x8],0x0
+04a5e400  TEST RDI,RDI
+04a5e403  JZ 0x04a5e443
+04a5e405  MOV RAX,qword ptr [RDI]
+04a5e408  POP RBX
+04a5e409  POP R14
+04a5e40b  POP R15
+04a5e40d  JMP qword ptr [RAX + 0x8]
+04a5e410  MOV ESI,0x30
+04a5e415  MOV RDI,R14
+04a5e418  CALL 0x0412a280
+04a5e41d  MOV R14,R15
+04a5e420  TEST R15,R15
+04a5e423  JZ 0x04a5e3d6
+04a5e425  MOV R15,qword ptr [R14]
+04a5e428  MOV RDI,qword ptr [R14 + 0x18]
+04a5e42c  TEST RDI,RDI
+04a5e42f  JZ 0x04a5e410
+04a5e431  MOV qword ptr [R14 + 0x20],RDI
+04a5e435  MOV RSI,qword ptr [R14 + 0x28]
+04a5e439  SUB RSI,RDI
+04a5e43c  CALL 0x0412a280
+04a5e441  JMP 0x04a5e410
+04a5e443  POP RBX
+04a5e444  POP R14
+04a5e446  POP R15
+04a5e448  RET
+```

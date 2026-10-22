@@ -1,0 +1,84 @@
+# 48b05a0
+
+```asm
+048b05a0  PUSH RBX
+048b05a1  MOV dword ptr [RDI + 0x1c],0x1
+048b05a8  MOV EDX,dword ptr [RSI]
+048b05aa  MOV dword ptr [RDI + 0x18],EDX
+048b05ad  MOV RAX,qword ptr [RDI + 0x10]
+048b05b1  MOV RBX,qword ptr [RAX + 0x78]
+048b05b5  MOV RAX,qword ptr [RBX + 0x48]
+048b05b9  MOV RCX,qword ptr [RBX + 0x50]
+048b05bd  CMP RAX,RCX
+048b05c0  JZ 0x048b05dd
+048b05c2  NOP word ptr CS:[RAX + RAX*0x1]
+048b05d0  CMP dword ptr [RAX],EDX
+048b05d2  JZ 0x048b0637
+048b05d4  ADD RAX,0x68
+048b05d8  CMP RAX,RCX
+048b05db  JNZ 0x048b05d0
+048b05dd  CMP RCX,qword ptr [RBX + 0x58]
+048b05e1  JNC 0x048b0628
+048b05e3  MOVUPS XMM0,xmmword ptr [RSI + 0x40]
+048b05e7  MOVUPS xmmword ptr [RCX + 0x40],XMM0
+048b05eb  MOVUPS XMM0,xmmword ptr [RSI]
+048b05ee  MOVUPS XMM1,xmmword ptr [RSI + 0x10]
+048b05f2  MOVUPS XMM2,xmmword ptr [RSI + 0x20]
+048b05f6  MOVUPS XMM3,xmmword ptr [RSI + 0x30]
+048b05fa  MOVUPS xmmword ptr [RCX + 0x30],XMM3
+048b05fe  MOVUPS xmmword ptr [RCX + 0x20],XMM2
+048b0602  MOVUPS xmmword ptr [RCX + 0x10],XMM1
+048b0606  MOVUPS xmmword ptr [RCX],XMM0
+048b0609  MOV EAX,dword ptr [RSI + 0x50]
+048b060c  MOV dword ptr [RCX + 0x50],EAX
+048b060f  MOVUPS XMM0,xmmword ptr [RSI + 0x58]
+048b0613  MOVUPS xmmword ptr [RCX + 0x58],XMM0
+048b0617  XORPS XMM0,XMM0
+048b061a  MOVUPS xmmword ptr [RSI + 0x58],XMM0
+048b061e  ADD RCX,0x68
+048b0622  MOV qword ptr [RBX + 0x50],RCX
+048b0626  POP RBX
+048b0627  RET
+048b0628  LEA RDI,[RBX + 0x48]
+048b062c  CALL 0x048b06d0
+048b0631  MOV qword ptr [RBX + 0x50],RAX
+048b0635  POP RBX
+048b0636  RET
+048b0637  MOV RCX,qword ptr [RAX + 0x40]
+048b063b  CMP RCX,qword ptr [RSI + 0x40]
+048b063f  JNZ 0x048b064b
+048b0641  MOV RCX,qword ptr [RAX + 0x48]
+048b0645  CMP RCX,qword ptr [RSI + 0x48]
+048b0649  JZ 0x048b06a1
+048b064b  MOVUPS XMM0,xmmword ptr [RSI + 0x40]
+048b064f  MOVUPS xmmword ptr [RAX + 0x40],XMM0
+048b0653  MOVUPS XMM0,xmmword ptr [RSI]
+048b0656  MOVUPS XMM1,xmmword ptr [RSI + 0x10]
+048b065a  MOVUPS XMM2,xmmword ptr [RSI + 0x20]
+048b065e  MOVUPS XMM3,xmmword ptr [RSI + 0x30]
+048b0662  MOVUPS xmmword ptr [RAX + 0x30],XMM3
+048b0666  MOVUPS xmmword ptr [RAX + 0x20],XMM2
+048b066a  MOVUPS xmmword ptr [RAX + 0x10],XMM1
+048b066e  MOVUPS xmmword ptr [RAX],XMM0
+048b0671  MOV ECX,dword ptr [RSI + 0x50]
+048b0674  MOV dword ptr [RAX + 0x50],ECX
+048b0677  MOVUPS XMM0,xmmword ptr [RSI + 0x58]
+048b067b  XORPS XMM1,XMM1
+048b067e  MOVUPS xmmword ptr [RSI + 0x58],XMM1
+048b0682  MOV RBX,qword ptr [RAX + 0x60]
+048b0686  MOVUPS xmmword ptr [RAX + 0x58],XMM0
+048b068a  TEST RBX,RBX
+048b068d  JZ 0x048b06a1
+048b068f  MOV RAX,-0x1
+048b0696  XADD.LOCK qword ptr [RBX + 0x8],RAX
+048b069c  TEST RAX,RAX
+048b069f  JZ 0x048b06a3
+048b06a1  POP RBX
+048b06a2  RET
+048b06a3  MOV RAX,qword ptr [RBX]
+048b06a6  MOV RDI,RBX
+048b06a9  CALL qword ptr [RAX + 0x10]
+048b06ac  MOV RDI,RBX
+048b06af  POP RBX
+048b06b0  JMP 0x0412c2d0
+```

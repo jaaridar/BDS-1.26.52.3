@@ -1,0 +1,8 @@
+# 4a6ae80
+
+```asm
+04a6ae80  PUSH RAX
+04a6ae81  LEA RDI,[0x13f6512]
+04a6ae88  CALL 0x04882e40
+04a6ae8d  INT3
+```

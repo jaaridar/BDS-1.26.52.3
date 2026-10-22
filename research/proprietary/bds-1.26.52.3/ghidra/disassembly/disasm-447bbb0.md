@@ -1,0 +1,21 @@
+# 447bbb0
+
+```asm
+0447bbb0  PUSH RBX
+0447bbb1  MOV RBX,qword ptr [RDI]
+0447bbb4  TEST RBX,RBX
+0447bbb7  JZ 0x0447bbe3
+0447bbb9  DEC.LOCK dword ptr [RBX + 0x18]
+0447bbbd  JNZ 0x0447bbe3
+0447bbbf  MOV RDI,qword ptr [RBX + 0x10]
+0447bbc3  MOV qword ptr [RBX + 0x10],0x0
+0447bbcb  TEST RDI,RDI
+0447bbce  JZ 0x0447bbd5
+0447bbd0  CALL 0x0ee32710
+0447bbd5  MOV ESI,0x20
+0447bbda  MOV RDI,RBX
+0447bbdd  POP RBX
+0447bbde  JMP 0x0412a280
+0447bbe3  POP RBX
+0447bbe4  RET
+```

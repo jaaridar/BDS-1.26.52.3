@@ -1,0 +1,20 @@
+# 495d360  EditorCustomBiomeSource::vslot5
+
+```asm
+0495d360  MOV RDI,qword ptr [RDI + 0x10]
+0495d364  TEST RDI,RDI
+0495d367  JZ 0x0495d391
+0495d369  SUB RSP,0x18
+0495d36d  MOV EAX,dword ptr [RSI + 0x8]
+0495d370  MOV dword ptr [RSP + 0x10],EAX
+0495d374  MOV RAX,qword ptr [RSI]
+0495d377  MOV qword ptr [RSP + 0x8],RAX
+0495d37c  MOV byte ptr [RSP + 0x14],0x1
+0495d381  MOV RAX,qword ptr [RDI]
+0495d384  LEA RSI,[RSP + 0x8]
+0495d389  CALL qword ptr [RAX + 0x58]
+0495d38c  ADD RSP,0x18
+0495d390  RET
+0495d391  XOR EAX,EAX
+0495d393  RET
+```

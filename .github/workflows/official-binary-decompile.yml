@@ -1,0 +1,153 @@
+name: Official binary decompile
+
+# Static, bounded headless Ghidra pass over the proprietary Minecraft: Bedrock
+# dedicated server binary. The binary is a proprietary release asset that is not
+# tracked in git, so this job downloads it on the GitHub runner first.
+#
+# The workflow never executes bedrock_server. It only imports the ELF, walks
+# C++ RTTI/vtables, disassembles the recovered entries and runs Ghidra's
+# decompiler. Generated pseudocode stays under research/proprietary/ as
+# proprietary research evidence; it is not MIT OpenBDS source.
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'rtti | worldgen | all'
+        required: false
+        default: 'worldgen'
+      max-functions:
+        description: 'Hard cap on decompiled functions'
+        required: false
+        default: '6000'
+  push:
+    paths:
+      - .github/workflows/official-binary-decompile.yml
+      - tools/binary-analysis/ghidra/RecoverWorldgen.java
+      - tools/binary-analysis/run-headless.sh
+
+permissions:
+  contents: write
+
+concurrency:
+  group: official-binary-decompile-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  GHIDRA_DIR: ${{ github.workspace }}/.ghidra-dist
+  GHIDRA_URL: https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_12.1.4_build/ghidra_12.1.4_PUBLIC_20260921.zip
+  GHIDRA_SHA256: ddac49f903da9d5bac833e5cc79395098b9c33cfd3279be5f31bd00387d2d4db
+  OUTPUT_DIR: research/proprietary/bds-1.26.52.3/ghidra
+  MODE: ${{ github.event.inputs.mode || 'worldgen' }}
+  MAX_FUNCTIONS: ${{ github.event.inputs.max-functions || '6000' }}
+
+jobs:
+  decompile:
+    if: startsWith(github.ref, 'refs/heads/arena/')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 300
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      # The binary is a GitHub release asset (proprietary, not tracked in git).
+      # The repository is private, so the download needs the Actions token.
+      - name: Fetch the official binary from the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download v1.26.52.3 --repo "${GITHUB_REPOSITORY}" \
+            --pattern bedrock_server --clobber
+          chmod +x bedrock_server
+
+      - name: Verify the binary
+        run: |
+          ls -l bedrock_server
+          test "$(stat --printf=%s bedrock_server)" = 256133808
+          echo "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207  bedrock_server" \
+            | sha256sum --check --strict
+
+      - name: Select JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Install verified Ghidra release
+        run: |
+          curl --fail --location --retry 3 --progress-bar "$GHIDRA_URL" -o "$RUNNER_TEMP/ghidra.zip"
+          echo "$GHIDRA_SHA256  $RUNNER_TEMP/ghidra.zip" | sha256sum --check --strict
+          unzip -q "$RUNNER_TEMP/ghidra.zip" -d "$RUNNER_TEMP"
+          mv "$RUNNER_TEMP/ghidra_12.1.4_PUBLIC" "$GHIDRA_DIR"
+          test -x "$GHIDRA_DIR/support/analyzeHeadless"
+
+      # Fast feedback: catch script compile errors before the expensive import.
+      - name: Compile-check the Ghidra script
+        run: |
+          mkdir -p "$RUNNER_TEMP/scriptcheck"
+          CP="$(find "$GHIDRA_DIR/Ghidra" -name '*.jar' -printf '%p:')"
+          javac -nowarn -proc:none -d "$RUNNER_TEMP/scriptcheck" -cp "$CP" \
+            tools/binary-analysis/ghidra/RecoverWorldgen.java
+          echo "script compiles"
+
+      - name: Run headless RTTI + decompiler pass
+        id: headless
+        run: |
+          set -o pipefail
+          mkdir -p "$OUTPUT_DIR"
+          bash tools/binary-analysis/run-headless.sh "$GHIDRA_DIR" "$OUTPUT_DIR" "$MODE" "$MAX_FUNCTIONS" \
+            2>&1 | tee "$RUNNER_TEMP/headless.txt"
+          status=${PIPESTATUS[0]}
+          echo "status=$status"
+          echo "$status" > "$OUTPUT_DIR/headless-exit-status.txt"
+          cp "$RUNNER_TEMP/headless.txt" "$OUTPUT_DIR/headless.txt"
+          exit 0
+
+      - name: Record diagnostics
+        if: always()
+        run: |
+          {
+            echo 'Generated files:'
+            find "$OUTPUT_DIR" -maxdepth 2 -type f -printf '%s %P\n' | sort -n
+            echo
+            echo 'Required outputs:'
+            for required in VTABLE-CLASSES.tsv vtable-slots.tsv functions.tsv pseudocode-index.md; do
+              if test -s "$OUTPUT_DIR/$required"; then echo "$required: present"; else echo "$required: MISSING_OR_EMPTY"; fi
+            done
+            echo
+            echo 'Total bytes:'
+            du -sb "$OUTPUT_DIR"
+          } | tee "$OUTPUT_DIR/report-status.txt"
+          tail -n 60 "$RUNNER_TEMP/headless.txt" || true
+
+      - name: Commit bounded evidence to the analysis branch
+        if: always()
+        run: |
+          git add -f "$OUTPUT_DIR"
+          if git diff --cached --quiet -- "$OUTPUT_DIR"; then
+            echo 'evidence unchanged'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'research: decompile official BDS worldgen (headless Ghidra)'
+          for attempt in 1 2 3 4 5; do
+            if git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}"; then
+              echo 'pushed'; exit 0
+            fi
+            sleep $((attempt * 5))
+          done
+          echo 'could not push evidence' >&2
+          exit 1
+
+      - name: Validate recovery result
+        run: |
+          test "$(cat "$OUTPUT_DIR/headless-exit-status.txt")" = 0
+          test -s "$OUTPUT_DIR/VTABLE-CLASSES.tsv"
+          test -s "$OUTPUT_DIR/vtable-slots.tsv"
+          test -s "$OUTPUT_DIR/functions.tsv"
+          test -s "$OUTPUT_DIR/pseudocode-index.md"
+          test "$(du -sb "$OUTPUT_DIR" | cut -f1)" -le 201326592
+          echo "recovery validated"

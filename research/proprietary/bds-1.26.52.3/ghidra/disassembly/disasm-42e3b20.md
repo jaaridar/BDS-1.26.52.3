@@ -1,0 +1,29 @@
+# 42e3b20
+
+```asm
+042e3b20  PUSH RBP
+042e3b21  PUSH R14
+042e3b23  PUSH RBX
+042e3b24  MOV EBX,ESI
+042e3b26  MOV R14,RDI
+042e3b29  MOV byte ptr [RDI],BL
+042e3b2b  ADD RDI,0x58
+042e3b2f  MOV RAX,qword ptr [R14 + 0x58]
+042e3b33  MOV RCX,qword ptr [R14 + 0x60]
+042e3b37  MOV RSI,qword ptr [RAX + 0x8]
+042e3b3b  MOV RAX,qword ptr [RAX + 0x10]
+042e3b3f  MOVZX EBP,byte ptr [RAX + RCX*0x1 + 0x1]
+042e3b44  SUB RSI,RCX
+042e3b47  CALL 0x0447bd90
+042e3b4c  MOV RAX,qword ptr [R14 + 0x58]
+042e3b50  MOV RCX,qword ptr [R14 + 0x60]
+042e3b54  MOV RAX,qword ptr [RAX + 0x10]
+042e3b58  AND BPL,0x7f
+042e3b5c  SHL BL,0x7
+042e3b5f  OR BL,BPL
+042e3b62  MOV byte ptr [RAX + RCX*0x1 + 0x1],BL
+042e3b66  POP RBX
+042e3b67  POP R14
+042e3b69  POP RBP
+042e3b6a  RET
+```

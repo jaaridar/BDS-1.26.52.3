@@ -1,0 +1,25 @@
+# 49cd2e0
+
+```asm
+049cd2e0  PUSH RBX
+049cd2e1  SUB RSP,0x10
+049cd2e5  MOV RBX,RDI
+049cd2e8  TEST byte ptr [RDI + 0x80],0x1
+049cd2ef  JZ 0x049cd308
+049cd2f1  MOV RSI,qword ptr [RBX + 0x80]
+049cd2f8  MOV RDI,qword ptr [RBX + 0x90]
+049cd2ff  AND RSI,-0x2
+049cd303  CALL 0x0412a280
+049cd308  MOV EAX,dword ptr [RBX + 0x78]
+049cd30b  MOV ECX,0xffffffff
+049cd310  CMP RAX,RCX
+049cd313  JZ 0x049cd327
+049cd315  LEA RCX,[0xef4a338]
+049cd31c  LEA RDI,[RSP + 0xf]
+049cd321  MOV RSI,RBX
+049cd324  CALL qword ptr [RCX + RAX*0x8]
+049cd327  MOV dword ptr [RBX + 0x78],0xffffffff
+049cd32e  ADD RSP,0x10
+049cd332  POP RBX
+049cd333  RET
+```

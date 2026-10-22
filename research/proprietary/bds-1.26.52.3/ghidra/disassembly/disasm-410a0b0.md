@@ -1,0 +1,9 @@
+# 410a0b0
+
+```asm
+0410a0b0  PUSH RAX
+0410a0b1  MOV RAX,qword ptr FS:[0x0]
+0410a0bd  LEA RAX,[RAX + -0x17b8]
+0410a0c4  POP RCX
+0410a0c5  RET
+```

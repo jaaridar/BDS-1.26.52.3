@@ -1,0 +1,75 @@
+# 49e9b20
+
+```asm
+049e9b20  PUSH RBP
+049e9b21  PUSH R15
+049e9b23  PUSH R14
+049e9b25  PUSH R13
+049e9b27  PUSH R12
+049e9b29  PUSH RBX
+049e9b2a  PUSH RAX
+049e9b2b  MOV RBX,RDI
+049e9b2e  MOV R12,qword ptr [RDI + 0x148]
+049e9b35  TEST R12,R12
+049e9b38  JZ 0x049e9bac
+049e9b3a  MOV R13,qword ptr [RBX + 0x150]
+049e9b41  MOV RDI,R12
+049e9b44  CMP R12,R13
+049e9b47  JZ 0x049e9b96
+049e9b49  MOV EBP,0xffffffff
+049e9b4e  LEA R14,[RSP + 0x6]
+049e9b53  JMP 0x049e9b70
+049e9b60  MOV dword ptr [R13 + -0x8],0xffffffff
+049e9b68  MOV R13,R15
+049e9b6b  CMP R15,R12
+049e9b6e  JZ 0x049e9b8f
+049e9b70  LEA R15,[R13 + -0x38]
+049e9b74  MOV EAX,dword ptr [R13 + -0x8]
+049e9b78  CMP RAX,RBP
+049e9b7b  JZ 0x049e9b60
+049e9b7d  MOV RDI,R14
+049e9b80  MOV RSI,R15
+049e9b83  LEA RCX,[0xef4aa30]
+049e9b8a  CALL qword ptr [RCX + RAX*0x8]
+049e9b8d  JMP 0x049e9b60
+049e9b8f  MOV RDI,qword ptr [RBX + 0x148]
+049e9b96  MOV qword ptr [RBX + 0x150],R12
+049e9b9d  MOV RSI,qword ptr [RBX + 0x158]
+049e9ba4  SUB RSI,RDI
+049e9ba7  CALL 0x0412a280
+049e9bac  TEST byte ptr [RBX + 0xf8],0x1
+049e9bb3  JZ 0x049e9bcc
+049e9bb5  MOV RSI,qword ptr [RBX + 0xf8]
+049e9bbc  MOV RDI,qword ptr [RBX + 0x108]
+049e9bc3  AND RSI,-0x2
+049e9bc7  CALL 0x0412a280
+049e9bcc  MOV EAX,dword ptr [RBX + 0xe8]
+049e9bd2  MOV ECX,0xffffffff
+049e9bd7  CMP RAX,RCX
+049e9bda  JZ 0x049e9bef
+049e9bdc  LEA RSI,[RBX + 0x30]
+049e9be0  LEA RCX,[0xef4aa58]
+049e9be7  LEA RDI,[RSP + 0x7]
+049e9bec  CALL qword ptr [RCX + RAX*0x8]
+049e9bef  MOV dword ptr [RBX + 0xe8],0xffffffff
+049e9bf9  TEST byte ptr [RBX + 0x18],0x1
+049e9bfd  JZ 0x049e9c10
+049e9bff  MOV RSI,qword ptr [RBX + 0x18]
+049e9c03  MOV RDI,qword ptr [RBX + 0x28]
+049e9c07  AND RSI,-0x2
+049e9c0b  CALL 0x0412a280
+049e9c10  TEST byte ptr [RBX],0x1
+049e9c13  JZ 0x049e9c25
+049e9c15  MOV RSI,qword ptr [RBX]
+049e9c18  MOV RDI,qword ptr [RBX + 0x10]
+049e9c1c  AND RSI,-0x2
+049e9c20  CALL 0x0412a280
+049e9c25  ADD RSP,0x8
+049e9c29  POP RBX
+049e9c2a  POP R12
+049e9c2c  POP R13
+049e9c2e  POP R14
+049e9c30  POP R15
+049e9c32  POP RBP
+049e9c33  RET
+```

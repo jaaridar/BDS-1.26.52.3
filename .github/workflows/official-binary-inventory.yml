@@ -1,0 +1,59 @@
+name: Official binary inventory
+
+# The official binary is a proprietary GitHub release asset, not tracked in
+# git. This opt-in workflow downloads it on the runner and runs static, bounded
+# analysis. It never executes bedrock_server.
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/official-binary-inventory.yml
+      - tools/binary-analysis/inventory.py
+
+permissions:
+  contents: write
+
+concurrency:
+  group: official-binary-inventory-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  inventory:
+    if: startsWith(github.ref, 'refs/heads/arena/')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      # The binary is a GitHub release asset (proprietary, not tracked in git).
+      # The repository is private, so the download needs the Actions token.
+      - name: Fetch the official binary from the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download v1.26.52.3 --repo "${GITHUB_REPOSITORY}" \
+            --pattern bedrock_server --clobber
+          chmod +x bedrock_server
+          test "$(stat --printf=%s bedrock_server)" = 256133808
+
+      - name: Verify and inventory without executing the target
+        run: |
+          python3 tools/binary-analysis/inventory.py \
+            bedrock_server \
+            research/proprietary/bds-1.26.52.3/inventory \
+            --expected-sha256 0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207
+
+      - name: Commit bounded evidence to the analysis branch
+        run: |
+          git add research/proprietary/bds-1.26.52.3/inventory
+          if git diff --cached --quiet -- research/proprietary/bds-1.26.52.3/inventory; then
+            echo 'Inventory is unchanged.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'research: inventory official BDS worldgen symbols'
+          git push origin "HEAD:${GITHUB_REF_NAME}"

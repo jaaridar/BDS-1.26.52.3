@@ -1,0 +1,50 @@
+# Extra classes to decompile, one regular expression per line.
+# Format: <regex> <TAB> <call-graph depth>
+# Depth 0 = only the vtable slots, 1..5 = expand that many call levels deeper.
+# These are combined with the built-in worldgen keyword filter; a match here
+# forces selection and raises the expansion depth.
+
+OverworldGenerator	5
+OverworldGenerator2d	5
+OverworldGeneratorMultinoise	5
+WorldGenerator	5
+BiomeSource	5
+VanillaOverworldBiomeSource	5
+NodeGraphBiomeSource	5
+CachedBiomeSource	5
+BiomeSource3d	5
+ChunkVolume	4
+BiomeVolume	4
+Noise	4
+Xoroshiro	5
+WorldGenRandom	4
+SurfaceBuilder	4
+Aquifer	4
+Carver	4
+Jigsaw	3
+Heightmap	4
+
+# Operation-node graph: the biome/terrain layer DAG recovered from RTTI.
+# Each node's evaluate slot contains the actual filter/mixer/zoom rules.
+OperationNode	3
+FilterOperationNode	3
+MixerOperationNode	3
+ZoomOperationNode	3
+IslandOperationNode	3
+OceanMixerOperationNode	3
+RegionHillsOperationNode	3
+TransformationMixerOperationNode	3
+NormalNoiseOperationNode	3
+BiomeClimateSelectorOperationNode	3
+
+# Terrain / density / surface plumbing.
+NoiseUtils	3
+OverworldDefaultSurfaceBuilder	3
+NoiseGradientSurfaceBuilder	3
+CappedSurfaceBuilder	3
+MesaSurfaceBuilder	3
+SwampSurfaceBuilder	3
+OceanFrozenSurfaceBuilder	3
+TheEndSurfaceBuilder	3
+LegacyMesaSurfaceBuilder	3
+PositionalRandomFactory	3
