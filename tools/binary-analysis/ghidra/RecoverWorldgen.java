@@ -72,22 +72,39 @@ public class RecoverWorldgen extends GhidraScript {
 
     // Classes worth decompiling in "worldgen" mode.
     private static final Pattern INCLUDE = Pattern.compile(
-        "(?i)(worldgen|worldgenerator|generator|biome|noise|levelgen|chunk|structure|"
-        + "feature|carver|cave|surface|terrain|density|jigsaw|heightmap|dimension|"
-        + "ore|random|xoroshiro|seed|pos2d|pos3d|blockpos|subchunk|palette|aquifer|"
-        + "geode|ruin|village|mineshaft|stronghold|monument|temple|volume|height|spawn)");
+        "(?i)(worldgen|generator|biomesource|biomevolume|biomemanager|"
+        + "biomeregistry|biomedefinition|biome$|noise|xoroshiro|worldgenrandom|"
+        + "positionalrandom|surfacebuilder|surfacelevelcache|aquifer|densityfunction|"
+        + "noisechunk|carver|structurepiece|jigsaw|structurepool|structuretemplate|"
+        + "structurespawn|heightmap|chunkvolume|chunkblender|chunksource|"
+        + "chunkgenerator|chunkview|biomesamples|subchunk|feature$|feature_|"
+        + "scatteredfeature|villagefeature|mineshaftfeature|orefeature|treefeature|"
+        + "worldclock|levelgen|terrain)");
+
+    private static final String[] SEED_NAMES = {
+        "13BiomeSource3d", "14WorldGenerator", "18OverworldGenerator",
+        "20OverworldGenerator2d", "28OverworldGeneratorMultinoise",
+        "18FlatWorldGenerator", "15NetherGenerator", "15TheEndGenerator",
+        "15XoroshiroRandom", "27VanillaOverworldBiomeSourceI5Pos2dE",
+        "20NodeGraphBiomeSourceI5Pos2dE", "17CachedBiomeSourceI13BiomeSource3dE",
+    };
 
     // Subsystems that are irrelevant to world generation.
     private static final Pattern EXCLUDE = Pattern.compile(
-        "(?i)(script|editor|network|packet|render|graphics|gui|audio|sound|json|"
-        + "telemetry|serializ|datastore|thread|ability|command|protocol|player|"
-        + "inventory|recipe|skin|persona|camera|input|leveldb|languag|font|"
-        + "achievement|teleport|crafting|marketplace|store|dedicated|perf)");
+        "(?i)(cereal|SharedTypes|std::__1|JsonUtil|entt::|Scripting|Editor|"
+        + "network|packet|render|graphics|gui::|audio|sound|json|telemetry|"
+        + "serializ|datastore|thread|ability|command|protocol|player|inventory|"
+        + "recipe|skin|persona|camera|input|leveldb|languag|font|achievement|"
+        + "teleport|crafting|marketplace|dedicated|perf|goal|component|"
+        + "schema|storage|database|reflection|packet|actor|mob$|Loot|Item)");
 
     // Highest priority: the terrain pipeline itself, expanded deeply.
     private static final Pattern PRIORITY = Pattern.compile(
-        "(?i)(worldgenerator|generator|biome|noise|surface|terrain|density|carver|"
-        + "xoroshiro|random|aquifer|heightmap|levelgen|chunkgenerat|volume)");
+        "(?i)(worldgenerator|overworldgenerator|nethergenerator|theendgenerator|"
+        + "flatworldgenerator|voidgenerator|biomesource|biomevolume|noise|"
+        + "xoroshiro|worldgenrandom|positionalrandom|surfacebuilder|aquifer|"
+        + "densityfunction|noisechunk|carver|chunkvolume|chunkblender|"
+        + "chunkgenerator|levelgen|terrain|jigsaw|heightmap)");
 
     private static final class Vtable {
         long addressPoint;
@@ -114,6 +131,7 @@ public class RecoverWorldgen extends GhidraScript {
 
     private Memory memory;
     private final List<MemoryBlock> dataBlocks = new ArrayList<>();
+    private final List<MemoryBlock> allDataBlocks = new ArrayList<>();
     private final List<MemoryBlock> execBlocks = new ArrayList<>();
     private final Map<Long, String> typeInfoNames = new LinkedHashMap<>();
     private final List<Vtable> vtables = new ArrayList<>();
@@ -149,7 +167,9 @@ public class RecoverWorldgen extends GhidraScript {
 
         memory = currentProgram.getMemory();
         indexBlocks();
-        println("Blocks: data=" + dataBlocks.size() + " exec=" + execBlocks.size());
+        println("Blocks: data=" + dataBlocks.size() + " allData=" + allDataBlocks.size()
+            + " exec=" + execBlocks.size());
+        dumpBlockLayout(out);
 
         loadRelocations();
         println("relocation overlay entries: " + relocationOverlay.size());
@@ -157,6 +177,7 @@ public class RecoverWorldgen extends GhidraScript {
         println("type_info objects: " + typeInfoNames.size());
         discoverVtables();
         println("vtables: " + vtables.size());
+        diagnoseSeeds(out);
 
         if (!"rtti".equals(mode)) {
             int selected = selectClasses(mode);
@@ -189,6 +210,9 @@ public class RecoverWorldgen extends GhidraScript {
                 execBlocks.add(block);
             } else if (isDataBlockName(block.getName())) {
                 dataBlocks.add(block);
+                allDataBlocks.add(block);
+            } else {
+                allDataBlocks.add(block);
             }
             if (".rodata".equals(block.getName())) {
                 rodataStart = block.getStart().getOffset();
@@ -292,6 +316,18 @@ public class RecoverWorldgen extends GhidraScript {
         }
     }
 
+    private void dumpBlockLayout(File out) throws Exception {
+        try (BufferedWriter writer = utf8(new File(out, "memory-blocks.txt"))) {
+            writer.write("name\tstart\tend\tsize\tinitialized\texecute\tread\twrite\n");
+            for (MemoryBlock block : memory.getBlocks()) {
+                writer.write(block.getName() + "\t" + Long.toHexString(block.getStart().getOffset())
+                    + "\t" + Long.toHexString(block.getEnd().getOffset()) + "\t" + block.getSize()
+                    + "\t" + block.isInitialized() + "\t" + block.isExecute() + "\t"
+                    + block.isRead() + "\t" + block.isWrite() + "\n");
+            }
+        }
+    }
+
     private void loadRelocations() {
         for (MemoryBlock block : memory.getBlocks()) {
             String name = block.getName();
@@ -340,7 +376,7 @@ public class RecoverWorldgen extends GhidraScript {
 
     private void discoverTypeInfos() throws Exception {
         // Layout of every Itanium type_info: [vptr][name pointer][...].
-        for (MemoryBlock block : dataBlocks) {
+        for (MemoryBlock block : allDataBlocks) {
             forEachPointerSlot(block, (slot, vptr) -> {
                 if (!isNonExecData(vptr)) {
                     return;
@@ -360,7 +396,7 @@ public class RecoverWorldgen extends GhidraScript {
 
     private void discoverVtables() throws Exception {
         Map<Long, List<Long>> references = new HashMap<>();
-        for (MemoryBlock block : dataBlocks) {
+        for (MemoryBlock block : allDataBlocks) {
             forEachPointerSlot(block, (slot, value) -> {
                 if (typeInfoNames.containsKey(value)) {
                     references.computeIfAbsent(value, key -> new ArrayList<>()).add(slot);
@@ -450,6 +486,114 @@ public class RecoverWorldgen extends GhidraScript {
             }
         }
         return hasLetter;
+    }
+
+    private byte[] readBlockBytes(MemoryBlock block) {
+        long size = block.getSize();
+        if (size <= 0 || size > 96L * 1024 * 1024) {
+            return null;
+        }
+        try {
+            byte[] buffer = new byte[(int) size];
+            memory.getBytes(block.getStart(), buffer);
+            return buffer;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    private static int indexOfBytes(byte[] haystack, byte[] needle) {
+        outer:
+        for (int i = 0; i + needle.length <= haystack.length; i++) {
+            for (int j = 0; j < needle.length; j++) {
+                if (haystack[i + j] != needle[j]) {
+                    continue outer;
+                }
+            }
+            return i;
+        }
+        return -1;
+    }
+
+    // Diagnostic trace: follow a known mangled type name from the string, to the
+    // pointer that references it, to the type_info and the vtable pointer.
+    private void diagnoseSeeds(File out) throws Exception {
+        MemoryBlock rodataBlock = null;
+        byte[] rodata = null;
+        for (MemoryBlock block : memory.getBlocks()) {
+            if (".rodata".equals(block.getName())) {
+                rodataBlock = block;
+                rodata = readBlockBytes(block);
+                break;
+            }
+        }
+        if (rodata == null || rodataBlock == null) {
+            diagnostics.add("seed diagnostics skipped: .rodata not readable");
+            return;
+        }
+        Map<Long, String> byAddress = new HashMap<>();
+        Map<String, Long> stringAddresses = new LinkedHashMap<>();
+        for (String seed : SEED_NAMES) {
+            int index = indexOfBytes(rodata, seed.getBytes(StandardCharsets.US_ASCII));
+            if (index >= 0) {
+                long address = rodataBlock.getStart().getOffset() + index;
+                byAddress.put(address, seed);
+                stringAddresses.put(seed, address);
+            }
+        }
+        Map<Long, List<Long>> references = new HashMap<>();
+        for (MemoryBlock block : memory.getBlocks()) {
+            if (!block.isInitialized()) {
+                continue;
+            }
+            forEachPointerSlot(block, (slot, value) -> {
+                if (byAddress.containsKey(value)) {
+                    references.computeIfAbsent(value, key -> new ArrayList<>()).add(slot);
+                }
+            });
+        }
+        try (BufferedWriter writer = utf8(new File(out, "seed-diagnostics.txt"))) {
+            writer.write("# Seed diagnostics\n\n");
+            writer.write("Follows a mangled type-name string to the pointer that references it,\n");
+            writer.write("then to the `type_info` object and the vtable pointer.\n\n");
+            for (String seed : SEED_NAMES) {
+                writer.write("## `" + seed + "`\n\n");
+                Long stringAddress = stringAddresses.get(seed);
+                if (stringAddress == null) {
+                    writer.write("- string: NOT FOUND in .rodata\n\n");
+                    continue;
+                }
+                writer.write("- string address: `0x" + Long.toHexString(stringAddress) + "`\n");
+                List<Long> pointers = references.getOrDefault(stringAddress, Collections.emptyList());
+                writer.write("- pointers to string: `" + pointers.size() + "`\n");
+                int shown = 0;
+                for (long pointer : pointers) {
+                    if (shown++ >= 6) {
+                        writer.write("- …\n");
+                        break;
+                    }
+                    MemoryBlock block = blockAt(pointer);
+                    long typeInfo = pointer - PTR;
+                    long offsetToTop = readLong(pointer - 2L * PTR);
+                    boolean known = typeInfoNames.containsKey(typeInfo);
+                    writer.write("- pointer at `0x" + Long.toHexString(pointer) + "` in `"
+                        + (block == null ? "?" : block.getName()) + "`; type_info `0x"
+                        + Long.toHexString(typeInfo) + "` known=" + known
+                        + "; offset_to_top=" + offsetToTop + "\n");
+                    if (known) {
+                        int tables = 0;
+                        for (Vtable table : vtables) {
+                            if (table.typeInfo == typeInfo) {
+                                tables++;
+                            }
+                        }
+                        writer.write("  - vtables built from this type_info: `" + tables + "`\n");
+                    }
+                }
+                writer.write("\n");
+            }
+        }
+        println("seed diagnostics written: " + references.size() + " distinct names referenced");
     }
 
     // ---------------------------------------------------------- class naming
@@ -626,14 +770,19 @@ public class RecoverWorldgen extends GhidraScript {
             if (name == null || name.isEmpty()) {
                 continue;
             }
-            if (!selectEverything && !INCLUDE.matcher(name).find()) {
-                continue;
-            }
-            if (!selectEverything && EXCLUDE.matcher(name).find()) {
-                continue;
+            if (!selectEverything) {
+                if (name.length() > 110 || name.indexOf('?') >= 0) {
+                    continue;
+                }
+                if (EXCLUDE.matcher(name).find()) {
+                    continue;
+                }
+                if (!INCLUDE.matcher(name).find()) {
+                    continue;
+                }
             }
             table.selected = true;
-            table.depth = PRIORITY.matcher(name).find() ? 2 : 1;
+            table.depth = PRIORITY.matcher(name).find() ? 3 : 1;
             selected++;
         }
 
@@ -984,7 +1133,14 @@ public class RecoverWorldgen extends GhidraScript {
                 StringBuilder header = new StringBuilder();
                 header.append("## `").append(Long.toHexString(info.address)).append("`");
                 if (!owners.isEmpty()) {
-                    header.append(" — ").append(String.join(", ", owners).replace("`", "'"));
+                    List<String> sortedOwners = new ArrayList<>(owners);
+                    sortedOwners.sort(Comparator.comparingInt((String value) -> value.length()));
+                    int shownOwners = Math.min(3, sortedOwners.size());
+                    header.append(" — ").append(String.join(", ", sortedOwners.subList(0, shownOwners))
+                        .replace("`", "'"));
+                    if (sortedOwners.size() > shownOwners) {
+                        header.append(" (+").append(sortedOwners.size() - shownOwners).append(" more)");
+                    }
                 }
                 header.append("\n\n");
                 header.append("- instructions: ").append(info.instructionCount).append("\n");
