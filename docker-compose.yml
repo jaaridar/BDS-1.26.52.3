@@ -1,0 +1,30 @@
+# OpenBDS stack: headless Bedrock server with persistent config/logs.
+#
+#   docker compose up -d
+#   docker compose logs -f openbds
+#   docker compose exec openbds node tools/ping.js 127.0.0.1 19132
+
+services:
+  openbds:
+    build: .
+    image: openbds:latest
+    container_name: openbds
+    restart: unless-stopped
+    ports:
+      - "19132:19132/udp"
+    volumes:
+      # Bring your own configuration (drop a server.properties next to this file)
+      - ./server.properties:/app/server.properties:ro
+      - ./data:/app/data
+      - ./logs:/app/logs
+    environment:
+      # Anything from docs/configuration.md can be overridden here:
+      # OPENBDS_ONLINE_MODE: "true"
+      # OPENBDS_MAX_PLAYERS: "20"
+      OPENBDS_LOG_LEVEL: info
+    healthcheck:
+      test: ["CMD", "node", "tools/ping.js", "127.0.0.1", "19132"]
+      interval: 30s
+      timeout: 6s
+      retries: 3
+      start_period: 10s

@@ -1,0 +1,35 @@
+# OpenBDS systemd unit (headless dedicated server)
+#
+# Install:
+#   sudo cp deploy/openbds.service /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now openbds
+#
+# Logs: journalctl -u openbds -f   (plus logs/openbds.log in the working dir)
+
+[Unit]
+Description=OpenBDS - open-source headless Minecraft: Bedrock server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=minecraft
+Group=minecraft
+WorkingDirectory=/opt/openbds
+ExecStart=/usr/bin/node /opt/openbds/bin/openbds.js
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=30
+
+# Hardening - the server only needs its working directory and the network.
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/openbds/logs /opt/openbds/data
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+MemoryMax=2G
+
+[Install]
+WantedBy=multi-user.target

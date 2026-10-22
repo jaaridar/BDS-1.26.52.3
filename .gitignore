@@ -6,3 +6,13 @@ server.log
 backups/
 *.dmp
 crash-*.txt
+
+# --- OpenBDS engine ---
+node_modules/
+package-lock.json.bak
+logs/
+*.pid
+.npm-cache/
+
+# Generated from proprietary data - keep out of public forks (docs/licensing.md)
+data/palettes/

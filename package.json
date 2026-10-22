@@ -1,0 +1,54 @@
+{
+  "name": "openbds",
+  "version": "0.1.0",
+  "description": "OpenBDS - an open-source, headless Minecraft: Bedrock dedicated server",
+  "keywords": [
+    "minecraft",
+    "bedrock",
+    "dedicated-server",
+    "headless",
+    "open-source",
+    "raknet"
+  ],
+  "license": "MIT",
+  "author": "OpenBDS contributors",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaaridar/BDS-1.26.52.3.git"
+  },
+  "homepage": "https://github.com/jaaridar/BDS-1.26.52.3#readme",
+  "bugs": {
+    "url": "https://github.com/jaaridar/BDS-1.26.52.3/issues"
+  },
+  "engines": {
+    "node": ">=22.18"
+  },
+  "main": "src/index.js",
+  "bin": {
+    "openbds": "bin/openbds.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "tools",
+    "docs",
+    "LICENSE",
+    "NOTICE",
+    "README.md"
+  ],
+  "scripts": {
+    "start": "node bin/openbds.js",
+    "test": "node --test test/unit/*.test.js test/integration/*.test.js",
+    "test:unit": "node --test test/unit/*.test.js",
+    "test:integration": "node --test test/integration/*.test.js",
+    "ping": "node tools/ping.js",
+    "palette:gen": "node tools/gen-block-palette.js"
+  },
+  "dependencies": {
+    "bedrock-protocol": "^3.60.1",
+    "jsp-raknet": "^2.1.3"
+  },
+  "optionalDependencies": {
+    "raknet-native": "^1.2.3"
+  }
+}

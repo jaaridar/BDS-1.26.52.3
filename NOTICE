@@ -1,0 +1,69 @@
+OpenBDS - third-party and proprietary material
+==============================================
+
+This repository contains two very different categories of content. Only the
+first one is open source.
+
+1. OpenBDS engine and project files (MIT licensed)
+--------------------------------------------------
+
+Everything under `bin/`, `src/`, `tools/`, `test/`, `scripts/`, `deploy/` and
+`docs/`, plus project metadata (package.json, Dockerfile, workflows, ...), is
+licensed under the MIT License - see LICENSE. Contributions are welcome under
+the same terms (see CONTRIBUTING.md).
+
+The OpenBDS engine is an independent, clean-room implementation of a headless
+Minecraft: Bedrock server. It was written against publicly documented protocol
+behavior and open-source protocol definitions; it is not derived from Mojang
+server source code or from a decompilation of the proprietary server binary.
+
+2. Mojang / Microsoft proprietary material (NOT open source)
+------------------------------------------------------------
+
+The following files are the property of Mojang Studios / Microsoft and are
+redistributed here (or referenced via Git LFS) only as part of a working
+Minecraft: Bedrock Edition dedicated-server distribution. They are covered by
+the Minecraft EULA and the Minecraft Dedicated Server EULA, NOT by the MIT
+license above:
+
+  * bedrock_server                (server binary, stored with Git LFS)
+  * bedrock_server_how_to.html
+  * release-notes.txt
+  * behavior_packs/               (vanilla and chemistry data/behavior packs)
+  * resource_packs/               (vanilla resource packs, __brarchive data)
+  * definitions/                  (attachables, features, spawn groups, ...)
+  * data/                         (bootstrap data)
+  * config/default/               (default configuration data)
+  * server.properties             (Mojang-shipped default configuration)
+  * packetlimitconfig.json
+  * profanity_filter.wlist
+  * allowlist.json / permissions.json defaults as shipped by Mojang
+
+You may use these files to run a Minecraft: Bedrock Edition server subject to
+Mojang's terms (https://www.minecraft.net/eula). You may NOT relicense them as
+open source. If you publish a fork or mirror, keep this NOTICE intact and keep
+the Mojang material clearly marked as proprietary. If you want a fully
+open-source tree, delete the files listed above and run the OpenBDS engine on
+its own - it does not require them.
+
+Trademarks
+----------
+
+"Minecraft" and "Bedrock" are trademarks of Mojang Studios / Microsoft. This
+project is not affiliated with, endorsed by, or connected to Mojang Studios or
+Microsoft. The name "OpenBDS" refers to an open-source dedicated-server
+implementation and claims no official status.
+
+Third-party open-source dependencies
+------------------------------------
+
+OpenBDS uses MIT/ISC-licensed open-source packages (see package.json and
+package-lock.json), notably:
+
+  * bedrock-protocol  (MIT)  - Minecraft: Bedrock protocol library, PrismarineJS
+  * jsp-raknet        (MIT)  - pure-JS RakNet implementation, PrismarineJS
+  * minecraft-data    (MIT)  - protocol/data definitions, PrismarineJS
+  * prismarine-nbt    (MIT)  - NBT reader/writer, PrismarineJS
+  * raknet-native     (ISC)  - optional native RakNet binding (not required)
+
+Each package ships its own license file in node_modules/.
