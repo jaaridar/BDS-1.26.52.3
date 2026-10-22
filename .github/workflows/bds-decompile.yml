@@ -18,7 +18,7 @@ on:
       max_functions:
         description: Maximum functions per shard
         required: false
-        default: "700"
+        default: "600"
   push:
     paths:
       - .github/workflows/bds-decompile.yml
@@ -231,7 +231,7 @@ jobs:
       SHARD: ${{ matrix.shard }}
       SHARDS: '6'
       BUDGET: ${{ github.event.inputs.budget_seconds || '3300' }}
-      MAXFN: ${{ github.event.inputs.max_functions || '700' }}
+      MAXFN: ${{ github.event.inputs.max_functions || '600' }}
     steps:
       - name: Check out repository
         uses: actions/checkout@v4

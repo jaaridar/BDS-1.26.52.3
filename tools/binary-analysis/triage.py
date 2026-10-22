@@ -22,6 +22,7 @@ Dependencies: pyelftools, capstone.
 from __future__ import annotations
 
 import argparse
+import collections
 import hashlib
 import json
 import os
@@ -141,6 +142,9 @@ CORE_PATTERNS = [
 ]
 
 IDENT_TOKEN = re.compile(r"[A-Za-z_][A-Za-z0-9_]*")
+# Functions above this size are almost always generic runtime helpers; keep
+# them out of the target list unless nothing else is left.
+MAX_FUNCTION_BYTES_SOFT = 60000
 MANGLE_PREFIX = re.compile(rb"(\d{1,3})")
 
 
@@ -945,26 +949,29 @@ def main(argv=None) -> int:
 
     # ---- candidate ranking ----------------------------------------------
     log("ranking candidate functions...")
-    scores = {}
-    reasons = {}
+    # Scoring is per (function, category) with a cap per category: without the
+    # cap a utility function reached from hundreds of seeds accumulates an
+    # unbounded score and crowds the real world-generation code out of the
+    # target list.
+    weights = collections.defaultdict(list)
+    hits = collections.defaultdict(collections.Counter)
 
-    def bump(function, amount, reason):
+    def bump(function, category, reason, amount):
         if not function:
             return
-        scores[function] = scores.get(function, 0) + amount
+        hits[function][category] += 1
+        weights[category].append(amount)
         reasons.setdefault(function, set()).add(reason)
 
+    reasons = {}
     core_slots = 0
     for pretty, mangled, table_base, index, target in worldgen_slots:
         weight = class_score(IDENT_TOKEN.findall(mangled))
         if is_core(pretty):
             core_slots += 1
-            bump(target, 120 + weight // 2, "core-vtable:%s#%d" % (pretty, index))
+            bump(target, "core-vtable", "core-vtable:%s#%d" % (pretty, index), 1000 + weight)
         else:
-            # Every world-gen-adjacent virtual function is a candidate: a
-            # surface builder or structure processor slot is as much part of
-            # the algorithm as a generator entry point.
-            bump(target, 24 + weight // 3, "vtable:%s#%d" % (pretty, index))
+            bump(target, "vtable", "vtable:%s#%d" % (pretty, index), 300 + weight)
     log("core world-gen vtable slots: %d" % core_slots)
 
     for target, addrs in references.items():
@@ -973,19 +980,19 @@ def main(argv=None) -> int:
         for address in addrs:
             function = owner.get(address)
             if function:
-                bump(function, weight, "string:%s" % text[:60])
+                bump(function, "string", "string:%s" % text[:60], weight)
 
-    seeds = {function for function, score in scores.items() if score >= 100}
-    log("seeds: %d" % len(seeds))
+    CAPPED = {"core-vtable": (1, 0), "vtable": (1, 0), "string": (4, 0),
+              "callee1": (3, 0), "callee2": (2, 0),
+              "caller-of-seed": (3, 0), "caller-of-callee": (1, 0)}
 
     edges_out, edges_in = ({}, {})
-    if seeds and not args.skip_sweep:
+    seed_set = {function for function in hits if hits[function]["core-vtable"] or hits[function]["vtable"]}
+    log("vtable-derived seeds: %d" % len(seed_set))
+    if seed_set and not args.skip_sweep:
         log("building call edges around seeds...")
-        edges_out, edges_in = build_call_edges(binary, starts, seeds, {})
+        edges_out, edges_in = build_call_edges(binary, starts, seed_set, {})
 
-        # Hop 1 and hop 2: the interesting work (noise synthesis, surface
-        # rules, placement logic) usually sits one or two calls below a
-        # virtual entry point, so pull both rings in with decreasing weight.
         hop1 = set()
         for function, callees in edges_out.items():
             for callee in callees:
@@ -993,13 +1000,13 @@ def main(argv=None) -> int:
                 # crowd out the focused world-generation functions.
                 if function_size.get(callee, 0) > 60000:
                     continue
-                bump(callee, 26, "callee-of:0x%x" % function)
+                bump(callee, "callee1", "callee-of:0x%x" % function, 26)
                 hop1.add(callee)
         for function, callers in edges_in.items():
             for caller in callers:
                 if function_size.get(caller, 0) > 120000:
                     continue
-                bump(caller, 12, "caller-of-seed")
+                bump(caller, "caller-of-seed", "caller-of-seed", 12)
 
         if hop1:
             log("expanding one more call ring (%d functions)..." % len(hop1))
@@ -1008,15 +1015,28 @@ def main(argv=None) -> int:
                 for callee in callees:
                     if function_size.get(callee, 0) > 24000:
                         continue
-                    bump(callee, 11, "callee2-of:0x%x" % function)
+                    bump(callee, "callee2", "callee2-of:0x%x" % function, 11)
                     edges_out.setdefault(function, set()).add(callee)
             for function, callers in hop2_in.items():
                 for caller in callers:
                     if function_size.get(caller, 0) > 60000:
                         continue
-                    bump(caller, 5, "caller-of-callee")
+                    bump(caller, "caller-of-callee", "caller-of-callee", 5)
                     edges_in.setdefault(function, set()).add(caller)
             log("call edges after expansion: %d out, %d in" % (len(edges_out), len(edges_in)))
+
+    scores = {}
+    for function, categories in hits.items():
+        total = 0
+        for category, count in categories.items():
+            cap = CAPPED.get(category, (count, 0))[0]
+            amount = max(weights[category])
+            total += min(count, cap) * amount
+        scores[function] = total
+
+    for function, score in scores.items():
+        if function_size.get(function, 0) > MAX_FUNCTION_BYTES_SOFT:
+            scores[function] = int(score * 0.2)
 
     with open(os.path.join(args.outdir, "callgraph-worldgen.tsv"), "w") as handle:
         handle.write("function\tcallees\tcallers\n")
@@ -1040,7 +1060,8 @@ def main(argv=None) -> int:
                 except ValueError:
                     continue
                 label = fields[2] if len(fields) > 2 else "round-2-seed"
-                bump(function, score, label)
+                scores[function] = scores.get(function, 0) + score
+                reasons.setdefault(function, set()).add(label)
                 extra_count += 1
         log("merged %d externally supplied targets" % extra_count)
 
