@@ -1,0 +1,6 @@
+string	string_addr	referenced_by
+minecraft:biome_source	0x2041	0x1678
+minecraft:density	0x2058	0x1678
+minecraft:aquifer	0x206a	0x1678
+minecraft:surface_builder	0x207c	0x1678
+worldgen key table: %d	0x2096	0x1678

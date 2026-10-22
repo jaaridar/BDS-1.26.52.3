@@ -1,7 +1,9 @@
 script: DecompileTargets.java
-program: small.bin
+program: fixture
 image base: 00100000
-functions in program: 229
+image bias (program - ELF): 0x100000
+ELF .text vaddr: 0x1160
+functions in program: 29
 functions prepared: 0
 functions decompiled: 0
 functions failed: 0

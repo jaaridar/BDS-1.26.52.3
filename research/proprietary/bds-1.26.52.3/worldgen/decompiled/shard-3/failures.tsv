@@ -1,69 +1,9 @@
 detail
 0x871a310	skipped-oversized:201072
-0x517aae0	no-function-after-create
-0xca33450	no-function-after-create
-0x402c2d0	not-in-executable-block
-0x5186940	no-function-after-create
-0x517a670	no-function-after-create
-0x5187590	no-function-after-create
-0x5186c40	no-function-after-create
-0x517e8e0	no-function-after-create
-0x51815d0	no-function-after-create
-0x51f0d20	no-function-after-create
-0x51f0d10	no-function-after-create
-0x51f34f0	no-function-after-create
-0x51f5070	no-function-after-create
-0x51f58f0	no-function-after-create
-0x51f5d40	no-function-after-create
 0x50ce980	skipped-oversized:503840
-0xda611c0	no-function-after-create
-0xda615a0	no-function-after-create
-0x51d3480	no-function-after-create
-0xc970ba0	no-function-after-create
-0xd2a5280	no-function-after-create
-0x4953630	no-function-after-create
-0x49b34f0	no-function-after-create
-0x5250920	no-function-after-create
-0xd226050	no-function-after-create
-0xd209400	no-function-after-create
-0x51f4f20	no-function-after-create
-0x5248470	no-function-after-create
-0x5258db0	no-function-after-create
-0xd1d9b30	no-function-after-create
-0xd1d5ee0	no-function-after-create
-0xd1d5fb0	no-function-after-create
-0xd1d9d50	no-function-after-create
-0xd1d9d90	no-function-after-create
-0xd1d9b90	no-function-after-create
-0xd1d9930	no-function-after-create
-0xd1d9810	no-function-after-create
-0xd1c45a0	no-function-after-create
-0x497b3f0	no-function-after-create
-0xc95fb00	no-function-after-create
-0xc969b70	no-function-after-create
-0xc969e50	no-function-after-create
-0x49a19a0	no-function-after-create
-0x49a19c0	no-function-after-create
-0x49a1a10	no-function-after-create
-0x49a1a40	no-function-after-create
-0x49a1a60	no-function-after-create
-0xc9696c0	no-function-after-create
-0x49a1a90	no-function-after-create
-0x49a1ab0	no-function-after-create
-0xc9687f0	no-function-after-create
-0xc9697c0	no-function-after-create
-0xc96a120	no-function-after-create
-0x61415a0	no-function-after-create
-0x5250120	no-function-after-create
-0x523dba0	no-function-after-create
-0xc5cc0d0	no-function-after-create
-0x523dc30	no-function-after-create
-0xc5cbf70	no-function-after-create
-0xc5cbf90	no-function-after-create
-0x517c470	decompile: Exception while decompiling 0517c470: process: timeout 
-0x5186930	decompile: Exception while decompiling 05186930: process: timeout 
-0x51f39e0	decompile: Exception while decompiling 051f39e0: process: timeout 
-0x4979ed0	decompile: Exception while decompiling 04979ed0: process: timeout 
-0x48cce40	decompile: Exception while decompiling 048cce40: process: timeout 
-0x5c2c950	decompile: Exception while decompiling 05c2c950: process: timeout 
-0xd24d110	decompile:  Low-level Error: Cannot properly adjust input varnodes
+0xea7cb80	decompile: Exception while decompiling 0eb7cb80: Response buffer size exceeded for: bedrock_server 
+0xca5db60	decompile: Exception while decompiling 0cb5db60: process: timeout 
+0xc4d7da0	decompile: Exception while decompiling 0c5d7da0: process: timeout 
+0xc327190	decompile: Exception while decompiling 0c427190: process: timeout 
+0xebaf190	decompile: Exception while decompiling 0ecaf190: process: timeout 
+0x614ddd0	decompile:  Low-level Error: Symbol offset is incompatible with VariableGroup

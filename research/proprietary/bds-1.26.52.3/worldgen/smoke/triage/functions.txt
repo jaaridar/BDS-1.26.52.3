@@ -1,0 +1,5 @@
+fde_function_starts	52
+text_bytes	0x9da
+mean_bytes_per_function	48.5
+first	0x1020
+last	0x1aee

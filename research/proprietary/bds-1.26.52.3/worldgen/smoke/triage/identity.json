@@ -1,0 +1,20 @@
+{
+  "binary": "fixture",
+  "build_id": "52ea51041dccc23ba58a50860ed990547b066f1a",
+  "comment": "GCC: (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "debuglink": null,
+  "elf_type": "ET_DYN",
+  "expected_digest_matched": true,
+  "expected_sha256": null,
+  "load_base": 0,
+  "machine": "EM_X86_64",
+  "needed": [
+    "libstdc++.so.6",
+    "libm.so.6",
+    "libgcc_s.so.1",
+    "libc.so.6"
+  ],
+  "sha256": "fa13efc1ae32b078c77c5eab15e6f5436216e706e60da97cd9366331536d65d9",
+  "size": 14640,
+  "text_vaddr": 4448
+}

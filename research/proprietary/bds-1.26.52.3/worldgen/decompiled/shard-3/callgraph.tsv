@@ -1,76 +1,95 @@
 function	label	callees	callers
 0xca31390	WorldGenerator::vslot3		
-0xca313f0	WorldGenerator::vslot7	0xca313f0	0xca313f0
+0xca313f0	WorldGenerator::vslot7		
 0xca32750	WorldGenerator::vslot13		
-0xca33130	WorldGenerator::vslot19		
+0xca33130	WorldGenerator::vslot19	0x412c2d0	
 0xca333a0	WorldGenerator::vslot23		
 0xca333c0	WorldGenerator::vslot27		
 0xca33430	WorldGenerator::vslot31		
 0xca2f0a0	WorldGenerator::vslot35		
 0xc972b00	WorldGenerator::vslot41		
 0xc970bf0	WorldGenerator::vslot43		
+0x517c470	OverworldGeneratorMultinoise::vslot10	0xcb3ae10,0x412c2d0	
+0x517aae0	OverworldGeneratorMultinoise::vslot48		
 0x523db30	VanillaSurfaceBuilders::TheEndSurfaceBuilder::vslot0		
-0xd200630	string:auto Puv::SlicedLoader<SharedTypes::v1_21_20::JigsawStructur		
+0xca33450	WorldGenerator::vslot40		
+0xd200630	string:auto Puv::SlicedLoader<SharedTypes::v1_21_20::JigsawStructur	0x412c2d0	
 0x5258ea0	MultinoiseGenerationRulesBiomeComponentGlue::vslot0		
 0x493aaf0	BiomeSource3d::vslot4		
 0xaf95f80	string:Spawn rules for minecraft:density_limit in {} need to be put		
-0xe3f1ef0	string:A Jigsaw Structure Set is a collection of Jigsaw Structures		
+0xe3f1ef0	string:A Jigsaw Structure Set is a collection of Jigsaw Structures	0x48b05a0,0x48b0c90,0x5d9c620,0x48b5060,0x48aea50,0x412c2d0	
+0x402c2d0	callee-of:0x4de9260		0xe501380,0xd300630,0xd31b1e0,0xd2d9f20,0xd35ce20,0x4a3b290,0xcb3ae10,0x527c470,0xdb611c0,0xdb359f0,0xecaf190,0xdb60240,0x5350920,0xca5fac0,0x88b46b0,0xe6d0070,0xcb2cd50,0xb9502f0,0x8599030,0xc6ca820,0xb768e30,0xd309400,0xc8e3540,0x624ddd0,0xc6cf380,0xd880dc0,0x7a941e0,0xd2d03b0,0xe745310,0x5d2c950,0xd326050,0xe510f80,0xe2c45c0,0xc8b7b90,0xcb33130,0xe4f1ef0,0x48aea50,0xdb615a0,0xdce70d0,0xeb7cb80,0xc8b8060
+0x5186940	OverworldGeneratorMultinoise::vslot1		
+0x517a670	OverworldGenerator::vslot0		
+0x5186930	OverworldGeneratorMultinoise::vslot0		
 0x518a520	OverworldGeneratorMultinoise::vslot49		
+0x5187590	OverworldGeneratorMultinoise::vslot57		
+0x5186c40	OverworldGeneratorMultinoise::vslot61		
 0xc786220	string:climate		
 0xc74fde0	FixedBiomeSource::vslot3		
+0x517e8e0	OverworldGenerator2d::vslot56	0x488f040	
+0x51815d0	OverworldGenerator2d::vslot62		
 0x48caae0	br::worldgen::WorldGenRandom::vslot11		
 0x48cab60	br::worldgen::WorldGenRandom::vslot15		
-0xea7cb80	string:Spawn DensityLimit		
 0x495e290	BiomeSource3d::vslot0		
 0x493b030	BiomeSource3d::vslot7		
-0x493b290	BiomeSource3d::vslot11		
+0x493b290	BiomeSource3d::vslot11	0x412c2d0	
 0xc7e7ff0	SharedTypes::Beta::SurfaceBuilderBiomeJsonComponent::vslot0		
 0xc7e48d0	SharedTypes::v1_26_30::SurfaceBuilderBiomeJsonComponent::vslot0		
 0x52452b0	WorldGenClimateMappingAttributes::vslot0		
 0xe875070	callee-of:0xe706340		
+0x51f39e0	VanillaSurfaceBuilders::NoiseGradientSurfaceBuilder::vslot4		
 0xc7bf340	SurfaceBuilderComponent::vslot1		
 0xc752230	VanillaSurfaceBuilders::CappedSurfaceBuilder::vslot3		
 0xc759ac0	VanillaSurfaceBuilders::CappedSurfaceBuilder::MaterialHelper::vslot0		
 0xc751df0	VanillaSurfaceBuilders::CappedSurfaceBuilder::MaterialHelper::vslot4		
-0x523d9f0	VanillaSurfaceBuilders::OceanFrozenSurfaceBuilder::vslot0		
+0x51f0d20	VanillaSurfaceBuilders::LegacyMesaSurfaceBuilder::vslot2	0xd3430a0	
+0x51f0d10	VanillaSurfaceBuilders::LegacyMesaSurfaceBuilder::vslot6		
+0x51f34f0	VanillaSurfaceBuilders::MesaSurfaceBuilder::vslot3		
+0x523d9f0	VanillaSurfaceBuilders::OceanFrozenSurfaceBuilder::vslot0	0x52f4f20	
+0x51f5070	VanillaSurfaceBuilders::OceanFrozenSurfaceBuilder::vslot4		
 0xc752b20	VanillaSurfaceBuilders::OverworldDefaultSurfaceBuilder::vslot2		
 0xc754010	VanillaSurfaceBuilders::OverworldDefaultSurfaceBuilder::vslot6		
+0x51f58f0	VanillaSurfaceBuilders::SwampSurfaceBuilder::vslot3		
 0x523db40	VanillaSurfaceBuilders::TheEndSurfaceBuilder::vslot1		
+0x51f5d40	VanillaSurfaceBuilders::TheEndSurfaceBuilder::vslot5		
 0xe768960	SharedTypes::v1_20_60::ClimateBiomeJsonComponent::vslot1		
 0x48ca710	XoroshiroRandom::vslot2		
 0x48ca860	XoroshiroRandom::vslot6		
 0x485b6e0	XoroshiroRandom::vslot10		
-0xca2cd50	string:surfaceBuildersResolved		
-0xe401380	string:Jigsaw Processro Type		
-0xc7e3540	string:The SurfaceBuilderComponent could not be resolved.		
-0xd235180	string:Index out of jigsaw block metadata range		
-0x47b0c90	callee-of:0x7e0b3b0		
-0x47b05a0	callee-of:0x7e0b3b0		
-0xca5db60	string:minecraft:cave_spider		
-0xda60240	callee-of:0xda370f0		
-0x47b5060	callee-of:0xda370f0		
-0xda34c00	callee-of:0xeba2170		
-0xe7bb270	callee-of:0xe7af270		
-0xd21b1e0	caller-of-seed		
-0x4953a10	string:minecraft:multinoise_generation_rules		
+0xca2cd50	string:surfaceBuildersResolved	0xeee3ab0,0x4a7efb0,0x412c2d0	
+0xe401380	string:Jigsaw Processro Type	0x48b05a0,0x48b0c90,0x5d9c620,0x48b5060,0x412c2d0	
+0xc7e3540	string:The SurfaceBuilderComponent could not be resolved.	0x412c2d0	
+0xd235180	string:Index out of jigsaw block metadata range		0xd31b1e0
+0x47b0c90	callee-of:0x7e0b3b0	0x48b0c90	0xe501380,0x48b0c90,0xe510a70,0xe745310,0xe8bb270,0xdb359f0,0x7f0ad80,0xecaf190,0xe2c45c0,0xe6d0070,0xe4f1ef0,0xdce70d0,0xeb7cb80
+0x47b05a0	callee-of:0x7e0b3b0		0xe501380,0xd880dc0,0x7a941e0,0xe745310,0xdb611c0,0xdb359f0,0x5d2c950,0xecaf190,0xe510f80,0xe2c45c0,0xdb60240,0x88b46b0,0xe6d0070,0xe4f1ef0,0xdb615a0,0xdce70d0,0xeb7cb80,0x8599030
+0xda60240	callee-of:0xda370f0	0x48b05a0,0x5d9c620,0x412c2d0	
+0xda611c0	callee-of:0xda370f0	0x48b05a0,0x5d9c620,0x412c2d0	
+0x47b5060	callee-of:0xda370f0		0xe501380,0xecaf190,0xe2c45c0,0xe6d0070,0xe4f1ef0,0xe745310,0xeb7cb80,0xdb359f0
+0xda615a0	callee-of:0xda370f0	0x48b05a0,0x5d9c620,0x412c2d0	
+0xda34c00	callee-of:0xeba2170		0xdb359f0
+0xe7bb270	callee-of:0xe7af270	0x48b0c90	
+0xd21b1e0	caller-of-seed	0x412c2d0,0x4882e30,0xd335180	
+0x4953a10	string:minecraft:multinoise_generation_rules		0x4a53380
+0x4979ed0	string:ZN21BiomeJsonDocumentGlue17registerComponentIN11SharedTypes8		
 0x51be830	string:ZN18OverworldGenerator9loadChunkER10LevelChunkbE3$_0		
 0x8826f90	string:virtual void cereal::internal::TypeSchema<std::optional<Biom		
 0xc7817c0	string:ZN15ISurfaceBuilder24SurfaceBuilderParametersC1ERK5BiomePK18		
 0xc7dc630	string:ZN3Puv14CerealUpgraderIN11SharedTypes7v1_26_017BiomeJsonDocu		
-0xd1fe510	string:[[Jigsaw Structure]] Couldn't find anchor named `%s` in elem		
+0xd1fe510	string:[[Jigsaw Structure]] Couldn't find anchor named `%s` in elem	0x4882e30	0x624ddd0
 0x47ae910	callee-of:0x871a310		
 0x47b0ac0	callee-of:0x871a310		
 0xd1c4580	br::worldgen::processors::JigsawReplacement::vslot0		
-0x5c9c620	callee-of:0x7e0b3b0		
+0x51d3480	callee-of:0x4e2bb50		
+0x5c9c620	callee-of:0x7e0b3b0	0xeee3ab0	0xe501380,0xecaf190,0xe510f80,0xdb60240,0x88b46b0,0xd880dc0,0xe4f1ef0,0x7a941e0,0xdb615a0,0xeb7cb80,0xdb611c0,0x8599030
 0x493f6c0	string:/mnt/vss/_work/1/s/handheld/src-vanilla/vanilla_shared/src/c		
-0x4953380	string:minecraft:subsurface_builder		
+0x4953380	string:minecraft:subsurface_builder	0x4a53a10,0x4a53630,0x4a54120	
 0xd325480	string:minecraft:weighted_random_feature		
-0x79941e0	string:SubChunk_BiomeData		
+0x79941e0	string:SubChunk_BiomeData	0x48b05a0,0x5d9c620,0x412c2d0	
 0xafb24f0	string:is_temperature_value		
-0xc4d7da0	string:The Biome temperature catagory to test		
-0xd25ce20	string:minecraft:jigsaw_structure_metadata		
-0xd780dc0	string:Factory<Type> cereal::BasicFactory<SharedTypes::JigsawJointT		
-0xe410f80	string:Factory<Type> cereal::BasicFactory<SharedTypes::v1_21_20::Ji		
+0xd25ce20	string:minecraft:jigsaw_structure_metadata	0x412c2d0	
+0xd780dc0	string:Factory<Type> cereal::BasicFactory<SharedTypes::JigsawJointT	0x48b05a0,0x5d9c620,0x412c2d0	0xd880440
+0xe410f80	string:Factory<Type> cereal::BasicFactory<SharedTypes::v1_21_20::Ji	0x48b05a0,0x5d9c620,0x412c2d0	
 0xe4346d0	string:static const BasicSchema::EnumMapping::View &cereal::interna		
 0xe456b90	string:static const BasicSchema::EnumMapping::View &cereal::interna		
 0xe5652e0	string:static const BasicSchema::EnumMapping::View &cereal::interna		
@@ -78,76 +97,84 @@ function	label	callees	callers
 0x82e9b20	JigsawStructureDataPacket::vslot3		
 0xe032560	SharedTypes::v1_26_0::BiomeReplacementConstraint::vslot1		
 0x6140cd0	Editor::Services::EditorJigsawService::vslot7		
-0x87b46b0	callee-of:0x871a310		
-0xd780440	callee-of:0xe1d0880		
+0x87b46b0	callee-of:0x871a310	0x48b05a0,0x5d9c620,0x412c2d0	
+0xd780440	callee-of:0xe1d0880	0xd880dc0	
 0xd1d9b20	br::worldgen::UniformHeight::vslot0		
-0xd2430a0	callee-of:0x4e2bb50		
+0xd2430a0	callee-of:0x4e2bb50		0x52f0d20
 0x8a14040	JigsawStructureDataPacket::vslot10		
 0xd231480	StructurePoolBlockPredicateCappedRandomBlockReplacement::vslot8		
+0xc970ba0	WorldGenerator::vslot0		
 0xca32730	WorldGenerator::vslot11		
-0x7e0ad80	callee-of:0x7e0b3b0		
-0xe410a70	callee-of:0xe3ddaa0		
+0x7e0ad80	callee-of:0x7e0b3b0	0x48b0c90	
+0xe410a70	callee-of:0xe3ddaa0	0x48b0c90	
 0xe442af0	callee-of:0xe4118a0		
 0xe55d060	callee-of:0xe3ddaa0		
 0xc97b600	_GLOBAL__N_1::WorldGeneratorAnon::StructureAccess::vslot0		
 0xc972ac0	_GLOBAL__N_1::WorldGeneratorAnon::StructureAccess::vslot4		
 0x8716ca0	caller-of-seed		
-0x497efb0	callee-of:0x517c470		
-0x4782e30	callee-of:0x5a1f120		
+0x48cce40	callee-of:0x5156180		
+0x497efb0	callee-of:0x517c470		0xcb2cd50
+0x4782e30	callee-of:0x5a1f120		0xcb5db60,0xd31b1e0,0x48e8d90,0xd500ec0,0xd2fe510
 0xd2c3920	FlatWorldGenerator::vslot1		
 0xd2a5240	FlatWorldGenerator::vslot42		
+0xd2a5280	FlatWorldGenerator::vslot47		
 0xd2a5b40	FlatWorldGenerator::vslot51		
-0x47e8d90	string:jigsaw-persistence-enabled		
+0x47e8d90	string:jigsaw-persistence-enabled	0x4882e30	
 0xc9ac9f0	string:minecraft:overworld		
-0x4954120	string:minecraft:surface_builder		
+0x4953630	string:minecraft:humidity		0x4a53380
+0x4954120	string:minecraft:surface_builder		0x4a53380
+0x49b34f0	string:ZN14FeatureLoading28_addCaveFeatureMembersCommonIN8JsonUtil2		
 0x4a02710	string:ZNK24SpeleothemClusterFeature12_placeColumnER17IBlockWorldGe		
 0xd410380	string:minecraft:aggregate_feature		
+0x5250920	string:Biome named: %s contains %s component which is a pre-caves a	0x412c2d0	
+0x5c2c950	string:disable_terrain_rendering	0x48b05a0,0x412c2d0	
 0x619dfd0	string:ZN12_GLOBAL__N_123EditorJigsawServiceAnon21_placeOrDeferSect		
 0x623d5d0	string:{}, ()NSt3__110__function6__funcIZN6Editor8Services19EditorJ		
 0x68cf450	string:DisableTerrainRendering		
 0x6b285c0	string:ZN6Editor12ScriptModule19ScriptJigsawServiceC1EPNS_8Services		
 0x6b3c7b0	string:ZN9Scripting18EnumBindingBuilderIN11SharedTypes15JigsawJoint		
-0x8499030	string:Temperature		
+0x8499030	string:Temperature	0x48b05a0,0x5d9c620,0x412c2d0	
 0x7e079c0	string:Contains subchunk terrain data, heightmaps, and optional blo		
 0xc797d50	string:temperature		
 0x88076c0	string:ZNK6cereal8internal10TypeSchemaINSt3__16vectorI28BiomeWeight		
 0x9be4800	string:ZN12_GLOBAL__N_116PlaceCommandAnon21_placeOrDeferSectionsER1		
 0xa2174f0	string:ZN9Scripting18EnumBindingBuilderINSt3__112basic_stringIcNS1_		
 0xc4ca540	string:is_temperature_value		
-0xb668e30	string:CustomBiomeSource		
-0xb8502f0	string:Custom biome source with provided ID not found		
+0xb668e30	string:CustomBiomeSource	0x412c2d0	
+0xb8502f0	string:Custom biome source with provided ID not found	0x412c2d0	
 0xb9dadd0	string:ZN9Scripting8internal19BaseScriptComponentC1IN6Editor12Scrip		
-0xc327190	string:minecraft:cave_spider_spawn_egg		
 0xc55e1b0	string:ZN11BlockEvents18BlockEventExecutorINS_24BlockPlayerInteract		
 0xc5c4100	string:ZN11BlockEvents18BlockEventExecutorINS_20BlockQueuedTickEven		
 0xc7add30	string:ZN12BinaryStream15writeVectorListI28BiomeWeightedTemperature		
-0xc7b7b90	string:worldGenerator		
+0xc7b7b90	string:worldGenerator	0x412c2d0	
 0xc7e9c40	string:Biomes in Nether are only compatible with following Surface		
 0xc7ea0c0	string:Biomes in Nether are only compatible with following Surface		
-0xda359f0	string:minecraft:biome		
+0xda359f0	string:minecraft:biome	0x48b05a0,0x48b0c90,0x48b5060,0x412c2d0,0xdb34c00	
 0xd1d4f40	string:void br::worldgen::StructureInstance::placeEntities(BlockSou		
 0xcd372c0	string:Tint method logic varies, but often refers to the "rain" and		
 0xcf4ee40	string:ZN18SculkBlockBehavior15_canPlaceGrowthER17IBlockWorldGenAPI		
-0xd1d03b0	string:JigsawReplacement		
+0xd1d03b0	string:JigsawReplacement	0x412c2d0	
 0xd20ae50	string:M21JigsawStructureLoaderFbNSt3__117basic_string_viewIcNS0_11		
 0xd21f400	string:ZN2br8worldgen15JigsawAssembler9constructERNS0_17GenerationC		
+0xd226050	string:bool cereal::BasicLoader::load(SchemaReader &, Type &, const	0x412c2d0	
+0xd24d110	string:ZN16PoolAliasBinding22registerTargetsAsPoolsER23JigsawStruct		
 0xd2925f0	string:ZN12VillagePiece9addPiecesE8BlockPosRNSt3__16vectorINS1_10un		
 0xd2ccbb0	string:ZN12BastionPiece9addPiecesE8BlockPosRNSt3__16vectorINS1_10un		
 0xd3e55f0	string:ZNK20SnapToSurfaceFeature23_findSnapPosInDirectionER17IBlock		
-0xd400ec0	string:minecraft:feature_rules		
-0xdbe70d0	string:Tint method logic varies, but often refers to the "rain" and		
-0xe1c45c0	string:minecraft:biome_music		
+0xd400ec0	string:minecraft:feature_rules	0xeee3ab0,0x4882e30	
+0xdbe70d0	string:Tint method logic varies, but often refers to the "rain" and	0x48b05a0,0x48b0c90,0x48aea50,0x412c2d0	
+0xe1c45c0	string:minecraft:biome_music	0x48b05a0,0x48b0c90,0x48b5060,0x412c2d0	
 0xe24ad30	string:minecraft:biome_music		
 0xe2a8fd0	string:virtual bool cereal::internal::TypeSchema<std::unordered_map		
 0xe2de2f0	string:JigsawJunction		
 0xe3b5920	string:ZNK6cereal8internal10TypeSchemaINSt3__16vectorIN11SharedType		
 0xe517a80	string:ZNK6cereal8internal10TypeSchemaINSt3__16vectorIN11SharedType		
 0xe59e360	string:ZNK6cereal8internal10TypeSchemaINSt3__16vectorIN11SharedType		
-0xe5d0070	string:minecraft:biome_music		
-0xe645310	string:minecraft:biome_music		
+0xe5d0070	string:minecraft:biome_music	0x48b05a0,0x48b0c90,0x48b5060,0x48aea50,0x412c2d0	
+0xe645310	string:minecraft:biome_music	0x48b05a0,0x48b0c90,0x48b5060,0x412c2d0	
 0xe7876a0	string:minecraft:biome_music		
 0xe8e09b0	string:ZNK6cereal8internal10TypeSchemaINSt3__15arrayINS2_7variantIJ		
-0xebaf190	string:terrain		
+0xd209400	br::worldgen::JigsawStructureBuilder::vslot0	0x412c2d0	
 0xd1d9790	br::worldgen::processors::JigsawReplacement::vslot4		
 0x48cad70	EditorCustomBiomeSource::vslot1		
 0x485d360	EditorCustomBiomeSource::vslot5		
@@ -158,64 +185,96 @@ function	label	callees	callers
 0xd1d9de0	br::worldgen::WorldGenRandom::vslot1		
 0xd1d5a90	br::worldgen::WorldGenRandom::vslot5		
 0xd1d5bd0	br::worldgen::WorldGenRandom::vslot9		
-0x478f040	callee-of:0x517a720		
-0xca3ae10	callee-of:0x517c470		
-0xede3ab0	callee-of:0xbf19d20		
-0x47aea50	callee-of:0xe3ddaa0		
+0x478f040	callee-of:0x517a720		0x527e8e0
+0xca3ae10	callee-of:0x517c470	0x412c2d0	0x527c470
+0x51f4f20	callee-of:0x51f40e0		0x533d9f0
+0xede3ab0	callee-of:0xbf19d20		0x5d9c620,0xcb2cd50,0xd500ec0,0xca687e0
+0x47aea50	callee-of:0xe3ddaa0	0x48aea50,0x412c2d0	0xe6d0070,0xe4f1ef0,0x48aea50,0xdce70d0
 0x5258980	OverworldGenerationRulesBiomeComponentGlue::vslot0		
 0xd1c4590	br::worldgen::StructureProcessor::vslot1		
 0xd1d6bb0	br::worldgen::processors::BlockIgnore::vslot0		
 0xd1d6c60	br::worldgen::processors::BlockIgnore::vslot5		
 0xd1d9d40	br::worldgen::processors::BlockRules::RandomBlockStateMatch::vslot1		
-0xc7b8060	Biome::vslot0		
+0xc7b8060	Biome::vslot0	0x412c2d0	
 0x835d0b0	JigsawStructureDataPacket::vslot1		
 0x82e9c30	JigsawStructureDataPacket::vslot7		
 0x82ea520	JigsawStructureDataPacket::vslot12		
 0x82ea790	JigsawStructureDataPacket::vslot16		
 0xd1d9e80	JigsawStructurePostprocessAction::vslot1		
+0x5248470	NoiseGradientBiomeSurfaceComponent::vslot1		
 0xe1e0440	SharedTypes::v1_21_80::BiomeReplacementConstraint::vslot3		
 0xe056cd0	SharedTypes::v1_26_0::BiomeReplacementConstraint::vslot3		
+0x5258db0	SurfaceMaterialAdjustmentsBiomeComponentGlue::vslot1		
+0xd1d9b30	br::worldgen::UniformHeight::vslot1		
 0xd1d6070	br::worldgen::processors::BlockEntity::AppendLoot::vslot2		
+0xd1d5ee0	br::worldgen::processors::BlockEntity::Modifier::vslot2		
+0xd1d5fb0	br::worldgen::processors::BlockEntity::Passthrough::vslot2		
 0xd1d7410	br::worldgen::processors::BlockRules::AlwaysTrue::vslot3		
 0xd1d9d20	br::worldgen::processors::BlockRules::BlockStateMatch::vslot1		
-0xd1d9f20	br::worldgen::processors::Capped::vslot1		
+0xd1d9d50	br::worldgen::processors::BlockRules::TagMatch::vslot1		
+0xd1d9d90	br::worldgen::processors::BlockRules::Test::vslot1		
+0xd1d9f20	br::worldgen::processors::Capped::vslot1	0x412c2d0	
 0xd1d9fb0	br::worldgen::processors::Gravity::vslot1		
+0xd1d9b90	br::worldgen::processors::PosRules::AlwaysTrue::vslot1		
+0xd1d9930	br::worldgen::processors::PosRules::AxisAlignedLinear::vslot2		
+0xd1d9810	br::worldgen::processors::PosRules::Test::vslot2		
 0xd1be540	br::worldgen::processors::ProtectedBlock::vslot2		
-0xc95fac0	Dimension::vslot0		
-0xc9687e0	Dimension::vslot2		
+0xd1c45a0	br::worldgen::processors::Rule::vslot1		
+0x497b3f0	BiomeDimensionAttributes::vslot1		
+0xc95fac0	Dimension::vslot0	0x412c2d0	
+0xc95fb00	Dimension::vslot1		
+0xc9687e0	Dimension::vslot2	0xeee3ab0	
+0xc969b70	Dimension::vslot4		
+0xc969e50	Dimension::vslot6		
 0xc9651e0	Dimension::vslot8		
+0x49a19a0	Dimension::vslot10		
+0x49a19c0	Dimension::vslot12		
 0x49a19e0	Dimension::vslot14		
+0x49a1a10	Dimension::vslot17		
+0x49a1a40	Dimension::vslot20		
+0x49a1a60	Dimension::vslot23		
+0xc9696c0	Dimension::vslot25		
+0x49a1a90	Dimension::vslot27		
+0x49a1ab0	Dimension::vslot29		
 0x49a1ad0	Dimension::vslot31		
+0xc9687f0	Dimension::vslot35		
+0xc9697c0	Dimension::vslot39		
+0xc96a120	Dimension::vslot43		
 0xc961440	Dimension::vslot47		
 0x6140ae0	Editor::Services::EditorJigsawService::vslot1		
 0x5ea9cf0	Editor::Services::EditorJigsawService::vslot4		
 0x6140ed0	Editor::Services::EditorJigsawService::vslot6		
-0x614ddd0	Editor::Services::EditorJigsawService::vslot8		
 0x6141550	Editor::Services::EditorJigsawService::vslot10		
-0x614e4b0	Editor::Services::EditorJigsawService::vslot12		
-0x614e3b0	Editor::Services::EditorJigsawService::vslot21		
+0x614e4b0	Editor::Services::EditorJigsawService::vslot12	0x624e3b0	
+0x61415a0	Editor::Services::EditorJigsawService::vslot15		
+0x614e3b0	Editor::Services::EditorJigsawService::vslot21		0x624e4b0
 0x84858c0	FeatureRegistryPacket::vslot2		
 0x8485ad0	FeatureRegistryPacket::vslot7		
 0x84863c0	FeatureRegistryPacket::vslot12		
 0x8486630	FeatureRegistryPacket::vslot16		
+0x5250120	FrozenNoiseBasedBiomeComponentGlue::vslot3		
 0xc5c9d20	JigsawBlock::vslot4		
 0xc5ca480	JigsawBlock::vslot8		
 0xc5ca680	JigsawBlock::vslot12		
 0xc5cbdb0	JigsawBlock::vslot16		
+0x523dba0	JigsawBlock::vslot20		
 0xc5ced10	JigsawBlock::vslot24		
 0xc5ced90	JigsawBlock::vslot28		
 0xc5cedd0	JigsawBlock::vslot32		
 0xc5cc070	JigsawBlock::vslot36		
 0x523dbd0	JigsawBlock::vslot40		
+0xc5cc0d0	JigsawBlock::vslot44		
 0xc5ce1f0	JigsawBlock::vslot48		
 0x523dc10	JigsawBlock::vslot52		
+0x523dc30	JigsawBlock::vslot56		
 0xc5ce640	JigsawBlock::vslot60		
+0xc5cbf70	JigsawBlock::vslot64		
 0xc5cdd10	JigsawBlock::vslot68		
 0xc5cbb10	JigsawBlock::vslot72		
-0xc5ca820	JigsawBlock::vslot76		
+0xc5ca820	JigsawBlock::vslot76	0x412c2d0	
 0xc5cc030	JigsawBlock::vslot80		
 0xc5cc550	JigsawBlock::vslot84		
-0xc5cf380	JigsawBlock::vslot88		
+0xc5cf380	JigsawBlock::vslot88	0x412c2d0	
 0xc5cf370	JigsawBlock::vslot92		
 0xc5c88b0	JigsawBlock::vslot96		
 0xc5ce1d0	JigsawBlock::vslot100		
@@ -223,9 +282,10 @@ function	label	callees	callers
 0xc5c9a80	JigsawBlock::vslot108		
 0xc5d0330	JigsawBlock::vslot112		
 0xc5ce2b0	JigsawBlock::vslot116		
+0xc5cbf90	JigsawBlock::vslot120		
 0xc5cf040	JigsawBlock::vslot124		
-0xce33660	JigsawBlockActor::vslot0		
-0xce33830	JigsawBlockActor::vslot1		
+0xce33660	JigsawBlockActor::vslot0		0xcf33830
+0xce33830	JigsawBlockActor::vslot1	0xcf33660	
 0xce09160	JigsawBlockActor::vslot2		
 0xce091b0	JigsawBlockActor::vslot3		
 0xce70000	JigsawBlockActor::vslot4		

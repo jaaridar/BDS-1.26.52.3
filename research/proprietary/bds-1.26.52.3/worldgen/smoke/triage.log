@@ -1,0 +1,23 @@
+[triage] hashing /home/runner/work/_temp/fixture
+[triage] loaded ELF: 14640 bytes, 31 sections
+[triage] reading .eh_frame_hdr function table...
+[triage] FDE function starts: 52
+[triage] reading .rela.dyn relocations...
+[triage] augmented pointer map with 10 raw pointers
+[triage] 61 relocations
+[triage] scanning RTTI name strings...
+[triage] found 8 candidate RTTI name strings
+[triage] recovered 8 typeinfo structures
+[triage] recovered 8 C++ classes with RTTI
+[triage] collecting world-generation strings...
+[triage] interesting strings: 14
+[triage] linear-sweeping .text with Capstone (this is the slow part)...
+[triage] swept 687 instructions, 5 referenced strings
+[triage] ranking candidate functions...
+[triage] core world-gen vtable slots: 17
+[triage] seeds: 17
+[triage] building call edges around seeds...
+[triage] wrote reports to research/proprietary/bds-1.26.52.3/worldgen/smoke/triage in 0.0s
+fixture .text vaddr: 0x1160
+fixture worldgen string hits: 0
+fixture worldgen classes: 3

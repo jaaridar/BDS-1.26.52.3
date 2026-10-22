@@ -1,60 +1,8 @@
 detail
-0xca313d0	no-function-after-create
-0x402a280	not-in-executable-block
-0xca334e0	no-function-after-create
-0x5182630	no-function-after-create
-0x517a6f0	no-function-after-create
-0x400844d	not-in-executable-block
 0x5a1f120	skipped-oversized:1048576
 0x4de9260	skipped-oversized:272624
-0x517a6e0	no-function-after-create
-0x5186a80	no-function-after-create
-0x5181650	no-function-after-create
-0x5186a90	no-function-after-create
-0x519bce0	no-function-after-create
-0x5181630	no-function-after-create
-0x5253670	no-function-after-create
-0x51f3680	no-function-after-create
-0x51f0250	no-function-after-create
-0x51f1e50	no-function-after-create
-0x51f4fd0	no-function-after-create
-0x51f5d30	no-function-after-create
-0x51f5e20	no-function-after-create
-0x524f4c0	no-function-after-create
-0x478e200	no-function-after-create
-0xc970460	no-function-after-create
 0x7a4d280	skipped-oversized:260272
 0xc28df40	skipped-oversized:276672
-0xd1ffee0	no-function-after-create
-0xd20c3d0	no-function-after-create
-0xd1ff960	no-function-after-create
-0xd1d5a40	no-function-after-create
-0xd1d5b80	no-function-after-create
-0x402c1f0	not-in-executable-block
-0xda61aa0	no-function-after-create
-0xd1d6c50	no-function-after-create
-0x82ea510	no-function-after-create
-0x82eb2d0	no-function-after-create
-0x5258cd0	no-function-after-create
-0xd1d9bb0	no-function-after-create
-0xc95faf0	no-function-after-create
-0x49a1940	no-function-after-create
-0xc969880	no-function-after-create
-0xc9699f0	no-function-after-create
-0x49a1a00	no-function-after-create
-0x49a1a30	no-function-after-create
-0xc964e90	no-function-after-create
-0xc969bd0	no-function-after-create
-0xc969010	no-function-after-create
-0x5250110	no-function-after-create
-0xc5cc060	no-function-after-create
-0xc5cc0c0	no-function-after-create
-0xc5ce5f0	no-function-after-create
-0xcd3e6e0	no-function-after-create
-0x51d3ea0	decompile: Exception while decompiling 051d3ea0: process: timeout 
-0x517a850	decompile: Exception while decompiling 0517a850: process: timeout 
-0x51815f0	decompile: Exception while decompiling 051815f0: process: timeout 
-0x51f1f50	decompile: Exception while decompiling 051f1f50: process: timeout 
-0x51f5750	decompile: Exception while decompiling 051f5750: process: timeout 
-0x4979780	decompile: Exception while decompiling 04979780: process: timeout 
-0x881f420	decompile: Exception while decompiling 0881f420: process: timeout 
+0xc4b8460	decompile: Exception while decompiling 0c5b8460: process: timeout 
+0x9a95090	decompile: Exception while decompiling 09b95090: Response buffer size exceeded for: bedrock_server 
+0x6146460	decompile:  Low-level Error: Symbol offset is incompatible with VariableGroup

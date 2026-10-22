@@ -1,0 +1,25 @@
+rank	score	function	size	reasons
+1	344	0x1678	239	caller-of-seed;core-vtable:fixture_worldgen::OverworldGeneratorMultinoise#2;string:minecraft:aquifer;string:minecraft:biome_source;string:minecraft:density;string:minecraft:surface_builder;string:worldgen key table: %d
+2	160	0x143e	6	core-vtable:fixture_worldgen::OverworldGeneratorMultinoise#0
+3	160	0x14a4	23	core-vtable:fixture_worldgen::OverworldGeneratorMultinoise#1
+4	150	0x157a	254	callee-of:0x1678;caller-of-seed;core-vtable:fixture_worldgen::VanillaOverworldBiomeSource#2
+5	144	0x1510	106	callee-of:0x157a;caller-of-seed;core-vtable:fixture_worldgen::NormalNoise#2
+6	140	0x14ce	66	callee-of:0x1510;core-vtable:fixture_worldgen::ImprovedNoise#2
+7	140	0x1438	6	core-vtable:fixture_worldgen::VanillaOverworldBiomeSource#0
+8	140	0x148c	24	core-vtable:fixture_worldgen::VanillaOverworldBiomeSource#1
+9	140	0x178c	92	core-vtable:fixture_worldgen::VanillaOverworldBiomeSource#3
+10	135	0x1416	6	core-vtable:fixture_worldgen::OverworldSurfaceBuilder#0
+11	135	0x1444	24	core-vtable:fixture_worldgen::OverworldSurfaceBuilder#1
+12	135	0x141c	6	core-vtable:fixture_worldgen::OverworldSurfaceBuilder#2
+13	135	0x1422	10	core-vtable:fixture_worldgen::OverworldSurfaceBuilder#3
+14	134	0x142c	6	core-vtable:fixture_worldgen::ImprovedNoise#0
+15	134	0x145c	24	core-vtable:fixture_worldgen::ImprovedNoise#1
+16	134	0x1432	6	core-vtable:fixture_worldgen::NormalNoise#0
+17	134	0x1474	24	core-vtable:fixture_worldgen::NormalNoise#1
+18	30	0x1130	0	callee-of:0x1444;callee-of:0x145c;callee-of:0x1474;callee-of:0x148c;callee-of:0x14a4
+19	12	0x1249	413	caller-of-seed
+20	6	0x14bb	19	callee-of:0x14ce
+21	6	0x10d0	144	callee-of:0x1678
+22	6	0x13e6	48	callee-of:0x1678
+23	6	0x1780	12	callee-of:0x178c
+24	6	0x1770	16	callee-of:0x178c
