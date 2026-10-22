@@ -1,0 +1,14 @@
+script: DecompileTargets.java
+program: small.bin
+image base: 00100000
+functions in program: 229
+functions prepared: 0
+functions decompiled: 0
+functions failed: 0
+pseudocode files: 0
+elapsed seconds: 0
+preparation notes: 0
+
+note: preparation stopped: less than 300s of budget left
+
+first failures:

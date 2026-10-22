@@ -1,0 +1,126 @@
+openjdk version "21.0.12.1" 2026-08-18 LTS
+OpenJDK Runtime Environment Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS)
+OpenJDK 64-Bit Server VM Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS, mixed mode)
+INFO  Using log config file: jar:file:/home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
+INFO  Using log file: /home/runner/.config/ghidra/ghidra_12.1.4_PUBLIC/application.log (LoggingInitialization)  
+INFO  Loading user preferences: /home/runner/.config/ghidra/ghidra_12.1.4_PUBLIC/preferences (Preferences)  
+INFO  Searching for classes... (ClassSearcher)  
+INFO  Class search complete (563 ms) (ClassSearcher)  
+INFO  Initializing SSL Context (DefaultSSLContextInitializer)  
+INFO  Initializing Random Number Generator... (SecureRandomFactory)  
+INFO  Random Number Generator initialization complete: NativePRNGNonBlocking (SecureRandomFactory)  
+INFO  Trust manager disabled, cacerts have not been set (DefaultTrustManagerFactory)  
+INFO  Starting cache cleanup: /var/tmp/runner-ghidra/fscache2 (FileCacheMaintenanceDaemon)  
+INFO  Finished cache cleanup, estimated storage used: 0 (FileCacheMaintenanceDaemon)  
+INFO  Headless startup complete (4223 ms) (AnalyzeHeadless)  
+INFO  Class searcher loaded 59 extension points (20 false positives) (ClassSearcher)  
+INFO  HEADLESS Script Paths:
+    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Features/PyGhidra/ghidra_scripts
+    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Processors/JVM/ghidra_scripts
+    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Features/MicrosoftCodeAnalyzer/ghidra_scripts
+    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Features/SystemEmulation/ghidra_scripts
+    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Processors/PIC/ghidra_scripts
+    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Debug/Debugger/ghidra_scripts
+    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Processors/Atmel/ghidra_scripts
+    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Features/Decompiler/ghidra_scripts
+    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Features/WildcardAssembler/ghidra_scripts
+    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Processors/DATA/ghidra_scripts
+    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Debug/Debugger-rmi-trace/ghidra_scripts
+    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Features/VersionTracking/ghidra_scripts
+    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/ghidra_scripts
+    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Features/FunctionID/ghidra_scripts
+    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Processors/8051/ghidra_scripts
+    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Features/BytePatterns/ghidra_scripts
+    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Features/FileFormats/ghidra_scripts
+    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Features/BSim/ghidra_scripts
+    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Features/PDB/ghidra_scripts
+    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Features/GnuDemangler/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/ghidra
+    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Features/DecompilerDependent/ghidra_scripts
+    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Features/SwiftDemangler/ghidra_scripts (HeadlessAnalyzer)  
+INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
+INFO  Creating temporary project: /home/runner/work/_temp/project/bds-shard-0 (HeadlessAnalyzer)  
+INFO  Creating project: /home/runner/work/_temp/project/bds-shard-0 (DefaultProject)  
+INFO  REPORT: Processing input files:  (HeadlessAnalyzer)  
+INFO       project: /home/runner/work/_temp/project/bds-shard-0 (HeadlessAnalyzer)  
+INFO  IMPORTING: file:///home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/bedrock_server (HeadlessAnalyzer)  
+INFO  Using Loader: Executable and Linking Format (ELF) (ProgramLoader)  
+INFO  Using Language/Compiler: x86:LE:64:default:gcc (ProgramLoader)  
+INFO  Using Library Search Path: [., /bin, /lib, /lib64, /lib/x86_64-linux-gnu, /lib/aarch64-linux-gnu, /usr/bin, /usr/lib, /usr/X11R6/bin, /usr/X11R6/lib, /usr/java/packages/lib, /usr/lib64] (ProgramLoader)  
+INFO  Additional info:
+Loading file:///home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/bedrock_server?MD5=9cddcad5c0f4fc8e62fe9246691ddb8d...
+Skipping section [.tm_clone_table] with invalid size 0x0
+Setting block .fini_array to read-only
+Setting block .init_array to read-only
+Setting block .data.rel.ro to read-only
+Setting block .dynamic to read-only
+------------------------------------------------
+
+Linking the External Programs of 'bedrock_server' to imported libraries...
+  [libpthread.so.0] -> not found in project
+  [libdl.so.2] -> not found in project
+  [libm.so.6] -> not found in project
+  [libgcc_s.so.1] -> not found in project
+  [libc.so.6] -> not found in project
+  [ld-linux-x86-64.so.2] -> not found in project
+  [librt.so.1] -> not found in project
+------------------------------------------------
+
+Resolving External Symbols of [/bedrock_server] - 382 unresolved symbols, no external libraries configured - skipping
+ (ProgramLoader)  
+INFO  IMPORTING: Loaded 0 additional files (HeadlessAnalyzer)  
+INFO  REPORT: Execute script: DecompileTargets.java '/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/research/proprietary/bds-1.26.52.3/worldgen/decompiled/shard-0' '/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/shard-targets.tsv' '3300' '500' '/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/research/proprietary/bds-1.26.52.3/worldgen/triage/worldgen-vtables.tsv'  (HeadlessAnalyzer)  
+INFO  SCRIPT: /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/ghidra/DecompileTargets.java (HeadlessAnalyzer)  
+INFO  DecompileTargets.java> DecompileTargets: 300 targets, budget 3300s, max 500 functions, labelled 842 (GhidraScript)  
+INFO  DecompileTargets.java> DecompileTargets: prepared 267 functions, 33 preparation notes (GhidraScript)  
+INFO  DecompileTargets.java> DecompileTargets: decompiling 267 functions (GhidraScript)  
+WARN  Decompiling 0ca2f0d0, pcode error at 0ca2f0d0: Unable to resolve constructor at 0ca2f0d0 (DecompileCallback)  
+WARN  Decompiling 0c970cc0, pcode error at 0c970ccb: Unable to resolve constructor at 0c970ccb (DecompileCallback)  
+WARN  Decompiling 05188760, pcode error at 05188760: Unable to resolve constructor at 05188760 (DecompileCallback)  
+INFO  DecompileTargets.java> DecompileTargets: 25 decompiled, 3 failed, elapsed 260s (GhidraScript)  
+WARN  Decompiling 05258970, pcode error at fffffffff76e9948: Could not follow disassembly flow into non-existing memory at fffffffff76e9948 (DecompileCallback)  
+WARN  Decompiling 0c7e8040, pcode error at 0c7e8046: Unable to resolve constructor at 0c7e8046 (DecompileCallback)  
+WARN  Decompiling 0c7e4920, pcode error at 0c7e4923: Unable to resolve constructor at 0c7e4923 (DecompileCallback)  
+WARN  Decompiling 0e874df0, pcode error at 0e874df0: Unable to resolve constructor at 0e874df0 (DecompileCallback)  
+WARN  Decompiling 048ca8b0, pcode error at 048ca8b0: Unable to resolve constructor at 048ca8b0 (DecompileCallback)  
+WARN  Decompiling 0e1d0880, pcode error at 0e1d0882: Unable to resolve constructor at 0e1d0882 (DecompileCallback)  
+INFO  DecompileTargets.java> DecompileTargets: 50 decompiled, 5 failed, elapsed 442s (GhidraScript)  
+WARN  Decompiling 047b0bc0, pcode error at 047b0bc1: Unable to resolve constructor at 047b0bc1 (DecompileCallback)  
+WARN  Decompiling 06148270, pcode error at 06148270: Unable to resolve constructor at 06148270 (DecompileCallback)  
+WARN  Decompiling 04228e90, pcode error at 04228e99: Unable to resolve constructor at 04228e99 (DecompileCallback)  
+WARN  Decompiling 0497a100, pcode error at 0497a103: Unable to resolve constructor at 0497a103 (DecompileCallback)  
+WARN  Decompiling 0c8204b0, pcode error at 0c8204b3: Unable to resolve constructor at 0c8204b3 (DecompileCallback)  
+WARN  Decompiling 0c7818a0, pcode error at 0c7818a5: Unable to resolve constructor at 0c7818a5 (DecompileCallback)  
+INFO  DecompileTargets.java> DecompileTargets: 75 decompiled, 6 failed, elapsed 564s (GhidraScript)  
+WARN  Decompiling 0d1cf130, pcode error at 0d1cf133: Unable to resolve constructor at 0d1cf133 (DecompileCallback)  
+WARN  Decompiling 0d2411f0, pcode error at 0d2411f1: Unable to resolve constructor at 0d2411f1 (DecompileCallback)  
+WARN  Decompiling 0d2414e0, pcode error at 0d2414e0: Unable to resolve constructor at 0d2414e0 (DecompileCallback)  
+INFO  DecompileTargets.java> DecompileTargets: 100 decompiled, 7 failed, elapsed 655s (GhidraScript)  
+WARN  Decompiling 06b28810, pcode error at 06b28810: Unable to resolve constructor at 06b28810 (DecompileCallback)  
+WARN  Decompiling 0a19eab0, pcode error at 0a19eaee: Unable to resolve constructor at 0a19eaee (DecompileCallback)  
+WARN  Decompiling 0b919b40, pcode error at 0b919b40: Unable to resolve constructor at 0b919b40 (DecompileCallback)  
+INFO  DecompileTargets.java> DecompileTargets: 125 decompiled, 9 failed, elapsed 788s (GhidraScript)  
+WARN  Decompiling 0ca551a0, pcode error at 0ca551a0: Unable to resolve constructor at 0ca551a0 (DecompileCallback)  
+WARN  Decompiling 0d2215d0, pcode error at 0d2215d0: Unable to resolve constructor at 0d2215d0 (DecompileCallback)  
+WARN  Decompiling 0d293fc0, pcode error at 0d293fc3: Unable to resolve constructor at 0d293fc3 (DecompileCallback)  
+WARN  Decompiling 0e6ef910, pcode error at 0e6ef910: Unable to resolve constructor at 0e6ef910 (DecompileCallback)  
+WARN  Decompiling 0e2ac100, pcode error at 0e2ac106: Unable to resolve constructor at 0e2ac106 (DecompileCallback)  
+WARN  Decompiling 0e5af2e0, pcode error at 0e5af319: Unable to resolve constructor at 0e5af319 (DecompileCallback)  
+INFO  DecompileTargets.java> DecompileTargets: 150 decompiled, 12 failed, elapsed 791s (GhidraScript)  
+WARN  Decompiling 0e6c9cd0, pcode error at 0e6c9cd4: Unable to resolve constructor at 0e6c9cd4 (DecompileCallback)  
+WARN  Decompiling 0c759aa0, pcode error at 0c759aa0: Unable to resolve constructor at 0c759aa0 (DecompileCallback)  
+WARN  Decompiling 0d1eeb90, pcode error at 0d1eeb90: Unable to resolve constructor at 0d1eeb90 (DecompileCallback)  
+WARN  Decompiling 0e774880, pcode error at 0e774887: Unable to resolve constructor at 0e774887 (DecompileCallback)  
+INFO  DecompileTargets.java> DecompileTargets: 175 decompiled, 14 failed, elapsed 887s (GhidraScript)  
+WARN  Decompiling 0c961400, pcode error at 0c961400: Failed to resolve varnode <Sreg>, index=7 (DecompileCallback)  
+WARN  Decompiling 0c964d20, pcode error at 0c964da1: Unable to resolve constructor at 0c964da1 (DecompileCallback)  
+INFO  DecompileTargets.java> DecompileTargets: 200 decompiled, 14 failed, elapsed 888s (GhidraScript)  
+WARN  Decompiling 0c964d40, pcode error at 0c964d40: Unable to resolve constructor at 0c964d40 (DecompileCallback)  
+WARN  Decompiling 0523db90, pcode error at 0523db90: Unable to resolve constructor at 0523db90 (DecompileCallback)  
+INFO  DecompileTargets.java> DecompileTargets: 225 decompiled, 14 failed, elapsed 890s (GhidraScript)  
+WARN  Decompiling 0c5cdde0, pcode error at 0c5cdded: Unable to resolve constructor at 0c5cdded (DecompileCallback)  
+WARN  Decompiling 0c5d0340, pcode error at 0c5d034d: Unable to resolve constructor at 0c5d034d (DecompileCallback)  
+INFO  DecompileTargets.java> DecompileTargets: 250 decompiled, 14 failed, elapsed 890s (GhidraScript)  
+INFO  /bedrock_server: file created (runner) (LocalFileSystem)  
+INFO  REPORT: Save succeeded for: /bedrock_server (bds-shard-0:/bedrock_server) (HeadlessAnalyzer)  
+INFO  REPORT: Import succeeded (HeadlessAnalyzer)  

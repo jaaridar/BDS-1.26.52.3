@@ -1,8 +1,8 @@
-collected: 2026-10-22T13:56:17Z
-run: 39791055059
-shard 0: missing, functions=0, exit=none
-shard 1: missing, functions=0, exit=none
-shard 2: missing, functions=0, exit=none
-shard 3: missing, functions=0, exit=none
+collected: 2026-10-22T14:22:56Z
+run: 39792369920
+shard 0: present, functions=253, exit=0
+shard 1: present, functions=247, exit=0
+shard 2: present, functions=241, exit=0
+shard 3: present, functions=232, exit=0
 
-2.1M	research/proprietary/bds-1.26.52.3/worldgen
+11M	research/proprietary/bds-1.26.52.3/worldgen
