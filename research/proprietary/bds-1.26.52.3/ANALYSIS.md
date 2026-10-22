@@ -21,7 +21,7 @@ This report is the human-readable companion to the machine-generated evidence in
 | SHA-256 | `0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207` |
 | format | ELF64, x86-64, `ET_DYN` (PIE), little endian |
 | build id | `c0ff36e2eacfc191f01e189237df71f139b5d04a` |
-| symbols | **stripped** — no `.symtab`, only 379 `.dynsym` imports |
+| symbols | **stripped** — no `.symtab`; `.dynsym` holds 392 entries (imports only) |
 | interpreter | `/lib64/ld-linux-x86-64.so.2` |
 
 Section budget (from `inventory/section-headers.txt`; addresses are ELF link
@@ -35,13 +35,14 @@ addresses — Ghidra adds the `0x100000` image base, see §2):
 | `.eh_frame` | `0x29c0e60` | 23,356,380 (`0x16463dc`) |
 | `.data.rel.ro` | `0xede8db0` | 6,633,576 (`0x653868`) |
 | `.data` | `0xf43dab0` | 35,168 (`0x8960`) |
-| `.rela.dyn` | `0x3de0` | 17,376,072 → **724,003** `R_X86_64_RELATIVE` entries |
+| `.rela.dyn` | `0x3de0` | 17,376,072 bytes = 724,003 entries; `RELACOUNT` = **723,948** `R_X86_64_RELATIVE` |
 | `.bss` | `0xf446f80` | 2,568,888 (`0x2732b8`) |
 
 `.rela.dyn` alone is 17 MB of relocation records — that is what makes vtable
 recovery possible at all, and it is also why `readLong` has to consult the
 relocation overlay rather than the raw image (the on-disk slots hold link-time
-addresses; the overlay holds the *relocated* pointers).
+addresses; the overlay holds the *relocated* pointers). The harness applies
+exactly 723,948 of them, matching `RELACOUNT`.
 
 Two non-standard executable sections exist: `__lcxx_override` and
 `malloc_hook` — the binary hooks its own allocator, which is why nearly every
@@ -106,9 +107,9 @@ Numbers from the last pass:
 | `type_info` objects | 51,998 |
 | vtables | 50,263 |
 | distinct class names | 41,849 |
-| classes selected as worldgen | 616 |
-| selected vtable slots | 5,120 |
-| functions analysed / decompiled | 5,000 / ~4,800 |
+| classes selected as worldgen | 701 |
+| selected vtable slots | 5,544 |
+| functions analysed / decompiled | 5,823 / 5,653 |
 | pseudocode volume | ~13 MB of C |
 
 ---
@@ -133,7 +134,7 @@ generator):
 | 2–9 | `cb31380` … `cb314e0` | inherited `ChunkSource` API; **slot 9 = build a chunk** |
 | 10 | `cb32720` / `527c470` | generator-specific "prepare" step (297 instr for the nether) |
 | 11 | `cb32730` / `527cd10` | generator-specific terrain + biome fill (3026 instr for the nether!) |
-| 15 | `cb32770` / `527ab30` | post-generation fixups (1,243 instr: ores, features, structures) |
+| 15 | `cb32770` / `527ab30` | **`OverworldGenerator::loadChunk`** (1,243 instr) — confirmed by lambda attribution, see below |
 | 16, 17 | `ca73030`, `ca730a0` | shared helpers (41 / 149 instr) |
 | 41 | `ca72b00` | `CreateWorldGenRandom`-style factory (see §4.4) |
 | 42–46 | `ca70bd0`, `ca70bf0`, `ca70cc0`, `ca70eb0`, `ca72c10` | dimension descriptors |
@@ -142,6 +143,31 @@ generator):
 
 Everything from slot 2 to 9 is shared with `ChunkSource`, which is why the same
 addresses appear in `vtable-slots.tsv` under a dozen class names.
+
+Slot 15's identity is not a guess. The binary contains a `std::function`
+lambda whose RTTI name embeds its enclosing function
+(`...__function::__func<?, OverworldGenerator::loadChunk, ...>::$_0`), and the
+scanner that finds `lea` sites for vtable address points resolves it to
+`527ab30` (`code-references.tsv`). The lambda's own `operator()` is `52be810`
+(179 instructions), with `52be780` (24) and `52be7d0` (5) as the surrounding
+helpers — those are the `std::function` thunks `loadChunk` installs.
+
+The source files themselves are recovered too (`source-files.tsv`), by scanning
+`.rodata` for the leaked build paths and matching each to its `lea` site:
+
+```
+handheld/src-vanilla/vanilla_shared/src/common/world/level/biome/BiomeSource3d.cpp
+handheld/src-vanilla/vanilla_shared/src/common/world/level/biome/ReplacementBiomeSource.cpp
+handheld/src/common/world/level/biome/source/BiomeChunkVolume.cpp
+handheld/src/common/world/level/chunk/LevelChunkBiomes.cpp
+handheld/src/common/world/level/block/VolumeOf.h
+handheld/src/common/world/level/levelgen/v2/StructureInstance.cpp
+handheld/src/common/world/level/dimension/Dimension.cpp
+```
+
+i.e. the worldgen code lives under `src/common/world/level/{biome,biome/source,
+chunk,levelgen,block}` in the original tree, with the vanilla biome sources split
+into `src-vanilla/vanilla_shared`.
 
 ### 3.2 Biome sources
 
@@ -218,6 +244,37 @@ Values are typed by `OperationNodeValues` (`Terrain`, `PreBiome`, biome ids as
 `short`), and the zoom nodes take `OperationNodeZooms` (`Zoom2x`,
 `Zoom2xFuzzy`, `Zoom4xVoronoi`) — so the graph is
 **coarse volume → zoom chain → climate selection → terrain**, evaluated lazily.
+
+The decompiled bodies confirm the evaluation protocol. Every node has the same
+three-stage shape, e.g. `FilterOperationNode<AddIsland>` / `<RemoveTooMuchOcean>`
+/ `<Zoom2xFuzzy>` share `52a8af0` and `52a8b60` exactly:
+
+```c
+/* 52a8af0 (30 instr): seed the evaluation                              */
+(**(code **)(**(long **)(param_1 + 0x18) + 0x10))();   /* pull input node   */
+lVar2 = (param_2 * 0x5851f42d4c957f2d + 0x14057b7ef767814f) * param_2 + lVar1;
+lVar2 = (lVar2 * 0x5851f42d4c957f2d + 0x14057b7ef767814f) * lVar2 + lVar1;
+*(long *)(param_1 + 8) = (lVar2 * 0x5851f42d4c957f2d + 0x14057b7ef767814f) * lVar2 + lVar1;
+
+/* 52a8b60 (65 instr): run the filter over the volume                   */
+uVar1 = (long)param_5[1] * (long)*param_5;             /* area = w * h      */
+if (param_3 <= uVar1) { param_3 = uVar1; }
+auStack_a0 = (**(code **)(*param_2 + 0x28))(param_2,param_4,param_5);   /* input */
+(**(code **)(*(long *)param_2[3] + 0x18))(&uStack_50,param_2[3],param_3,...); /* filter */
+(**(code **)(*param_2 + 0x20))(param_2,&uStack_90,param_4,param_5,...); /* output */
+```
+
+So the node seed is the same Knuth/MMIX LCG (`0x5851f42d4c957f2d`,
+`+0x14057b7ef767814f`) used by the noise nodes, the filter is the functor at
+`node + 0x18`, and the evaluation is `input.evaluate → clamp(area) →
+filter.operate → write`. The concrete rules live in the functor instantiations
+(`OperationNodeFilters::AddIsland`, `…::Shore`, `…::River`, …), which are
+reached through that `+0x18` call.
+
+`RegionHillsOperationNode::vslot4` (`d2c2b70`, 958 instructions) is the largest
+single rule body: it walks the coarse region, applies modulo-3 and modulo-16
+tests to decide hill placement and calls back into the graph (`c8cd8d0`) — the
+BDS counterpart of Java's `RegionHillsLayer`.
 
 ### 3.4 Surface builders
 

@@ -4,8 +4,8 @@
 
 - vtables: `50263`
 - distinct class names: `41849`
-- selected vtable slots: `5120`
-- functions analysed: `5000`
+- selected vtable slots: `5544`
+- functions analysed: `5823`
 
 ## Class families
 
@@ -1274,43 +1274,43 @@ path can be attributed to that translation unit.
 
 ## Hub functions (most distinct callers)
 
-- `412a280` called by 1026
-- `eec74c0` called by 715
-- `4108328` called by 613
-- `410844d` called by 606
-- `412c2d0` called by 372
-- `eee2d70` called by 285
-- `eee2f00` called by 259
-- `48aead0` called by 255
-- `eee2f40` called by 236
-- `488e200` called by 222
-- `4882eb0` called by 220
-- `412e5e0` called by 179
-- `48b1dc0` called by 170
-- `4890760` called by 153
-- `eeddcf0` called by 152
-- `eee2dd0` called by 146
-- `cc41df0` called by 117
-- `4882e20` called by 111
+- `412a280` called by 1255
+- `eec74c0` called by 879
+- `4108328` called by 752
+- `410844d` called by 745
+- `412c2d0` called by 494
+- `eee2d70` called by 346
+- `eee2f00` called by 335
+- `4882eb0` called by 286
+- `eee2f40` called by 280
+- `48aead0` called by 262
+- `488e200` called by 224
+- `412e5e0` called by 221
+- `eee2dd0` called by 175
+- `48b1dc0` called by 173
+- `eeddcf0` called by 171
+- `4890760` called by 163
+- `4882e40` called by 134
+- `4882e20` called by 133
+- `cc41df0` called by 119
+- `4882e30` called by 117
+- `4885070` called by 105
 - `5d84ba0` called by 100
-- `4882e40` called by 98
 - `ed6d600` called by 93
-- `4882e30` called by 82
-- `ed5ffe0` called by 80
-- `4885070` called by 77
-- `4931450` called by 75
-- `eee2ee0` called by 71
-- `ed75bc0` called by 70
-- `eee3000` called by 66
-- `48b0de0` called by 64
-- `470d9a0` called by 64
-- `412c1f0` called by 64
-- `49e8590` called by 63
+- `412c1f0` called by 92
+- `4931450` called by 90
+- `eee2ee0` called by 87
+- `eee3000` called by 82
+- `ed5ffe0` called by 81
+- `4885120` called by 77
+- `470d9a0` called by 75
+- `ed75bc0` called by 71
+- `48b0de0` called by 66
+- `49e8590` called by 64
+- `eee3ab0` called by 63
+- `412c3f0` called by 60
 - `ed76130` called by 60
 - `ed764d0` called by 60
 - `ed77060` called by 60
+- `48b0900` called by 58
 - `5d9a920` called by 58
-- `48b0900` called by 57
-- `b5d6180` called by 57
-- `b5d6330` called by 57
-- `eee3290` called by 56
