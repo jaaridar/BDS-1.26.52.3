@@ -61,7 +61,7 @@ jobs:
             -scriptPath "$GITHUB_WORKSPACE/tools/binary-analysis/ghidra" \
             -postScript RecoverWorldgen.java "$output" \
             -deleteProject \
-            2>&1 | tee "$output/headless.log"
+            2>&1 | tee "$output/headless.txt"
           status="${PIPESTATUS[0]}"
           set -e
           echo "$status" > "$output/headless-exit-status.txt"
