@@ -72,12 +72,17 @@ jobs:
 
       - name: Capture the world from the official server
         run: |
+          set +e
           node tools/worldgen-golden/run-golden.js \
             --binary ./bedrock_server \
             --seed "${MODE}" \
             --out "capture/seed-${MODE}" \
             --timeout 900 \
             --verbose
+          status=$?
+          echo "CAPTURE_EXIT=$status" >> "$GITHUB_ENV"
+          echo "capture exit status: $status"
+          exit $status
 
       - name: Decode the capture into golden format
         run: |
@@ -104,12 +109,16 @@ jobs:
             --require-exact \
             --write-report "capture/verify-${MODE}.md"
 
+      # Artifacts are not reachable from every environment, so the diagnostics
+      # that explain a failure are committed next to the evidence as well.
       - name: Record capture diagnostics
         if: always()
         run: |
+          mkdir -p "${OUTPUT_DIR}/diagnostics"
           {
             echo "seed: ${MODE}"
             echo "recheck: ${RECHECK}"
+            echo "capture exit: ${CAPTURE_EXIT:-unknown}"
             echo
             echo 'capture files:'
             find capture -maxdepth 3 -type f -printf '%s %p\n' 2>/dev/null | sort -n | tail -40
@@ -118,8 +127,11 @@ jobs:
             ls -l "${OUTPUT_DIR}" 2>/dev/null || true
             echo
             echo 'server log tail:'
-            tail -n 40 "capture/seed-${MODE}/server.log" 2>/dev/null || true
-          } > capture/report.txt
+            tail -n 120 "capture/seed-${MODE}/server.log" 2>/dev/null || true
+          } > "${OUTPUT_DIR}/diagnostics/report-${MODE}.txt"
+          cp "${OUTPUT_DIR}/diagnostics/report-${MODE}.txt" capture/report.txt
+          cp "capture/seed-${MODE}/server.log" "${OUTPUT_DIR}/diagnostics/server-${MODE}.log" 2>/dev/null || true
+          cp "capture/seed-${MODE}/capture.json" "${OUTPUT_DIR}/diagnostics/capture-${MODE}.json" 2>/dev/null || true
           cat capture/report.txt
 
       - name: Upload capture artifacts

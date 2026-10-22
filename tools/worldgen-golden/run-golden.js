@@ -120,6 +120,27 @@ class Server {
     };
     this.child.stdout.on('data', onData);
     this.child.stderr.on('data', onData);
+    this.child.on('error', (error) => {
+      this.lines.push(`[spawn error] ${error.message}\n`);
+      for (const waiter of [...this.waiters]) {
+        clearTimeout(waiter.timer);
+        waiter.reject(new Error(`server failed to spawn: ${error.message}`));
+      }
+      this.waiters.length = 0;
+    });
+    this.child.on('exit', (code, signal) => {
+      this.lines.push(`[exit] code=${code} signal=${signal}\n`);
+      for (const waiter of [...this.waiters]) {
+        clearTimeout(waiter.timer);
+        waiter.reject(
+          new Error(
+            `server exited (code ${code}, signal ${signal}) before the expected output; ` +
+            `last lines: ${this.lines.join('').slice(-1200)}`
+          )
+        );
+      }
+      this.waiters.length = 0;
+    });
     return this;
   }
 
@@ -181,7 +202,7 @@ async function capture({ binary, seed, out, timeout, probe, verbose }) {
   const server = new Server(localBinary, workDir, verbose).start();
   const started = Date.now();
   try {
-    await server.waitFor(/Server started\.?/i, 180000, 'server start');
+    await server.waitFor(/Server started\.?/i, 300000, 'server start');
 
     // --- probe: build a known marker pattern and save it -------------------
     // Used to pin down the block_indices ordering of `.mcstructure`.
