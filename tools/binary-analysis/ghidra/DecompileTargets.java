@@ -118,10 +118,17 @@ public class DecompileTargets extends GhidraScript {
                 scores.putIfAbsent(target.address, target.score);
                 labels.putIfAbsent(target.address, target.label);
             }
-            if (target.depth >= 1) {
+            int maxDepth = target.score >= 30 ? 2 : 1;
+            if (target.depth >= maxDepth) {
                 continue;
             }
-            for (Function callee : function.getCalledFunctions(monitor)) {
+            Set<Function> callees;
+            try {
+                callees = function.getCalledFunctions(monitor);
+            } catch (Exception exception) {
+                continue;
+            }
+            for (Function callee : callees) {
                 long key = callee.getEntryPoint().getOffset();
                 if (seen.add(key)) {
                     Target child = new Target();
@@ -196,6 +203,11 @@ public class DecompileTargets extends GhidraScript {
                         continue;
                     }
                     done++;
+                    if (done % 20 == 0) {
+                        println("DecompileTargets: " + done + " done, elapsed " +
+                            ((System.nanoTime() - (deadlineNanos - 1000L * 1000L * 1000L * 60 * 60)) /
+                             1_000_000_000L) + "s (approx)");
+                    }
                     String label = labels.getOrDefault(key, "fn_0x" + Long.toHexString(key));
                     String fileName = String.format("%05d_%x.c", order++, key);
                     writeFunctionFile(new File(functionsDir, fileName), function, label,
@@ -300,14 +312,8 @@ public class DecompileTargets extends GhidraScript {
             }
             Function function = getFunctionAt(entry);
             if (function == null) {
-                if (!createFunction(entry, null)) {
-                    CreateFunctionCmd command = new CreateFunctionCmd(entry);
-                    if (!command.applyTo(currentProgram, monitor)) {
-                        failures.add("0x" + Long.toHexString(target.address) +
-                            "\tfunction-creation: " + command.getStatusMsg());
-                        return null;
-                    }
-                }
+                CreateFunctionCmd command = new CreateFunctionCmd(entry);
+                command.applyTo(currentProgram, monitor);
                 function = getFunctionAt(entry);
             }
             if (function == null) {
@@ -342,6 +348,7 @@ public class DecompileTargets extends GhidraScript {
             writer.write(" */\n\n");
             writer.write(pseudocode);
             writer.write("\n");
+            writeReferencedStrings(writer, function);
             if (includeAssembly) {
                 writer.write("\n/* ---- assembly ---- */\n");
                 Listing listing = currentProgram.getListing();
@@ -354,6 +361,66 @@ public class DecompileTargets extends GhidraScript {
                     writer.write("/* " + instruction.getAddress() + " */  " + instruction + "\n");
                 }
             }
+        }
+    }
+
+    private void writeReferencedStrings(BufferedWriter writer, Function function) throws Exception {
+        Set<String> seen = new HashSet<>();
+        TreeMap<Long, String> found = new TreeMap<>();
+        Listing listing = currentProgram.getListing();
+        for (Instruction instruction : listing.getInstructions(function.getBody(), true)) {
+            for (ghidra.program.model.symbol.Reference reference : instruction.getReferencesFrom()) {
+                if (!reference.getReferenceType().isData()) {
+                    continue;
+                }
+                long target = reference.getToAddress().getOffset();
+                if (seen.contains(Long.toHexString(target))) {
+                    continue;
+                }
+                String text = readPrintable(target);
+                if (text != null && text.length() >= 4) {
+                    seen.add(Long.toHexString(target));
+                    found.put(target, text);
+                }
+                if (found.size() >= 24) {
+                    break;
+                }
+            }
+            if (found.size() >= 24) {
+                break;
+            }
+        }
+        if (found.isEmpty()) {
+            return;
+        }
+        writer.write("\n/* ---- referenced strings ----\n");
+        for (Map.Entry<Long, String> entry : found.entrySet()) {
+            writer.write(" * 0x" + Long.toHexString(entry.getKey()) + "  " +
+                entry.getValue().replace("*/", "* /") + "\n");
+        }
+        writer.write(" */\n");
+    }
+
+    private String readPrintable(long address) {
+        try {
+            Address start = toAddr(address);
+            if (start == null) {
+                return null;
+            }
+            StringBuilder builder = new StringBuilder();
+            for (int index = 0; index < 96; index++) {
+                byte value = currentProgram.getMemory().getByte(start.add(index));
+                if (value == 0) {
+                    break;
+                }
+                if (value < 0x20 || value > 0x7e) {
+                    return null;
+                }
+                builder.append((char) value);
+            }
+            return builder.toString();
+        } catch (Exception exception) {
+            return null;
         }
     }
 

@@ -24,3 +24,7 @@ research/**/*.gpr
 research/**/*.rep/
 research/**/*.gzf
 research/**/decompiler-bulk/
+
+# Python bytecode from analysis tooling
+__pycache__/
+*.pyc

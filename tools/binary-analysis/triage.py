@@ -96,6 +96,16 @@ CLASS_TOKEN_WEIGHTS = {
     "spawn": 3,
     "villager": 2,
     "sculk": 8,
+    "worldgenrandom": 18,
+    "worldgenanonym": 10,
+    "structureaccess": 12,
+    "heightprovider": 12,
+    "chunklocalnoisecache": 22,
+    "noisecache": 14,
+    "worldgenmultinoise": 20,
+    "climate": 12,
+    "surfacematerial": 10,
+    "aquifer": 20,
 }
 
 # Substrings of printable strings that mark a code path as world-generation
@@ -715,6 +725,9 @@ def build_call_edges(binary: Binary, function_starts, wanted_functions, owners):
 def class_score(tokens) -> int:
     lowered = [token.lower() for token in tokens]
     score = 0
+    # The binary keeps a newer world-generation subsystem in its own namespace.
+    if lowered and lowered[0] == "br" and "worldgen" in lowered:
+        score += 25
     for token in lowered:
         weight = CLASS_TOKEN_WEIGHTS.get(token)
         if weight:
