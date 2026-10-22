@@ -86,8 +86,10 @@ jobs:
 
       - name: Decode the capture into golden format
         run: |
+          set +e
           node tools/worldgen-golden/build-golden.js "capture/seed-${MODE}" \
-            --out "${OUTPUT_DIR}"
+            --out "${OUTPUT_DIR}" 2>&1 | tee "capture/build-golden-${MODE}.log"
+          exit ${PIPESTATUS[0]}
 
       # Determinism check: the same seed must produce the same world. If this
       # ever fails, the capture is not a trustworthy oracle and must not be
@@ -133,6 +135,16 @@ jobs:
           cp "capture/seed-${MODE}/server.log" "${OUTPUT_DIR}/diagnostics/server-${MODE}.log" 2>/dev/null || true
           cp "capture/seed-${MODE}/server-transcript.txt" "${OUTPUT_DIR}/diagnostics/transcript-${MODE}.txt" 2>/dev/null || true
           cp "capture/seed-${MODE}/error.txt" "${OUTPUT_DIR}/diagnostics/error-${MODE}.txt" 2>/dev/null || true
+          {
+            echo 'structure files found in the working tree:'
+            find "capture/seed-${MODE}" -name '*.mcstructure' -printf '%s %P\n' 2>/dev/null | head -40
+            echo
+            echo 'behaviour-pack structures written by the server:'
+            find "capture/seed-${MODE}" -path '*structures*' -name '*.mcstructure' 2>/dev/null | head -5
+            echo
+            echo 'decode step log:'
+            cat "capture/build-golden-${MODE}.log" 2>/dev/null || echo '(none)'
+          } >> "${OUTPUT_DIR}/diagnostics/report-${MODE}.txt"
           cp "capture/seed-${MODE}/capture.json" "${OUTPUT_DIR}/diagnostics/capture-${MODE}.json" 2>/dev/null || true
           cat capture/report.txt
 

@@ -231,10 +231,17 @@ async function captureInner({ binary, seed, out, timeout, probe, verbose, assets
     const target = path.join(workDir, name);
     if (!fs.existsSync(source) || fs.existsSync(target)) continue;
     try {
-      fs.symlinkSync(source, target, fs.statSync(source).isDirectory() ? 'dir' : 'file');
+      // Copied, not linked: `structure save` writes into the active behaviour
+      // pack, so a symlink would pollute the repository checkout with capture
+      // output.
+      if (fs.statSync(source).isDirectory()) {
+        fs.cpSync(source, target, { recursive: true, dereference: true });
+      } else {
+        fs.copyFileSync(source, target);
+      }
       linked.push(name);
     } catch (error) {
-      console.warn(`could not link ${name}: ${error.message}`);
+      console.warn(`could not stage ${name}: ${error.message}`);
     }
   }
   if (!linked.includes('resource_packs')) {
@@ -255,6 +262,12 @@ async function captureInner({ binary, seed, out, timeout, probe, verbose, assets
   const started = Date.now();
   try {
     await server.waitFor(/Server started\.?/i, 300000, 'server start');
+
+    // --- force generation of the capture area -----------------------------
+    // Done first: the world reports "Server started" before its spawn chunks
+    // (and therefore any target coordinate) accept edits.
+    await server.command('tickingarea add 0 0 0 47 0 47 capture');
+    await sleep(25000); // let the generator finish the 3x3 chunk area
 
     // --- probe: build a known marker pattern and save it -------------------
     // Used to pin down the block_indices ordering of `.mcstructure`.
@@ -278,11 +291,13 @@ async function captureInner({ binary, seed, out, timeout, probe, verbose, assets
         `structure save wp_probe ${base.x} ${base.y} ${base.z} ${base.x + 4} ${base.y + 4} ${base.z + 4}`
       );
       await sleep(1500);
+      if (!/Saved a structure with name .*wp_probe/i.test(server.lines.join(''))) {
+        throw new Error(
+          'the probe structure was not saved; the golden data cannot be trusted ' +
+          `without it. Server said: ${server.tail(800)}`
+        );
+      }
     }
-
-    // --- force generation of the capture area -----------------------------
-    await server.command('tickingarea add 0 0 0 47 0 47 capture');
-    await sleep(25000); // let the generator finish the 3x3 chunk area
 
     // --- save each chunk column in 64-block vertical slices ---------------
     const chunks = [[0, 0], [1, 0], [0, 1], [1, 1]];
@@ -317,7 +332,11 @@ async function captureInner({ binary, seed, out, timeout, probe, verbose, assets
   const walk = (dir) => {
     for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
       const full = path.join(dir, entry.name);
-      if (entry.isDirectory()) walk(full);
+      let isDirectory = entry.isDirectory();
+      if (entry.isSymbolicLink()) {
+        try { isDirectory = fs.statSync(full).isDirectory(); } catch { isDirectory = false; }
+      }
+      if (isDirectory) walk(full);
       else if (entry.name.endsWith('.mcstructure')) {
         fs.mkdirSync(path.join(absOut, 'structures'), { recursive: true });
         const to = path.join(absOut, 'structures', entry.name);
@@ -331,8 +350,23 @@ async function captureInner({ binary, seed, out, timeout, probe, verbose, assets
     }
   };
   if (fs.existsSync(workDir)) walk(workDir);
-  fs.writeFileSync(path.join(absOut, 'server.log'), server.lines.join(''));
   console.log(`collected ${collected.length} structure file(s)`);
+
+  // Fail loudly rather than silently shipping an incomplete golden set.
+  const expected = saved.map((item) => item.name);
+  if (probe) expected.push('wp_probe');
+  const seen = new Set(collected.map((item) => item.file.replace(/\.mcstructure$/, '')));
+  const missing = expected.filter((name) => !seen.has(name));
+  if (probe && !seen.has('wp_probe')) {
+    throw new Error(
+      `structure files were not collected (got ${collected.length}, expected ${expected.length}). ` +
+      `The server reported saving them, so they were written somewhere outside ${workDir}; ` +
+      `check where the active behaviour pack lives. Server: ${server.tail(600)}`
+    );
+  }
+  if (missing.length) {
+    throw new Error(`missing ${missing.length} structure file(s): ${missing.slice(0, 5).join(', ')}`);
+  }
 
   const manifest = {
     schema: 1,
