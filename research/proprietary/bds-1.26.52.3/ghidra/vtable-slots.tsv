@@ -1,15 +1,164 @@
 demangled_name	vtable_address_point	slot	target_address
+AncientCityFeature	ef8caf0	0	4fa16b0
+AncientCityFeature	ef8caf0	1	4fa16f0
+AncientCityFeature	ef8caf0	2	d351350
+AncientCityFeature	ef8caf0	3	d351360
+AncientCityFeature	ef8caf0	4	4f3e310
+AncientCityFeature	ef8caf0	5	4f3e350
+AncientCityFeature	ef8caf0	6	4f3e390
+AncientCityFeature	ef8caf0	7	4f3e5b0
+AncientCityFeature	ef8caf0	8	d3515c0
+BambooFeature	ef55f68	0	d427a00
+BambooFeature	ef55f68	1	4aa1ae0
+BambooFeature	ef55f68	2	d3dfa90
+BambooFeature	ef55f68	3	d3e8ac0
+BambooFeature	ef55f68	4	d3e8dd0
+BambooFeature	ef55f68	5	4a856c0
+BasaltColumnsFeature	ef56028	0	d427a00
+BasaltColumnsFeature	ef56028	1	4aa1af0
+BasaltColumnsFeature	ef56028	2	d3dfa90
+BasaltColumnsFeature	ef56028	3	d3e8ac0
+BasaltColumnsFeature	ef56028	4	d3e8dd0
+BasaltColumnsFeature	ef56028	5	4a85e50
+BasaltPillarFeature	ef55fa8	0	d427a00
+BasaltPillarFeature	ef55fa8	1	4aa1b00
+BasaltPillarFeature	ef55fa8	2	d3dfa90
+BasaltPillarFeature	ef55fa8	3	d3e8ac0
+BasaltPillarFeature	ef55fa8	4	d3e8dd0
+BasaltPillarFeature	ef55fa8	5	4a864b0
+BastionFeature	ef8cb90	0	4fa17c0
+BastionFeature	ef8cb90	1	4fa1800
+BastionFeature	ef8cb90	2	d351350
+BastionFeature	ef8cb90	3	4f3ece0
+BastionFeature	ef8cb90	4	4f3ec60
+BastionFeature	ef8cb90	5	4f3eca0
+BastionFeature	ef8cb90	6	4f3ecf0
+BastionFeature	ef8cb90	7	4f3ee00
+BastionFeature	ef8cb90	8	d3515c0
 BeardAndShaverFeature	f4728d0	0	d50fe60
 BeardAndShaverFeature	f4728d0	1	d50fe90
 BeardAndShaverFeature	f4728d0	2	d507040
 BeardAndShaverFeature	f4728d0	3	d3e8ac0
 BeardAndShaverFeature	f4728d0	4	d3e8dd0
+Biome	f3e1c90	0	c8b8060
+Biome	f3e1c90	1	c8b8190
+BiomeRegistry	f3e2550	0	c8caf60
+BiomeRegistry	f3e2550	1	c8cb250
+BiomeSource3d	ef52f68	0	4a5e290
+BiomeSource3d	ef52f68	1	4a5e300
+BiomeSource3d	ef52f68	2	4a3a160
+BiomeSource3d	ef52f68	3	c84fde0
+BiomeSource3d	ef52f68	4	4a3aaf0
+BiomeSource3d	ef52f68	5	4a3ae00
+BiomeSource3d	ef52f68	6	4a3ae30
+BiomeSource3d	ef52f68	7	4a3b030
+BiomeSource3d	ef52f68	8	4a3b4d0
+BiomeSource3d	ef52f68	9	4a3b510
+BiomeSource3d	ef52f68	10	4a3b550
+BiomeSource3d	ef52f68	11	4a3b290
+BlockBlobFeature	ef54a80	0	d427a00
+BlockBlobFeature	ef54a80	1	4aa1b10
+BlockBlobFeature	ef54a80	2	d3dfa90
+BlockBlobFeature	ef54a80	3	d3e8ac0
+BlockBlobFeature	ef54a80	4	d3e8dd0
+BlockBlobFeature	ef54a80	5	4a87380
+BlockPileFeature	ef54ac0	0	d427a00
+BlockPileFeature	ef54ac0	1	4aa1b20
+BlockPileFeature	ef54ac0	2	d3dfa90
+BlockPileFeature	ef54ac0	3	d3e8ac0
+BlockPileFeature	ef54ac0	4	d3e8dd0
+BlockPileFeature	ef54ac0	5	4a87920
+BlockPileFeature	ef54ac0	6	4a88060
+BlueIceFeature	ef55e28	0	d427a00
+BlueIceFeature	ef55e28	1	4aa1b30
+BlueIceFeature	ef55e28	2	d3dfa90
+BlueIceFeature	ef55e28	3	d3e8ac0
+BlueIceFeature	ef55e28	4	d3e8dd0
+BlueIceFeature	ef55e28	5	4a88230
 BonusChestFeature	f474ec0	0	d427a00
 BonusChestFeature	f474ec0	1	d50fed0
 BonusChestFeature	f474ec0	2	d3dfa90
 BonusChestFeature	f474ec0	3	d3e8ac0
 BonusChestFeature	f474ec0	4	d3e8dd0
 BonusChestFeature	f474ec0	5	d50a850
+BuriedTreasureFeature	ef8cc30	0	4fa1850
+BuriedTreasureFeature	ef8cc30	1	4fa1890
+BuriedTreasureFeature	ef8cc30	2	d351350
+BuriedTreasureFeature	ef8cc30	3	d351360
+BuriedTreasureFeature	ef8cc30	4	4f3f400
+BuriedTreasureFeature	ef8cc30	5	4f3f440
+BuriedTreasureFeature	ef8cc30	6	4f3f4a0
+BuriedTreasureFeature	ef8cc30	7	4f3f700
+BuriedTreasureFeature	ef8cc30	8	d3515c0
+CachedBiomeSource<?, ?, ? volatile, ?, int, long, long, ?, void&&, long double, ?, wchar_t, ?, ?, long, double, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, ?, ?*, short, ?, double>	ef9f848	0	52bc960
+CachedBiomeSource<?, ?, ? volatile, ?, int, long, long, ?, void&&, long double, ?, wchar_t, ?, ?, long, double, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, ?, ?*, short, ?, double>	ef9f848	1	52bcac0
+CachedBiomeSource<?, ?, ? volatile, ?, int, long, long, ?, void&&, long double, ?, wchar_t, ?, ?, long, double, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, ?, ?*, short, ?, double>	ef9f848	2	c84fdd0
+CachedBiomeSource<?, ?, ? volatile, ?, int, long, long, ?, void&&, long double, ?, wchar_t, ?, ?, long, double, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, ?, ?*, short, ?, double>	ef9f848	3	52a2940
+CachedBiomeSource<?, ?, ? volatile, ?, int, long, long, ?, void&&, long double, ?, wchar_t, ?, ?, long, double, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, ?, ?*, short, ?, double>	ef9f848	4	52a29f0
+CachedBiomeSource<?, ?, ? volatile, ?, int, long, long, ?, void&&, long double, ?, wchar_t, ?, ?, long, double, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, ?, ?*, short, ?, double>	ef9f848	5	52a2d60
+CachedBiomeSource<?, ?, ? volatile, ?, int, long, long, ?, void&&, long double, ?, wchar_t, ?, ?, long, double, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, ?, ?*, short, ?, double>	ef9f848	6	52a2ef0
+CachedBiomeSource<?, ?, ? volatile, ?, int, long, long, ?, void&&, long double, ?, wchar_t, ?, ?, long, double, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, ?, ?*, short, ?, double>	ef9f848	7	52a2f00
+CachedBiomeSource<?, ?, ? volatile, ?, int, long, long, ?, void&&, long double, ?, wchar_t, ?, ?, long, double, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, ?, ?*, short, ?, double>	ef9f848	8	52a3090
+CachedBiomeSource<?, ?, ? volatile, ?, int, long, long, ?, void&&, long double, ?, wchar_t, ?, ?, long, double, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, ?, ?*, short, ?, double>	ef9f848	9	52a30d0
+CachedBiomeSource<?, ?, ? volatile, ?, int, long, long, ?, void&&, long double, ?, wchar_t, ?, ?, long, double, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, ?, ?*, short, ?, double>	ef9f848	10	52a3110
+CachedBiomeSource<?, ?, ? volatile, ?, int, long, long, ?, void&&, long double, ?, wchar_t, ?, ?, long, double, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, ?, ?*, short, ?, double>	ef9f848	11	52bcae0
+CachedBiomeSource<?, ?, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, double>	ef9fc68	0	52bed20
+CachedBiomeSource<?, ?, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, double>	ef9fc68	1	52bee50
+CachedBiomeSource<?, ?, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, double>	ef9fc68	2	4a3a160
+CachedBiomeSource<?, ?, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, double>	ef9fc68	3	c84fde0
+CachedBiomeSource<?, ?, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, double>	ef9fc68	4	4a3aaf0
+CachedBiomeSource<?, ?, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, double>	ef9fc68	5	4a3ae00
+CachedBiomeSource<?, ?, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, double>	ef9fc68	6	4a3ae30
+CachedBiomeSource<?, ?, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, double>	ef9fc68	7	4a3b030
+CachedBiomeSource<?, ?, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, double>	ef9fc68	8	4a3b4d0
+CachedBiomeSource<?, ?, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, double>	ef9fc68	9	4a3b510
+CachedBiomeSource<?, ?, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, double>	ef9fc68	10	4a3b550
+CachedBiomeSource<?, ?, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, double>	ef9fc68	11	52bee70
+CachedBiomeSource<?, ?, long double&, ?, long, ?, char, long double, unsigned long, long double, ?, unsigned short, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, ?, ?, long, ?, char, ?, ?*, short>	ef9fbe0	0	52be860
+CachedBiomeSource<?, ?, long double&, ?, long, ?, char, long double, unsigned long, long double, ?, unsigned short, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, ?, ?, long, ?, char, ?, ?*, short>	ef9fbe0	1	52be940
+CachedBiomeSource<?, ?, long double&, ?, long, ?, char, long double, unsigned long, long double, ?, unsigned short, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, ?, ?, long, ?, char, ?, ?*, short>	ef9fbe0	2	c84fdd0
+CachedBiomeSource<?, ?, long double&, ?, long, ?, char, long double, unsigned long, long double, ?, unsigned short, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, ?, ?, long, ?, char, ?, ?*, short>	ef9fbe0	3	c84fde0
+CachedBiomeSource<?, ?, long double&, ?, long, ?, char, long double, unsigned long, long double, ?, unsigned short, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, ?, ?, long, ?, char, ?, ?*, short>	ef9fbe0	4	4a3d130
+CachedBiomeSource<?, ?, long double&, ?, long, ?, char, long double, unsigned long, long double, ?, unsigned short, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, ?, ?, long, ?, char, ?, ?*, short>	ef9fbe0	5	4a3f690
+CachedBiomeSource<?, ?, long double&, ?, long, ?, char, long double, unsigned long, long double, ?, unsigned short, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, ?, ?, long, ?, char, ?, ?*, short>	ef9fbe0	6	4a3f6c0
+CachedBiomeSource<?, ?, long double&, ?, long, ?, char, long double, unsigned long, long double, ?, unsigned short, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, ?, ?, long, ?, char, ?, ?*, short>	ef9fbe0	7	4a3fa90
+CachedBiomeSource<?, ?, long double&, ?, long, ?, char, long double, unsigned long, long double, ?, unsigned short, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, ?, ?, long, ?, char, ?, ?*, short>	ef9fbe0	8	4a3fdc0
+CachedBiomeSource<?, ?, long double&, ?, long, ?, char, long double, unsigned long, long double, ?, unsigned short, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, ?, ?, long, ?, char, ?, ?*, short>	ef9fbe0	9	4a40030
+CachedBiomeSource<?, ?, long double&, ?, long, ?, char, long double, unsigned long, long double, ?, unsigned short, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, ?, ?, long, ?, char, ?, ?*, short>	ef9fbe0	10	4a40290
+CachedBiomeSource<?, ?, long double&, ?, long, ?, char, long double, unsigned long, long double, ?, unsigned short, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, ?, ?, long, ?, char, ?, ?*, short>	ef9fbe0	11	52bea20
+CactusFeature	ef55d68	0	d427a00
+CactusFeature	ef55d68	1	4aa1b40
+CactusFeature	ef55d68	2	d3dfa90
+CactusFeature	ef55d68	3	d3e8ac0
+CactusFeature	ef55d68	4	d3e8dd0
+CactusFeature	ef55d68	5	4a88860
+CanyonFeature	ef54b08	0	4a8a020
+CanyonFeature	ef54b08	1	4a89fb0
+CanyonFeature	ef54b08	2	4a8a8e0
+CanyonFeature	ef54b08	3	4a8a980
+CanyonFeature	ef54b08	4	4a8ab80
+CanyonFeature	ef54b08	5	4a8ae20
+CanyonFeature	ef54b08	6	4a8ae60
+CanyonFeature	ef54b08	7	4a8a8a0
+CanyonFeature	ef54b08	8	4a8a970
+CanyonFeature	ef54b08	9	4a8a9a0
+CanyonFeature	ef54b08	10	4a8ae00
+CanyonFeature	ef54b08	11	4a8ae40
+CaveFeature	ef55cb8	0	4aa1b50
+CaveFeature	ef55cb8	1	4aa1bf0
+CaveFeature	ef55cb8	2	4a8b1b0
+CaveFeature	ef55cb8	3	4a8be50
+CaveFeature	ef55cb8	4	d3e8dd0
+CaveFeature	ef55cb8	5	4a8c080
+CaveFeature	ef55cb8	6	4a8c6a0
+CaveFeature	ef55cb8	7	4a8ce90
+CaveFeature	ef55cb8	8	4a8d8f0
+CentralSpikedFeature	ef54b88	0	d427a00
+CentralSpikedFeature	ef54b88	1	4aa1c10
+CentralSpikedFeature	ef54b88	2	d3dfa90
+CentralSpikedFeature	ef54b88	3	d3e8ac0
+CentralSpikedFeature	ef54b88	4	d3e8dd0
+CentralSpikedFeature	ef54b88	5	4a8f7d0
 ChunkSource	f3f0e90	0	cb3ae10
 ChunkSource	f3f0e90	1	cb30f20
 ChunkSource	f3f0e90	2	cb31380
@@ -51,6 +200,7 @@ ChunkSource	f3f0e90	37	cb33440
 ChunkSource	f3f0e90	38	cb334c0
 ChunkSource	f3f0e90	39	cb334e0
 ChunkSource	f3f0e90	40	cb33450
+ChunkSource	f3f0e90	41	cb33470
 ChunkViewSource	f3f24c8	0	cb3adb0
 ChunkViewSource	f3f24c8	1	cb3ade0
 ChunkViewSource	f3f24c8	2	cb31380
@@ -58,43 +208,137 @@ ChunkViewSource	f3f24c8	3	cb31390
 ChunkViewSource	f3f24c8	4	cb362d0
 ChunkViewSource	f3f24c8	5	cb363a0
 ChunkViewSource	f3f24c8	6	cb313d0
-ChunkViewSource	f3f24c8	7	cb36580
-ChunkViewSource	f3f24c8	8	cb314e0
-ChunkViewSource	f3f24c8	9	cb32720
-ChunkViewSource	f3f24c8	10	cb32730
-ChunkViewSource	f3f24c8	11	cb32740
-ChunkViewSource	f3f24c8	12	cb32750
-ChunkViewSource	f3f24c8	13	cb32760
-ChunkViewSource	f3f24c8	14	cb32770
-ChunkViewSource	f3f24c8	15	cb333e0
-ChunkViewSource	f3f24c8	16	cb33400
-ChunkViewSource	f3f24c8	17	cb32f20
-ChunkViewSource	f3f24c8	18	cb33130
-ChunkViewSource	f3f24c8	19	cb33340
-ChunkViewSource	f3f24c8	20	cb33380
-ChunkViewSource	f3f24c8	21	cb333a0
-ChunkViewSource	f3f24c8	22	cb32790
-ChunkViewSource	f3f24c8	23	cb327b0
-ChunkViewSource	f3f24c8	24	cb36500
-ChunkViewSource	f3f24c8	25	cb333c0
-ChunkViewSource	f3f24c8	26	cb32d30
-ChunkViewSource	f3f24c8	27	cb32d50
-ChunkViewSource	f3f24c8	28	cb36a50
-ChunkViewSource	f3f24c8	29	cb33430
-ChunkViewSource	f3f24c8	30	cb32f10
-ChunkViewSource	f3f24c8	31	529ba60
-ChunkViewSource	f3f24c8	32	cb2f090
-ChunkViewSource	f3f24c8	33	cb2f0d0
-ChunkViewSource	f3f24c8	34	cb36a90
-ChunkViewSource	f3f24c8	35	cb334c0
-ChunkViewSource	f3f24c8	36	cb334e0
-ChunkViewSource	f3f24c8	37	cb33450
-ChunkViewSource	f3f24c8	38	cb36c50
+ChunkViewSource	f3f24c8	7	cb313f0
+ChunkViewSource	f3f24c8	8	cb36580
+ChunkViewSource	f3f24c8	9	cb314e0
+ChunkViewSource	f3f24c8	10	cb32720
+ChunkViewSource	f3f24c8	11	cb32730
+ChunkViewSource	f3f24c8	12	cb32740
+ChunkViewSource	f3f24c8	13	cb32750
+ChunkViewSource	f3f24c8	14	cb32760
+ChunkViewSource	f3f24c8	15	cb32770
+ChunkViewSource	f3f24c8	16	cb333e0
+ChunkViewSource	f3f24c8	17	cb33400
+ChunkViewSource	f3f24c8	18	cb32f20
+ChunkViewSource	f3f24c8	19	cb33130
+ChunkViewSource	f3f24c8	20	cb33340
+ChunkViewSource	f3f24c8	21	cb33360
+ChunkViewSource	f3f24c8	22	cb33380
+ChunkViewSource	f3f24c8	23	cb333a0
+ChunkViewSource	f3f24c8	24	cb32790
+ChunkViewSource	f3f24c8	25	cb327b0
+ChunkViewSource	f3f24c8	26	cb36500
+ChunkViewSource	f3f24c8	27	cb333c0
+ChunkViewSource	f3f24c8	28	cb32d30
+ChunkViewSource	f3f24c8	29	cb32d50
+ChunkViewSource	f3f24c8	30	cb36a50
+ChunkViewSource	f3f24c8	31	cb33430
+ChunkViewSource	f3f24c8	32	cb32f10
+ChunkViewSource	f3f24c8	33	529ba60
+ChunkViewSource	f3f24c8	34	cb2f090
+ChunkViewSource	f3f24c8	35	cb2f0a0
+ChunkViewSource	f3f24c8	36	cb2f0d0
+ChunkViewSource	f3f24c8	37	cb36a90
+ChunkViewSource	f3f24c8	38	cb334c0
+ChunkViewSource	f3f24c8	39	cb334e0
+ChunkViewSource	f3f24c8	40	cb33450
+ChunkViewSource	f3f24c8	41	cb36c50
+ClayFeature	ef54bc8	0	d427a00
+ClayFeature	ef54bc8	1	4aa1c20
+ClayFeature	ef54bc8	2	d3dfa90
+ClayFeature	ef54bc8	3	d3e8ac0
+ClayFeature	ef54bc8	4	d3e8dd0
+ClayFeature	ef54bc8	5	4a8fd80
 ConditionalListFeature	f472938	0	d50fee0
 ConditionalListFeature	f472938	1	d50ff90
 ConditionalListFeature	f472938	2	d50b1d0
 ConditionalListFeature	f472938	3	d3e8ac0
 ConditionalListFeature	f472938	4	d3e8dd0
+CoralCrustFeature	ef55ea8	0	d427a00
+CoralCrustFeature	ef55ea8	1	4aa1c30
+CoralCrustFeature	ef55ea8	2	d3dfa90
+CoralCrustFeature	ef55ea8	3	d3e8ac0
+CoralCrustFeature	ef55ea8	4	d3e8dd0
+CoralCrustFeature	ef55ea8	5	4a90390
+CoralFeature	ef55ee8	0	d427a00
+CoralFeature	ef55ee8	1	4aa1c40
+CoralFeature	ef55ee8	2	d3dfa90
+CoralFeature	ef55ee8	3	d3e8ac0
+CoralFeature	ef55ee8	4	d3e8dd0
+CoralFeature	ef55ee8	5	4a93470
+CoralHangFeature	ef55f28	0	d427a00
+CoralHangFeature	ef55f28	1	4aa1c50
+CoralHangFeature	ef55f28	2	d3dfa90
+CoralHangFeature	ef55f28	3	d3e8ac0
+CoralHangFeature	ef55f28	4	d3e8dd0
+CoralHangFeature	ef55f28	5	4a9c280
+DeadBushFeature	ef55da8	0	d427a00
+DeadBushFeature	ef55da8	1	4aa1c60
+DeadBushFeature	ef55da8	2	d3dfa90
+DeadBushFeature	ef55da8	3	d3e8ac0
+DeadBushFeature	ef55da8	4	d3e8dd0
+DeadBushFeature	ef55da8	5	4a9c930
+DeltaFeature	ef55fe8	0	d427a00
+DeltaFeature	ef55fe8	1	4aa1c70
+DeltaFeature	ef55fe8	2	d3dfa90
+DeltaFeature	ef55fe8	3	d3e8ac0
+DeltaFeature	ef55fe8	4	d3e8dd0
+DeltaFeature	ef55fe8	5	4a9d080
+DesertWellFeature	ef55de8	0	d427a00
+DesertWellFeature	ef55de8	1	4aa1c80
+DesertWellFeature	ef55de8	2	d3dfa90
+DesertWellFeature	ef55de8	3	d3e8ac0
+DesertWellFeature	ef55de8	4	d3e8dd0
+DesertWellFeature	ef55de8	5	4a9d900
+DiscFeature	ef54c70	0	d427a00
+DiscFeature	ef54c70	1	4aa1c90
+DiscFeature	ef54c70	2	d3dfa90
+DiscFeature	ef54c70	3	d3e8ac0
+DiscFeature	ef54c70	4	d3e8dd0
+DiscFeature	ef54c70	5	4aa0e50
+DoublePlantFeature	ef55e68	0	d427a00
+DoublePlantFeature	ef55e68	1	4aa1ca0
+DoublePlantFeature	ef55e68	2	d3dfa90
+DoublePlantFeature	ef55e68	3	d3e8ac0
+DoublePlantFeature	ef55e68	4	d3e8dd0
+DoublePlantFeature	ef55e68	5	4aa1150
+DripleafFeature	ef56068	0	d427a00
+DripleafFeature	ef56068	1	4aa1cb0
+DripleafFeature	ef56068	2	d3dfa90
+DripleafFeature	ef56068	3	d3e8ac0
+DripleafFeature	ef56068	4	d3e8dd0
+DripleafFeature	ef56068	5	4aa13c0
+EditorCustomBiomeSource	ef48cf0	0	49cac20
+EditorCustomBiomeSource	ef48cf0	1	49cad70
+EditorCustomBiomeSource	ef48cf0	2	495d330
+EditorCustomBiomeSource	ef48cf0	3	495d340
+EditorCustomBiomeSource	ef48cf0	4	495d350
+EditorCustomBiomeSource	ef48cf0	5	495d360
+EditorCustomBiomeSource	ef48cf0	6	495d3a0
+EditorCustomBiomeSource	ef48cf0	7	495d4d0
+EditorCustomBiomeSource	ef48cf0	8	495d750
+EditorCustomBiomeSource	ef48cf0	9	495d790
+EndCityFeature	ef8cd50	0	d34fe50
+EndCityFeature	ef8cd50	1	4fa1a70
+EndCityFeature	ef8cd50	2	d351350
+EndCityFeature	ef8cd50	3	4f400d0
+EndCityFeature	ef8cd50	4	d351780
+EndCityFeature	ef8cd50	5	4f40090
+EndCityFeature	ef8cd50	6	4f400e0
+EndCityFeature	ef8cd50	7	4f40a30
+EndCityFeature	ef8cd50	8	d3515c0
+EndCityPieces::FatTowerGenerator	ef8eed8	0	4f43ef0
+EndCityPieces::FatTowerGenerator	ef8eed8	1	4fa1ac0
+EndCityPieces::FatTowerGenerator	ef8eed8	2	4fa1aa0
+EndCityPieces::HouseTowerGenerator	ef8ef30	0	4f46930
+EndCityPieces::HouseTowerGenerator	ef8ef30	1	4fa1ac0
+EndCityPieces::HouseTowerGenerator	ef8ef30	2	4fa1ad0
+EndCityPieces::TowerBridgeGenerator	ef8cdf0	0	4f45340
+EndCityPieces::TowerBridgeGenerator	ef8cdf0	1	4fa1ac0
+EndCityPieces::TowerBridgeGenerator	ef8cdf0	2	4fa1ab0
+EndCityPieces::TowerGenerator	ef8ee88	0	4f42570
+EndCityPieces::TowerGenerator	ef8ee88	1	4fa1ac0
+EndCityPieces::TowerGenerator	ef8ee88	2	4fa1a90
 EndGatewayFeature	f472988	0	d427a00
 EndGatewayFeature	f472988	1	d510050
 EndGatewayFeature	f472988	2	d3dfa90
@@ -113,12 +357,46 @@ EndPodiumFeature	f4636b8	2	d3dfa90
 EndPodiumFeature	f4636b8	3	d3e8ac0
 EndPodiumFeature	f4636b8	4	d3e8dd0
 EndPodiumFeature	f4636b8	5	d3de740
+EyeblossomFeature	efa2750	0	d427a00
+EyeblossomFeature	efa2750	1	52d9580
+EyeblossomFeature	efa2750	2	d3dfa90
+EyeblossomFeature	efa2750	3	d3e8ac0
+EyeblossomFeature	efa2750	4	d3e8dd0
+EyeblossomFeature	efa2750	5	52bfae0
 Feature	f4636f8	0	d427a00
 Feature	f4636f8	1	d3dfa50
 Feature	f4636f8	2	d3dfa90
 Feature	f4636f8	3	d3e8ac0
 Feature	f4636f8	4	d3e8dd0
 Feature	f4636f8	5	412bcc0
+FilterTestBiome	f38f778	0	c5caa80
+FilterTestBiome	f38f778	1	c5ca3c0
+FilterTestBiome	f38f778	2	c5c8dc0
+FilterTestBiome	f38f778	3	c5c5b20
+FilterTestBiome	f38f778	4	c5c81c0
+FilterTestBiome	f38f778	5	c5ca400
+FilterTestBiome	f38f778	6	c5c35c0
+FilterTestBiome	f38f778	7	c5c5400
+FilterTestBiome	f38f778	8	c5c3590
+FilterTestBiome	f38f778	9	c5c5420
+FireflyBushClusterFeature	ef9ff68	0	d427a00
+FireflyBushClusterFeature	ef9ff68	1	52d9590
+FireflyBushClusterFeature	ef9ff68	2	d3dfa90
+FireflyBushClusterFeature	ef9ff68	3	d3e8ac0
+FireflyBushClusterFeature	ef9ff68	4	d3e8dd0
+FireflyBushClusterFeature	ef9ff68	5	52bfc30
+FixedBiomeSource	f3dc940	0	c859aa0
+FixedBiomeSource	f3dc940	1	c859ab0
+FixedBiomeSource	f3dc940	2	c84fdd0
+FixedBiomeSource	f3dc940	3	c84fde0
+FixedBiomeSource	f3dc940	4	c851460
+FixedBiomeSource	f3dc940	5	c851640
+FixedBiomeSource	f3dc940	6	c851650
+FixedBiomeSource	f3dc940	7	c8515b0
+FixedBiomeSource	f3dc940	8	c851800
+FixedBiomeSource	f3dc940	9	c851810
+FixedBiomeSource	f3dc940	10	c851820
+FixedBiomeSource	f3dc940	11	c851630
 FlatWorldGenerator	f462370	0	d3c37d0
 FlatWorldGenerator	f462370	1	d3c3840
 FlatWorldGenerator	f462370	2	cb31380
@@ -179,6 +457,31 @@ FlatWorldGenerator	f462370	56	d3a5b00
 FlatWorldGenerator	f462548	0	d3c38b0
 FlatWorldGenerator	f462548	1	d3c3920
 FlatWorldGenerator	f462548	2	ca73310
+FlowerBedFeature	ef9ffa8	0	d427a00
+FlowerBedFeature	ef9ffa8	1	52d95a0
+FlowerBedFeature	ef9ffa8	2	d3dfa90
+FlowerBedFeature	ef9ffa8	3	d3e8ac0
+FlowerBedFeature	ef9ffa8	4	d3e8dd0
+FlowerBedFeature	ef9ffa8	5	52c0110
+FossilFeature	efa25e0	0	52d95b0
+FossilFeature	efa25e0	1	52d95d0
+FossilFeature	efa25e0	2	d3dfa90
+FossilFeature	efa25e0	3	d3e8ac0
+FossilFeature	efa25e0	4	d3e8dd0
+FossilFeature	efa25e0	5	52c0a20
+FrozenNoiseBasedTemperatureFlag	efa5aa8	0	4a7b3e0
+FrozenNoiseBasedTemperatureFlag	efa5aa8	1	535d350
+GeodeFeature	efa2620	0	52d9600
+GeodeFeature	efa2620	1	52d96b0
+GeodeFeature	efa2620	2	52c22e0
+GeodeFeature	efa2620	3	d3e8ac0
+GeodeFeature	efa2620	4	d3e8dd0
+GlowStoneFeature	efa0410	0	d427a00
+GlowStoneFeature	efa0410	1	52d9760
+GlowStoneFeature	efa0410	2	d3dfa90
+GlowStoneFeature	efa0410	3	d3e8ac0
+GlowStoneFeature	efa0410	4	d3e8dd0
+GlowStoneFeature	efa0410	5	52c9160
 GrowingPlantFeature	f463738	0	d427900
 GrowingPlantFeature	f463738	1	d4279c0
 GrowingPlantFeature	f463738	2	d3e0bf0
@@ -189,6 +492,11 @@ HeightDifferenceFilterFeature	f463998	1	d4279e0
 HeightDifferenceFilterFeature	f463998	2	d3e57b0
 HeightDifferenceFilterFeature	f463998	3	d3e8ac0
 HeightDifferenceFilterFeature	f463998	4	d3e8dd0
+HorizontalTreeDecorationFeature	efa2658	0	52d9770
+HorizontalTreeDecorationFeature	efa2658	1	52d9790
+HorizontalTreeDecorationFeature	efa2658	2	52c9560
+HorizontalTreeDecorationFeature	efa2658	3	d3e8ac0
+HorizontalTreeDecorationFeature	efa2658	4	d3e8dd0
 HugeFungusFeature	f463770	0	d427a00
 HugeFungusFeature	f463770	1	d4279f0
 HugeFungusFeature	f463770	2	d3dfa90
@@ -201,6 +509,96 @@ HugeMushroomFeature	f4637b0	2	d3dfa90
 HugeMushroomFeature	f4637b0	3	d3e8ac0
 HugeMushroomFeature	f4637b0	4	d3e8dd0
 HugeMushroomFeature	f4637b0	5	d3e7e20
+ITreeFeature	ef57798	0	4afa110
+ITreeFeature	ef57798	1	4afa190
+ITreeFeature	ef57798	2	412bcc0
+ITreeFeature	ef57798	3	d3e8ac0
+ITreeFeature	ef57798	4	d3e8dd0
+IcePatchFeature	ef9ffe8	0	d427a00
+IcePatchFeature	ef9ffe8	1	52d97c0
+IcePatchFeature	ef9ffe8	2	d3dfa90
+IcePatchFeature	ef9ffe8	3	d3e8ac0
+IcePatchFeature	ef9ffe8	4	d3e8dd0
+IcePatchFeature	ef9ffe8	5	52cad30
+IceSpikeFeature	efa2690	0	d427a00
+IceSpikeFeature	efa2690	1	52d97d0
+IceSpikeFeature	efa2690	2	d3dfa90
+IceSpikeFeature	efa2690	3	d3e8ac0
+IceSpikeFeature	efa2690	4	d3e8dd0
+IceSpikeFeature	efa2690	5	52cb360
+IcebergFeature	efa0028	0	d427a00
+IcebergFeature	efa0028	1	52d97e0
+IcebergFeature	efa0028	2	d3dfa90
+IcebergFeature	efa0028	3	d3e8ac0
+IcebergFeature	efa0028	4	d3e8dd0
+IcebergFeature	efa0028	5	52cc190
+InstanceIdGenerator	f1fd338	0	9fb6960
+InstanceIdGenerator	f1fd338	1	9fb6970
+InstanceIdGenerator	f1fd338	2	9fb4020
+JigsawBlock	f3a6720	0	c6e1d20
+JigsawBlock	f3a6720	1	c65c710
+JigsawBlock	f3a6720	2	c6c9a10
+JigsawBlock	f3a6720	3	c6c9ae0
+JigsawBlock	f3a6720	4	c6c9d20
+JigsawBlock	f3a6720	5	c6c9f50
+JigsawBlock	f3a6720	6	c6c9fb0
+JigsawBlock	f3a6720	7	c6ca310
+JigsawBlock	f3a6720	8	c6ca480
+JigsawBlock	f3a6720	9	c6ca650
+JigsawBlock	f3a6720	10	c6ca660
+JigsawBlock	f3a6720	11	c6ca670
+JigsawBlock	f3a6720	12	c6ca680
+JigsawBlock	f3a6720	13	c6cf050
+JigsawBlock	f3a6720	14	c6cbb30
+JigsawBlock	f3a6720	15	c6cbda0
+JigsawBlock	f3a6720	16	c6cbdb0
+JigsawBlock	f3a6720	17	533db90
+JigsawBlock	f3a6720	18	c6cbc10
+JigsawBlock	f3a6720	19	c6cbd00
+JigsawBlock	f3a6720	20	533dba0
+JigsawBlock	f3a6720	21	533dbb0
+JigsawBlock	f3a6720	22	c6cecf0
+JigsawBlock	f3a6720	23	c6ced00
+JigsawBlock	f3a6720	24	c6ced10
+JigsawBlock	f3a6720	25	c6ced30
+JigsawBlock	f3a6720	26	c6ced70
+JigsawBlock	f3a6720	27	c6ced80
+JigsawBlock	f3a6720	28	c6ced90
+JigsawBlock	f3a6720	29	c6ceda0
+JigsawBlock	f3a6720	30	c6cedb0
+JigsawBlock	f3a6720	31	c6cedc0
+JigsawBlock	f3a6720	32	c6cedd0
+JigsawBlock	f3a6720	33	c6cede0
+JigsawBlock	f3a6720	34	c6cedf0
+JigsawBlock	f3a6720	35	c6cc060
+JigsawBlock	f3a6720	36	c6cc070
+JigsawBlock	f3a6720	37	c6cc0a0
+JigsawBlock	f3a6720	38	c6cc0b0
+JigsawBlock	f3a6720	39	533dbc0
+JigsawBlock	f3a6720	40	533dbd0
+JigsawBlock	f3a6720	41	533dbe0
+JigsawBlock	f3a6720	42	533dbf0
+JigsawBlock	f3a6720	43	c6cc0c0
+JigsawBlock	f3a6720	44	c6cc0d0
+JigsawBlock	f3a6720	45	c6d0c50
+JigsawBlock	f3a6720	46	533dc00
+JigsawBlock	f3a6720	47	c6cdc10
+JigsawBlock	f3a6720	48	c6ce1f0
+JigsawBlock	f3a6720	49	c6ce200
+JigsawBlock	f3a6720	50	c6ce210
+JigsawBlock	f3a6720	51	c6ce5d0
+JigsawBlock	f3a6720	52	533dc10
+JigsawBlock	f3a6720	53	533dc20
+JigsawBlock	f3a6720	54	c6ce5e0
+JigsawBlock	f3a6720	55	c6ce5f0
+JigsawBlock	f3a6720	56	533dc30
+JigsawBlock	f3a6720	57	533dc40
+JigsawBlock	f3a6720	58	c6ce600
+JigsawBlock	f3a6720	59	c6ce610
+JigsawBlock	f3a6720	60	c6ce640
+JigsawBlock	f3a6720	61	c6ce650
+JigsawBlock	f3a6720	62	c6ce660
+JigsawBlock	f3a6720	63	c6ce670
 JigsawStructureLoader	f45f878	0	d3086c0
 JigsawStructureLoader	f45f878	1	d308790
 JigsawStructurePostprocessAction	f45e7a0	0	d2d9e30
@@ -208,6 +606,65 @@ JigsawStructurePostprocessAction	f45e7a0	1	d2d9e80
 JigsawStructurePostprocessAction	f45e7a0	2	d2cedd0
 JigsawStructurePostprocessAction	f45e7a0	3	d2cf130
 JigsawStructurePostprocessAction	f45e7a0	4	cad7170
+KelpFeature	efa0068	0	d427a00
+KelpFeature	efa0068	1	52d97f0
+KelpFeature	efa0068	2	d3dfa90
+KelpFeature	efa0068	3	d3e8ac0
+KelpFeature	efa0068	4	d3e8dd0
+KelpFeature	efa0068	5	52cdde0
+LakeFeature	efa00a8	0	527e880
+LakeFeature	efa00a8	1	52d9800
+LakeFeature	efa00a8	2	d3dfa90
+LakeFeature	efa00a8	3	d3e8ac0
+LakeFeature	efa00a8	4	d3e8dd0
+LakeFeature	efa00a8	5	52ce810
+LargeSpeleothemFeature	efa00e8	0	d4282e0
+LargeSpeleothemFeature	efa00e8	1	52d9880
+LargeSpeleothemFeature	efa00e8	2	52d0860
+LargeSpeleothemFeature	efa00e8	3	d3e8ac0
+LargeSpeleothemFeature	efa00e8	4	d3e8dd0
+LegacyEmeraldOreFeature	efa2710	0	d427a00
+LegacyEmeraldOreFeature	efa2710	1	52d9890
+LegacyEmeraldOreFeature	efa2710	2	d3dfa90
+LegacyEmeraldOreFeature	efa2710	3	d3e8ac0
+LegacyEmeraldOreFeature	efa2710	4	d3e8dd0
+LegacyEmeraldOreFeature	efa2710	5	52d1660
+LegacyFlowerFeature	efa0120	0	52d98a0
+LegacyFlowerFeature	efa0120	1	52d98d0
+LegacyFlowerFeature	efa0120	2	d3dfa90
+LegacyFlowerFeature	efa0120	3	d3e8ac0
+LegacyFlowerFeature	efa0120	4	d3e8dd0
+LegacyFlowerFeature	efa0120	5	52d18f0
+LegacyForestFoliageFeature	efa0160	0	d427a00
+LegacyForestFoliageFeature	efa0160	1	52d9910
+LegacyForestFoliageFeature	efa0160	2	d3dfa90
+LegacyForestFoliageFeature	efa0160	3	d3e8ac0
+LegacyForestFoliageFeature	efa0160	4	d3e8dd0
+LegacyForestFoliageFeature	efa0160	5	52d1e10
+LegacyForestRockFeature	efa01a0	0	d427a00
+LegacyForestRockFeature	efa01a0	1	52d9920
+LegacyForestRockFeature	efa01a0	2	d3dfa90
+LegacyForestRockFeature	efa01a0	3	d3e8ac0
+LegacyForestRockFeature	efa01a0	4	d3e8dd0
+LegacyForestRockFeature	efa01a0	5	52d2470
+LegacyIceFeature	efa01e0	0	d427a00
+LegacyIceFeature	efa01e0	1	52d9930
+LegacyIceFeature	efa01e0	2	d3dfa90
+LegacyIceFeature	efa01e0	3	d3e8ac0
+LegacyIceFeature	efa01e0	4	d3e8dd0
+LegacyIceFeature	efa01e0	5	52d2800
+LegacySmallMushroomsFeature	efa0220	0	d427a00
+LegacySmallMushroomsFeature	efa0220	1	52d9940
+LegacySmallMushroomsFeature	efa0220	2	d3dfa90
+LegacySmallMushroomsFeature	efa0220	3	d3e8ac0
+LegacySmallMushroomsFeature	efa0220	4	d3e8dd0
+LegacySmallMushroomsFeature	efa0220	5	52d2c40
+LegacySpringsFeature	efa0260	0	d427a00
+LegacySpringsFeature	efa0260	1	52d9950
+LegacySpringsFeature	efa0260	2	d3dfa90
+LegacySpringsFeature	efa0260	3	d3e8ac0
+LegacySpringsFeature	efa0260	4	d3e8dd0
+LegacySpringsFeature	efa0260	5	52d30f0
 LegacyStructureTemplate	f4626c0	0	d3b5280
 LegacyStructureTemplate	f4626c0	1	d3b7a10
 LegacyStructureTemplate	f4626c0	2	6427820
@@ -220,6 +677,17 @@ LegacyStructureTemplate	f462708	1	d3c3ba0
 LegacyStructureTemplate	f462708	2	d3bc600
 LegacyStructureTemplate	f462708	3	d3bc5d0
 LegacyStructureTemplate	f462708	4	d3bc550
+LegacySwampFoliageFeature	efa02a0	0	52d9960
+LegacySwampFoliageFeature	efa02a0	1	52d99a0
+LegacySwampFoliageFeature	efa02a0	2	d3dfa90
+LegacySwampFoliageFeature	efa02a0	3	d3e8ac0
+LegacySwampFoliageFeature	efa02a0	4	d3e8dd0
+LegacySwampFoliageFeature	efa02a0	5	52d39d0
+LegacyTreeFeature	efa02e0	0	52d99f0
+LegacyTreeFeature	efa02e0	1	52d9a70
+LegacyTreeFeature	efa02e0	2	52d7b00
+LegacyTreeFeature	efa02e0	3	d3e8ac0
+LegacyTreeFeature	efa02e0	4	d3e8dd0
 MainChunkSource	f3efae0	0	cb0a640
 MainChunkSource	f3efae0	1	cb0a6c0
 MainChunkSource	f3efae0	2	cb31380
@@ -231,30 +699,64 @@ MainChunkSource	f3efae0	7	cb313f0
 MainChunkSource	f3efae0	8	cb0aa80
 MainChunkSource	f3efae0	9	cb314e0
 MainChunkSource	f3efae0	10	cb32720
-MainChunkSource	f3efae0	11	cb32740
-MainChunkSource	f3efae0	12	cb32750
-MainChunkSource	f3efae0	13	cb32760
-MainChunkSource	f3efae0	14	cb32770
-MainChunkSource	f3efae0	15	cb333e0
-MainChunkSource	f3efae0	16	cb33400
-MainChunkSource	f3efae0	17	cb32f20
-MainChunkSource	f3efae0	18	cb33130
-MainChunkSource	f3efae0	19	cb33360
-MainChunkSource	f3efae0	20	cb33380
-MainChunkSource	f3efae0	21	cb333a0
-MainChunkSource	f3efae0	22	cb32790
-MainChunkSource	f3efae0	23	cb0ab00
-MainChunkSource	f3efae0	24	cb32d30
-MainChunkSource	f3efae0	25	cb32d50
-MainChunkSource	f3efae0	26	cb33420
-MainChunkSource	f3efae0	27	cb0aeb0
-MainChunkSource	f3efae0	28	cb0adb0
-MainChunkSource	f3efae0	29	cb2f0a0
-MainChunkSource	f3efae0	30	cb2f0d0
-MainChunkSource	f3efae0	31	cb0aed0
-MainChunkSource	f3efae0	32	cb334c0
-MainChunkSource	f3efae0	33	cb334e0
-MainChunkSource	f3efae0	34	cb33450
+MainChunkSource	f3efae0	11	cb32730
+MainChunkSource	f3efae0	12	cb32740
+MainChunkSource	f3efae0	13	cb32750
+MainChunkSource	f3efae0	14	cb32760
+MainChunkSource	f3efae0	15	cb32770
+MainChunkSource	f3efae0	16	cb333e0
+MainChunkSource	f3efae0	17	cb33400
+MainChunkSource	f3efae0	18	cb32f20
+MainChunkSource	f3efae0	19	cb33130
+MainChunkSource	f3efae0	20	cb33340
+MainChunkSource	f3efae0	21	cb33360
+MainChunkSource	f3efae0	22	cb33380
+MainChunkSource	f3efae0	23	cb333a0
+MainChunkSource	f3efae0	24	cb32790
+MainChunkSource	f3efae0	25	cb327b0
+MainChunkSource	f3efae0	26	cb0ab00
+MainChunkSource	f3efae0	27	cb333c0
+MainChunkSource	f3efae0	28	cb32d30
+MainChunkSource	f3efae0	29	cb32d50
+MainChunkSource	f3efae0	30	cb33420
+MainChunkSource	f3efae0	31	cb0aeb0
+MainChunkSource	f3efae0	32	cb0ada0
+MainChunkSource	f3efae0	33	cb0adb0
+MainChunkSource	f3efae0	34	cb0aec0
+MainChunkSource	f3efae0	35	cb2f0a0
+MainChunkSource	f3efae0	36	cb2f0d0
+MainChunkSource	f3efae0	37	cb0aed0
+MainChunkSource	f3efae0	38	cb334c0
+MainChunkSource	f3efae0	39	cb334e0
+MainChunkSource	f3efae0	40	cb33450
+MainChunkSource	f3efae0	41	cb33470
+MeadowFlowerFeature	efa0318	0	52d9af0
+MeadowFlowerFeature	efa0318	1	52d9b20
+MeadowFlowerFeature	efa0318	2	d3dfa90
+MeadowFlowerFeature	efa0318	3	d3e8ac0
+MeadowFlowerFeature	efa0318	4	d3e8dd0
+MeadowFlowerFeature	efa0318	5	52d7e00
+MelonFeature	efa26d0	0	d427a00
+MelonFeature	efa26d0	1	52d9b60
+MelonFeature	efa26d0	2	d3dfa90
+MelonFeature	efa26d0	3	d3e8ac0
+MelonFeature	efa26d0	4	d3e8dd0
+MelonFeature	efa26d0	5	52d8410
+MineshaftFeature	ef9b8d8	0	d34fe50
+MineshaftFeature	ef9b8d8	1	4fa1c00
+MineshaftFeature	ef9b8d8	2	d351350
+MineshaftFeature	ef9b8d8	3	4f49980
+MineshaftFeature	ef9b8d8	4	d351780
+MineshaftFeature	ef9b8d8	5	d351790
+MineshaftFeature	ef9b8d8	6	4f497d0
+MineshaftFeature	ef9b8d8	7	4f49990
+MineshaftFeature	ef9b8d8	8	d3515c0
+MonsterRoomFeature	efa0358	0	d427a00
+MonsterRoomFeature	efa0358	1	52d9b70
+MonsterRoomFeature	efa0358	2	d3dfa90
+MonsterRoomFeature	efa0358	3	d3e8ac0
+MonsterRoomFeature	efa0358	4	d3e8dd0
+MonsterRoomFeature	efa0358	5	52d8680
 MultiBlockFeature	f463a18	0	d427a20
 MultiBlockFeature	f463a18	1	d427aa0
 MultiBlockFeature	f463a18	2	d3e9360
@@ -270,6 +772,127 @@ MultipartBlockColumnFeature	f463a80	1	d427d70
 MultipartBlockColumnFeature	f463a80	2	d3f0560
 MultipartBlockColumnFeature	f463a80	3	d3e8ac0
 MultipartBlockColumnFeature	f463a80	4	d3e8dd0
+MushroomFeature	ef56818	0	d427a00
+MushroomFeature	ef56818	1	4aec1f0
+MushroomFeature	ef56818	2	d3dfa90
+MushroomFeature	ef56818	3	d3e8ac0
+MushroomFeature	ef56818	4	d3e8dd0
+MushroomFeature	ef56818	5	4ab9020
+NetherCaveFeature	ef8c758	0	4aa1b50
+NetherCaveFeature	ef8c758	1	4aec200
+NetherCaveFeature	ef8c758	2	4ab9630
+NetherCaveFeature	ef8c758	3	4a8be50
+NetherCaveFeature	ef8c758	4	d3e8dd0
+NetherCaveFeature	ef8c758	5	4ab9850
+NetherCaveFeature	ef8c758	6	4ab98f0
+NetherCaveFeature	ef8c758	7	4a8ce90
+NetherCaveFeature	ef8c758	8	4aba710
+NetherFireFeature	ef56ba8	0	d427a00
+NetherFireFeature	ef56ba8	1	4aec220
+NetherFireFeature	ef56ba8	2	d3dfa90
+NetherFireFeature	ef56ba8	3	d3e8ac0
+NetherFireFeature	ef56ba8	4	d3e8dd0
+NetherFireFeature	ef56ba8	5	4abc4c0
+NetherFortressFeature	ef8d110	0	4fa1f00
+NetherFortressFeature	ef8d110	1	4fa1f40
+NetherFortressFeature	ef8d110	2	4f4fe50
+NetherFortressFeature	ef8d110	3	d351360
+NetherFortressFeature	ef8d110	4	4f4fe60
+NetherFortressFeature	ef8d110	5	d351790
+NetherFortressFeature	ef8d110	6	4f4fea0
+NetherFortressFeature	ef8d110	7	4f4ffb0
+NetherFortressFeature	ef8d110	8	d3515c0
+NetherFossilFeature	ef56858	0	4aec230
+NetherFossilFeature	ef56858	1	4aec2b0
+NetherFossilFeature	ef56858	2	d3dfa90
+NetherFossilFeature	ef56858	3	d3e8ac0
+NetherFossilFeature	ef56858	4	d3e8dd0
+NetherFossilFeature	ef56858	5	4abd240
+NetherGenerator	ef9d0a0	0	5261a90
+NetherGenerator	ef9d0a0	1	5261ce0
+NetherGenerator	ef9d0a0	2	cb31380
+NetherGenerator	ef9d0a0	3	cb31390
+NetherGenerator	ef9d0a0	4	cb313b0
+NetherGenerator	ef9d0a0	5	cb313c0
+NetherGenerator	ef9d0a0	6	cb313d0
+NetherGenerator	ef9d0a0	7	cb313f0
+NetherGenerator	ef9d0a0	8	cb31410
+NetherGenerator	ef9d0a0	9	cb314e0
+NetherGenerator	ef9d0a0	10	5264a10
+NetherGenerator	ef9d0a0	11	52650f0
+NetherGenerator	ef9d0a0	12	cb32740
+NetherGenerator	ef9d0a0	13	cb32750
+NetherGenerator	ef9d0a0	14	cb32760
+NetherGenerator	ef9d0a0	15	5263f50
+NetherGenerator	ef9d0a0	16	ca73030
+NetherGenerator	ef9d0a0	17	ca730a0
+NetherGenerator	ef9d0a0	18	cb32f20
+NetherGenerator	ef9d0a0	19	cb33130
+NetherGenerator	ef9d0a0	20	cb33340
+NetherGenerator	ef9d0a0	21	cb33360
+NetherGenerator	ef9d0a0	22	cb33380
+NetherGenerator	ef9d0a0	23	cb333a0
+NetherGenerator	ef9d0a0	24	cb32790
+NetherGenerator	ef9d0a0	25	cb327b0
+NetherGenerator	ef9d0a0	26	cb32c90
+NetherGenerator	ef9d0a0	27	cb333c0
+NetherGenerator	ef9d0a0	28	cb32d30
+NetherGenerator	ef9d0a0	29	cb32d50
+NetherGenerator	ef9d0a0	30	cb33420
+NetherGenerator	ef9d0a0	31	cb33430
+NetherGenerator	ef9d0a0	32	cb32f10
+NetherGenerator	ef9d0a0	33	529ba60
+NetherGenerator	ef9d0a0	34	cb2f090
+NetherGenerator	ef9d0a0	35	cb2f0a0
+NetherGenerator	ef9d0a0	36	cb2f0d0
+NetherGenerator	ef9d0a0	37	cb33440
+NetherGenerator	ef9d0a0	38	cb334c0
+NetherGenerator	ef9d0a0	39	cb334e0
+NetherGenerator	ef9d0a0	40	cb33450
+NetherGenerator	ef9d0a0	41	ca72b00
+NetherGenerator	ef9d0a0	42	ca70bd0
+NetherGenerator	ef9d0a0	43	ca70bf0
+NetherGenerator	ef9d0a0	44	ca70cc0
+NetherGenerator	ef9d0a0	45	ca70eb0
+NetherGenerator	ef9d0a0	46	ca72c10
+NetherGenerator	ef9d0a0	47	5261d20
+NetherGenerator	ef9d0a0	48	5268d30
+NetherGenerator	ef9d0a0	49	5268d50
+NetherGenerator	ef9d0a0	50	5268d60
+NetherGenerator	ef9d0a0	51	5268d70
+NetherGenerator	ef9d0a0	52	ca73300
+NetherGenerator	ef9d0a0	53	ca72c60
+NetherGenerator	ef9d0a0	54	ca72ef0
+NetherGenerator	ef9d0a0	55	5263c90
+NetherGenerator	ef9d0a0	56	5263db0
+NetherGenerator	ef9d278	0	5261cd0
+NetherGenerator	ef9d278	1	5261d00
+NetherGenerator	ef9d278	2	ca73310
+NetherSpringFeature	ef56898	0	d427a00
+NetherSpringFeature	ef56898	1	4aec330
+NetherSpringFeature	ef56898	2	d3dfa90
+NetherSpringFeature	ef56898	3	d3e8ac0
+NetherSpringFeature	ef56898	4	d3e8dd0
+NetherSpringFeature	ef56898	5	4abe520
+NoSurfaceOreFeature	ef568d8	0	4aec340
+NoSurfaceOreFeature	ef568d8	1	4aec380
+NoSurfaceOreFeature	ef568d8	2	4abead0
+NoSurfaceOreFeature	ef568d8	3	d3e8ac0
+NoSurfaceOreFeature	ef568d8	4	d3e8dd0
+NodeGraphBiomeSource<?, ?*, short, ?, double>	ef9e080	0	52a31f0
+NodeGraphBiomeSource<?, ?*, short, ?, double>	ef9e080	1	52a3230
+NodeGraphBiomeSource<?, ?*, short, ?, double>	ef9e080	2	c84fdd0
+NodeGraphBiomeSource<?, ?*, short, ?, double>	ef9e080	3	52a2940
+NodeGraphBiomeSource<?, ?*, short, ?, double>	ef9e080	4	52a29f0
+NodeGraphBiomeSource<?, ?*, short, ?, double>	ef9e080	5	412bcc0
+NodeGraphBiomeSource<?, ?*, short, ?, double>	ef9e080	6	412bcc0
+NodeGraphBiomeSource<?, ?*, short, ?, double>	ef9e080	7	412bcc0
+NodeGraphBiomeSource<?, ?*, short, ?, double>	ef9e080	8	412bcc0
+NodeGraphBiomeSource<?, ?*, short, ?, double>	ef9e080	9	412bcc0
+NodeGraphBiomeSource<?, ?*, short, ?, double>	ef9e080	10	52a3110
+NodeGraphBiomeSource<?, ?*, short, ?, double>	ef9e080	11	52a3120
+NoiseBasedColorPaletteFlag	efa58f0	0	4a7b3e0
+NoiseBasedColorPaletteFlag	efa58f0	1	5359510
 NoiseUtils::DoublesForFloatsRandom	f460b48	0	495d8e0
 NoiseUtils::DoublesForFloatsRandom	f460b48	1	d345660
 NoiseUtils::DoublesForFloatsRandom	f460b48	2	d345670
@@ -288,11 +911,250 @@ NoiseUtils::DoublesForFloatsRandom	f460b48	14	49cab20
 NoiseUtils::DoublesForFloatsRandom	f460b48	15	49cab60
 NoiseUtils::DoublesForFloatsRandom	f460b48	16	49caba0
 NoiseUtils::DoublesForFloatsRandom	f460b48	17	49cabe0
+OceanMonumentFeature	ef8d9b0	0	4fa2690
+OceanMonumentFeature	ef8d9b0	1	4fa26f0
+OceanMonumentFeature	ef8d9b0	2	4f5ea80
+OceanMonumentFeature	ef8d9b0	3	4f5ea90
+OceanMonumentFeature	ef8d9b0	4	4f5e710
+OceanMonumentFeature	ef8d9b0	5	4f5e750
+OceanMonumentFeature	ef8d9b0	6	4f5e7b0
+OceanMonumentFeature	ef8d9b0	7	4f5eaa0
+OceanMonumentFeature	ef8d9b0	8	d3515c0
+OceanRuinFeature	ef8e0d0	0	4fa31c0
+OceanRuinFeature	ef8e0d0	1	4fa3200
+OceanRuinFeature	ef8e0d0	2	d351350
+OceanRuinFeature	ef8e0d0	3	d351360
+OceanRuinFeature	ef8e0d0	4	4f7d670
+OceanRuinFeature	ef8e0d0	5	4f7d6b0
+OceanRuinFeature	ef8e0d0	6	4f7d710
+OceanRuinFeature	ef8e0d0	7	4f7d890
+OceanRuinFeature	ef8e0d0	8	d3515c0
 OreFeature	f463828	0	d427d90
 OreFeature	f463828	1	d427e30
 OreFeature	f463828	2	d3f38d0
 OreFeature	f463828	3	d3e8ac0
 OreFeature	f463828	4	d3e8dd0
+OverworldGenerator	ef9d2a0	0	527a670
+OverworldGenerator	ef9d2a0	1	527a6d0
+OverworldGenerator	ef9d2a0	2	cb31380
+OverworldGenerator	ef9d2a0	3	cb31390
+OverworldGenerator	ef9d2a0	4	cb313b0
+OverworldGenerator	ef9d2a0	5	cb313c0
+OverworldGenerator	ef9d2a0	6	cb313d0
+OverworldGenerator	ef9d2a0	7	cb313f0
+OverworldGenerator	ef9d2a0	8	cb31410
+OverworldGenerator	ef9d2a0	9	cb314e0
+OverworldGenerator	ef9d2a0	10	527c470
+OverworldGenerator	ef9d2a0	11	527cd10
+OverworldGenerator	ef9d2a0	12	cb32740
+OverworldGenerator	ef9d2a0	13	cb32750
+OverworldGenerator	ef9d2a0	14	cb32760
+OverworldGenerator	ef9d2a0	15	527ab30
+OverworldGenerator	ef9d2a0	16	ca73030
+OverworldGenerator	ef9d2a0	17	ca730a0
+OverworldGenerator	ef9d2a0	18	cb32f20
+OverworldGenerator	ef9d2a0	19	cb33130
+OverworldGenerator	ef9d2a0	20	cb33340
+OverworldGenerator	ef9d2a0	21	cb33360
+OverworldGenerator	ef9d2a0	22	cb33380
+OverworldGenerator	ef9d2a0	23	cb333a0
+OverworldGenerator	ef9d2a0	24	cb32790
+OverworldGenerator	ef9d2a0	25	cb327b0
+OverworldGenerator	ef9d2a0	26	cb32c90
+OverworldGenerator	ef9d2a0	27	cb333c0
+OverworldGenerator	ef9d2a0	28	cb32d30
+OverworldGenerator	ef9d2a0	29	cb32d50
+OverworldGenerator	ef9d2a0	30	cb33420
+OverworldGenerator	ef9d2a0	31	cb33430
+OverworldGenerator	ef9d2a0	32	cb32f10
+OverworldGenerator	ef9d2a0	33	529ba60
+OverworldGenerator	ef9d2a0	34	cb2f090
+OverworldGenerator	ef9d2a0	35	cb2f0a0
+OverworldGenerator	ef9d2a0	36	cb2f0d0
+OverworldGenerator	ef9d2a0	37	cb33440
+OverworldGenerator	ef9d2a0	38	cb334c0
+OverworldGenerator	ef9d2a0	39	cb334e0
+OverworldGenerator	ef9d2a0	40	cb33450
+OverworldGenerator	ef9d2a0	41	ca72b00
+OverworldGenerator	ef9d2a0	42	ca70bd0
+OverworldGenerator	ef9d2a0	43	ca70bf0
+OverworldGenerator	ef9d2a0	44	ca70cc0
+OverworldGenerator	ef9d2a0	45	ca70eb0
+OverworldGenerator	ef9d2a0	46	ca72c10
+OverworldGenerator	ef9d2a0	47	527a850
+OverworldGenerator	ef9d2a0	48	527aae0
+OverworldGenerator	ef9d2a0	49	412bcc0
+OverworldGenerator	ef9d2a0	50	527a840
+OverworldGenerator	ef9d2a0	51	412bcc0
+OverworldGenerator	ef9d2a0	52	ca73300
+OverworldGenerator	ef9d2a0	53	ca72c60
+OverworldGenerator	ef9d2a0	54	ca72ef0
+OverworldGenerator	ef9d2a0	55	527a720
+OverworldGenerator	ef9d2a0	56	412bcc0
+OverworldGenerator	ef9d2a0	57	412bcc0
+OverworldGenerator	ef9d2a0	58	412bcc0
+OverworldGenerator	ef9d2a0	59	412bcc0
+OverworldGenerator	ef9d2a0	60	527ab20
+OverworldGenerator	ef9d2a0	61	527a6f0
+OverworldGenerator	ef9d2a0	62	412bcc0
+OverworldGenerator	ef9d2a0	63	412bcc0
+OverworldGenerator	ef9d4b8	0	527a6a0
+OverworldGenerator	ef9d4b8	1	527a6e0
+OverworldGenerator	ef9d4b8	2	ca73310
+OverworldGenerator2d	ef9d4e0	0	529ba70
+OverworldGenerator2d	ef9d4e0	1	529bcb0
+OverworldGenerator2d	ef9d4e0	2	cb31380
+OverworldGenerator2d	ef9d4e0	3	cb31390
+OverworldGenerator2d	ef9d4e0	4	cb313b0
+OverworldGenerator2d	ef9d4e0	5	cb313c0
+OverworldGenerator2d	ef9d4e0	6	cb313d0
+OverworldGenerator2d	ef9d4e0	7	cb313f0
+OverworldGenerator2d	ef9d4e0	8	cb31410
+OverworldGenerator2d	ef9d4e0	9	cb314e0
+OverworldGenerator2d	ef9d4e0	10	527c470
+OverworldGenerator2d	ef9d4e0	11	527cd10
+OverworldGenerator2d	ef9d4e0	12	cb32740
+OverworldGenerator2d	ef9d4e0	13	cb32750
+OverworldGenerator2d	ef9d4e0	14	cb32760
+OverworldGenerator2d	ef9d4e0	15	527ab30
+OverworldGenerator2d	ef9d4e0	16	ca73030
+OverworldGenerator2d	ef9d4e0	17	ca730a0
+OverworldGenerator2d	ef9d4e0	18	cb32f20
+OverworldGenerator2d	ef9d4e0	19	cb33130
+OverworldGenerator2d	ef9d4e0	20	cb33340
+OverworldGenerator2d	ef9d4e0	21	cb33360
+OverworldGenerator2d	ef9d4e0	22	cb33380
+OverworldGenerator2d	ef9d4e0	23	cb333a0
+OverworldGenerator2d	ef9d4e0	24	cb32790
+OverworldGenerator2d	ef9d4e0	25	cb327b0
+OverworldGenerator2d	ef9d4e0	26	cb32c90
+OverworldGenerator2d	ef9d4e0	27	cb333c0
+OverworldGenerator2d	ef9d4e0	28	cb32d30
+OverworldGenerator2d	ef9d4e0	29	cb32d50
+OverworldGenerator2d	ef9d4e0	30	cb33420
+OverworldGenerator2d	ef9d4e0	31	cb33430
+OverworldGenerator2d	ef9d4e0	32	cb32f10
+OverworldGenerator2d	ef9d4e0	33	529ba60
+OverworldGenerator2d	ef9d4e0	34	cb2f090
+OverworldGenerator2d	ef9d4e0	35	cb2f0a0
+OverworldGenerator2d	ef9d4e0	36	cb2f0d0
+OverworldGenerator2d	ef9d4e0	37	cb33440
+OverworldGenerator2d	ef9d4e0	38	cb334c0
+OverworldGenerator2d	ef9d4e0	39	cb334e0
+OverworldGenerator2d	ef9d4e0	40	cb33450
+OverworldGenerator2d	ef9d4e0	41	ca72b00
+OverworldGenerator2d	ef9d4e0	42	ca70bd0
+OverworldGenerator2d	ef9d4e0	43	ca70bf0
+OverworldGenerator2d	ef9d4e0	44	ca70cc0
+OverworldGenerator2d	ef9d4e0	45	ca70eb0
+OverworldGenerator2d	ef9d4e0	46	ca72c10
+OverworldGenerator2d	ef9d4e0	47	527a850
+OverworldGenerator2d	ef9d4e0	48	527aae0
+OverworldGenerator2d	ef9d4e0	49	5281620
+OverworldGenerator2d	ef9d4e0	50	527a840
+OverworldGenerator2d	ef9d4e0	51	52815f0
+OverworldGenerator2d	ef9d4e0	52	ca73300
+OverworldGenerator2d	ef9d4e0	53	ca72c60
+OverworldGenerator2d	ef9d4e0	54	ca72ef0
+OverworldGenerator2d	ef9d4e0	55	527a720
+OverworldGenerator2d	ef9d4e0	56	527e8e0
+OverworldGenerator2d	ef9d4e0	57	5280730
+OverworldGenerator2d	ef9d4e0	58	5281640
+OverworldGenerator2d	ef9d4e0	59	5281630
+OverworldGenerator2d	ef9d4e0	60	527ab20
+OverworldGenerator2d	ef9d4e0	61	527a6f0
+OverworldGenerator2d	ef9d4e0	62	52815d0
+OverworldGenerator2d	ef9d4e0	63	52815e0
+OverworldGenerator2d	ef9d6f8	0	529bcd0
+OverworldGenerator2d	ef9d6f8	1	529bce0
+OverworldGenerator2d	ef9d6f8	2	ca73310
+OverworldGeneratorMultinoise	ef9d720	0	5286800
+OverworldGeneratorMultinoise	ef9d720	1	5286940
+OverworldGeneratorMultinoise	ef9d720	2	cb31380
+OverworldGeneratorMultinoise	ef9d720	3	cb31390
+OverworldGeneratorMultinoise	ef9d720	4	cb313b0
+OverworldGeneratorMultinoise	ef9d720	5	cb313c0
+OverworldGeneratorMultinoise	ef9d720	6	cb313d0
+OverworldGeneratorMultinoise	ef9d720	7	cb313f0
+OverworldGeneratorMultinoise	ef9d720	8	cb31410
+OverworldGeneratorMultinoise	ef9d720	9	cb314e0
+OverworldGeneratorMultinoise	ef9d720	10	527c470
+OverworldGeneratorMultinoise	ef9d720	11	527cd10
+OverworldGeneratorMultinoise	ef9d720	12	cb32740
+OverworldGeneratorMultinoise	ef9d720	13	cb32750
+OverworldGeneratorMultinoise	ef9d720	14	cb32760
+OverworldGeneratorMultinoise	ef9d720	15	527ab30
+OverworldGeneratorMultinoise	ef9d720	16	ca73030
+OverworldGeneratorMultinoise	ef9d720	17	ca730a0
+OverworldGeneratorMultinoise	ef9d720	18	cb32f20
+OverworldGeneratorMultinoise	ef9d720	19	cb33130
+OverworldGeneratorMultinoise	ef9d720	20	cb33340
+OverworldGeneratorMultinoise	ef9d720	21	cb33360
+OverworldGeneratorMultinoise	ef9d720	22	cb33380
+OverworldGeneratorMultinoise	ef9d720	23	cb333a0
+OverworldGeneratorMultinoise	ef9d720	24	cb32790
+OverworldGeneratorMultinoise	ef9d720	25	cb327b0
+OverworldGeneratorMultinoise	ef9d720	26	cb32c90
+OverworldGeneratorMultinoise	ef9d720	27	cb333c0
+OverworldGeneratorMultinoise	ef9d720	28	cb32d30
+OverworldGeneratorMultinoise	ef9d720	29	cb32d50
+OverworldGeneratorMultinoise	ef9d720	30	cb33420
+OverworldGeneratorMultinoise	ef9d720	31	cb33430
+OverworldGeneratorMultinoise	ef9d720	32	cb32f10
+OverworldGeneratorMultinoise	ef9d720	33	529ba60
+OverworldGeneratorMultinoise	ef9d720	34	cb2f090
+OverworldGeneratorMultinoise	ef9d720	35	cb2f0a0
+OverworldGeneratorMultinoise	ef9d720	36	cb2f0d0
+OverworldGeneratorMultinoise	ef9d720	37	cb33440
+OverworldGeneratorMultinoise	ef9d720	38	cb334c0
+OverworldGeneratorMultinoise	ef9d720	39	5293840
+OverworldGeneratorMultinoise	ef9d720	40	5286a80
+OverworldGeneratorMultinoise	ef9d720	41	ca72b00
+OverworldGeneratorMultinoise	ef9d720	42	ca70bd0
+OverworldGeneratorMultinoise	ef9d720	43	ca70bf0
+OverworldGeneratorMultinoise	ef9d720	44	ca70cc0
+OverworldGeneratorMultinoise	ef9d720	45	ca70eb0
+OverworldGeneratorMultinoise	ef9d720	46	ca72c10
+OverworldGeneratorMultinoise	ef9d720	47	527a850
+OverworldGeneratorMultinoise	ef9d720	48	527aae0
+OverworldGeneratorMultinoise	ef9d720	49	528a520
+OverworldGeneratorMultinoise	ef9d720	50	527a840
+OverworldGeneratorMultinoise	ef9d720	51	5288770
+OverworldGeneratorMultinoise	ef9d720	52	52884e0
+OverworldGeneratorMultinoise	ef9d720	53	ca72c60
+OverworldGeneratorMultinoise	ef9d720	54	5288460
+OverworldGeneratorMultinoise	ef9d720	55	527a720
+OverworldGeneratorMultinoise	ef9d720	56	5281650
+OverworldGeneratorMultinoise	ef9d720	57	5287590
+OverworldGeneratorMultinoise	ef9d720	58	5287580
+OverworldGeneratorMultinoise	ef9d720	59	5286b50
+OverworldGeneratorMultinoise	ef9d720	60	5286a90
+OverworldGeneratorMultinoise	ef9d720	61	5286c40
+OverworldGeneratorMultinoise	ef9d720	62	52884c0
+OverworldGeneratorMultinoise	ef9d720	63	52884d0
+OverworldGeneratorMultinoise	ef9d938	0	5286930
+OverworldGeneratorMultinoise	ef9d938	1	5286960
+OverworldGeneratorMultinoise	ef9d938	2	5288760
+PartiallyExposedBlobFeature	ef8c808	0	4aec3c0
+PartiallyExposedBlobFeature	ef8c808	1	4aec3e0
+PartiallyExposedBlobFeature	ef8c808	2	4abed10
+PartiallyExposedBlobFeature	ef8c808	3	d3e8ac0
+PartiallyExposedBlobFeature	ef8c808	4	d3e8dd0
+PillagerOutpostFeature	ef8e528	0	4fa33f0
+PillagerOutpostFeature	ef8e528	1	4fa3430
+PillagerOutpostFeature	ef8e528	2	4f83370
+PillagerOutpostFeature	ef8e528	3	4f83380
+PillagerOutpostFeature	ef8e528	4	4f83070
+PillagerOutpostFeature	ef8e528	5	4f830b0
+PillagerOutpostFeature	ef8e528	6	4f83110
+PillagerOutpostFeature	ef8e528	7	4f83390
+PillagerOutpostFeature	ef8e528	8	d3515c0
+PodzolAreaFeature	ef8ca28	0	d427a00
+PodzolAreaFeature	ef8ca28	1	4aec410
+PodzolAreaFeature	ef8ca28	2	d3dfa90
+PodzolAreaFeature	ef8ca28	3	d3e8ac0
+PodzolAreaFeature	ef8ca28	4	d3e8dd0
+PodzolAreaFeature	ef8ca28	5	4ac0ea0
 PoolElementStructurePiece	f462f88	0	d383860
 PoolElementStructurePiece	f462f88	1	d3c39a0
 PoolElementStructurePiece	f462f88	2	d3be890
@@ -312,11 +1174,72 @@ PoolElementStructurePiece	f462f88	15	412bcc0
 PoolElementStructurePiece	f462f88	16	412bcc0
 PoolElementStructurePiece	f462f88	17	412bcc0
 PoolElementStructurePiece	f462f88	18	d3be8e0
+RandomScatteredLargeFeature	ef8e748	0	4fa36f0
+RandomScatteredLargeFeature	ef8e748	1	4fa3730
+RandomScatteredLargeFeature	ef8e748	2	4f86b20
+RandomScatteredLargeFeature	ef8e748	3	4f86b30
+RandomScatteredLargeFeature	ef8e748	4	4f86a80
+RandomScatteredLargeFeature	ef8e748	5	4f86ac0
+RandomScatteredLargeFeature	ef8e748	6	4f86b40
+RandomScatteredLargeFeature	ef8e748	7	4f86de0
+RandomScatteredLargeFeature	ef8e748	8	d3515c0
+RandomScatteredLargeFeatureDetails::ScatteredFeatureStart	ef8e6c0	0	4fa3cb0
+RandomScatteredLargeFeatureDetails::ScatteredFeatureStart	ef8e6c0	1	4fa3670
+RandomScatteredLargeFeatureDetails::ScatteredFeatureStart	ef8e6c0	2	d366130
+RandomScatteredLargeFeatureDetails::ScatteredFeatureStart	ef8e6c0	3	4fa1960
+RandomScatteredLargeFeatureDetails::ScatteredFeatureStart	ef8e6c0	4	4f860f0
+RandomScatteredLargeFeatureDetails::ScatteredFeatureStart	ef8e6c0	5	4f86120
+RandomScatteredLargeFeatureDetails::ScatteredFeatureStart	ef8e6c0	6	4f86100
 RectLayoutFeature	f463ae8	0	d427e50
 RectLayoutFeature	f463ae8	1	d427e80
 RectLayoutFeature	f463ae8	2	d3f8d70
 RectLayoutFeature	f463ae8	3	d3e8ac0
 RectLayoutFeature	f463ae8	4	d3e8dd0
+ReedsFeature	ef8c928	0	d427a00
+ReedsFeature	ef8c928	1	4aec420
+ReedsFeature	ef8c928	2	d3dfa90
+ReedsFeature	ef8c928	3	d3e8ac0
+ReedsFeature	ef8c928	4	d3e8dd0
+ReedsFeature	ef8c928	5	4ac10d0
+ReplacementBiomeSource<?, ?*, short, ?, double>	ef52d78	0	4a5e470
+ReplacementBiomeSource<?, ?*, short, ?, double>	ef52d78	1	4a5e550
+ReplacementBiomeSource<?, ?*, short, ?, double>	ef52d78	2	c84fdd0
+ReplacementBiomeSource<?, ?*, short, ?, double>	ef52d78	3	c84fde0
+ReplacementBiomeSource<?, ?*, short, ?, double>	ef52d78	4	4a3d960
+ReplacementBiomeSource<?, ?*, short, ?, double>	ef52d78	5	4a41bf0
+ReplacementBiomeSource<?, ?*, short, ?, double>	ef52d78	6	4a41c20
+ReplacementBiomeSource<?, ?*, short, ?, double>	ef52d78	7	4a41ff0
+ReplacementBiomeSource<?, ?*, short, ?, double>	ef52d78	8	4a42320
+ReplacementBiomeSource<?, ?*, short, ?, double>	ef52d78	9	4a42590
+ReplacementBiomeSource<?, ?*, short, ?, double>	ef52d78	10	4a427f0
+ReplacementBiomeSource<?, ?*, short, ?, double>	ef52d78	11	4a42800
+ReplacementBiomeSource<?, ?, long, ?, char, ?, ?*, short>	ef52d08	0	4a5e370
+ReplacementBiomeSource<?, ?, long, ?, char, ?, ?*, short>	ef52d08	1	4a5e450
+ReplacementBiomeSource<?, ?, long, ?, char, ?, ?*, short>	ef52d08	2	c84fdd0
+ReplacementBiomeSource<?, ?, long, ?, char, ?, ?*, short>	ef52d08	3	c84fde0
+ReplacementBiomeSource<?, ?, long, ?, char, ?, ?*, short>	ef52d08	4	4a3d130
+ReplacementBiomeSource<?, ?, long, ?, char, ?, ?*, short>	ef52d08	5	4a3f690
+ReplacementBiomeSource<?, ?, long, ?, char, ?, ?*, short>	ef52d08	6	4a3f6c0
+ReplacementBiomeSource<?, ?, long, ?, char, ?, ?*, short>	ef52d08	7	4a3fa90
+ReplacementBiomeSource<?, ?, long, ?, char, ?, ?*, short>	ef52d08	8	4a3fdc0
+ReplacementBiomeSource<?, ?, long, ?, char, ?, ?*, short>	ef52d08	9	4a40030
+ReplacementBiomeSource<?, ?, long, ?, char, ?, ?*, short>	ef52d08	10	4a40290
+ReplacementBiomeSource<?, ?, long, ?, char, ?, ?*, short>	ef52d08	11	4a402a0
+RuinedPortalFeature	ef8e7a0	0	d34fe50
+RuinedPortalFeature	ef8e7a0	1	4fa3780
+RuinedPortalFeature	ef8e7a0	2	d351350
+RuinedPortalFeature	ef8e7a0	3	d351360
+RuinedPortalFeature	ef8e7a0	4	d351780
+RuinedPortalFeature	ef8e7a0	5	4f87a20
+RuinedPortalFeature	ef8e7a0	6	4f87a80
+RuinedPortalFeature	ef8e7a0	7	4f87be0
+RuinedPortalFeature	ef8e7a0	8	d3515c0
+SandFeature	ef56910	0	d427a00
+SandFeature	ef56910	1	4aec430
+SandFeature	ef56910	2	d3dfa90
+SandFeature	ef56910	3	d3e8ac0
+SandFeature	ef56910	4	d3e8dd0
+SandFeature	ef56910	5	4ac1620
 ScanSurfaceFeature	f463b38	0	d4282e0
 ScanSurfaceFeature	f463b38	1	d427ec0
 ScanSurfaceFeature	f463b38	2	d3fca70
@@ -327,16 +1250,177 @@ ScatterFeature	f463860	1	d427ef0
 ScatterFeature	f463860	2	d3fd4e0
 ScatterFeature	f463860	3	d3e8ac0
 ScatterFeature	f463860	4	d3e8dd0
+ScatteredFeaturePiece	ef8e8c0	0	4fa3fe0
+ScatteredFeaturePiece	ef8e8c0	1	4fa4020
+ScatteredFeaturePiece	ef8e8c0	2	4f4b670
+ScatteredFeaturePiece	ef8e8c0	3	4fa1ca0
+ScatteredFeaturePiece	ef8e8c0	4	d3601e0
+ScatteredFeaturePiece	ef8e8c0	5	412bcc0
+ScatteredFeaturePiece	ef8e8c0	6	d3601d0
+ScatteredFeaturePiece	ef8e8c0	7	d3601f0
+ScatteredFeaturePiece	ef8e8c0	8	d360440
+ScatteredFeaturePiece	ef8e8c0	9	d360470
+ScatteredFeaturePiece	ef8e8c0	10	d3604a0
+ScatteredFeaturePiece	ef8e8c0	11	d3605f0
+ScatteredFeaturePiece	ef8e8c0	12	d360890
+ScatteredFeaturePiece	ef8e8c0	13	d361fe0
+ScriptModuleMinecraft::ScriptCustomWorldClockRegistry	f182838	0	9273ac0
+ScriptModuleMinecraft::ScriptCustomWorldClockRegistry	f182838	1	9273b70
+ScriptModuleMinecraft::ScriptCustomWorldClockRegistry	f182838	2	8cd3500
+ScriptModuleMinecraft::ScriptCustomWorldClockRegistry	f182838	3	8cd3510
+ScriptModuleMinecraft::ScriptCustomWorldClockRegistry	f182838	4	8c19f10
+ScriptModuleMinecraft::ScriptStructureTemplate	f216688	0	a2b8440
+ScriptModuleMinecraft::ScriptStructureTemplate	f216688	1	a2b84f0
+ScriptModuleMinecraft::ScriptStructureTemplate	f216688	2	a2b8230
+ScriptModuleMinecraft::ScriptWorldClockGlobalEventListener	f245a88	0	a8069b0
+ScriptModuleMinecraft::ScriptWorldClockGlobalEventListener	f245a88	1	a8069e0
+ScriptModuleMinecraft::ScriptWorldClockGlobalEventListener	f245a88	2	49cbd30
+ScriptModuleMinecraft::ScriptWorldClockGlobalEventListener	f245a88	3	49cbd40
+ScriptModuleMinecraft::ScriptWorldClockGlobalEventListener	f245a88	4	49cbd50
+ScriptModuleMinecraft::ScriptWorldClockGlobalEventListener	f245a88	5	49cbd60
+ScriptModuleMinecraft::ScriptWorldClockGlobalEventListener	f245a88	6	49cbd70
+ScriptModuleMinecraft::ScriptWorldClockGlobalEventListener	f245a88	7	49cbd80
+ScriptModuleMinecraft::ScriptWorldClockGlobalEventListener	f245a88	8	49cbd90
+ScriptModuleMinecraft::ScriptWorldClockGlobalEventListener	f245a88	9	49cbda0
+ScriptModuleMinecraft::ScriptWorldClockGlobalEventListener	f245a88	10	49cbdb0
+ScriptModuleMinecraft::ScriptWorldClockGlobalEventListener	f245a88	11	a7edcd0
+ScriptModuleMinecraft::ScriptWorldClockGlobalEventListener	f245a88	12	a7edf30
+ScriptModuleMinecraft::ScriptWorldClockGlobalEventListener	f245a88	13	a7ee190
+ScriptModuleMinecraft::ScriptWorldClockGlobalEventListener	f245a88	14	a7ee3f0
+ScriptModuleMinecraft::ScriptWorldClockGlobalEventListener	f245a88	15	49cbe00
+ScriptModuleMinecraft::ScriptWorldClockGlobalEventListener	f245a88	16	49cbe40
+ScriptModuleMinecraft::ScriptWorldClockGlobalEventListener	f245a88	17	49cbe50
+ScriptModuleMinecraft::ScriptWorldClockGlobalEventListener	f245a88	18	49cbe60
+ScriptModuleMinecraft::ScriptWorldClockGlobalEventListener	f245a88	19	49cbe70
+ScriptModuleMinecraft::ScriptWorldClockGlobalEventListener	f245a88	20	49cbe80
+ScriptModuleMinecraft::ScriptWorldClockGlobalEventListener	f245a88	21	49cbe90
+ScriptModuleMinecraft::ScriptWorldClockGlobalEventListener	f245a88	22	49cbea0
+ScriptModuleMinecraft::ScriptWorldClockGlobalEventListener	f245a88	23	49cbeb0
+ScriptModuleMinecraft::ScriptWorldClockGlobalEventListener	f245a88	24	49cbec0
+ScriptModuleMinecraft::ScriptWorldClockGlobalEventListener	f245a88	25	49cbed0
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::API::EditorScriptInternalAPI::_createCustomBiomeSource, S2::?::ScriptModule::ScriptCustomBiomeSourceConfig const&>	f2fb418	0	bad0c90
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::API::EditorScriptInternalAPI::_createCustomBiomeSource, S2::?::ScriptModule::ScriptCustomBiomeSourceConfig const&>	f2fb418	1	bad0d40
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::API::EditorScriptInternalAPI::_createCustomBiomeSource, S2::?::ScriptModule::ScriptCustomBiomeSourceConfig const&>	f2fb418	2	bad0df0
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::API::EditorScriptInternalAPI::_createCustomBiomeSource, S2::?::ScriptModule::ScriptCustomBiomeSourceConfig const&>	f2fb418	3	bad2150
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::API::EditorScriptInternalAPI::_createCustomBiomeSource, S2::?::ScriptModule::ScriptCustomBiomeSourceConfig const&>	f2fb418	4	bad22c0
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::API::EditorScriptInternalAPI::_createCustomBiomeSource, S2::?::ScriptModule::ScriptCustomBiomeSourceConfig const&>	f2fb418	5	bad22d0
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::API::EditorScriptInternalAPI::_createCustomBiomeSource, S2::?::ScriptModule::ScriptCustomBiomeSourceConfig const&>	f2fb418	6	bad2390
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::API::EditorScriptInternalAPI::_createCustomBiomeSource, S2::?::ScriptModule::ScriptCustomBiomeSourceConfig const&>	f2fb418	7	bad23b0
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::API::EditorScriptInternalAPI::_createCustomBiomeSource, S2::?::ScriptModule::ScriptCustomBiomeSourceConfig const&>	f2fb418	8	bad23d0
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::API::EditorScriptInternalAPI::_createCustomBiomeSource, S2::?::ScriptModule::ScriptCustomBiomeSourceConfig const&>	f2fb418	9	bad23f0
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::API::EditorScriptInternalAPI::_createCustomBiomeSource, S2::?::ScriptModule::ScriptCustomBiomeSourceConfig const&>	f2fb418	10	bad2410
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::destroy, void>	f2daad8	0	b814c50
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::destroy, void>	f2daad8	1	b814d00
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::destroy, void>	f2daad8	2	b814db0
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::destroy, void>	f2daad8	3	b8150a0
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::destroy, void>	f2daad8	4	b8150b0
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::destroy, void>	f2daad8	5	b8150c0
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::destroy, void>	f2daad8	6	b815140
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::destroy, void>	f2daad8	7	b815160
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::destroy, void>	f2daad8	8	b815180
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::destroy, void>	f2daad8	9	b8151a0
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::destroy, void>	f2daad8	10	b8151c0
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::recalculateBiomes, std::__1::vector<S3::?::ScriptCustomBiomeConfig, S5::?::allocator<S7, ?>> const&>	f2daba8	0	b815230
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::recalculateBiomes, std::__1::vector<S3::?::ScriptCustomBiomeConfig, S5::?::allocator<S7, ?>> const&>	f2daba8	1	b8152e0
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::recalculateBiomes, std::__1::vector<S3::?::ScriptCustomBiomeConfig, S5::?::allocator<S7, ?>> const&>	f2daba8	2	b815390
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::recalculateBiomes, std::__1::vector<S3::?::ScriptCustomBiomeConfig, S5::?::allocator<S7, ?>> const&>	f2daba8	3	b815a30
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::recalculateBiomes, std::__1::vector<S3::?::ScriptCustomBiomeConfig, S5::?::allocator<S7, ?>> const&>	f2daba8	4	b815a40
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::recalculateBiomes, std::__1::vector<S3::?::ScriptCustomBiomeConfig, S5::?::allocator<S7, ?>> const&>	f2daba8	5	b815a50
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::recalculateBiomes, std::__1::vector<S3::?::ScriptCustomBiomeConfig, S5::?::allocator<S7, ?>> const&>	f2daba8	6	b815bc0
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::recalculateBiomes, std::__1::vector<S3::?::ScriptCustomBiomeConfig, S5::?::allocator<S7, ?>> const&>	f2daba8	7	b815be0
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::recalculateBiomes, std::__1::vector<S3::?::ScriptCustomBiomeConfig, S5::?::allocator<S7, ?>> const&>	f2daba8	8	b815c00
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::recalculateBiomes, std::__1::vector<S3::?::ScriptCustomBiomeConfig, S5::?::allocator<S7, ?>> const&>	f2daba8	9	b815c20
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::recalculateBiomes, std::__1::vector<S3::?::ScriptCustomBiomeConfig, S5::?::allocator<S7, ?>> const&>	f2daba8	10	b815c40
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::updateColor, std::__1::basic_string<char, S5::?::char_traits<char>, S5::?::allocator<char>> const&, ScriptModuleMinecraft::ScriptRGBA const&>	f2dac78	0	b815cb0
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::updateColor, std::__1::basic_string<char, S5::?::char_traits<char>, S5::?::allocator<char>> const&, ScriptModuleMinecraft::ScriptRGBA const&>	f2dac78	1	b815d60
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::updateColor, std::__1::basic_string<char, S5::?::char_traits<char>, S5::?::allocator<char>> const&, ScriptModuleMinecraft::ScriptRGBA const&>	f2dac78	2	b815e10
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::updateColor, std::__1::basic_string<char, S5::?::char_traits<char>, S5::?::allocator<char>> const&, ScriptModuleMinecraft::ScriptRGBA const&>	f2dac78	3	b8164c0
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::updateColor, std::__1::basic_string<char, S5::?::char_traits<char>, S5::?::allocator<char>> const&, ScriptModuleMinecraft::ScriptRGBA const&>	f2dac78	4	b8164d0
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::updateColor, std::__1::basic_string<char, S5::?::char_traits<char>, S5::?::allocator<char>> const&, ScriptModuleMinecraft::ScriptRGBA const&>	f2dac78	5	b8164e0
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::updateColor, std::__1::basic_string<char, S5::?::char_traits<char>, S5::?::allocator<char>> const&, ScriptModuleMinecraft::ScriptRGBA const&>	f2dac78	6	b8164f0
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::updateColor, std::__1::basic_string<char, S5::?::char_traits<char>, S5::?::allocator<char>> const&, ScriptModuleMinecraft::ScriptRGBA const&>	f2dac78	7	b816510
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::updateColor, std::__1::basic_string<char, S5::?::char_traits<char>, S5::?::allocator<char>> const&, ScriptModuleMinecraft::ScriptRGBA const&>	f2dac78	8	b816530
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::updateColor, std::__1::basic_string<char, S5::?::char_traits<char>, S5::?::allocator<char>> const&, ScriptModuleMinecraft::ScriptRGBA const&>	f2dac78	9	b816550
+Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::updateColor, std::__1::basic_string<char, S5::?::char_traits<char>, S5::?::allocator<char>> const&, ScriptModuleMinecraft::ScriptRGBA const&>	f2dac78	10	b816570
+Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSource, S0::?::ReturnPolicy>::?::?::double::?::S4 const::?::getId::void	f2da958	0	65d9cd0
+Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSource, S0::?::ReturnPolicy>::?::?::double::?::S4 const::?::getId::void	f2da958	1	b812ca0
+Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSource, S0::?::ReturnPolicy>::?::?::double::?::S4 const::?::getId::void	f2da958	2	b812d20
+Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSource, S0::?::ReturnPolicy>::?::?::double::?::S4 const::?::getId::void	f2da958	3	b8130e0
+Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSource, S0::?::ReturnPolicy>::?::?::double::?::S4 const::?::getId::void	f2da958	4	b8130f0
+Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSource, S0::?::ReturnPolicy>::?::?::double::?::S4 const::?::getId::void	f2da958	5	b813110
+Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSource, S0::?::ReturnPolicy>::?::?::double::?::S4 const::?::getId::void	f2da958	6	b813120
+Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mNewBiomes	f2da8a8	0	65d9cd0
+Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mNewBiomes	f2da8a8	1	b812880
+Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mNewBiomes	f2da8a8	2	b812900
+Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mNewBiomes	f2da8a8	3	b812bf0
+Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mNewBiomes	f2da8a8	4	b812c00
+Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mNewBiomes	f2da8a8	5	b812c20
+Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mNewBiomes	f2da8a8	6	b812c30
+Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mSeed	f2da740	0	65d9cd0
+Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mSeed	f2da740	1	b80f770
+Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mSeed	f2da740	2	b80f7f0
+Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mSeed	f2da740	3	b80fab0
+Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mSeed	f2da740	4	b80fac0
+Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mSeed	f2da740	5	b80fae0
+Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mSeed	f2da740	6	b80faf0
+Scripting::Reflection::MemberPropertySetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, ?, ?, double, ?, S4::?::mNewBiomes>	f2da800	0	65d92d0
+Scripting::Reflection::MemberPropertySetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, ?, ?, double, ?, S4::?::mNewBiomes>	f2da800	1	b811e90
+Scripting::Reflection::MemberPropertySetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, ?, ?, double, ?, S4::?::mNewBiomes>	f2da800	2	b811f70
+Scripting::Reflection::MemberPropertySetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, ?, ?, double, ?, S4::?::mNewBiomes>	f2da800	3	b812540
+Scripting::Reflection::MemberPropertySetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, ?, ?, double, ?, S4::?::mNewBiomes>	f2da800	4	b812550
+Scripting::Reflection::MemberPropertySetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, ?, ?, double, ?, S4::?::mNewBiomes>	f2da800	5	b812570
+Scripting::Reflection::MemberPropertySetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, ?, ?, double, ?, S4::?::mSeed>	f2da698	0	65d92d0
+Scripting::Reflection::MemberPropertySetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, ?, ?, double, ?, S4::?::mSeed>	f2da698	1	b80f150
+Scripting::Reflection::MemberPropertySetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, ?, ?, double, ?, S4::?::mSeed>	f2da698	2	b80f230
+Scripting::Reflection::MemberPropertySetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, ?, ?, double, ?, S4::?::mSeed>	f2da698	3	b80f6d0
+Scripting::Reflection::MemberPropertySetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, ?, ?, double, ?, S4::?::mSeed>	f2da698	4	b80f6e0
+Scripting::Reflection::MemberPropertySetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, ?, ?, double, ?, S4::?::mSeed>	f2da698	5	b80f700
 SculkPatchFeature	f463ba0	0	d427f20
 SculkPatchFeature	f463ba0	1	d427f90
 SculkPatchFeature	f463ba0	2	d402240
 SculkPatchFeature	f463ba0	3	d3e8ac0
 SculkPatchFeature	f463ba0	4	d3e8dd0
+SeaAnemoneFeature	ef8c9a8	0	d427a00
+SeaAnemoneFeature	ef8c9a8	1	4aec440
+SeaAnemoneFeature	ef8c9a8	2	d3dfa90
+SeaAnemoneFeature	ef8c9a8	3	d3e8ac0
+SeaAnemoneFeature	ef8c9a8	4	d3e8dd0
+SeaAnemoneFeature	ef8c9a8	5	4ac1e50
+SeaPickleFeature	ef8c9e8	0	d427a00
+SeaPickleFeature	ef8c9e8	1	4aec450
+SeaPickleFeature	ef8c9e8	2	d3dfa90
+SeaPickleFeature	ef8c9e8	3	d3e8ac0
+SeaPickleFeature	ef8c9e8	4	d3e8dd0
+SeaPickleFeature	ef8c9e8	5	4ac20d0
+SeagrassFeature	ef56950	0	d427a00
+SeagrassFeature	ef56950	1	4aec460
+SeagrassFeature	ef56950	2	d3dfa90
+SeagrassFeature	ef56950	3	d3e8ac0
+SeagrassFeature	ef56950	4	d3e8dd0
+SeagrassFeature	ef56950	5	4ac2550
 SearchFeature	f463bf0	0	d4282e0
 SearchFeature	f463bf0	1	d428000
 SearchFeature	f463bf0	2	d405930
 SearchFeature	f463bf0	3	d3e8ac0
 SearchFeature	f463bf0	4	d3e8dd0
+ServerIdentityAssertionGenerator	f13e168	0	8b2a360
+ServerIdentityAssertionGenerator	f13e168	1	8b2a3d0
+ServerIdentityAssertionGenerator	f13e168	2	8b28030
+ServerIdentityAssertionGenerator	f13e168	3	8b28980
+ServerIdentityAssertionGenerator	f13e168	4	8b2a440
+ServerSubChunkLighter	f3ee658	0	ee13f50
+ServerSubChunkLighter	f3ee658	1	caac500
+ServerSubChunkLighter	f3ee658	2	ca8b140
+ServerSubChunkLighter	f3ee658	3	ca8b990
+ShipwreckFeature	ef8eb40	0	4fa3b30
+ShipwreckFeature	ef8eb40	1	4fa3b70
+ShipwreckFeature	ef8eb40	2	d351350
+ShipwreckFeature	ef8eb40	3	d351360
+ShipwreckFeature	ef8eb40	4	4f9d150
+ShipwreckFeature	ef8eb40	5	4f9d190
+ShipwreckFeature	ef8eb40	6	4f9d1f0
+ShipwreckFeature	ef8eb40	7	4f9d4a0
+ShipwreckFeature	ef8eb40	8	d3515c0
 SingleBlockFeature	f463c40	0	d428010
 SingleBlockFeature	f463c40	1	d4280e0
 SingleBlockFeature	f463c40	2	d40bc80
@@ -347,6 +1431,37 @@ SnapToSurfaceFeature	f463898	1	d428170
 SnapToSurfaceFeature	f463898	2	d413660
 SnapToSurfaceFeature	f463898	3	d3e8ac0
 SnapToSurfaceFeature	f463898	4	d3e8dd0
+SpeleothemClusterFeature	ef56990	0	d4282e0
+SpeleothemClusterFeature	ef56990	1	4aec470
+SpeleothemClusterFeature	ef56990	2	4ac2d60
+SpeleothemClusterFeature	ef56990	3	d3e8ac0
+SpeleothemClusterFeature	ef56990	4	d3e8dd0
+SpeleothemFeature	ef569c8	0	d4282e0
+SpeleothemFeature	ef569c8	1	4aec480
+SpeleothemFeature	ef569c8	2	4ac3dd0
+SpeleothemFeature	ef569c8	3	d3e8ac0
+SpeleothemFeature	ef569c8	4	d3e8dd0
+SpikeFeature	ef56a00	0	d427a00
+SpikeFeature	ef56a00	1	4aec490
+SpikeFeature	ef56a00	2	d3dfa90
+SpikeFeature	ef56a00	3	d3e8ac0
+SpikeFeature	ef56a00	4	d3e8dd0
+SpikeFeature	ef56a00	5	4ac44a0
+SpringFeature	ef56a40	0	d427a00
+SpringFeature	ef56a40	1	4aec4a0
+SpringFeature	ef56a40	2	d3dfa90
+SpringFeature	ef56a40	3	d3e8ac0
+SpringFeature	ef56a40	4	d3e8dd0
+SpringFeature	ef56a40	5	4ac58b0
+StrongholdFeature	ef8ec60	0	4fa3dc0
+StrongholdFeature	ef8ec60	1	4fa3e00
+StrongholdFeature	ef8ec60	2	d351350
+StrongholdFeature	ef8ec60	3	d351360
+StrongholdFeature	ef8ec60	4	d351780
+StrongholdFeature	ef8ec60	5	4f9f720
+StrongholdFeature	ef8ec60	6	4f9efc0
+StrongholdFeature	ef8ec60	7	4fa01a0
+StrongholdFeature	ef8ec60	8	d3515c0
 StructureFeature	f461300	0	d34fe50
 StructureFeature	f461300	1	d34ff60
 StructureFeature	f461300	2	d351350
@@ -509,73 +1624,420 @@ TemplateStructurePiece	f4613a0	11	d3605f0
 TemplateStructurePiece	f4613a0	12	d360890
 TemplateStructurePiece	f4613a0	13	d361fe0
 TemplateStructurePiece	f4613a0	14	412bcc0
+TheEndGenerator	ef9d960	0	52944b0
+TheEndGenerator	ef9d960	1	5294630
+TheEndGenerator	ef9d960	2	cb31380
+TheEndGenerator	ef9d960	3	cb31390
+TheEndGenerator	ef9d960	4	cb313b0
+TheEndGenerator	ef9d960	5	cb313c0
+TheEndGenerator	ef9d960	6	cb313d0
+TheEndGenerator	ef9d960	7	cb313f0
+TheEndGenerator	ef9d960	8	cb31410
+TheEndGenerator	ef9d960	9	cb314e0
+TheEndGenerator	ef9d960	10	5296930
+TheEndGenerator	ef9d960	11	5296e80
+TheEndGenerator	ef9d960	12	cb32740
+TheEndGenerator	ef9d960	13	cb32750
+TheEndGenerator	ef9d960	14	cb32760
+TheEndGenerator	ef9d960	15	5294820
+TheEndGenerator	ef9d960	16	5297e50
+TheEndGenerator	ef9d960	17	ca730a0
+TheEndGenerator	ef9d960	18	cb32f20
+TheEndGenerator	ef9d960	19	cb33130
+TheEndGenerator	ef9d960	20	cb33340
+TheEndGenerator	ef9d960	21	cb33360
+TheEndGenerator	ef9d960	22	cb33380
+TheEndGenerator	ef9d960	23	cb333a0
+TheEndGenerator	ef9d960	24	cb32790
+TheEndGenerator	ef9d960	25	cb327b0
+TheEndGenerator	ef9d960	26	cb32c90
+TheEndGenerator	ef9d960	27	cb333c0
+TheEndGenerator	ef9d960	28	cb32d30
+TheEndGenerator	ef9d960	29	cb32d50
+TheEndGenerator	ef9d960	30	cb33420
+TheEndGenerator	ef9d960	31	cb33430
+TheEndGenerator	ef9d960	32	cb32f10
+TheEndGenerator	ef9d960	33	529ba60
+TheEndGenerator	ef9d960	34	cb2f090
+TheEndGenerator	ef9d960	35	cb2f0a0
+TheEndGenerator	ef9d960	36	cb2f0d0
+TheEndGenerator	ef9d960	37	cb33440
+TheEndGenerator	ef9d960	38	cb334c0
+TheEndGenerator	ef9d960	39	cb334e0
+TheEndGenerator	ef9d960	40	cb33450
+TheEndGenerator	ef9d960	41	ca72b00
+TheEndGenerator	ef9d960	42	ca70bd0
+TheEndGenerator	ef9d960	43	ca70bf0
+TheEndGenerator	ef9d960	44	ca70cc0
+TheEndGenerator	ef9d960	45	ca70eb0
+TheEndGenerator	ef9d960	46	ca72c10
+TheEndGenerator	ef9d960	47	5295960
+TheEndGenerator	ef9d960	48	5298080
+TheEndGenerator	ef9d960	49	52980a0
+TheEndGenerator	ef9d960	50	52980c0
+TheEndGenerator	ef9d960	51	52980b0
+TheEndGenerator	ef9d960	52	5298000
+TheEndGenerator	ef9d960	53	ca72c60
+TheEndGenerator	ef9d960	54	ca72ef0
+TheEndGenerator	ef9d960	55	5294670
+TheEndGenerator	ef9d960	56	5294680
+TheEndGenerator	ef9db38	0	5294620
+TheEndGenerator	ef9db38	1	5294650
+TheEndGenerator	ef9db38	2	5298040
+TrailToSurfaceFeature	ef56a80	0	4aec4b0
+TrailToSurfaceFeature	ef56a80	1	4aec4e0
+TrailToSurfaceFeature	ef56a80	2	d3dfa90
+TrailToSurfaceFeature	ef56a80	3	d3e8ac0
+TrailToSurfaceFeature	ef56a80	4	d3e8dd0
+TrailToSurfaceFeature	ef56a80	5	4ac5ee0
+TwistingVinesClusterFeature	ef8ca68	0	d427a00
+TwistingVinesClusterFeature	ef8ca68	1	4aec520
+TwistingVinesClusterFeature	ef8ca68	2	d3dfa90
+TwistingVinesClusterFeature	ef8ca68	3	d3e8ac0
+TwistingVinesClusterFeature	ef8ca68	4	d3e8dd0
+TwistingVinesClusterFeature	ef8ca68	5	4ac6c50
+UnderwaterCanyonFeature	ef56ac0	0	4ac7120
+UnderwaterCanyonFeature	ef56ac0	1	4ac7080
+UnderwaterCaveFeature	ef56ae0	0	4aa1b50
+UnderwaterCaveFeature	ef56ae0	1	4aec530
+UnderwaterCaveFeature	ef56ae0	2	4a8b1b0
+UnderwaterCaveFeature	ef56ae0	3	4a8be50
+UnderwaterCaveFeature	ef56ae0	4	d3e8dd0
+UnderwaterCaveFeature	ef56ae0	5	4a8c080
+UnderwaterCaveFeature	ef56ae0	6	4a8c6a0
+UnderwaterCaveFeature	ef56ae0	7	4ac7580
+UnderwaterCaveFeature	ef56ae0	8	4a8d8f0
+VanillaOverworldBiomeSource<?, ?*, short, ?, double>	ef9dfe0	0	52a2800
+VanillaOverworldBiomeSource<?, ?*, short, ?, double>	ef9dfe0	1	52a28a0
+VanillaOverworldBiomeSource<?, ?*, short, ?, double>	ef9dfe0	2	c84fdd0
+VanillaOverworldBiomeSource<?, ?*, short, ?, double>	ef9dfe0	3	52a2940
+VanillaOverworldBiomeSource<?, ?*, short, ?, double>	ef9dfe0	4	52a29f0
+VanillaOverworldBiomeSource<?, ?*, short, ?, double>	ef9dfe0	5	52a2d60
+VanillaOverworldBiomeSource<?, ?*, short, ?, double>	ef9dfe0	6	52a2ef0
+VanillaOverworldBiomeSource<?, ?*, short, ?, double>	ef9dfe0	7	52a2f00
+VanillaOverworldBiomeSource<?, ?*, short, ?, double>	ef9dfe0	8	52a3090
+VanillaOverworldBiomeSource<?, ?*, short, ?, double>	ef9dfe0	9	52a30d0
+VanillaOverworldBiomeSource<?, ?*, short, ?, double>	ef9dfe0	10	52a3110
+VanillaOverworldBiomeSource<?, ?*, short, ?, double>	ef9dfe0	11	52a3120
+VanillaSurfaceBuilders::CappedSurfaceBuilder	f3dc9b0	0	c859ae0
+VanillaSurfaceBuilders::CappedSurfaceBuilder	f3dc9b0	1	c859b50
+VanillaSurfaceBuilders::CappedSurfaceBuilder	f3dc9b0	2	c852060
+VanillaSurfaceBuilders::CappedSurfaceBuilder	f3dc9b0	3	c852230
+VanillaSurfaceBuilders::CappedSurfaceBuilder	f3dc9b0	4	c8522e0
+VanillaSurfaceBuilders::CappedSurfaceBuilder	f3dc9b0	5	c852370
+VanillaSurfaceBuilders::CappedSurfaceBuilder	f3dc9b0	6	c852b10
+VanillaSurfaceBuilders::CappedSurfaceBuilder::MaterialHelper	f3de888	0	c859ac0
+VanillaSurfaceBuilders::CappedSurfaceBuilder::MaterialHelper	f3de888	1	c859ad0
+VanillaSurfaceBuilders::CappedSurfaceBuilder::MaterialHelper	f3de888	2	c851b50
+VanillaSurfaceBuilders::CappedSurfaceBuilder::MaterialHelper	f3de888	3	c851c40
+VanillaSurfaceBuilders::CappedSurfaceBuilder::MaterialHelper	f3de888	4	c851df0
+VanillaSurfaceBuilders::CappedSurfaceBuilder::MaterialHelper	f3de888	5	c851fa0
+VanillaSurfaceBuilders::LegacyMesaSurfaceBuilder	efa5188	0	533d7a0
+VanillaSurfaceBuilders::LegacyMesaSurfaceBuilder	efa5188	1	533d870
+VanillaSurfaceBuilders::LegacyMesaSurfaceBuilder	efa5188	2	52f0d20
+VanillaSurfaceBuilders::LegacyMesaSurfaceBuilder	efa5188	3	52f1390
+VanillaSurfaceBuilders::LegacyMesaSurfaceBuilder	efa5188	4	52f1500
+VanillaSurfaceBuilders::LegacyMesaSurfaceBuilder	efa5188	5	52f0250
+VanillaSurfaceBuilders::LegacyMesaSurfaceBuilder	efa5188	6	52f0d10
+VanillaSurfaceBuilders::MesaSurfaceBuilder	efa5140	0	533d940
+VanillaSurfaceBuilders::MesaSurfaceBuilder	efa5140	1	533d980
+VanillaSurfaceBuilders::MesaSurfaceBuilder	efa5140	2	52f1f50
+VanillaSurfaceBuilders::MesaSurfaceBuilder	efa5140	3	52f34f0
+VanillaSurfaceBuilders::MesaSurfaceBuilder	efa5140	4	52f3660
+VanillaSurfaceBuilders::MesaSurfaceBuilder	efa5140	5	52f1510
+VanillaSurfaceBuilders::MesaSurfaceBuilder	efa5140	6	52f1e50
+VanillaSurfaceBuilders::NoiseGradientSurfaceBuilder	efa51d0	0	533db30
+VanillaSurfaceBuilders::NoiseGradientSurfaceBuilder	efa51d0	1	533d9e0
+VanillaSurfaceBuilders::NoiseGradientSurfaceBuilder	efa51d0	2	52f3670
+VanillaSurfaceBuilders::NoiseGradientSurfaceBuilder	efa51d0	3	52f3680
+VanillaSurfaceBuilders::NoiseGradientSurfaceBuilder	efa51d0	4	52f39e0
+VanillaSurfaceBuilders::NoiseGradientSurfaceBuilder	efa51d0	5	52f3a70
+VanillaSurfaceBuilders::NoiseGradientSurfaceBuilder	efa51d0	6	52f4030
+VanillaSurfaceBuilders::OceanFrozenSurfaceBuilder	efa2790	0	533d9f0
+VanillaSurfaceBuilders::OceanFrozenSurfaceBuilder	efa2790	1	533da30
+VanillaSurfaceBuilders::OceanFrozenSurfaceBuilder	efa2790	2	52f40e0
+VanillaSurfaceBuilders::OceanFrozenSurfaceBuilder	efa2790	3	52f4fd0
+VanillaSurfaceBuilders::OceanFrozenSurfaceBuilder	efa2790	4	52f5070
+VanillaSurfaceBuilders::OceanFrozenSurfaceBuilder	efa2790	5	52f5170
+VanillaSurfaceBuilders::OceanFrozenSurfaceBuilder	efa2790	6	52f5700
+VanillaSurfaceBuilders::OverworldDefaultSurfaceBuilder	f3de8f0	0	533db30
+VanillaSurfaceBuilders::OverworldDefaultSurfaceBuilder	f3de8f0	1	c859bd0
+VanillaSurfaceBuilders::OverworldDefaultSurfaceBuilder	f3de8f0	2	c852b20
+VanillaSurfaceBuilders::OverworldDefaultSurfaceBuilder	f3de8f0	3	c852b30
+VanillaSurfaceBuilders::OverworldDefaultSurfaceBuilder	f3de8f0	4	c852cd0
+VanillaSurfaceBuilders::OverworldDefaultSurfaceBuilder	f3de8f0	5	c852dd0
+VanillaSurfaceBuilders::OverworldDefaultSurfaceBuilder	f3de8f0	6	c854010
+VanillaSurfaceBuilders::SwampSurfaceBuilder	efa27d8	0	533da80
+VanillaSurfaceBuilders::SwampSurfaceBuilder	efa27d8	1	533dad0
+VanillaSurfaceBuilders::SwampSurfaceBuilder	efa27d8	2	52f5750
+VanillaSurfaceBuilders::SwampSurfaceBuilder	efa27d8	3	52f58f0
+VanillaSurfaceBuilders::SwampSurfaceBuilder	efa27d8	4	52f5990
+VanillaSurfaceBuilders::SwampSurfaceBuilder	efa27d8	5	52f5a90
+VanillaSurfaceBuilders::SwampSurfaceBuilder	efa27d8	6	52f5d30
+VanillaSurfaceBuilders::TheEndSurfaceBuilder	efa50f8	0	533db30
+VanillaSurfaceBuilders::TheEndSurfaceBuilder	efa50f8	1	533db40
+VanillaSurfaceBuilders::TheEndSurfaceBuilder	efa50f8	2	533db50
+VanillaSurfaceBuilders::TheEndSurfaceBuilder	efa50f8	3	533db60
+VanillaSurfaceBuilders::TheEndSurfaceBuilder	efa50f8	4	52f5e20
+VanillaSurfaceBuilders::TheEndSurfaceBuilder	efa50f8	5	52f5d40
+VanillaSurfaceBuilders::TheEndSurfaceBuilder	efa50f8	6	52f5e10
+VanillaTreeFeature	ef8c898	0	4afa110
+VanillaTreeFeature	ef8c898	1	4aec550
+VanillaTreeFeature	ef8c898	2	4ac9a90
+VanillaTreeFeature	ef8c898	3	d3e8ac0
+VanillaTreeFeature	ef8c898	4	d3e8dd0
+VegetationFeature	ef56b38	0	4aec5d0
+VegetationFeature	ef56b38	1	4aec600
+VegetationFeature	ef56b38	2	d3dfa90
+VegetationFeature	ef56b38	3	d3e8ac0
+VegetationFeature	ef56b38	4	d3e8dd0
+VegetationFeature	ef56b38	5	4aeb6e0
 VegetationPatchFeature	f463d10	0	d428300
 VegetationPatchFeature	f463d10	1	d428370
 VegetationPatchFeature	f463d10	2	d41fd70
 VegetationPatchFeature	f463d10	3	d3e8ac0
 VegetationPatchFeature	f463d10	4	d3e8dd0
+VillageFeature	ef9c880	0	525da60
+VillageFeature	ef9c880	1	525daa0
+VillageFeature	ef9c880	2	d351350
+VillageFeature	ef9c880	3	50bb840
+VillageFeature	ef9c880	4	50bb7a0
+VillageFeature	ef9c880	5	50bb7e0
+VillageFeature	ef9c880	6	50bb850
+VillageFeature	ef9c880	7	50bbad0
+VillageFeature	ef9c880	8	d3515c0
+VinesFeature	ef8c968	0	d427a00
+VinesFeature	ef8c968	1	4aec640
+VinesFeature	ef8c968	2	d3dfa90
+VinesFeature	ef8c968	3	d3e8ac0
+VinesFeature	ef8c968	4	d3e8dd0
+VinesFeature	ef8c968	5	4aeb9f0
+VinesSingleFaceFeature	ef8caa8	0	d4282e0
+VinesSingleFaceFeature	ef8caa8	1	4aec650
+VinesSingleFaceFeature	ef8caa8	2	4aebfd0
+VinesSingleFaceFeature	ef8caa8	3	d3e8ac0
+VinesSingleFaceFeature	ef8caa8	4	d3e8dd0
 VoidGenerator	f3ece48	0	ca70520
 VoidGenerator	f3ece48	1	ca70680
 VoidGenerator	f3ece48	2	cb31380
-VoidGenerator	f3ece48	3	cb313b0
-VoidGenerator	f3ece48	4	cb313c0
-VoidGenerator	f3ece48	5	cb313d0
-VoidGenerator	f3ece48	6	cb313f0
-VoidGenerator	f3ece48	7	cb31410
-VoidGenerator	f3ece48	8	cb314e0
-VoidGenerator	f3ece48	9	ca709b0
-VoidGenerator	f3ece48	10	cb32740
-VoidGenerator	f3ece48	11	cb32750
-VoidGenerator	f3ece48	12	cb32760
-VoidGenerator	f3ece48	13	ca70790
-VoidGenerator	f3ece48	14	ca73030
-VoidGenerator	f3ece48	15	cb32f20
-VoidGenerator	f3ece48	16	cb33130
-VoidGenerator	f3ece48	17	cb33340
-VoidGenerator	f3ece48	18	cb33360
-VoidGenerator	f3ece48	19	cb33380
-VoidGenerator	f3ece48	20	cb333a0
-VoidGenerator	f3ece48	21	cb32790
-VoidGenerator	f3ece48	22	cb327b0
-VoidGenerator	f3ece48	23	cb32c90
-VoidGenerator	f3ece48	24	cb333c0
-VoidGenerator	f3ece48	25	cb32d30
-VoidGenerator	f3ece48	26	cb32d50
-VoidGenerator	f3ece48	27	cb33420
-VoidGenerator	f3ece48	28	cb32f10
-VoidGenerator	f3ece48	29	529ba60
-VoidGenerator	f3ece48	30	cb2f090
-VoidGenerator	f3ece48	31	cb2f0a0
-VoidGenerator	f3ece48	32	cb2f0d0
-VoidGenerator	f3ece48	33	cb33440
-VoidGenerator	f3ece48	34	cb334c0
-VoidGenerator	f3ece48	35	cb334e0
-VoidGenerator	f3ece48	36	cb33450
-VoidGenerator	f3ece48	37	ca72b00
-VoidGenerator	f3ece48	38	ca70bd0
-VoidGenerator	f3ece48	39	ca70bf0
-VoidGenerator	f3ece48	40	ca70cc0
-VoidGenerator	f3ece48	41	ca72c10
-VoidGenerator	f3ece48	42	ca709c0
-VoidGenerator	f3ece48	43	ca709d0
-VoidGenerator	f3ece48	44	ca70750
-VoidGenerator	f3ece48	45	ca70760
-VoidGenerator	f3ece48	46	ca70780
-VoidGenerator	f3ece48	47	ca73300
-VoidGenerator	f3ece48	48	ca72c60
-VoidGenerator	f3ece48	49	ca72ef0
-VoidGenerator	f3ece48	50	ca70a00
-VoidGenerator	f3ece48	51	ca709f0
-VoidGenerator	f3ed020	0	ca70740
-VoidGenerator	f3ed020	1	ca73310
+VoidGenerator	f3ece48	3	cb31390
+VoidGenerator	f3ece48	4	cb313b0
+VoidGenerator	f3ece48	5	cb313c0
+VoidGenerator	f3ece48	6	cb313d0
+VoidGenerator	f3ece48	7	cb313f0
+VoidGenerator	f3ece48	8	cb31410
+VoidGenerator	f3ece48	9	cb314e0
+VoidGenerator	f3ece48	10	ca709a0
+VoidGenerator	f3ece48	11	ca709b0
+VoidGenerator	f3ece48	12	cb32740
+VoidGenerator	f3ece48	13	cb32750
+VoidGenerator	f3ece48	14	cb32760
+VoidGenerator	f3ece48	15	ca70790
+VoidGenerator	f3ece48	16	ca73030
+VoidGenerator	f3ece48	17	ca730a0
+VoidGenerator	f3ece48	18	cb32f20
+VoidGenerator	f3ece48	19	cb33130
+VoidGenerator	f3ece48	20	cb33340
+VoidGenerator	f3ece48	21	cb33360
+VoidGenerator	f3ece48	22	cb33380
+VoidGenerator	f3ece48	23	cb333a0
+VoidGenerator	f3ece48	24	cb32790
+VoidGenerator	f3ece48	25	cb327b0
+VoidGenerator	f3ece48	26	cb32c90
+VoidGenerator	f3ece48	27	cb333c0
+VoidGenerator	f3ece48	28	cb32d30
+VoidGenerator	f3ece48	29	cb32d50
+VoidGenerator	f3ece48	30	cb33420
+VoidGenerator	f3ece48	31	cb33430
+VoidGenerator	f3ece48	32	cb32f10
+VoidGenerator	f3ece48	33	529ba60
+VoidGenerator	f3ece48	34	cb2f090
+VoidGenerator	f3ece48	35	cb2f0a0
+VoidGenerator	f3ece48	36	cb2f0d0
+VoidGenerator	f3ece48	37	cb33440
+VoidGenerator	f3ece48	38	cb334c0
+VoidGenerator	f3ece48	39	cb334e0
+VoidGenerator	f3ece48	40	cb33450
+VoidGenerator	f3ece48	41	ca72b00
+VoidGenerator	f3ece48	42	ca70bd0
+VoidGenerator	f3ece48	43	ca70bf0
+VoidGenerator	f3ece48	44	ca70cc0
+VoidGenerator	f3ece48	45	ca70eb0
+VoidGenerator	f3ece48	46	ca72c10
+VoidGenerator	f3ece48	47	ca709c0
+VoidGenerator	f3ece48	48	ca709d0
+VoidGenerator	f3ece48	49	ca70750
+VoidGenerator	f3ece48	50	ca70760
+VoidGenerator	f3ece48	51	ca70780
+VoidGenerator	f3ece48	52	ca73300
+VoidGenerator	f3ece48	53	ca72c60
+VoidGenerator	f3ece48	54	ca72ef0
+VoidGenerator	f3ece48	55	ca70a00
+VoidGenerator	f3ece48	56	ca709f0
+VoidGenerator	f3ed020	0	ca705d0
+VoidGenerator	f3ed020	1	ca70740
+VoidGenerator	f3ed020	2	ca73310
+WaterlilyFeature	ef8ed00	0	d427a00
+WaterlilyFeature	ef8ed00	1	4fa15f0
+WaterlilyFeature	ef8ed00	2	d3dfa90
+WaterlilyFeature	ef8ed00	3	d3e8ac0
+WaterlilyFeature	ef8ed00	4	d3e8dd0
+WaterlilyFeature	ef8ed00	5	4ee79b0
+WeepingVinesClusterFeature	ef8ed58	0	d427a00
+WeepingVinesClusterFeature	ef8ed58	1	4fa1600
+WeepingVinesClusterFeature	ef8ed58	2	d3dfa90
+WeepingVinesClusterFeature	ef8ed58	3	d3e8ac0
+WeepingVinesClusterFeature	ef8ed58	4	d3e8dd0
+WeepingVinesClusterFeature	ef8ed58	5	4ee7b20
 WeightedRandomFeature	f463908	0	d4283e0
 WeightedRandomFeature	f463908	1	d428410
 WeightedRandomFeature	f463908	2	d425480
 WeightedRandomFeature	f463908	3	d3e8ac0
 WeightedRandomFeature	f463908	4	d3e8dd0
-WorldClockRegistry	f3ee568	0	caad8d0
-WorldClockRegistry	f3ee568	1	412bcc0
-WorldClockRegistryServer	f3ee590	0	caac8b0
+WoodlandMansionFeature	ef9c920	0	525db10
+WoodlandMansionFeature	ef9c920	1	525db50
+WoodlandMansionFeature	ef9c920	2	d351350
+WoodlandMansionFeature	ef9c920	3	50bc4f0
+WoodlandMansionFeature	ef9c920	4	50bc450
+WoodlandMansionFeature	ef9c920	5	50bc490
+WoodlandMansionFeature	ef9c920	6	50bc500
+WoodlandMansionFeature	ef9c920	7	50bc760
+WoodlandMansionFeature	ef9c920	8	d3515c0
+WorldClockRegistry	f3ee568	0	caad660
+WorldClockRegistry	f3ee568	1	caad8d0
+WorldClockRegistry	f3ee568	2	412bcc0
+WorldClockRegistryServer	f3ee590	0	caac7f0
+WorldClockRegistryServer	f3ee590	1	caac8b0
+WorldClockRegistryServer	f3ee590	2	caa8610
+WorldGenClimateMappingAttributes	efa5448	0	53452b0
+WorldGenClimateMappingAttributes	efa5448	1	53452e0
+WorldGenMultiNoiseClimateAttributes	efa5b18	0	4a7b3e0
+WorldGenMultiNoiseClimateAttributes	efa5b18	1	535d920
+WorldGenerator	f3ed048	0	ca70460
+WorldGenerator	f3ed048	1	ca70bb0
+WorldGenerator	f3ed048	2	cb31380
+WorldGenerator	f3ed048	3	cb31390
+WorldGenerator	f3ed048	4	cb313b0
+WorldGenerator	f3ed048	5	cb313c0
+WorldGenerator	f3ed048	6	cb313d0
+WorldGenerator	f3ed048	7	cb313f0
+WorldGenerator	f3ed048	8	cb31410
+WorldGenerator	f3ed048	9	cb314e0
+WorldGenerator	f3ed048	10	cb32720
+WorldGenerator	f3ed048	11	cb32730
+WorldGenerator	f3ed048	12	cb32740
+WorldGenerator	f3ed048	13	cb32750
+WorldGenerator	f3ed048	14	cb32760
+WorldGenerator	f3ed048	15	cb32770
+WorldGenerator	f3ed048	16	ca73030
+WorldGenerator	f3ed048	17	ca730a0
+WorldGenerator	f3ed048	18	cb32f20
+WorldGenerator	f3ed048	19	cb33130
+WorldGenerator	f3ed048	20	cb33340
+WorldGenerator	f3ed048	21	cb33360
+WorldGenerator	f3ed048	22	cb33380
+WorldGenerator	f3ed048	23	cb333a0
+WorldGenerator	f3ed048	24	cb32790
+WorldGenerator	f3ed048	25	cb327b0
+WorldGenerator	f3ed048	26	cb32c90
+WorldGenerator	f3ed048	27	cb333c0
+WorldGenerator	f3ed048	28	cb32d30
+WorldGenerator	f3ed048	29	cb32d50
+WorldGenerator	f3ed048	30	cb33420
+WorldGenerator	f3ed048	31	cb33430
+WorldGenerator	f3ed048	32	cb32f10
+WorldGenerator	f3ed048	33	529ba60
+WorldGenerator	f3ed048	34	cb2f090
+WorldGenerator	f3ed048	35	cb2f0a0
+WorldGenerator	f3ed048	36	cb2f0d0
+WorldGenerator	f3ed048	37	cb33440
+WorldGenerator	f3ed048	38	cb334c0
+WorldGenerator	f3ed048	39	cb334e0
+WorldGenerator	f3ed048	40	cb33450
+WorldGenerator	f3ed048	41	ca72b00
+WorldGenerator	f3ed048	42	ca70bd0
+WorldGenerator	f3ed048	43	ca70bf0
+WorldGenerator	f3ed048	44	ca70cc0
+WorldGenerator	f3ed048	45	ca70eb0
+WorldGenerator	f3ed048	46	ca72c10
+WorldGenerator	f3ed048	47	412bcc0
+WorldGenerator	f3ed048	48	412bcc0
+WorldGenerator	f3ed048	49	412bcc0
+WorldGenerator	f3ed048	50	412bcc0
+WorldGenerator	f3ed048	51	412bcc0
+WorldGenerator	f3ed048	52	ca73300
+WorldGenerator	f3ed048	53	ca72c60
+WorldGenerator	f3ed048	54	ca72ef0
+WorldGenerator	f3ed048	55	412bcc0
+WorldGenerator	f3ed048	56	412bcc0
+WorldGenerator	f3ed220	0	ca70ba0
+WorldGenerator	f3ed220	1	ca70bc0
+WorldGenerator	f3ed220	2	ca73310
+WorldLimitChunkSource	f3ee408	0	ca9fce0
+WorldLimitChunkSource	f3ee408	1	ca9fcf0
+WorldLimitChunkSource	f3ee408	2	cb31380
+WorldLimitChunkSource	f3ee408	3	cb31390
+WorldLimitChunkSource	f3ee408	4	ca9ffe0
+WorldLimitChunkSource	f3ee408	5	cb313c0
+WorldLimitChunkSource	f3ee408	6	cb313d0
+WorldLimitChunkSource	f3ee408	7	cb313f0
+WorldLimitChunkSource	f3ee408	8	ca9fd10
+WorldLimitChunkSource	f3ee408	9	cb314e0
+WorldLimitChunkSource	f3ee408	10	cb32720
+WorldLimitChunkSource	f3ee408	11	cb32730
+WorldLimitChunkSource	f3ee408	12	cb32740
+WorldLimitChunkSource	f3ee408	13	cb32750
+WorldLimitChunkSource	f3ee408	14	cb32760
+WorldLimitChunkSource	f3ee408	15	cb32770
+WorldLimitChunkSource	f3ee408	16	cb333e0
+WorldLimitChunkSource	f3ee408	17	cb33400
+WorldLimitChunkSource	f3ee408	18	cb32f20
+WorldLimitChunkSource	f3ee408	19	cb33130
+WorldLimitChunkSource	f3ee408	20	cb33340
+WorldLimitChunkSource	f3ee408	21	cb33360
+WorldLimitChunkSource	f3ee408	22	cb33380
+WorldLimitChunkSource	f3ee408	23	cb333a0
+WorldLimitChunkSource	f3ee408	24	cb32790
+WorldLimitChunkSource	f3ee408	25	cb327b0
+WorldLimitChunkSource	f3ee408	26	cb32c90
+WorldLimitChunkSource	f3ee408	27	cb333c0
+WorldLimitChunkSource	f3ee408	28	cb32d30
+WorldLimitChunkSource	f3ee408	29	cb32d50
+WorldLimitChunkSource	f3ee408	30	caa0000
+WorldLimitChunkSource	f3ee408	31	caa0050
+WorldLimitChunkSource	f3ee408	32	cb32f10
+WorldLimitChunkSource	f3ee408	33	529ba60
+WorldLimitChunkSource	f3ee408	34	caa0040
+WorldLimitChunkSource	f3ee408	35	cb2f0a0
+WorldLimitChunkSource	f3ee408	36	cb2f0d0
+WorldLimitChunkSource	f3ee408	37	cb33440
+WorldLimitChunkSource	f3ee408	38	cb334c0
+WorldLimitChunkSource	f3ee408	39	cb334e0
+WorldLimitChunkSource	f3ee408	40	cb33450
+WorldLimitChunkSource	f3ee408	41	cb33470
+XoroshiroRandom	ef512d0	0	495d8e0
+XoroshiroRandom	ef512d0	1	49ca700
+XoroshiroRandom	ef512d0	2	49ca710
+XoroshiroRandom	ef512d0	3	49ca750
+XoroshiroRandom	ef512d0	4	49ca7e0
+XoroshiroRandom	ef512d0	5	49ca820
+XoroshiroRandom	ef512d0	6	49ca860
+XoroshiroRandom	ef512d0	7	49ca8b0
+XoroshiroRandom	ef512d0	8	49ca900
+XoroshiroRandom	ef512d0	9	49caa60
+XoroshiroRandom	ef512d0	10	495b6e0
+XoroshiroRandom	ef512d0	11	49caae0
+XoroshiroRandom	ef512d0	12	49cab00
+XoroshiroRandom	ef512d0	13	49cab10
+XoroshiroRandom	ef512d0	14	49cab20
+XoroshiroRandom	ef512d0	15	49cab60
+XoroshiroRandom	ef512d0	16	49caba0
+XoroshiroRandom	ef512d0	17	49cabe0
+_GLOBAL__N_1::WorldGeneratorAnon::StructureAccess	f3ed9d8	0	ca7b600
+_GLOBAL__N_1::WorldGeneratorAnon::StructureAccess	f3ed9d8	1	ca7b610
+_GLOBAL__N_1::WorldGeneratorAnon::StructureAccess	f3ed9d8	2	ca7b620
+_GLOBAL__N_1::WorldGeneratorAnon::StructureAccess	f3ed9d8	3	ca7ba90
+_GLOBAL__N_1::WorldGeneratorAnon::StructureAccess	f3ed9d8	4	ca72ac0
 br::worldgen::ConstantHeight	f460518	0	d2d9b20
 br::worldgen::ConstantHeight	f460518	1	d309330
 br::worldgen::ConstantHeight	f460518	2	d2f3a00
@@ -701,3 +2163,117 @@ br::worldgen::processors::Rule	f45e200	2	d2be660
 br::worldgen::processors::Rule	f45e200	3	d2bf390
 br::worldgen::processors::Rule	f45e200	4	d2beaf0
 br::worldgen::processors::Rule	f45e200	5	d2beb70
+entt::basic_storage<Editor::ScriptModule::ScriptCustomBiomeSource, Scripting::ObjectHandleValue, std::__1::allocator<S3, ?>>	f2fba88	0	badae60
+entt::basic_storage<Editor::ScriptModule::ScriptCustomBiomeSource, Scripting::ObjectHandleValue, std::__1::allocator<S3, ?>>	f2fba88	1	badae80
+entt::basic_storage<Editor::ScriptModule::ScriptCustomBiomeSource, Scripting::ObjectHandleValue, std::__1::allocator<S3, ?>>	f2fba88	2	badb0f0
+entt::basic_storage<Editor::ScriptModule::ScriptCustomBiomeSource, Scripting::ObjectHandleValue, std::__1::allocator<S3, ?>>	f2fba88	3	badb1d0
+entt::basic_storage<Editor::ScriptModule::ScriptCustomBiomeSource, Scripting::ObjectHandleValue, std::__1::allocator<S3, ?>>	f2fba88	4	badb2c0
+entt::basic_storage<Editor::ScriptModule::ScriptCustomBiomeSource, Scripting::ObjectHandleValue, std::__1::allocator<S3, ?>>	f2fba88	5	d854cb0
+entt::basic_storage<Editor::ScriptModule::ScriptCustomBiomeSource, Scripting::ObjectHandleValue, std::__1::allocator<S3, ?>>	f2fba88	6	badb3a0
+entt::basic_storage<Editor::ScriptModule::ScriptCustomBiomeSource, Scripting::ObjectHandleValue, std::__1::allocator<S3, ?>>	f2fba88	7	badb460
+entt::basic_storage<Editor::ScriptModule::ScriptCustomBiomeSource, Scripting::ObjectHandleValue, std::__1::allocator<S3, ?>>	f2fba88	8	badb480
+entt::basic_storage<Editor::ScriptModule::ScriptCustomBiomeSource, Scripting::ObjectHandleValue, std::__1::allocator<S3, ?>>	f2fba88	9	badb5a0
+entt::basic_storage<Editor::ScriptModule::ScriptCustomBiomeSource, Scripting::ObjectHandleValue, std::__1::allocator<S3, ?>>	f2fba88	10	badb5b0
+nonstd::expected_lite::bad_expected_access<ScriptModuleMinecraft::ScriptWorldClockTimeMarkerNotFoundError>	f182b48	0	9277fe0
+nonstd::expected_lite::bad_expected_access<ScriptModuleMinecraft::ScriptWorldClockTimeMarkerNotFoundError>	f182b48	1	9278000
+nonstd::expected_lite::bad_expected_access<ScriptModuleMinecraft::ScriptWorldClockTimeMarkerNotFoundError>	f182b48	2	9278030
+nonstd::expected_lite::bad_expected_access<ScriptModuleMinecraft::ScriptWorldClockTimeMarkerNotFoundError>	f182b48	3	9278040
+nonstd::expected_lite::bad_expected_access<ScriptModuleMinecraft::ScriptWorldClockTimeMarkerNotFoundError>	f182b48	4	9278050
+std::__1::__function::__func<?, Bedrock::Threading::InstancedThreadLocal<OverworldGenerator::ThreadData, S_::allocator<S6, ?>>::?::E::void, ?, long, S6*, ?>::?::S7::?::?::SB::?	ef9fac0	0	52be580
+std::__1::__function::__func<?, Bedrock::Threading::InstancedThreadLocal<OverworldGenerator::ThreadData, S_::allocator<S6, ?>>::?::E::void, ?, long, S6*, ?>::?::S7::?::?::SB::?	ef9fac0	1	52be590
+std::__1::__function::__func<?, Bedrock::Threading::InstancedThreadLocal<OverworldGenerator::ThreadData, S_::allocator<S6, ?>>::?::E::void, ?, long, S6*, ?>::?::S7::?::?::SB::?	ef9fac0	2	52be5a0
+std::__1::__function::__func<?, Bedrock::Threading::InstancedThreadLocal<OverworldGenerator::ThreadData, S_::allocator<S6, ?>>::?::E::void, ?, long, S6*, ?>::?::S7::?::?::SB::?	ef9fac0	3	52be5f0
+std::__1::__function::__func<?, Bedrock::Threading::InstancedThreadLocal<OverworldGenerator::ThreadData, S_::allocator<S6, ?>>::?::E::void, ?, long, S6*, ?>::?::S7::?::?::SB::?	ef9fac0	4	52be600
+std::__1::__function::__func<?, Bedrock::Threading::InstancedThreadLocal<OverworldGenerator::ThreadData, S_::allocator<S6, ?>>::?::E::void, ?, long, S6*, ?>::?::S7::?::?::SB::?	ef9fac0	5	52be610
+std::__1::__function::__func<?, Bedrock::Threading::InstancedThreadLocal<OverworldGenerator::ThreadData, S_::allocator<S6, ?>>::?::E::void, ?, long, S6*, ?>::?::S7::?::?::SB::?	ef9fac0	6	52be620
+std::__1::__function::__func<?, Bedrock::Threading::InstancedThreadLocal<OverworldGenerator::ThreadData, S_::allocator<S6, ?>>::?::E::void, ?, long, S6*, ?>::?::S7::?::?::SB::?	ef9fac0	7	52be650
+std::__1::__function::__func<?, Bedrock::Threading::InstancedThreadLocal<OverworldGenerator::ThreadData, S_::allocator<S6, ?>>::?::E::void, ?, long, S6*, ?>::?::S7::?::?::SB::?	ef9fac0	8	52be670
+std::__1::__function::__func<?, OverworldGenerator::loadChunk, ?&, ?, long double, long double, long, ?, unsigned char, ?, ?, ?, bool>::$_0::S_::allocator<S5, ?>::?::void::? const&::?::long::?::char::?::?*::short::? const&::?::long::?::char::?::int	ef9fb50	0	52be760
+std::__1::__function::__func<?, OverworldGenerator::loadChunk, ?&, ?, long double, long double, long, ?, unsigned char, ?, ?, ?, bool>::$_0::S_::allocator<S5, ?>::?::void::? const&::?::long::?::char::?::?*::short::? const&::?::long::?::char::?::int	ef9fb50	1	52be770
+std::__1::__function::__func<?, OverworldGenerator::loadChunk, ?&, ?, long double, long double, long, ?, unsigned char, ?, ?, ?, bool>::$_0::S_::allocator<S5, ?>::?::void::? const&::?::long::?::char::?::?*::short::? const&::?::long::?::char::?::int	ef9fb50	2	52be780
+std::__1::__function::__func<?, OverworldGenerator::loadChunk, ?&, ?, long double, long double, long, ?, unsigned char, ?, ?, ?, bool>::$_0::S_::allocator<S5, ?>::?::void::? const&::?::long::?::char::?::?*::short::? const&::?::long::?::char::?::int	ef9fb50	3	52be7d0
+std::__1::__function::__func<?, OverworldGenerator::loadChunk, ?&, ?, long double, long double, long, ?, unsigned char, ?, ?, ?, bool>::$_0::S_::allocator<S5, ?>::?::void::? const&::?::long::?::char::?::?*::short::? const&::?::long::?::char::?::int	ef9fb50	4	52be7f0
+std::__1::__function::__func<?, OverworldGenerator::loadChunk, ?&, ?, long double, long double, long, ?, unsigned char, ?, ?, ?, bool>::$_0::S_::allocator<S5, ?>::?::void::? const&::?::long::?::char::?::?*::short::? const&::?::long::?::char::?::int	ef9fb50	5	52be800
+std::__1::__function::__func<?, OverworldGenerator::loadChunk, ?&, ?, long double, long double, long, ?, unsigned char, ?, ?, ?, bool>::$_0::S_::allocator<S5, ?>::?::void::? const&::?::long::?::char::?::?*::short::? const&::?::long::?::char::?::int	ef9fb50	6	52be810
+std::__1::__function::__func<?, OverworldGenerator::loadChunk, ?&, ?, long double, long double, long, ?, unsigned char, ?, ?, ?, bool>::$_0::S_::allocator<S5, ?>::?::void::? const&::?::long::?::char::?::?*::short::? const&::?::long::?::char::?::int	ef9fb50	7	52be830
+std::__1::__function::__func<?, OverworldGenerator::loadChunk, ?&, ?, long double, long double, long, ?, unsigned char, ?, ?, ?, bool>::$_0::S_::allocator<S5, ?>::?::void::? const&::?::long::?::char::?::?*::short::? const&::?::long::?::char::?::int	ef9fb50	8	52be850
+std::__1::__function::__func<?, Scripting::internal::BaseScriptComponent::?::I::Editor::ScriptModule::ScriptCustomBiomeSource>::S3::?::TypeCache&::bool::S4::?::Traits<?, ?>	f2fb9b8	0	663aba0
+std::__1::__function::__func<?, Scripting::internal::BaseScriptComponent::?::I::Editor::ScriptModule::ScriptCustomBiomeSource>::S3::?::TypeCache&::bool::S4::?::Traits<?, ?>	f2fb9b8	1	badad00
+std::__1::__function::__func<?, Scripting::internal::BaseScriptComponent::?::I::Editor::ScriptModule::ScriptCustomBiomeSource>::S3::?::TypeCache&::bool::S4::?::Traits<?, ?>	f2fb9b8	2	badad10
+std::__1::__function::__func<?, Scripting::internal::BaseScriptComponent::?::I::Editor::ScriptModule::ScriptCustomBiomeSource>::S3::?::TypeCache&::bool::S4::?::Traits<?, ?>	f2fb9b8	3	badad60
+std::__1::__function::__func<?, Scripting::internal::BaseScriptComponent::?::I::Editor::ScriptModule::ScriptCustomBiomeSource>::S3::?::TypeCache&::bool::S4::?::Traits<?, ?>	f2fb9b8	4	badad80
+std::__1::__function::__func<?, Scripting::internal::BaseScriptComponent::?::I::Editor::ScriptModule::ScriptCustomBiomeSource>::S3::?::TypeCache&::bool::S4::?::Traits<?, ?>	f2fb9b8	5	badad90
+std::__1::__function::__func<?, Scripting::internal::BaseScriptComponent::?::I::Editor::ScriptModule::ScriptCustomBiomeSource>::S3::?::TypeCache&::bool::S4::?::Traits<?, ?>	f2fb9b8	6	badada0
+std::__1::__function::__func<?, Scripting::internal::BaseScriptComponent::?::I::Editor::ScriptModule::ScriptCustomBiomeSource>::S3::?::TypeCache&::bool::S4::?::Traits<?, ?>	f2fb9b8	7	badadd0
+std::__1::__function::__func<?, Scripting::internal::BaseScriptComponent::?::I::Editor::ScriptModule::ScriptCustomBiomeSource>::S3::?::TypeCache&::bool::S4::?::Traits<?, ?>	f2fb9b8	8	badadf0
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::API::EditorScriptInternalAPI::_createCustomBiomeSource, S4::?::ScriptModule::ScriptCustomBiomeSourceConfig const&>>	f2fb3c8	0	bad0c30
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::API::EditorScriptInternalAPI::_createCustomBiomeSource, S4::?::ScriptModule::ScriptCustomBiomeSourceConfig const&>>	f2fb3c8	1	bad0c40
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::API::EditorScriptInternalAPI::_createCustomBiomeSource, S4::?::ScriptModule::ScriptCustomBiomeSourceConfig const&>>	f2fb3c8	2	bad0c70
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::API::EditorScriptInternalAPI::_createCustomBiomeSource, S4::?::ScriptModule::ScriptCustomBiomeSourceConfig const&>>	f2fb3c8	3	412c330
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::API::EditorScriptInternalAPI::_createCustomBiomeSource, S4::?::ScriptModule::ScriptCustomBiomeSourceConfig const&>>	f2fb3c8	4	bad0c80
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::destroy, void>>	f2daa88	0	b814bf0
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::destroy, void>>	f2daa88	1	b814c00
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::destroy, void>>	f2daa88	2	b814c30
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::destroy, void>>	f2daa88	3	412c330
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::destroy, void>>	f2daa88	4	b814c40
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::recalculateBiomes, S_::vector<S5::?::ScriptCustomBiomeConfig, S_::allocator<S8, ?>> const&>>	f2dab58	0	b8151d0
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::recalculateBiomes, S_::vector<S5::?::ScriptCustomBiomeConfig, S_::allocator<S8, ?>> const&>>	f2dab58	1	b8151e0
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::recalculateBiomes, S_::vector<S5::?::ScriptCustomBiomeConfig, S_::allocator<S8, ?>> const&>>	f2dab58	2	b815210
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::recalculateBiomes, S_::vector<S5::?::ScriptCustomBiomeConfig, S_::allocator<S8, ?>> const&>>	f2dab58	3	412c330
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::recalculateBiomes, S_::vector<S5::?::ScriptCustomBiomeConfig, S_::allocator<S8, ?>> const&>>	f2dab58	4	b815220
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::updateColor, S_::basic_string<char, S_::char_traits<char>, S_::allocator<char>> const&, ScriptModuleMinecraft::ScriptRGBA const&>>	f2dac28	0	b815c50
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::updateColor, S_::basic_string<char, S_::char_traits<char>, S_::allocator<char>> const&, ScriptModuleMinecraft::ScriptRGBA const&>>	f2dac28	1	b815c60
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::updateColor, S_::basic_string<char, S_::char_traits<char>, S_::allocator<char>> const&, ScriptModuleMinecraft::ScriptRGBA const&>>	f2dac28	2	b815c90
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::updateColor, S_::basic_string<char, S_::char_traits<char>, S_::allocator<char>> const&, ScriptModuleMinecraft::ScriptRGBA const&>>	f2dac28	3	412c330
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::updateColor, S_::basic_string<char, S_::char_traits<char>, S_::allocator<char>> const&, ScriptModuleMinecraft::ScriptRGBA const&>>	f2dac28	4	b815ca0
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSource, S2::?::ReturnPolicy>::?::?::double::?::S6 const::?::getId::void>	f2da908	0	b812c40
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSource, S2::?::ReturnPolicy>::?::?::double::?::S6 const::?::getId::void>	f2da908	1	b812c50
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSource, S2::?::ReturnPolicy>::?::?::double::?::S6 const::?::getId::void>	f2da908	2	b812c80
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSource, S2::?::ReturnPolicy>::?::?::double::?::S6 const::?::getId::void>	f2da908	3	412c330
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSource, S2::?::ReturnPolicy>::?::?::double::?::S6 const::?::getId::void>	f2da908	4	b812c90
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, S2::?::ReturnPolicy>::?::?::double::?::S6::?::mNewBiomes>	f2da858	0	b812820
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, S2::?::ReturnPolicy>::?::?::double::?::S6::?::mNewBiomes>	f2da858	1	b812830
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, S2::?::ReturnPolicy>::?::?::double::?::S6::?::mNewBiomes>	f2da858	2	b812860
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, S2::?::ReturnPolicy>::?::?::double::?::S6::?::mNewBiomes>	f2da858	3	412c330
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, S2::?::ReturnPolicy>::?::?::double::?::S6::?::mNewBiomes>	f2da858	4	b812870
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, S2::?::ReturnPolicy>::?::?::double::?::S6::?::mSeed>	f2da6f0	0	b80f710
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, S2::?::ReturnPolicy>::?::?::double::?::S6::?::mSeed>	f2da6f0	1	b80f720
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, S2::?::ReturnPolicy>::?::?::double::?::S6::?::mSeed>	f2da6f0	2	b80f750
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, S2::?::ReturnPolicy>::?::?::double::?::S6::?::mSeed>	f2da6f0	3	412c330
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, S2::?::ReturnPolicy>::?::?::double::?::S6::?::mSeed>	f2da6f0	4	b80f760
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, ?, ?, double, ?, S6::?::mNewBiomes>>	f2da7b0	0	b811e30
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, ?, ?, double, ?, S6::?::mNewBiomes>>	f2da7b0	1	b811e40
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, ?, ?, double, ?, S6::?::mNewBiomes>>	f2da7b0	2	b811e70
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, ?, ?, double, ?, S6::?::mNewBiomes>>	f2da7b0	3	412c330
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, ?, ?, double, ?, S6::?::mNewBiomes>>	f2da7b0	4	b811e80
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, ?, ?, double, ?, S6::?::mSeed>>	f2da648	0	b80f0f0
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, ?, ?, double, ?, S6::?::mSeed>>	f2da648	1	b80f100
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, ?, ?, double, ?, S6::?::mSeed>>	f2da648	2	b80f130
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, ?, ?, double, ?, S6::?::mSeed>>	f2da648	3	412c330
+std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, ?, ?, double, ?, S6::?::mSeed>>	f2da648	4	b80f140
+std::__1::__shared_ptr_emplace<entt::basic_storage<Editor::ScriptModule::ScriptCustomBiomeSource, Scripting::ObjectHandleValue, S_::allocator<S5, ?>>, S8::?::?::S7::?>	f2fba38	0	badae00
+std::__1::__shared_ptr_emplace<entt::basic_storage<Editor::ScriptModule::ScriptCustomBiomeSource, Scripting::ObjectHandleValue, S_::allocator<S5, ?>>, S8::?::?::S7::?>	f2fba38	1	badae10
+std::__1::__shared_ptr_emplace<entt::basic_storage<Editor::ScriptModule::ScriptCustomBiomeSource, Scripting::ObjectHandleValue, S_::allocator<S5, ?>>, S8::?::?::S7::?>	f2fba38	2	badae40
+std::__1::__shared_ptr_emplace<entt::basic_storage<Editor::ScriptModule::ScriptCustomBiomeSource, Scripting::ObjectHandleValue, S_::allocator<S5, ?>>, S8::?::?::S7::?>	f2fba38	3	412c330
+std::__1::__shared_ptr_emplace<entt::basic_storage<Editor::ScriptModule::ScriptCustomBiomeSource, Scripting::ObjectHandleValue, S_::allocator<S5, ?>>, S8::?::?::S7::?>	f2fba38	4	badae50
+webrtc::RTCCertificateGenerator	ef05e58	0	44a1160
+webrtc::RTCCertificateGenerator	ef05e58	1	44a1170
+webrtc::RTCCertificateGenerator	ef05e58	2	44a0c90
+webrtc::UlpfecGenerator	eefd688	0	436e5f0
+webrtc::UlpfecGenerator	eefd688	1	436e740
+webrtc::UlpfecGenerator	eefd688	2	436f2a0
+webrtc::UlpfecGenerator	eefd688	3	436f2b0
+webrtc::UlpfecGenerator	eefd688	4	436ed40
+webrtc::UlpfecGenerator	eefd688	5	436f130
+webrtc::UlpfecGenerator	eefd688	6	436e760
+webrtc::UlpfecGenerator	eefd688	7	436e7e0
+webrtc::UlpfecGenerator	eefd688	8	436ed50
+webrtc::UlpfecGenerator	eefd688	9	436f2c0
+webrtc::_GLOBAL__N_1::SecureRandomGenerator	ef052c8	0	4487ac0
+webrtc::_GLOBAL__N_1::SecureRandomGenerator	ef052c8	1	44879c0
+webrtc::_GLOBAL__N_1::SecureRandomGenerator	ef052c8	2	4487ab0
+webrtc::_GLOBAL__N_1::SecureRandomGenerator	ef052c8	3	44879d0
+webrtc::_GLOBAL__N_1::TestRandomGenerator	ef05310	0	4487ac0
+webrtc::_GLOBAL__N_1::TestRandomGenerator	ef05310	1	44879f0
+webrtc::_GLOBAL__N_1::TestRandomGenerator	ef05310	2	4487ab0
+webrtc::_GLOBAL__N_1::TestRandomGenerator	ef05310	3	4487a00

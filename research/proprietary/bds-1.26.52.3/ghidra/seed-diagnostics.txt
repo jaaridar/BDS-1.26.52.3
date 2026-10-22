@@ -6,27 +6,37 @@ then to the `type_info` object and the vtable pointer.
 ## `13BiomeSource3d`
 
 - string address: `0x158c504`
-- pointers to string: `0`
+- pointers to string: `1`
+- pointer at `0xef52fd0` in `.data.rel.ro`; type_info `0xef52fc8` known=true; offset_to_top=77836944
+  - vtables built from this type_info: `1`
 
 ## `14WorldGenerator`
 
 - string address: `0x1d41a95`
-- pointers to string: `0`
+- pointers to string: `1`
+- pointer at `0xf3ee1e8` in `.data.rel.ro`; type_info `0xf3ee1e0` known=true; offset_to_top=25
+  - vtables built from this type_info: `2`
 
 ## `18OverworldGenerator`
 
 - string address: `0x1641c3d`
-- pointers to string: `0`
+- pointers to string: `1`
+- pointer at `0xef9dce8` in `.data.rel.ro`; type_info `0xef9dce0` known=true; offset_to_top=255779296
+  - vtables built from this type_info: `2`
 
 ## `20OverworldGenerator2d`
 
 - string address: `0x1641c52`
-- pointers to string: `0`
+- pointers to string: `1`
+- pointer at `0xef9dd00` in `.data.rel.ro`; type_info `0xef9dcf8` known=true; offset_to_top=255779296
+  - vtables built from this type_info: `2`
 
 ## `28OverworldGeneratorMultinoise`
 
 - string address: `0x1641c69`
-- pointers to string: `0`
+- pointers to string: `1`
+- pointer at `0xef9dd18` in `.data.rel.ro`; type_info `0xef9dd10` known=true; offset_to_top=251256032
+  - vtables built from this type_info: `3`
 
 ## `18FlatWorldGenerator`
 
@@ -38,30 +48,42 @@ then to the `type_info` object and the vtable pointer.
 ## `15NetherGenerator`
 
 - string address: `0x1641c2b`
-- pointers to string: `0`
+- pointers to string: `1`
+- pointer at `0xef9dcd0` in `.data.rel.ro`; type_info `0xef9dcc8` known=true; offset_to_top=255767640
+  - vtables built from this type_info: `2`
 
 ## `15TheEndGenerator`
 
 - string address: `0x1641c88`
-- pointers to string: `0`
+- pointers to string: `1`
+- pointer at `0xef9dd30` in `.data.rel.ro`; type_info `0xef9dd28` known=true; offset_to_top=251256032
+  - vtables built from this type_info: `4`
 
 ## `15XoroshiroRandom`
 
 - string address: `0x158b9a5`
-- pointers to string: `0`
+- pointers to string: `1`
+- pointer at `0xef51368` in `.data.rel.ro`; type_info `0xef51360` known=true; offset_to_top=77376480
+  - vtables built from this type_info: `2`
 
 ## `27VanillaOverworldBiomeSourceI5Pos2dE`
 
 - string address: `0x1641ee5`
-- pointers to string: `0`
+- pointers to string: `1`
+- pointer at `0xef9e048` in `.data.rel.ro`; type_info `0xef9e040` known=true; offset_to_top=86651168
+  - vtables built from this type_info: `1`
 
 ## `20NodeGraphBiomeSourceI5Pos2dE`
 
 - string address: `0x1641f0b`
-- pointers to string: `0`
+- pointers to string: `1`
+- pointer at `0xef9e060` in `.data.rel.ro`; type_info `0xef9e058` known=true; offset_to_top=251256920
+  - vtables built from this type_info: `1`
 
 ## `17CachedBiomeSourceI13BiomeSource3dE`
 
 - string address: `0x1643ec9`
-- pointers to string: `0`
+- pointers to string: `1`
+- pointer at `0xef9fcd0` in `.data.rel.ro`; type_info `0xef9fcc8` known=true; offset_to_top=86765168
+  - vtables built from this type_info: `1`
 
