@@ -475,7 +475,7 @@ Generated files:
 34127 README.md
 68279 constants.tsv
 90786 ghidra-application.log
-162989 SUMMARY.md
+162992 SUMMARY.md
 262606 callgraph.tsv
 626158 pseudocode/pseudocode-010.md
 639555 vtable-slots.tsv
@@ -499,4 +499,4 @@ functions.tsv: present
 pseudocode-index.md: present
 
 Total bytes:
-49156945	research/proprietary/bds-1.26.52.3/ghidra
+49156948	research/proprietary/bds-1.26.52.3/ghidra
