@@ -72,6 +72,8 @@ public class DecompileTargets extends GhidraScript {
 
     private File outputDir;
     private File functionsDir;
+    private long imageBias = 0;
+    private long textVaddr = -1;
     private long deadlineNanos;
     private long startedNanos;
     private int maxFunctions;
@@ -92,6 +94,23 @@ public class DecompileTargets extends GhidraScript {
         int budgetSeconds = args.length > 2 ? Integer.parseInt(args[2]) : 3600;
         maxFunctions = args.length > 3 ? Integer.parseInt(args[3]) : 400;
         File labelsFile = args.length > 4 ? new File(args[4]) : null;
+        textVaddr = args.length > 5 ? Long.decode(args[5]) : -1;
+
+        // Ghidra maps position-independent ELF images at its own image base
+        // (0x100000 for vaddr-0 PIE images), so every address recovered from
+        // the raw ELF has to be rebased onto the program image.
+        MemoryBlock textBlock = currentProgram.getMemory().getBlock(".text");
+        if (textBlock != null) {
+            long programTextStart = textBlock.getStart().getOffset();
+            if (textVaddr >= 0) {
+                imageBias = programTextStart - textVaddr;
+            } else {
+                imageBias = currentProgram.getImageBase().getOffset();
+            }
+            println("DecompileTargets: program .text at 0x" + Long.toHexString(programTextStart) +
+                ", ELF .text at 0x" + Long.toHexString(textVaddr) +
+                ", image bias 0x" + Long.toHexString(imageBias));
+        }
 
         if (!outputDir.isDirectory() && !outputDir.mkdirs()) {
             throw new IllegalArgumentException("cannot create output directory " + outputDir);
@@ -199,7 +218,7 @@ public class DecompileTargets extends GhidraScript {
                 }
                 long key;
                 try {
-                    key = callee.getEntryPoint().getOffset();
+                    key = callee.getEntryPoint().getOffset() - imageBias;
                 } catch (Throwable throwable) {
                     continue;
                 }
@@ -386,7 +405,7 @@ public class DecompileTargets extends GhidraScript {
     }
 
     private Function ensureFunction(Target target) {
-        Address entry = toAddr(target.address);
+        Address entry = toAddr(target.address + imageBias);
         if (entry == null) {
             failures.add("0x" + Long.toHexString(target.address) + "\tbad-address");
             return null;
@@ -437,7 +456,8 @@ public class DecompileTargets extends GhidraScript {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, StandardCharsets.UTF_8))) {
             writer.write("/*\n");
             writer.write(" * Recovered pseudocode - proprietary BDS binary (evidence, not source).\n");
-            writer.write(" * Entry: 0x" + Long.toHexString(function.getEntryPoint().getOffset()) + "\n");
+            writer.write(" * Entry: 0x" + Long.toHexString(function.getEntryPoint().getOffset()) +
+                " (ELF vaddr 0x" + Long.toHexString(function.getEntryPoint().getOffset() - imageBias) + ")\n");
             writer.write(" * Label: " + label + "\n");
             writer.write(" * Body:  " + function.getBody() + "\n");
             writer.write(" * Ghidra: " + function.getName(true) + "\n");
@@ -537,6 +557,8 @@ public class DecompileTargets extends GhidraScript {
             writer.write("script: DecompileTargets.java\n");
             writer.write("program: " + currentProgram.getName() + "\n");
             writer.write("image base: " + currentProgram.getImageBase() + "\n");
+            writer.write("image bias (program - ELF): 0x" + Long.toHexString(imageBias) + "\n");
+            writer.write("ELF .text vaddr: 0x" + Long.toHexString(textVaddr) + "\n");
             writer.write("functions in program: " + currentProgram.getFunctionManager().getFunctionCount() + "\n");
             writer.write("functions prepared: " + functions.size() + "\n");
             writer.write("functions decompiled: " + decompiled + "\n");

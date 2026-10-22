@@ -796,7 +796,15 @@ def main(argv=None) -> int:
         "comment": None,
         "debuglink": None,
         "needed": [],
+        "load_base": None,
+        "text_vaddr": None,
     }
+    load_bases = [int(segment["p_vaddr"]) for segment in binary.elf.iter_segments()
+                  if segment["p_type"] == "PT_LOAD"]
+    if load_bases:
+        identity["load_base"] = min(load_bases)
+    if ".text" in binary.sections:
+        identity["text_vaddr"] = binary.sections[".text"]["addr"]
     notes = binary.sections.get(".note.gnu.build-id")
     if notes and not notes["nobits"]:
         raw = binary.read(notes["addr"], notes["size"])

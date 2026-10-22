@@ -131,26 +131,38 @@ jobs:
           echo "headless scripts compile cleanly"
 
       - id: smoke
-        name: Smoke-test the headless decompiler on a small system binary
+        name: End-to-end self-test on the synthetic worldgen fixture
         continue-on-error: true
         run: |
           set -u
-          mkdir -p "$EVIDENCE/smoke"
-          cp /bin/ls "$RUNNER_TEMP/small.bin"
-          mkdir -p "$RUNNER_TEMP/smokeproj" "$EVIDENCE/smoke/out"
-          entry="$(readelf -h "$RUNNER_TEMP/small.bin" | awk '/Entry point/{print $4}')"
-          printf 'address\tsize\tscore\tlabel\n%s\t256\t100\tsmoke-entry\n' "$entry" \
-            > "$EVIDENCE/smoke/targets.tsv"
+          mkdir -p "$EVIDENCE/smoke" "$RUNNER_TEMP/smokeproj"
+          g++ -O1 -fno-inline -g0 -fPIE -pie -o "$RUNNER_TEMP/fixture" \
+            tools/binary-analysis/fixtures/worldgen_fixture.cpp
+          strip -s "$RUNNER_TEMP/fixture"
+          python3 tools/binary-analysis/triage.py "$RUNNER_TEMP/fixture" \
+            "$EVIDENCE/smoke/triage" --max-targets 40 2>&1 | tee "$EVIDENCE/smoke/triage.log"
+          text_vaddr="$(awk '$1==".text"{print $2}' "$EVIDENCE/smoke/triage/sections.txt")"
+          echo "fixture .text vaddr: $text_vaddr" | tee -a "$EVIDENCE/smoke/triage.log"
           "$RUNNER_TEMP/ghidra/support/analyzeHeadless" \
             "$RUNNER_TEMP/smokeproj" smoke \
-            -import "$RUNNER_TEMP/small.bin" -overwrite -noanalysis \
+            -import "$RUNNER_TEMP/fixture" -overwrite -noanalysis \
             -scriptPath "$GITHUB_WORKSPACE/tools/binary-analysis/ghidra" \
             -postScript DecompileTargets.java "$GITHUB_WORKSPACE/$EVIDENCE/smoke/out" \
-                "$GITHUB_WORKSPACE/$EVIDENCE/smoke/targets.tsv" 180 4 \
+                "$GITHUB_WORKSPACE/$EVIDENCE/smoke/triage/targets.tsv" 180 40 \
+                "$GITHUB_WORKSPACE/$EVIDENCE/smoke/triage/worldgen-vtables.tsv" "$text_vaddr" \
             -deleteProject > "$EVIDENCE/smoke/headless.txt" 2>&1
           echo "$?" > "$EVIDENCE/smoke/exit-status.txt"
-          tail -30 "$EVIDENCE/smoke/headless.txt" || true
+          cat "$EVIDENCE/smoke/out/diagnostics.txt" 2>/dev/null || true
+          # The fixture's world-generation function must decompile with its
+          # string constants attached; this validates the ELF -> Ghidra address
+          # mapping as well as RTTI/vtable/strinx-xref recovery.
+          hits="$(grep -l "minecraft:noise_settings" "$EVIDENCE/smoke/out/functions/"*.c 2>/dev/null | wc -l)"
+          echo "fixture worldgen string hits: $hits" | tee -a "$EVIDENCE/smoke/triage.log"
+          classes="$(grep -c "OverworldGeneratorMultinoise\|BiomeSource" "$EVIDENCE/smoke/triage/interesting-classes.tsv" || true)"
+          echo "fixture worldgen classes: $classes" | tee -a "$EVIDENCE/smoke/triage.log"
           test -s "$EVIDENCE/smoke/out/index.md"
+          test "$hits" -ge 1
+          test "$classes" -ge 2
 
       - name: Record per-step outcomes
         if: always()
@@ -204,6 +216,7 @@ jobs:
           set -eu
           test -s "$EVIDENCE/triage/targets.tsv"
           test -s "$EVIDENCE/smoke/out/index.md"
+          grep -q "image bias (program - ELF): 0x" "$EVIDENCE/smoke/out/diagnostics.txt"
 
   decompile:
     needs: triage
@@ -282,6 +295,8 @@ jobs:
           out="$GITHUB_WORKSPACE/$EVIDENCE/decompiled/shard-$SHARD"
           rm -rf "$out" "$RUNNER_TEMP/project"
           mkdir -p "$out" "$RUNNER_TEMP/project"
+          text_vaddr="$(awk '$1==".text"{print $2}' "$EVIDENCE/triage/sections.txt")"
+          echo "ELF .text vaddr: $text_vaddr"
           set +e
           "$RUNNER_TEMP/ghidra/support/analyzeHeadless" \
             "$RUNNER_TEMP/project" "bds-shard-$SHARD" \
@@ -290,7 +305,7 @@ jobs:
             -scriptPath "$GITHUB_WORKSPACE/tools/binary-analysis/ghidra" \
             -postScript DecompileTargets.java "$out" \
                 "$GITHUB_WORKSPACE/shard-targets.tsv" "$BUDGET" "$MAXFN" \
-                "$GITHUB_WORKSPACE/$EVIDENCE/triage/worldgen-vtables.tsv" \
+                "$GITHUB_WORKSPACE/$EVIDENCE/triage/worldgen-vtables.tsv" "$text_vaddr" \
             -deleteProject > "$out/headless.txt" 2>&1
           echo "$?" > "$out/headless-exit-status.txt"
           set -e
@@ -299,6 +314,8 @@ jobs:
             echo "shard: $SHARD"
             echo "analyzeHeadless exit: $(cat "$out/headless-exit-status.txt")"
             echo "pseudocode files: $(find "$out/functions" -type f 2>/dev/null | wc -l)"
+            echo "int3/stub functions: $(grep -l 'swi(3)' "$out"/functions/*.c 2>/dev/null | wc -l)"
+            echo "image bias: $(grep -a 'image bias' "$out/headless.txt" | head -1)"
             echo "index present: $([ -s "$out/index.md" ] && echo yes || echo no)"
             echo "targets: $(($(wc -l < shard-targets.tsv) - 1))"
             echo
