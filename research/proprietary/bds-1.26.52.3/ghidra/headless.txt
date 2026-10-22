@@ -6,7 +6,7 @@ projectName:   bds-worldgen
 output:        /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/research/proprietary/bds-1.26.52.3/ghidra
 mode:          worldgen
 maxFunctions:  1200
-drwxr-xr-x 2 runner runner 4096 Oct 22 13:07 /home/runner/work/_temp/ghidra-projects
+drwxr-xr-x 2 runner runner 4096 Oct 22 13:11 /home/runner/work/_temp/ghidra-projects
 openjdk version "21.0.12.1" 2026-08-18 LTS
 OpenJDK Runtime Environment Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS)
 OpenJDK 64-Bit Server VM Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS, mixed mode)
@@ -14,14 +14,14 @@ INFO  Using log config file: jar:file:/home/runner/work/BDS-1.26.52.3/BDS-1.26.5
 INFO  Using log file: /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/research/proprietary/bds-1.26.52.3/ghidra/ghidra-application.log (LoggingInitialization)  
 INFO  Loading user preferences: /home/runner/.config/ghidra/ghidra_12.1.4_PUBLIC/preferences (Preferences)  
 INFO  Searching for classes... (ClassSearcher)  
-INFO  Class search complete (725 ms) (ClassSearcher)  
+INFO  Class search complete (555 ms) (ClassSearcher)  
 INFO  Initializing SSL Context (DefaultSSLContextInitializer)  
 INFO  Initializing Random Number Generator... (SecureRandomFactory)  
 INFO  Random Number Generator initialization complete: NativePRNGNonBlocking (SecureRandomFactory)  
 INFO  Trust manager disabled, cacerts have not been set (DefaultTrustManagerFactory)  
 INFO  Starting cache cleanup: /var/tmp/runner-ghidra/fscache2 (FileCacheMaintenanceDaemon)  
 INFO  Finished cache cleanup, estimated storage used: 0 (FileCacheMaintenanceDaemon)  
-INFO  Headless startup complete (2779 ms) (AnalyzeHeadless)  
+INFO  Headless startup complete (3003 ms) (AnalyzeHeadless)  
 INFO  Class searcher loaded 59 extension points (20 false positives) (ClassSearcher)  
 INFO  HEADLESS Script Paths:
     /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/Base/ghidra_scripts
@@ -81,17 +81,18 @@ INFO  IMPORTING: Loaded 0 additional files (HeadlessAnalyzer)
 INFO  REPORT: Execute script: RecoverWorldgen.java '/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/research/proprietary/bds-1.26.52.3/ghidra' 'worldgen' '1200' '/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/targets.txt'  (HeadlessAnalyzer)  
 INFO  SCRIPT: /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/ghidra/RecoverWorldgen.java (HeadlessAnalyzer)  
 INFO  RecoverWorldgen.java> targets loaded: 10 (GhidraScript)  
-INFO  RecoverWorldgen.java> Blocks: data=7 exec=6 (GhidraScript)  
+INFO  RecoverWorldgen.java> Blocks: data=7 allData=26 exec=6 (GhidraScript)  
 INFO  RecoverWorldgen.java> .rela.dyn: 723948 relative relocation(s) (GhidraScript)  
 INFO  RecoverWorldgen.java> .rela.plt: 0 relative relocation(s) (GhidraScript)  
 INFO  RecoverWorldgen.java> relocation overlay entries: 723948 (GhidraScript)  
 INFO  RecoverWorldgen.java> type_info objects: 10094 (GhidraScript)  
-INFO  RecoverWorldgen.java> vtables: 6508 (GhidraScript)  
-INFO  RecoverWorldgen.java> selected classes: 787 (GhidraScript)  
-INFO  RecoverWorldgen.java> renamed slot functions: 1200 (GhidraScript)  
-INFO  RecoverWorldgen.java> string literals defined: 12 (GhidraScript)  
-INFO  RecoverWorldgen.java> functions analysed: 1200 (7772 ms) (GhidraScript)  
-INFO  RecoverWorldgen.java> pseudocode: 1200 functions, 5726726 bytes, 4 file(s) (GhidraScript)  
+INFO  RecoverWorldgen.java> vtables: 6509 (GhidraScript)  
+INFO  RecoverWorldgen.java> seed diagnostics written: 1 distinct names referenced (GhidraScript)  
+INFO  RecoverWorldgen.java> selected classes: 85 (GhidraScript)  
+INFO  RecoverWorldgen.java> renamed slot functions: 445 (GhidraScript)  
+INFO  RecoverWorldgen.java> string literals defined: 7 (GhidraScript)  
+INFO  RecoverWorldgen.java> functions analysed: 924 (5306 ms) (GhidraScript)  
+INFO  RecoverWorldgen.java> pseudocode: 924 functions, 2666077 bytes, 2 file(s) (GhidraScript)  
 INFO  RecoverWorldgen.java> done (GhidraScript)  
 INFO  /bedrock_server: file created (runner) (LocalFileSystem)  
 INFO  REPORT: Save succeeded for: /bedrock_server (bds-worldgen:/bedrock_server) (HeadlessAnalyzer)  

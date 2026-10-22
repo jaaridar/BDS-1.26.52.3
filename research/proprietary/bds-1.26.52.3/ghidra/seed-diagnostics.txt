@@ -1,0 +1,67 @@
+# Seed diagnostics
+
+Follows a mangled type-name string to the pointer that references it,
+then to the `type_info` object and the vtable pointer.
+
+## `13BiomeSource3d`
+
+- string address: `0x158c504`
+- pointers to string: `0`
+
+## `14WorldGenerator`
+
+- string address: `0x1d41a95`
+- pointers to string: `0`
+
+## `18OverworldGenerator`
+
+- string address: `0x1641c3d`
+- pointers to string: `0`
+
+## `20OverworldGenerator2d`
+
+- string address: `0x1641c52`
+- pointers to string: `0`
+
+## `28OverworldGeneratorMultinoise`
+
+- string address: `0x1641c69`
+- pointers to string: `0`
+
+## `18FlatWorldGenerator`
+
+- string address: `0x1da1d87`
+- pointers to string: `1`
+- pointer at `0xf462880` in `.data.rel.ro`; type_info `0xf462878` known=true; offset_to_top=251733472
+  - vtables built from this type_info: `2`
+
+## `15NetherGenerator`
+
+- string address: `0x1641c2b`
+- pointers to string: `0`
+
+## `15TheEndGenerator`
+
+- string address: `0x1641c88`
+- pointers to string: `0`
+
+## `15XoroshiroRandom`
+
+- string address: `0x158b9a5`
+- pointers to string: `0`
+
+## `27VanillaOverworldBiomeSourceI5Pos2dE`
+
+- string address: `0x1641ee5`
+- pointers to string: `0`
+
+## `20NodeGraphBiomeSourceI5Pos2dE`
+
+- string address: `0x1641f0b`
+- pointers to string: `0`
+
+## `17CachedBiomeSourceI13BiomeSource3dE`
+
+- string address: `0x1643ec9`
+- pointers to string: `0`
+
