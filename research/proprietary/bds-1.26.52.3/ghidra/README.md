@@ -7,12 +7,12 @@
 - mode: `worldgen`
 - program image base: `0x100000`
 - relative relocations parsed: `723948`
-- RTTI `type_info` objects recovered: `52109`
-- distinct classes/vtables recovered: `41853` / `50268`
-- vtables selected by name filter: `265`
-- selected vtable slots: `2278`
-- functions analysed: `1200`
-- functions decompiled: `1200`
+- RTTI `type_info` objects recovered: `51998`
+- distinct classes/vtables recovered: `41849` / `50263`
+- vtables selected by name filter: `616`
+- selected vtable slots: `5120`
+- functions analysed: `4000`
+- functions decompiled: `3831`
 
 ## How the class names were recovered
 
@@ -36,14 +36,20 @@ binary rather than a hand-written guess list.
 
 - EditorCustomBiomeSource
 - XoroshiroRandom
+- XoroshiroPositionalRandomFactory
 - BiomeSource3d
 - ReplacementBiomeSource<?, ?, long, ?, char, ?, ?*, short>
 - ReplacementBiomeSource<?, ?*, short, ?, double>
+- std::__1::__function::__func<?, BiomeJsonDocumentGlue::registerComponent<SharedTypes::v1_21_100::FrozenNoiseBasedBiomeJsonComponent, ?, ?, ?, ?, ?, ..., long double, ?, ?::int::short::long double::?::?::short::long double::double::?::int::?::unsigned long::long double::?::?::unsigned long::?::?::?::long double::?::unsigned short::?::long::?::long double>::void::void, ?, long, void>::?::S_::allocator<S8, ?>::?::S_::shared_ptr<?, ?, ?, ?, int, ?, unsigned long, long double, ?, ?, unsigned long, ?, ?, ?, long double, ?, unsigned short, ?, long, ?, long double>::void
+- std::__1::__function::__func<?, BiomeJsonDocumentGlue::registerComponent<SharedTypes::v1_26_30::SurfaceBuilderBiomeJsonComponent, ?, ?, Su, ?, float, ?, char, long double, ?, ?, int, long, double, long double, ?, ?, int, ?, unsigned long, long double, ?, ?, unsigned long, ?, ?, ?, long double, ?, unsigned short, ?, long, ?, long double>, void, void>::?::long::void
+- std::__1::__function::__func<?, BiomeJsonDocumentGlue::registerComponent<SharedTypes::Beta::SurfaceBuilderBiomeJsonComponent, ?, ?, Su, ?, float, ?, char, long double, ?, ?, int, long, double, long double, ?, ?, int, ?, unsigned long, long double, ?, ?, unsigned long, ?, ?, ?, long double, ?, unsigned short, ?, long, ?, long double>, void, void>::?::long::void
+- ?::BiomeJsonDocumentGlue::registerComponent<SharedTypes::Beta::SurfaceBuilderBiomeJsonComponent, ?, ?, Su, ?, float, ?, char, long double, ?, ?, int, long, double, long double, ?, ?, int, ?, unsigned long, long double, ?, ?, unsigned long, ?, ?, ?, long double, ?, unsigned short, ?, long, ?, long double>::void::void
 - NetherGenerator
 - OverworldGenerator
 - OverworldGenerator2d
 - OverworldGeneratorMultinoise
 - TheEndGenerator
+- NormalNoiseOperationNode<?, ?*, short, ?, double>
 - VanillaOverworldBiomeSource<?, ?*, short, ?, double>
 - NodeGraphBiomeSource<?, ?*, short, ?, double>
 - CachedBiomeSource<?, ?, ? volatile, ?, int, long, long, ?, void&&, long double, ?, wchar_t, ?, ?, long, double, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, ?, ?*, short, ?, double>
@@ -57,9 +63,126 @@ binary rather than a hand-written guess list.
 - VanillaSurfaceBuilders::OceanFrozenSurfaceBuilder
 - VanillaSurfaceBuilders::SwampSurfaceBuilder
 - VanillaSurfaceBuilders::TheEndSurfaceBuilder
+- NoiseGradientBiomeSurfaceComponent
+- FrozenNoiseBasedBiomeComponentGlue
+- SurfaceBuilderBiomeComponentGlue
 - NoiseBasedColorPaletteFlag
 - FrozenNoiseBasedTemperatureFlag
 - WorldGenMultiNoiseClimateAttributes
+- Editor::Services::EditorJigsawService
+- Editor::Services::EditorJigsawServiceProvider
+- Bedrock::PubSub::Publisher<?, void, std::__1::vector<Editor::Services::EditorJigsawSection, S2::?::allocator<S6, ?>>>::S0::?::ThreadModel::SingleThreaded::S0::?::ReturnPolicyType
+- Bedrock::PubSub::Connector<?, void, std::__1::vector<Editor::Services::EditorJigsawSection, S2::?::allocator<S6, ?>>>
+- std::__1::__shared_ptr_emplace<Bedrock::PubSub::Detail::SubscriptionBody<?, void, S_::vector<Editor::Services::EditorJigsawSection, S_::allocator<S8, ?>>>::S2::?::ReturnPolicyType>
+- Bedrock::PubSub::Detail::SubscriptionBody<?, void, std::__1::vector<Editor::Services::EditorJigsawSection, S3::?::allocator<S7, ?>>>::S0::?::ReturnPolicyType
+- EditorJigsawStructureLoader
+- std::__1::__shared_ptr_pointer<Editor::Services::EditorJigsawServiceProvider*, ?, S1::?::ServiceProviderCollection::addUnmanaged<S3, ?, S2::?::EditorJigsawService>, bool, ?*, ?, ?>::?::long::void*
+- std::__1::__function::__func<?, Editor::ServiceProviderCollection::addUnmanaged<S2::?::Services::EditorJigsawServiceProvider, S5::?::EditorJigsawService>, bool, ?*, ?, ?>::?::long::entt::meta_any
+- std::__1::__function::__func<?, Editor::Services::EditorJigsawService::ready, void>::$_0::S_::allocator<S5, ?>::?::void::bool::S2::?::EditorManager&
+- std::__1::__function::__func<?, Editor::Services::EditorJigsawService::_loadBehaviorPackJigsawRegistries, ?&, ?, long double&, short, ?, ?, ?, char, long double, ?*, char, ?, ?, ?, ?, ?, ?, long double, ?>::$_0::S_::allocator<S7, ?>::?::void::Core::Path const&
+- Scripting::Promise<std::__1::vector<Editor::Services::EditorJigsawSection, S1::?::allocator<S5, ?>>, ?, S_::Error>
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptJigsawService::getRegistryData, S_::basic_string<char, S_::char_traits<char>, S_::allocator<char>> const&>>
+- Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptJigsawService::getRegistryData, std::__1::basic_string<char, S5::?::char_traits<char>, S5::?::allocator<char>> const&>
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptJigsawService::getRegistryList, void>>
+- Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptJigsawService::getRegistryList, void>
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptJigsawService::getEmptyRegistryFiles, void>>
+- Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptJigsawService::getEmptyRegistryFiles, void>
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptJigsawService::getExportLocation, void>>
+- Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptJigsawService::getExportLocation, void>
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptJigsawService::deleteRegistryData, S_::basic_string<char, S_::char_traits<char>, S_::allocator<char>> const&>>
+- Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptJigsawService::deleteRegistryData, std::__1::basic_string<char, S5::?::char_traits<char>, S5::?::allocator<char>> const&>
+- Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptJigsawService::generateJigsaw, std::__1::basic_string<char, S5::?::char_traits<char>, S5::?::allocator<char>> const&, SD, ?, SD, ?, ? const&, long double volatile, char, ?, int, int, bool, S3::?::ScriptClipboardItem const&, S_::ScriptObjectFactory&>
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptJigsawService::setJigsawBlockData, ?&, long double volatile, char, ?, S4::?::Services::JigsawBlockData&>>
+- Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptJigsawService::setJigsawBlockData, ?&, long double volatile, char, ?, S2::?::Services::JigsawBlockData&>
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptJigsawService::getJigsawBlockData, ?&, long double volatile, char, ?>>
+- Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptJigsawService::getJigsawBlockData, ?&, long double volatile, char, ?>
+- std::__1::__function::__func<?, Scripting::EnumBindingBuilder<Editor::Services::JigsawJsonType, S6, ?>::value<S6, ?>, S2::?::ConstantFactory&, S_::basic_string<char, S_::char_traits<char>, S_::allocator<char>> const&, ?, ?>::?::long::S2::?::WeakLifetimeScope&
+- std::__1::__function::__func<?, Scripting::EnumBindingBuilder<SharedTypes::JigsawJointType, S5, ?>::value<S5, ?>, S2::?::ConstantFactory&, S_::basic_string<char, S_::char_traits<char>, S_::allocator<char>> const&, ?, ?>::?::long::S2::?::WeakLifetimeScope&
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<Editor::Services::EditorJigsawSection, ?, ?, double, ?, S6::?::mOffset>>
+- Scripting::Reflection::MemberPropertySetter<Editor::Services::EditorJigsawSection, ?, ?, double, ?, S4::?::mOffset>
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::Services::EditorJigsawSection, S2::?::ReturnPolicy>::?::?::double::?::S6::?::mOffset>
+- Scripting::Reflection::MemberPropertyGetter<Editor::Services::EditorJigsawSection, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mOffset
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<Editor::Services::EditorJigsawSection, ?, ?, double, ?, S6::?::mStructureId>>
+- Scripting::Reflection::MemberPropertySetter<Editor::Services::EditorJigsawSection, ?, ?, double, ?, S4::?::mStructureId>
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::Services::EditorJigsawSection, S2::?::ReturnPolicy>::?::?::double::?::S6::?::mStructureId>
+- Scripting::Reflection::MemberPropertyGetter<Editor::Services::EditorJigsawSection, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mStructureId
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<Editor::Services::EditorJigsawSection, ?, ?, double, ?, S6::?::mBounds>>
+- Scripting::Reflection::MemberPropertySetter<Editor::Services::EditorJigsawSection, ?, ?, double, ?, S4::?::mBounds>
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::Services::EditorJigsawSection, S2::?::ReturnPolicy>::?::?::double::?::S6::?::mBounds>
+- Scripting::Reflection::MemberPropertyGetter<Editor::Services::EditorJigsawSection, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mBounds
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<Editor::Services::EditorJigsawSection, ?, ?, double, ?, S6::?::mRotation>>
+- Scripting::Reflection::MemberPropertySetter<Editor::Services::EditorJigsawSection, ?, ?, double, ?, S4::?::mRotation>
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::Services::EditorJigsawSection, S2::?::ReturnPolicy>::?::?::double::?::S6::?::mRotation>
+- Scripting::Reflection::MemberPropertyGetter<Editor::Services::EditorJigsawSection, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mRotation
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<Editor::Services::JigsawBlockData, ?, ?, double, ?, S6::?::mFinalBlock>>
+- Scripting::Reflection::MemberPropertySetter<Editor::Services::JigsawBlockData, ?, ?, double, ?, S4::?::mFinalBlock>
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::Services::JigsawBlockData, S2::?::ReturnPolicy>::?::?::double::?::S6::?::mFinalBlock>
+- Scripting::Reflection::MemberPropertyGetter<Editor::Services::JigsawBlockData, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mFinalBlock
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<Editor::Services::JigsawBlockData, ?, ?, double, ?, S6::?::mJointType>>
+- Scripting::Reflection::MemberPropertySetter<Editor::Services::JigsawBlockData, ?, ?, double, ?, S4::?::mJointType>
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::Services::JigsawBlockData, S2::?::ReturnPolicy>::?::?::double::?::S6::?::mJointType>
+- Scripting::Reflection::MemberPropertyGetter<Editor::Services::JigsawBlockData, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mJointType
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<Editor::Services::JigsawBlockData, ?, ?, double, ?, S6::?::mJointTypeVisible>>
+- Scripting::Reflection::MemberPropertySetter<Editor::Services::JigsawBlockData, ?, ?, double, ?, S4::?::mJointTypeVisible>
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::Services::JigsawBlockData, S2::?::ReturnPolicy>::?::?::double::?::S6::?::mJointTypeVisible>
+- Scripting::Reflection::MemberPropertyGetter<Editor::Services::JigsawBlockData, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mJointTypeVisible
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<Editor::Services::JigsawBlockData, ?, ?, double, ?, S6::?::mName>>
+- Scripting::Reflection::MemberPropertySetter<Editor::Services::JigsawBlockData, ?, ?, double, ?, S4::?::mName>
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::Services::JigsawBlockData, S2::?::ReturnPolicy>::?::?::double::?::S6::?::mName>
+- Scripting::Reflection::MemberPropertyGetter<Editor::Services::JigsawBlockData, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mName
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<Editor::Services::JigsawBlockData, ?, ?, double, ?, S6::?::mPlacementPriority>>
+- Scripting::Reflection::MemberPropertySetter<Editor::Services::JigsawBlockData, ?, ?, double, ?, S4::?::mPlacementPriority>
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::Services::JigsawBlockData, S2::?::ReturnPolicy>::?::?::double::?::S6::?::mPlacementPriority>
+- Scripting::Reflection::MemberPropertyGetter<Editor::Services::JigsawBlockData, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mPlacementPriority
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<Editor::Services::JigsawBlockData, ?, ?, double, ?, S6::?::mSelectionPriority>>
+- Scripting::Reflection::MemberPropertySetter<Editor::Services::JigsawBlockData, ?, ?, double, ?, S4::?::mSelectionPriority>
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::Services::JigsawBlockData, S2::?::ReturnPolicy>::?::?::double::?::S6::?::mSelectionPriority>
+- Scripting::Reflection::MemberPropertyGetter<Editor::Services::JigsawBlockData, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mSelectionPriority
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<Editor::Services::JigsawBlockData, ?, ?, double, ?, S6::?::mTarget>>
+- Scripting::Reflection::MemberPropertySetter<Editor::Services::JigsawBlockData, ?, ?, double, ?, S4::?::mTarget>
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::Services::JigsawBlockData, S2::?::ReturnPolicy>::?::?::double::?::S6::?::mTarget>
+- Scripting::Reflection::MemberPropertyGetter<Editor::Services::JigsawBlockData, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mTarget
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<Editor::Services::JigsawBlockData, ?, ?, double, ?, S6::?::mTargetPool>>
+- Scripting::Reflection::MemberPropertySetter<Editor::Services::JigsawBlockData, ?, ?, double, ?, S4::?::mTargetPool>
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::Services::JigsawBlockData, S2::?::ReturnPolicy>::?::?::double::?::S6::?::mTargetPool>
+- Scripting::Reflection::MemberPropertyGetter<Editor::Services::JigsawBlockData, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mTargetPool
+- cereal::internal::CompositeSchema<EAS::NoiseAlignmentType, void>
+- cereal::internal::TypeSchema<EAS::NoiseAlignmentType>
+- cereal::internal::CompositeSchema<EAS::NoiseAlignment, void>
+- cereal::internal::TypeSchema<EAS::NoiseAlignment>
+- cereal::internal::CompositeSchema<SubChunkPacketPayload::HeightmapData, void>
+- cereal::internal::TypeSchema<SubChunkPacketPayload::HeightmapData>
+- JigsawStructureDataPacket
+- cereal::internal::TypeSchema<SharedTypes::v1_21_20::JigsawStructureData>
+- cereal::internal::TypeSchema<SharedTypes::v1_26_30::NoiseDescriptor>
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<ScriptModuleMinecraft::ScriptJigsawStructurePlaceOptions, ?, ?, double, ?, S5::?::mIgnoreStartHeight>>
+- Scripting::Reflection::MemberPropertySetter<ScriptModuleMinecraft::ScriptJigsawStructurePlaceOptions, ?, ?, double, ?, S3::?::mIgnoreStartHeight>
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptJigsawStructurePlaceOptions, S2::?::ReturnPolicy>::?::?::double::?::S5::?::mIgnoreStartHeight>
+- Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptJigsawStructurePlaceOptions, S0::?::ReturnPolicy>::?::?::double::?::S3::?::mIgnoreStartHeight
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<ScriptModuleMinecraft::ScriptJigsawStructurePlaceOptions, ?, ?, double, ?, S5::?::mKeepJigsaws>>
+- Scripting::Reflection::MemberPropertySetter<ScriptModuleMinecraft::ScriptJigsawStructurePlaceOptions, ?, ?, double, ?, S3::?::mKeepJigsaws>
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptJigsawStructurePlaceOptions, S2::?::ReturnPolicy>::?::?::double::?::S5::?::mKeepJigsaws>
+- Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptJigsawStructurePlaceOptions, S0::?::ReturnPolicy>::?::?::double::?::S3::?::mKeepJigsaws
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<ScriptModuleMinecraft::ScriptJigsawStructurePlaceOptions, ?, ?, double, ?, S5::?::mIncludeEntities>>
+- Scripting::Reflection::MemberPropertySetter<ScriptModuleMinecraft::ScriptJigsawStructurePlaceOptions, ?, ?, double, ?, S3::?::mIncludeEntities>
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptJigsawStructurePlaceOptions, S2::?::ReturnPolicy>::?::?::double::?::S5::?::mIncludeEntities>
+- Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptJigsawStructurePlaceOptions, S0::?::ReturnPolicy>::?::?::double::?::S3::?::mIncludeEntities
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<ScriptModuleMinecraft::ScriptJigsawStructurePlaceOptions, ?, ?, double, ?, S5::?::mLiquidSettings>>
+- Scripting::Reflection::MemberPropertySetter<ScriptModuleMinecraft::ScriptJigsawStructurePlaceOptions, ?, ?, double, ?, S3::?::mLiquidSettings>
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptJigsawStructurePlaceOptions, S2::?::ReturnPolicy>::?::?::double::?::S5::?::mLiquidSettings>
+- Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptJigsawStructurePlaceOptions, S0::?::ReturnPolicy>::?::?::double::?::S3::?::mLiquidSettings
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<ScriptModuleMinecraft::ScriptJigsawPlaceOptions, ?, ?, double, ?, S5::?::mKeepJigsaws>>
+- Scripting::Reflection::MemberPropertySetter<ScriptModuleMinecraft::ScriptJigsawPlaceOptions, ?, ?, double, ?, S3::?::mKeepJigsaws>
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptJigsawPlaceOptions, S2::?::ReturnPolicy>::?::?::double::?::S5::?::mKeepJigsaws>
+- Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptJigsawPlaceOptions, S0::?::ReturnPolicy>::?::?::double::?::S3::?::mKeepJigsaws
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<ScriptModuleMinecraft::ScriptJigsawPlaceOptions, ?, ?, double, ?, S5::?::mIncludeEntities>>
+- Scripting::Reflection::MemberPropertySetter<ScriptModuleMinecraft::ScriptJigsawPlaceOptions, ?, ?, double, ?, S3::?::mIncludeEntities>
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptJigsawPlaceOptions, S2::?::ReturnPolicy>::?::?::double::?::S5::?::mIncludeEntities>
+- Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptJigsawPlaceOptions, S0::?::ReturnPolicy>::?::?::double::?::S3::?::mIncludeEntities
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<ScriptModuleMinecraft::ScriptJigsawPlaceOptions, ?, ?, double, ?, S5::?::mLiquidSettings>>
+- Scripting::Reflection::MemberPropertySetter<ScriptModuleMinecraft::ScriptJigsawPlaceOptions, ?, ?, double, ?, S3::?::mLiquidSettings>
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptJigsawPlaceOptions, S2::?::ReturnPolicy>::?::?::double::?::S5::?::mLiquidSettings>
+- Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptJigsawPlaceOptions, S0::?::ReturnPolicy>::?::?::double::?::S3::?::mLiquidSettings
 - std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, ?, ?, double, ?, S6::?::mSeed>>
 - Scripting::Reflection::MemberPropertySetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, ?, ?, double, ?, S4::?::mSeed>
 - std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, S2::?::ReturnPolicy>::?::?::double::?::S6::?::mSeed>
@@ -76,27 +199,42 @@ binary rather than a hand-written guess list.
 - Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::recalculateBiomes, std::__1::vector<S3::?::ScriptCustomBiomeConfig, S5::?::allocator<S7, ?>> const&>
 - std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::updateColor, S_::basic_string<char, S_::char_traits<char>, S_::allocator<char>> const&, ScriptModuleMinecraft::ScriptRGBA const&>>
 - Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::updateColor, std::__1::basic_string<char, S5::?::char_traits<char>, S5::?::allocator<char>> const&, ScriptModuleMinecraft::ScriptRGBA const&>
+- std::__1::__shared_ptr_pointer<Editor::Services::EditorJigsawServiceProvider*, ?, S1::?::ServiceProviderCollection::addUnmanaged<S3, ?, S3, ?>, bool, ?*, ?, ?>::?::long::void*
+- std::__1::__function::__func<?, Editor::ServiceProviderCollection::addUnmanaged<S2::?::Services::EditorJigsawServiceProvider, S6, ?>, bool, ?*, ?, ?>::?::long::entt::meta_any
 - std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::API::EditorScriptInternalAPI::_createCustomBiomeSource, S4::?::ScriptModule::ScriptCustomBiomeSourceConfig const&>>
 - Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::API::EditorScriptInternalAPI::_createCustomBiomeSource, S2::?::ScriptModule::ScriptCustomBiomeSourceConfig const&>
 - std::__1::__function::__func<?, Scripting::internal::BaseScriptComponent::?::I::Editor::ScriptModule::ScriptCustomBiomeSource>::S3::?::TypeCache&::bool::S4::?::Traits<?, ?>
 - std::__1::__shared_ptr_emplace<entt::basic_storage<Editor::ScriptModule::ScriptCustomBiomeSource, Scripting::ObjectHandleValue, S_::allocator<S5, ?>>, S8::?::?::S7::?>
 - entt::basic_storage<Editor::ScriptModule::ScriptCustomBiomeSource, Scripting::ObjectHandleValue, std::__1::allocator<S3, ?>>
+- std::__1::__function::__func<?, Scripting::internal::BaseScriptComponent::?::I::Editor::ScriptModule::ScriptJigsawService>::S3::?::TypeCache&::bool::S4::?::Traits<?, ?>
+- std::__1::__shared_ptr_emplace<entt::basic_storage<Editor::ScriptModule::ScriptJigsawService, Scripting::ObjectHandleValue, S_::allocator<S5, ?>>, S8::?::?::S7::?>
+- entt::basic_storage<Editor::ScriptModule::ScriptJigsawService, Scripting::ObjectHandleValue, std::__1::allocator<S3, ?>>
+- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptInternalPlayerServiceContext, S2::?::ReturnPolicy>::?::?::double::?::S6::?::_getJigsawService::void>
+- Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptInternalPlayerServiceContext, S0::?::ReturnPolicy>::?::?::double::?::S4::?::_getJigsawService::void
 - JigsawBlock
+- ZN11BlockEvents18BlockEventExecutorINS_24BlockPlayerInteractEventEE9subscribeI11JigsawBlockTkNSt3__114convertible_toIRKT_EERS1_EEN7Bedrock6PubSub12SubscriptionES9_MS7_KFvT0_EEUlSA_E_
 - FixedBiomeSource
 - VanillaSurfaceBuilders::CappedSurfaceBuilder::MaterialHelper
 - VanillaSurfaceBuilders::CappedSurfaceBuilder
 - VanillaSurfaceBuilders::OverworldDefaultSurfaceBuilder
+- std::__1::__function::__func<?, ISurfaceBuilder::SurfaceBuilderParameters::?::E::? const&::?::int::?::unsigned long::long double::? const*::SurfaceB::?::int::long::double::long double::?::?::?::unsigned short::?, ?, ?, ?, ?, S_::allocator<SA, ?>, ?, float, ? const&, ?, long, ?, char, ?, ?*, short, short>
+- std::__1::__function::__func<?, ? const::Va::?::int::long::long::?::Su::?::float::?::char::long double::?::?::int::long::double::long double::?::short::CappedSurfaceBuilder::buildSurfaceAt, ISurfaceBuilder::GlobalParameters const&, S4::?::SurfaceBuilderParameters const&, S4::?::PerColumnParameters const&>::$_0::S_::allocator<SE, ?>::?::? const*::?::long::?::char::?::int
+- std::__1::__function::__func<?, ? const::Va::?::int::long::long::?::Su::?::float::?::char::long double::?::?::int::long::double::long double::?::short::CappedSurfaceBuilder::buildSurfaceAt, ISurfaceBuilder::GlobalParameters const&, S4::?::SurfaceBuilderParameters const&, S4::?::PerColumnParameters const&>::$_1::S_::allocator<SE, ?>::?::? const*::?::long::?::char::?::int
+- SurfaceBuilderComponent
+- SharedTypes::Beta::SurfaceBuilderBiomeJsonComponent
+- SharedTypes::v1_26_30::SurfaceBuilderBiomeJsonComponent
 - VoidGenerator
 - _GLOBAL__N_1::WorldGeneratorAnon::StructureAccess
 - WorldGenerator
+- JigsawBlockActor
 - br::worldgen::WorldGenRandom
 - JigsawStructurePostprocessAction
 - br::worldgen::processors::JigsawReplacement
+- std::__1::__shared_ptr_emplace<br::worldgen::processors::JigsawReplacement, S_::allocator<S4, ?>>
 - br::worldgen::JigsawStructure
 - JigsawStructureLoader
-- br::worldgen::JigsawStructureBuilder
-- NoiseUtils::DoublesForFloatsRandom
-- FlatWorldGenerator
+- cereal::internal::CompositeSchema<Bedrock::Resources::MinecraftDocumentOutput<SharedTypes::v1_21_20::JigsawStructureProcessorList::Contents, ?, ?, double, ?, _GLOBAL__N_1::EditorJigsawStructureLoaderAnon::PROCESSOR_LIST_PAYLOAD_KEY>>
+- …
 
 ## Diagnostics
 

@@ -40,3 +40,18 @@
 2026-10-22 13:16:01 INFO  RecoverWorldgen.java> functions analysed: 1200 (18785 ms)  
 2026-10-22 13:16:53 INFO  RecoverWorldgen.java> pseudocode: 1200 functions, 3600048 bytes, 3 file(s)  
 2026-10-22 13:16:54 INFO  RecoverWorldgen.java> done  
+2026-10-22 13:19:19 INFO  RecoverWorldgen.java> targets loaded: 19  
+2026-10-22 13:19:19 INFO  RecoverWorldgen.java> image base: 0x100000  
+2026-10-22 13:19:19 INFO  RecoverWorldgen.java> Blocks: data=7 allData=26 exec=6  
+2026-10-22 13:19:20 INFO  RecoverWorldgen.java> .rela.dyn: 723948 relative relocation(s)  
+2026-10-22 13:19:20 INFO  RecoverWorldgen.java> .rela.plt: 0 relative relocation(s)  
+2026-10-22 13:19:20 INFO  RecoverWorldgen.java> relocation overlay entries: 723948  
+2026-10-22 13:19:23 INFO  RecoverWorldgen.java> type_info objects: 51998  
+2026-10-22 13:19:25 INFO  RecoverWorldgen.java> vtables: 50263  
+2026-10-22 13:19:30 INFO  RecoverWorldgen.java> seed diagnostics written: 12 distinct names referenced  
+2026-10-22 13:19:31 INFO  RecoverWorldgen.java> selected classes: 616  
+2026-10-22 13:19:56 INFO  RecoverWorldgen.java> renamed slot functions: 3197  
+2026-10-22 13:19:56 INFO  RecoverWorldgen.java> string literals defined: 66  
+2026-10-22 13:19:56 INFO  RecoverWorldgen.java> functions analysed: 4000 (24805 ms)  
+2026-10-22 13:25:43 INFO  RecoverWorldgen.java> pseudocode: 3831 functions, 12638953 bytes, 7 file(s)  
+2026-10-22 13:25:43 INFO  RecoverWorldgen.java> done  

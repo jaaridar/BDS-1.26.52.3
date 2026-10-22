@@ -3,19 +3,22 @@ Generated files:
 17 report-status.txt
 1872 memory-blocks.txt
 2920 seed-diagnostics.txt
-3341 ghidra-script.log
-7948 headless.txt
-8805 README.md
-29932 ghidra-application.log
-38766 callgraph.tsv
-127364 vtable-slots.tsv
-429924 pseudocode/pseudocode-003.md
-977491 pseudocode/pseudocode-004.md
-1574042 pseudocode/pseudocode-001.md
-1598953 pseudocode/pseudocode-002.md
-5664792 pseudocode-index.md
-5670193 functions.tsv
-16171632 VTABLE-CLASSES.tsv
+4545 ghidra-script.log
+7950 headless.txt
+20059 pseudocode/pseudocode-007.md
+30729 README.md
+39548 ghidra-application.log
+157358 callgraph.tsv
+556811 vtable-slots.tsv
+644731 pseudocode-index.md
+2098312 pseudocode/pseudocode-006.md
+2099190 pseudocode/pseudocode-001.md
+2099218 pseudocode/pseudocode-002.md
+2099852 pseudocode/pseudocode-003.md
+2103246 pseudocode/pseudocode-004.md
+2126263 pseudocode/pseudocode-005.md
+10123088 functions.tsv
+16172458 VTABLE-CLASSES.tsv
 
 Required outputs:
 VTABLE-CLASSES.tsv: present
@@ -24,4 +27,4 @@ functions.tsv: present
 pseudocode-index.md: present
 
 Total bytes:
-32308583	research/proprietary/bds-1.26.52.3/ghidra
+40388871	research/proprietary/bds-1.26.52.3/ghidra
