@@ -964,41 +964,48 @@ public class RecoverWorldgen extends GhidraScript {
     // A lambda/`__func` RTTI name embeds the function that defined it, e.g.
     // ZN18OverworldGenerator9loadChunkER10LevelChunkbE3$_0. Any function that
     // references such a vtable is (almost always) that enclosing function.
+    /** Decode the `<digits><name>` components that follow the last `ZN`. */
     private static String enclosingFunction(String mangled) {
+        if (mangled == null) {
+            return null;
+        }
         int end = mangled.length();
         int dollar = mangled.indexOf("$_");
-        int ul = mangled.indexOf("Ul");
-        if (dollar >= 0) {
+        if (dollar > 0) {
             end = dollar;
         }
-        if (ul >= 0 && ul < end) {
+        int ul = mangled.indexOf("Ul");
+        if (ul > 0 && ul < end) {
             end = ul;
         }
         int start = mangled.lastIndexOf("ZN", end);
-        if (start < 0) {
+        if (start < 0 || start + 2 >= end) {
             return null;
         }
-        String text = mangled.substring(start, end) + "E";
-        if (!text.startsWith("N")) {
-            return null;
-        }
-        int[] pos = {1};
-        while (pos[0] < text.length() && "KVRO".indexOf(text.charAt(pos[0])) >= 0) {
-            pos[0]++;
-        }
+        int pos = start + 2;
         List<String> parts = new ArrayList<>();
-        while (pos[0] < text.length()) {
-            char c = text.charAt(pos[0]);
-            if (c == 'E' || !(Character.isDigit(c) || c == 'S')) {
+        while (pos < end && Character.isDigit(mangled.charAt(pos))) {
+            int length = 0;
+            int digitsStart = pos;
+            while (pos < end && Character.isDigit(mangled.charAt(pos))) {
+                length = length * 10 + (mangled.charAt(pos) - '0');
+                if (length > 512) {
+                    return null;
+                }
+                pos++;
+            }
+            if (length <= 0 || pos + length > end) {
+                pos = digitsStart;
                 break;
             }
-            String part = parseComponent(text, pos);
-            if (part == null) {
+            String part = mangled.substring(pos, pos + length);
+            pos += length;
+            if (part.startsWith("$") || "cl".equals(part) || "Ul".equals(part)) {
                 break;
             }
             parts.add(part);
         }
-        if (parts.size() < 2) {
+        if (parts.isEmpty()) {
             return null;
         }
         return String.join("::", parts);
@@ -1521,15 +1528,20 @@ public class RecoverWorldgen extends GhidraScript {
     //     (fn:<Class>::<method>), which names otherwise anonymous code.
     private void scanCodeReferences(File out, int maxFunctions) throws Exception {
         Map<Long, List<String>> interesting = new HashMap<>();
+        int lambdaTargets = 0;
         for (Vtable table : vtables) {
             if (looksLikeLambda(table.mangled)) {
                 String enclosing = enclosingFunction(table.mangled);
-                if (enclosing != null && enclosing.length() >= 5 && enclosing.indexOf('?') < 0) {
-                    interesting.computeIfAbsent(table.addressPoint, key -> new ArrayList<>())
-                        .add("fn:" + enclosing);
+                if (enclosing != null && enclosing.length() >= 4) {
+                    for (long delta : new long[] {0, 8, 16}) {
+                        interesting.computeIfAbsent(table.addressPoint + delta,
+                            key -> new ArrayList<>()).add("fn:" + enclosing);
+                    }
+                    lambdaTargets++;
                 }
             }
         }
+        println("lambda enclosing names: " + lambdaTargets);
         for (Vtable table : vtables) {
             if (table.selected && table.demangled != null && table.demangled.indexOf('?') < 0
                     && table.demangled.length() < 80) {
