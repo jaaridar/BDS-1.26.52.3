@@ -122,7 +122,9 @@ The chunk pipeline is a `ChunkSource` (42 virtual slots) implemented by
 `MainChunkSource` (the server pipeline), `ChunkViewSource` (the restricted view
 handed to features and structures), `NetworkChunkSource`,
 `WorldLimitChunkSource`, `EditorChunkSource`, and the generators themselves.
-`WorldGenerator` adds 15 more slots; `OverworldGenerator` adds 7 on top of that.
+`WorldGenerator` adds 15 more slots (57 total); `OverworldGenerator` overrides
+47–56 and adds 57–63 (64 total), and `OverworldGenerator2d` /
+`OverworldGeneratorMultinoise` override the dimension-specific ones again.
 
 Virtual slot map (Ghidra addresses; `ChunkSource::vslot9` is the big shared
 "produce this chunk" entry point, 1137 instructions, identical in every
@@ -131,7 +133,7 @@ generator):
 | slot | `WorldGenerator` / `OverworldGenerator` | what it is |
 |---|---|---|
 | 0, 1 | `ca70460` / `527a670`, `527a6d0` | constructor-adjacent / deleting destructor |
-| 2–9 | `cb31380` … `cb314e0` | inherited `ChunkSource` API; **slot 9 = build a chunk** |
+| 2–9 | `cb31380` … `cb314e0` | inherited `ChunkSource` API; slot 9 (`cb314e0`, 1137 instr) is the shared chunk-serving entry point — it derives the chunk centre (`x << 4 \| 8`), drives the generator through virtual calls, and is identical in every generator |
 | 10 | `cb32720` / `527c470` | generator-specific "prepare" step (297 instr for the nether) |
 | 11 | `cb32730` / `527cd10` | generator-specific terrain + biome fill (3026 instr for the nether!) |
 | 15 | `cb32770` / `527ab30` | **`OverworldGenerator::loadChunk`** (1,243 instr) — confirmed by lambda attribution, see below |
@@ -183,10 +185,13 @@ BiomeSource                 (12 slots)
 CachedBiomeSource<T>      12 (caching decorator over any of the above)
 ```
 
-`BiomeSource3d::vslot7` (`4a3b030`, ~2 KB of pseudocode) is the volumetric fill:
-it takes `(x0, y0, z0, x1, y1, z1, cache, seed)`-style coordinates, clamps to the
-dimension's biome volume (`*(short *)(this + 0xe2)`, `this[0x1c]`), and writes a
-`ChunkVolume::VolumeOf<Biome>` — this matches the assert strings in `.rodata`:
+`BiomeSource3d::vslot7` (`4a3b030`, 300 instructions) has the signature
+`(this, int x, short y, int z, int …, seed, cache)` and returns a volume, which
+matches `getBiomeVolumeToFill(Height, BlockPos, RandomSeed, cache)`; it clamps
+the request to the dimension's biome volume (`this[0x1c]`) and allocates the
+result. `BiomeSource3d::vslot11` (`4a3b290`, 142 instructions) is the matching
+fill. The two methods and their exact parameter lists survive as assert strings
+in `.rodata`:
 
 ```
 virtual void BiomeSource3d::fillBiomes(LevelChunk &, const ChunkLocalNoiseCache *) const
