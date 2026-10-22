@@ -548,6 +548,29 @@ allocates the 0x4180-byte per-chunk noise cache, fills 16³ volumes from a
 `.rodata` descriptor table (`_DAT_014ea7c0` … `_UNK_014ea7cc`) and calls
 `FUN_05286c70`.
 
+### 5.1 What the strings say about the noise stack
+
+Several doc-comments and assert messages survived in `.rodata` and pin the
+design down without any guessing:
+
+| string | where | meaning |
+|---|---|---|
+| `Returns a Perlin simplex noise value for the given (x, z) position.` | `.rodata` | the 2-D noise primitive is **Perlin simplex** noise |
+| `Base spline`, `offsetSpline`, `WeirdnessSpline for {:.2f} jaggedness factor` | `.rodata` | terrain shaping is spline-driven: a base spline, an offset spline, and a weirdness spline parameterised by a jaggedness factor |
+| `minecraft:continentalness`, `minecraft:erosion`, `minecraft:jagged`, `minecraft:offset`, `minecraft:temperature`, `minecraft:vegetation` | `5256180` | the six climate parameters of the multi-noise router |
+| `Weighted climate categories` | `.rodata` | biome selection is a weighted climate-category lookup |
+| `noise threshold`, `noise freq scale`, `NoiseAlignment`, `NoiseAlignmentType` | `.rodata` | the newest surface builder is driven by aligned noise specs |
+| `Noise cache must be provided here!` | assert | `BiomeSource3d::fillBiomes` requires a `ChunkLocalNoiseCache` |
+
+`5256180` (1081 instructions, mislabelled `XoroshiroRandom_ctor` by the function
+namer because it happens to construct a positional random) is the router setup:
+it references all six `minecraft:` climate names, calls `4a43690` (the
+`jaggednessSpline` builder) and `49cce40` (the positional random factory), and
+assembles the parameter list that `OverworldGeneratorMultinoise` samples.
+
+Together with §3.2 this is the BDS equivalent of Java's `NoiseRouterData`:
+six climate noises → splines (base/offset/weirdness) → density → surface rule.
+
 ## 6. What a reimplementation has to reproduce
 
 In rough priority order, and only if bit-exact terrain is the goal:
