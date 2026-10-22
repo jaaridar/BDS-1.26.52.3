@@ -5,8 +5,8 @@ projectParent: /home/runner/work/_temp/ghidra-projects
 projectName:   bds-worldgen
 output:        /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/research/proprietary/bds-1.26.52.3/ghidra
 mode:          worldgen
-maxFunctions:  4000
-drwxr-xr-x 2 runner runner 4096 Oct 22 13:27 /home/runner/work/_temp/ghidra-projects
+maxFunctions:  5000
+drwxr-xr-x 2 runner runner 4096 Oct 22 13:36 /home/runner/work/_temp/ghidra-projects
 openjdk version "21.0.12.1" 2026-08-18 LTS
 OpenJDK Runtime Environment Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS)
 OpenJDK 64-Bit Server VM Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS, mixed mode)
@@ -14,14 +14,14 @@ INFO  Using log config file: jar:file:/home/runner/work/BDS-1.26.52.3/BDS-1.26.5
 INFO  Using log file: /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/research/proprietary/bds-1.26.52.3/ghidra/ghidra-application.log (LoggingInitialization)  
 INFO  Loading user preferences: /home/runner/.config/ghidra/ghidra_12.1.4_PUBLIC/preferences (Preferences)  
 INFO  Searching for classes... (ClassSearcher)  
-INFO  Class search complete (1154 ms) (ClassSearcher)  
+INFO  Class search complete (833 ms) (ClassSearcher)  
 INFO  Initializing SSL Context (DefaultSSLContextInitializer)  
 INFO  Initializing Random Number Generator... (SecureRandomFactory)  
 INFO  Random Number Generator initialization complete: NativePRNGNonBlocking (SecureRandomFactory)  
 INFO  Trust manager disabled, cacerts have not been set (DefaultTrustManagerFactory)  
 INFO  Starting cache cleanup: /var/tmp/runner-ghidra/fscache2 (FileCacheMaintenanceDaemon)  
 INFO  Finished cache cleanup, estimated storage used: 0 (FileCacheMaintenanceDaemon)  
-INFO  Headless startup complete (4832 ms) (AnalyzeHeadless)  
+INFO  Headless startup complete (4237 ms) (AnalyzeHeadless)  
 INFO  Class searcher loaded 59 extension points (20 false positives) (ClassSearcher)  
 INFO  HEADLESS Script Paths:
     /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/Base/ghidra_scripts
@@ -78,7 +78,7 @@ Linking the External Programs of 'bedrock_server' to imported libraries...
 Resolving External Symbols of [/bedrock_server] - 382 unresolved symbols, no external libraries configured - skipping
  (ProgramLoader)  
 INFO  IMPORTING: Loaded 0 additional files (HeadlessAnalyzer)  
-INFO  REPORT: Execute script: RecoverWorldgen.java '/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/research/proprietary/bds-1.26.52.3/ghidra' 'worldgen' '4000' '/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/targets.txt'  (HeadlessAnalyzer)  
+INFO  REPORT: Execute script: RecoverWorldgen.java '/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/research/proprietary/bds-1.26.52.3/ghidra' 'worldgen' '5000' '/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/targets.txt'  (HeadlessAnalyzer)  
 INFO  SCRIPT: /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/ghidra/RecoverWorldgen.java (HeadlessAnalyzer)  
 INFO  RecoverWorldgen.java> targets loaded: 19 (GhidraScript)  
 INFO  RecoverWorldgen.java> image base: 0x100000 (GhidraScript)  
@@ -90,11 +90,12 @@ INFO  RecoverWorldgen.java> type_info objects: 51998 (GhidraScript)
 INFO  RecoverWorldgen.java> vtables: 50263 (GhidraScript)  
 INFO  RecoverWorldgen.java> seed diagnostics written: 12 distinct names referenced (GhidraScript)  
 INFO  RecoverWorldgen.java> selected classes: 616 (GhidraScript)  
-INFO  RecoverWorldgen.java> renamed slot functions: 3197 (GhidraScript)  
-INFO  RecoverWorldgen.java> string literals defined: 66 (GhidraScript)  
+INFO  RecoverWorldgen.java> renamed slot functions: 3219 (GhidraScript)  
+INFO  RecoverWorldgen.java> string literals defined: 97 (GhidraScript)  
 INFO  RecoverWorldgen.java> lambda-attributed functions: 0, renamed: 0 (GhidraScript)  
-INFO  RecoverWorldgen.java> functions analysed: 4000 (30547 ms) (GhidraScript)  
-INFO  RecoverWorldgen.java> pseudocode: 3831 functions, 12638953 bytes, 7 file(s) (GhidraScript)  
+INFO  RecoverWorldgen.java> functions analysed: 5000 (26922 ms) (GhidraScript)  
+INFO  RecoverWorldgen.java> pseudocode: 4830 functions, 17123829 bytes, 9 file(s) (GhidraScript)  
+INFO  RecoverWorldgen.java> constant references: 581 (GhidraScript)  
 INFO  RecoverWorldgen.java> done (GhidraScript)  
 INFO  /bedrock_server: file created (runner) (LocalFileSystem)  
 INFO  REPORT: Save succeeded for: /bedrock_server (bds-worldgen:/bedrock_server) (HeadlessAnalyzer)  

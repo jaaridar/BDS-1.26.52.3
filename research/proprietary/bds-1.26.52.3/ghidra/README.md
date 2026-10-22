@@ -11,8 +11,8 @@
 - distinct classes/vtables recovered: `41849` / `50263`
 - vtables selected by name filter: `616`
 - selected vtable slots: `5120`
-- functions analysed: `4000`
-- functions decompiled: `3831`
+- functions analysed: `5000`
+- functions decompiled: `4830`
 
 ## How the class names were recovered
 
