@@ -53,11 +53,13 @@ jobs:
           fetch-depth: 1
 
       # The binary is a GitHub release asset (proprietary, not tracked in git).
+      # The repository is private, so the download needs the Actions token.
       - name: Fetch the official binary from the release
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          curl --fail --location --retry 3 --progress-bar \
-            "https://github.com/${GITHUB_REPOSITORY}/releases/download/v1.26.52.3/bedrock_server" \
-            -o bedrock_server
+          gh release download v1.26.52.3 --repo "${GITHUB_REPOSITORY}" \
+            --pattern bedrock_server --clobber
           chmod +x bedrock_server
 
       - name: Verify the binary
