@@ -16,7 +16,7 @@ This report is the human-readable companion to the machine-generated evidence in
 
 | property | value |
 |---|---|
-| file | `bedrock_server` (Git LFS object) |
+| file | `bedrock_server` (proprietary release asset, not tracked in git) |
 | size | 256,133,808 bytes |
 | SHA-256 | `0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207` |
 | format | ELF64, x86-64, `ET_DYN` (PIE), little endian |
@@ -53,10 +53,11 @@ Two non-standard executable sections exist: `__lcxx_override` and
 
 ## 2. Method
 
-The binary cannot be fetched from the development sandbox: it is a 256 MB Git
-LFS object and GitHub serves LFS content from `github-cloud.githubusercontent.com`,
-which the sandbox cannot reach. The decompiler therefore runs on a GitHub
-Actions runner, where `actions/checkout` with `lfs: true` materialises the object.
+The binary is not tracked in git (it is a 256 MB proprietary release asset) and
+the development sandbox cannot download it. The decompiler therefore runs on a
+GitHub Actions runner, where the workflow downloads
+`releases/download/v1.26.52.3/bedrock_server`, verifies its size and SHA-256
+before use, and only then imports it.
 
 ```
 .github/workflows/official-binary-decompile.yml   # CI driver (JDK 21 + Ghidra 12.1.4)

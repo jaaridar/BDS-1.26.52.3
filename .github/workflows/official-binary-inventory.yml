@@ -1,9 +1,8 @@
 name: Official binary inventory
 
-# The checked-out repository normally contains only a Git LFS pointer locally.
-# This opt-in workflow runs static, bounded analysis on GitHub's runner, where
-# actions/checkout can materialize the repository-owned LFS object. It never
-# executes bedrock_server.
+# The official binary is a proprietary GitHub release asset, not tracked in
+# git. This opt-in workflow downloads it on the runner and runs static, bounded
+# analysis. It never executes bedrock_server.
 on:
   workflow_dispatch:
   push:
@@ -24,11 +23,19 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     steps:
-      - name: Check out repository and proprietary LFS object
+      - name: Check out repository
         uses: actions/checkout@v4
         with:
-          lfs: true
           fetch-depth: 1
+
+      # The binary is a GitHub release asset (proprietary, not tracked in git).
+      - name: Fetch the official binary from the release
+        run: |
+          curl --fail --location --retry 3 --progress-bar \
+            "https://github.com/${GITHUB_REPOSITORY}/releases/download/v1.26.52.3/bedrock_server" \
+            -o bedrock_server
+          chmod +x bedrock_server
+          test "$(stat --printf=%s bedrock_server)" = 256133808
 
       - name: Verify and inventory without executing the target
         run: |

@@ -1,8 +1,8 @@
 name: Official binary decompile
 
 # Static, bounded headless Ghidra pass over the proprietary Minecraft: Bedrock
-# dedicated server binary. The binary itself is a Git LFS object, so this job
-# runs on the GitHub runner where actions/checkout can materialize it.
+# dedicated server binary. The binary is a proprietary release asset that is not
+# tracked in git, so this job downloads it on the GitHub runner first.
 #
 # The workflow never executes bedrock_server. It only imports the ELF, walks
 # C++ RTTI/vtables, disassembles the recovered entries and runs Ghidra's
@@ -47,17 +47,25 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 300
     steps:
-      - name: Check out repository and proprietary LFS object
+      - name: Check out repository
         uses: actions/checkout@v4
         with:
-          lfs: true
           fetch-depth: 1
 
-      - name: Verify materialized binary
+      # The binary is a GitHub release asset (proprietary, not tracked in git).
+      - name: Fetch the official binary from the release
+        run: |
+          curl --fail --location --retry 3 --progress-bar \
+            "https://github.com/${GITHUB_REPOSITORY}/releases/download/v1.26.52.3/bedrock_server" \
+            -o bedrock_server
+          chmod +x bedrock_server
+
+      - name: Verify the binary
         run: |
           ls -l bedrock_server
           test "$(stat --printf=%s bedrock_server)" = 256133808
-          sha256sum bedrock_server
+          echo "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207  bedrock_server" \
+            | sha256sum --check --strict
 
       - name: Select JDK 21
         uses: actions/setup-java@v4
