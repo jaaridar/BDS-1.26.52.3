@@ -117,70 +117,31 @@ Numbers from the last pass:
 
 ### 3.1 Chunk production
 
-```
-ChunkSource                      (42 virtual slots — the interface)
-├── MainChunkSource              42   ← the "real" server chunk pipeline
-├── ChunkViewSource              42   ← restricted view used by features/structures
-├── WorldLimitChunkSource        42
-├── NetworkChunkSource           42
-├── EditorChunkSource            42
-└── WorldGenerator               60   ← abstract terrain provider
-    ├── VoidGenerator            60
-    ├── FlatWorldGenerator       60
-    ├── NetherGenerator          60
-    ├── TheEndGenerator          60
-    └── OverworldGenerator       67
-        ├── OverworldGenerator2d          67   ← legacy 2-D (pre-1.18 style) terrain
-        └── OverworldGeneratorMultinoise  67   ← current multi-noise terrain
-```
+The chunk pipeline is a `ChunkSource` (42 virtual slots) implemented by
+`MainChunkSource` (the server pipeline), `ChunkViewSource` (the restricted view
+handed to features and structures), `NetworkChunkSource`,
+`WorldLimitChunkSource`, `EditorChunkSource`, and the generators themselves.
+`WorldGenerator` adds 15 more slots; `OverworldGenerator` adds 7 on top of that.
 
-`OverworldGenerator` adds seven slots on top of `WorldGenerator`; the derived
-classes override slots 10, 11, 15 and 55–63. The `OverworldGenerator` slots that
-matter for terrain production are:
+Virtual slot map (Ghidra addresses; `ChunkSource::vslot9` is the big shared
+"produce this chunk" entry point, 1137 instructions, identical in every
+generator):
 
-| slot | evidence | role |
+| slot | `WorldGenerator` / `OverworldGenerator` | what it is |
 |---|---|---|
-| 0, 1 | `527a670`, `527a6a0` | complete / deleting destructor |
-| 10 | `527c470` | chunk *preparation* path (MT19937 seeded, computes per-chunk state) |
-| 11 | `527cd10` | chunk *generation* path (biome + block fill), MT19937 seeded |
-| 15 | `527ab30` | per-chunk load/finalise; the single largest worldgen function (1,243 instructions) |
-| 55–63 | `527a720`, `52815f0`, … | dimension-specific accessors |
+| 0, 1 | `ca70460` / `527a670`, `527a6d0` | constructor-adjacent / deleting destructor |
+| 2–9 | `cb31380` … `cb314e0` | inherited `ChunkSource` API; **slot 9 = build a chunk** |
+| 10 | `cb32720` / `527c470` | generator-specific "prepare" step (297 instr for the nether) |
+| 11 | `cb32730` / `527cd10` | generator-specific terrain + biome fill (3026 instr for the nether!) |
+| 15 | `cb32770` / `527ab30` | post-generation fixups (1,243 instr: ores, features, structures) |
+| 16, 17 | `ca73030`, `ca730a0` | shared helpers (41 / 149 instr) |
+| 41 | `ca72b00` | `CreateWorldGenRandom`-style factory (see §4.4) |
+| 42–46 | `ca70bd0`, `ca70bf0`, `ca70cc0`, `ca70eb0`, `ca72c10` | dimension descriptors |
+| 47 | per-generator | dimension-specific main routine (nether `5261d20`, end `5295960`, flat `d3a5280`) |
+| 55–56 | per-generator | block-state / material table hooks |
 
-Inside slot 15 the decompiled body bootstraps the per-chunk RNG like this
-(verbatim from `ghidra/pseudocode/pseudocode-002.md`):
-
-```c
-lVar13 = FUN_052be680(param_1 + 0x28);
-uStack_1f8 = (**(code **)(*(long *)param_1[4] + 0x438))();   /* biome source */
-plVar14    = (long *)(**(code **)(*param_1 + 0x188))(param_1); /* own getter   */
-(**(code **)(*param_1 + 0x1e8))(auStack_1b8,param_1,param_2[10]);
-FUN_0d2eeb90(...);                       /* chunk-section mask from chunk pos */
-FUN_0ca71350(param_1,param_1[5],puVar1,plVar14);   /* structures: see §3.6 */
-FUN_0ca71230(param_1,param_1[5],puVar1,plVar14,apuStack_1f0);
-lVar25 = *(long *)(lVar13 + 0xa2208);
-if (*(char *)(lVar25 + 0x9e7) == '\x01') {
-  uVar27 = (int)param_2[10] * 0x14609048 + *(int *)((long)param_2 + 0x54) * 0x7ebe2d5;
-  *(uint *)(lVar25 + 8)  = uVar27;
-  *(uint *)(lVar25 + 0xc) = uVar27;
-  lVar24 = 5;
-  while( true ) {                                   /* std::mt19937 init */
-    uVar28 = ((ulong)((uVar27 >> 0x1e ^ uVar27) * 0x6c078965) + lVar24) - 4;
-    uVar27 = (uint)uVar28;
-    *(uint *)(lVar25 + -4 + lVar24 * 4) = uVar27;
-    if (lVar24 == 0x191) break;                     /* 624 words          */
-    uVar27 = (((uint)(uVar28 >> 0x1e) & 3 ^ uVar27) * 0x6c078965 + (int)lVar24) - 3;
-    *(uint *)(lVar25 + lVar24 * 4) = uVar27;
-    lVar24 = lVar24 + 2;
-  }
-  *(undefined8 *)(lVar25 + 0x9cc) = 0x18e00000270;  /* mti = 624 at +0x9cc */
-}
-```
-
-i.e. **the chunk seed is `chunkX * 0x14609048 + chunkZ * 0x7ebe2d5` (32-bit
-wrap-around) and it seeds a `std::mt19937` in place.** Note the loop is
-two-way unrolled, `0x6c078965` = 1812433253 is the MT19937 init multiplier,
-`+lVar24 - 4` / `+lVar24 - 3` are the `1812433253 * n + i` terms, and the
-terminating store writes `mti = 624` (`0x270`) followed by `0x18e`.
+Everything from slot 2 to 9 is shared with `ChunkSource`, which is why the same
+addresses appear in `vtable-slots.tsv` under a dozen class names.
 
 ### 3.2 Biome sources
 
@@ -211,7 +172,54 @@ Those strings also give away the source layout, e.g.
 `/mnt/vss/_work/1/s/handheld/src-vanilla/vanilla_shared/src/common/world/level/biome/BiomeSource3d.cpp`
 and `…/common/world/level/levelgen/v1/ChunkBlenderFactory.cpp`.
 
-### 3.3 Surface builders
+### 3.3 The operation-node graph (biome layers)
+
+The single most structurally interesting find is that BDS does **not** implement
+biome generation as a hand-written function. It builds a graph of polymorphic
+**operation nodes** whose class names are preserved by RTTI, and evaluates it.
+48 node classes were recovered:
+
+| node | vtable | role |
+|---|---|---|
+| `OperationNode<...>` | `581d10` | abstract base (evaluate = vslot 2) |
+| `IslandOperationNode` | `f45e318` | the "island" seed layer |
+| `RegionHillsOperationNode` | `f45e168` | hills/`Hills` layer |
+| `OceanMixerOperationNode` | `f45e128` | land/ocean blending |
+| `TransformationMixerOperationNode<...>` | `5803f0` | mixes a transformed volume back in |
+| `MixerOperationNode<T, …, T>` | 12 variants, e.g. `ef9e200` | lerp/mix two volumes (`Terrain`, `PreBiome`, `int`, `bool`, `float`) |
+| `ZoomOperationNodeCommon<…, Zoom2x>` | `ef9e338` | 2× bilinear-ish zoom |
+| `ZoomOperationNodeCommon<…, Zoom2xFuzzy>` | `ef9e190` | 2× zoom with a random tie-break |
+| `ZoomOperationNodeCommon<…, Zoom4xVoronoi>` | `ef9df88` | 4× zoom, Voronoi (nearest of 4) |
+| `NormalNoiseOperationNode<…>` | `ef9ddb8` | samples a `NormalNoise` into the volume |
+| `BiomeClimateSelectorOperationNode<…>` | `ef9de88` | picks a biome from climate parameters |
+| `FilterOperationNode<Filter, …>` | 20 variants | pointwise filters (below) |
+
+The filter vocabulary is the *entire* Bedrock biome-layer rule set, which makes
+the algorithm directly comparable with the legacy Java `GenLayer` chain:
+
+```
+AddIsland            AddIslandWithTemperature   AddBiomeIsland
+AddEdgeCoolWarm      AddEdgeHeatIce              AddEdgeSpecial
+AddMushroomIsland    AddOceanEdge                AddSnow
+BiomeInit            BiomeInit (2nd)             PromoteCenter
+RareBiomeSpot        RemoveTooMuchOcean          River
+RiverInit            Shore                       Smooth
+Smooth<bool>         FilteredTransformation (x3)
+```
+
+Each `FilterOperationNode<Filter, …>` is a 6-slot object: slot 2 evaluates the
+filter over a `short` volume. Because the filter type is a template parameter,
+the compiled `evaluate` for `AddIsland` and the compiled `evaluate` for `Shore`
+are separate functions — and their pseudocode *is* the rule ("if exactly 3 of 4
+neighbours are land, and …"), so this is where the biome algorithm can be read
+line by line.
+
+Values are typed by `OperationNodeValues` (`Terrain`, `PreBiome`, biome ids as
+`short`), and the zoom nodes take `OperationNodeZooms` (`Zoom2x`,
+`Zoom2xFuzzy`, `Zoom4xVoronoi`) — so the graph is
+**coarse volume → zoom chain → climate selection → terrain**, evaluated lazily.
+
+### 3.4 Surface builders
 
 Nine polymorphic surface builders (`VanillaSurfaceBuilders::*`), which map 1:1
 onto the `SurfaceBuilder` variants found in the biome JSON schemas:
@@ -226,7 +234,7 @@ FrozenOceanSurfaceSettings, MesaSurfaceSettings, SwampSurfaceSettings,
 CappedSurfaceSettings, TheEndSurfaceSettings}` and
 `SharedTypes::v1_26_30::SurfaceBuilder::NoiseGradientSurfaceSettings`.
 
-### 3.4 Features, structures, jigsaw
+### 3.5 Features, structures, jigsaw
 
 * **115** `*Feature` classes recovered (`CaveFeature`, `GeodeFeature`,
   `AncientCityFeature`, `VillageFeature`, `OceanMonumentFeature`,
@@ -244,7 +252,7 @@ CappedSurfaceSettings, TheEndSurfaceSettings}` and
   RandomBlockMatch, RandomBlockStateMatch}`, `PosRules::{AxisAlignedLinear,…}`,
   `BlockEntity::{AppendLoot, Modifier, Passthrough}`).
 
-### 3.5 Data-driven biome components
+### 3.6 Data-driven biome components
 
 The biome definition format is fully visible as cereal schema types
 (`VTABLE-CLASSES.tsv`), which is effectively the complete list of biome
@@ -265,7 +273,7 @@ components, and the legacy/beta variants.
 `SharedTypes::v1_26_30::NoiseDescriptor` / `NoiseBlockSpecifier` show that the
 newest surface generation is driven by named noise descriptors.
 
-### 3.6 Structures and placement
+### 3.7 Structures and placement
 
 The chunk pipeline calls two structure passes from `OverworldGenerator::vslot15`
 (`FUN_0ca71350` then `FUN_0ca71230`, both taking the generator, a chunk
