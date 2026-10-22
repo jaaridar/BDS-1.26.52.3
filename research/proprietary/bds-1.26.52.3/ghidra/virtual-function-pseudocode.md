@@ -5573,14 +5573,14 @@ void FUN_0527a6d0(void)
 
 ## `0527c470` — OverworldGenerator slot 10
 
-- Ghidra name: `FUN_0527c470`
+- Ghidra name: `OverworldGenerator__loadChunk`
 - Body: `[[0527c470, 0527c577] [0527c580, 0527c629] [0527c630, 0527cb79] [0527cb80, 0527cc1e]]`
 
 ### Pseudocode
 
 ```c
 
-byte FUN_0527c470(long param_1,long *param_2)
+byte OverworldGenerator__loadChunk(long param_1,long *param_2)
 
 {
   int iVar1;
@@ -5774,7 +5774,7 @@ joined_r0x0527c646:
     uStack_3e8 = 1;
     plStack_2d8 = &lStack_4b8;
     ppiStack_2e0 = &piStack_440;
-    lVar11 = func_0x052be680(lStack_448 + 0x140);
+    lVar11 = FUN_052be680(lStack_448 + 0x140);
     uVar12 = (**(code **)(**(long **)(lVar6 + 0x20) + 0x438))();
     plVar16 = (long *)(lVar11 + 0xa1810);
     lVar11 = *(long *)(lVar11 + 0xa2208);
@@ -5866,7 +5866,7 @@ LAB_0527c995:
     }
     func_0x0c9d0f40(&iStack_3c8);
     apuStack_258[0] = &UNK_0f3f24c8;
-    func_0x052a3830(auStack_1d8);
+    FUN_052a3830(auStack_1d8);
     func_0x0cb3ae10(apuStack_258);
   }
   lVar11 = lStack_508;
@@ -6326,7 +6326,7 @@ LAB_0527c995:
 
 ## `0527cd10` — OverworldGenerator slot 11
 
-- Ghidra name: `FUN_0527cd10`
+- Ghidra name: `OverworldGenerator__structurePostProcessChunk`
 - Body: `[[0527cd10, 0527ceb1] [0527cec0, 0527cf73] [0527cf80, 0527de36] [0527de40, 0527de81] [0527de90, 0527df03] [0527df10, 0527e0a3] [0527e0b0, 0527e142] [0527e150, 0527e169] [0527e170, 0527e5bd] [0527e5c0, 0527e66e]]`
 
 ### Pseudocode
@@ -6335,7 +6335,7 @@ LAB_0527c995:
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-byte FUN_0527cd10(long *param_1,long *param_2)
+byte OverworldGenerator__structurePostProcessChunk(long *param_1,long *param_2)
 
 {
   ushort uVar1;
@@ -6604,7 +6604,7 @@ joined_r0x0527cf96:
   puStack_2e0 = &uStack_4a8;
   uStack_618 = func_0x0c9e2ed0(&iStack_3c8,lStack_670 + 0x44);
   lVar20 = lStack_610;
-  lStack_620 = func_0x052be680(param_1 + 0x28);
+  lStack_620 = FUN_052be680(param_1 + 0x28);
   iVar10 = *(int *)(lVar20 + 0x50);
   iVar11 = *(int *)(lVar20 + 0x54);
   uVar15 = (**(code **)(*(long *)param_1[4] + 0x438))();
@@ -6710,14 +6710,14 @@ LAB_0527d3c8:
     uStack_658 = 0;
     plStack_650 = (long *)0x0;
     uStack_648 = 0;
-    func_0x052ce620(&uStack_608,&lStack_548,&uStack_4d8,&uStack_658);
+    FUN_052ce620(&uStack_608,&lStack_548,&uStack_4d8,&uStack_658);
     if ((uStack_4d0 & 1) != 0) {
       func_0x0412a280(uStack_4c0,uStack_4d0 & 0xfffffffffffffffe);
     }
     if ((uStack_540 & 1) != 0) {
       func_0x0412a280(uStack_530,uStack_540 & 0xfffffffffffffffe);
     }
-    func_0x052ce810(&uStack_608,&iStack_3c8,auStack_630);
+    FUN_052ce810(&uStack_608,&iStack_3c8,auStack_630);
 LAB_0527d82a:
     uStack_608 = &UNK_0efa00a8;
     if (lStack_598 != 0) {
@@ -6781,14 +6781,14 @@ LAB_0527d405:
         uStack_658 = 0;
         plStack_650 = (long *)0x0;
         uStack_648 = 0;
-        func_0x052ce620(&uStack_608,&uStack_578,&uStack_508,&uStack_658);
+        FUN_052ce620(&uStack_608,&uStack_578,&uStack_508,&uStack_658);
         if ((uStack_500 & 1) != 0) {
           func_0x0412a280(uStack_4f0,uStack_500 & 0xfffffffffffffffe);
         }
         if ((uStack_570 & 1) != 0) {
           func_0x0412a280(uStack_560,uStack_570 & 0xfffffffffffffffe);
         }
-        func_0x052ce810(&uStack_608,&iStack_3c8,auStack_630);
+        FUN_052ce810(&uStack_608,&iStack_3c8,auStack_630);
         goto LAB_0527d82a;
       }
     }
@@ -6812,7 +6812,7 @@ LAB_0527d405:
         plVar27 = param_1 + 0x36;
         uStack_608 = (undefined *)CONCAT44(iVar10 + sVar2 + 6,iVar11 + uVar25);
         plStack_600._0_4_ = iVar24 + uStack_65c;
-        func_0x052d8680(plVar27,&iStack_3c8,&uStack_608,plVar17);
+        FUN_052d8680(plVar27,&iStack_3c8,&uStack_608,plVar17);
         iVar11 = (**(code **)(*plVar17 + 0x18))(plVar17,0x10);
         iVar24 = *(short *)(param_1[5] + 0xa8) + 6;
         iVar10 = -iVar24;
@@ -6824,7 +6824,7 @@ LAB_0527d405:
         plStack_600._0_4_ = (**(code **)(*plVar17 + 0x18))(plVar17,0x10);
         plStack_600._0_4_ = (int)plStack_600 + uStack_65c;
         uStack_608 = (undefined *)CONCAT44(iVar10 + sVar2 + 6,iVar11 + uVar25);
-        func_0x052d8680(plVar27,&iStack_3c8,&uStack_608,plVar17);
+        FUN_052d8680(plVar27,&iStack_3c8,&uStack_608,plVar17);
         iVar11 = (**(code **)(*plVar17 + 0x18))(plVar17,0x10);
         iVar24 = *(short *)(param_1[5] + 0xa8) + 6;
         iVar10 = -iVar24;
@@ -6836,7 +6836,7 @@ LAB_0527d405:
         plStack_600._0_4_ = (**(code **)(*plVar17 + 0x18))(plVar17,0x10);
         plStack_600._0_4_ = (int)plStack_600 + uStack_65c;
         uStack_608 = (undefined *)CONCAT44(iVar10 + sVar2 + 6,iVar11 + uVar25);
-        func_0x052d8680(plVar27,&iStack_3c8,&uStack_608,plVar17);
+        FUN_052d8680(plVar27,&iStack_3c8,&uStack_608,plVar17);
         iVar11 = (**(code **)(*plVar17 + 0x18))(plVar17,0x10);
         iVar24 = *(short *)(param_1[5] + 0xa8) + 6;
         iVar10 = -iVar24;
@@ -6848,7 +6848,7 @@ LAB_0527d405:
         iVar24 = (**(code **)(*plVar17 + 0x18))(plVar17,0x10);
         uStack_608 = (undefined *)CONCAT44(iVar10 + sVar2 + 6,iVar11 + uVar25);
         plStack_600 = (long *)CONCAT44(plStack_600._4_4_,iVar24 + uStack_65c);
-        func_0x052d8680(plVar27,&iStack_3c8,&uStack_608,plVar17);
+        FUN_052d8680(plVar27,&iStack_3c8,&uStack_608,plVar17);
         iVar10 = 10;
         goto LAB_0527db48;
       }
@@ -6864,7 +6864,7 @@ LAB_0527db48:
       iVar24 = (**(code **)(*plVar17 + 0x18))(plVar17,0x10);
       uStack_608 = (undefined *)CONCAT44(uVar13,iVar11 + (uVar25 | 8));
       plStack_600 = (long *)CONCAT44(plStack_600._4_4_,iVar24 + (uVar7 | 8));
-      func_0x052d8680(param_1 + 0x36,&iStack_3c8,&uStack_608);
+      FUN_052d8680(param_1 + 0x36,&iStack_3c8,&uStack_608);
       iVar10 = iVar10 + -1;
     } while (iVar10 != 0);
   }
@@ -7105,7 +7105,7 @@ LAB_0527db48:
   }
   func_0x0c9d0f40(&iStack_3c8);
   apuStack_258[0] = &UNK_0f3f24c8;
-  func_0x052a3830(auStack_1d8);
+  FUN_052a3830(auStack_1d8);
   func_0x0cb3ae10(apuStack_258);
 LAB_0527e597:
   lVar14 = lStack_3e8;
@@ -8473,7 +8473,7 @@ LAB_0527e597:
 
 ## `0527ab30` — OverworldGenerator slot 15
 
-- Ghidra name: `FUN_0527ab30`
+- Ghidra name: `OverworldGenerator__decorationPostProcessChunk`
 - Body: `[[0527ab30, 0527afa8] [0527afb0, 0527afbe] [0527afc0, 0527b073] [0527b080, 0527b375] [0527b380, 0527b580] [0527b590, 0527b64e] [0527b650, 0527b69b] [0527b6a0, 0527ba07] [0527ba10, 0527bb04] [0527bb10, 0527bba0] [0527bbb0, 0527c10e] [0527c1f8, 0527c225] [0527c38d, 0527c42a]]`
 
 ### Pseudocode
@@ -8482,7 +8482,7 @@ LAB_0527e597:
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void FUN_0527ab30(long *param_1,long *param_2)
+void OverworldGenerator__decorationPostProcessChunk(long *param_1,long *param_2)
 
 {
   ulong *puVar1;
@@ -8602,7 +8602,7 @@ void FUN_0527ab30(long *param_1,long *param_2)
   long lStack_48;
   byte bStack_40;
   
-  lVar13 = func_0x052be680(param_1 + 0x28);
+  lVar13 = FUN_052be680(param_1 + 0x28);
   uStack_1f8 = (**(code **)(*(long *)param_1[4] + 0x438))();
   plVar14 = (long *)(**(code **)(*param_1 + 0x188))(param_1);
   (**(code **)(*param_1 + 0x1e8))(auStack_1b8,param_1,param_2[10]);
@@ -9010,8 +9010,8 @@ LAB_0527b417:
                                (lVar13 = 0x28, ppuStack_2a8 != (undefined **)0x0)) {
                               (**(code **)((long)*ppuStack_2a8 + lVar13))();
                             }
-                            func_0x0527c430(&pauStack_280);
-                            func_0x0527aaa0(&pplStack_378);
+                            FUN_0527c430(&pauStack_280);
+                            FUN_0527aaa0(&pplStack_378);
                             apuStack_1f0[0] = &UNK_0f460460;
                             if (lStack_1d0 != 0) goto LAB_0527c3d5;
                             while (lStack_1a8 == 0) {
@@ -10543,15 +10543,16 @@ joined_r0x0527bfe2:
 
 ## `0527a850` — OverworldGenerator slot 47
 
-- Ghidra name: `FUN_0527a850`
+- Ghidra name: `OverworldGenerator__prepareHeights`
 - Body: `[[0527a850, 0527a9f8]]`
 
 ### Pseudocode
 
 ```c
 
-void FUN_0527a850(long *param_1,undefined8 param_2,ulong *param_3,undefined8 param_4,
-                 undefined1 param_5)
+void OverworldGenerator__prepareHeights
+               (long *param_1,undefined8 param_2,ulong *param_3,undefined8 param_4,
+               undefined1 param_5)
 
 {
   long lVar1;
@@ -10731,14 +10732,16 @@ joined_r0x0527a97b:
 
 ## `0527aae0` — OverworldGenerator slot 48
 
-- Ghidra name: `FUN_0527aae0`
+- Ghidra name: `OverworldGenerator__getBiomeArea`
 - Body: `[[0527aae0, 0527ab13]]`
 
 ### Pseudocode
 
 ```c
 
-undefined8 FUN_0527aae0(undefined8 param_1,long *param_2,undefined8 param_3,undefined4 param_4)
+undefined8
+OverworldGenerator__getBiomeArea
+          (undefined8 param_1,long *param_2,undefined8 param_3,undefined4 param_4)
 
 {
   long *plVar1;
@@ -10778,14 +10781,14 @@ undefined8 FUN_0527aae0(undefined8 param_1,long *param_2,undefined8 param_3,unde
 
 ## `0527a840` — OverworldGenerator slot 50
 
-- Ghidra name: `FUN_0527a840`
+- Ghidra name: `OverworldGenerator__getBlockVolumeDimensions`
 - Body: `[[0527a840, 0527a84f]]`
 
 ### Pseudocode
 
 ```c
 
-undefined1  [16] FUN_0527a840(void)
+undefined1  [16] OverworldGenerator__getBlockVolumeDimensions(void)
 
 {
   undefined1 auVar1 [16];
@@ -10808,15 +10811,16 @@ undefined1  [16] FUN_0527a840(void)
 
 ## `0527a720` — OverworldGenerator slot 55
 
-- Ghidra name: `FUN_0527a720`
+- Ghidra name: `OverworldGenerator__decorateWorldGenLoadChunk`
 - Body: `[[0527a720, 0527a7d9] [0527a7e0, 0527a827]]`
 
 ### Pseudocode
 
 ```c
 
-void FUN_0527a720(long param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
-                 undefined8 param_5,undefined8 param_6)
+void OverworldGenerator__decorateWorldGenLoadChunk
+               (long param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+               undefined8 param_5,undefined8 param_6)
 
 {
   long lVar1;
@@ -10936,14 +10940,14 @@ void FUN_0527a720(long param_1,undefined8 param_2,undefined8 param_3,undefined8 
 
 ## `0527ab20` — OverworldGenerator slot 60
 
-- Ghidra name: `FUN_0527ab20`
+- Ghidra name: `OverworldGenerator__tryMakeAquifer`
 - Body: `[[0527ab20, 0527ab2a]]`
 
 ### Pseudocode
 
 ```c
 
-undefined8 * FUN_0527ab20(undefined8 *param_1)
+undefined8 * OverworldGenerator__tryMakeAquifer(undefined8 *param_1)
 
 {
   *param_1 = 0;
@@ -10963,14 +10967,14 @@ undefined8 * FUN_0527ab20(undefined8 *param_1)
 
 ## `0527a6f0` — OverworldGenerator slot 61
 
-- Ghidra name: `FUN_0527a6f0`
+- Ghidra name: `OverworldGenerator__createNoiseCache`
 - Body: `[[0527a6f0, 0527a710]]`
 
 ### Pseudocode
 
 ```c
 
-undefined8 * FUN_0527a6f0(undefined8 *param_1)
+undefined8 * OverworldGenerator__createNoiseCache(undefined8 *param_1)
 
 {
   *param_1 = 0;
@@ -13502,14 +13506,14 @@ undefined8 FUN_05286940(long param_1)
 
 ## `05293840` — OverworldGeneratorMultinoise slot 39
 
-- Ghidra name: `FUN_05293840`
+- Ghidra name: `OverworldGeneratorMultinoise__chunkPosNeedsBlending`
 - Body: `[[05293840, 0529389a]]`
 
 ### Pseudocode
 
 ```c
 
-bool FUN_05293840(long param_1,undefined8 param_2)
+bool OverworldGeneratorMultinoise__chunkPosNeedsBlending(long param_1,undefined8 param_2)
 
 {
   long *plVar1;
@@ -13517,7 +13521,7 @@ bool FUN_05293840(long param_1,undefined8 param_2)
   long lStack_20;
   long *plStack_18;
   
-  func_0x0525af30(&lStack_20,*(undefined8 *)(param_1 + 0xca8),param_2);
+  FUN_0525af30(&lStack_20,*(undefined8 *)(param_1 + 0xca8),param_2);
   if (plStack_18 != (long *)0x0) {
     LOCK();
     plVar1 = plStack_18 + 1;
@@ -13568,14 +13572,14 @@ bool FUN_05293840(long param_1,undefined8 param_2)
 
 ## `05286a80` — OverworldGeneratorMultinoise slot 40
 
-- Ghidra name: `FUN_05286a80`
+- Ghidra name: `OverworldGeneratorMultinoise___clearBlendingCache`
 - Body: `[[0525ae50, 0525ae78] [0525ae80, 0525af02] [05286a80, 05286a8b]]`
 
 ### Pseudocode
 
 ```c
 
-void FUN_05286a80(long param_1)
+void OverworldGeneratorMultinoise___clearBlendingCache(long param_1)
 
 {
   long *plVar1;
@@ -13679,14 +13683,14 @@ void FUN_05286a80(long param_1)
 
 ## `0528a520` — OverworldGeneratorMultinoise slot 49
 
-- Ghidra name: `FUN_0528a520`
+- Ghidra name: `OverworldGeneratorMultinoise__getBiomeSource`
 - Body: `[[0528a520, 0528a527]]`
 
 ### Pseudocode
 
 ```c
 
-undefined8 FUN_0528a520(long param_1)
+undefined8 OverworldGeneratorMultinoise__getBiomeSource(long param_1)
 
 {
   return *(undefined8 *)(param_1 + 0xc88);
@@ -13704,7 +13708,7 @@ undefined8 FUN_0528a520(long param_1)
 
 ## `05288770` — OverworldGeneratorMultinoise slot 51
 
-- Ghidra name: `FUN_05288770`
+- Ghidra name: `OverworldGeneratorMultinoise__findSpawnPosition`
 - Body: `[[05288770, 05288ab7]]`
 
 ### Pseudocode
@@ -13713,7 +13717,7 @@ undefined8 FUN_0528a520(long param_1)
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-undefined1  [16] FUN_05288770(long param_1)
+undefined1  [16] OverworldGeneratorMultinoise__findSpawnPosition(long param_1)
 
 {
   undefined8 uVar1;
@@ -14046,7 +14050,7 @@ LAB_05288a7e:
 
 ## `052884e0` — OverworldGeneratorMultinoise slot 52
 
-- Ghidra name: `FUN_052884e0`
+- Ghidra name: `OverworldGeneratorMultinoise__getPreliminarySurfaceLevel`
 - Body: `[[052884e0, 05288739]]`
 
 ### Pseudocode
@@ -14055,7 +14059,7 @@ LAB_05288a7e:
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-uint FUN_052884e0(long param_1,undefined *param_2)
+uint OverworldGeneratorMultinoise__getPreliminarySurfaceLevel(long param_1,undefined *param_2)
 
 {
   undefined1 uVar1;
@@ -14091,9 +14095,8 @@ uint FUN_052884e0(long param_1,undefined *param_2)
   lVar4 = func_0x0417cc60();
   puStack_78 = param_2;
   lStack_38 = lVar4;
-  func_0x052586c0(param_1 + 0x908,&puStack_78);
-  uVar10 = func_0x05286980(param_2,*(undefined8 *)(param_1 + 0xca0),*(undefined8 *)(param_1 + 0xca8)
-                          );
+  FUN_052586c0(param_1 + 0x908,&puStack_78);
+  uVar10 = FUN_05286980(param_2,*(undefined8 *)(param_1 + 0xca0),*(undefined8 *)(param_1 + 0xca8));
   iVar2 = (int)*(short *)(*(long *)(param_1 + 0x28) + 0xa8);
   iVar5 = iVar2 >> 0x1f;
   iVar2 = iVar5 - iVar2;
@@ -14291,7 +14294,7 @@ LAB_052886ff:
 
 ## `05288460` — OverworldGeneratorMultinoise slot 54
 
-- Ghidra name: `FUN_05288460`
+- Ghidra name: `OverworldGeneratorMultinoise__propagateCombinedChunkSource`
 - Body: `[[05288460, 052884bd]]`
 
 ### Pseudocode
@@ -14300,7 +14303,7 @@ LAB_052886ff:
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void FUN_05288460(long param_1,undefined8 param_2)
+void OverworldGeneratorMultinoise__propagateCombinedChunkSource(long param_1,undefined8 param_2)
 
 {
   long lVar1;
@@ -14349,7 +14352,7 @@ void FUN_05288460(long param_1,undefined8 param_2)
 
 ## `05281650` — OverworldGeneratorMultinoise slot 56
 
-- Ghidra name: `FUN_05281650`
+- Ghidra name: `OverworldGeneratorMultinoise__decorateWorldGenPostProcess`
 - Body: `[[05281650, 05281783] [05281790, 05281848] [05281860, 052818cc]]`
 
 ### Pseudocode
@@ -14358,8 +14361,8 @@ void FUN_05288460(long param_1,undefined8 param_2)
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void FUN_05281650(long param_1,undefined8 param_2,long param_3,undefined8 param_4,undefined8 param_5
-                 )
+void OverworldGeneratorMultinoise__decorateWorldGenPostProcess
+               (long param_1,undefined8 param_2,long param_3,undefined8 param_4,undefined8 param_5)
 
 {
   long lVar1;
@@ -14601,7 +14604,7 @@ void FUN_05281650(long param_1,undefined8 param_2,long param_3,undefined8 param_
 
 ## `05287590` — OverworldGeneratorMultinoise slot 57
 
-- Ghidra name: `FUN_05287590`
+- Ghidra name: `OverworldGeneratorMultinoise__generateDensityCellsForChunk`
 - Body: `[[05287590, 052878db]]`
 
 ### Pseudocode
@@ -14610,7 +14613,9 @@ void FUN_05281650(long param_1,undefined8 param_2,long param_3,undefined8 param_
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-undefined8 FUN_05287590(undefined8 param_1,long param_2,undefined8 *param_3)
+undefined8
+OverworldGeneratorMultinoise__generateDensityCellsForChunk
+          (undefined8 param_1,long param_2,undefined8 *param_3)
 
 {
   undefined4 *puVar1;
@@ -14625,8 +14630,9 @@ undefined8 FUN_05287590(undefined8 param_1,long param_2,undefined8 *param_3)
   long lStack_48;
   long lStack_38;
   
-  func_0x05286c70(auStack_58,*param_3,param_2 + 0x908,*(undefined8 *)(param_2 + 0xca0),
-                  *(undefined8 *)(param_2 + 0xca8));
+  OverworldGeneratorMultinoise__createNoiseCache_static
+            (auStack_58,*param_3,param_2 + 0x908,*(undefined8 *)(param_2 + 0xca0),
+             *(undefined8 *)(param_2 + 0xca8));
   sVar2 = *(short *)(*(long *)(param_2 + 0x28) + 0xa8);
   plVar7 = (long *)(**(code **)(_DAT_0f5463b0 + 0x10))(&DAT_0f5463b0,0x4180);
   if (plVar7 == (long *)0x0) {
@@ -14867,9 +14873,10 @@ undefined8 FUN_05287590(undefined8 param_1,long param_2,undefined8 *param_3)
   if (lVar8 == 0) {
     func_0x0eec74c0(0x3160,0);
   }
-  func_0x05268e90(lVar8,param_2 + 0x7c0);
-  func_0x05287930(param_1,param_2,*(undefined4 *)param_3,*(undefined4 *)((long)param_3 + 4),
-                  auStack_58,plVar7,lVar8);
+  FUN_05268e90(lVar8,param_2 + 0x7c0);
+  OverworldGeneratorMultinoise___generateDensityCellsForChunk
+            (param_1,param_2,*(undefined4 *)param_3,*(undefined4 *)((long)param_3 + 4),auStack_58,
+             plVar7,lVar8);
   func_0x0412a280(lVar8,0x3160);
   func_0x0412a280(plVar7,0x4180);
   if (lStack_48 != 0) {
@@ -15051,14 +15058,14 @@ undefined8 FUN_05287590(undefined8 param_1,long param_2,undefined8 *param_3)
 
 ## `05287580` — OverworldGeneratorMultinoise slot 58
 
-- Ghidra name: `FUN_05287580`
+- Ghidra name: `OverworldGeneratorMultinoise__getLevelGenHeight`
 - Body: `[[05287580, 05287585]]`
 
 ### Pseudocode
 
 ```c
 
-undefined8 FUN_05287580(void)
+undefined8 OverworldGeneratorMultinoise__getLevelGenHeight(void)
 
 {
   return 0x140;
@@ -15076,14 +15083,15 @@ undefined8 FUN_05287580(void)
 
 ## `05286b50` — OverworldGeneratorMultinoise slot 59
 
-- Ghidra name: `FUN_05286b50`
+- Ghidra name: `OverworldGeneratorMultinoise__getXoroshiroPositionalRandomFactory`
 - Body: `[[05286b50, 05286c30]]`
 
 ### Pseudocode
 
 ```c
 
-undefined8 * FUN_05286b50(undefined8 *param_1,long param_2)
+undefined8 *
+OverworldGeneratorMultinoise__getXoroshiroPositionalRandomFactory(undefined8 *param_1,long param_2)
 
 {
   ulong uVar1;
@@ -15181,7 +15189,7 @@ undefined8 * FUN_05286b50(undefined8 *param_1,long param_2)
 
 ## `05286a90` — OverworldGeneratorMultinoise slot 60
 
-- Ghidra name: `FUN_05286a90`
+- Ghidra name: `OverworldGeneratorMultinoise__tryMakeAquifer`
 - Body: `[[05286a90, 05286b2e]]`
 
 ### Pseudocode
@@ -15190,8 +15198,9 @@ undefined8 * FUN_05286b50(undefined8 *param_1,long param_2)
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-long * FUN_05286a90(long *param_1,long param_2,undefined8 param_3,undefined8 param_4,short param_5,
-                   short param_6,short param_7)
+long * OverworldGeneratorMultinoise__tryMakeAquifer
+                 (long *param_1,long param_2,undefined8 param_3,undefined8 param_4,short param_5,
+                 short param_6,short param_7)
 
 {
   long lVar1;
@@ -15200,8 +15209,8 @@ long * FUN_05286a90(long *param_1,long param_2,undefined8 param_3,undefined8 par
   if (lVar1 == 0) {
     func_0x0eec74c0(0x68,0);
   }
-  func_0x052588d0(lVar1,param_3,param_2 + 0x5e8,param_2 + 0x908,param_4,(int)param_5,(int)param_6,
-                  (int)param_7);
+  FUN_052588d0(lVar1,param_3,param_2 + 0x5e8,param_2 + 0x908,param_4,(int)param_5,(int)param_6,
+               (int)param_7);
   *param_1 = lVar1;
   return param_1;
 }
@@ -15264,18 +15273,20 @@ long * FUN_05286a90(long *param_1,long param_2,undefined8 param_3,undefined8 par
 
 ## `05286c40` — OverworldGeneratorMultinoise slot 61
 
-- Ghidra name: `FUN_05286c40`
+- Ghidra name: `OverworldGeneratorMultinoise__createNoiseCache`
 - Body: `[[05286c40, 05286c68]]`
 
 ### Pseudocode
 
 ```c
 
-undefined8 FUN_05286c40(undefined8 param_1,long param_2,undefined8 param_3)
+undefined8
+OverworldGeneratorMultinoise__createNoiseCache(undefined8 param_1,long param_2,undefined8 param_3)
 
 {
-  func_0x05286c70(param_1,param_3,param_2 + 0x908,*(undefined8 *)(param_2 + 0xca0),
-                  *(undefined8 *)(param_2 + 0xca8));
+  OverworldGeneratorMultinoise__createNoiseCache_static
+            (param_1,param_3,param_2 + 0x908,*(undefined8 *)(param_2 + 0xca0),
+             *(undefined8 *)(param_2 + 0xca8));
   return param_1;
 }
 
@@ -15300,14 +15311,14 @@ undefined8 FUN_05286c40(undefined8 param_1,long param_2,undefined8 param_3)
 
 ## `052884c0` — OverworldGeneratorMultinoise slot 62
 
-- Ghidra name: `FUN_052884c0`
+- Ghidra name: `OverworldGeneratorMultinoise__getSurfaceNoise`
 - Body: `[[052884c0, 052884c7]]`
 
 ### Pseudocode
 
 ```c
 
-long FUN_052884c0(long param_1)
+long OverworldGeneratorMultinoise__getSurfaceNoise(long param_1)
 
 {
   return param_1 + 0x8e0;
@@ -15325,14 +15336,14 @@ long FUN_052884c0(long param_1)
 
 ## `052884d0` — OverworldGeneratorMultinoise slot 63
 
-- Ghidra name: `FUN_052884d0`
+- Ghidra name: `OverworldGeneratorMultinoise__getMaterialAdjNoise`
 - Body: `[[052884d0, 052884d7]]`
 
 ### Pseudocode
 
 ```c
 
-long FUN_052884d0(long param_1)
+long OverworldGeneratorMultinoise__getMaterialAdjNoise(long param_1)
 
 {
   return param_1 + 0xc98;
@@ -15350,7 +15361,7 @@ long FUN_052884d0(long param_1)
 
 ## `05288b10` — OverworldGeneratorMultinoise slot 64
 
-- Ghidra name: `FUN_05288b10`
+- Ghidra name: `OverworldGeneratorMultinoise___prepareHeights`
 - Body: `[[05288b10, 052896b1] [052896c0, 0528980d] [05289810, 052898d1] [052898e0, 05289979] [05289980, 05289b85] [05289b90, 05289cc4] [05289cd0, 0528a23d] [0528a240, 0528a37f]]`
 
 ### Pseudocode
@@ -15359,8 +15370,9 @@ long FUN_052884d0(long param_1)
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void FUN_05288b10(ulong param_1,long *param_2,ulong param_3,long param_4,long param_5,long param_6,
-                 char param_7,long *param_8)
+void OverworldGeneratorMultinoise___prepareHeights
+               (ulong param_1,long *param_2,ulong param_3,long param_4,long param_5,long param_6,
+               char param_7,long *param_8)
 
 {
   undefined4 *puVar1;
@@ -15734,7 +15746,7 @@ void FUN_05288b10(ulong param_1,long *param_2,ulong param_3,long param_4,long pa
       func_0x0eec74c0(0x3160,0);
     }
     uVar18 = uStack_21c8;
-    func_0x05268e90(lVar15,uStack_21c8 + 0x7c0);
+    FUN_05268e90(lVar15,uStack_21c8 + 0x7c0);
     uStack_2058 = 0;
     uStack_2054 = 0;
     fStack_2050 = 0.0;
@@ -15754,8 +15766,9 @@ void FUN_05288b10(ulong param_1,long *param_2,ulong param_3,long param_4,long pa
     plStack_2228 = (long *)0x0;
     func_0x0eee2dd0(afStack_1034,0,0x1004);
     lStack_2220 = lVar15;
-    func_0x05287930(&plStack_2038,uVar18,*(undefined4 *)auStack_2248,
-                    *(undefined4 *)((long)auStack_2248 + 4),lStack_21b0,plVar14,lVar15);
+    OverworldGeneratorMultinoise___generateDensityCellsForChunk
+              (&plStack_2038,uVar18,*(undefined4 *)auStack_2248,
+               *(undefined4 *)((long)auStack_2248 + 4),lStack_21b0,plVar14,lVar15);
     func_0x0eee2f00(afStack_1034,&plStack_2038,0x1004);
     uStack_2088 = 0;
     uStack_2080 = 0;
@@ -15836,7 +15849,7 @@ void FUN_05288b10(ulong param_1,long *param_2,ulong param_3,long param_4,long pa
     plStack_2030 = plStack_2178;
     plStack_2028 = plStack_2180;
     plStack_2020 = plStack_21b8;
-    func_0x052bd680(&plStack_2238,plVar17 + 1,&plStack_2038,alStack_2018,4);
+    FUN_052bd680(&plStack_2238,plVar17 + 1,&plStack_2038,alStack_2018,4);
     plStack_2148 = (long *)(lStack_2220 + 0x3010);
     *(undefined8 *)(lStack_2220 + 0x3010) = 0x401;
     *(long *)(lStack_2220 + 0x3018) = lStack_2220;
@@ -15874,7 +15887,7 @@ void FUN_05288b10(ulong param_1,long *param_2,ulong param_3,long param_4,long pa
     *(undefined8 *)(lStack_2220 + 0x30fc) = 0;
     *(undefined8 *)(lStack_2220 + 0x3104) = 0;
     *(undefined8 *)(lStack_2220 + 0x310c) = uVar32;
-    func_0x052bd680(&plStack_2238,plStack_2230,&plStack_2148,&lStack_2130,3);
+    FUN_052bd680(&plStack_2238,plStack_2230,&plStack_2148,&lStack_2130,3);
     uVar18 = uStack_21c8;
     auVar9 = auStack_2248;
     lStack_21e8 = 0;
@@ -15942,7 +15955,7 @@ LAB_0528941f:
     plStack_21b8 = *(long **)(lStack_2158 + 0x20);
     iVar24 = *(int *)auVar9;
     iVar13 = *(int *)((long)auVar9 + 4);
-    func_0x0525af30(&plStack_2148,*(undefined8 *)(uVar18 + 0xca8),auVar9);
+    FUN_0525af30(&plStack_2148,*(undefined8 *)(uVar18 + 0xca8),auVar9);
     uVar19 = (ulong)(uint)(iVar13 << 4);
     uStack_224c = CONCAT31((int3)(uStack_224c - (int)uStack_21c0 >> 8),
                            (byte)(uStack_224c - (int)uStack_21c0) >> 3);
@@ -15958,8 +15971,9 @@ LAB_052894f0:
     plVar17 = (long *)0x0;
     lStack_20f8 = lVar15;
     while( true ) {
-      sVar11 = FUN_052884e0(uVar18,(ulong)(uint)((int)uVar19 + (int)plVar17 * 4 >> 2) << 0x20 |
-                                   uStack_20f0);
+      sVar11 = OverworldGeneratorMultinoise__getPreliminarySurfaceLevel
+                         (uVar18,(ulong)(uint)((int)uVar19 + (int)plVar17 * 4 >> 2) << 0x20 |
+                                 uStack_20f0);
       lStack_21a0 = (lStack_20e0 + (long)plVar17) * 0x29;
       lStack_21d0 = (lStack_20e8 + (long)plVar17) * 0x29;
       bVar25 = 0x28;
@@ -16117,7 +16131,7 @@ LAB_052897f7:
               }
               plVar16 = plStack_2148;
               if ((float)auStack_2248._0_4_ <= 0.0) {
-                func_0x05258c60(lStack_2188);
+                FUN_05258c60(lStack_2188);
                 if ((float)auStack_2248._0_4_ + *(float *)(lStack_2188 + 0x20) <= _DAT_011983fc)
                 goto LAB_05289d01;
 LAB_05289bcb:
@@ -17828,9 +17842,8 @@ uint FUN_05288760(long param_1,undefined *param_2)
   lVar4 = func_0x0417cc60();
   puStack_78 = param_2;
   lStack_38 = lVar4;
-  func_0x052586c0(param_1 + 0x898,&puStack_78);
-  uVar10 = func_0x05286980(param_2,*(undefined8 *)(param_1 + 0xc30),*(undefined8 *)(param_1 + 0xc38)
-                          );
+  FUN_052586c0(param_1 + 0x898,&puStack_78);
+  uVar10 = FUN_05286980(param_2,*(undefined8 *)(param_1 + 0xc30),*(undefined8 *)(param_1 + 0xc38));
   iVar2 = (int)*(short *)(*(long *)(param_1 + -0x48) + 0xa8);
   iVar5 = iVar2 >> 0x1f;
   iVar2 = iVar5 - iVar2;
@@ -18935,7 +18948,7 @@ LAB_04a3b28b:
   pcStack_70 = (code *)uVar10;
   if (((char)piVar4[3] == '\x01') && (*(char *)(plVar16[0x1a] + 0xb8) == '\0')) {
     uStack_110 = (long *)CONCAT44(piVar4[2] >> 4,*piVar4 >> 4);
-    func_0x0525af30(&plStack_100,plVar16[0x1a],&uStack_110);
+    FUN_0525af30(&plStack_100,plVar16[0x1a],&uStack_110);
     if (plStack_100 == (long *)0x0) {
       bVar22 = true;
       lVar5 = 0;
@@ -19333,7 +19346,7 @@ long FUN_04a3b290(long param_1,int *param_2)
   
   if (((char)param_2[3] == '\x01') && (*(char *)(*(long *)(param_1 + 0xd0) + 0xb8) == '\0')) {
     uStack_a8 = CONCAT44(param_2[2] >> 4,*param_2 >> 4);
-    func_0x0525af30(&plStack_98,*(long *)(param_1 + 0xd0),&uStack_a8);
+    FUN_0525af30(&plStack_98,*(long *)(param_1 + 0xd0),&uStack_a8);
     if (plStack_98 == (long *)0x0) {
       bVar10 = true;
       lVar4 = 0;
