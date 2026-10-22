@@ -16,3 +16,11 @@ logs/
 
 # Generated from proprietary data - keep out of public forks (docs/licensing.md)
 data/palettes/
+
+# Reverse-engineering workspaces and bulk output. Only bounded, reviewed evidence
+# under research/proprietary/ may be committed deliberately.
+research/workspaces/
+research/**/*.gpr
+research/**/*.rep/
+research/**/*.gzf
+research/**/decompiler-bulk/
