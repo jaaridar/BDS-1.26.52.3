@@ -43,30 +43,53 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
-      - name: Check out repository with the proprietary LFS object
+      # The 256 MB LFS object has a monthly bandwidth quota, so the binary is
+      # restored from the Actions cache whenever possible and only fetched via
+      # LFS on a cache miss.
+      - id: checkout
+        name: Check out repository (LFS pointer, not the object)
+        continue-on-error: true
         uses: actions/checkout@v4
         with:
-          lfs: true
           fetch-depth: 1
 
-      - name: Verify the LFS object really materialised
+      - id: restore
+        name: Restore the materialised binary from cache
+        continue-on-error: true
+        uses: actions/cache/restore@v4
+        with:
+          path: bedrock_server
+          key: bds-binary-${{ env.BINARY_SHA256 }}
+          fail-on-cache-miss: false
+
+      - id: materialise
+        name: Fall back to Git LFS if the cache missed
+        continue-on-error: true
         run: |
           set -eu
-          test "$(stat -c%s bedrock_server)" -gt 100000000
+          if [ "$(stat -c%s bedrock_server 2>/dev/null || echo 0)" -lt 100000000 ]; then
+            git lfs pull --include=bedrock_server
+          fi
           echo "$BINARY_SHA256  bedrock_server" | sha256sum --check --strict
 
-      - name: Cache the materialised binary for the decompiler shards
-        uses: actions/cache/save@v4
+      - id: cache
+        name: Cache the binary for later runs
+        continue-on-error: true
+        uses: actions/cache@v4
         with:
           path: bedrock_server
           key: bds-binary-${{ env.BINARY_SHA256 }}
 
-      - name: Install static-analysis dependencies
+      - id: pip
+        name: Install static-analysis dependencies
+        continue-on-error: true
         run: |
           python3 -m pip install --quiet --break-system-packages capstone pyelftools
           python3 -c "import capstone, elftools; print('capstone', capstone.__version__)"
 
-      - name: Stage 1 - ELF, RTTI/vtable and string-xref triage (never executes the target)
+      - id: triage
+        name: Stage 1 - ELF, RTTI/vtable and string-xref triage (never executes the target)
+        continue-on-error: true
         run: |
           set -eu
           mkdir -p "$EVIDENCE/triage"
@@ -79,20 +102,26 @@ jobs:
             --max-targets 1200 "${extra[@]}"
           sed -n '1,40p' "$EVIDENCE/triage/summary.md" || true
 
-      - name: Select JDK 21
+      - id: java
+        name: Select JDK 21
+        continue-on-error: true
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '21'
 
-      - name: Install verified Ghidra 12.1.4 release
+      - id: ghidra
+        name: Install verified Ghidra 12.1.4 release
+        continue-on-error: true
         run: |
           curl --fail --location --retry 3 --progress-bar "$GHIDRA_URL" -o "$RUNNER_TEMP/ghidra.zip"
           echo "$GHIDRA_SHA256  $RUNNER_TEMP/ghidra.zip" | sha256sum --check --strict
           unzip -q "$RUNNER_TEMP/ghidra.zip" -d "$RUNNER_TEMP"
           ln -sfn "$RUNNER_TEMP/ghidra_12.1.4_PUBLIC" "$RUNNER_TEMP/ghidra"
 
-      - name: Pre-flight compile check of the headless scripts
+      - id: javac
+        name: Pre-flight compile check of the headless scripts
+        continue-on-error: true
         run: |
           set -eu
           classpath="$(find "$RUNNER_TEMP/ghidra/Ghidra" -name '*.jar' -printf '%p:' | tr -d '\n')"
@@ -101,7 +130,9 @@ jobs:
             tools/binary-analysis/ghidra/DecompileTargets.java
           echo "headless scripts compile cleanly"
 
-      - name: Smoke-test the headless decompiler on a small system binary
+      - id: smoke
+        name: Smoke-test the headless decompiler on a small system binary
+        continue-on-error: true
         run: |
           set -u
           mkdir -p "$EVIDENCE/smoke"
@@ -109,7 +140,6 @@ jobs:
           entry="$(readelf -h "$RUNNER_TEMP/small.bin" | awk '/Entry point/{print $4}')"
           printf 'address\tsize\tscore\tlabel\n%s\t256\t100\tsmoke-entry\n' "$entry" \
             > "$EVIDENCE/smoke/targets.tsv"
-          cd "$GITHUB_WORKSPACE"
           "$RUNNER_TEMP/ghidra/support/analyzeHeadless" \
             "$RUNNER_TEMP/smokeproj" smoke \
             -import "$RUNNER_TEMP/small.bin" -overwrite -noanalysis \
@@ -117,13 +147,39 @@ jobs:
             -postScript DecompileTargets.java "$GITHUB_WORKSPACE/$EVIDENCE/smoke/out" \
                 "$GITHUB_WORKSPACE/$EVIDENCE/smoke/targets.tsv" 180 4 \
             -deleteProject > "$EVIDENCE/smoke/headless.txt" 2>&1
-          status=$?
-          echo "$status" > "$EVIDENCE/smoke/exit-status.txt"
+          echo "$?" > "$EVIDENCE/smoke/exit-status.txt"
           tail -30 "$EVIDENCE/smoke/headless.txt" || true
-          if [ -s "$EVIDENCE/smoke/out/diagnostics.txt" ]; then
-            cat "$EVIDENCE/smoke/out/diagnostics.txt"
-          fi
           test -s "$EVIDENCE/smoke/out/index.md"
+
+      - name: Record per-step outcomes
+        if: always()
+        run: |
+          set -u
+          mkdir -p "$EVIDENCE"
+          {
+            echo "run: ${GITHUB_RUN_ID}  ref: ${GITHUB_REF_NAME}"
+            echo "checkout:    ${{ steps.checkout.outcome }}"
+            echo "restore:     ${{ steps.restore.outcome }}"
+            echo "materialise: ${{ steps.materialise.outcome }}"
+            echo "cache:       ${{ steps.cache.outcome }}"
+            echo "pip:         ${{ steps.pip.outcome }}"
+            echo "triage:      ${{ steps.triage.outcome }}"
+            echo "java:        ${{ steps.java.outcome }}"
+            echo "ghidra:      ${{ steps.ghidra.outcome }}"
+            echo "javac:       ${{ steps.javac.outcome }}"
+            echo "smoke:       ${{ steps.smoke.outcome }}"
+            echo "binary bytes: $(stat -c%s bedrock_server 2>/dev/null || echo 0)"
+            echo
+            echo "--- triage summary head ---"
+            head -30 "$EVIDENCE/triage/summary.md" 2>/dev/null || true
+            echo
+            echo "--- smoke diagnostics ---"
+            cat "$EVIDENCE/smoke/out/diagnostics.txt" 2>/dev/null || echo "smoke did not run"
+            echo
+            echo "--- smoke headless tail ---"
+            tail -40 "$EVIDENCE/smoke/headless.txt" 2>/dev/null || true
+          } > "$EVIDENCE/triage/runbook.txt"
+          cat "$EVIDENCE/triage/runbook.txt"
 
       - name: Publish triage evidence
         if: always()
@@ -134,6 +190,13 @@ jobs:
             research/proprietary/bds-1.26.52.3/worldgen/triage
             research/proprietary/bds-1.26.52.3/worldgen/smoke
           retention-days: 14
+
+      - name: Fail this job if triage or the smoke test failed
+        if: always()
+        run: |
+          set -eu
+          test -s "$EVIDENCE/triage/targets.tsv"
+          test -s "$EVIDENCE/smoke/out/index.md"
 
   decompile:
     needs: triage
