@@ -39,7 +39,50 @@ public class RecoverWorldgen extends GhidraScript {
     private static final int MAX_UNIQUE_FUNCTIONS = 320;
     private static final int MAX_PSEUDOCODE_CHARS = 240_000;
     private static final int MAX_ASSEMBLY_INSTRUCTIONS = 5000;
+    private static final int MAX_DIRECT_CALLEE_FUNCTIONS = 80;
+    private static final int MAX_CALLGRAPH_DEPTH = 3;
+    private static final long WORLDGEN_TEXT_MIN = 0x05200000L;
+    private static final long WORLDGEN_TEXT_MAX = 0x05300000L;
     private static final int DECOMPILE_TIMEOUT_SECONDS = 90;
+
+    /*
+     * Exact Linux-build labels established by complete vtable recovery, function
+     * shape, the generated public class declarations, and direct-call context.
+     * Addresses are deliberately scoped to the adjacent binary digest.
+     */
+    private static final String[][] KNOWN_FUNCTIONS = {
+        {"0527c470", "OverworldGenerator__loadChunk"},
+        {"0527cd10", "OverworldGenerator__structurePostProcessChunk"},
+        {"0527ab30", "OverworldGenerator__decorationPostProcessChunk"},
+        {"0527a850", "OverworldGenerator__prepareHeights"},
+        {"0527aae0", "OverworldGenerator__getBiomeArea"},
+        {"0527a840", "OverworldGenerator__getBlockVolumeDimensions"},
+        {"0527a720", "OverworldGenerator__decorateWorldGenLoadChunk"},
+        {"0527ab20", "OverworldGenerator__tryMakeAquifer"},
+        {"0527a6f0", "OverworldGenerator__createNoiseCache"},
+        {"05293840", "OverworldGeneratorMultinoise__chunkPosNeedsBlending"},
+        {"05286a80", "OverworldGeneratorMultinoise___clearBlendingCache"},
+        {"0528a520", "OverworldGeneratorMultinoise__getBiomeSource"},
+        {"05288770", "OverworldGeneratorMultinoise__findSpawnPosition"},
+        {"052884e0", "OverworldGeneratorMultinoise__getPreliminarySurfaceLevel"},
+        {"05288460", "OverworldGeneratorMultinoise__propagateCombinedChunkSource"},
+        {"05281650", "OverworldGeneratorMultinoise__decorateWorldGenPostProcess"},
+        {"05287590", "OverworldGeneratorMultinoise__generateDensityCellsForChunk"},
+        {"05287580", "OverworldGeneratorMultinoise__getLevelGenHeight"},
+        {"05286b50", "OverworldGeneratorMultinoise__getXoroshiroPositionalRandomFactory"},
+        {"05286a90", "OverworldGeneratorMultinoise__tryMakeAquifer"},
+        {"05286c40", "OverworldGeneratorMultinoise__createNoiseCache"},
+        {"052884c0", "OverworldGeneratorMultinoise__getSurfaceNoise"},
+        {"052884d0", "OverworldGeneratorMultinoise__getMaterialAdjNoise"},
+        {"05288b10", "OverworldGeneratorMultinoise___prepareHeights"},
+        {"05287930", "OverworldGeneratorMultinoise___generateDensityCellsForChunk"},
+        {"05286c70", "OverworldGeneratorMultinoise__createNoiseCache_static"},
+    };
+
+    private static final String[] CALLGRAPH_SEEDS = {
+        "0527c470", "0527cd10", "0527ab30", "05287590", "05288b10",
+        "052884e0", "05286a90", "05286c40", "05281650"
+    };
 
     private static final String[][] TARGETS = {
         {"WorldGenerator", "14WorldGenerator"},
@@ -70,11 +113,24 @@ public class RecoverWorldgen extends GhidraScript {
         Function function;
     }
 
+    private static class CallEdge {
+        String root;
+        int depth;
+        Function caller;
+        Address target;
+        Function callee;
+        String status;
+    }
+
     private Memory memory;
     private MemoryBlock textBlock;
     private final List<VtableEntry> entries = new ArrayList<>();
     private final Map<Long, Function> uniqueFunctions = new LinkedHashMap<>();
     private final Map<Long, String> functionOwners = new LinkedHashMap<>();
+    private final Map<Long, Function> directFunctions = new LinkedHashMap<>();
+    private final Map<Long, String> directFunctionOwners = new LinkedHashMap<>();
+    private final List<CallEdge> callEdges = new ArrayList<>();
+    private final Map<Long, String> knownFunctionNames = new HashMap<>();
     private final List<String> diagnostics = new ArrayList<>();
 
     @Override
@@ -98,6 +154,9 @@ public class RecoverWorldgen extends GhidraScript {
         if (textBlock == null || !textBlock.isExecute()) {
             throw new IllegalStateException("executable .text block not found");
         }
+        for (String[] known : KNOWN_FUNCTIONS) {
+            knownFunctionNames.put(Long.parseUnsignedLong(known[0], 16), known[1]);
+        }
 
         println("Recovering selected RTTI and vtables without whole-program auto-analysis...");
         for (String[] target : TARGETS) {
@@ -105,11 +164,15 @@ public class RecoverWorldgen extends GhidraScript {
             recoverClass(target[0], target[1]);
         }
 
+        recoverDirectCallgraph();
         writeVtableReport(new File(outputDir, "vtable-functions.tsv"));
         writePseudocodeReport(new File(outputDir, "virtual-function-pseudocode.md"));
+        writeCallgraphReport(new File(outputDir, "direct-callees.tsv"));
+        writeDirectPseudocodeReport(new File(outputDir, "direct-callee-pseudocode.md"));
         writeSummary(new File(outputDir, "README.md"));
-        println("Recovered " + entries.size() + " vtable entries and " +
-            uniqueFunctions.size() + " unique functions.");
+        println("Recovered " + entries.size() + " vtable entries, " +
+            uniqueFunctions.size() + " unique virtual functions, and " +
+            directFunctions.size() + " direct callees.");
     }
 
     private void recoverClass(String className, String typeName) throws Exception {
@@ -225,6 +288,7 @@ public class RecoverWorldgen extends GhidraScript {
     private Function ensureFunction(Address entry, String className, int slot) {
         Function function = getFunctionAt(entry);
         if (function != null) {
+            applyKnownName(function);
             return function;
         }
         try {
@@ -240,11 +304,100 @@ public class RecoverWorldgen extends GhidraScript {
                     ": function creation failed: " + create.getStatusMsg());
                 return null;
             }
-            return getFunctionAt(entry);
+            function = getFunctionAt(entry);
+            applyKnownName(function);
+            return function;
         } catch (Exception exception) {
             diagnostics.add(className + " slot " + slot + " at " + entry +
                 ": " + exception.getClass().getSimpleName() + ": " + exception.getMessage());
             return null;
+        }
+    }
+
+    private void applyKnownName(Function function) {
+        if (function == null) {
+            return;
+        }
+        String knownName = knownFunctionNames.get(function.getEntryPoint().getOffset());
+        if (knownName == null || knownName.equals(function.getName())) {
+            return;
+        }
+        try {
+            function.setName(knownName, SourceType.USER_DEFINED);
+        } catch (Exception exception) {
+            diagnostics.add("could not apply known name " + knownName + " at " +
+                function.getEntryPoint() + ": " + exception.getMessage());
+        }
+    }
+
+    private void recoverDirectCallgraph() throws Exception {
+        List<Function> frontier = new ArrayList<>();
+        Map<Long, String> roots = new HashMap<>();
+        Set<Long> expanded = new HashSet<>();
+
+        for (String seedHex : CALLGRAPH_SEEDS) {
+            Address seedAddress = currentProgram.getAddressFactory().getDefaultAddressSpace()
+                .getAddress(Long.parseUnsignedLong(seedHex, 16));
+            Function seed = ensureFunction(seedAddress, "callgraph seed", 0);
+            if (seed == null) {
+                continue;
+            }
+            long key = seed.getEntryPoint().getOffset();
+            if (!roots.containsKey(key)) {
+                frontier.add(seed);
+                roots.put(key, seed.getName(true));
+            }
+        }
+
+        Listing listing = currentProgram.getListing();
+        for (int depth = 1; depth <= MAX_CALLGRAPH_DEPTH && !frontier.isEmpty(); depth++) {
+            List<Function> next = new ArrayList<>();
+            for (Function caller : frontier) {
+                monitor.checkCancelled();
+                long callerKey = caller.getEntryPoint().getOffset();
+                if (!expanded.add(callerKey)) {
+                    continue;
+                }
+                String root = roots.get(callerKey);
+                for (Instruction instruction : listing.getInstructions(caller.getBody(), true)) {
+                    if (!instruction.getFlowType().isCall()) {
+                        continue;
+                    }
+                    for (Address target : instruction.getFlows()) {
+                        long targetOffset = target.getOffset();
+                        if (targetOffset < WORLDGEN_TEXT_MIN || targetOffset >= WORLDGEN_TEXT_MAX) {
+                            continue;
+                        }
+                        CallEdge edge = new CallEdge();
+                        edge.root = root;
+                        edge.depth = depth;
+                        edge.caller = caller;
+                        edge.target = target;
+                        edge.callee = ensureFunction(target, "direct callee", depth);
+                        edge.status = edge.callee == null ? "function_creation_failed" : "function_ready";
+                        callEdges.add(edge);
+                        if (edge.callee == null) {
+                            continue;
+                        }
+
+                        long calleeKey = edge.callee.getEntryPoint().getOffset();
+                        roots.putIfAbsent(calleeKey, root);
+                        if (!uniqueFunctions.containsKey(calleeKey) &&
+                            !directFunctions.containsKey(calleeKey) &&
+                            directFunctions.size() < MAX_DIRECT_CALLEE_FUNCTIONS) {
+                            directFunctions.put(calleeKey, edge.callee);
+                            directFunctionOwners.put(calleeKey,
+                                "depth " + depth + " from " + caller.getName(true) +
+                                " (root " + root + ")");
+                        }
+                        if (!expanded.contains(calleeKey) && depth < MAX_CALLGRAPH_DEPTH &&
+                            (uniqueFunctions.containsKey(calleeKey) || directFunctions.containsKey(calleeKey))) {
+                            next.add(edge.callee);
+                        }
+                    }
+                }
+            }
+            frontier = next;
         }
     }
 
@@ -318,6 +471,72 @@ public class RecoverWorldgen extends GhidraScript {
         }
     }
 
+    private void writeCallgraphReport(File output) throws Exception {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(output, StandardCharsets.UTF_8))) {
+            writer.write("root\tdepth\tcaller\tcaller_name\ttarget\tstatus\tcallee_name\n");
+            for (CallEdge edge : callEdges) {
+                writer.write(tsv(edge.root) + "\t" + edge.depth + "\t" +
+                    edge.caller.getEntryPoint() + "\t" + tsv(edge.caller.getName(true)) + "\t" +
+                    edge.target + "\t" + edge.status + "\t" +
+                    (edge.callee == null ? "" : tsv(edge.callee.getName(true))) + "\n");
+            }
+        }
+    }
+
+    private void writeDirectPseudocodeReport(File output) throws Exception {
+        DecompInterface decompiler = new DecompInterface();
+        decompiler.toggleCCode(true);
+        decompiler.toggleSyntaxTree(true);
+        decompiler.setSimplificationStyle("decompile");
+        if (!decompiler.openProgram(currentProgram)) {
+            throw new IllegalStateException("Ghidra decompiler could not open imported program");
+        }
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(output, StandardCharsets.UTF_8))) {
+            writer.write("# Recovered direct callees of world-generation entry points\n\n");
+            writer.write("> Mechanically generated pseudocode from the proprietary BDS binary. ");
+            writer.write("This is not original source and is not MIT-licensed OpenBDS code.\n\n");
+            writer.write("The bounded call graph starts at named world-generation virtual methods, ");
+            writer.write("follows direct calls to the nearby `0x05200000..0x052fffff` text region ");
+            writer.write("for at most " + MAX_CALLGRAPH_DEPTH + " levels, and does not resolve indirect calls.\n\n");
+            for (Map.Entry<Long, Function> item : directFunctions.entrySet()) {
+                monitor.checkCancelled();
+                writeDecompiledFunction(writer, decompiler, item.getValue(), directFunctionOwners.get(item.getKey()));
+            }
+        } finally {
+            decompiler.dispose();
+        }
+    }
+
+    private void writeDecompiledFunction(
+        BufferedWriter writer,
+        DecompInterface decompiler,
+        Function function,
+        String owner
+    ) throws Exception {
+        writer.write("## `" + function.getEntryPoint() + "` — " + markdown(owner) + "\n\n");
+        writer.write("- Ghidra name: `" + markdown(function.getName(true)) + "`\n");
+        writer.write("- Body: `" + markdown(function.getBody().toString()) + "`\n\n");
+
+        DecompileResults results = decompiler.decompileFunction(
+            function,
+            DECOMPILE_TIMEOUT_SECONDS,
+            monitor
+        );
+        if (results.decompileCompleted() && results.getDecompiledFunction() != null) {
+            String pseudocode = results.getDecompiledFunction().getC();
+            if (pseudocode.length() > MAX_PSEUDOCODE_CHARS) {
+                pseudocode = pseudocode.substring(0, MAX_PSEUDOCODE_CHARS) +
+                    "\n/* pseudocode truncated by RecoverWorldgen.java */\n";
+            }
+            writer.write("### Pseudocode\n\n```c\n" + pseudocode + "\n```\n\n");
+        } else {
+            writer.write("### Pseudocode unavailable\n\n`" +
+                markdown(results.getErrorMessage()) + "`\n\n");
+        }
+        writeAssembly(writer, function);
+    }
+
     private void writePseudocodeReport(File output) throws Exception {
         DecompInterface decompiler = new DecompInterface();
         decompiler.toggleCCode(true);
@@ -338,29 +557,7 @@ public class RecoverWorldgen extends GhidraScript {
 
             for (Map.Entry<Long, Function> item : uniqueFunctions.entrySet()) {
                 monitor.checkCancelled();
-                Function function = item.getValue();
-                String owner = functionOwners.get(item.getKey());
-                writer.write("## `" + function.getEntryPoint() + "` — " + markdown(owner) + "\n\n");
-                writer.write("- Ghidra name: `" + markdown(function.getName(true)) + "`\n");
-                writer.write("- Body: `" + markdown(function.getBody().toString()) + "`\n\n");
-
-                DecompileResults results = decompiler.decompileFunction(
-                    function,
-                    DECOMPILE_TIMEOUT_SECONDS,
-                    monitor
-                );
-                if (results.decompileCompleted() && results.getDecompiledFunction() != null) {
-                    String pseudocode = results.getDecompiledFunction().getC();
-                    if (pseudocode.length() > MAX_PSEUDOCODE_CHARS) {
-                        pseudocode = pseudocode.substring(0, MAX_PSEUDOCODE_CHARS) +
-                            "\n/* pseudocode truncated by RecoverWorldgen.java */\n";
-                    }
-                    writer.write("### Pseudocode\n\n```c\n" + pseudocode + "\n```\n\n");
-                } else {
-                    writer.write("### Pseudocode unavailable\n\n`" +
-                        markdown(results.getErrorMessage()) + "`\n\n");
-                }
-                writeAssembly(writer, function);
+                writeDecompiledFunction(writer, decompiler, item.getValue(), functionOwners.get(item.getKey()));
             }
         } finally {
             decompiler.dispose();
@@ -392,12 +589,17 @@ public class RecoverWorldgen extends GhidraScript {
             writer.write("This bounded headless pass imported the ELF without whole-program ");
             writer.write("auto-analysis, found selected Itanium C++ RTTI names, reconstructed ");
             writer.write("candidate vtables from relocated pointers, disassembled their executable ");
-            writer.write("slots, and invoked Ghidra's decompiler. It did not execute the target.\n\n");
+            writer.write("slots, followed a bounded nearby direct-call graph, and invoked Ghidra's ");
+            writer.write("decompiler. It did not execute the target.\n\n");
             writer.write("- Classes with recovered entries: `" + classes.size() + "`\n");
             writer.write("- Vtable entries: `" + entries.size() + "`\n");
-            writer.write("- Unique functions decompiled: `" + uniqueFunctions.size() + "`\n");
+            writer.write("- Unique virtual functions decompiled: `" + uniqueFunctions.size() + "`\n");
+            writer.write("- Nearby direct callees decompiled: `" + directFunctions.size() + "`\n");
+            writer.write("- Direct call edges recorded: `" + callEdges.size() + "`\n");
             writer.write("- Maximum slots examined per vtable: `" + MAX_SLOTS_PER_VTABLE + "`\n");
-            writer.write("- Maximum unique functions: `" + MAX_UNIQUE_FUNCTIONS + "`\n\n");
+            writer.write("- Maximum unique virtual functions: `" + MAX_UNIQUE_FUNCTIONS + "`\n");
+            writer.write("- Maximum nearby direct callees: `" + MAX_DIRECT_CALLEE_FUNCTIONS + "`\n");
+            writer.write("- Maximum direct-call depth: `" + MAX_CALLGRAPH_DEPTH + "`\n\n");
             writer.write("## Diagnostics\n\n");
             if (diagnostics.isEmpty()) {
                 writer.write("- None\n");

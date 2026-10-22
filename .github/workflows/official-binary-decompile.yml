@@ -23,13 +23,13 @@ jobs:
     timeout-minutes: 120
     steps:
       - name: Check out repository and proprietary LFS object
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           lfs: true
           fetch-depth: 1
 
       - name: Select JDK 21
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: '21'
@@ -73,7 +73,7 @@ jobs:
             echo 'Generated files:'
             find "$output" -maxdepth 1 -type f -printf '%s %f\n' | sort -n
             echo
-            for required in README.md vtable-functions.tsv virtual-function-pseudocode.md; do
+            for required in README.md vtable-functions.tsv virtual-function-pseudocode.md direct-callees.tsv direct-callee-pseudocode.md; do
               if test -s "$output/$required"; then
                 echo "$required: present"
               else
@@ -105,3 +105,5 @@ jobs:
           test -s "$output/README.md"
           test -s "$output/vtable-functions.tsv"
           test -s "$output/virtual-function-pseudocode.md"
+          test -s "$output/direct-callees.tsv"
+          test -s "$output/direct-callee-pseudocode.md"
