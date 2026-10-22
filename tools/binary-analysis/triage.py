@@ -766,6 +766,9 @@ def main(argv=None) -> int:
     parser.add_argument("--max-targets", type=int, default=400)
     parser.add_argument("--skip-sweep", action="store_true")
     parser.add_argument(
+        "--deep", action="store_true",
+        help="add a second call ring (costs two extra full .text sweeps)")
+    parser.add_argument(
         "--extra-targets", default=None,
         help="TSV of address<TAB>score<TAB>label to prioritise (round-2 seeds)")
     parser.add_argument(
@@ -1008,7 +1011,7 @@ def main(argv=None) -> int:
                     continue
                 bump(caller, "caller-of-seed", "caller-of-seed", 12)
 
-        if hop1:
+        if hop1 and args.deep:
             log("expanding one more call ring (%d functions)..." % len(hop1))
             hop2_out, hop2_in = build_call_edges(binary, starts, hop1, {})
             for function, callees in hop2_out.items():
