@@ -1,43 +1,99 @@
 seed: 1
 recheck: true
-capture exit: 1
+capture exit: 0
 
 capture files:
-266 capture/seed-1/error.txt
+251 capture/seed-1/server/packet-statistics.txt
 487 capture/seed-1/server/server.properties
-1664 capture/seed-1/server/Dedicated_Server.txt
-1701 capture/seed-1/server.log
-1727 capture/seed-1/server-transcript.txt
+1198 capture/seed-1/capture.json
+5587 capture/seed-1/server/Dedicated_Server.txt
+5650 capture/seed-1/server-transcript.txt
+5650 capture/seed-1/server.log
 256133808 capture/seed-1/server/bedrock_server
 
 golden directory:
 total 4
-drwxr-xr-x 2 runner runner 4096 Oct 22 23:39 diagnostics
+drwxr-xr-x 2 runner runner 4096 Oct 22 23:47 diagnostics
 
 server log tail:
 NO LOG FILE! - setting up server logging...
-[2026-10-22 23:39:52:800 INFO] Starting Server
-[2026-10-22 23:39:52:800 INFO] Version: 1.26.52.3
-[2026-10-22 23:39:52:800 INFO] Session ID: 4dc1bd34-7946-4e0e-81f6-f22b6fd69de7
-[2026-10-22 23:39:52:800 INFO] Build ID: 51798919
-[2026-10-22 23:39:52:800 INFO] Branch: r/26_u5
-[2026-10-22 23:39:52:800 INFO] Commit ID: 54116bb5ee0b7aee0b5591efbcc8bc3cf64f168a
-[2026-10-22 23:39:52:800 INFO] Configuration: Publish
-[2026-10-22 23:39:52:800 INFO] Contents of server.properties: {}
-[2026-10-22 23:39:52:800 INFO] Level Name: golden
-[2026-10-22 23:39:52:800 INFO] Profiler config ('bootstrap.json') load result: success=0, errorMessage=Failed to open file for reading at: /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/capture/seed-1/server/data/bootstrap.json (No such file or directory)
-[2026-10-22 23:39:52:800 ERROR] Failed to load profiler config file (bootstrap.json)
-[2026-10-22 23:39:52:803 ERROR] Error opening allow list file: allowlist.json
-[2026-10-22 23:39:52:803 INFO] No CDN config file found at: cdn_config.json for dedicated server
-[2026-10-22 23:39:52:803 INFO] Game mode: 1 Creative
-[2026-10-22 23:39:52:803 INFO] Difficulty: 0 PEACEFUL
-[2026-10-22 23:39:52:806 INFO] Content logging to console is enabled.
-[2026-10-22 23:39:52:807 INFO] 
+[2026-10-22 23:47:52:996 INFO] Starting Server
+[2026-10-22 23:47:52:996 INFO] Version: 1.26.52.3
+[2026-10-22 23:47:52:996 INFO] Session ID: 39699829-f685-4a3c-b73b-54f4a4339954
+[2026-10-22 23:47:52:996 INFO] Build ID: 51798919
+[2026-10-22 23:47:52:996 INFO] Branch: r/26_u5
+[2026-10-22 23:47:52:996 INFO] Commit ID: 54116bb5ee0b7aee0b5591efbcc8bc3cf64f168a
+[2026-10-22 23:47:52:996 INFO] Configuration: Publish
+[2026-10-22 23:47:52:997 INFO] Contents of server.properties: {}
+[2026-10-22 23:47:52:997 INFO] Level Name: golden
+[2026-10-22 23:47:52:997 INFO] Profiler config ('bootstrap.json') load result: success=1, errorMessage=(null)
+[2026-10-22 23:47:53:000 INFO] No CDN config file found at: cdn_config.json for dedicated server
+[2026-10-22 23:47:53:000 INFO] Game mode: 1 Creative
+[2026-10-22 23:47:53:000 INFO] Difficulty: 0 PEACEFUL
+[2026-10-22 23:47:53:001 INFO] Content logging to console is enabled.
+[2026-10-22 23:47:53:003 INFO] 
 
 #####################################################
 #                                                   #
 #              CREATING VANILLA WORLD               #
 #                                                   #
 #####################################################
-[2026-10-22 23:39:52:808 ERROR] Failed to load Vanilla Resource Pack, is the vanilla pack missing from the loaded world?
+[2026-10-22 23:47:53:367 INFO] Opening level 'worlds/golden/db'
+[2026-10-22 23:47:53:401 INFO] Pack Stack - None
+[2026-10-22 23:47:53:555 INFO] Signed in to signaling service successfully
+[2026-10-22 23:47:54:110 INFO] IPv4 supported, port: 19132: Used for gameplay and LAN discovery
+[2026-10-22 23:47:54:110 INFO] IPv6 supported, port: 19133: Used for gameplay
+[2026-10-22 23:47:54:135 INFO] Server started.
+[2026-10-22 23:47:54:135 ERROR] ================ TRANSPORT TYPE ERROR  ===================
+[2026-10-22 23:47:54:135 ERROR] Your current connection type is not set to NetherNet. In this release, NetherNet is the only supported transport type.
+[2026-10-22 23:47:54:135 ERROR] Players will not be able to connect to your game without NetherNet.
+[2026-10-22 23:47:54:135 ERROR] 
+[2026-10-22 23:47:54:135 ERROR] To switch, set 'transport=nethernet' in server.properties.
+[2026-10-22 23:47:54:135 ERROR] 
+[2026-10-22 23:47:54:135 ERROR] For more information, please reference the included bedrock_server_how_to.html file.
+[2026-10-22 23:47:54:135 ERROR] =======================================================
+[2026-10-22 23:47:54:135 INFO] ================ TELEMETRY MESSAGE ===================
+[2026-10-22 23:47:54:135 INFO] Server Telemetry is currently not enabled. 
+[2026-10-22 23:47:54:135 INFO] Enabling this telemetry helps us improve the game.
+[2026-10-22 23:47:54:135 INFO] 
+[2026-10-22 23:47:54:135 INFO] To enable this feature, add the line 'emit-server-telemetry=true'
+[2026-10-22 23:47:54:135 INFO] to the server.properties file in the handheld/src-server directory
+[2026-10-22 23:47:54:135 INFO] ======================================================
+[2026-10-22 23:47:54:287 ERROR] Cannot place blocks outside of the world
+[2026-10-22 23:47:54:387 ERROR] Cannot place block outside of the world
+[2026-10-22 23:47:54:537 ERROR] Cannot place block outside of the world
+[2026-10-22 23:47:54:637 ERROR] Cannot place block outside of the world
+[2026-10-22 23:47:54:787 ERROR] Cannot place block outside of the world
+[2026-10-22 23:47:54:887 ERROR] Cannot place block outside of the world
+[2026-10-22 23:47:54:987 ERROR] Cannot place block outside of the world
+[2026-10-22 23:47:55:642 ERROR] Cannot access blocks outside of the world
+[2026-10-22 23:47:57:242 INFO] Added ticking area from 0, 0, 0 to 47, 0, 47.
+1/10 ticking areas in use.
+[2026-10-22 23:48:22:388 INFO] Saved a structure with name mystructure:c0_0_y0
+[2026-10-22 23:48:22:738 INFO] Saved a structure with name mystructure:c0_0_y1
+[2026-10-22 23:48:23:138 INFO] Saved a structure with name mystructure:c0_0_y2
+[2026-10-22 23:48:23:488 INFO] Saved a structure with name mystructure:c0_0_y3
+[2026-10-22 23:48:23:838 INFO] Saved a structure with name mystructure:c0_0_y4
+[2026-10-22 23:48:24:237 INFO] Saved a structure with name mystructure:c0_0_y5
+[2026-10-22 23:48:24:588 INFO] Saved a structure with name mystructure:c1_0_y0
+[2026-10-22 23:48:24:993 INFO] Saved a structure with name mystructure:c1_0_y1
+[2026-10-22 23:48:25:343 INFO] Saved a structure with name mystructure:c1_0_y2
+[2026-10-22 23:48:25:693 INFO] Saved a structure with name mystructure:c1_0_y3
+[2026-10-22 23:48:26:093 INFO] Saved a structure with name mystructure:c1_0_y4
+[2026-10-22 23:48:26:443 INFO] Saved a structure with name mystructure:c1_0_y5
+[2026-10-22 23:48:26:843 INFO] Saved a structure with name mystructure:c0_1_y0
+[2026-10-22 23:48:27:193 INFO] Saved a structure with name mystructure:c0_1_y1
+[2026-10-22 23:48:27:593 INFO] Saved a structure with name mystructure:c0_1_y2
+[2026-10-22 23:48:27:948 INFO] Saved a structure with name mystructure:c0_1_y3
+[2026-10-22 23:48:28:297 INFO] Saved a structure with name mystructure:c0_1_y4
+[2026-10-22 23:48:28:697 INFO] Saved a structure with name mystructure:c0_1_y5
+[2026-10-22 23:48:29:048 INFO] Saved a structure with name mystructure:c1_1_y0
+[2026-10-22 23:48:29:448 INFO] Saved a structure with name mystructure:c1_1_y1
+[2026-10-22 23:48:29:797 INFO] Saved a structure with name mystructure:c1_1_y2
+[2026-10-22 23:48:30:147 INFO] Saved a structure with name mystructure:c1_1_y3
+[2026-10-22 23:48:30:553 INFO] Saved a structure with name mystructure:c1_1_y4
+[2026-10-22 23:48:30:903 INFO] Saved a structure with name mystructure:c1_1_y5
+[2026-10-22 23:48:34:307 INFO] Server stop requested.
+[2026-10-22 23:48:34:355 INFO] Stopping server...
 Quit correctly
+[exit] code=0 signal=null
