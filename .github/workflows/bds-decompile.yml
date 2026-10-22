@@ -137,6 +137,7 @@ jobs:
           set -u
           mkdir -p "$EVIDENCE/smoke"
           cp /bin/ls "$RUNNER_TEMP/small.bin"
+          mkdir -p "$RUNNER_TEMP/smokeproj" "$EVIDENCE/smoke/out"
           entry="$(readelf -h "$RUNNER_TEMP/small.bin" | awk '/Entry point/{print $4}')"
           printf 'address\tsize\tscore\tlabel\n%s\t256\t100\tsmoke-entry\n' "$entry" \
             > "$EVIDENCE/smoke/targets.tsv"
@@ -185,10 +186,16 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: triage
-          path: |
-            research/proprietary/bds-1.26.52.3/worldgen/triage
-            research/proprietary/bds-1.26.52.3/worldgen/smoke
+          name: triage-data
+          path: research/proprietary/bds-1.26.52.3/worldgen/triage
+          retention-days: 14
+
+      - name: Publish smoke evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: smoke
+          path: research/proprietary/bds-1.26.52.3/worldgen/smoke
           retention-days: 14
 
       - name: Fail this job if triage or the smoke test failed
@@ -236,7 +243,7 @@ jobs:
       - name: Fetch triage results for this run
         uses: actions/download-artifact@v4
         with:
-          name: triage
+          name: triage-data
           path: research/proprietary/bds-1.26.52.3/worldgen/triage
 
       - name: Shard the ranked target list
@@ -270,7 +277,7 @@ jobs:
 
       - name: Stage 2 - headless Ghidra decompilation
         env:
-          MAXMEM: 6G
+          MAXMEM: 8G
         run: |
           out="$GITHUB_WORKSPACE/$EVIDENCE/decompiled/shard-$SHARD"
           rm -rf "$out" "$RUNNER_TEMP/project"
@@ -333,9 +340,13 @@ jobs:
         run: |
           set -eu
           mkdir -p "$EVIDENCE"
-          if [ -d artifacts/triage ]; then
+          if [ -d artifacts/triage-data ]; then
             rm -rf "$EVIDENCE/triage"
-            cp -r artifacts/triage "$EVIDENCE/triage"
+            cp -r artifacts/triage-data "$EVIDENCE/triage"
+          fi
+          if [ -d artifacts/smoke ]; then
+            rm -rf "$EVIDENCE/smoke"
+            cp -r artifacts/smoke "$EVIDENCE/smoke"
           fi
           for shard in 0 1 2 3; do
             if [ -d "artifacts/shard-$shard" ]; then
