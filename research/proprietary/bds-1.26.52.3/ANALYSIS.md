@@ -569,6 +569,56 @@ SurfaceBuilder<TAB>5
 and push. Each run is stateless; the evidence directory is regenerated and
 committed.
 
+## 8. Open questions
+
+These are the places where the pseudocode is not yet sufficient and more
+evidence is required. Each one is tracked by a concrete next step.
+
+1. **Sign of the `x` term in `getSeed`.** `XoroshiroPositionalRandomFactory_v2`
+   renders the x contribution as
+   `(long)(x * 0x2fc20f00000000 ^ x) >> 0x20`, while the z contribution is
+   explicitly sign-extended (`(long)(int)z * 0x6ebfff5`). The two readings agree
+   for every non-negative coordinate and disagree for negative ones — which
+   matters because block/chunk coordinates are frequently negative. Resolving it
+   needs the raw instruction stream (`disassembly/disasm-*.md`), where the
+   `imul`/`sar` vs `imul`/`shr` pair is unambiguous.
+   `tools/binary-analysis/reference_rng.py` implements both and defaults to the
+   Java-compatible one (`get_seed_2d(..., sign_extend_x=True)`).
+2. **`FUN_0d341b00` (551 instructions).** The lattice evaluation behind every
+   noise layer. Its inner loop has not been read yet; it is the single most
+   important remaining function for bit-exact terrain.
+3. **`.rodata` float tables.** `_DAT_014f0a50` (a sign-indexed pair),
+   `_DAT_01198698`, `_DAT_0119880c`, `_DAT_014f0478`, `_DAT_014f0518` are the
+   actual multinoise constants. `constants.tsv` lists them with their `f32` and
+   `f64` interpretations; the table *contents* (not just the first word) still
+   need dumping.
+4. **`std::mt19937` output path in feature placement.** Which slot of
+   `*Feature` consumes the MT19937 and how the per-feature seed is derived
+   (`chunk seed ^ feature index` or a fresh `getSeed`) is not yet confirmed.
+5. **Per-function source attribution coverage.** `code-references.tsv` and
+   `source-attribution.tsv` can only name functions that exist in the program
+   database. Because the import runs with `-noanalysis`, only the functions the
+   harness creates are known; sites outside them are reported as unresolved.
+   Running Ghidra's full analysis (or a function-boundary heuristic) would close
+   this gap.
+
+## 9. Reproducing the recovered primitives
+
+`tools/binary-analysis/reference_rng.py` is a dependency-free transliteration of
+everything in §4. It is executable and self-checking:
+
+```
+python3 tools/binary-analysis/reference_rng.py --self-test
+```
+
+It covers xoroshiro128++ (including the Lemire bounded path, the polar gaussian
+and `skip`), the `Mth.getSeed` mixing in 2-D and 3-D, `forkPositional`, the
+chunk seed `x*0x14609048 + z*0x7ebe2d5` and the MT19937 seeding loop, the
+48-bit Java LCG behind `WorldGenRandom` together with the spaced-structure salt
+multipliers, splitmix64 and the surface-builder seed derivation, and the
+MMIX-LCG hash used to seed noise nodes. It is a *decode of the binary*, not a
+copy of Mojang source, and it is deliberately not wired into the OpenBDS build.
+
 ### Evidence files
 
 | file | contents |
@@ -579,6 +629,10 @@ committed.
 | `callgraph.tsv` | direct call edges |
 | `code-references.tsv` | vtable `lea` sites → constructor / lambda-enclosing function |
 | `lambda-attribution.tsv` | lambda vtable → inferred enclosing C++ function |
+| `source-attribution.tsv` | function → original `/mnt/vss/...` source path (from `lea` sites) |
+| `source-files.tsv` | source path → number of functions referencing it |
+| `disassembly/disasm-<addr>.md` | raw x86-64 for the functions a signedness question hinges on |
+| `SUMMARY.md` | one-page roll-up produced by `summarize_evidence.py` |
 | `constants.tsv` | referenced `.rodata` constants with `u32`/`f32`/`f64` interpretations |
 | `pseudocode/pseudocode-*.md` | Ghidra C output, index in `pseudocode-index.md` |
 | `seed-diagnostics.txt` | trace from a known mangled type name to its `type_info` and vtable |
