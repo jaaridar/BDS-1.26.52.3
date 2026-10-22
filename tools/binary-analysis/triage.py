@@ -961,7 +961,10 @@ def main(argv=None) -> int:
             core_slots += 1
             bump(target, 120 + weight // 2, "core-vtable:%s#%d" % (pretty, index))
         else:
-            bump(target, 12 + weight // 4, "vtable:%s#%d" % (pretty, index))
+            # Every world-gen-adjacent virtual function is a candidate: a
+            # surface builder or structure processor slot is as much part of
+            # the algorithm as a generator entry point.
+            bump(target, 24 + weight // 3, "vtable:%s#%d" % (pretty, index))
     log("core world-gen vtable slots: %d" % core_slots)
 
     for target, addrs in references.items():
@@ -979,18 +982,41 @@ def main(argv=None) -> int:
     if seeds and not args.skip_sweep:
         log("building call edges around seeds...")
         edges_out, edges_in = build_call_edges(binary, starts, seeds, {})
+
+        # Hop 1 and hop 2: the interesting work (noise synthesis, surface
+        # rules, placement logic) usually sits one or two calls below a
+        # virtual entry point, so pull both rings in with decreasing weight.
+        hop1 = set()
         for function, callees in edges_out.items():
             for callee in callees:
                 # Do not let huge generic helpers (allocators, logging, ...)
                 # crowd out the focused world-generation functions.
                 if function_size.get(callee, 0) > 60000:
                     continue
-                bump(callee, 6, "callee-of:0x%x" % function)
+                bump(callee, 26, "callee-of:0x%x" % function)
+                hop1.add(callee)
         for function, callers in edges_in.items():
             for caller in callers:
                 if function_size.get(caller, 0) > 120000:
                     continue
-                bump(caller, 4, "caller-of-seed")
+                bump(caller, 12, "caller-of-seed")
+
+        if hop1:
+            log("expanding one more call ring (%d functions)..." % len(hop1))
+            hop2_out, hop2_in = build_call_edges(binary, starts, hop1, {})
+            for function, callees in hop2_out.items():
+                for callee in callees:
+                    if function_size.get(callee, 0) > 24000:
+                        continue
+                    bump(callee, 11, "callee2-of:0x%x" % function)
+                    edges_out.setdefault(function, set()).add(callee)
+            for function, callers in hop2_in.items():
+                for caller in callers:
+                    if function_size.get(caller, 0) > 60000:
+                        continue
+                    bump(caller, 5, "caller-of-callee")
+                    edges_in.setdefault(function, set()).add(caller)
+            log("call edges after expansion: %d out, %d in" % (len(edges_out), len(edges_in)))
 
     with open(os.path.join(args.outdir, "callgraph-worldgen.tsv"), "w") as handle:
         handle.write("function\tcallees\tcallers\n")

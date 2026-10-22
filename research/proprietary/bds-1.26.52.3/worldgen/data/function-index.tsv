@@ -1,0 +1,1183 @@
+class	slot	elf_vaddr	size	calls	referenced_strings	file
+Biome	0	0xc7b8060	285	func_0x0412a280,func_0x0c8b7e70,func_0x0c8dff60,wg_Biome__vslot0		00196_c7b8060.c
+Biome	1	0xc7b8190	22	func_0x0c8b8060,wg_Biome__vslot1		00202_c7b8190.c
+BiomeDimensionAttributes	1	0x497b3f0	9	wg_BiomeDimensionAttributes__vslot1		00221_497b3f0.c
+BiomeSource3d	0	0x495e290	96	func_0x04a67380,wg_BiomeSource3d__vslot0		00032_495e290.c
+BiomeSource3d	1	0x495e300	107	func_0x0412a280,func_0x04a67380,wg_BiomeSource3d__vslot1		00035_495e300.c
+BiomeSource3d	2	0x493a160	347	func_0x04a3a2f0,func_0x0c84eb20,func_0x0eec74c0,func_0x0eeddcf0,wg_BiomeSource3d__vslot2		00017_493a160.c
+BiomeSource3d	4	0x493aaf0	590	func_0x0412a280,func_0x04a3a2f0,func_0x0c84f340,func_0x0caf8fb0,func_0x0eec74c0,func_0x0eeddcf0,wg_BiomeSource3d__vslot4		00016_493aaf0.c
+BiomeSource3d	5	0x493ae00	37	wg_BiomeSource3d__vslot5		00034_493ae00.c
+BiomeSource3d	6	0x493ae30	461	func_0x04a3b2a0,func_0x0c859e50,wg_BiomeSource3d__vslot6		00033_493ae30.c
+BiomeSource3d	7	0x493b030	577	func_0x04890760,func_0x04a3cfe0,func_0x052582f0,func_0x0525af30,func_0x0c8ccb70,func_0x0d3414e0,wg_BiomeSource3d__vslot7		00033_493b030.c
+BiomeSource3d	8	0x493b4d0	49	wg_BiomeSource3d__vslot8		00036_493b4d0.c
+BiomeSource3d	9	0x493b510	49	wg_BiomeSource3d__vslot9		00035_493b510.c
+BiomeSource3d	10	0x493b550	2	wg_BiomeSource3d__vslot10		00034_493b550.c
+BiomeSource3d	11	0x493b290	536	func_0x04a3cfe0,func_0x052582f0,func_0x0525af30,func_0x0c8ccb70,func_0x0d3414e0,wg_BiomeSource3d__vslot11		00034_493b290.c
+ClimateBiomeComponentGlue	1	0x5258910	9	wg_ClimateBiomeComponentGlue__vslot1		00055_5258910.c
+ClimateBiomeComponentGlue	2	0x524f1c0	302	func_0x0488e200,func_0x0534f330,func_0x0eeb81b0,wg_ClimateBiomeComponentGlue__vslot2		00019_524f1c0.c
+ClimateBiomeComponentGlue	3	0x524f4c0	258	func_0x0535cd40,wg_ClimateBiomeComponentGlue__vslot3		00054_524f4c0.c
+DefaultOverworldBiomeSurfaceFlag	1	0x5246f70	9	wg_DefaultOverworldBiomeSurfaceFlag__vslot1		00227_5246f70.c
+Dimension	0	0xc95fad0	3006	func_0x0412a280,func_0x0412c2d0,func_0x0412d680,func_0x0412d6b0,func_0x04136a00,func_0x0ca741a0,func_0x0ca7c1b0,func_0x0ca7c290,func_0x0ca93b00,func_0x0cadbac0,func_0x0caffb10,func_0x0cb069f0		00228_c95fad0.c
+Dimension	0	0xc95ddd0	2998	func_0x0412a280,func_0x0412c2d0,func_0x0412d680,func_0x0412d6b0,func_0x04136a00,func_0x0ca741a0,func_0x0ca7c1b0,func_0x0ca7c290,func_0x0ca93b00,func_0x0cadbac0,func_0x0caffb10,func_0x0cb069f0		00227_c95ddd0.c
+Dimension	0	0xc95fab0	3006	func_0x0412c2d0,func_0x0412d680,func_0x0412d6b0,func_0x04136a00,func_0x0ca741a0,func_0x0ca7c1b0,func_0x0ca7c290,func_0x0ca93b00,func_0x0cadbac0,func_0x0caffb10,func_0x0cb069f0,func_0x0cb4a0c0		00222_c95fab0.c
+Dimension	0	0xc95fac0	3006	func_0x0412a280,func_0x0412d680,func_0x0412d6b0,func_0x04136a00,func_0x0ca741a0,func_0x0ca7c1b0,func_0x0ca7c290,func_0x0ca93b00,func_0x0cadbac0,func_0x0caffb10,func_0x0cb069f0,func_0x0cb4a0c0		00222_c95fac0.c
+Dimension	1	0xc95fb10	1	wg_Dimension__vslot1		00229_c95fb10.c
+Dimension	1	0xc95fae0	1	wg_Dimension__vslot1		00228_c95fae0.c
+Dimension	1	0xc95faf0	1	wg_Dimension__vslot1		00223_c95faf0.c
+Dimension	1	0xc95fb00	1	wg_Dimension__vslot1		00223_c95fb00.c
+Dimension	2	0xc964c50	2	wg_Dimension__vslot2		00229_c964c50.c
+Dimension	2	0x49a1940	0	wg_Dimension__vslot2		00224_49a1940.c
+Dimension	2	0xc9687e0	3037	func_0x0412a280,func_0x0412c3f0,func_0x04882eb0,func_0x04931450,func_0x05334490,func_0x05344850,func_0x0ca7d390,func_0x0ca7d420,func_0x0d6bd5f0,func_0x0d6c97a0,func_0x0d6c9880,func_0x0eec74c0		00224_c9687e0.c
+Dimension	3	0xc965180	6	wg_Dimension__vslot3		00230_c965180.c
+Dimension	3	0x49a1950	0	wg_Dimension__vslot3		00230_49a1950.c
+Dimension	3	0xc969000	1827	func_0x04882e20,func_0x04882eb0,func_0x0d6bb450,func_0x0d6bd5f0,func_0x0d6c2370,func_0x0d6c9300,func_0x0d6c9580,func_0x0eec74c0,func_0x0eee2d70,func_0x0eee2f00,wg_Dimension__vslot3		00225_c969000.c
+Dimension	4	0x49a1960	0	wg_Dimension__vslot4		00231_49a1960.c
+Dimension	4	0xc969b70	82	wg_Dimension__vslot4		00225_c969b70.c
+Dimension	5	0xc969bf0	124	wg_Dimension__vslot5		00231_c969bf0.c
+Dimension	5	0xc969380	663	func_0x04891200,func_0x07751f70,func_0x0ca7d600,wg_Dimension__vslot5		00226_c969380.c
+Dimension	6	0x49a1970	11	wg_Dimension__vslot6		00232_49a1970.c
+Dimension	6	0xc969e50	697	func_0x0412a280,func_0x0412d680,func_0x0cadbac0,func_0x0eeddcf0,wg_Dimension__vslot6		00226_c969e50.c
+Dimension	7	0xc964ba0	930	func_0x0412c2d0,func_0x0412c300,func_0x0cb30f40,func_0x0eeddcf0,wg_Dimension__vslot7		00232_c964ba0.c
+Dimension	7	0x49a1980	0	wg_Dimension__vslot7		00227_49a1980.c
+Dimension	8	0x49a1990	0	wg_Dimension__vslot8		00233_49a1990.c
+Dimension	8	0xc9651e0	15	wg_Dimension__vslot8		00227_c9651e0.c
+Dimension	9	0xc9651f0	15	wg_Dimension__vslot9		00233_c9651f0.c
+Dimension	9	0xc969880	194	wg_Dimension__vslot9		00228_c969880.c
+Dimension	10	0x49a19a0	0	wg_Dimension__vslot10		00228_49a19a0.c
+Dimension	11	0xc965280	656	func_0x0412c2d0,func_0x0412c300,func_0x04890760,func_0x0bc62290,wg_Dimension__vslot11		00234_c965280.c
+Dimension	11	0x49a19b0	0	wg_Dimension__vslot11		00234_49a19b0.c
+Dimension	12	0xc966020	1685	func_0x0412c2d0,func_0x0412c300,func_0x0b3cf240,wg_Dimension__vslot12		00229_c966020.c
+Dimension	12	0x49a19c0	0	wg_Dimension__vslot12		00229_49a19c0.c
+Dimension	13	0xc965200	7	wg_Dimension__vslot13		00235_c965200.c
+Dimension	13	0x49a19d0	0	wg_Dimension__vslot13		00235_49a19d0.c
+Dimension	14	0xc9699f0	53	wg_Dimension__vslot14		00230_c9699f0.c
+Dimension	14	0x49a19e0	0	wg_Dimension__vslot14		00230_49a19e0.c
+Dimension	15	0xc96a5d0	731	func_0x04108328,func_0x0410844d,func_0x0412c2d0,func_0x09ce8df0,func_0x0d27bf80,func_0x0d27c100,func_0x0d27dc70,wg_Dimension__vslot15		00236_c96a5d0.c
+Dimension	15	0x49a19f0	0	wg_Dimension__vslot15		00236_49a19f0.c
+Dimension	16	0xc95fb20	4240	func_0x0410844d,func_0x0412a280,func_0x0412c2d0,func_0x0417cc60,func_0x05ab5f90,func_0x0723deb0,func_0x07288ca0,func_0x07288f70,func_0x09ce8df0,func_0x09dbf260,func_0x0c9d0c10,func_0x0ca741a0		00100_c95fb20.c
+Dimension	16	0x49a1a00	0	wg_Dimension__vslot16		00231_49a1a00.c
+Dimension	17	0xc961580	8226	func_0x04108328,func_0x0410844d,func_0x0412a280,func_0x0412c2d0,func_0x0417cc60,func_0x04882eb0,func_0x048a4fd0,func_0x048bed00,func_0x04931450,func_0x04fa6650,func_0x05f20df0,func_0x06ceb5d0		00182_c961580.c
+Dimension	17	0x49a1a10	0	wg_Dimension__vslot17		00231_49a1a10.c
+Dimension	18	0xc961400	59	func_0x0d1576a0,wg_Dimension__vslot18		00237_c961400.c
+Dimension	18	0x49a1a20	0	wg_Dimension__vslot18		00237_49a1a20.c
+Dimension	19	0x49a1a30	0	wg_Dimension__vslot19		00232_49a1a30.c
+Dimension	20	0x49a1a40	0	wg_Dimension__vslot20		00232_49a1a40.c
+Dimension	21	0xc967ab0	333	func_0x0c9d0c10,func_0x0c9d0f40,func_0x0ca674d0,func_0x0cafca30,func_0x0cafcba0,func_0x0cb27310,wg_Dimension__vslot21		00238_c967ab0.c
+Dimension	22	0x49a1a50	0	wg_Dimension__vslot22		00238_49a1a50.c
+Dimension	23	0xc964c60	2	wg_Dimension__vslot23		00233_c964c60.c
+Dimension	23	0x49a1a60	0	wg_Dimension__vslot23		00233_49a1a60.c
+Dimension	24	0xc964c70	9	wg_Dimension__vslot24		00239_c964c70.c
+Dimension	24	0x49a1a70	0	wg_Dimension__vslot24		00239_49a1a70.c
+Dimension	25	0xc964c80	4	wg_Dimension__vslot25		00234_c964c80.c
+Dimension	25	0xc9696c0	112	func_0x0ca63830,func_0x0ee29460,wg_Dimension__vslot25		00234_c9696c0.c
+Dimension	26	0xc964d20	2	wg_Dimension__vslot26		00240_c964d20.c
+Dimension	26	0x49a1a80	0	wg_Dimension__vslot26		00240_49a1a80.c
+Dimension	27	0xc964d30	2	wg_Dimension__vslot27		00235_c964d30.c
+Dimension	27	0x49a1a90	0	wg_Dimension__vslot27		00235_49a1a90.c
+Dimension	28	0xc964d40	4	wg_Dimension__vslot28		00241_c964d40.c
+Dimension	28	0x49a1aa0	0	wg_Dimension__vslot28		00241_49a1aa0.c
+Dimension	29	0xc964d50	2	wg_Dimension__vslot29		00236_c964d50.c
+Dimension	29	0x49a1ab0	0	wg_Dimension__vslot29		00236_49a1ab0.c
+Dimension	30	0xc964d70	2	wg_Dimension__vslot30		00242_c964d70.c
+Dimension	30	0x49a1ac0	0	wg_Dimension__vslot30		00242_49a1ac0.c
+Dimension	31	0xc964e90	0	wg_Dimension__vslot31		00237_c964e90.c
+Dimension	31	0x49a1ad0	0	wg_Dimension__vslot31		00237_49a1ad0.c
+Dimension	32	0xc964ea0	188	func_0x04931450,wg_Dimension__vslot32		00243_c964ea0.c
+Dimension	33	0xc967370	325	func_0x0c9d0c10,func_0x0c9d0f40,func_0x0ca674d0,func_0x0cafca30,func_0x0cafcba0,func_0x0cb27310,func_0x0eeddcf0,wg_Dimension__vslot33		00243_c967370.c
+Dimension	34	0xc967b50	3029	func_0x0412c3f0,func_0x04882eb0,func_0x05334490,func_0x05344850,func_0x0ca7d390,func_0x0ca7d420,func_0x0d6bd5f0,func_0x0d6c97a0,func_0x0d6c9880,func_0x0eec74c0,func_0x0eee2d70,func_0x0eee2dd0		00238_c967b50.c
+Dimension	35	0xc9687f0	1819	func_0x0412a280,func_0x04882e20,func_0x04882eb0,func_0x0d6bb450,func_0x0d6bd5f0,func_0x0d6c2370,func_0x0d6c9300,func_0x0d6c9580,func_0x0eec74c0,func_0x0eee2d70,func_0x0eee2f00,wg_Dimension__vslot35		00238_c9687f0.c
+Dimension	36	0xc969950	114	wg_Dimension__vslot36		00244_c969950.c
+Dimension	37	0xc9699d0	317	func_0x04890760,wg_Dimension__vslot37		00244_c9699d0.c
+Dimension	38	0xc969bd0	17	wg_Dimension__vslot38		00239_c969bd0.c
+Dimension	39	0xc9697c0	186	wg_Dimension__vslot39		00239_c9697c0.c
+Dimension	40	0xc9690e0	663	func_0x04891200,func_0x07751f70,func_0x0ca7d600,wg_Dimension__vslot40		00245_c9690e0.c
+Dimension	41	0xc969620	104	func_0x0ca63830,func_0x0ee29460,wg_Dimension__vslot41		00245_c969620.c
+Dimension	42	0xc965090	7	wg_Dimension__vslot42		00240_c965090.c
+Dimension	43	0xc96a120	187	func_0x0cb01e90,func_0x0eee4390,wg_Dimension__vslot43		00240_c96a120.c
+Dimension	44	0xc96a1e0	855	func_0x0412a280,func_0x0412e5e0,func_0x04885070,func_0x0eee2e90,func_0x0eee4390,wg_Dimension__vslot44		00246_c96a1e0.c
+Dimension	45	0xc961240	882	func_0x0412a280,func_0x0412c2d0,func_0x0412d680,func_0x0cadbac0,func_0x0eeddcf0,wg_Dimension__vslot45		00246_c961240.c
+Dimension	46	0xc969010	197	wg_Dimension__vslot46		00241_c969010.c
+Dimension	47	0xc961440	132	func_0x0eec74c0,wg_Dimension__vslot47		00241_c961440.c
+Editor::Services::EditorJigsawService	0	0x61407e0	719	func_0x0412a280,func_0x0412c2d0,func_0x0412c300,func_0x04891200,func_0x04894d10,func_0x048aead0,func_0x048b1dc0,func_0x049e8590,func_0x06078020,func_0x06336cd0,func_0x06336d60,func_0x06337460		00247_61407e0.c
+Editor::Services::EditorJigsawService	0	0x6140ab0	728	func_0x0412a280,func_0x0412c2d0,func_0x0412c300,func_0x04882e20,func_0x04894d10,func_0x048aead0,func_0x048b1dc0,func_0x049e8590,func_0x06078020,func_0x06336cd0,func_0x06336d60,func_0x06337460		00247_6140ab0.c
+Editor::Services::EditorJigsawService	1	0x6140ac0	22	func_0x062407e0,wg_Editor__Services__EditorJigsawService__vslot1		00242_6140ac0.c
+Editor::Services::EditorJigsawService	1	0x6140ae0	29	func_0x062407e0,wg_Editor__Services__EditorJigsawService__vslot1		00242_6140ae0.c
+Editor::Services::EditorJigsawService	2	0x6140fd0	203	func_0x04882e30,func_0x0eee2e90,func_0x0eee2ee0,wg_Editor__Services__EditorJigsawService__vslot2		00248_6140fd0.c
+Editor::Services::EditorJigsawService	2	0x6140b00	462	func_0x04109e60,func_0x0412e5e0,func_0x048ad670,func_0x05d84ba0,func_0x06338020,func_0x0eeddcf0,func_0x0eee2d70,wg_Editor__Services__EditorJigsawService__vslot2		00097_6140b00.c
+Editor::Services::EditorJigsawService	3	0x6140ce0	417	func_0x0412c2d0,func_0x0412c300,func_0x05d84ba0,func_0x05f95fd0,wg_Editor__Services__EditorJigsawService__vslot3		00248_6140ce0.c
+Editor::Services::EditorJigsawService	3	0x6141150	135	func_0x06339950,wg_Editor__Services__EditorJigsawService__vslot3		00243_6141150.c
+Editor::Services::EditorJigsawService	4	0x6141330	239	func_0x0412e5e0,func_0x04909a40,wg_Editor__Services__EditorJigsawService__vslot4		00249_6141330.c
+Editor::Services::EditorJigsawService	4	0x5ea9cf0	43	func_0x05d84ba0,wg_Editor__Services__EditorJigsawService__vslot4		00243_5ea9cf0.c
+Editor::Services::EditorJigsawService	5	0x5ea9d20	43	func_0x05d84ba0,wg_Editor__Services__EditorJigsawService__vslot5		00249_5ea9d20.c
+Editor::Services::EditorJigsawService	5	0x61414b0	69	func_0x06339bd0,func_0x06339cc0,wg_Editor__Services__EditorJigsawService__vslot5		00244_61414b0.c
+Editor::Services::EditorJigsawService	6	0x6146450	4952	func_0x0412a280,func_0x0412c2d0,func_0x0412c300,func_0x0412e5e0,func_0x0488f040,func_0x04890760,func_0x048bed00,func_0x04909a40,func_0x049e9990,func_0x05f95d30,func_0x06242c50,func_0x06242ca0		00250_6146450.c
+Editor::Services::EditorJigsawService	6	0x6140ed0	43	func_0x05d84ba0,wg_Editor__Services__EditorJigsawService__vslot6		00244_6140ed0.c
+Editor::Services::EditorJigsawService	7	0x6141640	121	func_0x06339bd0,func_0x06339cc0,func_0x0633a090,wg_Editor__Services__EditorJigsawService__vslot7		00250_6141640.c
+Editor::Services::EditorJigsawService	7	0x6140cd0	12	wg_Editor__Services__EditorJigsawService__vslot7		00097_6140cd0.c
+Editor::Services::EditorJigsawService	8	0x5ea9d50	20	wg_Editor__Services__EditorJigsawService__vslot8		00245_5ea9d50.c
+Editor::Services::EditorJigsawService	9	0x5ea9d70	12	wg_Editor__Services__EditorJigsawService__vslot9		00251_5ea9d70.c
+Editor::Services::EditorJigsawService	9	0x614e180	13	wg_Editor__Services__EditorJigsawService__vslot19,wg_Editor__Services__EditorJigsawService__vslot9		00251_614e180.c
+Editor::Services::EditorJigsawService	10	0x5ea9d80	7	wg_Editor__Services__EditorJigsawService__vslot10		00246_5ea9d80.c
+Editor::Services::EditorJigsawService	10	0x6141550	236	func_0x0412a280,func_0x05fb1340,func_0x0629d8f0,func_0x06339bd0,func_0x06339ef0,func_0x0d328aa0,wg_Editor__Services__EditorJigsawService__vslot10		00245_6141550.c
+Editor::Services::EditorJigsawService	11	0x6140f00	203	func_0x04882e30,func_0x0eee2e90,func_0x0eee2ee0,wg_Editor__Services__EditorJigsawService__vslot11		00252_6140f00.c
+Editor::Services::EditorJigsawService	11	0x614e3a0	4	func_0x0412c2d0,func_0x0412c300,func_0x0bc62290,func_0x0cb18130,func_0x0cf09210,wg_Editor__Services__EditorJigsawService__vslot11		00252_614e3a0.c
+Editor::Services::EditorJigsawService	12	0x61410a0	135	func_0x06339950,wg_Editor__Services__EditorJigsawService__vslot12		00247_61410a0.c
+Editor::Services::EditorJigsawService	12	0x614e4b0	17	wg_Editor__Services__EditorJigsawService__vslot12,wg_Editor__Services__EditorJigsawService__vslot21		00246_614e4b0.c
+Editor::Services::EditorJigsawService	13	0x6141200	239	func_0x0412e5e0,func_0x04909a40,wg_Editor__Services__EditorJigsawService__vslot13		00253_6141200.c
+Editor::Services::EditorJigsawService	13	0x614e5d0	17	func_0x0624e4d0,wg_Editor__Services__EditorJigsawService__vslot13		00253_614e5d0.c
+Editor::Services::EditorJigsawService	14	0x6141460	69	func_0x06339bd0,func_0x06339cc0,wg_Editor__Services__EditorJigsawService__vslot14		00248_6141460.c
+Editor::Services::EditorJigsawService	15	0x61415a0	121	func_0x06339bd0,func_0x06339cc0,func_0x0633a090,wg_Editor__Services__EditorJigsawService__vslot15		00247_61415a0.c
+Editor::Services::EditorJigsawService	16	0x61416e0	4944	func_0x0412a280,func_0x0412c2d0,func_0x0412c300,func_0x0488f040,func_0x04890760,func_0x048bed00,func_0x04909a40,func_0x049e9990,func_0x05f95d30,func_0x06242c50,func_0x06242ca0,func_0x06242cd0		00182_61416e0.c
+Editor::Services::EditorJigsawService	17	0x6141500	236	func_0x0412a280,func_0x05fb1340,func_0x0629d8f0,func_0x06339bd0,func_0x06339ef0,func_0x0d328aa0,wg_Editor__Services__EditorJigsawService__vslot17		00254_6141500.c
+Editor::Services::EditorJigsawService	19	0x614dde0	538	func_0x0412c2d0,func_0x0412c300,func_0x0624e010,func_0x0bc62290,func_0x0cb18130,wg_Editor__Services__EditorJigsawService__vslot19		00254_614dde0.c
+Editor::Services::EditorJigsawService	20	0x614e190	513	func_0x0412c2d0,func_0x0412c300,func_0x0bc62290,func_0x0cb18130,func_0x0cf09210,wg_Editor__Services__EditorJigsawService__vslot20		00249_614e190.c
+Editor::Services::EditorJigsawService	21	0x614e3b0	181	wg_Editor__Services__EditorJigsawService__vslot21		00248_614e3b0.c
+Editor::Services::EditorJigsawService	22	0x614e4d0	181	wg_Editor__Services__EditorJigsawService__vslot22		00255_614e4d0.c
+EditorCustomBiomeSource	0	0x48cac20	315	func_0x0495d8f0,func_0x049db5d0,func_0x049db610,func_0x0edf9c90,wg_EditorCustomBiomeSource__vslot0		00177_48cac20.c
+EditorCustomBiomeSource	1	0x48cad70	22	func_0x049cac20,wg_EditorCustomBiomeSource__vslot1		00177_48cad70.c
+EditorCustomBiomeSource	2	0x485d330	7	wg_EditorCustomBiomeSource__vslot2		00183_485d330.c
+EditorCustomBiomeSource	3	0x485d340	4	wg_EditorCustomBiomeSource__vslot3		00183_485d340.c
+EditorCustomBiomeSource	4	0x485d350	4	wg_EditorCustomBiomeSource__vslot4		00178_485d350.c
+EditorCustomBiomeSource	5	0x485d360	51	wg_EditorCustomBiomeSource__vslot5		00178_485d360.c
+EditorCustomBiomeSource	6	0x485d3a0	296	func_0x0eee2ff0,wg_EditorCustomBiomeSource__vslot6		00184_485d3a0.c
+EditorCustomBiomeSource	7	0x485d4d0	255	func_0x0495c870,func_0x0495d5f0,func_0x049db5d0,func_0x049db6c0,wg_EditorCustomBiomeSource__vslot7		00184_485d4d0.c
+EditorCustomBiomeSource	8	0x485d750	337	func_0x0412c2d0,func_0x0412c300,func_0x049db6c0,func_0x0edf92e0,wg_EditorCustomBiomeSource__vslot8		00179_485d750.c
+EditorCustomBiomeSource	9	0x485d790	184	wg_EditorCustomBiomeSource__vslot9		00179_485d790.c
+EditorJigsawStructureLoader	1	0x619d9c0	22	func_0x0d3086c0,wg_EditorJigsawStructureLoader__vslot1		00202_619d9c0.c
+FeatureRegistryPacket	0	0x84c9050	164	func_0x0412a280,wg_FeatureRegistryPacket__vslot0		00255_84c9050.c
+FeatureRegistryPacket	1	0x84c9100	160	wg_FeatureRegistryPacket__vslot1		00250_84c9100.c
+FeatureRegistryPacket	2	0x84858c0	5	wg_FeatureRegistryPacket__vslot2		00249_84858c0.c
+FeatureRegistryPacket	3	0x84858d0	12	wg_FeatureRegistryPacket__vslot3		00256_84858d0.c
+FeatureRegistryPacket	4	0x84863d0	5	wg_FeatureRegistryPacket__vslot4		00256_84863d0.c
+FeatureRegistryPacket	6	0x8485900	1095	func_0x0412c2d0,func_0x04882e20,func_0x048b0de0,func_0x048ffe50,func_0x0ed6b850,func_0x0ed6c040,func_0x0eee2d70,wg_FeatureRegistryPacket__vslot6		00251_8485900.c
+FeatureRegistryPacket	7	0x8485ad0	10	wg_FeatureRegistryPacket__vslot7		00250_8485ad0.c
+FeatureRegistryPacket	8	0x8486040	463	func_0x0412a280,func_0x0412c2d0,func_0x048af640,func_0x048b0f50,func_0x08586280,wg_FeatureRegistryPacket__vslot8		00257_8486040.c
+FeatureRegistryPacket	9	0x8485ae0	942	func_0x0412a280,func_0x0412dc70,func_0x048b3e80,func_0x048e6d60,func_0x08585ec0,func_0x08585f80,func_0x0ee06fa0,wg_FeatureRegistryPacket__vslot9		00257_8485ae0.c
+FeatureRegistryPacket	11	0x84863b0	2	wg_FeatureRegistryPacket__vslot11		00252_84863b0.c
+FeatureRegistryPacket	12	0x84863c0	2	wg_FeatureRegistryPacket__vslot12		00251_84863c0.c
+FeatureRegistryPacket	13	0x84858e0	3	wg_FeatureRegistryPacket__vslot13		00258_84858e0.c
+FeatureRegistryPacket	14	0x84858f0	3	wg_FeatureRegistryPacket__vslot14		00258_84858f0.c
+FeatureRegistryPacket	15	0x8487ac0	1388	func_0x0412c2d0,func_0x048af640,func_0x048b0de0,func_0x048b0f50,func_0x048e6440,func_0x048e65b0,func_0x08586280,func_0x0ed6b850,func_0x0eec74c0,wg_FeatureRegistryPacket__vslot15		00253_8487ac0.c
+FeatureRegistryPacket	16	0x8486630	4956	func_0x0412a280,func_0x0412dc70,func_0x0470d9a0,func_0x04891200,func_0x0489d2c0,func_0x048b3e80,func_0x048e6d60,func_0x05ff1910,func_0x08585810,func_0x08589120,func_0x08625950,func_0x08625fe0		00252_8486630.c
+FeatureRegistryPacket	17	0x84863e0	475	func_0x0412a280,func_0x0412c2d0,func_0x048af640,func_0x048b0f50,func_0x08586280,wg_FeatureRegistryPacket__vslot17		00259_84863e0.c
+FixedBiomeSource	0	0xc759aa0	0	wg_FixedBiomeSource__vslot0		00185_c759aa0.c
+FixedBiomeSource	1	0xc759ab0	9	wg_FixedBiomeSource__vslot1		00185_c759ab0.c
+FixedBiomeSource	2	0xc74fdd0	13	wg_FixedBiomeSource__vslot2		00180_c74fdd0.c
+FixedBiomeSource	3	0xc74fde0	10	wg_FixedBiomeSource__vslot3		00027_c74fde0.c
+FixedBiomeSource	4	0xc751460	2127	func_0x0412a280,func_0x04890760,func_0x0cada270,func_0x0cafcfe0,func_0x0cb14930,wg_FixedBiomeSource__vslot4		00180_c751460.c
+FixedBiomeSource	5	0xc751640	13	func_0x0c851650,wg_FixedBiomeSource__vslot5		00186_c751640.c
+FixedBiomeSource	6	0xc751650	372	func_0x0c859e50,wg_FixedBiomeSource__vslot6		00186_c751650.c
+FixedBiomeSource	7	0xc7515b0	117	wg_FixedBiomeSource__vslot7		00181_c7515b0.c
+FixedBiomeSource	8	0xc751800	14	wg_FixedBiomeSource__vslot8		00181_c751800.c
+FixedBiomeSource	9	0xc751810	14	wg_FixedBiomeSource__vslot9		00187_c751810.c
+FixedBiomeSource	10	0xc751820	5	wg_FixedBiomeSource__vslot10		00187_c751820.c
+FixedBiomeSource	11	0xc751630	4	wg_FixedBiomeSource__vslot11		00182_c751630.c
+FlatWorldGenerator	0	0xd2c37d0	96	func_0x0412a280,func_0x0412c2d0,func_0x0412c300,func_0x04136a00,func_0x0d352b40,func_0x0eee11d0,wg_FlatWorldGenerator__vslot0		00120_d2c37d0.c
+FlatWorldGenerator	0	0xd2c38b0	142	func_0x0412a280,func_0x0412c2d0,func_0x0412c300,func_0x04136a00,func_0x0d352b40,func_0x0eee11d0,wg_FlatWorldGenerator__vslot0		00119_d2c38b0.c
+FlatWorldGenerator	1	0xd2c3840	109	wg_FlatWorldGenerator__vslot1,wg_WorldGenerator__vslot0		00116_d2c3840.c
+FlatWorldGenerator	1	0xd2c3920	122	func_0x0ca70460,wg_FlatWorldGenerator__vslot1		00116_d2c3920.c
+FlatWorldGenerator	10	0xd2a4db0	2	wg_FlatWorldGenerator__vslot10		00121_d2a4db0.c
+FlatWorldGenerator	11	0xd2a4dc0	1064	func_0x0412a280,func_0x0412c2d0,func_0x0412d550,func_0x0412d610,func_0x0412d6b0,func_0x0c9d0c10,func_0x0c9d0f40,func_0x0ca8a1f0,func_0x0cafd630,func_0x0d2279e0,func_0x0d50a850,func_0x0ee4a030		00120_d2a4dc0.c
+FlatWorldGenerator	15	0xd2a46a0	1699	func_0x04108328,func_0x0412c2d0,func_0x0cada270,func_0x0cadd930,func_0x0cae0970,func_0x0cae2040,func_0x0cae88c0,func_0x0cafad60,func_0x0d3c59d0,wg_FlatWorldGenerator__vslot15		00117_d2a46a0.c
+FlatWorldGenerator	42	0xd2a5240	21	wg_FlatWorldGenerator__vslot42		00117_d2a5240.c
+FlatWorldGenerator	43	0xd2a5260	2	wg_FlatWorldGenerator__vslot43		00122_d2a5260.c
+FlatWorldGenerator	44	0xd2a5270	2	wg_FlatWorldGenerator__vslot44		00121_d2a5270.c
+FlatWorldGenerator	46	0xd2a5ae0	0	wg_FlatWorldGenerator__vslot46		00118_d2a5ae0.c
+FlatWorldGenerator	47	0xd2a5280	2070	func_0x0eeddcf0,wg_FlatWorldGenerator__vslot47		00118_d2a5280.c
+FlatWorldGenerator	48	0xd2a5b10	47	func_0x0c851650,wg_FlatWorldGenerator__vslot48		00123_d2a5b10.c
+FlatWorldGenerator	49	0xd2a5b50	7	wg_FlatWorldGenerator__vslot49		00122_d2a5b50.c
+FlatWorldGenerator	50	0xd2a5b60	25	wg_FlatWorldGenerator__vslot50		00119_d2a5b60.c
+FlatWorldGenerator	51	0xd2a5b40	12	wg_FlatWorldGenerator__vslot51		00119_d2a5b40.c
+FlatWorldGenerator	55	0xd2a5af0	0	wg_FlatWorldGenerator__vslot55		00124_d2a5af0.c
+FlatWorldGenerator	56	0xd2a5b00	0	wg_FlatWorldGenerator__vslot56		00123_d2a5b00.c
+FrozenNoiseBasedBiomeComponentGlue	1	0x5258950	9	wg_FrozenNoiseBasedBiomeComponentGlue__vslot1		00259_5258950.c
+FrozenNoiseBasedBiomeComponentGlue	2	0x5250110	2	wg_FrozenNoiseBasedBiomeComponentGlue__vslot2		00254_5250110.c
+FrozenNoiseBasedBiomeComponentGlue	3	0x5250120	710	func_0x04108328,func_0x0410844d,func_0x04882eb0,func_0x04890760,func_0x049cff50,func_0x0eec74c0,wg_FrozenNoiseBasedBiomeComponentGlue__vslot3		00253_5250120.c
+JigsawBlock	0	0xc5e1d20	1643	func_0x0412c2d0,func_0x04136a00,func_0x0c6e2a10,func_0x0c6e2a40,wg_JigsawBlock__vslot0		00120_c5e1d20.c
+JigsawBlock	1	0xc55c710	22	func_0x0c6e1d20,wg_JigsawBlock__vslot1		00260_c55c710.c
+JigsawBlock	2	0xc5c9a10	87	wg_JigsawBlock__vslot2		00260_c5c9a10.c
+JigsawBlock	3	0xc5c9ae0	573	func_0x0412c2d0,func_0x0c9eac40,wg_JigsawBlock__vslot3		00255_c5c9ae0.c
+JigsawBlock	4	0xc5c9d20	552	func_0x0c8452b0,func_0x0cd4eb50,wg_JigsawBlock__vslot4		00254_c5c9d20.c
+JigsawBlock	5	0xc5c9f50	93	wg_JigsawBlock__vslot5		00261_c5c9f50.c
+JigsawBlock	6	0xc5c9fb0	371	func_0x0766a830,func_0x0c8452b0,func_0x0cd4eb50,func_0x0ce4aab0,func_0x0eee4390,wg_JigsawBlock__vslot6		00261_c5c9fb0.c
+JigsawBlock	7	0xc5ca310	365	func_0x0766a830,func_0x0c8452b0,func_0x0cd4eb50,func_0x0ce4aab0,func_0x0eee4390,wg_JigsawBlock__vslot7		00256_c5ca310.c
+JigsawBlock	8	0xc5ca480	318	func_0x0c8452b0,func_0x0cd4eb50,wg_JigsawBlock__vslot8		00255_c5ca480.c
+JigsawBlock	9	0xc5ca650	11	wg_JigsawBlock__vslot9		00262_c5ca650.c
+JigsawBlock	10	0xc5ca660	7	wg_JigsawBlock__vslot10		00262_c5ca660.c
+JigsawBlock	11	0xc5ca670	8	wg_JigsawBlock__vslot11		00257_c5ca670.c
+JigsawBlock	12	0xc5ca680	408	wg_JigsawBlock__vslot12		00256_c5ca680.c
+JigsawBlock	13	0xc5cf050	4	wg_JigsawBlock__vslot13		00263_c5cf050.c
+JigsawBlock	14	0xc5cbb30	66	func_0x0c8452b0,func_0x0cd4eb50,wg_JigsawBlock__vslot14		00263_c5cbb30.c
+JigsawBlock	15	0xc5cbda0	0	wg_JigsawBlock__vslot15		00258_c5cbda0.c
+JigsawBlock	16	0xc5cbdb0	0	wg_JigsawBlock__vslot16		00257_c5cbdb0.c
+JigsawBlock	17	0x523db90	2	wg_JigsawBlock__vslot17		00264_523db90.c
+JigsawBlock	18	0xc5cbc10	33	wg_JigsawBlock__vslot18		00264_c5cbc10.c
+JigsawBlock	19	0xc5cbd00	2171	func_0x0cd56a20,wg_JigsawBlock__vslot19		00259_c5cbd00.c
+JigsawBlock	20	0x523dba0	2	wg_JigsawBlock__vslot20		00258_523dba0.c
+JigsawBlock	21	0x523dbb0	2	wg_JigsawBlock__vslot21		00265_523dbb0.c
+JigsawBlock	22	0xc5cecf0	2	wg_JigsawBlock__vslot22		00265_c5cecf0.c
+JigsawBlock	23	0xc5ced00	2	wg_JigsawBlock__vslot23		00260_c5ced00.c
+JigsawBlock	24	0xc5ced10	2	wg_JigsawBlock__vslot24		00259_c5ced10.c
+JigsawBlock	25	0xc5ced30	36	wg_JigsawBlock__vslot25		00266_c5ced30.c
+JigsawBlock	26	0xc5ced70	2	wg_JigsawBlock__vslot26		00266_c5ced70.c
+JigsawBlock	27	0xc5ced80	2	wg_JigsawBlock__vslot27		00261_c5ced80.c
+JigsawBlock	28	0xc5ced90	2	wg_JigsawBlock__vslot28		00260_c5ced90.c
+JigsawBlock	29	0xc5ceda0	2	wg_JigsawBlock__vslot29		00267_c5ceda0.c
+JigsawBlock	30	0xc5cedb0	2	wg_JigsawBlock__vslot30		00267_c5cedb0.c
+JigsawBlock	31	0xc5cedc0	2	wg_JigsawBlock__vslot31		00262_c5cedc0.c
+JigsawBlock	32	0xc5cedd0	2	wg_JigsawBlock__vslot32		00261_c5cedd0.c
+JigsawBlock	33	0xc5cede0	2	wg_JigsawBlock__vslot33		00268_c5cede0.c
+JigsawBlock	34	0xc5cedf0	2	wg_JigsawBlock__vslot34		00268_c5cedf0.c
+JigsawBlock	35	0xc5cc060	2	wg_JigsawBlock__vslot35		00263_c5cc060.c
+JigsawBlock	36	0xc5cc070	2	wg_JigsawBlock__vslot36		00262_c5cc070.c
+JigsawBlock	37	0xc5cc0a0	9	wg_JigsawBlock__vslot37		00269_c5cc0a0.c
+JigsawBlock	38	0xc5cc0b0	2	wg_JigsawBlock__vslot38		00269_c5cc0b0.c
+JigsawBlock	39	0x523dbc0	2	wg_JigsawBlock__vslot39		00264_523dbc0.c
+JigsawBlock	40	0x523dbd0	2	wg_JigsawBlock__vslot40		00263_523dbd0.c
+JigsawBlock	41	0x523dbe0	3	wg_JigsawBlock__vslot41		00270_523dbe0.c
+JigsawBlock	42	0x523dbf0	0	wg_JigsawBlock__vslot42		00270_523dbf0.c
+JigsawBlock	43	0xc5cc0c0	2	wg_JigsawBlock__vslot43		00265_c5cc0c0.c
+JigsawBlock	44	0xc5cc0d0	10	wg_JigsawBlock__vslot44		00264_c5cc0d0.c
+JigsawBlock	45	0xc5d0c50	2	wg_JigsawBlock__vslot45		00271_c5d0c50.c
+JigsawBlock	46	0x523dc00	0	wg_JigsawBlock__vslot46		00271_523dc00.c
+JigsawBlock	47	0xc5cdc10	72	func_0x04fa7a10,wg_JigsawBlock__vslot47		00266_c5cdc10.c
+JigsawBlock	48	0xc5ce1f0	10	wg_JigsawBlock__vslot48		00265_c5ce1f0.c
+JigsawBlock	49	0xc5ce200	2	wg_JigsawBlock__vslot49		00272_c5ce200.c
+JigsawBlock	50	0xc5ce210	2	wg_JigsawBlock__vslot50		00272_c5ce210.c
+JigsawBlock	51	0xc5ce5d0	0	wg_JigsawBlock__vslot51		00267_c5ce5d0.c
+JigsawBlock	52	0x523dc10	0	wg_JigsawBlock__vslot52		00266_523dc10.c
+JigsawBlock	53	0x523dc20	2	wg_JigsawBlock__vslot53		00273_523dc20.c
+JigsawBlock	54	0xc5ce5e0	0	wg_JigsawBlock__vslot54		00273_c5ce5e0.c
+JigsawBlock	55	0xc5ce5f0	0	wg_JigsawBlock__vslot55		00268_c5ce5f0.c
+JigsawBlock	56	0x523dc30	0	wg_JigsawBlock__vslot56		00267_523dc30.c
+JigsawBlock	57	0x523dc40	2	wg_JigsawBlock__vslot57		00274_523dc40.c
+JigsawBlock	58	0xc5ce600	2	wg_JigsawBlock__vslot58		00274_c5ce600.c
+JigsawBlock	59	0xc5ce610	2	wg_JigsawBlock__vslot59		00269_c5ce610.c
+JigsawBlock	60	0xc5ce640	2	wg_JigsawBlock__vslot60		00268_c5ce640.c
+JigsawBlock	61	0xc5ce650	2	wg_JigsawBlock__vslot61		00275_c5ce650.c
+JigsawBlock	62	0xc5ce660	2	wg_JigsawBlock__vslot62		00275_c5ce660.c
+JigsawBlock	63	0xc5ce670	2	wg_JigsawBlock__vslot63		00270_c5ce670.c
+JigsawBlock	64	0xc5cbf70	2	wg_JigsawBlock__vslot64		00269_c5cbf70.c
+JigsawBlock	65	0xc5cbf80	8	wg_JigsawBlock__vslot65		00276_c5cbf80.c
+JigsawBlock	66	0xc5cddd0	11	wg_JigsawBlock__vslot66		00276_c5cddd0.c
+JigsawBlock	67	0xc5cdd20	162	wg_JigsawBlock__vslot67		00271_c5cdd20.c
+JigsawBlock	68	0xc5cdd10	2	wg_JigsawBlock__vslot68		00270_c5cdd10.c
+JigsawBlock	69	0xc5cdde0	139	wg_JigsawBlock__vslot69		00277_c5cdde0.c
+JigsawBlock	70	0xc5cde70	2	wg_JigsawBlock__vslot70		00277_c5cde70.c
+JigsawBlock	71	0xc5cde80	2	wg_JigsawBlock__vslot71		00272_c5cde80.c
+JigsawBlock	72	0xc5cbb10	0	wg_JigsawBlock__vslot72		00271_c5cbb10.c
+JigsawBlock	73	0xc5cbb20	2	wg_JigsawBlock__vslot73		00278_c5cbb20.c
+JigsawBlock	74	0x523dc50	149	func_0x0c6cdef0,func_0x0cb18130,wg_JigsawBlock__vslot74		00278_523dc50.c
+JigsawBlock	75	0xc5ce1c0	2	wg_JigsawBlock__vslot75		00273_c5ce1c0.c
+JigsawBlock	76	0xc5ca820	418	func_0x0412c300,func_0x0c618c50,func_0x0cc422f0,func_0x0cc46520,func_0x0cc465d0,wg_JigsawBlock__vslot76		00272_c5ca820.c
+JigsawBlock	77	0xc5cb4d0	824	func_0x0412a280,func_0x0c44ed40,func_0x0c44ee60,func_0x0c44f180,func_0x0c44f4e0,wg_JigsawBlock__vslot77		00279_c5cb4d0.c
+JigsawBlock	78	0xc5cb890	0	wg_JigsawBlock__vslot78		00279_c5cb890.c
+JigsawBlock	79	0xc556250	809	func_0x0eee4390,wg_JigsawBlock__vslot79		00274_c556250.c
+JigsawBlock	80	0xc5cc030	2	wg_JigsawBlock__vslot80		00273_c5cc030.c
+JigsawBlock	81	0xc5cc040	2	wg_JigsawBlock__vslot81		00280_c5cc040.c
+JigsawBlock	82	0xc5cc0e0	771	func_0x0410844d,func_0x0412c2d0,func_0x0c619bd0,func_0x0eec74c0,wg_JigsawBlock__vslot82		00280_c5cc0e0.c
+JigsawBlock	83	0xc5cc510	61	func_0x0cdbf900,wg_JigsawBlock__vslot83		00275_c5cc510.c
+JigsawBlock	84	0xc5cc550	498	func_0x04108328,func_0x0410844d,wg_JigsawBlock__vslot84		00274_c5cc550.c
+JigsawBlock	85	0x523dcf0	147	func_0x0cb18130,wg_JigsawBlock__vslot85		00281_523dcf0.c
+JigsawBlock	86	0xc5cd1a0	2	wg_JigsawBlock__vslot86		00281_c5cd1a0.c
+JigsawBlock	87	0xc5ce6a0	807	func_0x04882eb0,func_0x0c6e2960,func_0x0c8bed80,func_0x0c8cca10,func_0x0caf8020,func_0x0eec74c0,func_0x0eeddcf0,func_0x0eee2d70,func_0x0eee2f00,wg_JigsawBlock__vslot87		00276_c5ce6a0.c
+JigsawBlock	88	0xc5cf380	598	func_0x0412a280,func_0x0412c300,func_0x0c9dcae0,func_0x0eee4390,wg_JigsawBlock__vslot88		00275_c5cf380.c
+JigsawBlock	89	0xc5cf5e0	2	wg_JigsawBlock__vslot89		00282_c5cf5e0.c
+JigsawBlock	90	0xc5cf350	2	wg_JigsawBlock__vslot90		00282_c5cf350.c
+JigsawBlock	91	0xc5cf360	2	wg_JigsawBlock__vslot91		00277_c5cf360.c
+JigsawBlock	92	0xc5cf370	2	wg_JigsawBlock__vslot92		00276_c5cf370.c
+JigsawBlock	93	0xc5c8850	12	wg_JigsawBlock__vslot93		00283_c5c8850.c
+JigsawBlock	94	0xc5c8870	2	wg_JigsawBlock__vslot94		00283_c5c8870.c
+JigsawBlock	95	0xc5c88a0	2	wg_JigsawBlock__vslot95		00278_c5c88a0.c
+JigsawBlock	96	0xc5c88b0	0	wg_JigsawBlock__vslot96		00277_c5c88b0.c
+JigsawBlock	97	0xc5c88c0	2	wg_JigsawBlock__vslot97		00284_c5c88c0.c
+JigsawBlock	98	0xc5ccf10	247	func_0x04882e30,func_0x0eec74c0,func_0x0eee2ee0,wg_JigsawBlock__vslot98		00284_c5ccf10.c
+JigsawBlock	99	0xc5cc050	2	wg_JigsawBlock__vslot99		00279_c5cc050.c
+JigsawBlock	100	0xc5ce1d0	22	wg_JigsawBlock__vslot100		00278_c5ce1d0.c
+JigsawBlock	101	0xc5cf5f0	53	wg_JigsawBlock__vslot101		00285_c5cf5f0.c
+JigsawBlock	102	0xc5cdcb0	32	wg_JigsawBlock__vslot102		00285_c5cdcb0.c
+JigsawBlock	103	0xc5cdc90	7	wg_JigsawBlock__vslot103		00280_c5cdc90.c
+JigsawBlock	104	0xc5cdca0	2	wg_JigsawBlock__vslot104		00279_c5cdca0.c
+JigsawBlock	105	0xc555620	720	wg_JigsawBlock__vslot105		00286_c555620.c
+JigsawBlock	106	0xc555900	1025	func_0x0b5ab100,wg_JigsawBlock__vslot106		00286_c555900.c
+JigsawBlock	107	0xc555d10	1332	func_0x0b5ab100,wg_JigsawBlock__vslot107		00281_c555d10.c
+JigsawBlock	108	0xc5c9a80	0	wg_JigsawBlock__vslot108		00280_c5c9a80.c
+JigsawBlock	109	0xc5c9a90	0	wg_JigsawBlock__vslot109		00287_c5c9a90.c
+JigsawBlock	110	0x523dd90	2	wg_JigsawBlock__vslot110		00287_523dd90.c
+JigsawBlock	111	0xc5cfbd0	2	wg_JigsawBlock__vslot111		00282_c5cfbd0.c
+JigsawBlock	112	0xc5d0330	2	wg_JigsawBlock__vslot112		00281_c5d0330.c
+JigsawBlock	113	0xc5d0340	2	wg_JigsawBlock__vslot113		00288_c5d0340.c
+JigsawBlock	114	0xc5d03c0	0	wg_JigsawBlock__vslot114		00288_c5d03c0.c
+JigsawBlock	115	0xc5ce220	776	func_0x04882eb0,func_0x0d1656c0,func_0x0d175fd0,func_0x0d176e40,func_0x0d177090,func_0x0eec74c0,wg_JigsawBlock__vslot115		00283_c5ce220.c
+JigsawBlock	116	0xc5ce2b0	0	wg_JigsawBlock__vslot116		00282_c5ce2b0.c
+JigsawBlock	117	0xc5ce410	0	wg_JigsawBlock__vslot117		00289_c5ce410.c
+JigsawBlock	118	0xc5ce2c0	2	wg_JigsawBlock__vslot118		00289_c5ce2c0.c
+JigsawBlock	119	0xc555610	2	wg_JigsawBlock__vslot119		00284_c555610.c
+JigsawBlock	120	0xc5cbf90	2	wg_JigsawBlock__vslot120		00283_c5cbf90.c
+JigsawBlock	121	0xc5cc4d0	2	wg_JigsawBlock__vslot121		00290_c5cc4d0.c
+JigsawBlock	122	0xc5cf010	7	wg_JigsawBlock__vslot122		00290_c5cf010.c
+JigsawBlock	123	0xc5cf030	2	wg_JigsawBlock__vslot123		00285_c5cf030.c
+JigsawBlock	124	0xc5cf040	7	wg_JigsawBlock__vslot124		00284_c5cf040.c
+JigsawBlock	125	0xc5cfe10	3	wg_JigsawBlock__vslot125		00291_c5cfe10.c
+JigsawBlock	126	0xc5cfe20	7	wg_JigsawBlock__vslot126		00291_c5cfe20.c
+JigsawBlock	127	0xc5cfe30	7	wg_JigsawBlock__vslot127		00286_c5cfe30.c
+JigsawBlockActor	0	0xcd3e620	4	wg_JigsawBlockActor__vslot0		00292_cd3e620.c
+JigsawBlockActor	0	0xcd3e630	4	wg_JigsawBlockActor__vslot0		00292_cd3e630.c
+JigsawBlockActor	0	0xcd3e640	4	wg_JigsawBlockActor__vslot0		00287_cd3e640.c
+JigsawBlockActor	0	0xce33660	460	func_0x0412a280,wg_JigsawBlockActor__vslot0		00285_ce33660.c
+JigsawBlockActor	1	0xcd3e6c0	4	wg_JigsawBlockActor__vslot1		00293_cd3e6c0.c
+JigsawBlockActor	1	0xcd3e660	4	wg_JigsawBlockActor__vslot1		00293_cd3e660.c
+JigsawBlockActor	1	0xcd3e670	4	wg_JigsawBlockActor__vslot1		00288_cd3e670.c
+JigsawBlockActor	1	0xce33830	22	wg_JigsawBlockActor__vslot0,wg_JigsawBlockActor__vslot1		00286_ce33830.c
+JigsawBlockActor	2	0xcd3ea30	2	wg_JigsawBlockActor__vslot2		00294_cd3ea30.c
+JigsawBlockActor	2	0xcd3e690	4	wg_JigsawBlockActor__vslot2		00294_cd3e690.c
+JigsawBlockActor	2	0xcd3e6a0	4	wg_JigsawBlockActor__vslot2		00289_cd3e6a0.c
+JigsawBlockActor	2	0xce09160	848	func_0x0412a280,func_0x0412e5e0,func_0x04931450,func_0x09af1a10,func_0x0cf74830,func_0x0d3b00e0,func_0x0d6c97a0,func_0x0eee2d70,wg_JigsawBlockActor__vslot2		00287_ce09160.c
+JigsawBlockActor	3	0xcd3ea50	2	wg_JigsawBlockActor__vslot3		00295_cd3ea50.c
+JigsawBlockActor	3	0xcd3e6d0	4	wg_JigsawBlockActor__vslot3		00295_cd3e6d0.c
+JigsawBlockActor	3	0xcd3e6e0	4	wg_JigsawBlockActor__vslot3		00290_cd3e6e0.c
+JigsawBlockActor	3	0xce091b0	695	func_0x0412a280,func_0x0412e5e0,func_0x0cf74920,func_0x0d3b0940,func_0x0d6c9580,func_0x0d6c9880,func_0x0d6c9f40,wg_JigsawBlockActor__vslot3	0x13b0565  FilteredCustomName	00288_ce091b0.c
+JigsawBlockActor	4	0xcd3ea70	0	wg_JigsawBlockActor__vslot4		00296_cd3ea70.c
+JigsawBlockActor	4	0xcd3e700	4	wg_JigsawBlockActor__vslot4		00296_cd3e700.c
+JigsawBlockActor	4	0xcd3e9b0	65	wg_JigsawBlockActor__vslot4		00291_cd3e9b0.c
+JigsawBlockActor	4	0xce70000	102	func_0x0412a280,func_0x0eec74c0,wg_JigsawBlockActor__vslot4		00289_ce70000.c
+JigsawBlockActor	5	0xcd3eaa0	17	wg_JigsawBlockActor__vslot5		00297_cd3eaa0.c
+JigsawBlockActor	5	0xcd3e720	2	wg_JigsawBlockActor__vslot5		00297_cd3e720.c
+JigsawBlockActor	5	0xcd3ea10	3	wg_JigsawBlockActor__vslot5		00292_cd3ea10.c
+JigsawBlockActor	5	0xce75750	0	wg_JigsawBlockActor__vslot5		00290_ce75750.c
+JigsawBlockActor	6	0xce75760	0	wg_JigsawBlockActor__vslot6		00291_ce75760.c
+JigsawStructureDataPacket	0	0x835d080	150	wg_JigsawStructureDataPacket__vslot0		00197_835d080.c
+JigsawStructureDataPacket	1	0x835d0b0	51	func_0x0d6c9500,wg_JigsawStructureDataPacket__vslot1		00197_835d0b0.c
+JigsawStructureDataPacket	2	0x82e9b10	5	wg_JigsawStructureDataPacket__vslot2		00203_82e9b10.c
+JigsawStructureDataPacket	3	0x82e9b20	12	wg_JigsawStructureDataPacket__vslot3		00095_82e9b20.c
+JigsawStructureDataPacket	4	0x82ea530	5	wg_JigsawStructureDataPacket__vslot4		00203_82ea530.c
+JigsawStructureDataPacket	5	0x8a13c30	137	func_0x0412dc70,func_0x048e6d60,func_0x052bddf0,func_0x08b13cd0,wg_JigsawStructureDataPacket__vslot5		00102_8a13c30.c
+JigsawStructureDataPacket	6	0x82e9b50	916	func_0x0412c2d0,func_0x04882e20,func_0x048b0de0,func_0x048ffe50,func_0x0d6ba180,func_0x0ed6b850,func_0x0ed6c040,func_0x0eee2d70,wg_JigsawStructureDataPacket__vslot6		00198_82e9b50.c
+JigsawStructureDataPacket	7	0x82e9c30	10	wg_JigsawStructureDataPacket__vslot7		00198_82e9c30.c
+JigsawStructureDataPacket	8	0x82ea1a0	462	func_0x0412a280,func_0x0412c2d0,func_0x048af640,func_0x048b0f50,wg_JigsawStructureDataPacket__vslot8		00204_82ea1a0.c
+JigsawStructureDataPacket	9	0x82e9c40	942	func_0x0412a280,func_0x0412dc70,func_0x048b3e80,func_0x048e6d60,func_0x083ea020,func_0x083ea0e0,func_0x0ee06fa0,wg_JigsawStructureDataPacket__vslot9		00204_82e9c40.c
+JigsawStructureDataPacket	10	0x8a14040	830	func_0x0412dc70,func_0x048e6d60,func_0x052bddf0,func_0x08b14400,func_0x08b144c0,func_0x0ee06fa0,wg_JigsawStructureDataPacket__vslot10		00102_8a14040.c
+JigsawStructureDataPacket	11	0x82ea510	2	wg_JigsawStructureDataPacket__vslot11		00199_82ea510.c
+JigsawStructureDataPacket	12	0x82ea520	2	wg_JigsawStructureDataPacket__vslot12		00199_82ea520.c
+JigsawStructureDataPacket	13	0x82e9b30	3	wg_JigsawStructureDataPacket__vslot13		00205_82e9b30.c
+JigsawStructureDataPacket	14	0x82e9b40	3	wg_JigsawStructureDataPacket__vslot14		00205_82e9b40.c
+JigsawStructureDataPacket	15	0x82eb2d0	1388	func_0x0412c2d0,func_0x048af640,func_0x048b0de0,func_0x048b0f50,func_0x048e6440,func_0x048e65b0,func_0x083ea3e0,func_0x0ed6b850,func_0x0eec74c0,wg_JigsawStructureDataPacket__vslot15		00200_82eb2d0.c
+JigsawStructureDataPacket	16	0x82ea790	2708	func_0x0412a280,func_0x0489d2c0,func_0x048b3e80,func_0x048e6d60,func_0x083ed6d0,func_0x0848dd60,func_0x0848e3f0,func_0x0d6bd910,func_0x0d6c9500,wg_JigsawStructureDataPacket__vslot16		00200_82ea790.c
+JigsawStructureDataPacket	17	0x82ea540	474	func_0x0412a280,func_0x0412c2d0,func_0x048af640,func_0x048b0f50,wg_JigsawStructureDataPacket__vslot17		00206_82ea540.c
+JigsawStructureLoader	0	0xd2086c0	194	func_0x0412a280,func_0x049e9990,func_0x0d307a00,func_0x0d307d30,func_0x0d308060,func_0x0d308390,wg_JigsawStructureLoader__vslot0		00104_d2086c0.c
+JigsawStructureLoader	1	0xd208790	193	func_0x0412c2d0,func_0x049e9990,func_0x0d307a00,func_0x0d307d30,func_0x0d308060,func_0x0d308390,wg_JigsawStructureLoader__vslot1		00206_d208790.c
+JigsawStructurePostprocessAction	0	0xd1d9e30	68	wg_JigsawStructurePostprocessAction__vslot0		00201_d1d9e30.c
+JigsawStructurePostprocessAction	1	0xd1d9e80	91	func_0x0412a280,wg_JigsawStructurePostprocessAction__vslot1		00201_d1d9e80.c
+JigsawStructurePostprocessAction	2	0xd1cedd0	480	wg_JigsawStructurePostprocessAction__vslot2		00207_d1cedd0.c
+JigsawStructurePostprocessAction	3	0xd1cf130	3875	func_0x0412a280,func_0x0412c2d0,func_0x048b0de0,func_0x048ffe50,func_0x0cad6ff0,func_0x0d2c9c80,func_0x0d6bbef0,func_0x0d6c4240,func_0x0d6c9310,func_0x0d6c9500,func_0x0d6c9580,func_0x0ed6b850	0x11cb7e1  StructureSection | 0x14249aa  JigsawReplacement	00100_d1cf130.c
+JigsawStructurePostprocessAction	4	0xc9d7170	10	wg_JigsawStructurePostprocessAction__vslot4		00207_c9d7170.c
+MultinoiseGenerationRulesBiomeComponentGlue	0	0x5258ea0	0	wg_MultinoiseGenerationRulesBiomeComponentGlue__vslot0		00015_5258ea0.c
+MultinoiseGenerationRulesBiomeComponentGlue	1	0x5258970	9	wg_MultinoiseGenerationRulesBiomeComponentGlue__vslot1		00037_5258970.c
+MultinoiseGenerationRulesBiomeComponentGlue	2	0x5250780	2	wg_MultinoiseGenerationRulesBiomeComponentGlue__vslot2		00036_5250780.c
+MultinoiseGenerationRulesBiomeComponentGlue	3	0x5250790	753	func_0x0412c2d0,func_0x0412d450,func_0x0412d520,func_0x0412d550,func_0x0412d610,func_0x0412d680,func_0x0412d6b0,func_0x0488e200,func_0x0535d650,func_0x0eeb61d0,wg_MultinoiseGenerationRulesBiomeComponentGlue__vslot3		00020_5250790.c
+NoSurfaceOreFeature	3	0xd2e8ac0	125	func_0x0c4af9f0,wg_NoSurfaceOreFeature__vslot3		00102_d2e8ac0.c
+NoiseGradientBiomeSurfaceComponent	0	0x5248370	247	wg_NoiseGradientBiomeSurfaceComponent__vslot0		00202_5248370.c
+NoiseGradientBiomeSurfaceComponent	1	0x5248470	22	func_0x05348370,wg_NoiseGradientBiomeSurfaceComponent__vslot1		00202_5248470.c
+OverworldGenerationRulesBiomeComponentGlue	0	0x5258980	116	func_0x0412a280,wg_OverworldGenerationRulesBiomeComponentGlue__vslot0		00191_5258980.c
+OverworldGenerationRulesBiomeComponentGlue	1	0x5258a00	127	func_0x0412a280,wg_OverworldGenerationRulesBiomeComponentGlue__vslot1		00197_5258a00.c
+OverworldGenerationRulesBiomeComponentGlue	2	0x52511f0	1232	func_0x0488e200,func_0x05350ab0,func_0x05351760,func_0x0eeb79f0,wg_OverworldGenerationRulesBiomeComponentGlue__vslot2	0x1e366e0  minecraft:overworld_generation_rules | 0x1e366f0  rld_generation_rules | 0x1e36700  ules	00028_52511f0.c
+OverworldGenerationRulesBiomeComponentGlue	3	0x52518f0	1599	func_0x0412a280,func_0x0412c2d0,func_0x0412d450,func_0x0412d520,func_0x0412d550,func_0x0412d610,func_0x0412d680,func_0x0412d6b0,func_0x04882eb0,func_0x0488e200,func_0x04931450,func_0x049d00b0		00070_52518f0.c
+OverworldGenerator	0	0x517a6a0	46	func_0x0412a280,func_0x0412c2d0,func_0x0412c300,func_0x04136a00,func_0x0527a590,func_0x0d352b40,func_0x0eee11d0,wg_OverworldGenerator__vslot0		00023_517a6a0.c
+OverworldGenerator	0	0x517a670	45	func_0x0412a280,func_0x0412c300,func_0x04136a00,func_0x0527a590,func_0x0d352b40,func_0x0eee11d0,wg_OverworldGenerator__vslot0		00021_517a670.c
+OverworldGenerator	1	0x517a6d0	1	wg_OverworldGenerator__vslot1		00022_517a6d0.c
+OverworldGenerator	1	0x517a6e0	1	wg_OverworldGenerator__vslot1		00021_517a6e0.c
+OverworldGenerator2d	0	0x519bcd0	1104	func_0x0412a280,func_0x0412c2d0,func_0x0412c300,func_0x04136a00,func_0x0527a590,func_0x0d352b40,func_0x0eee11d0,wg_OverworldGenerator2d__vslot0		00029_519bcd0.c
+OverworldGenerator2d	0	0x519ba70	604	func_0x0412c2d0,func_0x0412c300,func_0x04136a00,func_0x0527a590,func_0x0d352b40,func_0x0eee11d0,wg_OverworldGenerator2d__vslot0		00020_519ba70.c
+OverworldGenerator2d	1	0x519bcb0	26	func_0x0529ba70,wg_OverworldGenerator2d__vslot1		00027_519bcb0.c
+OverworldGenerator2d	1	0x519bce0	29	wg_OverworldGenerator2d__vslot0,wg_OverworldGenerator2d__vslot1		00026_519bce0.c
+OverworldGenerator2d	49	0x5181620	7	wg_OverworldGenerator2d__vslot49		00028_5181620.c
+OverworldGenerator2d	51	0x51815f0	47	func_0x0c851100,wg_OverworldGenerator2d__vslot51		00027_51815f0.c
+OverworldGenerator2d	56	0x517e8e0	349	func_0x0412a280,func_0x0c8550b0,func_0x0eec74c0,wg_OverworldGenerator2d__vslot56		00028_517e8e0.c
+OverworldGenerator2d	57	0x5180730	13	func_0x0527f6c0,wg_OverworldGenerator2d__vslot57		00030_5180730.c
+OverworldGenerator2d	58	0x5181640	5	wg_OverworldGenerator2d__vslot58		00029_5181640.c
+OverworldGenerator2d	59	0x5181630	10	wg_OverworldGenerator2d__vslot59		00028_5181630.c
+OverworldGenerator2d	60	0x517ab20	10	wg_OverworldGenerator2d__vslot60		00015_517ab20.c
+OverworldGenerator2d	61	0x517a6f0	32	wg_OverworldGenerator2d__vslot61		00016_517a6f0.c
+OverworldGenerator2d	62	0x51815d0	7	wg_OverworldGenerator2d__vslot62		00029_51815d0.c
+OverworldGenerator2d	63	0x51815e0	7	wg_OverworldGenerator2d__vslot63		00031_51815e0.c
+OverworldGenerator2d	64	0x517ea80	2962	func_0x0412a280,func_0x04890760,func_0x0527f6c0,func_0x0ca729d0,func_0x0cc41df0,func_0x0d2ecea0,func_0x0d2ecfa0,func_0x0d2ee510,func_0x0d2ee730,func_0x0d2efee0,func_0x0d2f06a0,func_0x0eec74c0		00030_517ea80.c
+OverworldGeneratorMultinoise	0	0x5186800	326	func_0x0412a280,func_0x0412c2d0,func_0x0412c300,func_0x04136a00,func_0x049db610,func_0x0527a590,func_0x05286720,func_0x0d352b40,func_0x0eee11d0,wg_OverworldGeneratorMultinoise__vslot0		00021_5186800.c
+OverworldGeneratorMultinoise	0	0x5186930	489	func_0x0412a280,func_0x0412c300,func_0x04136a00,func_0x049db610,func_0x0527a590,func_0x05286720,func_0x0d352b40,func_0x0eee11d0,wg_OverworldGeneratorMultinoise__vslot0		00022_5186930.c
+OverworldGeneratorMultinoise	1	0x5186960	33	wg_OverworldGeneratorMultinoise__vslot0,wg_OverworldGeneratorMultinoise__vslot1		00022_5186960.c
+OverworldGeneratorMultinoise	1	0x5186940	26	func_0x05286800,wg_OverworldGeneratorMultinoise__vslot1		00020_5186940.c
+OverworldGeneratorMultinoise	2	0x5188760	609	func_0x0417cc60,func_0x052586c0,func_0x05286980,func_0x0cad8200,func_0x0eee3820,wg_OverworldGeneratorMultinoise__vslot2		00024_5188760.c
+OverworldGeneratorMultinoise	10	0x517c470	1943	func_0x0412a280,func_0x0412d550,func_0x0412d610,func_0x0412d6b0,func_0x052a3830,func_0x052be680,func_0x0c9d0c10,func_0x0c9d0f40,func_0x0ca70f80,func_0x0ca72420,func_0x0ca8a1f0,func_0x0cb35860		00010_517c470.c
+OverworldGeneratorMultinoise	11	0x517cd10	6391	func_0x0412a280,func_0x0412c2d0,func_0x0412d550,func_0x0412d610,func_0x0412d6b0,func_0x04885070,func_0x052be680,func_0x052ce620,func_0x052ce810,func_0x052d8680,func_0x0c9028a0,func_0x0c902a10		00012_517cd10.c
+OverworldGeneratorMultinoise	15	0x517ab30	5706	func_0x0410844d,func_0x041086b0,func_0x041088a0,func_0x0412a280,func_0x0412bf30,func_0x04882e20,func_0x04a89150,func_0x04fa7a10,func_0x0527aaa0,func_0x0527c430,func_0x0c851900,func_0x0c855c80		00011_517ab30.c
+OverworldGeneratorMultinoise	39	0x5193840	90	func_0x0412c2d0,func_0x0525af30,wg_OverworldGeneratorMultinoise__vslot39		00023_5193840.c
+OverworldGeneratorMultinoise	40	0x5186a80	181	func_0x0412c2d0,func_0x0412d450,func_0x0412d520,func_0x0eee2dd0,wg_OverworldGeneratorMultinoise__vslot40		00022_5186a80.c
+OverworldGeneratorMultinoise	47	0x517a850	424	func_0x0d2eeb90,wg_OverworldGeneratorMultinoise__vslot47		00012_517a850.c
+OverworldGeneratorMultinoise	48	0x517aae0	51	wg_OverworldGeneratorMultinoise__vslot48		00011_517aae0.c
+OverworldGeneratorMultinoise	49	0x518a520	7	wg_OverworldGeneratorMultinoise__vslot49		00023_518a520.c
+OverworldGeneratorMultinoise	50	0x517a840	15	wg_OverworldGeneratorMultinoise__vslot50		00013_517a840.c
+OverworldGeneratorMultinoise	51	0x5188770	839	func_0x0412a280,func_0x04a43200,func_0x09c7abc0,func_0x0eee2f00,wg_OverworldGeneratorMultinoise__vslot51		00025_5188770.c
+OverworldGeneratorMultinoise	52	0x51884e0	601	func_0x0417cc60,func_0x052586c0,func_0x05286980,func_0x0cad8200,func_0x0eee3820,wg_OverworldGeneratorMultinoise__vslot52		00020_51884e0.c
+OverworldGeneratorMultinoise	54	0x5188460	93	func_0x0eeddcf0,wg_OverworldGeneratorMultinoise__vslot54		00024_5188460.c
+OverworldGeneratorMultinoise	55	0x517a720	256	func_0x0412a280,func_0x0488f040,func_0x0c855940,wg_OverworldGeneratorMultinoise__vslot55		00012_517a720.c
+OverworldGeneratorMultinoise	56	0x5181650	599	func_0x04882e20,func_0x0488f040,func_0x0c8550b0,func_0x0cafcfe0,func_0x0d2eeb90,func_0x0eee2d70,wg_OverworldGeneratorMultinoise__vslot56		00023_5181650.c
+OverworldGeneratorMultinoise	57	0x5187590	843	func_0x0412a280,func_0x05268e90,func_0x05286c70,func_0x05287930,func_0x0eec74c0,func_0x0eee2dd0,wg_OverworldGeneratorMultinoise__vslot57		00024_5187590.c
+OverworldGeneratorMultinoise	58	0x5187580	5	wg_OverworldGeneratorMultinoise__vslot58		00026_5187580.c
+OverworldGeneratorMultinoise	59	0x5186b50	224	wg_OverworldGeneratorMultinoise__vslot59		00025_5186b50.c
+OverworldGeneratorMultinoise	60	0x5186a90	158	func_0x052588d0,func_0x0eec74c0,wg_OverworldGeneratorMultinoise__vslot60		00024_5186a90.c
+OverworldGeneratorMultinoise	61	0x5186c40	40	func_0x05286c70,wg_OverworldGeneratorMultinoise__vslot61		00025_5186c40.c
+OverworldGeneratorMultinoise	62	0x51884c0	7	wg_OverworldGeneratorMultinoise__vslot62		00027_51884c0.c
+OverworldGeneratorMultinoise	63	0x51884d0	7	wg_OverworldGeneratorMultinoise__vslot63		00026_51884d0.c
+OverworldGeneratorMultinoise	64	0x5188b10	6189	func_0x0412a280,func_0x0412c2d0,func_0x04890760,func_0x05258c60,func_0x0525af30,func_0x05268e90,func_0x05287930,func_0x052bd680,func_0x0ca729d0,func_0x0cc41df0,func_0x0d2ecea0,func_0x0d2ecfa0	0x1198c10  333?	00021_5188b10.c
+SharedTypes::Beta::SurfaceBuilderBiomeJsonComponent	0	0xc7e7ff0	68	wg_SharedTypes__Beta__SurfaceBuilderBiomeJsonComponent__vslot0		00035_c7e7ff0.c
+SharedTypes::Beta::SurfaceBuilderBiomeJsonComponent	1	0xc7e8040	71	func_0x0412a280,wg_SharedTypes__Beta__SurfaceBuilderBiomeJsonComponent__vslot1		00038_c7e8040.c
+SharedTypes::v1_20_60::ClimateBiomeJsonComponent	1	0xe768960	36	wg_SharedTypes__v1_20_60__ClimateBiomeJsonComponent__vslot1		00054_e768960.c
+SharedTypes::v1_20_60::MultinoiseGenerationRulesBiomeJsonComponent	1	0xe76d070	9	wg_SharedTypes__v1_20_60__MultinoiseGenerationRulesBiomeJsonComponent__vslot1		00035_e76d070.c
+SharedTypes::v1_20_60::OverworldGenerationRulesBiomeJsonComponent	0	0xe76fff0	709	func_0x0412a280,wg_SharedTypes__v1_20_60__OverworldGenerationRulesBiomeJsonComponent__vslot0		00197_e76fff0.c
+SharedTypes::v1_20_60::OverworldGenerationRulesBiomeJsonComponent	1	0xe770300	22	func_0x0e86fff0,wg_SharedTypes__v1_20_60__OverworldGenerationRulesBiomeJsonComponent__vslot1		00192_e770300.c
+SharedTypes::v1_20_60::SurfaceMaterialAdjustmentsBiomeJsonComponent	0	0xe774880	205	func_0x0412a280,func_0x0e8733e0,wg_SharedTypes__v1_20_60__SurfaceMaterialAdjustmentsBiomeJsonComponent__vslot0		00208_e774880.c
+SharedTypes::v1_20_60::SurfaceMaterialAdjustmentsBiomeJsonComponent	1	0xe7748a0	63	func_0x0e8748d0,wg_SharedTypes__v1_20_60__SurfaceMaterialAdjustmentsBiomeJsonComponent__vslot1		00208_e7748a0.c
+SharedTypes::v1_21_100::FrozenNoiseBasedBiomeJsonComponent	0	0xc7d7690	0	wg_SharedTypes__v1_21_100__FrozenNoiseBasedBiomeJsonComponent__vslot0		00017_c7d7690.c
+SharedTypes::v1_21_100::SurfaceBuilderBiomeJsonComponent	0	0xe77c290	68	wg_SharedTypes__v1_21_100__SurfaceBuilderBiomeJsonComponent__vslot0		00037_e77c290.c
+SharedTypes::v1_21_100::SurfaceBuilderBiomeJsonComponent	1	0xe77c2e0	71	wg_SharedTypes__v1_21_100__SurfaceBuilderBiomeJsonComponent__vslot1		00036_e77c2e0.c
+SharedTypes::v1_21_80::BiomeReplacementConstraint	0	0xe1df5f0	3217	func_0x0410844d,func_0x0412a280,func_0x0440a3b0,func_0x0470d9a0,func_0x0488e200,func_0x053595a0,func_0x0e36ede0,func_0x0e370940,func_0x0ed5ef10,func_0x0ed5ffe0,func_0x0eec74c0,func_0x0eeddcf0	0x14e3ca0  minecraft:overwo | 0x14e91d0  ecraft:overworld	00082_e1df5f0.c
+SharedTypes::v1_21_80::BiomeReplacementConstraint	1	0xe1d4060	343	func_0x0eec74c0,wg_SharedTypes__v1_21_80__BiomeReplacementConstraint__vslot1		00099_e1d4060.c
+SharedTypes::v1_21_80::BiomeReplacementConstraint	2	0xe1e0430	4	wg_SharedTypes__v1_21_80__BiomeReplacementConstraint__vslot2		00203_e1e0430.c
+SharedTypes::v1_21_80::BiomeReplacementConstraint	3	0xe1e0440	4	wg_SharedTypes__v1_21_80__BiomeReplacementConstraint__vslot3		00203_e1e0440.c
+SharedTypes::v1_21_80::BiomeReplacementConstraint	5	0xe1e0450	36	wg_SharedTypes__v1_21_80__BiomeReplacementConstraint__vslot5		00209_e1e0450.c
+SharedTypes::v1_21_80::BiomeReplacementConstraint	7	0xe1e0460	64	func_0x0410844d,func_0x0e3b11d0,wg_SharedTypes__v1_21_80__BiomeReplacementConstraint__vslot7		00209_e1e0460.c
+SharedTypes::v1_26_0::BiomeReplacementConstraint	0	0xe055e60	3252	func_0x04108328,func_0x0412e5e0,func_0x0440a3b0,func_0x053595a0,func_0x0e177580,func_0x0e1790c0,func_0x0ed5ef10,func_0x0ed5ffe0,func_0x0eec74c0,func_0x0eeddcf0,func_0x0eee2f00,func_0x0eee2ff0	0x14e3ca0  minecraft:overwo | 0x14e91d0  ecraft:overworld | 0x14eaeb0  minecraft:nether	00096_e055e60.c
+SharedTypes::v1_26_0::BiomeReplacementConstraint	1	0xe032560	340	func_0x0470d9a0,wg_SharedTypes__v1_26_0__BiomeReplacementConstraint__vslot1		00096_e032560.c
+SharedTypes::v1_26_0::BiomeReplacementConstraint	2	0xe056cc0	4	wg_SharedTypes__v1_26_0__BiomeReplacementConstraint__vslot2		00204_e056cc0.c
+SharedTypes::v1_26_0::BiomeReplacementConstraint	3	0xe056cd0	4	wg_SharedTypes__v1_26_0__BiomeReplacementConstraint__vslot3		00204_e056cd0.c
+SharedTypes::v1_26_0::BiomeReplacementConstraint	4	0x764b410	0	wg_SharedTypes__v1_26_0__BiomeReplacementConstraint__vslot4		00103_764b410.c
+SharedTypes::v1_26_0::BiomeReplacementConstraint	5	0xe056ce0	9	wg_SharedTypes__v1_26_0__BiomeReplacementConstraint__vslot5		00210_e056ce0.c
+SharedTypes::v1_26_0::BiomeReplacementConstraint	6	0xec5f1e0	2	wg_SharedTypes__v1_26_0__BiomeReplacementConstraint__vslot6		00100_ec5f1e0.c
+SharedTypes::v1_26_0::BiomeReplacementConstraint	7	0xe056cf0	64	func_0x0410844d,func_0x0e20d100,wg_SharedTypes__v1_26_0__BiomeReplacementConstraint__vslot7		00210_e056cf0.c
+SharedTypes::v1_26_30::SurfaceBuilderBiomeJsonComponent	0	0xc7e48d0	68	wg_SharedTypes__v1_26_30__SurfaceBuilderBiomeJsonComponent__vslot0		00036_c7e48d0.c
+SharedTypes::v1_26_30::SurfaceBuilderBiomeJsonComponent	1	0xc7e4920	71	func_0x0412a280,wg_SharedTypes__v1_26_30__SurfaceBuilderBiomeJsonComponent__vslot1		00039_c7e4920.c
+StructurePoolBlockPredicateCappedRandomBlockReplacement	2	0xd234750	379	func_0x0eee2ff0,wg_StructurePoolBlockPredicateCappedRandomBlockReplacement__vslot2		00107_d234750.c
+StructurePoolBlockPredicateCappedRandomBlockReplacement	3	0xd2348f0	53	func_0x0412d680,func_0x0412d6b0,func_0x04f49170,wg_StructurePoolBlockPredicateCappedRandomBlockReplacement__vslot3		00106_d2348f0.c
+StructurePoolBlockPredicateCappedRandomBlockReplacement	7	0xd2349c0	414	func_0x0ee47730,wg_StructurePoolBlockPredicateCappedRandomBlockReplacement__vslot7		00103_d2349c0.c
+StructurePoolBlockPredicateCappedRandomBlockReplacement	8	0xd231480	652	func_0x0eee3000,wg_StructurePoolBlockPredicateCappedRandomBlockReplacement__vslot8		00103_d231480.c
+StructurePoolBlockPredicateCappedRandomBlockReplacement	9	0xd234b80	10	wg_StructurePoolBlockPredicateCappedRandomBlockReplacement__vslot9		00108_d234b80.c
+SurfaceBuilderBiomeComponentGlue	0	0x5258b90	270	func_0x0412a280,wg_SurfaceBuilderBiomeComponentGlue__vslot0		00033_5258b90.c
+SurfaceBuilderBiomeComponentGlue	1	0x5258cb0	22	func_0x05358b90,wg_SurfaceBuilderBiomeComponentGlue__vslot1		00032_5258cb0.c
+SurfaceBuilderBiomeComponentGlue	2	0x5253490	465	func_0x0488e200,func_0x04931450,wg_SurfaceBuilderBiomeComponentGlue__vslot2		00038_5253490.c
+SurfaceBuilderBiomeComponentGlue	3	0x5253670	684	func_0x04108328,func_0x0535db40,wg_SurfaceBuilderBiomeComponentGlue__vslot3		00037_5253670.c
+SurfaceBuilderComponent	0	0xc7bf330	0	wg_SurfaceBuilderComponent__vslot0		00040_c7bf330.c
+SurfaceBuilderComponent	1	0xc7bf340	9	wg_SurfaceBuilderComponent__vslot1		00040_c7bf340.c
+SurfaceMaterialAdjustmentsBiomeComponentGlue	0	0x5258cd0	193	wg_SurfaceMaterialAdjustmentsBiomeComponentGlue__vslot0		00205_5258cd0.c
+SurfaceMaterialAdjustmentsBiomeComponentGlue	1	0x5258db0	206	func_0x0412a280,wg_SurfaceMaterialAdjustmentsBiomeComponentGlue__vslot1		00205_5258db0.c
+SurfaceMaterialAdjustmentsBiomeComponentGlue	2	0x5253d60	2457	func_0x0412a280,func_0x04882eb0,func_0x0488e200,func_0x05353920,func_0x053547b0,func_0x05354920,func_0x0535b5d0,func_0x0b5bfbb0,func_0x0c8c0000,func_0x0eeb79f0,wg_SurfaceMaterialAdjustmentsBiomeComponentGlue__vslot2	0x1376c53  sea_floor_material | 0x145f54d  foundation_material | 0x159187c  world_gen | 0x1e367f0  minecraft:surface_material_adjustments | 0x1e36800  e_material_adjustments | 0x1e3680e  ustments	00101_5253d60.c
+SurfaceMaterialAdjustmentsBiomeComponentGlue	3	0x5254ab0	1842	func_0x0412a280,func_0x04882eb0,func_0x0488e200,func_0x04931450,func_0x0533f340,func_0x0533f350,func_0x0533f400,func_0x05355200,func_0x0535b5c0,func_0x0535dfa0,wg_SurfaceMaterialAdjustmentsBiomeComponentGlue__vslot3		00211_5254ab0.c
+VanillaSurfaceBuilders::CappedSurfaceBuilder	0	0xc759ae0	109	wg_VanillaSurfaceBuilders__CappedSurfaceBuilder__vslot0		00043_c759ae0.c
+VanillaSurfaceBuilders::CappedSurfaceBuilder	1	0xc759b50	114	func_0x0412a280,wg_VanillaSurfaceBuilders__CappedSurfaceBuilder__vslot1		00042_c759b50.c
+VanillaSurfaceBuilders::CappedSurfaceBuilder	2	0xc752060	411	func_0x0d341b00,func_0x0eec74c0,wg_VanillaSurfaceBuilders__CappedSurfaceBuilder__vslot2		00041_c752060.c
+VanillaSurfaceBuilders::CappedSurfaceBuilder	3	0xc752230	972	func_0x04108328,func_0x0410844d,func_0x0412a280,func_0x0d341b00,func_0x0eec74c0,wg_VanillaSurfaceBuilders__CappedSurfaceBuilder__vslot3		00041_c752230.c
+VanillaSurfaceBuilders::CappedSurfaceBuilder	4	0xc7522e0	133	func_0x04108328,func_0x0410844d,wg_VanillaSurfaceBuilders__CappedSurfaceBuilder__vslot4		00044_c7522e0.c
+VanillaSurfaceBuilders::CappedSurfaceBuilder	5	0xc752370	1852	func_0x0410844d,func_0x0d342930,func_0x0eec74c0,wg_VanillaSurfaceBuilders__CappedSurfaceBuilder__vslot5		00043_c752370.c
+VanillaSurfaceBuilders::CappedSurfaceBuilder	6	0xc752b10	2	wg_VanillaSurfaceBuilders__CappedSurfaceBuilder__vslot6		00042_c752b10.c
+VanillaSurfaceBuilders::CappedSurfaceBuilder::MaterialHelper	0	0xc759ac0	0	wg_VanillaSurfaceBuilders__CappedSurfaceBuilder__MaterialHelper__vslot0		00042_c759ac0.c
+VanillaSurfaceBuilders::CappedSurfaceBuilder::MaterialHelper	1	0xc759ad0	9	wg_VanillaSurfaceBuilders__CappedSurfaceBuilder__MaterialHelper__vslot1		00045_c759ad0.c
+VanillaSurfaceBuilders::CappedSurfaceBuilder::MaterialHelper	2	0xc751b50	238	func_0x0eee3000,wg_VanillaSurfaceBuilders__CappedSurfaceBuilder__MaterialHelper__vslot2		00044_c751b50.c
+VanillaSurfaceBuilders::CappedSurfaceBuilder::MaterialHelper	3	0xc751c40	425	func_0x0eee3000,wg_VanillaSurfaceBuilders__CappedSurfaceBuilder__MaterialHelper__vslot3		00043_c751c40.c
+VanillaSurfaceBuilders::CappedSurfaceBuilder::MaterialHelper	4	0xc751df0	425	func_0x0eee3000,wg_VanillaSurfaceBuilders__CappedSurfaceBuilder__MaterialHelper__vslot4		00043_c751df0.c
+VanillaSurfaceBuilders::CappedSurfaceBuilder::MaterialHelper	5	0xc751fa0	71	wg_VanillaSurfaceBuilders__CappedSurfaceBuilder__MaterialHelper__vslot5		00046_c751fa0.c
+VanillaSurfaceBuilders::LegacyMesaSurfaceBuilder	0	0x523d7a0	196	func_0x0412a280,wg_VanillaSurfaceBuilders__LegacyMesaSurfaceBuilder__vslot0		00045_523d7a0.c
+VanillaSurfaceBuilders::LegacyMesaSurfaceBuilder	1	0x523d870	201	wg_VanillaSurfaceBuilders__LegacyMesaSurfaceBuilder__vslot1		00044_523d870.c
+VanillaSurfaceBuilders::LegacyMesaSurfaceBuilder	2	0x51f0d20	1437	func_0x0412a280,func_0x0eec74c0,func_0x0eee2dd0,wg_VanillaSurfaceBuilders__LegacyMesaSurfaceBuilder__vslot2		00044_51f0d20.c
+VanillaSurfaceBuilders::LegacyMesaSurfaceBuilder	3	0x51f1390	354	func_0x04108328,func_0x0410844d,func_0x05346af0,func_0x0c852bf0,func_0x0cc41df0,wg_VanillaSurfaceBuilders__LegacyMesaSurfaceBuilder__vslot3		00047_51f1390.c
+VanillaSurfaceBuilders::LegacyMesaSurfaceBuilder	4	0x51f1500	267	func_0x0410844d,wg_VanillaSurfaceBuilders__LegacyMesaSurfaceBuilder__vslot4		00046_51f1500.c
+VanillaSurfaceBuilders::LegacyMesaSurfaceBuilder	5	0x51f0250	2474	func_0x04108328,func_0x052f0c00,func_0x05355710,func_0x0d2eb5d0,func_0x0d343da0,func_0x0eee3810,func_0x0eee43a0,wg_VanillaSurfaceBuilders__LegacyMesaSurfaceBuilder__vslot5		00045_51f0250.c
+VanillaSurfaceBuilders::LegacyMesaSurfaceBuilder	6	0x51f0d10	2	wg_VanillaSurfaceBuilders__LegacyMesaSurfaceBuilder__vslot6		00045_51f0d10.c
+VanillaSurfaceBuilders::MesaSurfaceBuilder	0	0x523d940	57	func_0x052f1e60,wg_VanillaSurfaceBuilders__MesaSurfaceBuilder__vslot0		00048_523d940.c
+VanillaSurfaceBuilders::MesaSurfaceBuilder	1	0x523d980	80	wg_VanillaSurfaceBuilders__MesaSurfaceBuilder__vslot1		00047_523d980.c
+VanillaSurfaceBuilders::MesaSurfaceBuilder	2	0x51f1f50	4929	func_0x049cce40,func_0x052f1e60,func_0x0d3411f0,func_0x0eec74c0,func_0x0eee2dd0,wg_VanillaSurfaceBuilders__MesaSurfaceBuilder__vslot2	0x119d119  minecraft:badlands_surface | 0x119d123  badlands_surface | 0x1412df5  minecraft:clay_bands_offset | 0x1412e00  lay_bands_offset | 0x1412e11  minecraft:badlands_pillar | 0x1412e1a  :badlands_pillar	00046_51f1f50.c
+VanillaSurfaceBuilders::MesaSurfaceBuilder	3	0x51f34f0	354	func_0x04108328,func_0x0410844d,func_0x05346af0,func_0x0c852bf0,func_0x0cc41df0,wg_VanillaSurfaceBuilders__MesaSurfaceBuilder__vslot3		00046_51f34f0.c
+VanillaSurfaceBuilders::MesaSurfaceBuilder	4	0x51f3660	267	func_0x04108328,func_0x0410844d,wg_VanillaSurfaceBuilders__MesaSurfaceBuilder__vslot4		00049_51f3660.c
+VanillaSurfaceBuilders::MesaSurfaceBuilder	5	0x51f1510	2351	func_0x0410844d,func_0x05355710,func_0x0cc41df0,func_0x0d3414e0,func_0x0eee3810,func_0x0eee3b20,wg_VanillaSurfaceBuilders__MesaSurfaceBuilder__vslot5		00048_51f1510.c
+VanillaSurfaceBuilders::MesaSurfaceBuilder	6	0x51f1e50	2	wg_VanillaSurfaceBuilders__MesaSurfaceBuilder__vslot6		00047_51f1e50.c
+VanillaSurfaceBuilders::NoiseGradientSurfaceBuilder	1	0x523d9e0	9	wg_VanillaSurfaceBuilders__NoiseGradientSurfaceBuilder__vslot1		00041_523d9e0.c
+VanillaSurfaceBuilders::NoiseGradientSurfaceBuilder	2	0x51f3670	4	wg_VanillaSurfaceBuilders__NoiseGradientSurfaceBuilder__vslot2		00040_51f3670.c
+VanillaSurfaceBuilders::NoiseGradientSurfaceBuilder	3	0x51f3680	836	func_0x04108328,func_0x0d3411f0,func_0x0eec74c0,wg_VanillaSurfaceBuilders__NoiseGradientSurfaceBuilder__vslot3		00039_51f3680.c
+VanillaSurfaceBuilders::NoiseGradientSurfaceBuilder	4	0x51f39e0	133	func_0x04108328,func_0x0410844d,wg_VanillaSurfaceBuilders__NoiseGradientSurfaceBuilder__vslot4		00039_51f39e0.c
+VanillaSurfaceBuilders::NoiseGradientSurfaceBuilder	5	0x51f3a70	1406	func_0x04108328,func_0x0410844d,func_0x0412c2d0,func_0x0412d450,func_0x0412d520,func_0x0412d550,func_0x0412d610,func_0x0412d680,func_0x0412d6b0,func_0x0c6e2980,func_0x0eeb61d0,wg_VanillaSurfaceBuilders__NoiseGradientSurfaceBuilder__vslot5		00042_51f3a70.c
+VanillaSurfaceBuilders::NoiseGradientSurfaceBuilder	6	0x51f4030	2	wg_VanillaSurfaceBuilders__NoiseGradientSurfaceBuilder__vslot6		00041_51f4030.c
+VanillaSurfaceBuilders::OceanFrozenSurfaceBuilder	0	0x523d9f0	51	wg_VanillaSurfaceBuilders__OceanFrozenSurfaceBuilder__vslot0		00047_523d9f0.c
+VanillaSurfaceBuilders::OceanFrozenSurfaceBuilder	1	0x523da30	74	func_0x052f4f20,wg_VanillaSurfaceBuilders__OceanFrozenSurfaceBuilder__vslot1		00050_523da30.c
+VanillaSurfaceBuilders::OceanFrozenSurfaceBuilder	2	0x51f40e0	3233	func_0x0412a280,func_0x049cce40,func_0x052f4f20,func_0x0d3411f0,func_0x0eec74c0,wg_VanillaSurfaceBuilders__OceanFrozenSurfaceBuilder__vslot2	0x12583e4  minecraft:iceberg_pillar_roof | 0x12583f1  berg_pillar_roof | 0x12724d2  minecraft:iceberg_surface | 0x12724db  :iceberg_surface | 0x13ac9fd  minecraft:iceberg_pillar	00049_51f40e0.c
+VanillaSurfaceBuilders::OceanFrozenSurfaceBuilder	3	0x51f4fd0	375	func_0x04108328,func_0x05346af0,wg_VanillaSurfaceBuilders__OceanFrozenSurfaceBuilder__vslot3		00048_51f4fd0.c
+VanillaSurfaceBuilders::OceanFrozenSurfaceBuilder	4	0x51f5070	254	func_0x04108328,func_0x0410844d,wg_VanillaSurfaceBuilders__OceanFrozenSurfaceBuilder__vslot4		00048_51f5070.c
+VanillaSurfaceBuilders::OceanFrozenSurfaceBuilder	5	0x51f5170	1400	func_0x04891200,func_0x0c6e2980,func_0x0c852de0,wg_VanillaSurfaceBuilders__OceanFrozenSurfaceBuilder__vslot5		00051_51f5170.c
+VanillaSurfaceBuilders::OceanFrozenSurfaceBuilder	6	0x51f5700	2	wg_VanillaSurfaceBuilders__OceanFrozenSurfaceBuilder__vslot6		00050_51f5700.c
+VanillaSurfaceBuilders::OverworldDefaultSurfaceBuilder	1	0xc759bd0	9	wg_VanillaSurfaceBuilders__OverworldDefaultSurfaceBuilder__vslot1		00049_c759bd0.c
+VanillaSurfaceBuilders::OverworldDefaultSurfaceBuilder	2	0xc752b20	0	wg_VanillaSurfaceBuilders__OverworldDefaultSurfaceBuilder__vslot2		00049_c752b20.c
+VanillaSurfaceBuilders::OverworldDefaultSurfaceBuilder	3	0xc752b30	410	func_0x04108328,func_0x0410844d,func_0x04890760,func_0x0cc41df0,wg_VanillaSurfaceBuilders__OverworldDefaultSurfaceBuilder__vslot3		00052_c752b30.c
+VanillaSurfaceBuilders::OverworldDefaultSurfaceBuilder	4	0xc752cd0	254	func_0x0410844d,wg_VanillaSurfaceBuilders__OverworldDefaultSurfaceBuilder__vslot4		00051_c752cd0.c
+VanillaSurfaceBuilders::OverworldDefaultSurfaceBuilder	5	0xc752dd0	4545	func_0x04108328,func_0x0412c2d0,func_0x04891200,func_0x0b5f8420,func_0x0b62f250,func_0x0c8bf410,func_0x0eee2d70,wg_VanillaSurfaceBuilders__OverworldDefaultSurfaceBuilder__vslot5		00050_c752dd0.c
+VanillaSurfaceBuilders::OverworldDefaultSurfaceBuilder	6	0xc754010	2	wg_VanillaSurfaceBuilders__OverworldDefaultSurfaceBuilder__vslot6		00050_c754010.c
+VanillaSurfaceBuilders::SwampSurfaceBuilder	0	0x523da80	68	wg_VanillaSurfaceBuilders__SwampSurfaceBuilder__vslot0		00053_523da80.c
+VanillaSurfaceBuilders::SwampSurfaceBuilder	1	0x523dad0	91	func_0x0412a280,wg_VanillaSurfaceBuilders__SwampSurfaceBuilder__vslot1		00052_523dad0.c
+VanillaSurfaceBuilders::SwampSurfaceBuilder	2	0x51f5750	357	func_0x0d3430a0,func_0x0eec74c0,wg_VanillaSurfaceBuilders__SwampSurfaceBuilder__vslot2		00051_51f5750.c
+VanillaSurfaceBuilders::SwampSurfaceBuilder	3	0x51f58f0	375	func_0x04108328,func_0x0410844d,func_0x05346af0,func_0x0cc41df0,wg_VanillaSurfaceBuilders__SwampSurfaceBuilder__vslot3		00051_51f58f0.c
+VanillaSurfaceBuilders::SwampSurfaceBuilder	4	0x51f5990	254	func_0x04108328,func_0x0410844d,wg_VanillaSurfaceBuilders__SwampSurfaceBuilder__vslot4		00054_51f5990.c
+VanillaSurfaceBuilders::SwampSurfaceBuilder	5	0x51f5a90	664	func_0x0410844d,func_0x04890760,func_0x0c6e2980,func_0x0c852de0,func_0x0eeddcf0,wg_VanillaSurfaceBuilders__SwampSurfaceBuilder__vslot5		00053_51f5a90.c
+VanillaSurfaceBuilders::SwampSurfaceBuilder	6	0x51f5d30	2	wg_VanillaSurfaceBuilders__SwampSurfaceBuilder__vslot6		00052_51f5d30.c
+VanillaSurfaceBuilders::TheEndSurfaceBuilder	0	0x523db30	0	wg_VanillaSurfaceBuilders__TheEndSurfaceBuilder__vslot0		00012_523db30.c
+VanillaSurfaceBuilders::TheEndSurfaceBuilder	1	0x523db40	9	wg_VanillaSurfaceBuilders__TheEndSurfaceBuilder__vslot1		00052_523db40.c
+VanillaSurfaceBuilders::TheEndSurfaceBuilder	2	0x523db50	0	wg_VanillaSurfaceBuilders__TheEndSurfaceBuilder__vslot2		00055_523db50.c
+VanillaSurfaceBuilders::TheEndSurfaceBuilder	3	0x523db60	0	wg_VanillaSurfaceBuilders__TheEndSurfaceBuilder__vslot3		00054_523db60.c
+VanillaSurfaceBuilders::TheEndSurfaceBuilder	4	0x51f5e20	133	func_0x04108328,wg_VanillaSurfaceBuilders__TheEndSurfaceBuilder__vslot4		00053_51f5e20.c
+VanillaSurfaceBuilders::TheEndSurfaceBuilder	5	0x51f5d40	182	func_0x0cc41df0,wg_VanillaSurfaceBuilders__TheEndSurfaceBuilder__vslot5		00053_51f5d40.c
+VanillaSurfaceBuilders::TheEndSurfaceBuilder	6	0x51f5e10	2	wg_VanillaSurfaceBuilders__TheEndSurfaceBuilder__vslot6		00056_51f5e10.c
+WorldGenClimateMappingAttributes	0	0x52452b0	38	wg_WorldGenClimateMappingAttributes__vslot0		00037_52452b0.c
+WorldGenClimateMappingAttributes	1	0x52452e0	55	wg_WorldGenClimateMappingAttributes__vslot1		00040_52452e0.c
+WorldGenMultiNoiseClimateAttributes	0	0x497b3e0	0	wg_WorldGenMultiNoiseClimateAttributes__vslot0		00018_497b3e0.c
+WorldGenMultiNoiseClimateAttributes	1	0x525d920	9	wg_WorldGenMultiNoiseClimateAttributes__vslot1		00029_525d920.c
+WorldGenerator	0	0xc970460	525	func_0x0412c2d0,func_0x0412c300,func_0x04136a00,func_0x0d352b40,func_0x0eee11d0,wg_WorldGenerator__vslot0		00104_c970460.c
+WorldGenerator	0	0xc970ba0	8	func_0x0412a280,func_0x0412c300,func_0x04136a00,func_0x0d352b40,func_0x0eee11d0,wg_WorldGenerator__vslot0		00104_c970ba0.c
+WorldGenerator	1	0xc970bb0	1	wg_WorldGenerator__vslot1		00109_c970bb0.c
+WorldGenerator	1	0xc970bc0	1	wg_WorldGenerator__vslot1		00108_c970bc0.c
+WorldGenerator	2	0xc973310	2	wg_WorldGenerator__vslot2		00013_c973310.c
+WorldGenerator	2	0xca31380	15	wg_WorldGenerator__vslot2		00001_ca31380.c
+WorldGenerator	3	0xca31390	17	wg_WorldGenerator__vslot3		00000_ca31390.c
+WorldGenerator	4	0xca313b0	9	wg_WorldGenerator__vslot4		00002_ca313b0.c
+WorldGenerator	5	0xca313c0	9	wg_WorldGenerator__vslot5		00001_ca313c0.c
+WorldGenerator	6	0xca313d0	20	wg_WorldGenerator__vslot6		00002_ca313d0.c
+WorldGenerator	7	0xca313f0	20	wg_WorldGenerator__vslot7		00001_ca313f0.c
+WorldGenerator	8	0xca31410	177	func_0x0cad8990,wg_WorldGenerator__vslot8		00003_ca31410.c
+WorldGenerator	9	0xca314e0	4450	func_0x0412a280,func_0x0412c2d0,func_0x0412c3f0,func_0x04882e20,func_0x04a7efb0,func_0x0caaf3d0,func_0x0cb2f260,func_0x0cb30ba0,func_0x0cb57b80,func_0x0eec74c0,func_0x0eeddcf0,func_0x0eee0720		00002_ca314e0.c
+WorldGenerator	10	0xca32720	2	wg_WorldGenerator__vslot10		00105_ca32720.c
+WorldGenerator	11	0xca32730	2	wg_WorldGenerator__vslot11		00105_ca32730.c
+WorldGenerator	12	0xca32740	0	wg_WorldGenerator__vslot12		00003_ca32740.c
+WorldGenerator	13	0xca32750	2	wg_WorldGenerator__vslot13		00002_ca32750.c
+WorldGenerator	14	0xca32760	0	wg_WorldGenerator__vslot14		00004_ca32760.c
+WorldGenerator	15	0xca32770	21	wg_WorldGenerator__vslot15		00110_ca32770.c
+WorldGenerator	16	0xc973030	104	func_0x0d351430,wg_WorldGenerator__vslot16		00003_c973030.c
+WorldGenerator	17	0xc9730a0	535	func_0x0ca7b460,func_0x0d2d30f0,func_0x0eeddcf0,wg_WorldGenerator__vslot17		00000_c9730a0.c
+WorldGenerator	18	0xca32f20	447	func_0x0412c2d0,wg_WorldGenerator__vslot18		00004_ca32f20.c
+WorldGenerator	19	0xca33130	447	func_0x0412a280,wg_WorldGenerator__vslot19		00003_ca33130.c
+WorldGenerator	20	0xca33340	23	wg_WorldGenerator__vslot20		00005_ca33340.c
+WorldGenerator	21	0xca33360	21	wg_WorldGenerator__vslot21		00004_ca33360.c
+WorldGenerator	22	0xca33380	21	wg_WorldGenerator__vslot22		00005_ca33380.c
+WorldGenerator	23	0xca333a0	21	wg_WorldGenerator__vslot23		00004_ca333a0.c
+WorldGenerator	24	0xca32790	18	wg_WorldGenerator__vslot24		00006_ca32790.c
+WorldGenerator	25	0xca327b0	18	wg_WorldGenerator__vslot25		00005_ca327b0.c
+WorldGenerator	26	0xca32c90	135	func_0x0cadbac0,func_0x0cb327d0,wg_WorldGenerator__vslot26		00006_ca32c90.c
+WorldGenerator	27	0xca333c0	18	wg_WorldGenerator__vslot27		00005_ca333c0.c
+WorldGenerator	28	0xca32d30	18	wg_WorldGenerator__vslot28		00007_ca32d30.c
+WorldGenerator	29	0xca32d50	18	wg_WorldGenerator__vslot29		00006_ca32d50.c
+WorldGenerator	30	0xca33420	2	wg_WorldGenerator__vslot30		00007_ca33420.c
+WorldGenerator	31	0xca33430	2	wg_WorldGenerator__vslot31		00006_ca33430.c
+WorldGenerator	32	0xca32f10	12	wg_WorldGenerator__vslot32		00008_ca32f10.c
+WorldGenerator	33	0x519ba60	0	wg_WorldGenerator__vslot33		00007_519ba60.c
+WorldGenerator	34	0xca2f090	2	wg_WorldGenerator__vslot34		00008_ca2f090.c
+WorldGenerator	35	0xca2f0a0	37	wg_WorldGenerator__vslot35		00007_ca2f0a0.c
+WorldGenerator	36	0xca2f0d0	215	func_0x0412d440,wg_WorldGenerator__vslot36		00009_ca2f0d0.c
+WorldGenerator	37	0xca33440	0	wg_WorldGenerator__vslot37		00008_ca33440.c
+WorldGenerator	38	0xca334c0	20	wg_WorldGenerator__vslot38		00009_ca334c0.c
+WorldGenerator	39	0xca334e0	23	wg_WorldGenerator__vslot39		00014_ca334e0.c
+WorldGenerator	40	0xca33450	18	wg_WorldGenerator__vslot40		00013_ca33450.c
+WorldGenerator	41	0xc972b00	233	func_0x0d2d2880,func_0x0eee1380,wg_WorldGenerator__vslot41		00008_c972b00.c
+WorldGenerator	42	0xc970bd0	17	func_0x0d352ef0,wg_WorldGenerator__vslot42		00010_c970bd0.c
+WorldGenerator	43	0xc970bf0	166	func_0x0412a280,func_0x04885070,func_0x0d3530d0,wg_WorldGenerator__vslot43		00009_c970bf0.c
+WorldGenerator	44	0xc970cc0	381	func_0x0412a280,func_0x04885070,func_0x0d353580,wg_WorldGenerator__vslot44		00011_c970cc0.c
+WorldGenerator	45	0xc970eb0	155	func_0x0412a280,func_0x04885070,func_0x0d352d10,wg_WorldGenerator__vslot45		00010_c970eb0.c
+WorldGenerator	46	0xc972c10	71	func_0x0d352860,wg_WorldGenerator__vslot46		00010_c972c10.c
+WorldGenerator	52	0xc973300	2	wg_WorldGenerator__vslot52		00015_c973300.c
+WorldGenerator	53	0xc972c60	0	wg_WorldGenerator__vslot53		00009_c972c60.c
+WorldGenerator	54	0xc972ef0	0	wg_WorldGenerator__vslot54		00014_c972ef0.c
+XoroshiroRandom	0	0x485d8e0	0	wg_XoroshiroRandom__vslot0		00056_485d8e0.c
+XoroshiroRandom	1	0x48ca700	9	wg_XoroshiroRandom__vslot1		00055_48ca700.c
+XoroshiroRandom	2	0x48ca710	50	wg_XoroshiroRandom__vslot2		00055_48ca710.c
+XoroshiroRandom	3	0x48ca750	138	wg_XoroshiroRandom__vslot3		00058_48ca750.c
+XoroshiroRandom	4	0x48ca7e0	51	wg_XoroshiroRandom__vslot4		00057_48ca7e0.c
+XoroshiroRandom	5	0x48ca820	52	wg_XoroshiroRandom__vslot5		00056_48ca820.c
+XoroshiroRandom	6	0x48ca860	67	wg_XoroshiroRandom__vslot6		00056_48ca860.c
+XoroshiroRandom	7	0x48ca8b0	68	wg_XoroshiroRandom__vslot7		00059_48ca8b0.c
+XoroshiroRandom	8	0x48ca900	344	func_0x0eee37c0,func_0x0eee3800,wg_XoroshiroRandom__vslot8		00058_48ca900.c
+XoroshiroRandom	9	0x48caa60	126	wg_XoroshiroRandom__vslot9		00057_48caa60.c
+XoroshiroRandom	10	0x485b6e0	195	func_0x0eec74c0,wg_XoroshiroRandom__vslot10		00057_485b6e0.c
+_GLOBAL__N_1::WorldGeneratorAnon::StructureAccess	0	0xc97b600	0	wg__GLOBAL__N_1__WorldGeneratorAnon__StructureAccess__vslot0		00110_c97b600.c
+_GLOBAL__N_1::WorldGeneratorAnon::StructureAccess	1	0xc97b610	9	wg__GLOBAL__N_1__WorldGeneratorAnon__StructureAccess__vslot1		00115_c97b610.c
+_GLOBAL__N_1::WorldGeneratorAnon::StructureAccess	2	0xc97b620	1105	func_0x0412a280,func_0x0412c2d0,func_0x0412c300,func_0x0412d550,func_0x0412d610,func_0x04882e20,func_0x06cfcdf0,func_0x0ca729a0,func_0x0ca72ad0,func_0x0ca7b560,func_0x0ca7baa0,func_0x0eec74c0		00114_c97b620.c
+_GLOBAL__N_1::WorldGeneratorAnon::StructureAccess	3	0xc97ba90	3145	func_0x0412c2d0,func_0x0412c3f0,func_0x0412d450,func_0x0412d520,func_0x04882e20,func_0x04882eb0,func_0x04883620,func_0x04aa1da0,func_0x0525af10,func_0x0d2e06e0,func_0x0d2e06f0,func_0x0eec74c0		00111_c97ba90.c
+_GLOBAL__N_1::WorldGeneratorAnon::StructureAccess	4	0xc972ac0	4	wg__GLOBAL__N_1__WorldGeneratorAnon__StructureAccess__vslot4		00111_c972ac0.c
+br::worldgen::ConstantHeight	1	0xd209330	9	wg_br__worldgen__ConstantHeight__vslot1		00211_d209330.c
+br::worldgen::ConstantHeight	2	0xd1f3a00	11	wg_br__worldgen__ConstantHeight__vslot2		00206_d1f3a00.c
+br::worldgen::JigsawStructure	0	0xd1c81e0	157	func_0x0412a280,func_0x0d2de2e0,wg_br__worldgen__JigsawStructure__vslot0		00180_d1c81e0.c
+br::worldgen::JigsawStructure	1	0xd209340	170	func_0x0412a280,wg_br__worldgen__JigsawStructure__vslot1,wg_br__worldgen__Structure__vslot0		00180_d209340.c
+br::worldgen::JigsawStructure	2	0xd1ff960	604	func_0x0624dc00,func_0x0d2fe510,func_0x0d33ec10,func_0x0eee2d70,wg_br__worldgen__JigsawStructure__vslot2		00175_d1ff960.c
+br::worldgen::JigsawStructureBuilder	0	0xd209400	279	func_0x0412a280,func_0x0d31f5a0,wg_br__worldgen__JigsawStructureBuilder__vslot0		00175_d209400.c
+br::worldgen::JigsawStructureBuilder	1	0xd209530	22	func_0x0d309400,wg_br__worldgen__JigsawStructureBuilder__vslot1		00181_d209530.c
+br::worldgen::Structure	0	0xd1de2e0	273	func_0x0412a280,func_0x0412c2d0,func_0x0c9b9150,wg_br__worldgen__Structure__vslot0		00198_d1de2e0.c
+br::worldgen::Structure	1	0xd1de410	1	wg_br__worldgen__Structure__vslot1		00193_d1de410.c
+br::worldgen::Structure	2	0x402bcc0	15	func_0x041085a0,wg_br__worldgen__Structure__vslot2		00000_402bcc0.c
+br::worldgen::StructureHeightProvider	0	0xd1c80f0	62	wg_br__worldgen__StructureHeightProvider__vslot0		00182_d1c80f0.c
+br::worldgen::StructureHeightProvider	1	0xd1d9b40	68	func_0x0412a280,wg_br__worldgen__StructureHeightProvider__vslot1		00188_d1d9b40.c
+br::worldgen::StructureHeightProvider	2	0xd1d4ce0	103	func_0x04931450,wg_br__worldgen__StructureHeightProvider__vslot2		00188_d1d4ce0.c
+br::worldgen::StructureProcessor	1	0xd1c4590	9	wg_br__worldgen__StructureProcessor__vslot1		00192_d1c4590.c
+br::worldgen::StructureProcessor	4	0xd1bf3c0	2	wg_br__worldgen__StructureProcessor__vslot4		00198_d1bf3c0.c
+br::worldgen::StructureProcessor	5	0xd1bf3d0	57	func_0x0eeddcf0,wg_br__worldgen__StructureProcessor__vslot5		00094_d1bf3d0.c
+br::worldgen::UniformHeight	0	0xd1d9b20	0	wg_br__worldgen__UniformHeight__vslot0		00100_d1d9b20.c
+br::worldgen::UniformHeight	1	0xd1d9b30	9	wg_br__worldgen__UniformHeight__vslot1		00206_d1d9b30.c
+br::worldgen::UniformHeight	2	0xd1d5450	582	func_0x0412a280,func_0x0412f770,func_0x0412f8c0,func_0x0412fea0,func_0x04882e30,func_0x06e8e110,func_0x0d2d56f0,wg_br__worldgen__UniformHeight__vslot2		00212_d1d5450.c
+br::worldgen::WorldGenRandom	0	0x614d960	52	wg_br__worldgen__WorldGenRandom__vslot0		00183_614d960.c
+br::worldgen::WorldGenRandom	1	0xd1d9de0	58	func_0x0412a280,wg_br__worldgen__WorldGenRandom__vslot1		00183_d1d9de0.c
+br::worldgen::WorldGenRandom	2	0xd1d59a0	69	func_0x04931450,wg_br__worldgen__WorldGenRandom__vslot2		00189_d1d59a0.c
+br::worldgen::WorldGenRandom	3	0xd1d59f0	76	func_0x04931450,wg_br__worldgen__WorldGenRandom__vslot3		00189_d1d59f0.c
+br::worldgen::WorldGenRandom	4	0xd1d5a40	69	wg_br__worldgen__WorldGenRandom__vslot4		00184_d1d5a40.c
+br::worldgen::WorldGenRandom	5	0xd1d5a90	69	func_0x04931450,wg_br__worldgen__WorldGenRandom__vslot5		00184_d1d5a90.c
+br::worldgen::WorldGenRandom	6	0xd1d5ae0	69	func_0x04931450,wg_br__worldgen__WorldGenRandom__vslot6		00190_d1d5ae0.c
+br::worldgen::WorldGenRandom	7	0xd1d5b30	69	func_0x04931450,wg_br__worldgen__WorldGenRandom__vslot7		00190_d1d5b30.c
+br::worldgen::WorldGenRandom	8	0xd1d5b80	69	wg_br__worldgen__WorldGenRandom__vslot8		00185_d1d5b80.c
+br::worldgen::WorldGenRandom	9	0xd1d5bd0	76	func_0x04931450,wg_br__worldgen__WorldGenRandom__vslot9		00185_d1d5bd0.c
+br::worldgen::WorldGenRandom	10	0xd1d5c20	10	wg_br__worldgen__WorldGenRandom__vslot10		00191_d1d5c20.c
+br::worldgen::WorldGenRandom	11	0x48caae0	30	wg_br__worldgen__WorldGenRandom__vslot11		00030_48caae0.c
+br::worldgen::WorldGenRandom	12	0x48cab00	15	wg_br__worldgen__WorldGenRandom__vslot12		00032_48cab00.c
+br::worldgen::WorldGenRandom	13	0x48cab10	13	wg_br__worldgen__WorldGenRandom__vslot13		00031_48cab10.c
+br::worldgen::WorldGenRandom	14	0x48cab20	51	wg_br__worldgen__WorldGenRandom__vslot14		00030_48cab20.c
+br::worldgen::WorldGenRandom	15	0x48cab60	52	wg_br__worldgen__WorldGenRandom__vslot15		00031_48cab60.c
+br::worldgen::WorldGenRandom	16	0x48caba0	56	wg_br__worldgen__WorldGenRandom__vslot16		00033_48caba0.c
+br::worldgen::WorldGenRandom	17	0x48cabe0	51	wg_br__worldgen__WorldGenRandom__vslot17		00032_48cabe0.c
+br::worldgen::processors::BlockEntity::AppendLoot	0	0xd1d6520	33	wg_br__worldgen__processors__BlockEntity__AppendLoot__vslot0		00212_d1d6520.c
+br::worldgen::processors::BlockEntity::AppendLoot	1	0xd1d9c10	53	wg_br__worldgen__processors__BlockEntity__AppendLoot__vslot1		00207_d1d9c10.c
+br::worldgen::processors::BlockEntity::AppendLoot	2	0xd1d6070	635	func_0x0412a280,func_0x0412e5e0,func_0x0d6bd5f0,func_0x0d6c9580,func_0x0eec74c0,wg_br__worldgen__processors__BlockEntity__AppendLoot__vslot2		00207_d1d6070.c
+br::worldgen::processors::BlockEntity::AppendLoot	3	0xd1d6380	546	func_0x0eee2f00,wg_br__worldgen__processors__BlockEntity__AppendLoot__vslot3		00213_d1d6380.c
+br::worldgen::processors::BlockEntity::Modifier	0	0xd1d9c50	62	wg_br__worldgen__processors__BlockEntity__Modifier__vslot0		00213_d1d9c50.c
+br::worldgen::processors::BlockEntity::Modifier	1	0xd1d9ca0	68	wg_br__worldgen__processors__BlockEntity__Modifier__vslot1		00208_d1d9ca0.c
+br::worldgen::processors::BlockEntity::Modifier	2	0xd1d5ee0	117	func_0x04931450,wg_br__worldgen__processors__BlockEntity__Modifier__vslot2		00208_d1d5ee0.c
+br::worldgen::processors::BlockEntity::Modifier	3	0xd1d5f60	67	func_0x04931450,wg_br__worldgen__processors__BlockEntity__Modifier__vslot3		00214_d1d5f60.c
+br::worldgen::processors::BlockEntity::Passthrough	0	0xd1d5e70	0	wg_br__worldgen__processors__BlockEntity__Passthrough__vslot0		00214_d1d5e70.c
+br::worldgen::processors::BlockEntity::Passthrough	1	0xd1d9c00	9	wg_br__worldgen__processors__BlockEntity__Passthrough__vslot1		00209_d1d9c00.c
+br::worldgen::processors::BlockEntity::Passthrough	2	0xd1d5fb0	120	func_0x0d6bd5f0,func_0x0eec74c0,wg_br__worldgen__processors__BlockEntity__Passthrough__vslot2		00209_d1d5fb0.c
+br::worldgen::processors::BlockEntity::Passthrough	3	0xd1d6050	19	func_0x0eee2f00,wg_br__worldgen__processors__BlockEntity__Passthrough__vslot3		00215_d1d6050.c
+br::worldgen::processors::BlockIgnore	0	0xd1d6bb0	38	wg_br__worldgen__processors__BlockIgnore__vslot0		00193_d1d6bb0.c
+br::worldgen::processors::BlockIgnore	1	0xd1d9ee0	55	wg_br__worldgen__processors__BlockIgnore__vslot1		00199_d1d9ee0.c
+br::worldgen::processors::BlockIgnore	2	0xd1d6be0	96	wg_br__worldgen__processors__BlockIgnore__vslot2		00199_d1d6be0.c
+br::worldgen::processors::BlockIgnore	4	0xd1d6c50	2	wg_br__worldgen__processors__BlockIgnore__vslot4		00194_d1d6c50.c
+br::worldgen::processors::BlockIgnore	5	0xd1d6c60	133	func_0x04890760,func_0x0ee47730,wg_br__worldgen__processors__BlockIgnore__vslot5		00194_d1d6c60.c
+br::worldgen::processors::BlockRules::AlwaysTrue	1	0xd1d9cf0	9	wg_br__worldgen__processors__BlockRules__AlwaysTrue__vslot1		00215_d1d9cf0.c
+br::worldgen::processors::BlockRules::AlwaysTrue	2	0xd1d7400	2	wg_br__worldgen__processors__BlockRules__AlwaysTrue__vslot2		00210_d1d7400.c
+br::worldgen::processors::BlockRules::AlwaysTrue	3	0xd1d7410	457	func_0x0eee2f00,wg_br__worldgen__processors__BlockRules__AlwaysTrue__vslot3		00210_d1d7410.c
+br::worldgen::processors::BlockRules::BlockMatch	1	0xd1d9d00	9	wg_br__worldgen__processors__BlockRules__BlockMatch__vslot1		00216_d1d9d00.c
+br::worldgen::processors::BlockRules::BlockMatch	2	0xd1d7430	11	wg_br__worldgen__processors__BlockRules__BlockMatch__vslot2		00216_d1d7430.c
+br::worldgen::processors::BlockRules::BlockMatch	3	0xd1d7440	119	func_0x0eee2f00,wg_br__worldgen__processors__BlockRules__BlockMatch__vslot3		00211_d1d7440.c
+br::worldgen::processors::BlockRules::BlockStateMatch	1	0xd1d9d20	9	wg_br__worldgen__processors__BlockRules__BlockStateMatch__vslot1		00211_d1d9d20.c
+br::worldgen::processors::BlockRules::BlockStateMatch	2	0xd1d75f0	21	wg_br__worldgen__processors__BlockRules__BlockStateMatch__vslot2		00217_d1d75f0.c
+br::worldgen::processors::BlockRules::BlockStateMatch	3	0xd1d7610	123	wg_br__worldgen__processors__BlockRules__BlockStateMatch__vslot3		00217_d1d7610.c
+br::worldgen::processors::BlockRules::RandomBlockMatch	1	0xd1d9d10	9	wg_br__worldgen__processors__BlockRules__RandomBlockMatch__vslot1		00200_d1d9d10.c
+br::worldgen::processors::BlockRules::RandomBlockMatch	2	0xd1d74e0	38	wg_br__worldgen__processors__BlockRules__RandomBlockMatch__vslot2		00200_d1d74e0.c
+br::worldgen::processors::BlockRules::RandomBlockMatch	3	0xd1d7510	150	func_0x0ee47730,wg_br__worldgen__processors__BlockRules__RandomBlockMatch__vslot3		00195_d1d7510.c
+br::worldgen::processors::BlockRules::RandomBlockStateMatch	0	0xd1d9d30	0	wg_br__worldgen__processors__BlockRules__RandomBlockStateMatch__vslot0		00070_d1d9d30.c
+br::worldgen::processors::BlockRules::RandomBlockStateMatch	1	0xd1d9d40	9	wg_br__worldgen__processors__BlockRules__RandomBlockStateMatch__vslot1		00195_d1d9d40.c
+br::worldgen::processors::BlockRules::RandomBlockStateMatch	2	0xd1d76b0	48	wg_br__worldgen__processors__BlockRules__RandomBlockStateMatch__vslot2		00201_d1d76b0.c
+br::worldgen::processors::BlockRules::RandomBlockStateMatch	3	0xd1d76f0	154	func_0x04890760,func_0x0ee47730,wg_br__worldgen__processors__BlockRules__RandomBlockStateMatch__vslot3		00201_d1d76f0.c
+br::worldgen::processors::BlockRules::TagMatch	0	0xd1d78c0	33	wg_br__worldgen__processors__BlockRules__TagMatch__vslot0		00212_d1d78c0.c
+br::worldgen::processors::BlockRules::TagMatch	1	0xd1d9d50	53	wg_br__worldgen__processors__BlockRules__TagMatch__vslot1		00212_d1d9d50.c
+br::worldgen::processors::BlockRules::TagMatch	2	0xd1d77d0	460	wg_br__worldgen__processors__BlockRules__TagMatch__vslot2		00218_d1d77d0.c
+br::worldgen::processors::BlockRules::TagMatch	3	0xd1d77e0	108	wg_br__worldgen__processors__BlockRules__TagMatch__vslot3		00218_d1d77e0.c
+br::worldgen::processors::BlockRules::Test	0	0x5092540	62	wg_br__worldgen__processors__BlockRules__Test__vslot0		00213_5092540.c
+br::worldgen::processors::BlockRules::Test	1	0xd1d9d90	68	func_0x0412a280,wg_br__worldgen__processors__BlockRules__Test__vslot1		00213_d1d9d90.c
+br::worldgen::processors::BlockRules::Test	2	0xd1d7340	103	func_0x04931450,wg_br__worldgen__processors__BlockRules__Test__vslot2		00219_d1d7340.c
+br::worldgen::processors::BlockRules::Test	3	0xd1d73b0	67	func_0x04931450,wg_br__worldgen__processors__BlockRules__Test__vslot3		00219_d1d73b0.c
+br::worldgen::processors::Capped	0	0xd1bf7f0	123	func_0x0412c2d0,wg_br__worldgen__processors__Capped__vslot0		00214_d1bf7f0.c
+br::worldgen::processors::Capped	1	0xd1d9f20	131	func_0x0412a280,wg_br__worldgen__processors__Capped__vslot1		00214_d1d9f20.c
+br::worldgen::processors::Capped	2	0xd1bf350	48	wg_br__worldgen__processors__Capped__vslot2		00101_d1bf350.c
+br::worldgen::processors::Capped	3	0xd1d78f0	2321	func_0x0412a280,func_0x04882eb0,func_0x048af960,func_0x04931450,func_0x0d6bd5f0,func_0x0eee2f00,wg_br__worldgen__processors__Capped__vslot3		00220_d1d78f0.c
+br::worldgen::processors::Capped	4	0xd1d8270	2	wg_br__worldgen__processors__Capped__vslot4		00220_d1d8270.c
+br::worldgen::processors::Capped	5	0xd1d8420	243	func_0x0ee47730,wg_br__worldgen__processors__Capped__vslot5		00215_d1d8420.c
+br::worldgen::processors::Gravity	1	0xd1d9fb0	9	wg_br__worldgen__processors__Gravity__vslot1		00215_d1d9fb0.c
+br::worldgen::processors::Gravity	2	0xd1d8520	392	func_0x0412c2d0,func_0x0d6bd5f0,wg_br__worldgen__processors__Gravity__vslot2		00221_d1d8520.c
+br::worldgen::processors::Gravity	4	0xd1d86c0	2	wg_br__worldgen__processors__Gravity__vslot4		00221_d1d86c0.c
+br::worldgen::processors::Gravity	5	0xd1d86d0	90	func_0x0ee47730,wg_br__worldgen__processors__Gravity__vslot5		00216_d1d86d0.c
+br::worldgen::processors::JigsawReplacement	0	0xd1c4580	0	wg_br__worldgen__processors__JigsawReplacement__vslot0		00080_d1c4580.c
+br::worldgen::processors::JigsawReplacement	1	0xd1d9fc0	9	wg_br__worldgen__processors__JigsawReplacement__vslot1		00181_d1d9fc0.c
+br::worldgen::processors::JigsawReplacement	2	0xd1d87a0	3855	func_0x0412c2d0,func_0x0412e5e0,func_0x04882e30,func_0x04882eb0,func_0x04882ef0,func_0x0623ff60,func_0x0d2e1af0,func_0x0d376010,func_0x0d379e60,func_0x0d3b00e0,func_0x0eec74c0,func_0x0eee2d70		00176_d1d87a0.c
+br::worldgen::processors::JigsawReplacement	4	0xd1d9790	2	wg_br__worldgen__processors__JigsawReplacement__vslot4		00176_d1d9790.c
+br::worldgen::processors::JigsawReplacement	5	0xd1d97a0	457	func_0x0eee2f00,wg_br__worldgen__processors__JigsawReplacement__vslot5		00094_d1d97a0.c
+br::worldgen::processors::PosRules::AlwaysTrue	1	0xd1d9b90	9	wg_br__worldgen__processors__PosRules__AlwaysTrue__vslot1		00216_d1d9b90.c
+br::worldgen::processors::PosRules::AlwaysTrue	2	0xd1d9900	2	wg_br__worldgen__processors__PosRules__AlwaysTrue__vslot2		00222_d1d9900.c
+br::worldgen::processors::PosRules::AlwaysTrue	3	0xd1d9910	457	wg_br__worldgen__processors__PosRules__AlwaysTrue__vslot3		00222_d1d9910.c
+br::worldgen::processors::PosRules::AxisAlignedLinear	0	0xd1d9b10	0	wg_br__worldgen__processors__PosRules__AxisAlignedLinear__vslot0		00105_d1d9b10.c
+br::worldgen::processors::PosRules::AxisAlignedLinear	1	0xd1d9ba0	9	wg_br__worldgen__processors__PosRules__AxisAlignedLinear__vslot1		00217_d1d9ba0.c
+br::worldgen::processors::PosRules::AxisAlignedLinear	2	0xd1d9930	239	wg_br__worldgen__processors__PosRules__AxisAlignedLinear__vslot2		00217_d1d9930.c
+br::worldgen::processors::PosRules::AxisAlignedLinear	3	0xd1d9a20	175	func_0x0ee47730,wg_br__worldgen__processors__PosRules__AxisAlignedLinear__vslot3		00223_d1d9a20.c
+br::worldgen::processors::PosRules::Test	0	0x515e840	62	wg_br__worldgen__processors__PosRules__Test__vslot0		00223_515e840.c
+br::worldgen::processors::PosRules::Test	1	0xd1d9bb0	68	wg_br__worldgen__processors__PosRules__Test__vslot1		00218_d1d9bb0.c
+br::worldgen::processors::PosRules::Test	2	0xd1d9810	152	func_0x04931450,wg_br__worldgen__processors__PosRules__Test__vslot2		00218_d1d9810.c
+br::worldgen::processors::PosRules::Test	3	0xd1d98b0	67	func_0x04931450,wg_br__worldgen__processors__PosRules__Test__vslot3		00224_d1d98b0.c
+br::worldgen::processors::ProtectedBlock	0	0xd1be5c0	33	wg_br__worldgen__processors__ProtectedBlock__vslot0		00224_d1be5c0.c
+br::worldgen::processors::ProtectedBlock	1	0xd1c4540	53	wg_br__worldgen__processors__ProtectedBlock__vslot1		00219_d1c4540.c
+br::worldgen::processors::ProtectedBlock	2	0xd1be540	106	func_0x0c8338a0,wg_br__worldgen__processors__ProtectedBlock__vslot2		00219_d1be540.c
+br::worldgen::processors::ProtectedBlock	4	0xd1be5b0	2	wg_br__worldgen__processors__ProtectedBlock__vslot4		00225_d1be5b0.c
+br::worldgen::processors::ProtectedBlock	5	0xd1be5f0	108	wg_br__worldgen__processors__ProtectedBlock__vslot5		00225_d1be5f0.c
+br::worldgen::processors::Rule	0	0xd1beb00	98	func_0x05192430,wg_br__worldgen__processors__Rule__vslot0		00220_d1beb00.c
+br::worldgen::processors::Rule	1	0xd1c45a0	105	func_0x05192430,wg_br__worldgen__processors__Rule__vslot1		00220_d1c45a0.c
+br::worldgen::processors::Rule	2	0xd1be660	1151	func_0x0412c2d0,func_0x04931450,func_0x0624d960,wg_br__worldgen__processors__Rule__vslot2		00226_d1be660.c
+br::worldgen::processors::Rule	3	0xd1bf390	36	wg_br__worldgen__processors__Rule__vslot3		00064_d1bf390.c
+br::worldgen::processors::Rule	4	0xd1beaf0	2	wg_br__worldgen__processors__Rule__vslot4		00226_d1beaf0.c
+br::worldgen::processors::Rule	5	0xd1beb70	399	func_0x0ee47730,wg_br__worldgen__processors__Rule__vslot5		00221_d1beb70.c
+callee-of	-1	0xede2d70	5			00014_ede2d70.c
+callee-of	-1	0xedc74c0	128			00016_edc74c0.c
+callee-of	-1	0x4782e20	11	func_0x04108700,func_0x04109e60		00018_4782e20.c
+callee-of	-1	0xedddcf0	250	func_0x04891200,func_0x0eeb5fa0		00034_edddcf0.c
+callee-of	-1	0xe874df0	627	func_0x0e86d080,func_0x0e97ef20,func_0x0e9cea80,func_0x0e9cf460,func_0x0e9cfed0,func_0x0e9d03b0,func_0x0e9d0890,func_0x0e9d0d70		00057_e874df0.c
+callee-of	-1	0xe7af270	29079	func_0x04108328,func_0x0410844d,func_0x0412a280,func_0x0412c2d0,func_0x0488e120,func_0x048afb10,func_0x048b05a0,func_0x048b0c90,func_0x048b1040,func_0x048b10d0,func_0x048b5060,func_0x0db5fe60	0x11b8f64  minecraft:frozen_ocean | 0x1222b04  minecraft:capped | 0x13bbacd  [cereal:documentation_tag] | 0x13bbad7  cumentation_tag] | 0x13df14a  minecraft:the_end | 0x142bedc  minecraft:overworld	00062_e7af270.c
+callee-of	-1	0x47b0d20	178	func_0x0412c2d0,func_0x048b0de0		00065_47b0d20.c
+callee-of	-1	0x47b0bc0	193	func_0x0412a280,func_0x048aff40		00066_47b0bc0.c
+callee-of	-1	0xda60620	975	func_0x04108328,func_0x0410844d,func_0x0412c2d0,func_0x048b05a0,func_0x05d9c620,func_0x0db61a20,func_0x0db61aa0,func_0x0db65680,func_0x0db65a70		00068_da60620.c
+callee-of	-1	0xede3000	5			00069_ede3000.c
+callee-of	-1	0x47afca0	108			00071_47afca0.c
+callee-of	-1	0xe87f2e0	3417	func_0x04108328,func_0x0410844d,func_0x0412a280,func_0x0470d9a0,func_0x0488e120,func_0x048aea50,func_0x048aead0,func_0x048b0c90,func_0x048b5060,func_0x049057f0,func_0x0e134660,func_0x0e9d1310	0x13bbacd  [cereal:documentation_tag] | 0x13bbad7  cumentation_tag] | 0x14eaba0  [cereal:document	00072_e87f2e0.c
+callee-of	-1	0xea888c0	951	func_0x04108328,func_0x0410844d,func_0x048b0c90,func_0x048b1040,func_0x048b10d0,func_0x0ebf7600,func_0x0eee2f40		00073_ea888c0.c
+callee-of	-1	0x47afd20	284			00082_47afd20.c
+callee-of	-1	0x47b0af0	110	func_0x04108328,func_0x0410844d		00083_47b0af0.c
+callee-of	-1	0x4ea7a10	1849	func_0x0eee2ef0,func_0x0eee2ff0		00084_4ea7a10.c
+callee-of	-1	0x47b46f0	110	func_0x04108328,func_0x0410844d		00086_47b46f0.c
+callee-of	-1	0xed386e0	56			00099_ed386e0.c
+callee-of	-1	0x87b4a90	975	func_0x04108328,func_0x0410844d,func_0x0412c2d0,func_0x048b05a0,func_0x05d9c620,func_0x088b56b0,func_0x088b58a0,func_0x088b9260,func_0x088b9650,func_0x088b9930		00103_87b4a90.c
+callee-of	-1	0xd2411f0	708	func_0x0d33fd60		00106_d2411f0.c
+callee-of	-1	0x7e4f420	435	func_0x04108328,func_0x0410844d,func_0x05d9c2b0,func_0x07f4b170,func_0x0eee2f40		00111_7e4f420.c
+callee-of	-1	0xe4353b0	435	func_0x04108328,func_0x0410844d,func_0x05d9c2b0,func_0x0e530f80,func_0x0eee2f40		00112_e4353b0.c
+callee-of	-1	0xe44dc40	951	func_0x04108328,func_0x0410844d,func_0x048b0c90,func_0x048b1040,func_0x048b10d0,func_0x0e54e0d0,func_0x0eee2f40		00113_e44dc40.c
+callee-of	-1	0xe561850	435	func_0x04108328,func_0x0410844d,func_0x05d9c2b0,func_0x0e65d460,func_0x0eee2f40		00114_e561850.c
+callee-of	-1	0x48cd290	55			00118_48cd290.c
+callee-of	-1	0xd2414e0	717	func_0x0d3417d0,func_0x0eee4390		00119_d2414e0.c
+callee-of	-1	0xd1eeb90	798	func_0x0412a280,func_0x04882eb0,func_0x0b604460,func_0x0eee2f00		00192_d1eeb90.c
+callee-of	-1	0x51a3830	200	func_0x04136a00,func_0x052a3910,func_0x052a39f0		00193_51a3830.c
+callee-of	-1	0xedb81b0	226	func_0x0412c300,func_0x0eec09c0		00194_edb81b0.c
+callee-of	-1	0x402c3f0	3513	func_0x041086b0,func_0x04108780,func_0x041088a0,func_0x0412d1c0		00195_402c3f0.c
+callee-of	-1	0x4805bb0	47			00196_4805bb0.c
+callee-of	-1	0x4008328	562	func_0x04108570,func_0x041085a0,func_0x04882e20,func_0x0eee2d30,func_0x0eee2d40,func_0x0eee2d50,func_0x0eee2d60,func_0x0eee2d70,func_0x0eee2d80		00017_4008328.c
+callee-of	-1	0xda370f0	4723	func_0x0410844d,func_0x0412a280,func_0x0412c2d0,func_0x0488e120,func_0x048b05a0,func_0x048b0bc0,func_0x048b0c90,func_0x048b0d20,func_0x048b10d0,func_0x048b5060,func_0x0db39a40,func_0x0db5fe60	0x11b8f64  minecraft:frozen_ocean | 0x1222b04  minecraft:capped | 0x12a48a9  minecraft:noise_gradient | 0x13bbacd  [cereal:documentation_tag] | 0x13bbad7  cumentation_tag] | 0x13df14a  minecraft:the_end	00039_da370f0.c
+callee-of	-1	0x5156180	6505	func_0x0412a280,func_0x049cce40,func_0x04a43690,func_0x0d3411f0,func_0x0eec74c0	0x12228fb  minecraft:vegetation | 0x13ac811  minecraft:offset | 0x145f399  minecraft:continentalness | 0x145f3a2  :continentalness | 0x149569f  minecraft:temperature | 0x14ae693  minecraft:jagged	00061_5156180.c
+callee-of	-1	0xede2f00	5			00063_ede2f00.c
+callee-of	-1	0xda60a00	975	func_0x0410844d,func_0x0412c2d0,func_0x048b05a0,func_0x048b0bc0,func_0x05d9c620,func_0x0db61a20,func_0x0db61aa0,func_0x0db65680,func_0x0db65a70,func_0x0db65d50,func_0x0eeddcf0		00068_da60a00.c
+callee-of	-1	0xede2dd0	5			00069_ede2dd0.c
+callee-of	-1	0x47afb10	387	func_0x04883620,func_0x048af7e0		00071_47afb10.c
+callee-of	-1	0x518e660	15149	func_0x0412a280,func_0x049cce40,func_0x0d3411f0,func_0x0eec74c0	0x119d0a2  minecraft:spaghetti_2d | 0x119d0b9  minecraft:spaghetti_roughness | 0x119d0c6  ghetti_roughness | 0x120868a  minecraft:spaghetti_2d_thickness | 0x120869a  tti_2d_thickness | 0x1258386  minecraft:spaghetti_2d_elevation	00072_518e660.c
+callee-of	-1	0x4785070	175	func_0x04882e30,func_0x0eec74c0,func_0x0eee2ee0		00073_4785070.c
+callee-of	-1	0xec621a0	250	func_0x048aead0,func_0x048b0c90,func_0x048b0d20,func_0x0ed622a0		00083_ec621a0.c
+callee-of	-1	0x402e5e0	123	func_0x04882e30,func_0x0ee32660		00084_402e5e0.c
+callee-of	-1	0x4782eb0	44	func_0x041086b0,func_0x041088a0,func_0x0412a430		00085_4782eb0.c
+callee-of	-1	0x47b1040	132			00098_47b1040.c
+callee-of	-1	0x87b4e70	975	func_0x0410844d,func_0x0412c2d0,func_0x048b05a0,func_0x048b0bc0,func_0x05d9c620,func_0x088b56b0,func_0x088b58a0,func_0x088b9260,func_0x088b9650,func_0x088b9930,func_0x0eeddcf0		00102_87b4e70.c
+callee-of	-1	0xe79e420	245	func_0x0e87c400,func_0x0e8af270,func_0x0e8b6890,func_0x0e904b00,func_0x0e9055e0,func_0x0e905ac0		00104_e79e420.c
+callee-of	-1	0x4791200	47	func_0x041086b0,func_0x041088a0		00105_4791200.c
+callee-of	-1	0xe79e140	217	func_0x0e877880,func_0x0e8ac4f0,func_0x0e8f4f90,func_0x0e8f5920		00109_e79e140.c
+callee-of	-1	0xc972420	1238	func_0x0412c2d0,func_0x0ca11350,func_0x0ca11610,func_0x0ca7b460,func_0x0cb08ba0,func_0x0cb09310,func_0x0d2d30f0,func_0x0d2d5c30,func_0x0eeddcf0		00110_c972420.c
+callee-of	-1	0xe439c40	435	func_0x0410844d,func_0x05d9c2b0,func_0x0e535810,func_0x0eeddcf0,func_0x0eee2f40		00111_e439c40.c
+callee-of	-1	0xe457870	435	func_0x0410844d,func_0x05d9c2b0,func_0x0e553440,func_0x0eeddcf0,func_0x0eee2f40		00112_e457870.c
+callee-of	-1	0xe565f60	435	func_0x0410844d,func_0x05d9c2b0,func_0x0e661b90,func_0x0eeddcf0,func_0x0eee2f40		00113_e565f60.c
+callee-of	-1	0x517a590	202	func_0x0412a280,func_0x0412d680,func_0x0412d6b0,func_0x0eee11d0		00117_517a590.c
+callee-of	-1	0x5246af0	334	func_0x0410844d,func_0x04890760,func_0x05346c70,func_0x0eec74c0		00118_5246af0.c
+callee-of	-1	0xd1eb5d0	644			00191_d1eb5d0.c
+callee-of	-1	0x51be680	224	func_0x0412d680,func_0x0412d6b0,func_0x0eec74c0,func_0x0eee1380,func_0x0eee1580		00192_51be680.c
+callee-of	-1	0x51f1e60	235	func_0x0412a280		00193_51f1e60.c
+callee-of	-1	0xedb79f0	1873	func_0x0412a280,func_0x0412c2d0,func_0x0412d450,func_0x0412d520,func_0x0412d550,func_0x0412d610,func_0x0412d680,func_0x0412d6b0,func_0x04882e20,func_0x049d0d20,func_0x0eeb6180,func_0x0eebe810		00194_edb79f0.c
+callee-of	-1	0xda61e90	827	func_0x0410844d,func_0x0412a280,func_0x04882e20,func_0x04882e30,func_0x04885120,func_0x048aeca0,func_0x048afca0,func_0x0db61980,func_0x0db61a20,func_0x0db61aa0,func_0x0db621d0,func_0x0db62390		00195_da61e90.c
+callee-of	-1	0x4805be0	110	func_0x0410844d		00196_4805be0.c
+callee-of	-1	0x51d3ea0	540	func_0x052e7b30,func_0x052ea370,func_0x0d3430a0,func_0x0d39feb0,func_0x0d3a0d80,func_0x0eec74c0,func_0x0eee2f00	0x1495740  minecraft:scatter_tall_grass_around_tree_feature | 0x1495750  r_tall_grass_around_tree_feature | 0x1495760  und_tree_feature	00000_51d3ea0.c
+callee-of	-1	0x402a280	4			00011_402a280.c
+callee-of	-1	0x400844d	278	func_0x041085a0,func_0x04882e20,func_0x0eee2d30,func_0x0eee2d60,func_0x0eee2d80		00018_400844d.c
+callee-of	-1	0xe8800c0	3490	func_0x04108328,func_0x0412c2d0,func_0x048aea50,func_0x048afd20,func_0x048b0c90,func_0x048b0d20,func_0x048b46f0,func_0x048b5060,func_0x04905be0,func_0x088b46b0,func_0x088b4a90,func_0x088b4e70	0x137d3d1  BiomeTemperatureCategory | 0x13bbacd  [cereal:documentation_tag] | 0x13bbad7  cumentation_tag] | 0x14d9869  [cereal:json_schema_property] | 0x14d9876  schema_property] | 0x14e1610  schema_property]	00019_e8800c0.c
+callee-of	-1	0xeba4760	4392	func_0x04108328,func_0x0412c2d0,func_0x048afb10,func_0x048afd20,func_0x048b05a0,func_0x048b0af0,func_0x048b0bc0,func_0x048b0c90,func_0x048b0d20,func_0x048b5060,func_0x0db370f0,func_0x0db60240	0x11b8f64  minecraft:frozen_ocean | 0x1222b04  minecraft:capped | 0x12a48a9  minecraft:noise_gradient | 0x13bbacd  [cereal:documentation_tag] | 0x13bbad7  cumentation_tag] | 0x13df14a  minecraft:the_end	00038_eba4760.c
+callee-of	-1	0xe872740	427	func_0x0e868970,func_0x0e97e6c0,func_0x0e9c3f70,func_0x0e9c4950,func_0x0e9c53c0,func_0x0e9c58b0		00062_e872740.c
+callee-of	-1	0xda5fe60	975	func_0x04108328,func_0x0412c2d0,func_0x048b05a0,func_0x048b0bc0,func_0x05d9c620,func_0x0db61a20,func_0x0db65680,func_0x0db65a70,func_0x0db65d50,func_0x0eeddcf0		00064_da5fe60.c
+callee-of	-1	0xda60de0	975	func_0x04108328,func_0x0412c2d0,func_0x048b05a0,func_0x048b0bc0,func_0x05d9c620,func_0x0db61a20,func_0x0db65680,func_0x0db65a70,func_0x0db65d50,func_0x0eeddcf0		00065_da60de0.c
+callee-of	-1	0xede2f40	5			00066_ede2f40.c
+callee-of	-1	0x478e120	110	func_0x04108328		00067_478e120.c
+callee-of	-1	0xe7b7880	567	func_0x048b0c90,func_0x048b0d20,func_0x048b1040,func_0x0db80510,func_0x0eec74c0,func_0x0eeddcf0		00068_e7b7880.c
+callee-of	-1	0xcb41df0	175	func_0x0412c2d0,func_0x0cc422f0,func_0x0cc46520,func_0x0cc465d0		00069_cb41df0.c
+callee-of	-1	0x4790760	6	func_0x04109e60		00078_4790760.c
+callee-of	-1	0x47aead0	220	func_0x04108328,func_0x048aebb0		00079_47aead0.c
+callee-of	-1	0x478e200	128			00080_478e200.c
+callee-of	-1	0x460d9a0	220	func_0x0470de60,func_0x0ee32660		00081_460d9a0.c
+callee-of	-1	0x47b10d0	178	func_0x0412c2d0,func_0x048b0de0		00095_47b10d0.c
+callee-of	-1	0x87b42d0	975	func_0x04108328,func_0x0412c2d0,func_0x048b05a0,func_0x048b0bc0,func_0x05d9c620,func_0x088b56b0,func_0x088b58a0,func_0x088b9260,func_0x088b9650,func_0x0eeddcf0		00098_87b42d0.c
+callee-of	-1	0x87b5250	975	func_0x04108328,func_0x0412c2d0,func_0x048b05a0,func_0x048b0bc0,func_0x05d9c620,func_0x088b56b0,func_0x088b58a0,func_0x088b9260,func_0x088b9650,func_0x0eeddcf0		00099_87b5250.c
+callee-of	-1	0x4785120	313	func_0x04882e30,func_0x0eec74c0,func_0x0eee2f00		00101_4785120.c
+callee-of	-1	0xe875300	19347	func_0x04108328,func_0x0412c2d0,func_0x048b05a0,func_0x048b0bc0,func_0x048b0c90,func_0x048b0d20,func_0x048b5060,func_0x05d9c620,func_0x0e871b00,func_0x0e9ea000,func_0x0e9ea110,func_0x0e9ea440	0x13bbacd  [cereal:documentation_tag] | 0x13bbad7  cumentation_tag] | 0x14eaba0  [cereal:document	00106_e875300.c
+callee-of	-1	0xe40ba60	3330	func_0x04108328,func_0x0412c2d0,func_0x0412f0e0,func_0x04134310,func_0x048aea50,func_0x048afd20,func_0x048b0c90,func_0x048b0d20,func_0x048b46f0,func_0x048b5060,func_0x04905d10,func_0x0e621560	0x14d9869  [cereal:json_schema_property] | 0x14d9876  schema_property] | 0x14e1610  schema_property] | 0x14e4030  [cereal:json_sch	00107_e40ba60.c
+callee-of	-1	0xe43e510	435	func_0x04108328,func_0x05d9c2b0,func_0x0e539f20,func_0x0eeddcf0		00108_e43e510.c
+callee-of	-1	0xe558630	435	func_0x04108328,func_0x05d9c2b0,func_0x0e654240,func_0x0eeddcf0		00109_e558630.c
+callee-of	-1	0xe5937c0	435	func_0x04108328,func_0x05d9c2b0,func_0x0e68f3d0,func_0x0eeddcf0		00110_e5937c0.c
+callee-of	-1	0xede2e90	5			00113_ede2e90.c
+callee-of	-1	0x4786070	93			00114_4786070.c
+callee-of	-1	0x4831450	47	func_0x041086b0,func_0x041088a0		00115_4831450.c
+callee-of	-1	0x402c1f0	0			00186_402c1f0.c
+callee-of	-1	0xca59800	234	func_0x0412c2d0,func_0x0412d450,func_0x0412d520		00187_ca59800.c
+callee-of	-1	0xc5e2980	13	func_0x04882ef0		00188_c5e2980.c
+callee-of	-1	0xede2ee0	5			00189_ede2ee0.c
+callee-of	-1	0xda61aa0	220	func_0x04108328,func_0x0db61b80		00190_da61aa0.c
+callee-of	-1	0x48057f0	379	func_0x048aea50,func_0x04905980,func_0x0eec74c0		00191_48057f0.c
+callee-of	-1	0x402c2d0	33			00019_402c2d0.c
+callee-of	-1	0xe875070	640	func_0x0e8703f0,func_0x0e97f2e0,func_0x0e9800c0,func_0x0e980f00,func_0x0e9e1a90,func_0x0e9e24a0,func_0x0e9e45d0,func_0x0e9e4b80,func_0x0e9e93e0,func_0x0e9e9990		00038_e875070.c
+callee-of	-1	0x47b0c90	132			00062_47b0c90.c
+callee-of	-1	0x47b05a0	276	func_0x048b06d0		00063_47b05a0.c
+callee-of	-1	0xda60240	975	func_0x04108328,func_0x0410844d,func_0x048b0bc0,func_0x0db61a20,func_0x0db61aa0,func_0x0db65680,func_0x0db65a70,func_0x0db65d50,func_0x0eeddcf0		00064_da60240.c
+callee-of	-1	0xda611c0	975	func_0x04108328,func_0x0410844d,func_0x048b0bc0,func_0x0db61a20,func_0x0db61aa0,func_0x0db65680,func_0x0db65a70,func_0x0db65d50,func_0x0eeddcf0		00065_da611c0.c
+callee-of	-1	0x47b5060	574	func_0x04883620,func_0x048afb10,func_0x048b52b0,func_0x0eee3000		00066_47b5060.c
+callee-of	-1	0xda615a0	975	func_0x04108328,func_0x0410844d,func_0x048b0bc0,func_0x0db61a20,func_0x0db61aa0,func_0x0db65680,func_0x0db65a70,func_0x0db65d50,func_0x0eeddcf0		00067_da615a0.c
+callee-of	-1	0xda34c00	292	func_0x0db34d30,func_0x0db35090,func_0x0db351a0,func_0x0db35570,func_0x0db395e0,func_0x0db763d0,func_0x0db76bb0,func_0x0e1305d0		00068_da34c00.c
+callee-of	-1	0xe7bb270	547	func_0x048b0d20,func_0x048b1040,func_0x048b10d0,func_0x0db80430,func_0x0eec74c0,func_0x0eeddcf0		00069_e7bb270.c
+callee-of	-1	0x47ae910	47			00078_47ae910.c
+callee-of	-1	0x47b0ac0	47			00079_47b0ac0.c
+callee-of	-1	0x51d3480	1244	func_0x0412a280,func_0x052ea370,func_0x0d39feb0,func_0x0d3a0d80,func_0x0eec74c0	0x11d3c14  minecraft:seagrass_feature | 0x11d3c1e  seagrass_feature | 0x135ba44  minecraft:huge_mushroom_feature | 0x135ba53  mushroom_feature | 0x13ac986  minecraft:swamp_tree_feature | 0x13ac992  amp_tree_feature	00081_51d3480.c
+callee-of	-1	0x5c9c620	1070	func_0x0412c3f0,func_0x05d9ca70,func_0x0eec74c0		00082_5c9c620.c
+callee-of	-1	0x87b46b0	975	func_0x04108328,func_0x0410844d,func_0x048b0bc0,func_0x088b56b0,func_0x088b58a0,func_0x088b9260,func_0x088b9650,func_0x088b9930,func_0x0eeddcf0		00098_87b46b0.c
+callee-of	-1	0xd780440	265	func_0x06c3bfc0,func_0x0d8805d0,func_0x0d880930,func_0x0d885ef0		00099_d780440.c
+callee-of	-1	0xd2430a0	3176	func_0x0412a280,func_0x04882eb0,func_0x052bdae0,func_0x0d3457a0,func_0x0eec74c0,func_0x0eee2d70,func_0x0eee2dd0,func_0x0eee2f00		00101_d2430a0.c
+callee-of	-1	0x7e0ad80	969	func_0x04108328,func_0x0410844d,func_0x048b0d20,func_0x048b1040,func_0x048b10d0,func_0x0800edd0,func_0x0eec74c0,func_0x0eeddcf0,func_0x0eee2f40		00106_7e0ad80.c
+callee-of	-1	0xe410a70	951	func_0x04108328,func_0x0410844d,func_0x048b0d20,func_0x048b1040,func_0x048b10d0,func_0x0e64ebe0,func_0x0eec74c0,func_0x0eeddcf0,func_0x0eee2f40		00107_e410a70.c
+callee-of	-1	0xe442af0	435	func_0x04108328,func_0x0410844d,func_0x05d9c2b0,func_0x0e53e7f0,func_0x0eeddcf0,func_0x0eee2f40		00108_e442af0.c
+callee-of	-1	0xe55d060	435	func_0x04108328,func_0x0410844d,func_0x05d9c2b0,func_0x0e658c70,func_0x0eeddcf0,func_0x0eee2f40		00109_e55d060.c
+callee-of	-1	0x48cce40	512	func_0x0412a280,func_0x049cd2d0,func_0x0eec74c0,func_0x0eee2d70,func_0x0eee2f00		00113_48cce40.c
+callee-of	-1	0x497efb0	47			00114_497efb0.c
+callee-of	-1	0x4782e30	13	func_0x04882e40		00115_4782e30.c
+callee-of	-1	0x478f040	340	func_0x0412e5e0,func_0x0488ef50,func_0x0488efe0,func_0x0488eff0,func_0x0eec74c0,func_0x0eee2d70		00186_478f040.c
+callee-of	-1	0xca3ae10	337	func_0x0412c300		00187_ca3ae10.c
+callee-of	-1	0x51f4f20	167	func_0x0412a280		00188_51f4f20.c
+callee-of	-1	0xede3ab0	5			00189_ede3ab0.c
+callee-of	-1	0x47aea50	123			00190_47aea50.c
+caller-of-seed	-1	0xe3efe20	7936	func_0x04108328,func_0x0410844d,func_0x0412a280,func_0x0412c2d0,func_0x0412f0e0,func_0x04134310,func_0x0470d9a0,func_0x0488e120,func_0x048aea50,func_0x048aead0,func_0x048afb10,func_0x048b05a0	0x13bbacd  [cereal:documentation_tag] | 0x13bbad7  cumentation_tag] | 0x14518a9  [cereal:cereal_root_schema_property] | 0x14518b9  oot_schema_property] | 0x14d9869  [cereal:json_schema_property] | 0x14d9876  schema_property]	00085_e3efe20.c
+caller-of-seed	-1	0x485c870	2163	func_0x0412a280,func_0x0412d440,func_0x04882eb0,func_0x0495d8f0,func_0x049cca50,func_0x049cca60,func_0x049cce40,func_0x049cd050,func_0x049db610,func_0x049db9a0,func_0x04a51300,func_0x05256180	0x142bedc  minecraft:overworld | 0x14adbb4  minecraft:plains	00116_485c870.c
+caller-of-seed	-1	0xe627990	5388	func_0x04108328,func_0x0410844d,func_0x0412a280,func_0x0412c2d0,func_0x0488e120,func_0x048aead0,func_0x048b05a0,func_0x048b0c90,func_0x048b5060,func_0x0c8d38f0,func_0x0e7bb3d0,func_0x0e7bbc90	0x13bbacd  [cereal:documentation_tag] | 0x13bbad7  cumentation_tag] | 0x14518a9  [cereal:cereal_root_schema_property] | 0x14518b9  oot_schema_property]	00117_e627990.c
+caller-of-seed	-1	0xd1f8f10	17580	func_0x0410844d,func_0x0412a280,func_0x0412c2d0,func_0x04882e30,func_0x048b05a0,func_0x048b0bc0,func_0x048b0de0,func_0x048bed00,func_0x048fcad0,func_0x048fe9e0,func_0x048ffe50,func_0x049e9b20		00064_d1f8f10.c
+caller-of-seed	-1	0x487fe70	21372	func_0x0410844d,func_0x0412a280,func_0x0412c2d0,func_0x0412c300,func_0x04890760,func_0x0490ae00,func_0x04967f80,func_0x049d2510,func_0x049e9990,func_0x04a1a140,func_0x04a3a0b0,func_0x04a51300	0x1583420   underground_pass | 0x1583438  ,after_underground_pass | 0x1583450  &before_surface_pass | 0x1583480  $after_surface_pass	00107_487fe70.c
+caller-of-seed	-1	0xc7c2830	28670	func_0x0412a280,func_0x0412c2d0,func_0x04882e20,func_0x04890760,func_0x049084c0,func_0x049dc470,func_0x049dcb70,func_0x04fa7a10,func_0x05d54750,func_0x05d864e0,func_0x0c8ca0a0,func_0x0c8ca200	0x1df4730  minecraft:surface_builder | 0x1df4739  :surface_builder	00115_c7c2830.c
+caller-of-seed	-1	0xe6f40d0	5151	func_0x0410844d,func_0x0412a280,func_0x0412c2d0,func_0x0488e120,func_0x048aead0,func_0x048b05a0,func_0x048b0bc0,func_0x048b0c90,func_0x048b0d20,func_0x048b46f0,func_0x048b5060,func_0x0c8e15c0	0x13bbacd  [cereal:documentation_tag] | 0x13bbad7  cumentation_tag] | 0x14518a9  [cereal:cereal_root_schema_property] | 0x14518b9  oot_schema_property]	00116_e6f40d0.c
+caller-of-seed	-1	0xe706340	10473	func_0x04108328,func_0x0412c2d0,func_0x048afb10,func_0x048b05a0,func_0x048b0bc0,func_0x048b0c90,func_0x048b0d20,func_0x048b5060,func_0x0e163a60,func_0x0e163b50,func_0x0e2cba70,func_0x0e867920	0x13bbacd  [cereal:documentation_tag] | 0x13bbad7  cumentation_tag] | 0x14eaba0  [cereal:document | 0x1e13850  minecraft:replace_biomes | 0x1e13860  e_biomes | 0x1e365c0  minecraft:climate	00013_e706340.c
+caller-of-seed	-1	0x5182630	14422	func_0x0495d8f0,func_0x049cce40,func_0x049cd290,func_0x05256180,func_0x0528e660,func_0x05292a50,func_0x05292d30,func_0x05292fb0,func_0x052930f0,func_0x052931e0,func_0x052932d0,func_0x052933c0	0x11ed0a9  minecraft:depth_based_layer | 0x11ed0b4  epth_based_layer | 0x120864e  minecraft:ore_gap | 0x1208660  minecraft:aquifer_fluid_level_floodedness | 0x1208670  r_fluid_level_floodedness | 0x1208679  evel_floodedness	00015_5182630.c
+caller-of-seed	-1	0xeba2170	9180	func_0x04108328,func_0x0412c2d0,func_0x048b05a0,func_0x048b0bc0,func_0x048b0c90,func_0x048b0d20,func_0x048b46f0,func_0x048b5060,func_0x049dc470,func_0x05d54750,func_0x05da1460,func_0x0629ec20	0x13bbacd  [cereal:documentation_tag] | 0x13bbad7  cumentation_tag] | 0x14518a9  [cereal:cereal_root_schema_property] | 0x14518b9  oot_schema_property]	00060_eba2170.c
+caller-of-seed	-1	0xe3dd970	302	func_0x08499c90,func_0x0e4ddaa0,func_0x0e4efe20,func_0x0e4f1ef0,func_0x0e4f7eb0,func_0x0e5003f0,func_0x0e501380,func_0x0e611720,func_0x0e612100,func_0x0e6160b0,func_0x0e619cd0,func_0x0e61daf0		00061_e3dd970.c
+caller-of-seed	-1	0xda395e0	245	func_0x0db370f0,func_0x0db396e0,func_0x0db78670,func_0x0db7e360,func_0x0db7ee00,func_0x0db7efd0		00112_da395e0.c
+caller-of-seed	-1	0xeb9de40	1088	func_0x049dc470,func_0x05f23890,func_0x07c85e30,func_0x0c0bcb30,func_0x0cdadbb0,func_0x0d880440,func_0x0d8834c0,func_0x0d8842d0,func_0x0d88f060,func_0x0d88f180,func_0x0d892800,func_0x0d893500		00196_eb9de40.c
+caller-of-seed	-1	0xd21b1e0	15999	func_0x0412a280,func_0x0412d680,func_0x0412d6b0,func_0x04882eb0,func_0x04aa1da0,func_0x04aa2290,func_0x04f4b150,func_0x04fa48b0,func_0x0629e090,func_0x06ef7140,func_0x07310ef0,func_0x0ca7b2e0		00070_d21b1e0.c
+caller-of-seed	-1	0x8716ca0	297	func_0x0881a310,func_0x0884b480,func_0x0884b800,func_0x0884bb70,func_0x0884bd50,func_0x08961b20,func_0x08961e90		00112_8716ca0.c
+fn_0xed326a0	-1	0xed326a0	27			00293_ed326a0.c
+string-ref	-1	0xe3ddaa0	72434	func_0x04108328,func_0x0410844d,func_0x0412a280,func_0x0412c2d0,func_0x0412f0e0,func_0x04134310,func_0x0470d9a0,func_0x0488e120,func_0x048aea50,func_0x048aead0,func_0x048afb10,func_0x048b05a0	0x1202b26  RandomGroupBindings | 0x1250bf9  JigsawTemplatePool | 0x13bbacd  [cereal:documentation_tag] | 0x13bbad7  cumentation_tag] | 0x14518a9  [cereal:cereal_root_schema_property] | 0x14518b9  oot_schema_property]	00001_e3ddaa0.c
+string-ref	-1	0xbe12270	10182	func_0x0412a280,func_0x0412e5e0,func_0x0470d9a0,func_0x04862b40,func_0x04862b80,func_0x04862ba0,func_0x04862c80,func_0x04863480,func_0x04863610,func_0x04863cb0,func_0x04863e00,func_0x04863e30	0x1265361  Missing "distance" parameter for minecraft:player_in_village_filter | 0x1265371  e" parameter for minecraft:player_in_village_filter | 0x1265381   minecraft:player_in_village_filter | 0x1265391  r_in_village_filter | 0x12984e7  Spawn rules for minecraft:distance_filter specified a min distance > max. | 0x12984f7  minecraft:distance_filter specified a min distance > max.	00019_be12270.c
+string-ref	-1	0x493d130	1399	func_0x0412a280,func_0x04890760,func_0x048a88b0,func_0x0caf8e10,func_0x0d2eb5d0		00060_493d130.c
+string-ref	-1	0xe1d0880	13541	func_0x04108328,func_0x0410844d,func_0x0412a280,func_0x0412c2d0,func_0x0488e120,func_0x048aead0,func_0x048afb10,func_0x048b05a0,func_0x048b0c90,func_0x048b5060,func_0x05f23890,func_0x07c85e30	0x13041e0  Jigsaw Structure Metadata File | 0x13041ee  re Metadata File | 0x13bbacd  [cereal:documentation_tag] | 0x13bbad7  cumentation_tag] | 0x14518a9  [cereal:cereal_root_schema_property] | 0x14518b9  oot_schema_property]	00061_e1d0880.c
+string-ref	-1	0xc7ead20	5320	func_0x0412a280,func_0x0412c2d0,func_0x0412e5e0,func_0x04882eb0,func_0x0488e200,func_0x04890760,func_0x04891200,func_0x048a88b0,func_0x04931450,func_0x05862b30,func_0x09b479d0,func_0x09f90cb0	0x14eaeb0  minecraft:nether | 0x1df4730  minecraft:surface_builder | 0x1df4739  :surface_builder | 0x1e0ccf0  minecraft:replace_biomes | 0x1e0cd00  e_biomes | 0x1e44d00  minecraft:subsurface_builder	00063_c7ead20.c
+string-ref	-1	0x6148270	19711	func_0x0412a280,func_0x0412c2d0,func_0x0412e5e0,func_0x0470d9a0,func_0x04882e30,func_0x04882ee0,func_0x04885070,func_0x04890760,func_0x049dc470,func_0x049dcb70,func_0x049ea190,func_0x060a99b0	0x1259a9b  Something unexpected occured | 0x1259aa7  expected occured | 0x14609e5  See Log Panel for more details | 0x14609f3  for more details	00067_6148270.c
+string-ref	-1	0x4228e90	1443	func_0x0412a280,func_0x043195c0,func_0x04319630,func_0x0432e1f0,func_0x043302f0,func_0x04330890,func_0x0433b5a0,func_0x0433c1c0,func_0x0433d590,func_0x0433e5a0,func_0x04342b20,func_0x0447f550		00074_4228e90.c
+string-ref	-1	0x4953b30	247	func_0x0412a280,func_0x04a78aa0,func_0x04a78db0	0x1e366e0  minecraft:overworld_generation_rules | 0x1e366f0  rld_generation_rules | 0x1e36700  ules	00075_4953b30.c
+string-ref	-1	0x497a100	21			00076_497a100.c
+string-ref	-1	0xc8204b0	1290	func_0x0412a280,func_0x04931450,func_0x04a8bef0,func_0x04ab81b0,func_0x05890e00,func_0x0b5bfbb0,func_0x0c9209c0,func_0x0eee3b20	0x159187c  world_gen	00077_c8204b0.c
+string-ref	-1	0x882cc90	696	func_0x04108328,func_0x0410844d,func_0x0412a280,func_0x0470d9a0,func_0x0488e200,func_0x048aead0,func_0x08913080,func_0x08913190,func_0x0eee2f40		00078_882cc90.c
+string-ref	-1	0xc7818a0	21			00079_c7818a0.c
+string-ref	-1	0xd1f5270	5242	func_0x0412a280,func_0x0412f0e0,func_0x0417cc60,func_0x04882e30,func_0x04882eb0,func_0x04891200,func_0x049e9b20,func_0x05d59d60,func_0x05d85c50,func_0x05ebb920,func_0x05ebba90,func_0x05f43a40		00080_d1f5270.c
+string-ref	-1	0xda65d50	395	func_0x05d9c2b0,func_0x0db61aa0		00081_da65d50.c
+string-ref	-1	0x4941c20	912	func_0x0412a280,func_0x048a88b0,func_0x0d2eb5d0		00087_4941c20.c
+string-ref	-1	0xd2f38d0	6646	func_0x0412a280,func_0x0412c2d0,func_0x0417d010,func_0x04882eb0,func_0x04abe980,func_0x0c6e95e0,func_0x0ca92a80,func_0x0cc41880,func_0x0d3dfbc0,func_0x0d44d560,func_0x0d44d570,func_0x0eedc720		00088_d2f38d0.c
+string-ref	-1	0x51650f0	14371	func_0x0412a280,func_0x0412c2d0,func_0x0412d550,func_0x0412d610,func_0x0412d6b0,func_0x04ab9020,func_0x04abc4c0,func_0x04abe520,func_0x052be380,func_0x052c9160,func_0x0b62f250,func_0x0c9d0c10	0x1207d3a  minecraft:nether_quartz_ore_feature | 0x1207d4a  _quartz_ore_feature | 0x123caec  minecraft:nether_magma_feature | 0x123cafa  er_magma_feature | 0x12d6ce6  minecraft:nether_netherite_tall_feature | 0x12d6cf6  _netherite_tall_feature	00089_51650f0.c
+string-ref	-1	0x82ea3e0	297	func_0x083eb930,func_0x083ec1f0,func_0x083ec570,func_0x083ec8e0,func_0x083ecac0,func_0x0848eab0,func_0x0848ee30		00090_82ea3e0.c
+string-ref	-1	0x87b8cf0	617	func_0x048aead0		00091_87b8cf0.c
+string-ref	-1	0xc88c1b0	19528	func_0x04108328,func_0x0410844d,func_0x0412a280,func_0x0412c2d0,func_0x0412c300,func_0x0412d550,func_0x0412d610,func_0x0412e5e0,func_0x04882eb0,func_0x04885070,func_0x04885120,func_0x04890760	0x128215d  world_template_id	00092_c88c1b0.c
+string-ref	-1	0xd279e60	1670	func_0x0412a280,func_0x0412c2d0,func_0x048e7b80,func_0x048ece80,func_0x0b039dd0,func_0x0cc422f0,func_0x0cc46520,func_0x0cc465d0,func_0x0ee25150		00093_d279e60.c
+string-ref	-1	0xd789050	617	func_0x048aead0		00094_d789050.c
+string-ref	-1	0xe411410	1145	func_0x04108328,func_0x0410844d,func_0x0412c2d0,func_0x048b05a0,func_0x05d9c2b0,func_0x05d9c620,func_0x0e4b0a00,func_0x0e4b0a70,func_0x0e6a0f20,func_0x0e6a1310		00095_e411410.c
+string-ref	-1	0xe438f60	617	func_0x048aead0		00096_e438f60.c
+string-ref	-1	0xe557990	617	func_0x048aead0		00097_e557990.c
+string-ref	-1	0xe58ec80	617	func_0x048aead0		00098_e58ec80.c
+string-ref	-1	0x52597f0	171	func_0x05359ae0,func_0x0eeb79f0		00125_52597f0.c
+string-ref	-1	0x494d8c0	2697	func_0x0412a280,func_0x0412e5e0,func_0x0470d9a0,func_0x049cd3b0,func_0x049cd640,func_0x04a48d80,func_0x04a4fe70,func_0x04a6b0a0,func_0x04a770f0		00126_494d8c0.c
+string-ref	-1	0x4953c50	238	func_0x0412a280,func_0x04a78aa0,func_0x04a78db0	0x1e367b0  minecraft:overworld_height | 0x1e367ba  overworld_height	00127_4953c50.c
+string-ref	-1	0x4979130	21			00128_4979130.c
+string-ref	-1	0x49c9ab0	45086	func_0x0412a280,func_0x0412c2d0,func_0x0412f5e0,func_0x04885070,func_0x04885120,func_0x04aa75f0,func_0x04ad80a0,func_0x04b081a0,func_0x04b0c1b0,func_0x04b0cb10,func_0x04b0e8e0,func_0x04b39250	0x11d3bce  hanging_leaves_chance | 0x11ec534  corner_hole_chance | 0x1257a3a  radius_step_modifier | 0x13abfa3  random_spread_canopy	00129_49c9ab0.c
+string-ref	-1	0x4a03380	21			00130_4a03380.c
+string-ref	-1	0xc759560	954	func_0x0412a280,func_0x0412c2d0,func_0x0b62f250,func_0x0bbfe2d0,func_0x0d3a0d80,func_0x0d3d5ac0	0x1271a53  minecraft:azalea_tree_feature | 0x1271a60  lea_tree_feature	00131_c759560.c
+string-ref	-1	0xc7bf860	655	func_0x0412a280,func_0x09ded4b0,func_0x0b5be630	0x159187c  world_gen	00132_c7bf860.c
+string-ref	-1	0xb8f6b60	13426	func_0x04108328,func_0x0410844d,func_0x0412a280,func_0x0412c2d0,func_0x04890760,func_0x04891200,func_0x048aead0,func_0x048b0de0,func_0x048b1dc0,func_0x048bed00,func_0x049e7e20,func_0x049e8470	0x11ac869  EditorPrefabDBService | 0x11fc97a  EditorStructureDBManagerService | 0x11fc989  DBManagerService | 0x1266ac7  EditorPlaytestManagerService | 0x1266ad3  stManagerService | 0x12e632a  StructureDataCacheService	00133_b8f6b60.c
+string-ref	-1	0x6237430	17			00134_6237430.c
+string-ref	-1	0x623e820	183	func_0x0633dcd0,func_0x0633e200		00135_623e820.c
+string-ref	-1	0x68d05d0	3252	func_0x0412a280,func_0x0488e200,func_0x05d84ba0,func_0x069cd100,func_0x069d1880	0x1798489  ShowInvisibleBlocks | 0x179849d  ShowChunkBoundaries | 0x17984c9  ShowToastNotifications | 0x17984e0  DisableTerrainRendering | 0x17984f8  DisableEntityRendering | 0x179850f  DisableBlockEntityRendering	00136_68d05d0.c
+string-ref	-1	0x6b28810	993	func_0x0412a280,func_0x0412c2d0,func_0x048b0de0,func_0x048fb670,func_0x05e91e00,func_0x0633a970,func_0x0d81d5c0,func_0x0d81d7e0,func_0x0d858ce0	0x12402df  Failed to generate jigsaw. | 0x12402e9  generate jigsaw. | 0x13f776f  Error	00137_6b28810.c
+string-ref	-1	0x6c300d0	5335	func_0x04108328,func_0x0410844d,func_0x041084d6,func_0x0412a280,func_0x0412c2d0,func_0x0412d550,func_0x0412d610,func_0x0412e5e0,func_0x0470d9a0,func_0x04863060,func_0x04863290,func_0x04863610		00138_6c300d0.c
+string-ref	-1	0x836acf0	245			00139_836acf0.c
+string-ref	-1	0xc7ade20	62			00140_c7ade20.c
+string-ref	-1	0x88256c0	696	func_0x04108328,func_0x0410844d,func_0x0412a280,func_0x0470d9a0,func_0x0488e200,func_0x048aead0,func_0x08902900,func_0x08902a10,func_0x0eee2f40		00141_88256c0.c
+string-ref	-1	0xa19eab0	1785	func_0x04108328,func_0x0410844d,func_0x0412a280,func_0x0412c2d0,func_0x0412e5e0,func_0x04885120,func_0x048ae940,func_0x048aee30,func_0x048b0de0,func_0x048b1dc0,func_0x05da1460,func_0x0652e2f0	0x14030d8  PlaceJigsawError	00142_a19eab0.c
+string-ref	-1	0xa237580	4275	func_0x0412a280,func_0x0412c2d0,func_0x0412e5e0,func_0x04885070,func_0x04885120,func_0x048b1dc0,func_0x0652dc20,func_0x0652e400,func_0x065af670,func_0x065b01f0,func_0x065b0410,func_0x0662a2a0	0x12ada5c  ignoreStartHeight | 0x141e16c  JigsawStructurePlaceOptions | 0x141e177  turePlaceOptions	00143_a237580.c
+string-ref	-1	0xe3db870	7633	func_0x04108328,func_0x0410844d,func_0x0412a280,func_0x0412c2d0,func_0x0488e120,func_0x048aead0,func_0x048b05a0,func_0x048b0c90,func_0x048b5060,func_0x0d52ab90,func_0x0e4db7a0,func_0x0e5ec000	0x13bbacd  [cereal:documentation_tag] | 0x13bbad7  cumentation_tag] | 0x14518a9  [cereal:cereal_root_schema_property] | 0x14518b9  oot_schema_property]	00144_e3db870.c
+string-ref	-1	0xb715390	1468	func_0x0412a280,func_0x0412c2d0,func_0x0412c300,func_0x0488e200,func_0x048b0900,func_0x048fb670,func_0x05d84ba0,func_0x05e91e00,func_0x0b766990,func_0x0b807720,func_0x0b812580,func_0x0d858ce0	0x1266555  Invalid Custom Biome Source | 0x1266560  tom Biome Source | 0x13f776f  Error	00145_b715390.c
+string-ref	-1	0xb919b40	27649	func_0x04108328,func_0x0410844d,func_0x0412a280,func_0x0412c2d0,func_0x0412e5e0,func_0x04885070,func_0x04885120,func_0x048ae940,func_0x048aea50,func_0x048aead0,func_0x048aee30,func_0x048b0de0	0x11c855d  customDimensionManager | 0x133501f  createCustomBiomeSource | 0x13501c2  MinecraftEditorInternal | 0x13bb05f  activationFunction | 0x14079ac  sessionLifecycleFunction | 0x1455b0c  shutdownFunction	00146_b919b40.c
+string-ref	-1	0xb9edb30	21			00147_b9edb30.c
+string-ref	-1	0xc4ca4f0	12			00148_c4ca4f0.c
+string-ref	-1	0xc55e9e0	0	func_0x0412f5e0		00149_c55e9e0.c
+string-ref	-1	0xc5c4200	21			00150_c5c4200.c
+string-ref	-1	0xc7ade60	21			00151_c7ade60.c
+string-ref	-1	0xc7bbb10	1012	func_0x0412a280,func_0x04931450,func_0x0d6c71b0,func_0x0d6c97a0,func_0x0d6c9880		00152_c7bbb10.c
+string-ref	-1	0xc7e9d60	268	func_0x04e8ef80		00153_c7e9d60.c
+string-ref	-1	0xc7ea1e0	268	func_0x04e8ef80		00154_c7ea1e0.c
+string-ref	-1	0xe030f60	5388	func_0x04108328,func_0x0410844d,func_0x0412a280,func_0x0412c2d0,func_0x0488e120,func_0x048aead0,func_0x048b05a0,func_0x048b0c90,func_0x048b5060,func_0x0c8d5090,func_0x0e1305d0,func_0x0e167fa0	0x13bbacd  [cereal:documentation_tag] | 0x13bbad7  cumentation_tag] | 0x14518a9  [cereal:cereal_root_schema_property] | 0x14518b9  oot_schema_property]	00155_e030f60.c
+string-ref	-1	0xca551a0	21			00156_ca551a0.c
+string-ref	-1	0xcf12060	7			00157_cf12060.c
+string-ref	-1	0xd1c8290	2731	func_0x0412a280,func_0x0412c2d0,func_0x0412e5e0,func_0x04883620,func_0x04931450,func_0x051922d0,func_0x08490b70,func_0x0b5c5fe0,func_0x0b5f94a0,func_0x0d2c8e40,func_0x0d2c8ef0,func_0x0d2d9fd0		00158_d1c8290.c
+string-ref	-1	0xd1d1930	630	func_0x04931450,func_0x0d6c97a0		00159_d1d1930.c
+string-ref	-1	0xd20bae0	21			00160_d20bae0.c
+string-ref	-1	0xd2215d0	636	func_0x0412c2d0,func_0x048b0de0,func_0x04913500,func_0x04913c20,func_0x0ed6b4a0		00161_d2215d0.c
+string-ref	-1	0xd2271d0	21			00162_d2271d0.c
+string-ref	-1	0xd287f20	636	func_0x0412c2d0,func_0x048b0de0,func_0x04913500,func_0x04913c20,func_0x0ed6b4a0		00163_d287f20.c
+string-ref	-1	0xd293fc0	0	func_0x0412a280,func_0x0412c2d0,func_0x0412e5e0,func_0x0412f5e0,func_0x04882eb0,func_0x04885070,func_0x0d2de6d0,func_0x0d2dfb30,func_0x0d385880,func_0x0d3859d0,func_0x0d6b3300,func_0x0eee2f00		00164_d293fc0.c
+string-ref	-1	0xd2ce610	21			00165_d2ce610.c
+string-ref	-1	0xd3e5710	21			00166_d3e5710.c
+string-ref	-1	0xd403eb0	9204	func_0x04108328,func_0x0410844d,func_0x0412a280,func_0x0412c2d0,func_0x0412d550,func_0x0412d610,func_0x0412e5e0,func_0x04882e30,func_0x04882eb0,func_0x04882ef0,func_0x04885070,func_0x04890760	0x11b0484  AutomaticFeatureRules	00167_d403eb0.c
+string-ref	-1	0xdce4110	2513	func_0x0412a280,func_0x0412c2d0,func_0x0470d9a0,func_0x048b05a0,func_0x0cd06a70,func_0x0de45430,func_0x0de45970,func_0x0de45d20,func_0x0de45f10,func_0x0dea0f00		00168_dce4110.c
+string-ref	-1	0xe1d06e0	332	func_0x0e2d98e0,func_0x0e2d9b70,func_0x0e34a1b0,func_0x0e390d50,func_0x0e391730,func_0x0e3921a0		00169_e1d06e0.c
+string-ref	-1	0xe6ef910	10365	func_0x04108328,func_0x0410844d,func_0x0412a280,func_0x0412c2d0,func_0x0488e120,func_0x048aead0,func_0x048b05a0,func_0x048b0c90,func_0x048b1040,func_0x048b10d0,func_0x048b5060,func_0x0e216210	0x13bbacd  [cereal:documentation_tag] | 0x13bbad7  cumentation_tag]	00170_e6ef910.c
+string-ref	-1	0xe2ac100	21			00171_e2ac100.c
+string-ref	-1	0xe39cba0	21			00172_e39cba0.c
+string-ref	-1	0xe410e40	176	func_0x0e4b0a70,func_0x0e510f80,func_0x0e6a0730		00173_e410e40.c
+string-ref	-1	0xe51b620	21			00174_e51b620.c
+string-ref	-1	0xe5af2e0	21			00175_e5af2e0.c
+string-ref	-1	0xe5f8eb0	171	func_0x0412a280,func_0x0412c2d0,func_0x0e334040	0x1e2f670  minecraft:biome_music | 0x1e2f67d  me_music	00176_e5f8eb0.c
+string-ref	-1	0xe6c9cd0	373	func_0x0412a280,func_0x0488e200,func_0x0e3341d0	0x1e2f670  minecraft:biome_music | 0x1e2f67d  me_music	00177_e6c9cd0.c
+string-ref	-1	0xe8dc4b0	21			00178_e8dc4b0.c
+string-ref	-1	0xe8e2fe0	696	func_0x04108328,func_0x0410844d,func_0x0412a280,func_0x0470d9a0,func_0x0488e200,func_0x048aead0,func_0x0e9d72f0,func_0x0e9d7400,func_0x0eee2f40		00179_e8e2fe0.c
+string-ref	-1	0xe4118a0	58135	func_0x0410844d,func_0x0412a280,func_0x0412c2d0,func_0x0488e120,func_0x048aead0,func_0x048afd20,func_0x048b05a0,func_0x048b0af0,func_0x048b0bc0,func_0x048b0c90,func_0x048b0d20,func_0x048b10d0	0x1202b57  minecraft:random_blockstate_match | 0x1202b67  _blockstate_match | 0x12b886b  minecraft:tag_match | 0x12d2855  minecraft:passthrough | 0x133b8fb  minecraft:blockstate_match | 0x133b905  blockstate_match	00016_e4118a0.c
+string-ref	-1	0xc7b6470	2460	func_0x0412a280,func_0x0b5dad10,func_0x0b5dc1d0,func_0x0eec74c0	0x121880b  query.has_biome_tag | 0x13520da  query.above_top_solid | 0x14097bf  query.has_all_biome_tags | 0x14da7cb  query.has_any_biome_tags | 0x159187c  world_gen	00059_c7b6470.c
+string-ref	-1	0xe2d33f0	10637	func_0x0410844d,func_0x0412a280,func_0x0412c2d0,func_0x0488e120,func_0x048afd20,func_0x048b05a0,func_0x048b0af0,func_0x048b0bc0,func_0x048b0c90,func_0x048b0d20,func_0x048b46f0,func_0x048b5060	0x129ec28  Jigsaw Structure Metadata | 0x129ec31  ructure Metadata | 0x13bbacd  [cereal:documentation_tag] | 0x13bbad7  cumentation_tag] | 0x14518a9  [cereal:cereal_root_schema_property] | 0x14518b9  oot_schema_property]	00060_e2d33f0.c
+string-ref	-1	0xd208860	2117	func_0x0412a280,func_0x04882e30,func_0x049e9990,func_0x05f43b50,func_0x0d309210,func_0x0d326720,func_0x0d62a6f0,func_0x0eeb81b0,func_0x0eec74c0,func_0x0eee2d70,func_0x0eee2e90		00062_d208860.c
+string-ref	-1	0xd305930	102	func_0x0412a280,func_0x0b5d5fa0,func_0x0d3dfbc0,func_0x0d406a20,func_0x0eec74c0		00065_d305930.c
+string-ref	-1	0x62f3d70	0	func_0x0412a280,func_0x06336aa0,func_0x0eec74c0		00066_62f3d70.c
+string-ref	-1	0xe3f7eb0	32798	func_0x0410844d,func_0x0412a280,func_0x0412c2d0,func_0x0412f0e0,func_0x04134310,func_0x041679a0,func_0x04167a20,func_0x04167a40,func_0x041681f0,func_0x0470d9a0,func_0x0488e120,func_0x048aea50	0x13bbacd  [cereal:documentation_tag] | 0x13bbad7  cumentation_tag] | 0x14518a9  [cereal:cereal_root_schema_property] | 0x14518b9  oot_schema_property] | 0x14d9869  [cereal:json_schema_property] | 0x14d9876  schema_property]	00067_e3f7eb0.c
+string-ref	-1	0x494e5e0	2847	func_0x0412a280,func_0x0470d9a0,func_0x04882e20,func_0x049cd2e0,func_0x049cd3b0,func_0x049cd640,func_0x04a48d80,func_0x04a49970,func_0x04a6afc0,func_0x04a6b090,func_0x04a6b290,func_0x04a6b420		00074_494e5e0.c
+string-ref	-1	0x4978d20	21			00075_4978d20.c
+string-ref	-1	0x497a310	21			00076_497a310.c
+string-ref	-1	0x78de530	48095	func_0x0410844d,func_0x0412c2d0,func_0x048b05a0,func_0x048b0bc0,func_0x05d9c2b0,func_0x05d9c620,func_0x07ae77e0,func_0x07ae79d0,func_0x07ae7c40,func_0x07aeb3b0,func_0x07aeb750,func_0x0eeddcf0		00077_78de530.c
+string-ref	-1	0x9babf40	9634	func_0x0410844d,func_0x0412a280,func_0x04863610,func_0x04882e30,func_0x04886070,func_0x0488efe0,func_0x04931550,func_0x049315c0,func_0x05acbd50,func_0x09b23020,func_0x09cae810,func_0x09caec70	0x11f7dc1  PlaceFeatureAction | 0x12ada5c  ignoreStartHeight | 0x12c7ff4  PlaceStructureAction | 0x1367a64  PlaceJigsawAction | 0x13e93f5  PlaceFeatureRuleAction	00078_9babf40.c
+string-ref	-1	0xc7819e0	21			00079_c7819e0.c
+string-ref	-1	0xd1f3fc0	4333	func_0x0412a280,func_0x0412f0e0,func_0x0417cc60,func_0x04882e30,func_0x05d59d60,func_0x05d85c50,func_0x05ebb920,func_0x05ebba90,func_0x05f43a40,func_0x06ef7140,func_0x08494df0,func_0x0c4a4310		00080_d1f3fc0.c
+string-ref	-1	0xea6df80	17798	func_0x07a0a120,func_0x07a0a500,func_0x07a0a8e0,func_0x07a0acc0,func_0x07a0b0a0,func_0x07a0b480,func_0x07a0b860,func_0x07a0bc40,func_0x07a0c020,func_0x07a0c400,func_0x07a0c7e0,func_0x07a0cbc0		00081_ea6df80.c
+string-ref	-1	0x523ae40	1304	func_0x0412a280,func_0x04fa7a10,func_0x085fea60,func_0x0ca5c8c0,func_0x0d2279e0,func_0x0eec74c0	0x142bedc  minecraft:overworld	00086_523ae40.c
+string-ref	-1	0x4942800	616	func_0x048a88b0,func_0x0eeddcf0		00087_4942800.c
+string-ref	-1	0xd3064e0	1196	func_0x0412a280,func_0x0b5d5fa0,func_0x0d3dfbc0,func_0x0eec74c0		00088_d3064e0.c
+string-ref	-1	0xc543930	1368	func_0x0412a280,func_0x0412c2d0,func_0x0b62f250,func_0x0cc41df0,func_0x0d3a0d80,func_0x0d3d5ac0,func_0x0eec74c0		00089_c543930.c
+string-ref	-1	0x7e4e700	617	func_0x048aead0,func_0x0eeddcf0		00090_7e4e700.c
+string-ref	-1	0xb199fb0	1095	func_0x0412a280,func_0x04882e20,func_0x04882ef0,func_0x0488e200,func_0x04931450,func_0x0537efb0,func_0x054761f0,func_0x056be690,func_0x056be720,func_0x056be730,func_0x05f28760,func_0x09a3ccb0		00091_b199fb0.c
+string-ref	-1	0xd1cda40	4521	func_0x0412a280,func_0x0412c2d0,func_0x0412c3f0,func_0x04883620,func_0x09cb07b0,func_0x09e3e440,func_0x0b5f94a0,func_0x0c9209c0,func_0x0d2cd970,func_0x0d2cd9a0,func_0x0d2e0470,func_0x0d2ea150		00092_d1cda40.c
+string-ref	-1	0xe2c1920	10921	func_0x0410844d,func_0x0412a280,func_0x0412c2d0,func_0x0488e120,func_0x048aead0,func_0x048afd20,func_0x048b05a0,func_0x048b0af0,func_0x048b0bc0,func_0x048b0c90,func_0x048b0d20,func_0x048b10d0	0x13bbacd  [cereal:documentation_tag] | 0x13bbad7  cumentation_tag] | 0x14ec760  volume_multiplier	00093_e2c1920.c
+string-ref	-1	0xe423ae0	617	func_0x048aead0,func_0x0eeddcf0		00094_e423ae0.c
+string-ref	-1	0xe43d670	617	func_0x048aead0,func_0x0eeddcf0		00095_e43d670.c
+string-ref	-1	0xe55c3c0	617	func_0x048aead0,func_0x0eeddcf0		00096_e55c3c0.c
+string-ref	-1	0xe592b20	617	func_0x048aead0,func_0x0eeddcf0		00097_e592b20.c
+string-ref	-1	0x525a740	171	func_0x05359ae0,func_0x0eeb81b0		00124_525a740.c
+string-ref	-1	0x4950a40	1430	func_0x0412a280,func_0x0470d9a0,func_0x049cd3b0,func_0x049cd640,func_0x04a48d80,func_0x04a6b0a0,func_0x04a770f0,func_0x0eec74c0		00125_4950a40.c
+string-ref	-1	0x5251cd0	394	func_0x0488e200,func_0x05351e90,func_0x0eeb81b0,func_0x0eec74c0	0x1e367b0  minecraft:overworld_height | 0x1e367ba  overworld_height	00126_5251cd0.c
+string-ref	-1	0x4979930	21			00127_4979930.c
+string-ref	-1	0x49fd630	21			00128_49fd630.c
+string-ref	-1	0x4a08120	21			00129_4a08120.c
+string-ref	-1	0x523e0f0	0			00130_523e0f0.c
+string-ref	-1	0xc81ef30	655	func_0x0412a280,func_0x09ded4b0,func_0x0b5be630	0x159187c  world_gen	00131_c81ef30.c
+string-ref	-1	0xb921df0	16697	func_0x0410844d,func_0x04109e60,func_0x0412c2d0,func_0x0488e200,func_0x048aead0,func_0x048b0900,func_0x048b1dc0,func_0x049e8590,func_0x05f95d30,func_0x05fa6970,func_0x06075860,func_0x0607ba60		00132_b921df0.c
+string-ref	-1	0x6237ff0	21			00133_6237ff0.c
+string-ref	-1	0x623f210	21			00134_623f210.c
+string-ref	-1	0x6a16460	3420	func_0x0412a280,func_0x0412c2d0,func_0x04885120,func_0x048b1dc0,func_0x064e40a0,func_0x0652dc20,func_0x0652e400,func_0x065af670,func_0x065b01f0,func_0x065b0410,func_0x065f3710,func_0x065f4130	0x130d8c3  EditorJigsawSection	00135_6a16460.c
+string-ref	-1	0x6b28cd0	21			00136_6b28cd0.c
+string-ref	-1	0xb93af20	59730	func_0x0410844d,func_0x0412a280,func_0x0412c2d0,func_0x04885120,func_0x048ae940,func_0x048aea50,func_0x048aee30,func_0x048b0de0,func_0x048b1dc0,func_0x049057f0,func_0x05f93280,func_0x05fe8450	0x1350210  NumberTaskPromise | 0x13948d1  worldGeneratorType | 0x13d4367  ExtensionOptionalParameters | 0x13d4372  tionalParameters | 0x14219cb  VolumeTaskPromise | 0x1455ba1  ManifestTaskPromise	00137_b93af20.c
+string-ref	-1	0x78c20e0	42068	func_0x0410844d,func_0x0412c2d0,func_0x048b05a0,func_0x048b0bc0,func_0x05d9c620,func_0x07ad00b0,func_0x07ad01c0,func_0x07ad04f0,func_0x07ad3d70,func_0x07ad4110,func_0x07ad44a0,func_0x0eeddcf0		00138_78c20e0.c
+string-ref	-1	0x838dd60	1591	func_0x0412a280,func_0x0412c2d0,func_0x0412dc70,func_0x04882e30,func_0x04890760,func_0x048b0de0,func_0x049084c0,func_0x0490a470,func_0x04913500,func_0x04913c20,func_0x0ed6b4a0,func_0x0ed6c040		00139_838dd60.c
+string-ref	-1	0xea72510	3152	func_0x0410844d,func_0x0412c2d0,func_0x048b05a0,func_0x048b0bc0,func_0x05d9c620,func_0x07823d00,func_0x078240e0,func_0x078244c0,func_0x078248a0,func_0x07824c80,func_0x07825060,func_0x07825440		00140_ea72510.c
+string-ref	-1	0x8828740	696	func_0x0410844d,func_0x0412a280,func_0x0470d9a0,func_0x0488e200,func_0x048aead0,func_0x088f5130,func_0x088f5240,func_0x0eeddcf0,func_0x0eee2f40		00141_8828740.c
+string-ref	-1	0xa2279c0	2454	func_0x0412a280,func_0x04882e20,func_0x04882e30,func_0x0488e200,func_0x0488e290,func_0x048b0900,func_0x048fb670,func_0x05d84ba0,func_0x05da2d20,func_0x08d4ed60,func_0x0912ae90,func_0x09cafa60	0x14030d8  PlaceJigsawError	00142_a2279c0.c
+string-ref	-1	0xa3bf3c0	3337	func_0x0412a280,func_0x0412c2d0,func_0x04885120,func_0x048b1dc0,func_0x0652dc20,func_0x0652e400,func_0x065af670,func_0x065b01f0,func_0x065b0410,func_0x0662a2a0,func_0x0662c7f0,func_0x0730fa70	0x12e2e9f  JigsawPlaceOptions	00143_a3bf3c0.c
+string-ref	-1	0xb1a7d30	1175	func_0x0412a280,func_0x0470d9a0,func_0x0d6b16c0,func_0x0eee3000		00144_b1a7d30.c
+string-ref	-1	0xb715e10	1523	func_0x0412a280,func_0x0412c2d0,func_0x0412c300,func_0x0488e200,func_0x0488e290,func_0x048b0900,func_0x048fb670,func_0x05d84ba0,func_0x05e91e00,func_0x066ab6c0,func_0x0d858ce0,func_0x0eec74c0	0x1266555  Invalid Custom Biome Source | 0x1266560  tom Biome Source | 0x13f776f  Error	00145_b715e10.c
+string-ref	-1	0xb96a1e0	17			00146_b96a1e0.c
+string-ref	-1	0xba071b0	21			00147_ba071b0.c
+string-ref	-1	0xc4d3300	21			00148_c4d3300.c
+string-ref	-1	0xc5c3f00	21			00149_c5c3f00.c
+string-ref	-1	0xc5c4300	21			00150_c5c4300.c
+string-ref	-1	0xc7ae2c0	21			00151_c7ae2c0.c
+string-ref	-1	0xc7e4270	21			00152_c7e4270.c
+string-ref	-1	0xc7e9e80	268	func_0x04e8ef80		00153_c7e9e80.c
+string-ref	-1	0xc7ec400	21			00154_c7ec400.c
+string-ref	-1	0xc7ee610	21			00155_c7ee610.c
+string-ref	-1	0xcc99350	2618	func_0x0412a280,func_0x0412c2d0,func_0x0470d9a0,func_0x048b05a0,func_0x048b0bc0,func_0x048b0c90,func_0x048b0d20,func_0x048b10d0,func_0x0cdd61c0,func_0x0cdd67e0,func_0x0cdd6d20,func_0x0cdd70e0		00156_cc99350.c
+string-ref	-1	0xce74f00	1904	func_0x0410844d,func_0x0412a280,func_0x0cf765c0,func_0x0cf76680,func_0x0cf76740,func_0x0cf76800,func_0x0cf768c0,func_0x0cf76980,func_0x0cf76a40,func_0x0cf76b00,func_0x0cf76bc0,func_0x0cf76c80	0x123400f  DaylightDetector | 0x12e960b  CalibratedSculkSensor	00157_ce74f00.c
+string-ref	-1	0xd1c8f20	2902	func_0x0412a280,func_0x0412c2d0,func_0x04890760,func_0x04931450,func_0x0525e5f0,func_0x0b5f94a0,func_0x0b646b60,func_0x0d2dfc30,func_0x0d2dfc40,func_0x0d2dfcf0,func_0x0d2dfe00,func_0x0d3278e0		00158_d1c8f20.c
+string-ref	-1	0xd1ee9f0	254	func_0x0412c2d0,func_0x0412c300,func_0x0d30c430,func_0x0d30c6b0,func_0x0eeddcf0		00159_d1ee9f0.c
+string-ref	-1	0xd20c020	21			00160_d20c020.c
+string-ref	-1	0xd222e70	636	func_0x0412c2d0,func_0x048b0de0,func_0x04913500,func_0x04913c20,func_0x0ed6b4a0,func_0x0eeddcf0		00161_d222e70.c
+string-ref	-1	0xd238c00	1473	func_0x0412a280,func_0x0412c2d0,func_0x04890760,func_0x048a88b0,func_0x05192370,func_0x0d2d9fd0,func_0x0d2db730,func_0x0d3391f0,func_0x0d345390,func_0x0d3ad660,func_0x0eec74c0,func_0x0eedc720		00162_d238c00.c
+string-ref	-1	0xd28bdb0	636	func_0x0412c2d0,func_0x048b0de0,func_0x04913500,func_0x04913c20,func_0x0ed6b4a0,func_0x0eeddcf0		00163_d28bdb0.c
+string-ref	-1	0xd2ad330	241	func_0x0410844d,func_0x05192370,func_0x0d3ad450,func_0x0eeddcf0,func_0x0eee2f40		00164_d2ad330.c
+string-ref	-1	0xd2ce740	21			00165_d2ce740.c
+string-ref	-1	0xd3e5840	21			00166_d3e5840.c
+string-ref	-1	0xd525a60	9341	func_0x0412a280,func_0x0d6284c0,func_0x0eec74c0		00167_d525a60.c
+string-ref	-1	0xddb3de0	124	func_0x0470d9a0		00168_ddb3de0.c
+string-ref	-1	0xe2491a0	174	func_0x0412a280,func_0x0412c2d0,func_0x0e334040	0x1e13870  minecraft:biome_music	00169_e2491a0.c
+string-ref	-1	0xe717140	373	func_0x0412a280,func_0x0488e200,func_0x0e3341d0	0x1e13870  minecraft:biome_music | 0x1e1387d  me_music	00170_e717140.c
+string-ref	-1	0xe329c70	511	func_0x0412a280,func_0x0412c2d0,func_0x0488e200,func_0x048b0900,func_0x0e334040,func_0x0e42a050	0x1e190c0  minecraft:biome_music	00171_e329c70.c
+string-ref	-1	0xe3a03c0	2155	func_0x0412a280,func_0x0488e200,func_0x048aead0,func_0x048b1dc0,func_0x05ea0220,func_0x05ea04f0,func_0x0ed75470,func_0x0eec74c0,func_0x0eeddcf0	0x1258e99  source type is not an associative container | 0x1258ea9  ot an associative container | 0x1258eb4  iative container	00172_e3a03c0.c
+string-ref	-1	0xe45fde0	21			00173_e45fde0.c
+string-ref	-1	0xe51f270	21			00174_e51f270.c
+string-ref	-1	0xe5c5080	461	func_0x0410844d,func_0x0412a280,func_0x0470d9a0,func_0x0488e200,func_0x0e6ba640,func_0x0e6bcbc0,func_0x0eeddcf0		00175_e5c5080.c
+string-ref	-1	0xe5f8f90	142	func_0x0412a280,func_0x0e3341d0	0x1e2f670  minecraft:biome_music | 0x1e2f67d  me_music	00176_e5f8f90.c
+string-ref	-1	0xe70ae30	10862	func_0x0410844d,func_0x0412a280,func_0x0412c2d0,func_0x0488e120,func_0x048aead0,func_0x048b05a0,func_0x048b0bc0,func_0x048b0c90,func_0x048b0d20,func_0x048b10d0,func_0x048b5060,func_0x0e216210	0x13bbacd  [cereal:documentation_tag] | 0x13bbad7  cumentation_tag]	00177_e70ae30.c
+string-ref	-1	0xe8df1a0	1077	func_0x0412a280,func_0x0470d9a0,func_0x0488e200,func_0x048aead0,func_0x048b1dc0,func_0x0eec74c0,func_0x0eeddcf0	0x145e8f0  source type is not a sequence container | 0x145e900  ot a sequence container	00178_e8df1a0.c
+string-ref	-1	0xe8e5120	461	func_0x0410844d,func_0x0412a280,func_0x0470d9a0,func_0x0488e200,func_0x0e9e60d0,func_0x0e9e7020,func_0x0eeddcf0		00179_e8e5120.c
+string-ref	-1	0x7e0b3b0	20880	func_0x04108328,func_0x0412c2d0,func_0x04882eb0,func_0x048b05a0,func_0x048b0bc0,func_0x048b0c90,func_0x048b0d20,func_0x048b1040,func_0x05d9c620,func_0x0774b760,func_0x07f0a860,func_0x07f0ad80		00025_7e0b3b0.c
+string-ref	-1	0x6142da0	12371	func_0x04108328,func_0x0412e5e0,func_0x04882e30,func_0x04882eb0,func_0x04882ee0,func_0x04882ef0,func_0x04885070,func_0x0488efe0,func_0x0489d2c0,func_0x048ad670,func_0x048b3e80,func_0x060aeeb0	0x12d9085  resourcePack.editor.jigsaw.save.fileOpenError | 0x12d9095  tor.jigsaw.save.fileOpenError | 0x12d90a2  ve.fileOpenError | 0x141433a  Jigsaw path does not exist: | 0x1414346  does not exist: | 0x14e3da0  ::::::::::::::::	00031_6142da0.c
+string-ref	-1	0xbf19d20	20201	func_0x0412c3f0,func_0x0412e5e0,func_0x04882e20,func_0x04882eb0,func_0x04883620,func_0x04885070,func_0x04fa7a10,func_0x0c019630,func_0x0c02bd90,func_0x0c02c000,func_0x0eec74c0,func_0x0eee2d70		00058_bf19d20.c
+string-ref	-1	0xda65110	617	func_0x0eeddcf0		00059_da65110.c
+string-ref	-1	0xd2e8de0	1199	func_0x0d3dfbc0		00063_d2e8de0.c
+string-ref	-1	0x4953440	159	func_0x04a78aa0,func_0x04a78db0	0x1e365c0  minecraft:climate	00070_4953440.c
+string-ref	-1	0x4979780	21			00071_4979780.c
+string-ref	-1	0x51be650	21			00072_51be650.c
+string-ref	-1	0x881f420	696	func_0x04108328,func_0x088bf670,func_0x088bf780,func_0x0eeddcf0		00073_881f420.c
+string-ref	-1	0xc75af20	21			00074_c75af20.c
+string-ref	-1	0xc781ae0	21			00075_c781ae0.c
+string-ref	-1	0xd1f7bb0	4516	func_0x0412f0e0,func_0x0417cc60,func_0x04882e30,func_0x04882eb0,func_0x04891200,func_0x049ea190,func_0x04b0ace0,func_0x05d59d60,func_0x05d85c50,func_0x05ebb920,func_0x05ebba90,func_0x05f43a40		00076_d1f7bb0.c
+string-ref	-1	0xeb1e200	696	func_0x04108328,func_0x0ebf7600,func_0x0ebf7710,func_0x0eeddcf0		00077_eb1e200.c
+string-ref	-1	0x493d700	582	func_0x048a88b0,func_0x0d2eb5d0,func_0x0eeddcf0		00082_493d700.c
+string-ref	-1	0x4949aa0	13061	func_0x0412e5e0,func_0x04882e20,func_0x049cd2e0,func_0x049cd3b0,func_0x049cd640,func_0x04a48d80,func_0x04a49970,func_0x04a6b090,func_0x04a6b0a0,func_0x04a6c050,func_0x04a6c1a0,func_0x04a6c320	0x119c5b1  Ridges Shattered | 0x12f147c  Natural variation 3D noise 2 | 0x12f1488  ation 3D noise 2 | 0x13251c4  Extra 3D Peak Noise | 0x135b6e0  Natural variation 3D noise 1 | 0x135b6ec  ation 3D noise 1	00083_4949aa0.c
+string-ref	-1	0xd306a20	1196	func_0x0b5d5fa0,func_0x0d3dfbc0,func_0x0eec74c0		00084_d306a20.c
+string-ref	-1	0xc81fc20	1951	func_0x04882e20,func_0x04a8b170,func_0x06e9e870,func_0x0b5bfbb0,func_0x0b6042d0,func_0x0c4930c0,func_0x0c920460,func_0x0c9204b0,func_0x0eee2d70	0x159187c  world_gen	00085_c81fc20.c
+string-ref	-1	0x82eb930	2117	func_0x04108328,func_0x0412c2d0,func_0x048afb10,func_0x048afd20,func_0x048b05a0,func_0x048b0af0,func_0x048b0bc0,func_0x07cab540,func_0x0848d9e0,func_0x0848db20,func_0x08499fb0,func_0x0ed621a0	0x1465cd4  Jigsaw Structure Data Tag | 0x1465cdd  ructure Data Tag	00086_82eb930.c
+string-ref	-1	0xb713a20	1875	func_0x0412c2d0,func_0x0412c300,func_0x048b0900,func_0x048fb670,func_0x05d84ba0,func_0x05da2d20,func_0x05e91e00,func_0x09730d00,func_0x0d858ce0,func_0x0eec74c0,func_0x0eee4390	0x1266555  Invalid Custom Biome Source | 0x1266560  tom Biome Source | 0x13f776f  Error	00087_b713a20.c
+string-ref	-1	0xd1f68b0	4404	func_0x0412f0e0,func_0x0417cc60,func_0x04882e30,func_0x04882eb0,func_0x04891200,func_0x05d59d60,func_0x05d85c50,func_0x05ebb920,func_0x05ebba90,func_0x05f43a40,func_0x07310ef0,func_0x08499620		00088_d1f68b0.c
+string-ref	-1	0xd780930	1145	func_0x04108328,func_0x0412c2d0,func_0x048b05a0,func_0x048b0bc0,func_0x05d9c2b0,func_0x05d9c620,func_0x06c3bfc0,func_0x06c3c0a0,func_0x0d8895c0,func_0x0d8899b0,func_0x0eeddcf0		00089_d780930.c
+string-ref	-1	0xe3b0690	617	func_0x0eeddcf0		00090_e3b0690.c
+string-ref	-1	0xe424600	752	func_0x04108328,func_0x05d9c2b0,func_0x0e520b00,func_0x0eeddcf0		00091_e424600.c
+string-ref	-1	0xe441f40	617	func_0x0eeddcf0		00092_e441f40.c
+string-ref	-1	0xe560bb0	617	func_0x0eeddcf0		00093_e560bb0.c
+string-ref	-1	0x95abd10	395	func_0x04899980,func_0x096ac210,func_0x096ac390,func_0x096ac510		00121_95abd10.c
+string-ref	-1	0xc7e88f0	339	func_0x0412c2d0,func_0x0412d450,func_0x0412d520,func_0x0412d550,func_0x0412d610,func_0x0412d680,func_0x0412d6b0,func_0x0eeb61d0		00122_c7e88f0.c
+string-ref	-1	0x4953e90	238	func_0x04a78aa0,func_0x04a78db0,func_0x0eec74c0	0x1df4730  minecraft:surface_builder | 0x1df4739  :surface_builder	00123_4953e90.c
+string-ref	-1	0x498be50	146	func_0x04a8bef0,func_0x0eee3000		00124_498be50.c
+string-ref	-1	0x4a02610	21			00125_4a02610.c
+string-ref	-1	0xd4100e0	481	func_0x0d3dfbc0		00126_d4100e0.c
+string-ref	-1	0xc854280	0			00127_c854280.c
+string-ref	-1	0x525a240	1034	func_0x0412e5e0,func_0x04885070,func_0x052eb950,func_0x0533eee0,func_0x0533f0d0,func_0x0c8c0000,func_0x0c8c00e0,func_0x0db38570,func_0x0eeb79f0,func_0x0eeb81b0,func_0x0eec74c0	0x1340c23  non_replaceable_blocks | 0x1390efb  noise_block_specifier -> block | 0x1390f09  ecifier -> block	00128_525a240.c
+string-ref	-1	0x6159ac0	170	func_0x0638bd70,func_0x0638cfa0,func_0x0638d930		00129_6159ac0.c
+string-ref	-1	0x6239920	21			00130_6239920.c
+string-ref	-1	0x628c820	636	func_0x0412c2d0,func_0x048b0de0,func_0x04913500,func_0x04913c20,func_0x0ed6b4a0,func_0x0eeddcf0		00131_628c820.c
+string-ref	-1	0x6b282b0	571	func_0x048fb670,func_0x05e91e00,func_0x06c285f0,func_0x0d81d5c0,func_0x0d81d7e0,func_0x0d858ce0,func_0x0eec74c0	0x11d6dd9  Failed to set Jigsaw registry. | 0x11d6de7  Jigsaw registry. | 0x13f776f  Error	00132_6b282b0.c
+string-ref	-1	0x6b3bc00	21			00133_6b3bc00.c
+string-ref	-1	0x7723900	1021	func_0x04108328,func_0x07823d00,func_0x078240e0,func_0x078244c0,func_0x078248a0,func_0x07824c80,func_0x07825060,func_0x07825440,func_0x07825820,func_0x07825c00,func_0x07825fe0,func_0x078263c0		00134_7723900.c
+string-ref	-1	0xc74ce30	62			00135_c74ce30.c
+string-ref	-1	0x87b9930	395	func_0x05d9c2b0,func_0x088b56b0,func_0x0eeddcf0		00136_87b9930.c
+string-ref	-1	0x99fbfb0	15680	func_0x0412c2d0,func_0x0412c3f0,func_0x0412e5e0,func_0x04863060,func_0x048630e0,func_0x04863120,func_0x048631d0,func_0x04863290,func_0x048635d0,func_0x04863610,func_0x04863740,func_0x04863790	0x13abf4c  minecraft | 0x14ea360	00137_99fbfb0.c
+string-ref	-1	0xa22a7b0	2990	func_0x0412e5e0,func_0x04882e20,func_0x04882e30,func_0x0488e290,func_0x048b0900,func_0x048fb670,func_0x0490d170,func_0x05d84ba0,func_0x05da2d20,func_0x08d4ed60,func_0x0912ae90,func_0x09cb07e0	0x14030d8  PlaceJigsawError	00138_a22a7b0.c
+string-ref	-1	0xaf45f50	10799	func_0x04862b40,func_0x04862b80,func_0x04862ba0,func_0x04862c80,func_0x04863060,func_0x048630e0,func_0x04863110,func_0x04863120,func_0x04863290,func_0x04863610,func_0x04863740,func_0x04863790	0x11e097e  separation_weight | 0x11f6254  minecraft:type_family | 0x11fb5fd  cohesion_threshold | 0x123d47a  minecraft:behavior.target_when_pushed | 0x123d48a  or.target_when_pushed | 0x124b8c5  high_flock_limit	00139_af45f50.c
+string-ref	-1	0xb668470	2181	func_0x0412c2d0,func_0x04885070,func_0x048b1dc0,func_0x064e40a0,func_0x0652dc20,func_0x0652e400,func_0x065af670,func_0x065b01f0,func_0x065b0410,func_0x0b80d5b0,func_0x0b80e440,func_0x0b80f030	0x11e11a1  userDefinedBiomes | 0x1384f83  CustomBiomeSourceConfig	00140_b668470.c
+string-ref	-1	0xb824110	1018	func_0x0412c2d0,func_0x048b0de0,func_0x048b1dc0,func_0x064e40a0,func_0x0652e0f0,func_0x07aedbe0,func_0x0b924580	0x1231a96  WorldGeneratorType	00141_b824110.c
+string-ref	-1	0xb96a490	21			00142_b96a490.c
+string-ref	-1	0xc4d34a0	21			00143_c4d34a0.c
+string-ref	-1	0xc5c4000	21			00144_c5c4000.c
+string-ref	-1	0xc7adbf0	21			00145_c7adbf0.c
+string-ref	-1	0xc7b5240	0	func_0x0412f5e0		00146_c7b5240.c
+string-ref	-1	0xc7e9b30	252	func_0x04e8ef80		00147_c7e9b30.c
+string-ref	-1	0xc7e9fa0	268	func_0x04e8ef80		00148_c7e9fa0.c
+string-ref	-1	0xc7edc70	2550	func_0x04108328,func_0x0412c2d0,func_0x0412d450,func_0x0412d520,func_0x0412d550,func_0x0412d610,func_0x0412d680,func_0x0412d6b0,func_0x04907e30,func_0x04fa7a10,func_0x05d85c50,func_0x05f43a40		00149_c7edc70.c
+string-ref	-1	0xd1d4df0	329	func_0x0eeddcf0		00150_d1d4df0.c
+string-ref	-1	0xccae530	457	func_0x0cdae700,func_0x0cdae950,func_0x0cdfca00,func_0x0cdfcf10,func_0x0cdfe1c0,func_0x0d012070		00151_ccae530.c
+string-ref	-1	0xceb5cc0	6852	func_0x04882eb0,func_0x0b694de0,func_0x0b6953d0,func_0x0b695d20,func_0x0b697930,func_0x0b6a24d0,func_0x0b6a37c0,func_0x0b6a3830,func_0x0cfc12d0,func_0x0cfc14e0,func_0x0cfd2790,func_0x0cfd2af0	0x11e47b1  minecraft:soul_soil_block | 0x11e47ba  :soul_soil_block | 0x12344e5  minecraft:lodestone_block | 0x12344ee  :lodestone_block | 0x1282eb9  minecraft:polished_blackstone_brick_wall | 0x1282ec9  ed_blackstone_brick_wall	00152_ceb5cc0.c
+string-ref	-1	0xd1cc080	5674	func_0x0412c2d0,func_0x0412e5e0,func_0x04882eb0,func_0x04885070,func_0x049ce220,func_0x049d2400,func_0x04a6dda0,func_0x05472b20,func_0x09a0a6e0,func_0x0b5c3630,func_0x0b5f94a0,func_0x0c5c3630		00153_d1cc080.c
+string-ref	-1	0xd1ffee0	969	func_0x0412c2d0,func_0x04885070,func_0x0b625250,func_0x0d31f650,func_0x0eee2dd0		00154_d1ffee0.c
+string-ref	-1	0xd20c3d0	21			00155_d20c3d0.c
+string-ref	-1	0xd2246c0	636	func_0x0412c2d0,func_0x048b0de0,func_0x04913500,func_0x04913c20,func_0x0ed6b4a0,func_0x0eeddcf0		00156_d2246c0.c
+string-ref	-1	0xd24be40	21			00157_d24be40.c
+string-ref	-1	0xd28cf90	21			00158_d28cf90.c
+string-ref	-1	0xd2cc9c0	21			00159_d2cc9c0.c
+string-ref	-1	0xd2de690	21			00160_d2de690.c
+string-ref	-1	0xd3e59b0	21			00161_d3e59b0.c
+string-ref	-1	0xdbe62c0	3357	func_0x04108328,func_0x0412c2d0,func_0x048aea50,func_0x048afd20,func_0x048b05a0,func_0x048b0bc0,func_0x04905be0,func_0x04905d10,func_0x0cd0d3e0,func_0x0cd0d560,func_0x0d91a8f0,func_0x0dd0f910		00162_dbe62c0.c
+string-ref	-1	0xe1b5820	19256	func_0x04108328,func_0x0412c2d0,func_0x048afb10,func_0x048afd20,func_0x048b05a0,func_0x048b0af0,func_0x048b0bc0,func_0x048b0c90,func_0x048b0d20,func_0x048b1040,func_0x048b46f0,func_0x048b5060	0x13bbacd  [cereal:documentation_tag] | 0x13bbad7  cumentation_tag] | 0x14518a9  [cereal:cereal_root_schema_property] | 0x14518b9  oot_schema_property] | 0x14eaba0  [cereal:document	00163_e1b5820.c
+string-ref	-1	0xe249280	145	func_0x0e3341d0	0x1e13870  minecraft:biome_music	00164_e249280.c
+string-ref	-1	0xe2a59c0	21			00165_e2a59c0.c
+string-ref	-1	0xe329eb0	376	func_0x0e3341d0	0x1e190c0  minecraft:biome_music	00166_e329eb0.c
+string-ref	-1	0xe3a39c0	21			00167_e3a39c0.c
+string-ref	-1	0xe513e50	21			00168_e513e50.c
+string-ref	-1	0xe57f470	21			00169_e57f470.c
+string-ref	-1	0xe5c6560	461	func_0x04108328,func_0x0e6beab0,func_0x0e6c1170,func_0x0eeddcf0		00170_e5c6560.c
+string-ref	-1	0xe5fa9c0	373	func_0x0e3341d0	0x1e2f670  minecraft:biome_music | 0x1e2f67d  me_music	00171_e5fa9c0.c
+string-ref	-1	0xe70da20	429	func_0x0e2d98e0,func_0x0e6f9e40,func_0x0e80dbd0,func_0x0e80df30,func_0x0e88c930,func_0x0e88d310,func_0x0e88dd80		00172_e70da20.c
+string-ref	-1	0xe8df6a0	2630	func_0x04108328,func_0x041348b0,func_0x0e9de0d0,func_0x0ed5ffe0,func_0x0ed6d4a0,func_0x0ed6d600,func_0x0ed75bc0,func_0x0eec74c0,func_0x0eeddcf0,func_0x0eee2f00		00173_e8df6a0.c
+string-ref	-1	0xe8e6940	21			00174_e8e6940.c
+string-ref	-1	0xd200630	25976	func_0x0412a280,func_0x04fa7a10,func_0x05d54750,func_0x0d307480,func_0x0d3075e0,func_0x0d307740,func_0x0d3078a0,func_0x0d6a8a30,func_0x0d6af860,func_0x0d6b3300,func_0x0eec74c0,func_0x0eeddcf0		00014_d200630.c
+string-ref	-1	0xaf95f80	10172	func_0x0412a280,func_0x0412e5e0,func_0x0470d9a0,func_0x04862b40,func_0x04862b80,func_0x04862ba0,func_0x04862c80,func_0x04863480,func_0x04863610,func_0x04863cb0,func_0x04863e00,func_0x04863e30	0x1265361  Missing "distance" parameter for minecraft:player_in_village_filter | 0x1265371  e" parameter for minecraft:player_in_village_filter | 0x1265381   minecraft:player_in_village_filter | 0x1265391  r_in_village_filter | 0x12984e7  Spawn rules for minecraft:distance_filter specified a min distance > max. | 0x12984f7  minecraft:distance_filter specified a min distance > max.	00017_af95f80.c
+string-ref	-1	0xe3f1ef0	23556	func_0x04108328,func_0x0410844d,func_0x0412a280,func_0x0412f0e0,func_0x0412f5e0,func_0x04134310,func_0x0470d9a0,func_0x0488e120,func_0x048aead0,func_0x048afb10,func_0x048afd20,func_0x048b0af0	0x138b3ad  minecraft:random_spread | 0x13bbacd  [cereal:documentation_tag] | 0x13bbad7  cumentation_tag] | 0x14518a9  [cereal:cereal_root_schema_property] | 0x14518b9  oot_schema_property] | 0x14d9869  [cereal:json_schema_property]	00018_e3f1ef0.c
+string-ref	-1	0xc786220	3714	func_0x0c882440,func_0x0c8826e0,func_0x0c89be50		00026_c786220.c
+string-ref	-1	0xca2cd50	8286	func_0x0412a280,func_0x0412c3f0,func_0x0412d440,func_0x04882e20,func_0x04882eb0,func_0x052a3830,func_0x052a3910,func_0x064bd3a0,func_0x0cae0790,func_0x0cb2ca30,func_0x0cb2f230,func_0x0cb2f260		00058_ca2cd50.c
+string-ref	-1	0xe401380	21023	func_0x04108328,func_0x0410844d,func_0x0412a280,func_0x0488e120,func_0x048aead0,func_0x048afb10,func_0x048b0bc0,func_0x048b0d20,func_0x0e4dd790,func_0x0e5003f0,func_0x0e553440,func_0x0e553550	0x13bbacd  [cereal:documentation_tag] | 0x13bbad7  cumentation_tag]	00059_e401380.c
+string-ref	-1	0xc7e3540	3092	func_0x0412a280,func_0x04882e20,func_0x0488e200,func_0x04890760,func_0x04891200,func_0x04931450,func_0x05862b30,func_0x09b479d0,func_0x09f90cb0,func_0x09f90d70,func_0x0c8e4350,func_0x0c8e47a0	0x14eaeb0  minecraft:nether | 0x1df4730  minecraft:surface_builder | 0x1df4739  :surface_builder | 0x1e0ccf0  minecraft:replace_biomes | 0x1e0cd00  e_biomes | 0x1e44d00  minecraft:subsurface_builder	00060_c7e3540.c
+string-ref	-1	0xd235180	1013	func_0x0412a280,func_0x048b3e80,func_0x0c700540,func_0x0d6bd910,func_0x0d6c9500,func_0x0eeddcf0,func_0x0eedeb80		00061_d235180.c
+string-ref	-1	0x4953a10	249	func_0x0412a280,func_0x04a78aa0,func_0x04a78db0,func_0x0eec74c0	0x1e36650  minecraft:multinoise_generation_rules | 0x1e36660  oise_generation_rules | 0x1e3666d  on_rules	00071_4953a10.c
+string-ref	-1	0x4979ed0	21			00072_4979ed0.c
+string-ref	-1	0x51be830	21			00073_51be830.c
+string-ref	-1	0x8826f90	696	func_0x04108328,func_0x0410844d,func_0x0412a280,func_0x0470d9a0,func_0x0488e200,func_0x048aead0,func_0x088c1920,func_0x088c1a30,func_0x0eeddcf0,func_0x0eee2f40		00074_8826f90.c
+string-ref	-1	0xc7817c0	21			00075_c7817c0.c
+string-ref	-1	0xc7dc630	21			00076_c7dc630.c
+string-ref	-1	0xd1fe510	2775	func_0x0412a280,func_0x052e4950,func_0x05626c00,func_0x08e77f80,func_0x0d2eeed0,func_0x0d2f0c40,func_0x0d2fdf40,func_0x0d2ff030,func_0x0d2ff840,func_0x0d3096e0,func_0x0d336ab0,func_0x0d347430		00077_d1fe510.c
+string-ref	-1	0x493f6c0	912	func_0x0412a280,func_0x048a88b0,func_0x0d2eb5d0,func_0x0eeddcf0,func_0x0eee2d70		00083_493f6c0.c
+string-ref	-1	0x4953380	190	func_0x04a53440,func_0x04a53510,func_0x04a53700,func_0x04a537d0,func_0x04a538f0,func_0x04a53b30,func_0x04a53c50,func_0x04a53d70,func_0x04a53e90,func_0x04a53fb0,func_0x04a54240,func_0x04a54360		00084_4953380.c
+string-ref	-1	0xd325480	585	func_0x0d3dfbc0		00085_d325480.c
+string-ref	-1	0x79941e0	120050	func_0x04108328,func_0x0410844d,func_0x048b0bc0,func_0x05d9c2b0,func_0x07b1f8e0,func_0x07b1fcd0,func_0x07b23440,func_0x07b234b0,func_0x07b23890,func_0x0eeddcf0		00086_79941e0.c
+string-ref	-1	0xafb24f0	420	func_0x04863060,func_0x048630e0,func_0x04863110,func_0x04863120,func_0x04863610,func_0x04863740,func_0x04863790,func_0x04864260,func_0x04864680,func_0x04864a50,func_0x0b0ae450		00087_afb24f0.c
+string-ref	-1	0xd25ce20	6137	func_0x0412a280,func_0x0412d680,func_0x0412d6b0,func_0x0412e5e0,func_0x04882e20,func_0x04890760,func_0x049084c0,func_0x04908570,func_0x04fa7a10,func_0x05d54750,func_0x05d864e0,func_0x064a9850	0x147125d  minecraft:jigsaw_structure_metadata | 0x147126d  _structure_metadata | 0x1568ef8  worldgen/metadata	00088_d25ce20.c
+string-ref	-1	0xd780dc0	1145	func_0x04108328,func_0x0410844d,func_0x048b0bc0,func_0x05d9c2b0,func_0x06c3bfc0,func_0x06c3c0a0,func_0x0d8895c0,func_0x0d8899b0,func_0x0eeddcf0		00089_d780dc0.c
+string-ref	-1	0xe410f80	1145	func_0x04108328,func_0x0410844d,func_0x048b0bc0,func_0x05d9c2b0,func_0x0e4b0a00,func_0x0e4b0a70,func_0x0e6a0f20,func_0x0e6a1310,func_0x0eeddcf0		00090_e410f80.c
+string-ref	-1	0xe4346d0	617	func_0x048aead0,func_0x0eeddcf0		00091_e4346d0.c
+string-ref	-1	0xe456b90	617	func_0x048aead0,func_0x0eeddcf0		00092_e456b90.c
+string-ref	-1	0xe5652e0	617	func_0x048aead0,func_0x0eeddcf0		00093_e5652e0.c
+string-ref	-1	0x47e8d90	14258	func_0x0412a280,func_0x0412e5e0,func_0x041307e0,func_0x04138180,func_0x0413a290,func_0x0413c8a0,func_0x04141a10,func_0x04143680,func_0x041442d0,func_0x04144780,func_0x04160690,func_0x041679a0	0x14e7c60  nity-sift-config | 0x14ea360	00120_47e8d90.c
+string-ref	-1	0xc9ac9f0	0	func_0x0412a280,func_0x0cad4490,func_0x0cad4a60,func_0x0d88e390,func_0x0eec74c0,func_0x0eee2dd0,func_0x0eee2f40		00121_c9ac9f0.c
+string-ref	-1	0x4953630	160	func_0x0412a280,func_0x04a78aa0,func_0x04a78db0	0x1e34990  minecraft:humidity	00122_4953630.c
+string-ref	-1	0x4954120	238	func_0x0412a280,func_0x04a78aa0,func_0x04a78db0,func_0x0eec74c0	0x1e44ce0  minecraft:surface_builder | 0x1e44ce9  :surface_builder	00123_4954120.c
+string-ref	-1	0x49b34f0	21			00124_49b34f0.c
+string-ref	-1	0x4a02710	21			00125_4a02710.c
+string-ref	-1	0xd410380	603	func_0x0d3dfbc0		00126_d410380.c
+string-ref	-1	0x5250920	486	func_0x0412d450,func_0x0412d520,func_0x0412d550,func_0x0412d610,func_0x0412d680,func_0x0412d6b0,func_0x0eeb61d0		00127_5250920.c
+string-ref	-1	0x5c2c950	6569	func_0x048b0bc0,func_0x05d2e460,func_0x05d2e840,func_0x05d2ec20,func_0x05d2f000,func_0x05e88310,func_0x05e88770,func_0x05e8c990,func_0x05e8ce40,func_0x05e8d380,func_0x05e8d6f0,func_0x05e8d950		00128_5c2c950.c
+string-ref	-1	0x619dfd0	21			00129_619dfd0.c
+string-ref	-1	0x623d5d0	1769	func_0x0470d660,func_0x0489c9a0,func_0x0633dcd0,func_0x0633ddb0,func_0x0633e200		00130_623d5d0.c
+string-ref	-1	0x68cf450	2785	func_0x0412a280,func_0x04882e20,func_0x0488e200,func_0x04891200,func_0x048b0900,func_0x05d84ba0,func_0x069d0170,func_0x069d1600,func_0x0a34a120,func_0x0eec74c0,func_0x0eee2d70	0x1798489  ShowInvisibleBlocks | 0x179849d  ShowChunkBoundaries | 0x17984c9  ShowToastNotifications | 0x17984e0  DisableTerrainRendering | 0x17984f8  DisableEntityRendering | 0x179850f  DisableBlockEntityRendering	00131_68cf450.c
+string-ref	-1	0x6b285c0	21			00132_6b285c0.c
+string-ref	-1	0x6b3c7b0	21			00133_6b3c7b0.c
+string-ref	-1	0x8499030	55978	func_0x04108328,func_0x0410844d,func_0x048b0bc0,func_0x0863fd20,func_0x0863fe30,func_0x08640160,func_0x086439e0,func_0x08643da0,func_0x08644130,func_0x0eeddcf0,func_0x0eee2f40		00134_8499030.c
+string-ref	-1	0x7e079c0	297	func_0x07f08fd0,func_0x07f099a0,func_0x07f09d20,func_0x07f0a090,func_0x07f0a270,func_0x0800b800,func_0x0800bb70		00135_7e079c0.c
+string-ref	-1	0xc797d50	339	func_0x0c882440,func_0x0c8826e0,func_0x0c89be50,func_0x0c89c6f0		00136_c797d50.c
+string-ref	-1	0x88076c0	21			00137_88076c0.c
+string-ref	-1	0x9be4800	21			00138_9be4800.c
+string-ref	-1	0xa2174f0	21			00139_a2174f0.c
+string-ref	-1	0xc4ca540	12			00140_c4ca540.c
+string-ref	-1	0xb668e30	7968	func_0x04108328,func_0x0410844d,func_0x0412a280,func_0x0412e5e0,func_0x04885070,func_0x04885120,func_0x048aead0,func_0x048b0de0,func_0x048b1dc0,func_0x05f93280,func_0x05fe8450,func_0x064e40a0	0x13bacf5  CustomBiomeSource	00141_b668e30.c
+string-ref	-1	0xb8502f0	667	func_0x0412a280,func_0x0412c300,func_0x048fb670,func_0x05e91e00,func_0x0b94ff60,func_0x0b950610,func_0x0d858ce0,func_0x0eec74c0	0x13baff3  Custom biome source with provided ID not found | 0x13bb003  rce with provided ID not found | 0x13bb011  ded ID not found | 0x13f776f  Error | 0x14bd3d0  Custom biome manager not available | 0x14bd3e0  ager not available	00142_b8502f0.c
+string-ref	-1	0xb9dadd0	21			00143_b9dadd0.c
+string-ref	-1	0xc55e1b0	21			00144_c55e1b0.c
+string-ref	-1	0xc5c4100	21			00145_c5c4100.c
+string-ref	-1	0xc7add30	21			00146_c7add30.c
+string-ref	-1	0xc7b7b90	551	func_0x0412a280,func_0x0412c300,func_0x04885120,func_0x0c964600,func_0x0c965b20,func_0x0d20ac00,func_0x0eeddcf0	0x14adbb4  minecraft:plains	00147_c7b7b90.c
+string-ref	-1	0xc7e9c40	268	func_0x04e8ef80		00148_c7e9c40.c
+string-ref	-1	0xc7ea0c0	268	func_0x04e8ef80		00149_c7ea0c0.c
+string-ref	-1	0xda359f0	5623	func_0x04108328,func_0x0410844d,func_0x0412a280,func_0x0488e120,func_0x048aead0,func_0x048b0bc0,func_0x048b0d20,func_0x048b46f0,func_0x05d54750,func_0x0c8dbf00,func_0x0db79850,func_0x0db7a110	0x13bbacd  [cereal:documentation_tag] | 0x13bbad7  cumentation_tag] | 0x14518a9  [cereal:cereal_root_schema_property] | 0x14518b9  oot_schema_property]	00150_da359f0.c
+string-ref	-1	0xd1d4f40	361	func_0x0eeddcf0		00151_d1d4f40.c
+string-ref	-1	0xcd372c0	0	func_0x04108328,func_0x0410844d,func_0x0412a280,func_0x0412c3f0,func_0x0412e5e0,func_0x0412f0e0,func_0x0412f5e0,func_0x04882eb0,func_0x04883620,func_0x0488e200,func_0x048aead0,func_0x048af640		00152_cd372c0.c
+string-ref	-1	0xcf4ee40	21			00153_cf4ee40.c
+string-ref	-1	0xd1d03b0	4707	func_0x0412a280,func_0x0412e5e0,func_0x04882eb0,func_0x04890760,func_0x048b0de0,func_0x049084c0,func_0x0490a470,func_0x04913500,func_0x04913c20,func_0x04931450,func_0x0629e050,func_0x0629e090		00154_d1d03b0.c
+string-ref	-1	0xd20ae50	21			00155_d20ae50.c
+string-ref	-1	0xd21f400	21			00156_d21f400.c
+string-ref	-1	0xd226050	636	func_0x048b0de0,func_0x04913500,func_0x04913c20,func_0x0ed6b4a0,func_0x0eeddcf0		00157_d226050.c
+string-ref	-1	0xd24d110	21			00158_d24d110.c
+string-ref	-1	0xd2925f0	21			00159_d2925f0.c
+string-ref	-1	0xd2ccbb0	21			00160_d2ccbb0.c
+string-ref	-1	0xd3e55f0	21			00161_d3e55f0.c
+string-ref	-1	0xd400ec0	11464	func_0x0412a280,func_0x0412c3f0,func_0x0412e5e0,func_0x0417cc60,func_0x04882eb0,func_0x04882ee0,func_0x04883620,func_0x04885070,func_0x04885120,func_0x04891200,func_0x04931450,func_0x049d00c0		00162_d400ec0.c
+string-ref	-1	0xdbe70d0	10403	func_0x04108328,func_0x0410844d,func_0x0412a280,func_0x041679a0,func_0x04167a20,func_0x04167a40,func_0x041681f0,func_0x0470d9a0,func_0x048afd20,func_0x048b0bc0,func_0x048b0d20,func_0x048b1040	0x13d8f81  ^[a-zA-Z0-9_.:*]+$	00163_dbe70d0.c
+string-ref	-1	0xe1c45c0	7364	func_0x04108328,func_0x0410844d,func_0x0412a280,func_0x0488e120,func_0x048b0bc0,func_0x048b0d20,func_0x048b1040,func_0x048b10d0,func_0x0e250ef0,func_0x0e2c6390,func_0x0e2c7590,func_0x0e2c8790	0x13bbacd  [cereal:documentation_tag] | 0x13bbad7  cumentation_tag] | 0x14eaba0  [cereal:document	00164_e1c45c0.c
+string-ref	-1	0xe24ad30	376	func_0x0412a280,func_0x0488e200,func_0x0e3341d0	0x1e13870  minecraft:biome_music	00165_e24ad30.c
+string-ref	-1	0xe2a8fd0	2159	func_0x0412a280,func_0x0488e200,func_0x048aead0,func_0x048b1dc0,func_0x05ea0220,func_0x05ea04f0,func_0x0ed75470,func_0x0eec74c0,func_0x0eeddcf0	0x1258e99  source type is not an associative container | 0x1258ea9  ot an associative container | 0x1258eb4  iative container	00166_e2a8fd0.c
+string-ref	-1	0xe2de2f0	492	func_0x04108328,func_0x0410844d,func_0x0e4aaf20,func_0x0e4ab3d0,func_0x0e4ac060,func_0x0e4acb60,func_0x0e4ad030,func_0x0e4ad500,func_0x0e4ad9d0,func_0x0e510e40,func_0x0eee2f40		00167_e2de2f0.c
+string-ref	-1	0xe3b5920	21			00168_e3b5920.c
+string-ref	-1	0xe517a80	21			00169_e517a80.c
+string-ref	-1	0xe59e360	21			00170_e59e360.c
+string-ref	-1	0xe5d0070	14971	func_0x04108328,func_0x0410844d,func_0x0412a280,func_0x0412f0e0,func_0x04134310,func_0x0470d9a0,func_0x0488e120,func_0x048aead0,func_0x048afb10,func_0x048afd20,func_0x048b0af0,func_0x048b0bc0	0x13bbacd  [cereal:documentation_tag] | 0x13bbad7  cumentation_tag] | 0x14d9869  [cereal:json_schema_property] | 0x14d9876  schema_property] | 0x14e1610  schema_property] | 0x14e4030  [cereal:json_sch	00171_e5d0070.c
+string-ref	-1	0xe645310	10862	func_0x04108328,func_0x0410844d,func_0x0412a280,func_0x0488e120,func_0x048aead0,func_0x048b0bc0,func_0x048b0d20,func_0x048b1040,func_0x048b10d0,func_0x0e216210,func_0x0e2c6390,func_0x0e2c7590	0x13bbacd  [cereal:documentation_tag] | 0x13bbad7  cumentation_tag]	00172_e645310.c
+string-ref	-1	0xe7876a0	376	func_0x0412a280,func_0x0488e200,func_0x0e3341d0	0x1e2f670  minecraft:biome_music	00173_e7876a0.c
+string-ref	-1	0xe8e09b0	21			00174_e8e09b0.c

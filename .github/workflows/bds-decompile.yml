@@ -18,7 +18,7 @@ on:
       max_functions:
         description: Maximum functions per shard
         required: false
-        default: "500"
+        default: "700"
   push:
     paths:
       - .github/workflows/bds-decompile.yml
@@ -99,7 +99,7 @@ jobs:
           fi
           python3 tools/binary-analysis/triage.py bedrock_server "$EVIDENCE/triage" \
             --expected-sha256 "$BINARY_SHA256" \
-            --max-targets 1200 "${extra[@]}"
+            --max-targets 3600 "${extra[@]}"
           sed -n '1,40p' "$EVIDENCE/triage/summary.md" || true
 
       - id: java
@@ -226,12 +226,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        shard: [0, 1, 2, 3]
+        shard: [0, 1, 2, 3, 4, 5]
     env:
       SHARD: ${{ matrix.shard }}
-      SHARDS: '4'
+      SHARDS: '6'
       BUDGET: ${{ github.event.inputs.budget_seconds || '3300' }}
-      MAXFN: ${{ github.event.inputs.max_functions || '500' }}
+      MAXFN: ${{ github.event.inputs.max_functions || '700' }}
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -365,7 +365,7 @@ jobs:
             rm -rf "$EVIDENCE/smoke"
             cp -r artifacts/smoke "$EVIDENCE/smoke"
           fi
-          for shard in 0 1 2 3; do
+          for shard in 0 1 2 3 4 5; do
             if [ -d "artifacts/shard-$shard" ]; then
               rm -rf "$EVIDENCE/decompiled/shard-$shard"
               mkdir -p "$EVIDENCE/decompiled"
@@ -375,7 +375,7 @@ jobs:
           {
             echo "collected: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
             echo "run: ${GITHUB_RUN_ID}"
-            for shard in 0 1 2 3; do
+            for shard in 0 1 2 3 4 5; do
               dir="$EVIDENCE/decompiled/shard-$shard"
               echo "shard $shard: $([ -d "$dir" ] && echo present || echo missing), \
           functions=$(find "$dir/functions" -type f 2>/dev/null | wc -l), \
@@ -384,6 +384,46 @@ jobs:
             echo
             du -sh "$EVIDENCE" || true
           } | tee "$EVIDENCE/collect-report.txt"
+
+      - name: Merge call graphs and index the recovered corpus
+        run: |
+          set -eu
+          python3 - "$EVIDENCE" <<'PY'
+          import glob, os, sys
+          root = sys.argv[1]
+          rows = {}
+          header = None
+          for path in sorted(glob.glob(os.path.join(root, "decompiled", "shard-*", "callgraph.tsv"))):
+              with open(path, encoding="utf-8", errors="replace") as handle:
+                  lines = handle.read().splitlines()
+              if lines and header is None:
+                  header = lines[0]
+              for line in lines[1:]:
+                  fields = line.split("\t")
+                  if len(fields) < 3:
+                      continue
+                  key = fields[0]
+                  callees = set(filter(None, fields[2].split(","))) if len(fields) > 2 else set()
+                  callers = set(filter(None, fields[3].split(","))) if len(fields) > 3 else set()
+                  slot = rows.setdefault(key, [fields[1] if len(fields) > 1 else "", set(), set()])
+                  slot[1] |= callees
+                  slot[2] |= callers
+          if rows:
+              out = os.path.join(root, "callgraph.tsv")
+              with open(out, "w", encoding="utf-8") as handle:
+                  handle.write("function\tlabel\tcallees\tcallers\n")
+                  for key in sorted(rows, key=lambda value: int(value, 0)):
+                      label, callees, callers = rows[key]
+                      handle.write("%s\t%s\t%s\t%s\n" % (
+                          key, label,
+                          ",".join(sorted(callees, key=lambda v: int(v, 0))),
+                          ",".join(sorted(callers, key=lambda v: int(v, 0)))))
+              print("merged call graph:", len(rows), "functions ->", out)
+          PY
+          python3 tools/worldgen-data/analyse.py "$EVIDENCE" \
+            --top 40 --write-index "$EVIDENCE/data/function-index.tsv" \
+            > "$EVIDENCE/coverage.txt"
+          cat "$EVIDENCE/coverage.txt"
 
       - name: Commit the collected evidence
         run: |
