@@ -1,0 +1,157 @@
+name: BDS worldgen decompile
+
+# Static, read-only analysis of the official (proprietary) bedrock_server.
+#
+# The repository normally contains only a Git LFS pointer for the binary, so
+# the analysis runs on a GitHub runner where actions/checkout materialises the
+# LFS object.  Nothing here executes the target; it produces bounded research
+# evidence under research/proprietary/ and commits it back to the analysis
+# branch.  The generated artefacts are NOT MIT-licensed OpenBDS source.
+on:
+  workflow_dispatch:
+    inputs:
+      budget_seconds:
+        description: Decompiler wall-clock budget
+        required: false
+        default: "4200"
+      max_functions:
+        description: Maximum number of functions to decompile
+        required: false
+        default: "700"
+  push:
+    paths:
+      - .github/workflows/bds-decompile.yml
+      - tools/binary-analysis/**
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bds-decompile-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  decompile:
+    if: startsWith(github.ref, 'refs/heads/arena/')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    env:
+      BINARY_SHA256: 0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207
+      EVIDENCE: research/proprietary/bds-1.26.52.3/worldgen
+    steps:
+      - name: Check out repository with the proprietary LFS object
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+          fetch-depth: 1
+
+      - name: Verify the LFS object really materialised
+        run: |
+          set -eu
+          size=$(stat -c%s bedrock_server)
+          echo "bedrock_server size: $size"
+          test "$size" -gt 100000000
+          echo "$BINARY_SHA256  bedrock_server" | sha256sum --check --strict
+
+      - name: Install static-analysis dependencies
+        run: |
+          python3 -m pip install --quiet --break-system-packages capstone pyelftools
+          python3 -c "import capstone, elftools; print('capstone', capstone.__version__)"
+
+      - name: Stage 1 - ELF, RTTI/vtable and string-xref triage (no execution)
+        run: |
+          mkdir -p "$EVIDENCE/triage"
+          python3 tools/binary-analysis/triage.py bedrock_server "$EVIDENCE/triage" \
+            --expected-sha256 "$BINARY_SHA256" \
+            --max-targets 900
+          sed -n '1,80p' "$EVIDENCE/triage/summary.md"
+
+      - name: Select JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Install verified Ghidra 12.1.4 release
+        env:
+          GHIDRA_URL: https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_12.1.4_build/ghidra_12.1.4_PUBLIC_20260921.zip
+          GHIDRA_SHA256: ddac49f903da9d5bac833e5cc79395098b9c33cfd3279be5f31bd00387d2d4db
+        run: |
+          curl --fail --location --retry 3 --progress-bar "$GHIDRA_URL" -o "$RUNNER_TEMP/ghidra.zip"
+          echo "$GHIDRA_SHA256  $RUNNER_TEMP/ghidra.zip" | sha256sum --check --strict
+          unzip -q "$RUNNER_TEMP/ghidra.zip" -d "$RUNNER_TEMP"
+          test -x "$RUNNER_TEMP/ghidra_12.1.4_PUBLIC/support/analyzeHeadless"
+
+      - name: Stage 2 - headless Ghidra decompilation of ranked worldgen functions
+        env:
+          MAXMEM: 6G
+        run: |
+          set -eu
+          out="$GITHUB_WORKSPACE/$EVIDENCE/decompiled"
+          rm -rf "$out" "$RUNNER_TEMP/ghidra-project"
+          mkdir -p "$out" "$RUNNER_TEMP/ghidra-project"
+          budget="${{ github.event.inputs.budget_seconds }}"
+          maxfn="${{ github.event.inputs.max_functions }}"
+          budget="${budget:-4200}"
+          maxfn="${maxfn:-700}"
+          set +e
+          "$RUNNER_TEMP/ghidra_12.1.4_PUBLIC/support/analyzeHeadless" \
+            "$RUNNER_TEMP/ghidra-project" bds-worldgen \
+            -import "$GITHUB_WORKSPACE/bedrock_server" \
+            -overwrite \
+            -noanalysis \
+            -scriptPath "$GITHUB_WORKSPACE/tools/binary-analysis/ghidra" \
+            -postScript DecompileTargets.java "$out" \
+                "$GITHUB_WORKSPACE/$EVIDENCE/triage/targets.tsv" \
+                "$budget" "$maxfn" \
+                "$GITHUB_WORKSPACE/$EVIDENCE/triage/worldgen-vtables.tsv" \
+            -deleteProject 2>&1 | tee "$out/headless.txt"
+          status="${PIPESTATUS[0]}"
+          set -e
+          echo "$status" > "$out/headless-exit-status.txt"
+          echo "analyzeHeadless exit status: $status"
+
+      - name: Record what was produced
+        run: |
+          set -eu
+          {
+            echo "Generated: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            echo
+            echo "## triage"
+            find "$EVIDENCE/triage" -maxdepth 1 -type f -printf '%10s  %f\n' | sort -k2
+            echo
+            echo "## decompiled"
+            find "$EVIDENCE/decompiled" -maxdepth 1 -type f -printf '%10s  %f\n' | sort -k2
+            echo "pseudocode files: $(find "$EVIDENCE/decompiled/functions" -type f 2>/dev/null | wc -l)"
+            echo
+            echo "sizes:"
+            du -sb "$EVIDENCE"/*
+          } | tee "$EVIDENCE/manifest.txt"
+          total=$(du -sb "$EVIDENCE" | cut -f1)
+          echo "total evidence bytes: $total"
+          test "$total" -le 134217728
+
+      - name: Commit evidence to the analysis branch
+        run: |
+          set -eu
+          git add -f research/proprietary/bds-1.26.52.3/worldgen
+          if git diff --cached --quiet -- research/proprietary/bds-1.26.52.3/worldgen; then
+            echo "evidence unchanged"
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m "research: triage and decompile official BDS worldgen"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+
+      - name: Keep run logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        continue-on-error: true
+        with:
+          name: bds-worldgen-${{ github.run_id }}
+          path: |
+            research/proprietary/bds-1.26.52.3/worldgen
+          retention-days: 14
+          if-no-files-found: warn
