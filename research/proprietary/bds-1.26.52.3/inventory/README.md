@@ -5,7 +5,7 @@
 > MIT-licensed OpenBDS source, and must not be copied into the clean-room engine.
 > The inventory tool did not execute the target.
 
-Generated: `2026-10-22T12:49:35.711859+00:00`
+Generated: `2026-10-22T13:05:53.860851+00:00`
 
 ## Identity
 
@@ -42,7 +42,7 @@ runtime ASLR addresses.
 ## Evidence files
 
 - `elf-header.txt`, `program-headers.txt`, `section-headers.txt`
-- `dynamic-section.txt`, `notes.txt`, `relocations-summary.txt`
+- `dynamic-section.txt`, `notes.txt`, `debug-link.txt`, `relocations-summary.txt`
 - `priority-functions.tsv`, `worldgen-symbols.tsv`, `worldgen-strings.txt`
 - `metadata.json`
 
