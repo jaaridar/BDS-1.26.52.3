@@ -2,7 +2,7 @@
   "binary_name": "bedrock_server",
   "expected_digest_matched": true,
   "expected_sha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
-  "generated_at": "2026-10-22T12:49:35.711859+00:00",
+  "generated_at": "2026-10-22T13:13:45.956942+00:00",
   "has_symtab": false,
   "matching_string_bytes": 1475387,
   "matching_strings": 8977,
