@@ -146,6 +146,7 @@ public class RecoverWorldgen extends GhidraScript {
     // or not the loader patched the on-disk pointer values.
     private final Map<Long, Long> relocationOverlay = new HashMap<>();
 
+    private long imageBase = 0;
     private long rodataStart = Long.MAX_VALUE;
     private long rodataEnd = Long.MIN_VALUE;
 
@@ -166,6 +167,8 @@ public class RecoverWorldgen extends GhidraScript {
         }
 
         memory = currentProgram.getMemory();
+        imageBase = currentProgram.getImageBase().getOffset();
+        println("image base: 0x" + Long.toHexString(imageBase));
         indexBlocks();
         println("Blocks: data=" + dataBlocks.size() + " allData=" + allDataBlocks.size()
             + " exec=" + execBlocks.size());
@@ -254,25 +257,23 @@ public class RecoverWorldgen extends GhidraScript {
     }
 
     private long readLong(long offset) {
-        Long overlay = relocationOverlay.get(offset);
-        if (overlay != null) {
-            return overlay;
-        }
+        long raw;
         try {
             Address a = addr(offset);
             if (!memory.contains(a)) {
                 return 0;
             }
-            byte[] raw = new byte[PTR];
-            memory.getBytes(a, raw);
+            byte[] encoded = new byte[PTR];
+            memory.getBytes(a, encoded);
             long value = 0;
             for (int i = PTR - 1; i >= 0; i--) {
-                value = (value << 8) | (raw[i] & 0xffL);
+                value = (value << 8) | (encoded[i] & 0xffL);
             }
-            return value;
+            raw = value;
         } catch (Exception e) {
-            return 0;
+            raw = 0;
         }
+        return resolvePointer(offset, raw);
     }
 
     private interface SlotSink {
@@ -306,11 +307,7 @@ public class RecoverWorldgen extends GhidraScript {
                 for (int b = PTR - 1; b >= 0; b--) {
                     value = (value << 8) | (buffer[i + b] & 0xffL);
                 }
-                Long overlay = relocationOverlay.get(slot);
-                if (overlay != null) {
-                    value = overlay;
-                }
-                sink.accept(slot, value);
+                sink.accept(slot, resolvePointer(slot, value));
             }
             consumed += limit;
         }
@@ -356,12 +353,23 @@ public class RecoverWorldgen extends GhidraScript {
                 long type = info & 0xffffffffL;
                 // R_X86_64_RELATIVE = 8, IRELATIVE = 37, RELATIVE64 = 38
                 if (type == 8L || type == 37L || type == 38L) {
-                    relocationOverlay.put(relocationOffset, addend);
+                    relocationOverlay.put(relocationOffset + imageBase, addend + imageBase);
                     added++;
                 }
             }
             println(name + ": " + added + " relative relocation(s)");
         }
+    }
+
+    private long resolvePointer(long slot, long raw) {
+        Long overlay = relocationOverlay.get(slot);
+        if (overlay == null) {
+            return raw;
+        }
+        if (raw != 0 && (isExec(raw) || isNonExecData(raw))) {
+            return raw;
+        }
+        return overlay;
     }
 
     private static long readLE(byte[] buffer, int offset, int length) {
@@ -1292,6 +1300,8 @@ public class RecoverWorldgen extends GhidraScript {
             writer.write("> `bedrock_server` binary. Not MIT-licensed OpenBDS source. The target was\n");
             writer.write("> never executed: this is a static import plus decompiler pass.\n\n");
             writer.write("- mode: `" + mode + "`\n");
+            writer.write("- program image base: `0x" + Long.toHexString(imageBase) + "`\n");
+            writer.write("- relative relocations parsed: `" + relocationOverlay.size() + "`\n");
             writer.write("- RTTI `type_info` objects recovered: `" + typeInfoNames.size() + "`\n");
             writer.write("- distinct classes/vtables recovered: `" + allClasses.size() + "` / `"
                 + vtables.size() + "`\n");
