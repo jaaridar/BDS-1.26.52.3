@@ -190,6 +190,7 @@ public class RecoverWorldgen extends GhidraScript {
             writeVtableReports(out);
             long started = System.currentTimeMillis();
             buildFunctionSet(maxFunctions);
+            scanCodeReferences(out, maxFunctions);
             assignOwners();
             enrichSymbols();
             attributeLambdas(out);
@@ -1239,6 +1240,145 @@ public class RecoverWorldgen extends GhidraScript {
     }
 
     // ------------------------------------------------------------ decompile
+
+    // A vtable address point is only ever materialised in code by an
+    // instruction that forms its address, which the compiler emits as
+    // `lea reg, [rip + disp32]` (REX.W 8D /r, mod=00 rm=101). Scanning .text
+    // for that encoding recovers, for every vtable:
+    //   * the constructor(s) that install it (ctor:<Class>), and
+    //   * for lambda/`__func` vtables, the function that created the lambda
+    //     (fn:<Class>::<method>), which names otherwise anonymous code.
+    private void scanCodeReferences(File out, int maxFunctions) throws Exception {
+        Map<Long, List<String>> interesting = new HashMap<>();
+        for (Vtable table : vtables) {
+            if (looksLikeLambda(table.mangled)) {
+                String enclosing = enclosingFunction(table.mangled);
+                if (enclosing != null && enclosing.length() >= 5 && enclosing.indexOf('?') < 0) {
+                    interesting.computeIfAbsent(table.addressPoint, key -> new ArrayList<>())
+                        .add("fn:" + enclosing);
+                }
+            }
+        }
+        for (Vtable table : vtables) {
+            if (table.selected && table.demangled != null && table.demangled.indexOf('?') < 0
+                    && table.demangled.length() < 80) {
+                interesting.computeIfAbsent(table.addressPoint, key -> new ArrayList<>())
+                    .add("ctor:" + table.demangled);
+            }
+        }
+        println("code-scan targets: " + interesting.size());
+
+        Map<Long, Set<String>> owners = new LinkedHashMap<>();
+        int chunkSize = 8 << 20;
+        for (MemoryBlock block : execBlocks) {
+            long base = block.getStart().getOffset();
+            long size = block.getSize();
+            for (long chunkStart = 0; chunkStart < size; chunkStart += chunkSize) {
+                int length = (int) Math.min(chunkSize + 8, size - chunkStart);
+                byte[] buffer = new byte[length];
+                try {
+                    memory.getBytes(addr(base + chunkStart), buffer);
+                } catch (Exception e) {
+                    diagnostics.add("cannot read code block " + block.getName() + ": " + e);
+                    break;
+                }
+                for (int i = 0; i + 7 <= buffer.length && i < chunkSize; i++) {
+                    int first = buffer[i] & 0xff;
+                    if (first < 0x48 || first > 0x4f) {
+                        continue;
+                    }
+                    if ((buffer[i + 1] & 0xff) != 0x8d) {
+                        continue;
+                    }
+                    if (((buffer[i + 2] & 0xc7)) != 0x05) {
+                        continue;
+                    }
+                    int displacement = (buffer[i + 3] & 0xff)
+                        | ((buffer[i + 4] & 0xff) << 8)
+                        | ((buffer[i + 5] & 0xff) << 16)
+                        | ((buffer[i + 6] & 0xff) << 24);
+                    long target = base + chunkStart + i + 7 + displacement;
+                    List<String> names = interesting.get(target);
+                    if (names == null) {
+                        continue;
+                    }
+                    long site = base + chunkStart + i;
+                    Function container = getFunctionContaining(addr(site));
+                    if (container == null) {
+                        container = getFunctionBefore(addr(site));
+                    }
+                    if (container == null) {
+                        continue;
+                    }
+                    long functionAddress = container.getEntryPoint().getOffset();
+                    owners.computeIfAbsent(functionAddress, key -> new LinkedHashSet<>()).addAll(names);
+                }
+            }
+        }
+        println("code references resolved to " + owners.size() + " functions");
+
+        int added = 0;
+        int renamed = 0;
+        try (BufferedWriter writer = utf8(new File(out, "code-references.tsv"))) {
+            writer.write("function_address\treferenced_vtables\trenamed_to\n");
+            for (Map.Entry<Long, Set<String>> entry : owners.entrySet()) {
+                long functionAddress = entry.getKey();
+                String chosen = null;
+                for (String name : entry.getValue()) {
+                    if (name.startsWith("fn:")) {
+                        chosen = name.substring(3);
+                        break;
+                    }
+                }
+                if (chosen == null) {
+                    for (String name : entry.getValue()) {
+                        chosen = name.substring(5) + "_ctor";
+                        break;
+                    }
+                }
+                Function function = getFunctionAt(addr(functionAddress));
+                if (function == null) {
+                    function = getFunctionContaining(addr(functionAddress));
+                }
+                String renamedTo = "";
+                if (function != null && chosen != null && !chosen.isEmpty()) {
+                    String candidate = sanitize(chosen);
+                    if (candidate.length() > 100) {
+                        candidate = candidate.substring(0, 100);
+                    }
+                    try {
+                        function.setName(candidate, SourceType.USER_DEFINED);
+                        renamedTo = candidate;
+                        renamed++;
+                    } catch (Exception ignored) {
+                        try {
+                            function.setName(candidate + "_" + Long.toHexString(functionAddress),
+                                SourceType.USER_DEFINED);
+                            renamedTo = candidate + "_" + Long.toHexString(functionAddress);
+                            renamed++;
+                        } catch (Exception ignoredToo) {
+                            // keep auto name
+                        }
+                    }
+                }
+                if (functions.size() < maxFunctions + 800 && !functions.containsKey(functionAddress)) {
+                    FunctionInfo info = analyseFunction(functionAddress);
+                    if (info != null) {
+                        info.inferredNames.addAll(entry.getValue());
+                        added++;
+                    }
+                } else {
+                    FunctionInfo info = functions.get(functionAddress);
+                    if (info != null) {
+                        info.inferredNames.addAll(entry.getValue());
+                    }
+                }
+                writer.write(Long.toHexString(functionAddress) + "\t"
+                    + tsv(String.join(", ", entry.getValue())) + "\t" + tsv(renamedTo) + "\n");
+            }
+        }
+        println("code-reference functions added: " + added + ", renamed: " + renamed);
+    }
 
     private void assignOwners() {
         if (!slotOwners.isEmpty()) {
