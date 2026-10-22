@@ -269,42 +269,60 @@ every CI run.
 
 Open items are tracked in section 5 as they are resolved.
 
-## 5. Slot inventory of the recovered corpus
+## 5. Coverage of the recovered corpus
 
-Counts below are what `data/function-index.tsv` currently holds (one row per
-decompiled function; provenance `collect-report.txt`).
+The current corpus decompiles **every distinct world-generation virtual
+function in the binary**: 842 unique targets behind 1,099 vtable slots across 86
+classes (`triage/worldgen-vtables.tsv`), plus their call neighbourhood and the
+functions anchored by world-gen strings — 2,402 functions in total.
 
-| class | slots recovered / total | notes |
-|---|---|---|
-| `WorldGenerator` | 46 / 60 | largest: slot 9 `0xca314e0` (4,450 B, 16 calls) — chunk generation driver |
-| `OverworldGeneratorMultinoise` | 27 / 68 | largest: slot 11 `0x517cd10` (6,391 B, 31 calls), slot 64 `0x5188b10` (6,189 B), slot 15 `0x517ab30` (5,706 B) |
-| `OverworldGenerator2d` | 15 / 68 | slot 64 `0x517ea80` (2,962 B) |
-| `BiomeSource3d` | 11 / 12 | complete apart from one trivial adaptor |
-| `FixedBiomeSource` | 12 / 12 | complete |
-| `XoroshiroRandom` | 11 / 18 | all non-trivial operations recovered |
-| `br::worldgen::WorldGenRandom` | 7 / 18 | wrapper around the RNG |
-| `VanillaSurfaceBuilders::*` | 7 / 7 each | `OverworldDefault`, `Mesa`, `LegacyMesa`, `Capped`, `OceanFrozen`, `Swamp`, `TheEnd`, plus `NoiseGradient` (6/7) |
-| `MultinoiseGenerationRulesBiomeComponentGlue` | 4 / 4 | cereal marshalling of the climate target vector |
-| `OverworldGenerationRulesBiomeComponentGlue` | 4 / 4 | marshalling of climate links/transforms |
+Slots outnumber functions because Bedrock's generator vtables alias heavily
+(many slots point at the same trivial adaptor, destructor or `return 0` stub).
+Per class, distinct functions:
 
-`OverworldGeneratorMultinoise` also carries two size-computation helpers
-(`vslot2` `0x5188760`, `vslot52` `0x51884e0`, `vslot51` `0x5188770`) that all
-compute the same quantity — the number of 4-block cells spanned by the
-dimension's vertical range (`0xa8`/`0xaa` of the generator context), with a
-constant `47` cell offset — which is the array shape used for every per-chunk
-noise/biome volume.
+| class | vtable slots | distinct functions | recovered |
+|---|---|---|---|
+| `OverworldGenerator` | 68 | 60 | 60 |
+| `OverworldGeneratorMultinoise` | 68 | 68 | 68 |
+| `OverworldGenerator2d` | 68 | 68 | 68 |
+| `JigsawBlock` | 128 | 128 | 128 |
+| `JigsawBlockActor` | 120 | 120 | 120 |
+| `Dimension` | 88 | 82 | 82 |
+| `FlatWorldGenerator` | 60 | 60 | 60 |
+| `WorldGenerator` | 60 | 54 | 54 |
+| `FeatureRegistryPacket` / `JigsawStructureDataPacket` | 18 | 18 | 18 each |
+| `XoroshiroRandom` / `br::worldgen::WorldGenRandom` | 18 | 18 | 18 each |
+| `BiomeSource3d` | 12 | 12 | 12 |
+| `FixedBiomeSource` | 12 | 12 | 12 |
+| `EditorCustomBiomeSource` | 10 | 10 | 10 |
+| `VanillaSurfaceBuilders::*` | 7 | 7 | 7 each |
 
-The ceiling on this table is the target budget, not the binary: the triage
-report knows 1,099 world-generation vtable slots resolving to 842 distinct
-functions, and each decompile run covers the highest-scoring slice. Widening
-`--max-targets` (and adding shards) is the only cost to complete the table.
+Largest generator functions recovered (ELF vaddr, pseudocode size, call count):
+
+| address | label | bytes | calls |
+|---|---|---|---|
+| `0x517cd10` | `OverworldGeneratorMultinoise::vslot11` | 6,391 | 31 |
+| `0x5188b10` | `OverworldGeneratorMultinoise::vslot64` | 6,189 | 19 |
+| `0x517ab30` | `OverworldGeneratorMultinoise::vslot15` | 5,706 | 26 |
+| `0xca314e0` | `WorldGenerator::vslot9` | 4,450 | 16 |
+| `0x517ea80` | `OverworldGenerator2d::vslot64` | 2,962 | 14 |
+| `0xc751460` | `FixedBiomeSource::vslot4` | 2,127 | 6 |
+| `0x517c470` | `OverworldGeneratorMultinoise::vslot10` | 1,943 | 14 |
+| `0x517a670` | `OverworldGenerator::vslot*` (dense slot cluster) | 1,900+ | — |
+
+`OverworldGeneratorMultinoise` also carries three size-computation helpers
+(`vslot2` `0x5188760`, `vslot52` `0x51884e0`, `vslot51` `0x5188770`) that compute
+the same quantity — the number of 4-block cells spanned by the dimension's
+vertical range (`0xa8`/`0xaa` of the generator context) minus a constant 47 —
+i.e. the array shape of every per-chunk noise/biome volume.
 
 ## 6. Open items
 
 1. **Noise primitives.** `ImprovedNoise`/`NormalNoise`/`PerlinNoise` are
-   non-polymorphic, so they have no RTTI and no vtable: they can only be
-   reached through the call graph of the generator slots (the triage `--deep`
-   ring) or by matching their constant tables. They are the next target.
+   non-polymorphic, so they have no RTTI and no vtable (they are value types
+   embedded in the generators). They are reachable only through the call graph
+   of the recovered generator slots — the `--deep` triage ring — or by matching
+   their constant tables. This is the single biggest remaining gap.
 2. **Density/aquifer/spline maths.** BDS ships no `noise_settings` JSON (the
    `worldgen.brarchive` in every vanilla pack is a 16-byte placeholder), so the
    terrain splines are compiled in and must come from pseudocode.
