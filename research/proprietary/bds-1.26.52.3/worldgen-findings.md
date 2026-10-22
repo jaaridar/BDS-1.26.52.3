@@ -12,6 +12,7 @@ This report concerns the exact repository-owned Linux ELF:
 - SHA-256: `0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207`
 - GNU build ID: `c0ff36e2eacfc191f01e189237df71f139b5d04a`
 - Format: x86-64 little-endian PIE, stripped, no `.symtab`
+- `.gnu_debuglink`: `bedrock_server.debug` (the separate debug object is not present)
 
 The primary local evidence is in:
 
@@ -22,7 +23,10 @@ The primary local evidence is in:
 
 The Ghidra pass imports the file without whole-program auto-analysis and does not run
 it. Function names below are therefore evidence-backed labels, not recovered source
-symbols.
+symbols. The final reproducible passes succeeded in GitHub Actions:
+
+- inventory run [`39784947127`](https://github.com/jaaridar/BDS-1.26.52.3/actions/runs/39784947127);
+- complete-vtable/direct-call run [`39785801803`](https://github.com/jaaridar/BDS-1.26.52.3/actions/runs/39785801803).
 
 ### Corroborating public sources
 
