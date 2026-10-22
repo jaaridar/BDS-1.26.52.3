@@ -52,6 +52,7 @@ jobs:
           output="$GITHUB_WORKSPACE/research/proprietary/bds-1.26.52.3/ghidra"
           rm -rf "$output"
           mkdir -p "$output"
+          set +e
           "$RUNNER_TEMP/ghidra_12.1.4_PUBLIC/support/analyzeHeadless" \
             "$RUNNER_TEMP/ghidra-project" bds-worldgen \
             -import "$GITHUB_WORKSPACE/bedrock_server" \
@@ -60,14 +61,27 @@ jobs:
             -scriptPath "$GITHUB_WORKSPACE/tools/binary-analysis/ghidra" \
             -postScript RecoverWorldgen.java "$output" \
             -deleteProject \
-            | tee "$output/headless.log"
+            2>&1 | tee "$output/headless.log"
+          status="${PIPESTATUS[0]}"
+          set -e
+          echo "$status" > "$output/headless-exit-status.txt"
 
-      - name: Enforce bounded reports
+      - name: Record bounded-report diagnostics
         run: |
-          test -s research/proprietary/bds-1.26.52.3/ghidra/README.md
-          test -s research/proprietary/bds-1.26.52.3/ghidra/vtable-functions.tsv
-          test -s research/proprietary/bds-1.26.52.3/ghidra/virtual-function-pseudocode.md
-          size="$(du -sb research/proprietary/bds-1.26.52.3/ghidra | cut -f1)"
+          output=research/proprietary/bds-1.26.52.3/ghidra
+          {
+            echo 'Generated files:'
+            find "$output" -maxdepth 1 -type f -printf '%s %f\n' | sort -n
+            echo
+            for required in README.md vtable-functions.tsv virtual-function-pseudocode.md; do
+              if test -s "$output/$required"; then
+                echo "$required: present"
+              else
+                echo "$required: MISSING_OR_EMPTY"
+              fi
+            done
+          } | tee "$output/report-status.txt"
+          size="$(du -sb "$output" | cut -f1)"
           echo "Generated report bytes: $size"
           test "$size" -le 67108864
 
@@ -83,3 +97,11 @@ jobs:
           git commit -m 'research: recover official BDS worldgen vtables'
           git pull --rebase origin "${GITHUB_REF_NAME}"
           git push origin "HEAD:${GITHUB_REF_NAME}"
+
+      - name: Validate recovery result
+        run: |
+          output=research/proprietary/bds-1.26.52.3/ghidra
+          test "$(cat "$output/headless-exit-status.txt")" -eq 0
+          test -s "$output/README.md"
+          test -s "$output/vtable-functions.tsv"
+          test -s "$output/virtual-function-pseudocode.md"
