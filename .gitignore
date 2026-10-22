@@ -16,3 +16,6 @@ logs/
 
 # Generated from proprietary data - keep out of public forks (docs/licensing.md)
 data/palettes/
+
+# Official Mojang binary - not tracked, download from GitHub Releases (v1.26.52.3)
+bedrock_server

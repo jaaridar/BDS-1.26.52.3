@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 # Headless wrapper around the Mojang Bedrock Dedicated Server binary.
 #
-# The binary in this repository is proprietary Mojang software (see NOTICE).
-# It is stored with Git LFS - run `git lfs pull` first if `bedrock_server` is
-# still an LFS pointer. This wrapper only adds headless conveniences:
+# The official server binary is proprietary Mojang software (see NOTICE) and is
+# not tracked in git. Download it from the GitHub release into the repo root, or
+# point BDS_BIN at an existing copy. This wrapper only adds headless
+# conveniences:
 #   - nohup-friendly logging to logs/official.log
 #   - automatic restart with backoff (OFFICIAL_RESTART=1, default on)
 #   - clean SIGTERM handling for containers/systemd
@@ -13,18 +14,18 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-BIN="./bedrock_server"
+BIN="${BDS_BIN:-./bedrock_server}"
 RESTART="${OFFICIAL_RESTART:-1}"
 LOG_DIR="logs"
 LOG_FILE="$LOG_DIR/official.log"
 
 if [ ! -e "$BIN" ]; then
-  echo "error: $BIN not found" >&2
+  echo "error: $BIN not found - download it from the GitHub release (see README) or set BDS_BIN" >&2
   exit 1
 fi
 
 if head -c 50 "$BIN" | grep -q "git-lfs"; then
-  echo "error: $BIN is still a Git LFS pointer. Run: git lfs pull" >&2
+  echo "error: $BIN is a Git LFS pointer, not the real binary - download it from the GitHub release (see README)" >&2
   exit 1
 fi
 

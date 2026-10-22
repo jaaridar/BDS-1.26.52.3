@@ -29,7 +29,8 @@ mirrors is owned by Mojang Studios / Microsoft and is governed by the
 Minecraft EULA and the Minecraft Dedicated Server EULA
 (https://www.minecraft.net/eula):
 
-* `bedrock_server` (the official server binary, stored with Git LFS)
+* `bedrock_server` (the official server binary; distributed as a GitHub
+  release asset and not tracked in git)
 * `bedrock_server_how_to.html`, `release-notes.txt`
 * `behavior_packs/`, `resource_packs/`, `definitions/`, `data/`, `config/`
 * `server.properties`, `packetlimitconfig.json`, `profanity_filter.wlist`

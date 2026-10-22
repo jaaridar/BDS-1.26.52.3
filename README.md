@@ -23,7 +23,7 @@ are **not** open source - see [NOTICE](NOTICE) and
 │  └── world layer: palettes, sub-chunk encoder, flat/void generators  │
 ├──────────────────────────────────────────────────────────────────────┤
 │  Mojang distribution (proprietary, clearly marked, not required)     │
-│  bedrock_server, behavior_packs/, resource_packs/, definitions/ ...  │
+│  bedrock_server (release asset), behavior_packs/, resource_packs/ ...│
 └──────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -79,6 +79,21 @@ The stdin console (and in-game chat, with cheats on) supports:
 * **Health checks**: `node tools/ping.js <host> <port>` exits 0/1 and prints
   the server-list advertisement as JSON.
 
+### Official (Mojang) server binary
+
+`bedrock_server` is proprietary and is not tracked in git. To run it, or to
+compare the engine against the real server, download the 1.26.52.3 binary from
+the [releases page](../../releases/tag/v1.26.52.3) into the repository root:
+
+```bash
+gh release download v1.26.52.3 -p bedrock_server   # or use the GitHub web UI
+chmod +x bedrock_server
+scripts/start-official.sh
+```
+
+An existing copy can be used instead:
+`BDS_BIN=/path/to/bedrock_server scripts/start-official.sh`.
+
 ## What works today
 
 * RakNet server-list ping (shows up in the LAN/server list with your MOTD)
@@ -118,6 +133,7 @@ opening one; the integration suite boots a real server and client.
 ## License
 
 The OpenBDS engine: [MIT](LICENSE).
-Mojang game data and the official binary in this repository: proprietary -
-see [NOTICE](NOTICE). "Minecraft" and "Bedrock" are trademarks of
-Mojang/Microsoft; this project is not affiliated with or endorsed by them.
+Mojang game data in this repository, and the official binary distributed as a
+release asset: proprietary - see [NOTICE](NOTICE). "Minecraft" and "Bedrock"
+are trademarks of Mojang/Microsoft; this project is not affiliated with or
+endorsed by them.

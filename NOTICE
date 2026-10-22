@@ -21,12 +21,12 @@ server source code or from a decompilation of the proprietary server binary.
 ------------------------------------------------------------
 
 The following files are the property of Mojang Studios / Microsoft and are
-redistributed here (or referenced via Git LFS) only as part of a working
-Minecraft: Bedrock Edition dedicated-server distribution. They are covered by
-the Minecraft EULA and the Minecraft Dedicated Server EULA, NOT by the MIT
-license above:
+redistributed here (or, for the server binary, provided as a GitHub release
+asset) only as part of a working Minecraft: Bedrock Edition dedicated-server
+distribution. They are covered by the Minecraft EULA and the Minecraft
+Dedicated Server EULA, NOT by the MIT license above:
 
-  * bedrock_server                (server binary, stored with Git LFS)
+  * bedrock_server                (server binary, release asset - not in git)
   * bedrock_server_how_to.html
   * release-notes.txt
   * behavior_packs/               (vanilla and chemistry data/behavior packs)

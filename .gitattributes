@@ -1,5 +1,2 @@
 # Preserve exact bytes of the server distribution (no line-ending conversion)
 * -text
-
-# Large server executable is stored with Git LFS (GitHub 100 MB file limit)
-bedrock_server filter=lfs diff=lfs merge=lfs -text
