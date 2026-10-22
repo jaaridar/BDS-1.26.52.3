@@ -1252,13 +1252,6 @@ public class RecoverWorldgen extends GhidraScript {
 
     // ------------------------------------------------------------ decompile
 
-    // A vtable address point is only ever materialised in code by an
-    // instruction that forms its address, which the compiler emits as
-    // `lea reg, [rip + disp32]` (REX.W 8D /r, mod=00 rm=101). Scanning .text
-    // for that encoding recovers, for every vtable:
-    //   * the constructor(s) that install it (ctor:<Class>), and
-    //   * for lambda/`__func` vtables, the function that created the lambda
-    //     (fn:<Class>::<method>), which names otherwise anonymous code.
     /**
      * Find the function that owns {@code site}.
      *
@@ -1470,19 +1463,21 @@ public class RecoverWorldgen extends GhidraScript {
     private void dumpDisassembly(File out) throws Exception {
         File directory = new File(out, "disassembly");
         directory.mkdirs();
+        Listing programListing = currentProgram.getListing();
         List<Function> candidates = new ArrayList<>();
         for (long functionAddress : functionOrder) {
+            FunctionInfo info = functions.get(functionAddress);
+            if (info == null || info.instructionCount <= 0 || info.instructionCount > 600) {
+                continue;
+            }
             Function function = getFunctionAt(addr(functionAddress));
             if (function == null) {
                 continue;
             }
-            long count = instructionCount(function);
-            if (count <= 0 || count > 600) {
-                continue;
-            }
             candidates.add(function);
         }
-        candidates.sort(Comparator.comparingLong(Function::getEntryPointOffset));
+        candidates.sort((a, b) -> Long.compare(
+            a.getEntryPoint().getOffset(), b.getEntryPoint().getOffset()));
         long budget = 6L << 20;
         int written = 0;
         for (Function function : candidates) {
@@ -1497,7 +1492,7 @@ public class RecoverWorldgen extends GhidraScript {
                 text.append("  ").append(owner);
             }
             text.append("\n\n```asm\n");
-            InstructionIterator iterator = listing.getInstructions(function.getBody(), true);
+            InstructionIterator iterator = programListing.getInstructions(function.getBody(), true);
             while (iterator.hasNext()) {
                 Instruction instruction = iterator.next();
                 text.append(instruction.getAddress()).append("  ")
@@ -1517,6 +1512,13 @@ public class RecoverWorldgen extends GhidraScript {
         println("disassembly files: " + written);
     }
 
+    // A vtable address point is only ever materialised in code by an
+    // instruction that forms its address, which the compiler emits as
+    // `lea reg, [rip + disp32]` (REX.W 8D /r, mod=00 rm=101). Scanning .text
+    // for that encoding recovers, for every vtable:
+    //   * the constructor(s) that install it (ctor:<Class>), and
+    //   * for lambda/`__func` vtables, the function that created the lambda
+    //     (fn:<Class>::<method>), which names otherwise anonymous code.
     private void scanCodeReferences(File out, int maxFunctions) throws Exception {
         Map<Long, List<String>> interesting = new HashMap<>();
         for (Vtable table : vtables) {
