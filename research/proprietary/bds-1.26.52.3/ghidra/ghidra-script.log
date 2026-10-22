@@ -1,0 +1,13 @@
+2026-10-22 13:08:11 INFO  RecoverWorldgen.java> targets loaded: 10  
+2026-10-22 13:08:11 INFO  RecoverWorldgen.java> Blocks: data=7 exec=6  
+2026-10-22 13:08:11 INFO  RecoverWorldgen.java> .rela.dyn: 723948 relative relocation(s)  
+2026-10-22 13:08:11 INFO  RecoverWorldgen.java> .rela.plt: 0 relative relocation(s)  
+2026-10-22 13:08:11 INFO  RecoverWorldgen.java> relocation overlay entries: 723948  
+2026-10-22 13:08:12 INFO  RecoverWorldgen.java> type_info objects: 10094  
+2026-10-22 13:08:12 INFO  RecoverWorldgen.java> vtables: 6508  
+2026-10-22 13:08:12 INFO  RecoverWorldgen.java> selected classes: 787  
+2026-10-22 13:08:20 INFO  RecoverWorldgen.java> renamed slot functions: 1200  
+2026-10-22 13:08:20 INFO  RecoverWorldgen.java> string literals defined: 12  
+2026-10-22 13:08:20 INFO  RecoverWorldgen.java> functions analysed: 1200 (7772 ms)  
+2026-10-22 13:09:15 INFO  RecoverWorldgen.java> pseudocode: 1200 functions, 5726726 bytes, 4 file(s)  
+2026-10-22 13:09:15 INFO  RecoverWorldgen.java> done  

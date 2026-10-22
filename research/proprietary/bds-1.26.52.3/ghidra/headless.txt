@@ -1,49 +1,99 @@
+targets:       tools/binary-analysis/targets.txt
+== analyzeHeadless ==
+ghidra:        /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist
+projectParent: /home/runner/work/_temp/ghidra-projects
+projectName:   bds-worldgen
+output:        /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/research/proprietary/bds-1.26.52.3/ghidra
+mode:          worldgen
+maxFunctions:  1200
+drwxr-xr-x 2 runner runner 4096 Oct 22 13:07 /home/runner/work/_temp/ghidra-projects
 openjdk version "21.0.12.1" 2026-08-18 LTS
 OpenJDK Runtime Environment Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS)
 OpenJDK 64-Bit Server VM Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS, mixed mode)
-INFO  Using log config file: jar:file:/home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
-INFO  Using log file: /home/runner/.config/ghidra/ghidra_12.1.4_PUBLIC/application.log (LoggingInitialization)  
+INFO  Using log config file: jar:file:/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
+INFO  Using log file: /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/research/proprietary/bds-1.26.52.3/ghidra/ghidra-application.log (LoggingInitialization)  
 INFO  Loading user preferences: /home/runner/.config/ghidra/ghidra_12.1.4_PUBLIC/preferences (Preferences)  
 INFO  Searching for classes... (ClassSearcher)  
-INFO  Class search complete (953 ms) (ClassSearcher)  
+INFO  Class search complete (725 ms) (ClassSearcher)  
 INFO  Initializing SSL Context (DefaultSSLContextInitializer)  
 INFO  Initializing Random Number Generator... (SecureRandomFactory)  
 INFO  Random Number Generator initialization complete: NativePRNGNonBlocking (SecureRandomFactory)  
 INFO  Trust manager disabled, cacerts have not been set (DefaultTrustManagerFactory)  
 INFO  Starting cache cleanup: /var/tmp/runner-ghidra/fscache2 (FileCacheMaintenanceDaemon)  
 INFO  Finished cache cleanup, estimated storage used: 0 (FileCacheMaintenanceDaemon)  
-INFO  Headless startup complete (5911 ms) (AnalyzeHeadless)  
+INFO  Headless startup complete (2779 ms) (AnalyzeHeadless)  
 INFO  Class searcher loaded 59 extension points (20 false positives) (ClassSearcher)  
 INFO  HEADLESS Script Paths:
-    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Features/PyGhidra/ghidra_scripts
-    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Processors/JVM/ghidra_scripts
-    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Features/MicrosoftCodeAnalyzer/ghidra_scripts
-    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Features/SystemEmulation/ghidra_scripts
-    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Processors/PIC/ghidra_scripts
-    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Debug/Debugger/ghidra_scripts
-    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Processors/Atmel/ghidra_scripts
-    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Features/Decompiler/ghidra_scripts
-    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Features/WildcardAssembler/ghidra_scripts
-    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Processors/DATA/ghidra_scripts
-    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Debug/Debugger-rmi-trace/ghidra_scripts
-    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Features/VersionTracking/ghidra_scripts
-    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Features/Base/ghidra_scripts
-    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Features/FunctionID/ghidra_scripts
-    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Processors/8051/ghidra_scripts
-    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Features/BytePatterns/ghidra_scripts
-    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Features/FileFormats/ghidra_scripts
-    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Features/BSim/ghidra_scripts
-    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Features/PDB/ghidra_scripts
-    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Features/GnuDemangler/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/Base/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/SystemEmulation/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/PDB/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/BytePatterns/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/Atmel/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Debug/Debugger-rmi-trace/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/VersionTracking/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/DATA/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Debug/Debugger/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/PIC/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/GnuDemangler/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/FunctionID/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/8051/ghidra_scripts
     /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/ghidra
-    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Features/DecompilerDependent/ghidra_scripts
-    /home/runner/work/_temp/ghidra_12.1.4_PUBLIC/Ghidra/Features/SwiftDemangler/ghidra_scripts (HeadlessAnalyzer)  
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/FileFormats/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/PyGhidra/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/BSim/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/MicrosoftCodeAnalyzer/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/DecompilerDependent/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/SwiftDemangler/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/JVM/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/Decompiler/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/WildcardAssembler/ghidra_scripts (HeadlessAnalyzer)  
 INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
-INFO  Creating temporary project: /home/runner/work/_temp/ghidra-project/bds-worldgen (HeadlessAnalyzer)  
-ERROR Abort due to Headless analyzer error: Directory not found: /home/runner/work/_temp/ghidra-project (HeadlessAnalyzer) java.io.FileNotFoundException: Directory not found: /home/runner/work/_temp/ghidra-project
-	at ghidra.framework.project.DefaultProjectManager.createProject(DefaultProjectManager.java:100)
-	at ghidra.app.util.headless.HeadlessAnalyzer.processLocal(HeadlessAnalyzer.java:439)
-	at ghidra.app.util.headless.AnalyzeHeadless.launch(AnalyzeHeadless.java:199)
-	at ghidra.GhidraLauncher.launch(GhidraLauncher.java:81)
-	at ghidra.Ghidra.main(Ghidra.java:54)
- 
+INFO  Creating project: /home/runner/work/_temp/ghidra-projects/bds-worldgen (HeadlessAnalyzer)  
+INFO  Creating project: /home/runner/work/_temp/ghidra-projects/bds-worldgen (DefaultProject)  
+INFO  REPORT: Processing input files:  (HeadlessAnalyzer)  
+INFO       project: /home/runner/work/_temp/ghidra-projects/bds-worldgen (HeadlessAnalyzer)  
+INFO  IMPORTING: file:///home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/bedrock_server (HeadlessAnalyzer)  
+INFO  Using Loader: Executable and Linking Format (ELF) (ProgramLoader)  
+INFO  Using Language/Compiler: x86:LE:64:default:gcc (ProgramLoader)  
+INFO  Using Library Search Path: [., /bin, /lib, /lib64, /lib/x86_64-linux-gnu, /lib/aarch64-linux-gnu, /usr/bin, /usr/lib, /usr/X11R6/bin, /usr/X11R6/lib, /usr/java/packages/lib, /usr/lib64] (ProgramLoader)  
+INFO  Additional info:
+Loading file:///home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/bedrock_server?MD5=9cddcad5c0f4fc8e62fe9246691ddb8d...
+Skipping section [.tm_clone_table] with invalid size 0x0
+Setting block .fini_array to read-only
+Setting block .init_array to read-only
+Setting block .data.rel.ro to read-only
+Setting block .dynamic to read-only
+------------------------------------------------
+
+Linking the External Programs of 'bedrock_server' to imported libraries...
+  [libpthread.so.0] -> not found in project
+  [libdl.so.2] -> not found in project
+  [libm.so.6] -> not found in project
+  [libgcc_s.so.1] -> not found in project
+  [libc.so.6] -> not found in project
+  [ld-linux-x86-64.so.2] -> not found in project
+  [librt.so.1] -> not found in project
+------------------------------------------------
+
+Resolving External Symbols of [/bedrock_server] - 382 unresolved symbols, no external libraries configured - skipping
+ (ProgramLoader)  
+INFO  IMPORTING: Loaded 0 additional files (HeadlessAnalyzer)  
+INFO  REPORT: Execute script: RecoverWorldgen.java '/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/research/proprietary/bds-1.26.52.3/ghidra' 'worldgen' '1200' '/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/targets.txt'  (HeadlessAnalyzer)  
+INFO  SCRIPT: /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/ghidra/RecoverWorldgen.java (HeadlessAnalyzer)  
+INFO  RecoverWorldgen.java> targets loaded: 10 (GhidraScript)  
+INFO  RecoverWorldgen.java> Blocks: data=7 exec=6 (GhidraScript)  
+INFO  RecoverWorldgen.java> .rela.dyn: 723948 relative relocation(s) (GhidraScript)  
+INFO  RecoverWorldgen.java> .rela.plt: 0 relative relocation(s) (GhidraScript)  
+INFO  RecoverWorldgen.java> relocation overlay entries: 723948 (GhidraScript)  
+INFO  RecoverWorldgen.java> type_info objects: 10094 (GhidraScript)  
+INFO  RecoverWorldgen.java> vtables: 6508 (GhidraScript)  
+INFO  RecoverWorldgen.java> selected classes: 787 (GhidraScript)  
+INFO  RecoverWorldgen.java> renamed slot functions: 1200 (GhidraScript)  
+INFO  RecoverWorldgen.java> string literals defined: 12 (GhidraScript)  
+INFO  RecoverWorldgen.java> functions analysed: 1200 (7772 ms) (GhidraScript)  
+INFO  RecoverWorldgen.java> pseudocode: 1200 functions, 5726726 bytes, 4 file(s) (GhidraScript)  
+INFO  RecoverWorldgen.java> done (GhidraScript)  
+INFO  /bedrock_server: file created (runner) (LocalFileSystem)  
+INFO  REPORT: Save succeeded for: /bedrock_server (bds-worldgen:/bedrock_server) (HeadlessAnalyzer)  
+INFO  REPORT: Import succeeded (HeadlessAnalyzer)  
+analyzeHeadless exit: 0

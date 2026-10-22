@@ -1,15 +1,25 @@
 Generated files:
-0 ghidra-script.log
 2 headless-exit-status.txt
 17 report-status.txt
-1403 ghidra-application.log
-4211 headless.txt
+1014 ghidra-script.log
+7769 headless.txt
+10798 ghidra-application.log
+17152 README.md
+38142 callgraph.tsv
+915842 vtable-slots.tsv
+977491 pseudocode/pseudocode-004.md
+1575726 pseudocode/pseudocode-001.md
+1575757 pseudocode/pseudocode-002.md
+1600774 pseudocode/pseudocode-003.md
+1832119 VTABLE-CLASSES.tsv
+2034155 pseudocode-index.md
+2038472 functions.tsv
 
 Required outputs:
-VTABLE-CLASSES.tsv: MISSING_OR_EMPTY
-vtable-slots.tsv: MISSING_OR_EMPTY
-functions.tsv: MISSING_OR_EMPTY
-pseudocode-index.md: MISSING_OR_EMPTY
+VTABLE-CLASSES.tsv: present
+vtable-slots.tsv: present
+functions.tsv: present
+pseudocode-index.md: present
 
 Total bytes:
-5922	research/proprietary/bds-1.26.52.3/ghidra
+12625771	research/proprietary/bds-1.26.52.3/ghidra
