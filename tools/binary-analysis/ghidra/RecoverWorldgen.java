@@ -125,6 +125,7 @@ public class RecoverWorldgen extends GhidraScript {
         final Set<String> owners = new TreeSet<>();
         final Set<String> strings = new TreeSet<>();
         final Set<Long> callees = new TreeSet<>();
+        final Set<String> inferredNames = new TreeSet<>();
         boolean decompiled;
         String failure;
     }
@@ -190,6 +191,7 @@ public class RecoverWorldgen extends GhidraScript {
             buildFunctionSet(maxFunctions);
             assignOwners();
             enrichSymbols();
+            attributeLambdas(out);
             println("functions analysed: " + functions.size()
                 + " (" + (System.currentTimeMillis() - started) + " ms)");
             decompileAll(out, maxFunctions);
@@ -937,6 +939,112 @@ public class RecoverWorldgen extends GhidraScript {
         return info;
     }
 
+    private static boolean looksLikeLambda(String mangled) {
+        return mangled != null && (mangled.contains("$_") || mangled.contains("__func")
+            || mangled.contains("Ul") || mangled.contains("lambda"));
+    }
+
+    // A lambda/`__func` RTTI name embeds the function that defined it, e.g.
+    // ZN18OverworldGenerator9loadChunkER10LevelChunkbE3$_0. Any function that
+    // references such a vtable is (almost always) that enclosing function.
+    private static String enclosingFunction(String mangled) {
+        String text = mangled.startsWith("_Z") ? mangled.substring(2) : mangled;
+        if (!text.startsWith("N")) {
+            return null;
+        }
+        int[] pos = {1};
+        List<String> parts = new ArrayList<>();
+        while (pos[0] < text.length()) {
+            char c = text.charAt(pos[0]);
+            if (c == 'E' || !(Character.isDigit(c) || c == 'S')) {
+                break;
+            }
+            String part = parseComponent(text, pos);
+            if (part == null) {
+                break;
+            }
+            parts.add(part);
+        }
+        if (parts.size() < 2) {
+            return null;
+        }
+        return String.join("::", parts);
+    }
+
+    private void attributeLambdas(File out) throws Exception {
+        Map<Long, Vtable> byAddressPoint = new HashMap<>();
+        for (Vtable table : vtables) {
+            byAddressPoint.putIfAbsent(table.addressPoint, table);
+        }
+        Map<Long, Set<String>> attribution = new LinkedHashMap<>();
+        for (FunctionInfo info : functions.values()) {
+            Function function = getFunctionAt(addr(info.address));
+            if (function == null) {
+                continue;
+            }
+            InstructionIterator instructions = currentProgram.getListing()
+                .getInstructions(function.getBody(), true);
+            int guard = 0;
+            while (instructions.hasNext() && guard++ < MAX_INSTRUCTIONS_PER_FUNCTION) {
+                Instruction instruction = instructions.next();
+                for (Reference reference : instruction.getReferencesFrom()) {
+                    if (reference == null) {
+                        continue;
+                    }
+                    Address to = reference.getToAddress();
+                    if (to == null) {
+                        continue;
+                    }
+                    Vtable table = byAddressPoint.get(to.getOffset());
+                    if (table == null || !looksLikeLambda(table.mangled)) {
+                        continue;
+                    }
+                    String enclosing = enclosingFunction(table.mangled);
+                    if (enclosing == null || enclosing.length() < 4) {
+                        continue;
+                    }
+                    attribution.computeIfAbsent(info.address, key -> new LinkedHashSet<>()).add(enclosing);
+                }
+            }
+        }
+
+        int renamed = 0;
+        try (BufferedWriter writer = utf8(new File(out, "lambda-attribution.tsv"))) {
+            writer.write("function_address\tinferred_enclosing_functions\trenamed_to\n");
+            for (Map.Entry<Long, Set<String>> entry : attribution.entrySet()) {
+                Function function = getFunctionAt(addr(entry.getKey()));
+                String renamedTo = "";
+                if (function != null && slotOwners.getOrDefault(entry.getKey(), Collections.emptySet()).isEmpty()) {
+                    String base = sanitize(entry.getValue().iterator().next());
+                    if (!base.isEmpty()) {
+                        String candidate = base.length() > 100 ? base.substring(0, 100) : base;
+                        try {
+                            function.setName(candidate, SourceType.USER_DEFINED);
+                            renamedTo = candidate;
+                            renamed++;
+                        } catch (Exception ignored) {
+                            try {
+                                function.setName(candidate + "_" + Long.toHexString(entry.getKey()),
+                                    SourceType.USER_DEFINED);
+                                renamedTo = candidate + "_" + Long.toHexString(entry.getKey());
+                                renamed++;
+                            } catch (Exception ignoredToo) {
+                                // keep the auto-generated name
+                            }
+                        }
+                    }
+                }
+                FunctionInfo info = functions.get(entry.getKey());
+                if (info != null) {
+                    info.inferredNames.addAll(entry.getValue());
+                }
+                writer.write(Long.toHexString(entry.getKey()) + "\t"
+                    + tsv(String.join(", ", entry.getValue())) + "\t" + tsv(renamedTo) + "\n");
+            }
+        }
+        println("lambda-attributed functions: " + attribution.size() + ", renamed: " + renamed);
+    }
+
     private void loadTargets(String path) {
         try {
             java.nio.file.Path file = java.nio.file.Paths.get(path);
@@ -1251,7 +1359,8 @@ public class RecoverWorldgen extends GhidraScript {
         }
 
         try (BufferedWriter writer = utf8(new File(out, "functions.tsv"))) {
-            writer.write("address\tinstructions\tbytes\tdecompiled\tfailure\towners\tcallees\tstrings\n");
+            writer.write("address\tinstructions\tbytes\tdecompiled\tfailure\towners\t"
+                + "inferred_names\tcallees\tstrings\n");
             for (FunctionInfo info : functions.values()) {
                 StringBuilder callees = new StringBuilder();
                 for (Long callee : info.callees) {
@@ -1264,6 +1373,7 @@ public class RecoverWorldgen extends GhidraScript {
                 writer.write(Long.toHexString(info.address) + "\t" + info.instructionCount + "\t"
                     + info.size + "\t" + (info.decompiled ? "yes" : "no") + "\t"
                     + tsv(info.failure) + "\t" + tsv(String.join(", ", info.owners)) + "\t"
+                    + tsv(String.join(", ", info.inferredNames)) + "\t"
                     + callees + "\t" + tsv(strings.toString()) + "\n");
             }
         }
