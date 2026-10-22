@@ -127,6 +127,27 @@ vtable byte offsets `0x1e8`, `0x1e0`, and `0x200`, exactly matching
 legacy 2D implementation. `OverworldGeneratorMultinoise` is the 3D climate/density
 implementation described in the rest of this report.
 
+### Recovered direct-call core
+
+The second bounded pass followed 55 direct call edges and decompiled 29 additional
+nearby functions. It establishes this exact Linux call chain:
+
+| Linux address | Role | Evidence |
+|---:|---|---|
+| `0x05286c70` | static noise-cache builder | called by slot 61 and slot 57; fills quart cache entries |
+| `0x05287930` | `_generateDensityCellsForChunk` | called by slot 57 and slot 64; explicit 5×5×41 loops |
+| `0x05259f00` | `Cavifier::carve` | samples the cave-noise bundle and combines cave terms |
+| `0x052588d0` | `Aquifer::Aquifer` | constructs the 0x68-byte object allocated by slot 60 |
+| `0x05258c60` | `Aquifer::computeSubstance` | 3×2×3 center search, positional Xoroshiro, barrier/fluid result |
+| `0x05259950` | `Aquifer::computeFluid` | samples the 13 fixed surface offsets and fluid-level noises |
+| `0x052884e0` | preliminary-surface virtual entry | calls cache/blender helpers and scans up to 40 vertical cells |
+
+In `0x05287930`, the exact ELF clears three `0x1004`-byte float grids, fills
+multi-octave `5 × 41 × 5` buffers, and iterates five X corners, five Z corners, and
+41 Y corners. Each corner invokes `0x05259f00` for cave shaping, consults chunk
+blending, and fills the noodle/ore auxiliary grids. In `_prepareHeights`, direct call
+`0x05258c60` performs the aquifer decision for interpolated block positions.
+
 ## Generator object layout relevant to the algorithm
 
 The public declarations and Linux pseudocode agree on this high-level composition:

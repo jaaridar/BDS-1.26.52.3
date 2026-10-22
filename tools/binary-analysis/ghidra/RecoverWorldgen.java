@@ -77,6 +77,10 @@ public class RecoverWorldgen extends GhidraScript {
         {"05288b10", "OverworldGeneratorMultinoise___prepareHeights"},
         {"05287930", "OverworldGeneratorMultinoise___generateDensityCellsForChunk"},
         {"05286c70", "OverworldGeneratorMultinoise__createNoiseCache_static"},
+        {"05259f00", "Cavifier__carve"},
+        {"052588d0", "Aquifer__Aquifer"},
+        {"05258c60", "Aquifer__computeSubstance"},
+        {"05259950", "Aquifer__computeFluid"},
     };
 
     private static final String[] CALLGRAPH_SEEDS = {
