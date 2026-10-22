@@ -1,0 +1,28 @@
+# Keep the image small and free of proprietary game data.
+.git
+.github
+node_modules
+npm-cache
+logs
+data
+worlds
+backups
+*.log
+*.dmp
+crash-*.txt
+
+# Mojang proprietary distribution - NOT part of the open-source image
+bedrock_server
+bedrock_server_how_to.html
+release-notes.txt
+behavior_packs
+resource_packs
+definitions
+config
+test
+scripts
+deploy
+packetlimitconfig.json
+profanity_filter.wlist
+allowlist.json
+permissions.json
