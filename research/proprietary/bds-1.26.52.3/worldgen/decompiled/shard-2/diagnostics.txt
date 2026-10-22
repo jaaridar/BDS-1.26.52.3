@@ -1,41 +1,34 @@
 shard: 2
 analyzeHeadless exit: 0
-pseudocode files: 595
-int3/stub functions: 288
+pseudocode files: 401
+int3/stub functions: 45
 image bias: INFO  DecompileTargets.java> DecompileTargets: program .text at 0x4108240, ELF .text at 0x4008240, image bias 0x100000 (GhidraScript)  
 index present: yes
-targets: 600
+targets: 404
 
 --- errors from headless log ---
 INFO  SCRIPT: /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/ghidra/DecompileTargets.java (HeadlessAnalyzer)  
 
 --- script output ---
-INFO  REPORT: Execute script: DecompileTargets.java '/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/research/proprietary/bds-1.26.52.3/worldgen/decompiled/shard-2' '/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/shard-targets.tsv' '3300' '700' '/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/research/proprietary/bds-1.26.52.3/worldgen/triage/worldgen-vtables.tsv' '0x4008240'  (HeadlessAnalyzer)  
+INFO  REPORT: Execute script: DecompileTargets.java '/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/research/proprietary/bds-1.26.52.3/worldgen/decompiled/shard-2' '/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/shard-targets.tsv' '3300' '900' '/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/research/proprietary/bds-1.26.52.3/worldgen/triage/worldgen-vtables.tsv' '0x4008240'  (HeadlessAnalyzer)  
 INFO  SCRIPT: /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/ghidra/DecompileTargets.java (HeadlessAnalyzer)  
 INFO  DecompileTargets.java> DecompileTargets: program .text at 0x4108240, ELF .text at 0x4008240, image bias 0x100000 (GhidraScript)  
-INFO  DecompileTargets.java> DecompileTargets: 600 targets, budget 3300s, max 700 functions, labelled 842 (GhidraScript)  
-INFO  DecompileTargets.java> DecompileTargets: prepared 599 functions, 1 preparation notes (GhidraScript)  
-INFO  DecompileTargets.java> DecompileTargets: decompiling 599 functions (GhidraScript)  
-INFO  DecompileTargets.java> DecompileTargets: 25 decompiled, 0 failed, elapsed 61s (GhidraScript)  
-INFO  DecompileTargets.java> DecompileTargets: 50 decompiled, 1 failed, elapsed 203s (GhidraScript)  
-INFO  DecompileTargets.java> DecompileTargets: 75 decompiled, 2 failed, elapsed 257s (GhidraScript)  
-INFO  DecompileTargets.java> DecompileTargets: 100 decompiled, 2 failed, elapsed 262s (GhidraScript)  
-INFO  DecompileTargets.java> DecompileTargets: 125 decompiled, 2 failed, elapsed 268s (GhidraScript)  
-INFO  DecompileTargets.java> DecompileTargets: 150 decompiled, 2 failed, elapsed 274s (GhidraScript)  
-INFO  DecompileTargets.java> DecompileTargets: 175 decompiled, 2 failed, elapsed 283s (GhidraScript)  
-INFO  DecompileTargets.java> DecompileTargets: 200 decompiled, 2 failed, elapsed 404s (GhidraScript)  
-INFO  DecompileTargets.java> DecompileTargets: 225 decompiled, 2 failed, elapsed 417s (GhidraScript)  
-INFO  DecompileTargets.java> DecompileTargets: 250 decompiled, 2 failed, elapsed 576s (GhidraScript)  
-INFO  DecompileTargets.java> DecompileTargets: 275 decompiled, 4 failed, elapsed 789s (GhidraScript)  
-INFO  DecompileTargets.java> DecompileTargets: 300 decompiled, 4 failed, elapsed 794s (GhidraScript)  
-INFO  DecompileTargets.java> DecompileTargets: 325 decompiled, 4 failed, elapsed 797s (GhidraScript)  
-INFO  DecompileTargets.java> DecompileTargets: 350 decompiled, 4 failed, elapsed 806s (GhidraScript)  
-INFO  DecompileTargets.java> DecompileTargets: 375 decompiled, 4 failed, elapsed 809s (GhidraScript)  
-INFO  DecompileTargets.java> DecompileTargets: 400 decompiled, 4 failed, elapsed 842s (GhidraScript)  
-INFO  DecompileTargets.java> DecompileTargets: 425 decompiled, 4 failed, elapsed 861s (GhidraScript)  
-INFO  DecompileTargets.java> DecompileTargets: 450 decompiled, 4 failed, elapsed 939s (GhidraScript)  
-INFO  DecompileTargets.java> DecompileTargets: 475 decompiled, 4 failed, elapsed 982s (GhidraScript)  
-INFO  DecompileTargets.java> DecompileTargets: 500 decompiled, 4 failed, elapsed 1073s (GhidraScript)  
-INFO  DecompileTargets.java> DecompileTargets: 525 decompiled, 4 failed, elapsed 1161s (GhidraScript)  
-INFO  DecompileTargets.java> DecompileTargets: 550 decompiled, 4 failed, elapsed 1168s (GhidraScript)  
-INFO  DecompileTargets.java> DecompileTargets: 575 decompiled, 4 failed, elapsed 1240s (GhidraScript)  
+INFO  DecompileTargets.java> DecompileTargets: 404 targets, budget 3300s, max 900 functions, labelled 842 (GhidraScript)  
+INFO  DecompileTargets.java> DecompileTargets: prepared 402 functions, 2 preparation notes (GhidraScript)  
+INFO  DecompileTargets.java> DecompileTargets: decompiling 402 functions (GhidraScript)  
+INFO  DecompileTargets.java> DecompileTargets: 25 decompiled, 0 failed, elapsed 21s (GhidraScript)  
+INFO  DecompileTargets.java> DecompileTargets: 50 decompiled, 0 failed, elapsed 22s (GhidraScript)  
+INFO  DecompileTargets.java> DecompileTargets: 75 decompiled, 0 failed, elapsed 23s (GhidraScript)  
+INFO  DecompileTargets.java> DecompileTargets: 100 decompiled, 0 failed, elapsed 23s (GhidraScript)  
+INFO  DecompileTargets.java> DecompileTargets: 125 decompiled, 0 failed, elapsed 23s (GhidraScript)  
+INFO  DecompileTargets.java> DecompileTargets: 150 decompiled, 1 failed, elapsed 229s (GhidraScript)  
+INFO  DecompileTargets.java> DecompileTargets: 175 decompiled, 1 failed, elapsed 253s (GhidraScript)  
+INFO  DecompileTargets.java> DecompileTargets: 200 decompiled, 1 failed, elapsed 290s (GhidraScript)  
+INFO  DecompileTargets.java> DecompileTargets: 225 decompiled, 1 failed, elapsed 309s (GhidraScript)  
+INFO  DecompileTargets.java> DecompileTargets: 250 decompiled, 1 failed, elapsed 310s (GhidraScript)  
+INFO  DecompileTargets.java> DecompileTargets: 275 decompiled, 1 failed, elapsed 311s (GhidraScript)  
+INFO  DecompileTargets.java> DecompileTargets: 300 decompiled, 1 failed, elapsed 311s (GhidraScript)  
+INFO  DecompileTargets.java> DecompileTargets: 325 decompiled, 1 failed, elapsed 313s (GhidraScript)  
+INFO  DecompileTargets.java> DecompileTargets: 350 decompiled, 1 failed, elapsed 313s (GhidraScript)  
+INFO  DecompileTargets.java> DecompileTargets: 375 decompiled, 1 failed, elapsed 315s (GhidraScript)  
+INFO  DecompileTargets.java> DecompileTargets: 400 decompiled, 1 failed, elapsed 322s (GhidraScript)  

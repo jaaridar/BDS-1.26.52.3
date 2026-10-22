@@ -1,6 +1,6 @@
 # Static triage summary
 
-Generated: `2026-10-22T15:23:27Z`
+Generated: `2026-10-22T17:23:57Z`
 
 ## Identity
 
@@ -38,31 +38,29 @@ Generated: `2026-10-22T15:23:27Z`
 
 | rank | score | address | size | reasons |
 |---|---|---|---|---|
-| 1 | 367 | `0x1678` | 239 | caller-of-callee;caller-of-seed;core-vtable:fixture_worldgen::OverworldGeneratorMultinoise#2 |
-| 2 | 188 | `0x1510` | 106 | callee-of:0x157a;callee2-of:0x157a;caller-of-callee |
-| 3 | 183 | `0x157a` | 254 | callee-of:0x1678;caller-of-callee;caller-of-seed |
-| 4 | 176 | `0x14ce` | 66 | callee-of:0x1510;callee2-of:0x1510;caller-of-callee |
-| 5 | 165 | `0x14a4` | 23 | caller-of-callee;core-vtable:fixture_worldgen::OverworldGeneratorMultinoise#1 |
-| 6 | 160 | `0x143e` | 6 | core-vtable:fixture_worldgen::OverworldGeneratorMultinoise#0 |
-| 7 | 150 | `0x178c` | 92 | caller-of-callee;core-vtable:fixture_worldgen::VanillaOverworldBiomeSource#3 |
-| 8 | 145 | `0x148c` | 24 | caller-of-callee;core-vtable:fixture_worldgen::VanillaOverworldBiomeSource#1 |
-| 9 | 140 | `0x1444` | 24 | caller-of-callee;core-vtable:fixture_worldgen::OverworldSurfaceBuilder#1 |
-| 10 | 140 | `0x1438` | 6 | core-vtable:fixture_worldgen::VanillaOverworldBiomeSource#0 |
-| 11 | 139 | `0x145c` | 24 | caller-of-callee;core-vtable:fixture_worldgen::ImprovedNoise#1 |
-| 12 | 139 | `0x1474` | 24 | caller-of-callee;core-vtable:fixture_worldgen::NormalNoise#1 |
-| 13 | 135 | `0x1416` | 6 | core-vtable:fixture_worldgen::OverworldSurfaceBuilder#0 |
-| 14 | 135 | `0x141c` | 6 | core-vtable:fixture_worldgen::OverworldSurfaceBuilder#2 |
-| 15 | 135 | `0x1422` | 10 | core-vtable:fixture_worldgen::OverworldSurfaceBuilder#3 |
-| 16 | 134 | `0x142c` | 6 | core-vtable:fixture_worldgen::ImprovedNoise#0 |
-| 17 | 134 | `0x1432` | 6 | core-vtable:fixture_worldgen::NormalNoise#0 |
-| 18 | 130 | `0x1130` | 0 | callee-of:0x1444;callee-of:0x145c;callee-of:0x1474 |
-| 19 | 46 | `0x1249` | 413 | caller-of-callee;caller-of-seed |
-| 20 | 37 | `0x14bb` | 19 | callee-of:0x14ce;callee2-of:0x14ce |
+| 1 | 1333 | `0x1678` | 239 | caller-of-seed;core-vtable:fixture_worldgen::OverworldGeneratorMultinoise#2;string:minecraft:aquifer |
+| 2 | 1119 | `0x1510` | 106 | callee-of:0x157a;caller-of-seed;core-vtable:fixture_worldgen::NormalNoise#2 |
+| 3 | 1119 | `0x157a` | 254 | callee-of:0x1678;caller-of-seed;core-vtable:fixture_worldgen::VanillaOverworldBiomeSource#2 |
+| 4 | 1107 | `0x14ce` | 66 | callee-of:0x1510;core-vtable:fixture_worldgen::ImprovedNoise#2 |
+| 5 | 1081 | `0x142c` | 6 | core-vtable:fixture_worldgen::ImprovedNoise#0 |
+| 6 | 1081 | `0x145c` | 24 | core-vtable:fixture_worldgen::ImprovedNoise#1 |
+| 7 | 1081 | `0x1432` | 6 | core-vtable:fixture_worldgen::NormalNoise#0 |
+| 8 | 1081 | `0x1474` | 24 | core-vtable:fixture_worldgen::NormalNoise#1 |
+| 9 | 1081 | `0x143e` | 6 | core-vtable:fixture_worldgen::OverworldGeneratorMultinoise#0 |
+| 10 | 1081 | `0x14a4` | 23 | core-vtable:fixture_worldgen::OverworldGeneratorMultinoise#1 |
+| 11 | 1081 | `0x1416` | 6 | core-vtable:fixture_worldgen::OverworldSurfaceBuilder#0 |
+| 12 | 1081 | `0x1444` | 24 | core-vtable:fixture_worldgen::OverworldSurfaceBuilder#1 |
+| 13 | 1081 | `0x141c` | 6 | core-vtable:fixture_worldgen::OverworldSurfaceBuilder#2 |
+| 14 | 1081 | `0x1422` | 10 | core-vtable:fixture_worldgen::OverworldSurfaceBuilder#3 |
+| 15 | 1081 | `0x1438` | 6 | core-vtable:fixture_worldgen::VanillaOverworldBiomeSource#0 |
+| 16 | 1081 | `0x148c` | 24 | core-vtable:fixture_worldgen::VanillaOverworldBiomeSource#1 |
+| 17 | 1081 | `0x178c` | 92 | core-vtable:fixture_worldgen::VanillaOverworldBiomeSource#3 |
+| 18 | 78 | `0x1130` | 0 | callee-of:0x1444;callee-of:0x145c;callee-of:0x1474 |
+| 19 | 36 | `0x1249` | 413 | caller-of-seed |
+| 20 | 26 | `0x14bb` | 19 | callee-of:0x14ce |
 | 21 | 26 | `0x10d0` | 144 | callee-of:0x1678 |
 | 22 | 26 | `0x13e6` | 48 | callee-of:0x1678 |
 | 23 | 26 | `0x1780` | 12 | callee-of:0x178c |
 | 24 | 26 | `0x1770` | 16 | callee-of:0x178c |
-| 25 | 11 | `0x1110` | 0 | callee2-of:0x14bb |
-| 26 | 5 | `0x18fe` | 30 | caller-of-callee |
 
 Elapsed: 0.0s

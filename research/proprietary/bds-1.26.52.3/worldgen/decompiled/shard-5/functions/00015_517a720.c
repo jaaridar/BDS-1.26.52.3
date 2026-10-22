@@ -31,18 +31,18 @@ void wg_OverworldGeneratorMultinoise__vslot55
   lVar2 = lStack_50;
   lVar1 = lStack_58;
   for (lVar3 = lStack_58; lStack_58 = lVar1, lVar3 != lVar2; lVar3 = lVar3 + 0x18) {
-    func_0x0c855940(param_2,param_3,param_4,param_5,uStack_38,lVar3);
+    FUN_0c855940(param_2,param_3,param_4,param_5,uStack_38,lVar3);
     lVar1 = lStack_58;
   }
   lVar3 = lStack_50;
   if (lVar1 != 0) {
     for (; lVar1 != lVar3; lVar3 = lVar3 + -0x18) {
       if ((*(byte *)(lVar3 + -0x18) & 1) != 0) {
-        func_0x0412a280(*(undefined8 *)(lVar3 + -8),*(ulong *)(lVar3 + -0x18) & 0xfffffffffffffffe);
+        FUN_0412a280(*(undefined8 *)(lVar3 + -8),*(ulong *)(lVar3 + -0x18) & 0xfffffffffffffffe);
       }
     }
     lStack_50 = lVar1;
-    func_0x0412a280(lStack_58,lStack_48 - lStack_58);
+    FUN_0412a280(lStack_58,lStack_48 - lStack_58);
   }
   return;
 }

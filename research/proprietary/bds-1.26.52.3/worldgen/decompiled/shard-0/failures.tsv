@@ -1,8 +1,4 @@
 detail
 0x5a1f120	skipped-oversized:1048576
-0x6146460	decompile:  Low-level Error: Symbol offset is incompatible with VariableGroup
-0xbcbac00	decompile: Exception while decompiling 0bdbac00: process: timeout 
-0xe793b20	decompile: Exception while decompiling 0e893b20: Response buffer size exceeded for: bedrock_server 
-0x9a95090	decompile: Exception while decompiling 09b95090: Response buffer size exceeded for: bedrock_server 
-0xaf3ab90	decompile: Exception while decompiling 0b03ab90: process: timeout 
-0x5f84f70	decompile: Exception while decompiling 06084f70: process: timeout 
+0x7740640	skipped-oversized:175888
+0x614ddd0	decompile:  Low-level Error: Symbol offset is incompatible with VariableGroup

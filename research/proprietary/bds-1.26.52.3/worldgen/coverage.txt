@@ -1,46 +1,46 @@
-recovered functions: 3578
-classes represented: 111
+recovered functions: 2402
+classes represented: 89
 
 class                                                  fns
-caller-of-callee                                      2595
-callee-of                                              627
-WorldGenerator                                          46
+caller-of-seed                                         664
+callee-of                                              526
+string-ref                                             372
+JigsawBlock                                            128
+JigsawBlockActor                                       120
+Dimension                                               81
+WorldGenerator                                          53
+Editor::Services::EditorJigsawService                   35
 OverworldGeneratorMultinoise                            27
+br::worldgen::WorldGenRandom                            18
+JigsawStructureDataPacket                               18
+FlatWorldGenerator                                      18
+FeatureRegistryPacket                                   16
 OverworldGenerator2d                                    15
+FixedBiomeSource                                        12
 BiomeSource3d                                           11
 XoroshiroRandom                                         11
-callee2-of:0x5bd89b0                                     9
-VanillaSurfaceBuilders::MesaSurfaceBuilder               7
+StructurePoolBlockPredicateCappedRandomBlockReplacement    10
+EditorCustomBiomeSource                                 10
+SharedTypes::v1_26_0::BiomeReplacementConstraint         8
 VanillaSurfaceBuilders::CappedSurfaceBuilder             7
-br::worldgen::WorldGenRandom                             7
-VanillaSurfaceBuilders::SwampSurfaceBuilder              7
-VanillaSurfaceBuilders::OceanFrozenSurfaceBuilder        7
 VanillaSurfaceBuilders::LegacyMesaSurfaceBuilder         7
+VanillaSurfaceBuilders::MesaSurfaceBuilder               7
 VanillaSurfaceBuilders::TheEndSurfaceBuilder             7
-VanillaSurfaceBuilders::NoiseGradientSurfaceBuilder      6
+VanillaSurfaceBuilders::OceanFrozenSurfaceBuilder        7
+VanillaSurfaceBuilders::SwampSurfaceBuilder              7
+StructurePoolBlockPredicateCappedArcheologyBlockReplacement     7
 VanillaSurfaceBuilders::CappedSurfaceBuilder::MaterialHelper     6
+VanillaSurfaceBuilders::NoiseGradientSurfaceBuilder      6
 VanillaSurfaceBuilders::OverworldDefaultSurfaceBuilder     6
-callee2-of:0xe40c810                                     5
-callee2-of:0xebaa2c0                                     5
-callee2-of:0x7e4b530                                     4
-SurfaceBuilderBiomeComponentGlue                         4
-callee2-of:0xda5fe60                                     4
-callee2-of:0xe3dd790                                     4
-callee2-of:0x87b42d0                                     4
+br::worldgen::processors::Capped                         6
+SharedTypes::v1_21_80::BiomeReplacementConstraint        6
+br::worldgen::processors::Rule                           6
+NoSurfaceOreFeature                                      5
+_GLOBAL__N_1::WorldGeneratorAnon::StructureAccess        5
+br::worldgen::processors::BlockIgnore                    5
+br::worldgen::processors::ProtectedBlock                 5
+JigsawStructurePostprocessAction                         5
+br::worldgen::processors::JigsawReplacement              5
 MultinoiseGenerationRulesBiomeComponentGlue              4
-OverworldGenerator                                       4
-callee2-of:0x87ae540                                     4
-ClimateBiomeComponentGlue                                3
-callee2-of:0x87b9c40                                     3
-callee2-of:0xe872a50                                     3
-callee2-of:0xd780440                                     3
-callee2-of:0xc535ca0                                     3
-Dimension                                                3
-callee2-of:0xd317f90                                     3
-callee2-of:0xe879fe0                                     3
-callee2-of:0xe3db7a0                                     3
-WorldGenMultiNoiseClimateAttributes                      2
-SharedTypes::v1_26_30::SurfaceBuilderBiomeJsonComponent     2
-callee2-of:0x515af30                                     2
 
 index written to research/proprietary/bds-1.26.52.3/worldgen/data/function-index.tsv
