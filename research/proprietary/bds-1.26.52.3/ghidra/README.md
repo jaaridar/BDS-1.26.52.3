@@ -5,10 +5,10 @@
 This bounded headless pass imported the ELF without whole-program auto-analysis, found selected Itanium C++ RTTI names, reconstructed candidate vtables from relocated pointers, disassembled their executable slots, and invoked Ghidra's decompiler. It did not execute the target.
 
 - Classes with recovered entries: `12`
-- Vtable entries: `337`
-- Unique functions decompiled: `143`
-- Maximum slots examined per vtable: `48`
-- Maximum unique functions: `180`
+- Vtable entries: `406`
+- Unique functions decompiled: `179`
+- Maximum slots examined per vtable: `96`
+- Maximum unique functions: `320`
 
 ## Diagnostics
 

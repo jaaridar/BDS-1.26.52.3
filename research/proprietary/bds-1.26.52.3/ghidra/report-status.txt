@@ -3,8 +3,8 @@ Generated files:
 17 report-status.txt
 646 README.md
 6096 headless.txt
-38399 vtable-functions.tsv
-594065 virtual-function-pseudocode.md
+46256 vtable-functions.tsv
+764339 virtual-function-pseudocode.md
 
 README.md: present
 vtable-functions.tsv: present
