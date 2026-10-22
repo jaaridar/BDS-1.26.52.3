@@ -140,6 +140,7 @@ public class RecoverWorldgen extends GhidraScript {
     private final Map<Long, Set<String>> slotOwners = new LinkedHashMap<>();
     private final List<String> diagnostics = new ArrayList<>();
     private final Map<Long, String> stringRefs = new LinkedHashMap<>();
+    private final Map<Long, Set<Long>> constantRefs = new LinkedHashMap<>();
     private final List<Pattern> forcedPatterns = new ArrayList<>();
     private final List<Integer> forcedDepths = new ArrayList<>();
 
@@ -199,6 +200,7 @@ public class RecoverWorldgen extends GhidraScript {
             writeVtableReports(out);
         }
 
+        writeConstants(out);
         writeFunctionReports(out);
         writeSummary(out, mode);
         println("done");
@@ -931,6 +933,9 @@ public class RecoverWorldgen extends GhidraScript {
                     if (stringRefs.size() < 60000) {
                         stringRefs.put(to.getOffset(), text);
                     }
+                } else if (constantRefs.size() < 40000) {
+                    constantRefs.computeIfAbsent(to.getOffset(), key -> new TreeSet<>())
+                        .add(address);
                 }
             }
         }
@@ -948,11 +953,27 @@ public class RecoverWorldgen extends GhidraScript {
     // ZN18OverworldGenerator9loadChunkER10LevelChunkbE3$_0. Any function that
     // references such a vtable is (almost always) that enclosing function.
     private static String enclosingFunction(String mangled) {
-        String text = mangled.startsWith("_Z") ? mangled.substring(2) : mangled;
+        int end = mangled.length();
+        int dollar = mangled.indexOf("$_");
+        int ul = mangled.indexOf("Ul");
+        if (dollar >= 0) {
+            end = dollar;
+        }
+        if (ul >= 0 && ul < end) {
+            end = ul;
+        }
+        int start = mangled.lastIndexOf("ZN", end);
+        if (start < 0) {
+            return null;
+        }
+        String text = mangled.substring(start, end) + "E";
         if (!text.startsWith("N")) {
             return null;
         }
         int[] pos = {1};
+        while (pos[0] < text.length() && "KVRO".indexOf(text.charAt(pos[0])) >= 0) {
+            pos[0]++;
+        }
         List<String> parts = new ArrayList<>();
         while (pos[0] < text.length()) {
             char c = text.charAt(pos[0]);
@@ -971,6 +992,66 @@ public class RecoverWorldgen extends GhidraScript {
         return String.join("::", parts);
     }
 
+    private Set<Long> operandAddresses(Instruction instruction) {
+        Set<Long> addresses = new LinkedHashSet<>();
+        try {
+            int operands = instruction.getNumOperands();
+            for (int operand = 0; operand < operands; operand++) {
+                Object[] objects = instruction.getOpObjects(operand);
+                if (objects == null) {
+                    continue;
+                }
+                for (Object object : objects) {
+                    if (object instanceof Address) {
+                        addresses.add(((Address) object).getOffset());
+                    }
+                }
+            }
+        } catch (Exception e) {
+            // operand recovery is best-effort
+        }
+        return addresses;
+    }
+
+    private void writeConstants(File out) throws Exception {
+        try (BufferedWriter writer = utf8(new File(out, "constants.tsv"))) {
+            writer.write("address\traw16\tu32_0\tu32_1\tf32_0\tf32_1\tf64_0\t"
+                + "referencing_functions\n");
+            for (Map.Entry<Long, Set<Long>> entry : constantRefs.entrySet()) {
+                long address = entry.getKey();
+                StringBuilder hex = new StringBuilder();
+                byte[] raw = new byte[16];
+                try {
+                    memory.getBytes(addr(address), raw);
+                } catch (Exception e) {
+                    continue;
+                }
+                for (byte value : raw) {
+                    hex.append(String.format("%02x", value));
+                }
+                long word0 = readLE(raw, 0, 4);
+                long word1 = readLE(raw, 4, 4);
+                float float0 = Float.intBitsToFloat((int) word0);
+                float float1 = Float.intBitsToFloat((int) word1);
+                double double0 = Double.longBitsToDouble(readLE(raw, 0, 8));
+                StringBuilder owners = new StringBuilder();
+                int shown = 0;
+                for (Long function : entry.getValue()) {
+                    if (shown++ >= 6) {
+                        owners.append(",...");
+                        break;
+                    }
+                    owners.append(owners.length() > 0 ? "," : "").append(Long.toHexString(function));
+                }
+                writer.write(Long.toHexString(address) + "\t" + hex + "\t"
+                    + (word0 & 0xffffffffL) + "\t" + (word1 & 0xffffffffL) + "\t"
+                    + Float.toString(float0) + "\t" + Float.toString(float1) + "\t"
+                    + Double.toString(double0) + "\t" + owners + "\n");
+            }
+        }
+        println("constant references: " + constantRefs.size());
+    }
+
     private void attributeLambdas(File out) throws Exception {
         Map<Long, Vtable> byAddressPoint = new HashMap<>();
         for (Vtable table : vtables) {
@@ -987,15 +1068,17 @@ public class RecoverWorldgen extends GhidraScript {
             int guard = 0;
             while (instructions.hasNext() && guard++ < MAX_INSTRUCTIONS_PER_FUNCTION) {
                 Instruction instruction = instructions.next();
+                Set<Long> targets = operandAddresses(instruction);
                 for (Reference reference : instruction.getReferencesFrom()) {
-                    if (reference == null) {
-                        continue;
+                    if (reference != null && reference.getToAddress() != null) {
+                        targets.add(reference.getToAddress().getOffset());
                     }
-                    Address to = reference.getToAddress();
-                    if (to == null) {
-                        continue;
+                }
+                for (Long target : targets) {
+                    Vtable table = byAddressPoint.get(target);
+                    if (table == null) {
+                        table = byAddressPoint.get(target + 2L * PTR);
                     }
-                    Vtable table = byAddressPoint.get(to.getOffset());
                     if (table == null || !looksLikeLambda(table.mangled)) {
                         continue;
                     }
