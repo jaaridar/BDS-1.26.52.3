@@ -457,24 +457,24 @@ Generated files:
 7390 disassembly/disasm-436fa00.md
 7883 disassembly/disasm-4911270.md
 7962 disassembly/disasm-4883620.md
-8905 headless.txt
+8904 headless.txt
 9038 disassembly/disasm-4a3c9f0.md
 9321 disassembly/disasm-4a87380.md
 10535 disassembly/disasm-4a3d130.md
 11441 disassembly/disasm-4907e30.md
 11973 disassembly/disasm-4a85e50.md
 12384 disassembly/disasm-4a88230.md
-13276 ghidra-script.log
 13320 disassembly/disasm-4a7d900.md
 13913 disassembly/disasm-4a87920.md
 14147 disassembly/disasm-495c870.md
 14667 disassembly/disasm-4a3a2f0.md
 14927 disassembly/disasm-4a856c0.md
+15490 ghidra-script.log
 16578 source-attribution.tsv
 28713 code-references.tsv
 34127 README.md
 68279 constants.tsv
-90786 ghidra-application.log
+101576 ghidra-application.log
 162992 SUMMARY.md
 262606 callgraph.tsv
 626158 pseudocode/pseudocode-010.md
@@ -499,4 +499,4 @@ functions.tsv: present
 pseudocode-index.md: present
 
 Total bytes:
-49156948	research/proprietary/bds-1.26.52.3/ghidra
+49169952	research/proprietary/bds-1.26.52.3/ghidra
