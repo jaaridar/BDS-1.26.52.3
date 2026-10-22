@@ -1,0 +1,1316 @@
+# Evidence summary
+
+> Derived from the proprietary BDS binary by static analysis only.
+
+- vtables: `50263`
+- distinct class names: `41849`
+- selected vtable slots: `5120`
+- functions analysed: `5000`
+
+## Class families
+
+### generator (35)
+
+- `?::Bedrock::Threading::InstancedThreadLocal<NetherGenerator::ThreadData, std::__1::allocator<S3, ?>>::?::E::void::?::long::S3*::?`
+- `EndCityPieces::FatTowerGenerator`
+- `EndCityPieces::HouseTowerGenerator`
+- `EndCityPieces::TowerBridgeGenerator`
+- `EndCityPieces::TowerGenerator`
+- `FlatWorldGenerator`
+- `InstanceIdGenerator`
+- `NetherGenerator`
+- `OverworldGenerator`
+- `OverworldGenerator2d`
+- `OverworldGeneratorMultinoise`
+- `Scripting::Generator<void, void, void>`
+- `Scripting::GeneratorAny`
+- `Scripting::GeneratorIteratorAny`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleMinecraft::ScriptSystem::runJob, S_::DependencyLocator&, S_::Generator<void, void, void>>`
+- `ServerIdentityAssertionGenerator`
+- `TheEndGenerator`
+- `VoidGenerator`
+- `WorldGenerator`
+- `_GLOBAL__N_1::WorldGeneratorAnon::StructureAccess`
+- `entt::basic_storage<Scripting::GeneratorIteratorType, S1::?::ObjectHandleValue, std::__1::allocator<S2, ?>>`
+- `entt::basic_storage<Scripting::GeneratorType, S1::?::ObjectHandleValue, std::__1::allocator<S2, ?>>`
+- `std::__1::__function::__func<?, Bedrock::Threading::InstancedThreadLocal<NetherGenerator::ThreadData, S_::allocator<S6, ?>>::?::E::void, ?, long, S6*, ?>::?::S7::?::?::SB::?`
+- `std::__1::__function::__func<?, Bedrock::Threading::InstancedThreadLocal<OverworldGenerator::ThreadData, S_::allocator<S6, ?>>::?::E::void, ?, long, S6*, ?>::?::S7::?::?::SB::?`
+- `std::__1::__function::__func<?, Bedrock::Threading::InstancedThreadLocal<TheEndGenerator::ThreadData, S_::allocator<S6, ?>>::?::E::void, ?, long, S6*, ?>::?::S7::?::?::SB::?`
+- `std::__1::__function::__func<?, OverworldGenerator::loadChunk, ?&, ?, long double, long double, long, ?, unsigned char, ?, ?, ?, bool>::$_0::S_::allocator<S5, ?>::?::void::? const&::?::long::?::char::?::?*::short::? const&::?::long::?::char::?::int`
+- `std::__1::__function::__func<?, Scripting::internal::BaseScriptComponent::?::I::S2::?::GeneratorIteratorType>::S3::?::TypeCache&::bool::S4::?::Traits<?, ?>`
+- `std::__1::__function::__func<?, Scripting::internal::BaseScriptComponent::?::I::S2::?::GeneratorType>::S3::?::TypeCache&::bool::S4::?::Traits<?, ?>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleMinecraft::ScriptSystem::runJob, S1::?::DependencyLocator&, S1::?::Generator<void, void, void>>>`
+- `std::__1::__shared_ptr_emplace<entt::basic_storage<Scripting::GeneratorIteratorType, S3::?::ObjectHandleValue, S_::allocator<S4, ?>>, S6::?::?::S5::?>`
+- `std::__1::__shared_ptr_emplace<entt::basic_storage<Scripting::GeneratorType, S3::?::ObjectHandleValue, S_::allocator<S4, ?>>, S6::?::?::S5::?>`
+- `webrtc::RTCCertificateGenerator`
+- `webrtc::UlpfecGenerator`
+- `webrtc::_GLOBAL__N_1::SecureRandomGenerator`
+- `webrtc::_GLOBAL__N_1::TestRandomGenerator`
+
+### biome (761)
+
+- `23SubChunkStoragePalettedI5BiomeLm16ELN19SubChunkStorageUnit4TypeE16EE`
+- `?::BiomeJsonDocumentGlue::registerComponent<SharedTypes::Beta::SurfaceBuilderBiomeJsonComponent, ?, ?, Su, ?, float, ?, char, long double, ?, ?, int, long, double, long double, ?, ?, int, ?, unsigned long, long double, ?, ?, unsigned long, ?, ?, ?, long double, ?, unsigned short, ?, long, ?, long double>::void::void`
+- `?::BiomeSurfaceSystem::resolveBuilderImplementation::?&::Bio::unsigned long::long double::long double&::?::int::short::unsigned short::?::unsigned long long::? const&::Su::?::float::?::char::long double::?::?::int::long::double::long double::?::long double&::?::int::short::unsigned short::?::unsigned long long::LevelSeed64`
+- `?::Editor::Network::PayloadServiceProvider::_registerPayload<S0::?::DataTransferServiceRequestDefaultBiomeConfigPayload>::S0::?::PayloadMetrics*::void`
+- `?::Scripting::internal::BaseScriptComponent::?::I::ScriptModuleServerGraphics::ScriptBiomeAtmospherics`
+- `?::Scripting::internal::BaseScriptComponent::?::I::ScriptModuleServerGraphics::ScriptBiomeWater`
+- `Biome`
+- `BiomeClimateSelectorOperationNode<?, ?*, short, ?, double>`
+- `BiomeColorSampling::BiomeAndPatternMapPolicy`
+- `BiomeColorSampling::WhiteMapPolicy`
+- `BiomeDecorationAttributes<?, ?, ?, ?, ?, short, ?, long, int, double, ?, unsigned short, long double, double, ?, long double, ?, unsigned short, ?, ?, long double, short>`
+- `BiomeDecorationAttributes<?, ?, ?, unsigned long, ?, long, int, char, int, unsigned short, ?, long double, ?, unsigned short, ?, ?, long double, short>`
+- `BiomeDefinitionListPacket`
+- `BiomeDimensionAttributes`
+- `BiomeFilterGroup`
+- `BiomeRegistry`
+- `BiomeSource3d`
+- `BiomeTagAttributes`
+- `BiomeTagComponent`
+- `CachedBiomeSource<?, ?, ? volatile, ?, int, long, long, ?, void&&, long double, ?, wchar_t, ?, ?, long, double, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, ?, ?*, short, ?, double>`
+- `CachedBiomeSource<?, ?, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, double>`
+- `CachedBiomeSource<?, ?, long double&, ?, long, ?, char, long double, unsigned long, long double, ?, unsigned short, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, ?, ?, long, ?, char, ?, ?*, short>`
+- `ClimateBiomeComponentGlue`
+- `CreatureSpawnProbabilityBiomeComponentGlue`
+- `CustomHumidityBiomeComponentGlue`
+- `CustomMapTintBiomeComponentGlue`
+- `DefaultOverworldBiomeSurfaceFlag`
+- `Editor::CustomBiomeManager`
+- `Editor::Network::DataTransferServerChangeBiomeMappingPayload`
+- `Editor::Network::DataTransferServiceRequestBiomeConfigPayload`
+- `Editor::Network::DataTransferServiceRequestBiomeConfigResponsePayload`
+- `Editor::Network::DataTransferServiceRequestDefaultBiomeConfigPayload`
+- `Editor::Network::DataTransferServiceRequestDefaultBiomeConfigResponsePayload`
+- `Editor::Network::MinimapBiomeColorPayload`
+- `EditorCustomBiomeSource`
+- `FilterOperationNode<OperationNodeFilters::AddBiomeIsland, ?, ?*, short, ?, double>`
+- `FilterOperationNode<OperationNodeFilters::BiomeInit, ?, ?*, short, ?, double>`
+- `FilterOperationNode<OperationNodeFilters::RareBiomeSpot, ?, ?*, short, ?, double>`
+- `FilterTestBiome`
+- `FilterTestBiomeHasTag`
+- `FilterTestBiomeHumid`
+- `FilterTestBiomeSnowCovered`
+- `FixedBiomeSource`
+- `FrozenNoiseBasedBiomeComponentGlue`
+- `LootItemBiomeHasTagCondition`
+- `MixerOperationNode<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, OperationNodeValues::PreBiome, ?>`
+- `MixerOperationNode<OperationNodeValues::PreBiome, ?, ?*, short, ?, double, S0::?::Terrain, ?>`
+- `MixerOperationNode<OperationNodeValues::PreBiome, ?, ?*, short, ?, double, S1, ?, ?>`
+- `MountainParametersBiomeComponentGlue`
+- `MultinoiseGenerationRulesBiomeComponentGlue`
+- `NSt3__110__function6__funcIZN20ReadOnlyBinaryStream7readMapITtTpTyENS_3mapEt19BiomeDefinitionDataEEN7Bedrock6ResultIvNS_10error_codeEEERT_IJT0_T1_EEmEUlRS2_E_NS_9allocatorISG_EEFNS7_INS_4pairItS5_EES8_EESF_EEE`
+- `NodeGraphBiomeSource<?, ?*, short, ?, double>`
+- `NoiseGradientBiomeSurfaceComponent`
+- `OverworldGenerationRulesBiomeComponentGlue`
+- `OverworldHeightBiomeComponentGlue`
+- `Puv::CerealParser<SharedTypes::Beta::BiomeJsonDocument::BiomeJsonObject, ? const&, ?, ?, long double, double, ?, ?, char, ?, ?, double, ?, ?, ?, unsigned short, long double, long long, unsigned short>`
+- `Puv::CerealParser<SharedTypes::v1_21_120::BiomeJsonDocument::BiomeJsonObject, ? const&, ?, ?, long double, double, ?, ?, char, ?, ?, double, ?, ?, ?, unsigned short, long double, long long, unsigned short>`
+- `Puv::CerealParser<SharedTypes::v1_26_0::BiomeJsonDocument::BiomeJsonObject, ? const&, ?, ?, long double, double, ?, ?, char, ?, ?, double, ?, ?, ?, unsigned short, long double, long long, unsigned short>`
+- `Puv::CerealParser<SharedTypes::v1_26_30::BiomeJsonDocument::BiomeJsonObject, ? const&, ?, ?, long double, double, ?, ?, char, ?, ?, double, ?, ?, ?, unsigned short, long double, long long, unsigned short>`
+- `Puv::CerealUpgrader<SharedTypes::v1_21_120::BiomeJsonDocument::BiomeJsonObject, S1::?::v1_26_0::BiomeJsonDocument::BiomeJsonObject, ?, ?>`
+- `Puv::CerealUpgrader<SharedTypes::v1_26_0::BiomeJsonDocument::BiomeJsonObject, S1::?::v1_26_30::BiomeJsonDocument::BiomeJsonObject, ?, ?>`
+- `Puv::CerealUpgrader<SharedTypes::v1_26_30::BiomeJsonDocument::BiomeJsonObject, S1::?::Beta::BiomeJsonDocument::BiomeJsonObject, ?, ?>`
+- `Puv::internal::SliceSequence::LegacyParser<SharedTypes::Beta::BiomeJsonDocument::BiomeJsonObject>`
+- `Puv::internal::SliceSequence::LegacyParser<SharedTypes::v1_21_110::BiomeJsonDocument>`
+- `Puv::internal::SliceSequence::LegacyUpgrader<SharedTypes::v1_21_110::BiomeJsonDocument, S3::?::v1_21_120::BiomeJsonDocument::BiomeJsonObject>`
+- `ReplaceBiomesBiomeComponentGlue`
+- `ReplaceBiomesComponent`
+- `ReplacementBiomeSource<?, ?*, short, ?, double>`
+- `ReplacementBiomeSource<?, ?, long, ?, char, ?, ?*, short>`
+- `Scripting::Promise<S_::StrongTypedObjectHandle<Editor::ScriptModule::ScriptTransferBiomeConfigurationData>, ?, S_::Error>`
+- `Scripting::Reflection::LambdaFunction<?, ScriptModuleMinecraft::ScriptBiomeTypes::bind, Bedrock::NonOwnerPointer<?, ?, ?, int, ?, unsigned long, long double, long double&, ?, int, short, unsigned short, ?, unsigned long long>>::$_0::bool`
+- `Scripting::Reflection::LambdaFunction<?, ScriptModuleMinecraft::ScriptBiomeTypes::bind, Bedrock::NonOwnerPointer<?, ?, ?, int, ?, unsigned long, long double, long double&, ?, int, short, unsigned short, ?, unsigned long long>>::$_1::bool`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptBiomeType::getTags, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptBiomeType::hasTags, std::__1::vector<S4::?::basic_string<char, S4::?::char_traits<char>, S4::?::allocator<char>>, S9::?::?::SB::?> const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptDimension::containsBiomes, S_::StrongTypedObjectHandle<S2::?::ScriptBlockVolumeBase> const&, S2::?::ScriptBiomeFilter const&, bool>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptDimension::getBiome, ? const&, long double volatile, char, ?>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::API::EditorScriptInternalAPI::_createCustomBiomeSource, S2::?::ScriptModule::ScriptCustomBiomeSourceConfig const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::destroy, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::recalculateBiomes, std::__1::vector<S3::?::ScriptCustomBiomeConfig, S5::?::allocator<S7, ?>> const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::updateColor, std::__1::basic_string<char, S5::?::char_traits<char>, S5::?::allocator<char>> const&, ScriptModuleMinecraft::ScriptRGBA const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptDataTransferService::_changeBiomeMapping, std::__1::basic_string<char, S5::?::char_traits<char>, S5::?::allocator<char>> const&, SD, ?, SD, ?>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptDataTransferService::_requestBiomeConfig, S_::ScriptObjectFactory&, std::__1::basic_string<char, S7::?::char_traits<char>, S7::?::allocator<char>> const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptDataTransferService::_requestDefaultBiomeConfig, S_::ScriptObjectFactory&, std::__1::basic_string<char, S7::?::char_traits<char>, S7::?::allocator<char>> const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptMinimapService::updateVanillaColorMap, std::__1::basic_string<char, S5::?::char_traits<char>, S5::?::allocator<char>> const&, ScriptModuleMinecraft::ScriptBiomeType, SE::?::ScriptRGB const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleServerGraphics::ScriptBiomeAtmospherics::resetHorizonBlendMax, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleServerGraphics::ScriptBiomeAtmospherics::resetHorizonBlendMieStart, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleServerGraphics::ScriptBiomeAtmospherics::resetHorizonBlendMin, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleServerGraphics::ScriptBiomeAtmospherics::resetHorizonBlendStart, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleServerGraphics::ScriptBiomeAtmospherics::resetMoonMieStrength, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleServerGraphics::ScriptBiomeAtmospherics::resetRayleighStrength, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleServerGraphics::ScriptBiomeAtmospherics::resetSkyHorizonColor, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleServerGraphics::ScriptBiomeAtmospherics::resetSkyZenithColor, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleServerGraphics::ScriptBiomeAtmospherics::resetSunGlareShape, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleServerGraphics::ScriptBiomeAtmospherics::resetSunMieStrength, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleServerGraphics::ScriptBiomeAtmospherics::setHorizonBlendMax, std::__1::variant<?, float, S4::?::unordered_map<float, float, S4::?::hash<float>, S4::?::equal_to<float>, S4::?::allocator<S4::?::pair<float const, float>>>> const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleServerGraphics::ScriptBiomeAtmospherics::setHorizonBlendMieStart, std::__1::variant<?, float, S4::?::unordered_map<float, float, S4::?::hash<float>, S4::?::equal_to<float>, S4::?::allocator<S4::?::pair<float const, float>>>> const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleServerGraphics::ScriptBiomeAtmospherics::setHorizonBlendMin, std::__1::variant<?, float, S4::?::unordered_map<float, float, S4::?::hash<float>, S4::?::equal_to<float>, S4::?::allocator<S4::?::pair<float const, float>>>> const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleServerGraphics::ScriptBiomeAtmospherics::setHorizonBlendStart, std::__1::variant<?, float, S4::?::unordered_map<float, float, S4::?::hash<float>, S4::?::equal_to<float>, S4::?::allocator<S4::?::pair<float const, float>>>> const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleServerGraphics::ScriptBiomeAtmospherics::setMoonMieStrength, std::__1::variant<?, float, S4::?::unordered_map<float, float, S4::?::hash<float>, S4::?::equal_to<float>, S4::?::allocator<S4::?::pair<float const, float>>>> const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleServerGraphics::ScriptBiomeAtmospherics::setRayleighStrength, std::__1::variant<?, float, S4::?::unordered_map<float, float, S4::?::hash<float>, S4::?::equal_to<float>, S4::?::allocator<S4::?::pair<float const, float>>>> const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleServerGraphics::ScriptBiomeAtmospherics::setSunGlareShape, std::__1::variant<?, float, S4::?::unordered_map<float, float, S4::?::hash<float>, S4::?::equal_to<float>, S4::?::allocator<S4::?::pair<float const, float>>>> const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleServerGraphics::ScriptBiomeAtmospherics::setSunMieStrength, std::__1::variant<?, float, S4::?::unordered_map<float, float, S4::?::hash<float>, S4::?::equal_to<float>, S4::?::allocator<S4::?::pair<float const, float>>>> const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleServerGraphics::ScriptBiomeColorGrading::resetHighlightsContrast, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleServerGraphics::ScriptBiomeColorGrading::resetHighlightsGain, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleServerGraphics::ScriptBiomeColorGrading::resetHighlightsGamma, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleServerGraphics::ScriptBiomeColorGrading::resetHighlightsMin, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleServerGraphics::ScriptBiomeColorGrading::resetHighlightsOffset, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleServerGraphics::ScriptBiomeColorGrading::resetHighlightsSaturation, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleServerGraphics::ScriptBiomeColorGrading::resetMidtonesContrast, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleServerGraphics::ScriptBiomeColorGrading::resetMidtonesGain, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleServerGraphics::ScriptBiomeColorGrading::resetMidtonesGamma, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleServerGraphics::ScriptBiomeColorGrading::resetMidtonesOffset, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleServerGraphics::ScriptBiomeColorGrading::resetMidtonesSaturation, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleServerGraphics::ScriptBiomeColorGrading::resetShadowsContrast, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleServerGraphics::ScriptBiomeColorGrading::resetShadowsGain, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleServerGraphics::ScriptBiomeColorGrading::resetShadowsGamma, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleServerGraphics::ScriptBiomeColorGrading::resetShadowsMax, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleServerGraphics::ScriptBiomeColorGrading::resetShadowsOffset, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleServerGraphics::ScriptBiomeColorGrading::resetShadowsSaturation, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleServerGraphics::ScriptBiomeColorGrading::resetTemperature, void>`
+- … 641 more
+
+### noise (18)
+
+- `FrozenNoiseBasedTemperatureFlag`
+- `NoiseBasedColorPaletteFlag`
+- `NoiseUtils::DoublesForFloatsRandom`
+- `NormalNoiseOperationNode<?, ?*, short, ?, double>`
+- `VanillaSurfaceBuilders::NoiseGradientSurfaceBuilder`
+- `WorldGenMultiNoiseClimateAttributes`
+- `cereal::internal::CompositeSchema<EAS::NoiseAlignment, void>`
+- `cereal::internal::CompositeSchema<EAS::NoiseAlignmentType, void>`
+- `cereal::internal::CompositeSchema<SharedTypes::v1_26_30::NoiseBlockSpecifier, void>`
+- `cereal::internal::CompositeSchema<SharedTypes::v1_26_30::NoiseDescriptor, void>`
+- `cereal::internal::CompositeSchema<SharedTypes::v1_26_30::SurfaceBuilder::NoiseGradientSurfaceSettings, void>`
+- `cereal::internal::TypeSchema<EAS::NoiseAlignment>`
+- `cereal::internal::TypeSchema<EAS::NoiseAlignmentType>`
+- `cereal::internal::TypeSchema<SharedTypes::v1_26_30::NoiseBlockSpecifier>`
+- `cereal::internal::TypeSchema<SharedTypes::v1_26_30::NoiseDescriptor>`
+- `cereal::internal::TypeSchema<SharedTypes::v1_26_30::SurfaceBuilder::NoiseGradientSurfaceSettings>`
+- `cereal::internal::TypeSchema<std::__1::vector<SharedTypes::v1_26_30::NoiseBlockSpecifier, S2::?::allocator<S6, ?>>>`
+- `std::__1::__function::__func<?, ? const::char::long double::?::long double::?::long::internal::TypeSchema<S_::vector<SharedTypes::v1_26_30::NoiseBlockSpecifier, S_::allocator<S8, ?>>>::doMap, entt::meta_any&, SF, ?, S2::?::MetaVisitor&>::?::long::void`
+
+### chunk (254)
+
+- `23SubChunkStoragePalettedI5BlockLm16ELN19SubChunkStorageUnit4TypeE16EE`
+- `Bedrock::PubSub::Connector<?, void, Scripting::Result_deprecated<Editor::ProjectRegionManagerChunkProcessingState> const&>`
+- `Bedrock::PubSub::Detail::SubscriptionBody<?, void, Scripting::Result_deprecated<Editor::ProjectRegionManagerChunkProcessingState> const&>::S0::?::ReturnPolicyType`
+- `Bedrock::PubSub::Publisher<?, void, Scripting::Result_deprecated<Editor::ProjectRegionManagerChunkProcessingState> const&>::S0::?::ThreadModel::SingleThreaded::S0::?::ReturnPolicyType`
+- `ChunkBuildOrderPolicy`
+- `ChunkPerformanceData`
+- `ChunkRadiusUpdatedPacket`
+- `ChunkRecyclerTelemetryData`
+- `ChunkSource`
+- `ChunkViewSource`
+- `DBChunkStorage`
+- `EditorChunkSource`
+- `GetChunkDataCommand`
+- `GetChunksCommand`
+- `IFileChunkUploader`
+- `LegacyChunkStorage`
+- `LevelChunkEventManager`
+- `LevelChunkEventManagerProxy`
+- `LevelChunkPacket`
+- `LevelChunkSaveManagerProxy`
+- `LevelChunkTickingSystem`
+- `MainChunkSource`
+- `NSt3__110__function6__baseIFN7Bedrock6ResultI30UpdateSubChunkNetworkBlockInfoNS_10error_codeEEER20ReadOnlyBinaryStreamEEE`
+- `NSt3__110__function6__funcIZN9serializeI33UpdateSubChunkBlocksPacketPayloadE5writeERKS3_R12BinaryStreamE3$_0NS_9allocatorIS9_EEFvS8_RK30UpdateSubChunkNetworkBlockInfoEEE`
+- `NSt3__110__function6__funcIZZN21LevelChunkSaveManager17_queueChunkToSaveEvENK3$_0clEvEUlvE_NS_9allocatorIS4_EEFvvEEE`
+- `NSt3__110__function6__funcIZZN3Poi7Manager21syncSectionWithBlocksE8BlockPosRK8SubChunkENK3$_0clERKNS2_8RegistryES7_EUlRK5BlockE_NS_9allocatorISF_EEFbSE_EEE`
+- `NSt3__110__function6__funcIZZZN17FileUploadManager12_uploadChunkERK13FileChunkInfoENK3$_0clEvENUlvE_clEvEUlbE_NS_9allocatorIS8_EEFvbEEE`
+- `NeighborAwareChunkUpgrader`
+- `NetworkChunkPublisher`
+- `NetworkChunkPublisherUpdatePacket`
+- `NetworkChunkSource`
+- `RequestChunkRadiusPacket`
+- `ResourcePackChunkDataPacket`
+- `ResourcePackChunkRequestPacket`
+- `SaveSurroundingChunksSystem`
+- `Scripting::Promise<Editor::ProjectRegionManagerChunkProcessingState, ?, S_::Error>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptDimension::isChunkLoaded, ? const&, long double volatile, char, ?>`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ProjectRegionGlobalMetrics, S0::?::ReturnPolicy>::?::?::double::?::S2::?::ProjectRegionMetrics::mAvailableChunkCount`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ProjectRegionGlobalMetrics, S0::?::ReturnPolicy>::?::?::double::?::S2::?::ProjectRegionMetrics::mAvailableUniqueChunkCount`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ProjectRegionGlobalMetrics, S0::?::ReturnPolicy>::?::?::double::?::S2::?::ProjectRegionMetrics::mChunkCount`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ProjectRegionGlobalMetrics, S0::?::ReturnPolicy>::?::?::double::?::S2::?::ProjectRegionMetrics::mLoadedAvailableChunkCount`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ProjectRegionGlobalMetrics, S0::?::ReturnPolicy>::?::?::double::?::S2::?::ProjectRegionMetrics::mLoadedChunkCount`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ProjectRegionGlobalMetrics, S0::?::ReturnPolicy>::?::?::double::?::S2::?::ProjectRegionMetrics::mTickingAvailableChunkCount`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ProjectRegionGlobalMetrics, S0::?::ReturnPolicy>::?::?::double::?::S2::?::ProjectRegionMetrics::mTickingChunkCount`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ProjectRegionGlobalMetrics, S0::?::ReturnPolicy>::?::?::double::?::S2::?::ProjectRegionMetrics::mUniqueChunkCount`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ProjectRegionManagerChunkProcessingState, S0::?::ReturnPolicy>::?::?::double::?::S3::?::mChunksProcessed`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ProjectRegionManagerChunkProcessingState, S0::?::ReturnPolicy>::?::?::double::?::S3::?::mIsCompleted`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ProjectRegionPlayerMetrics, S0::?::ReturnPolicy>::?::?::double::?::S2::?::ProjectRegionMetrics::mAvailableChunkCount`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ProjectRegionPlayerMetrics, S0::?::ReturnPolicy>::?::?::double::?::S2::?::ProjectRegionMetrics::mAvailableUniqueChunkCount`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ProjectRegionPlayerMetrics, S0::?::ReturnPolicy>::?::?::double::?::S2::?::ProjectRegionMetrics::mChunkCount`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ProjectRegionPlayerMetrics, S0::?::ReturnPolicy>::?::?::double::?::S2::?::ProjectRegionMetrics::mLoadedAvailableChunkCount`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ProjectRegionPlayerMetrics, S0::?::ReturnPolicy>::?::?::double::?::S2::?::ProjectRegionMetrics::mLoadedChunkCount`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ProjectRegionPlayerMetrics, S0::?::ReturnPolicy>::?::?::double::?::S2::?::ProjectRegionMetrics::mTickingAvailableChunkCount`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ProjectRegionPlayerMetrics, S0::?::ReturnPolicy>::?::?::double::?::S2::?::ProjectRegionMetrics::mTickingChunkCount`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ProjectRegionPlayerMetrics, S0::?::ReturnPolicy>::?::?::double::?::S2::?::ProjectRegionMetrics::mUniqueChunkCount`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptProjectRegionManagerService, S0::?::ReturnPolicy>::?::?::double::?::S4 const::?::isProcessingChunks::void`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptWidgetComponentRenderPlane, S0::?::ReturnPolicy>::?::?::double::?::S4 const::?::_getMaxSizeChunks::void`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptWidgetComponentRenderPlaneOptions, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mMaxSizeChunks`
+- `Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptBlockFillOptions, S0::?::ReturnPolicy>::?::?::double::?::S3::?::mIgnoreChunkBoundErrors`
+- `Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptTickingArea, S0::?::ReturnPolicy>::?::?::double::?::S3::?::mNumberOfChunks`
+- `Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptTickingAreaManager, S0::?::ReturnPolicy>::?::?::double::?::S3 const::?::_getTickingChunksCacheSize::void`
+- `Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptTickingAreaManager, S0::?::ReturnPolicy>::?::?::double::?::S3::?::mMaxNumberOfChunks`
+- `Scripting::Reflection::MemberPropertySetter<Editor::ProjectRegionGlobalMetrics, ?, ?, double, ?, S2::?::ProjectRegionMetrics::mAvailableChunkCount>`
+- `Scripting::Reflection::MemberPropertySetter<Editor::ProjectRegionGlobalMetrics, ?, ?, double, ?, S2::?::ProjectRegionMetrics::mAvailableUniqueChunkCount>`
+- `Scripting::Reflection::MemberPropertySetter<Editor::ProjectRegionGlobalMetrics, ?, ?, double, ?, S2::?::ProjectRegionMetrics::mChunkCount>`
+- `Scripting::Reflection::MemberPropertySetter<Editor::ProjectRegionGlobalMetrics, ?, ?, double, ?, S2::?::ProjectRegionMetrics::mLoadedAvailableChunkCount>`
+- `Scripting::Reflection::MemberPropertySetter<Editor::ProjectRegionGlobalMetrics, ?, ?, double, ?, S2::?::ProjectRegionMetrics::mLoadedChunkCount>`
+- `Scripting::Reflection::MemberPropertySetter<Editor::ProjectRegionGlobalMetrics, ?, ?, double, ?, S2::?::ProjectRegionMetrics::mTickingAvailableChunkCount>`
+- `Scripting::Reflection::MemberPropertySetter<Editor::ProjectRegionGlobalMetrics, ?, ?, double, ?, S2::?::ProjectRegionMetrics::mTickingChunkCount>`
+- `Scripting::Reflection::MemberPropertySetter<Editor::ProjectRegionGlobalMetrics, ?, ?, double, ?, S2::?::ProjectRegionMetrics::mUniqueChunkCount>`
+- `Scripting::Reflection::MemberPropertySetter<Editor::ProjectRegionManagerChunkProcessingState, ?, ?, double, ?, S3::?::mChunksProcessed>`
+- `Scripting::Reflection::MemberPropertySetter<Editor::ProjectRegionManagerChunkProcessingState, ?, ?, double, ?, S3::?::mIsCompleted>`
+- `Scripting::Reflection::MemberPropertySetter<Editor::ProjectRegionPlayerMetrics, ?, ?, double, ?, S2::?::ProjectRegionMetrics::mAvailableChunkCount>`
+- `Scripting::Reflection::MemberPropertySetter<Editor::ProjectRegionPlayerMetrics, ?, ?, double, ?, S2::?::ProjectRegionMetrics::mAvailableUniqueChunkCount>`
+- `Scripting::Reflection::MemberPropertySetter<Editor::ProjectRegionPlayerMetrics, ?, ?, double, ?, S2::?::ProjectRegionMetrics::mChunkCount>`
+- `Scripting::Reflection::MemberPropertySetter<Editor::ProjectRegionPlayerMetrics, ?, ?, double, ?, S2::?::ProjectRegionMetrics::mLoadedAvailableChunkCount>`
+- `Scripting::Reflection::MemberPropertySetter<Editor::ProjectRegionPlayerMetrics, ?, ?, double, ?, S2::?::ProjectRegionMetrics::mLoadedChunkCount>`
+- `Scripting::Reflection::MemberPropertySetter<Editor::ProjectRegionPlayerMetrics, ?, ?, double, ?, S2::?::ProjectRegionMetrics::mTickingAvailableChunkCount>`
+- `Scripting::Reflection::MemberPropertySetter<Editor::ProjectRegionPlayerMetrics, ?, ?, double, ?, S2::?::ProjectRegionMetrics::mTickingChunkCount>`
+- `Scripting::Reflection::MemberPropertySetter<Editor::ProjectRegionPlayerMetrics, ?, ?, double, ?, S2::?::ProjectRegionMetrics::mUniqueChunkCount>`
+- `Scripting::Reflection::MemberPropertySetter<Editor::ScriptModule::ScriptWidgetComponentRenderPlane, ?, ?, double, ?, S4::?::_setMaxSizeChunks, int>`
+- `Scripting::Reflection::MemberPropertySetter<Editor::ScriptModule::ScriptWidgetComponentRenderPlaneOptions, ?, ?, double, ?, S4::?::mMaxSizeChunks>`
+- `Scripting::Reflection::MemberPropertySetter<ScriptModuleMinecraft::ScriptBlockFillOptions, ?, ?, double, ?, S3::?::mIgnoreChunkBoundErrors>`
+- `Scripting::Reflection::MemberPropertySetter<ScriptModuleMinecraft::ScriptTickingArea, ?, ?, double, ?, S3::?::mNumberOfChunks>`
+- `ServerFileChunkUploader`
+- `ServerSubChunkLighter`
+- `SubChunkPacket`
+- `SubChunkRequestPacket`
+- `SubChunkStoragePaletted<?, ?, int, ?, unsigned long, long double, unsigned long>::SubChunkStorageUnit::Type`
+- `SubChunkStoragePaletted<?, ?, long, ?, char, ?, unsigned long>::SubChunkStorageUnit::Type`
+- `UpdateSubChunkBlocksPacket`
+- `WorldLimitChunkSource`
+- `cereal::internal::CompositeSchema<LevelChunkPacketPayload::SubChunkMetadata, void>`
+- `cereal::internal::CompositeSchema<SubChunkPacketPayload::HeightMapDataType, void>`
+- `cereal::internal::CompositeSchema<SubChunkPacketPayload::HeightmapData, void>`
+- `cereal::internal::CompositeSchema<SubChunkPacketPayload::SubChunkPacketData, void>`
+- `cereal::internal::CompositeSchema<SubChunkPacketPayload::SubChunkPosOffset, void>`
+- `cereal::internal::CompositeSchema<SubChunkPacketPayload::SubChunkRequestResult, void>`
+- `cereal::internal::TypeSchema<LevelChunkPacketPayload::SubChunkMetadata>`
+- `cereal::internal::TypeSchema<SubChunkPacketPayload::HeightMapDataType>`
+- `cereal::internal::TypeSchema<SubChunkPacketPayload::HeightmapData>`
+- `cereal::internal::TypeSchema<SubChunkPacketPayload::SubChunkPacketData>`
+- `cereal::internal::TypeSchema<SubChunkPacketPayload::SubChunkPosOffset>`
+- `cereal::internal::TypeSchema<SubChunkPacketPayload::SubChunkRequestResult>`
+- `cereal::internal::TypeSchema<std::__1::vector<LevelChunkPacketPayload::SubChunkMetadata, S2::?::allocator<S5, ?>>>`
+- `cereal::internal::TypeSchema<std::__1::vector<SubChunkPacketPayload::SubChunkPacketData, S2::?::allocator<S5, ?>>>`
+- `cereal::internal::TypeSchema<std::__1::vector<SubChunkPacketPayload::SubChunkPosOffset, S2::?::allocator<S5, ?>>>`
+- `dcsctp::AbortChunk`
+- `dcsctp::AnyDataChunk`
+- `dcsctp::AnyForwardTsnChunk`
+- `dcsctp::CookieAckChunk`
+- `dcsctp::CookieEchoChunk`
+- `dcsctp::DataChunk`
+- `dcsctp::ErrorChunk`
+- `dcsctp::ForwardTsnChunk`
+- `dcsctp::HeartbeatAckChunk`
+- `dcsctp::HeartbeatRequestChunk`
+- `dcsctp::IDataChunk`
+- `dcsctp::IForwardTsnChunk`
+- `dcsctp::InitAckChunk`
+- … 134 more
+
+### surface (58)
+
+- `ActorSurfaceMobTest`
+- `CappedSurfaceAttributes`
+- `IPreliminarySurfaceProvider`
+- `MesaSurfaceAttributes`
+- `NoSurfaceOreFeature`
+- `OceanFrozenSurfaceFlag`
+- `ScanSurfaceFeature`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptWidget, S0::?::ReturnPolicy>::?::?::double::?::S4 const::?::_getLockToSurface::void`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptWidgetComponentBaseOptions, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mLockToSurface`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptWidgetCreateOptions, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mLockToSurface`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::SmartFillInteractiveToolOptions, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mOnlyFillExposedSurface`
+- `Scripting::Reflection::MemberPropertySetter<Editor::ScriptModule::ScriptWidget, ?, ?, double, ?, S4::?::_setLockToSurface, bool>`
+- `Scripting::Reflection::MemberPropertySetter<Editor::ScriptModule::ScriptWidgetComponentBaseOptions, ?, ?, double, ?, S4::?::mLockToSurface>`
+- `Scripting::Reflection::MemberPropertySetter<Editor::ScriptModule::ScriptWidgetCreateOptions, ?, ?, double, ?, S4::?::mLockToSurface>`
+- `Scripting::Reflection::MemberPropertySetter<Editor::ScriptModule::SmartFillInteractiveToolOptions, ?, ?, double, ?, S4::?::mOnlyFillExposedSurface>`
+- `SnapToSurfaceFeature`
+- `SurfaceBuilderComponent`
+- `SurfaceLevelCache`
+- `SurfaceMaterialAdjustmentAttributes`
+- `SurfaceMaterialAttributes`
+- `SurfaceRelativeThresholdFeature`
+- `TrailToSurfaceFeature`
+- `VanillaSurfaceBuilders::CappedSurfaceBuilder`
+- `VanillaSurfaceBuilders::CappedSurfaceBuilder::MaterialHelper`
+- `VanillaSurfaceBuilders::LegacyMesaSurfaceBuilder`
+- `VanillaSurfaceBuilders::MesaSurfaceBuilder`
+- `VanillaSurfaceBuilders::OceanFrozenSurfaceBuilder`
+- `VanillaSurfaceBuilders::OverworldDefaultSurfaceBuilder`
+- `VanillaSurfaceBuilders::SwampSurfaceBuilder`
+- `VanillaSurfaceBuilders::TheEndSurfaceBuilder`
+- `cereal::internal::CompositeSchema<SharedTypes::Legacy::Spawn::SpawnOnSurface, void>`
+- `cereal::internal::CompositeSchema<SharedTypes::v1_21_100::SurfaceBuilder::CappedSurfaceSettings, void>`
+- `cereal::internal::CompositeSchema<SharedTypes::v1_21_100::SurfaceBuilder::FrozenOceanSurfaceSettings, void>`
+- `cereal::internal::CompositeSchema<SharedTypes::v1_21_100::SurfaceBuilder::MesaSurfaceSettings, void>`
+- `cereal::internal::CompositeSchema<SharedTypes::v1_21_100::SurfaceBuilder::OverworldSurfaceSettings, void>`
+- `cereal::internal::CompositeSchema<SharedTypes::v1_21_100::SurfaceBuilder::SwampSurfaceSettings, void>`
+- `cereal::internal::CompositeSchema<SharedTypes::v1_21_100::SurfaceBuilder::TheEndSurfaceSettings, void>`
+- `cereal::internal::TypeSchema<SharedTypes::Legacy::Spawn::SpawnOnSurface>`
+- `cereal::internal::TypeSchema<SharedTypes::v1_21_100::SurfaceBuilder::CappedSurfaceSettings>`
+- `cereal::internal::TypeSchema<SharedTypes::v1_21_100::SurfaceBuilder::FrozenOceanSurfaceSettings>`
+- `cereal::internal::TypeSchema<SharedTypes::v1_21_100::SurfaceBuilder::MesaSurfaceSettings>`
+- `cereal::internal::TypeSchema<SharedTypes::v1_21_100::SurfaceBuilder::OverworldSurfaceSettings>`
+- `cereal::internal::TypeSchema<SharedTypes::v1_21_100::SurfaceBuilder::SwampSurfaceSettings>`
+- `cereal::internal::TypeSchema<SharedTypes::v1_21_100::SurfaceBuilder::TheEndSurfaceSettings>`
+- `cereal::internal::TypeSchema<std::__1::optional<SharedTypes::Legacy::Spawn::SpawnOnSurface>>`
+- `std::__1::__function::__func<?, ? const::Va::?::int::long::long::?::Su::?::float::?::char::long double::?::?::int::long::double::long double::?::short::CappedSurfaceBuilder::buildSurfaceAt, ISurfaceBuilder::GlobalParameters const&, S4::?::SurfaceBuilderParameters const&, S4::?::PerColumnParameters const&>::$_0::S_::allocator<SE, ?>::?::? const*::?::long::?::char::?::int`
+- `std::__1::__function::__func<?, ? const::Va::?::int::long::long::?::Su::?::float::?::char::long double::?::?::int::long::double::long double::?::short::CappedSurfaceBuilder::buildSurfaceAt, ISurfaceBuilder::GlobalParameters const&, S4::?::SurfaceBuilderParameters const&, S4::?::PerColumnParameters const&>::$_1::S_::allocator<SE, ?>::?::? const*::?::long::?::char::?::int`
+- `std::__1::__function::__func<?, ISurfaceBuilder::SurfaceBuilderParameters::?::E::? const&::?::int::?::unsigned long::long double::? const*::SurfaceB::?::int::long::double::long double::?::?::?::unsigned short::?, ?, ?, ?, ?, S_::allocator<SA, ?>, ?, float, ? const&, ?, long, ?, char, ?, ?*, short, short>`
+- `std::__1::__function::__func<?, MobSpawnUtils::getSurfaceDetector, S2::?::SurfaceDetectionType>::$_0::S_::allocator<S4, ?>::?::bool::? const&::B::long::?::char::?::std::ostream::?::?::char::long double::? const&::?::long::?::char::?::?*::short::SC::?`
+- `std::__1::__function::__func<?, MobSpawnUtils::getSurfaceDetector, S2::?::SurfaceDetectionType>::$_1::S_::allocator<S4, ?>::?::bool::? const&::B::long::?::char::?::std::ostream::?::?::char::long double::? const&::?::long::?::char::?::?*::short::SC::?`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptWidget, S2::?::ReturnPolicy>::?::?::double::?::S6 const::?::_getLockToSurface::void>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptWidgetComponentBaseOptions, S2::?::ReturnPolicy>::?::?::double::?::S6::?::mLockToSurface>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptWidgetCreateOptions, S2::?::ReturnPolicy>::?::?::double::?::S6::?::mLockToSurface>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::SmartFillInteractiveToolOptions, S2::?::ReturnPolicy>::?::?::double::?::S6::?::mOnlyFillExposedSurface>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<Editor::ScriptModule::ScriptWidget, ?, ?, double, ?, S6::?::_setLockToSurface, bool>>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<Editor::ScriptModule::ScriptWidgetComponentBaseOptions, ?, ?, double, ?, S6::?::mLockToSurface>>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<Editor::ScriptModule::ScriptWidgetCreateOptions, ?, ?, double, ?, S6::?::mLockToSurface>>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<Editor::ScriptModule::SmartFillInteractiveToolOptions, ?, ?, double, ?, S6::?::mOnlyFillExposedSurface>>`
+
+### structure (653)
+
+- `?::Editor::Network::PayloadServiceProvider::listenFor<S0::?::StructureEditPayload>::Scripting::Result_deprecated<Bedrock::PubSub::Subscription>::std::__1::function<?, void, ? const&, ?>`
+- `?::Scripting::internal::BaseScriptComponent::?::I::Editor::ScriptModule::ScriptEditorStructureManager`
+- `CurrentStructureFeaturePacket`
+- `Editor::EditorStructureTemplate`
+- `Editor::Network::NetworkPayload<S0::?::StructureCopyToClipboardPayload>`
+- `Editor::Network::NetworkPayload<S0::?::StructureUpdateFromClipboardPayload>`
+- `Editor::Network::StructureCopyToClipboardPayload`
+- `Editor::Network::StructureDataCacheDeleteStructurePayload`
+- `Editor::Network::StructureDataCacheReleaseStructurePayload`
+- `Editor::Network::StructureDataCacheRequestStructurePayload`
+- `Editor::Network::StructureDataCacheStructureNotFoundPayload`
+- `Editor::Network::StructureDataCacheTemplateDataPayload`
+- `Editor::Network::StructureDataPayload`
+- `Editor::Network::StructureDeletePayload`
+- `Editor::Network::StructureDeleteResultPayload`
+- `Editor::Network::StructureDuplicatePayload`
+- `Editor::Network::StructureEditPayload`
+- `Editor::Network::StructureEditResultPayload`
+- `Editor::Network::StructureFromClipboardPayload`
+- `Editor::Network::StructureFromSelectionPayload`
+- `Editor::Network::StructureListPayload`
+- `Editor::Network::StructureMetadataListPayload`
+- `Editor::Network::StructureQueryPayload`
+- `Editor::Network::StructureQueryResultPayload`
+- `Editor::Network::StructureReplaceFromClipboardPayload`
+- `Editor::Network::StructureUpdateFromClipboardPayload`
+- `Editor::ScriptModule::ScriptPrefabTemplateInstanceStructure`
+- `Editor::ScriptModule::ScriptPrefabTemplateStructure`
+- `Editor::Services::EditorStructureDBManagerService`
+- `Editor::Services::EditorStructureDBManagerServiceProvider`
+- `Editor::Services::EditorStructureManager`
+- `Editor::Services::ServerStructureService`
+- `Editor::Services::ServerStructureServiceProvider`
+- `Editor::Services::StructureDataCacheService`
+- `Editor::Services::StructureDataCacheServiceProvider`
+- `Editor::StructureDataCache::IStructureDataProvider`
+- `EditorJigsawStructureLoader`
+- `EditorStructureBlockSource`
+- `IStructureTemplate`
+- `JigsawStructureDataPacket`
+- `JigsawStructureLoader`
+- `JigsawStructurePostprocessAction`
+- `LegacyStructureTemplate`
+- `NSt3__110__function6__funcIZZN6Editor8Services31EditorStructureDBManagerService4initEvENK3$_0clEbRNS2_13EditorManagerEEUlN12FileArchiver10ExportTypeERKN4Core10PathBufferINSA_16BasicStackStringIcLm1024EEEEEE_NS_9allocatorISH_EEFvS9_SG_EEE`
+- `PoolElementStructurePiece`
+- `Puv::CerealParser<Editor::Structures::PUVLoader::v1::StructureMetadata, ? const&, ?>`
+- `Puv::CerealParser<SharedTypes::v1_21_20::JigsawStructureDefinition::Contents, ? const&, ?, ?, long double, double, ?, ?, char, ?, ?, double, ?, ?, ?, unsigned short, long double, long long, unsigned short>`
+- `Puv::CerealParser<SharedTypes::v1_21_20::JigsawStructureProcessorList::Contents, ? const&, ?, ?, long double, double, ?, ?, char, ?, ?, double, ?, ?, ?, unsigned short, long double, long long, unsigned short>`
+- `Puv::CerealParser<SharedTypes::v1_21_20::JigsawStructureSet::Contents, ? const&, ?, ?, long double, double, ?, ?, char, ?, ?, double, ?, ?, ?, unsigned short, long double, long long, unsigned short>`
+- `Puv::CerealParser<SharedTypes::v1_21_20::JigsawStructureTemplatePool::Contents, ? const&, ?, ?, long double, double, ?, ?, char, ?, ?, double, ?, ?, ?, unsigned short, long double, long long, unsigned short>`
+- `Puv::CerealParser<SharedTypes::v1_21_50::JigsawStructureMetadataFile, ?, ?, ?, long double, double, ?, ?, char, ?, ?, double, ?, ?, ?, unsigned short, long double, long long, unsigned short>`
+- `Puv::CerealParser<SharedTypes::v1_21_80::JigsawStructureMetadataFile, ?, ?, ?, long double, double, ?, ?, char, ?, ?, double, ?, ?, ?, unsigned short, long double, long long, unsigned short>`
+- `Puv::CerealUpgrader<SharedTypes::v1_21_50::JigsawStructureMetadataFile, S1::?::v1_21_80::JigsawStructureMetadataFile, ?, ?>`
+- `Puv::internal::SliceSequence::LegacyParser<Editor::Structures::PUVLoader::v0::StructureMetadata>`
+- `Puv::internal::SliceSequence::LegacyUpgrader<Editor::Structures::PUVLoader::v0::StructureMetadata, S5::?::v1::StructureMetadata>`
+- `ScriptModuleMinecraft::ScriptStructureTemplate`
+- `ScriptModuleMinecraftNet::ScriptNetStructureSerializer`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptDimension::getGeneratedStructures, ? const&, long double volatile, char, ?>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptStructureManager::getWorldStructureIds, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptStructureTemplate::getBlockPermutation, ? const&, long double volatile, char, ?>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptStructureTemplate::isValid, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptStructureTemplate::isWaterlogged, ? const&, long double volatile, char, ?>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptClipboardItem::readFromStructure, S3::?::ScriptEditorStructure const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptEditorStructure::getTags, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptEditorStructure::setBlockPermutation, ? const&, long double volatile, char, ?, S_::StrongTypedObjectHandle<ScriptModuleMinecraft::ScriptBlockPermutation>, bool>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptEditorStructureManager::createEmptyStructure, std::__1::basic_string<char, S5::?::char_traits<char>, S5::?::allocator<char>> const&, ? const&, long double volatile, char, ?>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptEditorStructureManager::createFromClipboardItem, S3::?::ScriptClipboardItem&, std::__1::basic_string<char, S7::?::char_traits<char>, S7::?::allocator<char>>>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptEditorStructureManager::deleteStructure, std::__1::basic_string<char, S5::?::char_traits<char>, S5::?::allocator<char>>>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptEditorStructureManager::getExistingTags, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptEditorStructureManager::getStructure, std::__1::basic_string<char, S5::?::char_traits<char>, S5::?::allocator<char>>>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptEditorStructureManager::searchStructures, std::__1::optional<S3::?::ScriptEditorStructureSearchOptions>>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptPrefabTemplate::_addStructure, S_::StrongTypedObjectHandle<S3::?::ScriptEditorStructure>, std::__1::optional<S3::?::ScriptPrefabTemplateAddStructureOptions> const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptPrefabTemplate::_getStructures, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptPrefabTemplate::_removeStructure, S_::StrongTypedObjectHandle<S3::?::ScriptPrefabTemplateStructure>>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptPrefabTemplateInstanceStructure::_getTemplateStructure, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleGameTest::ScriptGameTestRegistrationBuilder::structureName, std::__1::basic_string<char, S4::?::char_traits<char>, S4::?::allocator<char>>>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleMinecraft::ScriptStructureManager::createEmptyStructure, std::__1::basic_string<char, S4::?::char_traits<char>, S4::?::allocator<char>> const&, ? const&, long double volatile, char, ?, ?, ?, std, ?, ?, char, unsigned short, ?, ?, long double, long double&, double, short, unsigned short, ?, ?, long double, std::allocator, void, long double, ?, ?, double, long double>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleMinecraft::ScriptStructureManager::deleteStructure, std::__1::variant<?, S4::?::basic_string<char, S4::?::char_traits<char>, S4::?::allocator<char>>, S_::StrongTypedObjectHandle<S2::?::ScriptStructureTemplate>> const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleMinecraft::ScriptStructureManager::getPackStructureIds, S_::ContextConfig const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleMinecraft::ScriptStructureManager::getStructure, std::__1::basic_string<char, S4::?::char_traits<char>, S4::?::allocator<char>> const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleMinecraft::ScriptStructureTemplate::saveAs, std::__1::basic_string<char, S4::?::char_traits<char>, S4::?::allocator<char>> const&, ?, ?, std, ?, ?, char, unsigned short, ?, ?, long double, long double&, double, short, unsigned short, ?, ?, long double, std::allocator, void, long double, ?, ?, double, long double>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleMinecraft::ScriptStructureTemplate::saveToWorld, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleMinecraft::ScriptStructureTemplate::setBlockPermutation, ? const&, long double volatile, char, ?, std::__1::optional<S_::StrongTypedObjectHandle<S2::?::ScriptBlockPermutation>>, bool>`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::API::EditorExtensionContext, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mStructureManagerService`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptEditorConstants, S0::?::ReturnPolicy>::?::?::double::?::S4 const::?::_getMaxStructureOffset::void`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptEditorConstants, S0::?::ReturnPolicy>::?::?::double::?::S4 const::?::_getMinStructureOffset::void`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptEditorStructure, S0::?::ReturnPolicy>::?::?::double::?::S4 const::?::getDescription::void`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptEditorStructure, S0::?::ReturnPolicy>::?::?::double::?::S4 const::?::getDisplayName::void`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptEditorStructure, S0::?::ReturnPolicy>::?::?::double::?::S4 const::?::getNormalizedOrigin::void`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptEditorStructure, S0::?::ReturnPolicy>::?::?::double::?::S4 const::?::getNotes::void`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptEditorStructure, S0::?::ReturnPolicy>::?::?::double::?::S4 const::?::getOffset::void`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptEditorStructure, S0::?::ReturnPolicy>::?::?::double::?::S4 const::?::getOriginalWorldLocation::void`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptEditorStructure, S0::?::ReturnPolicy>::?::?::double::?::S4 const::?::getSize::void`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptEditorStructure, S0::?::ReturnPolicy>::?::?::double::?::S4 const::?::getStructureFullName::void`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptEditorStructure, S0::?::ReturnPolicy>::?::?::double::?::S4 const::?::getStructureName::void`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptEditorStructure, S0::?::ReturnPolicy>::?::?::double::?::S4 const::?::getStructureNamespace::void`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptEditorStructure, S0::?::ReturnPolicy>::?::?::double::?::S4 const::?::getUUID::void`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptEditorStructure, S0::?::ReturnPolicy>::?::?::double::?::S4 const::?::isValid::void`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptEditorStructureSearchOptions, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mDisplayName`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptEditorStructureSearchOptions, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mGuid`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptEditorStructureSearchOptions, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mIncludeTags`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptEditorStructureSearchOptions, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mStructureName`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptEditorStructureSearchOptions, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mStructureNamespace`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptEditorStructureSearchOptions, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mStructureSources`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptPrefabTemplateAddStructureOptions, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mirror`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptPrefabTemplateAddStructureOptions, S0::?::ReturnPolicy>::?::?::double::?::S4::?::offset`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptPrefabTemplateAddStructureOptions, S0::?::ReturnPolicy>::?::?::double::?::S4::?::rotation`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptPrefabTemplateInstanceStructure, S0::?::ReturnPolicy>::?::?::double::?::S4 const::?::_getInstanceMirror::void`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptPrefabTemplateInstanceStructure, S0::?::ReturnPolicy>::?::?::double::?::S4 const::?::_getInstanceRotation::void`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptPrefabTemplateMetadata, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mStructureRefCount`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptPrefabTemplateStructure, S0::?::ReturnPolicy>::?::?::double::?::S4 const::?::_getInstanceMirror::void`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptPrefabTemplateStructure, S0::?::ReturnPolicy>::?::?::double::?::S4 const::?::_getInstanceOffset::void`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptPrefabTemplateStructure, S0::?::ReturnPolicy>::?::?::double::?::S4 const::?::_getInstanceRotation::void`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptPrefabTemplateStructure, S0::?::ReturnPolicy>::?::?::double::?::S4 const::?::_getPrefabStructureId::void`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptPrefabTemplateStructure, S0::?::ReturnPolicy>::?::?::double::?::S4 const::?::_getStructureNormalizedOrigin::void`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptPrefabTemplateStructure, S0::?::ReturnPolicy>::?::?::double::?::S4 const::?::_getStructureOffset::void`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptPrefabTemplateStructure, S0::?::ReturnPolicy>::?::?::double::?::S4 const::?::_getStructureSize::void`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::Services::EditorJigsawSection, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mStructureId`
+- `Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptJigsawStructurePlaceOptions, S0::?::ReturnPolicy>::?::?::double::?::S3::?::mIgnoreStartHeight`
+- `Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptJigsawStructurePlaceOptions, S0::?::ReturnPolicy>::?::?::double::?::S3::?::mIncludeEntities`
+- … 533 more
+
+### feature (1831)
+
+- `?::Editor::Network::PayloadServiceProvider::listenFor<S0::?::FeatureFlagBulkSyncPayload>::Scripting::Result_deprecated<Bedrock::PubSub::Subscription>::std::__1::function<?, void, ? const&, ?>`
+- `?::FallenTreeTrunk::_buildSchema<JsonUtil::JsonParseState<S2::?::?::S1::?::EmptyClass::FeatureLoading::FeatureRootParseContext>::S4::?::ConcreteFeatureHolder<?, ?, ? volatile, ?, int, long, long, ?, ?, ?, long double, long double, ?, long double, ?, unsigned short, ?, ?, long double>>::S_`
+- `?::FeatureToggles::_getLockIfInGameOrOptionExpectationsNotMetLockCallback::std::__1::vector<?, ?, ?, long double, ?, unsigned short, ?, ?, long double, ?&&, unsigned short, int, ?, ?, ?, ?, S0::?::allocator<S2, ?>>::S5::?`
+- `?::FeatureToggles::_registerFeatures::void`
+- `?::LegacyTreeFeature::?::E::S_::Type::?&::Featu::?::long double::long double&::?::int::short::unsigned short::?::unsigned long long::bool::$_1`
+- `?::LegacyTreeFeature::?::E::S_::Type::?&::Featu::?::long double::long double&::?::int::short::unsigned short::?::unsigned long long::bool::$_16`
+- `?::MangroveTreeCanopy::_buildSchema<JsonUtil::JsonParseState<S2::?::?::S1::?::EmptyClass::FeatureLoading::FeatureRootParseContext>::S4::?::ConcreteFeatureHolder<?, ?, ? volatile, ?, int, long, long, ?, ?, ?, long double, long double, ?, long double, ?, unsigned short, ?, ?, long double>>::S_`
+- `?::SimpleTreeCanopy::_buildSchema<JsonUtil::JsonParseState<S2::?::?::S1::?::EmptyClass::FeatureLoading::FeatureRootParseContext>::S4::?::ConcreteFeatureHolder<?, ?, ? volatile, ?, int, long, long, ?, ?, ?, long double, long double, ?, long double, ?, unsigned short, ?, ?, long double>>::S_`
+- `?::SimpleTreeTrunk::_buildSchema<JsonUtil::JsonParseState<S2::?::?::S1::?::EmptyClass::FeatureLoading::FeatureRootParseContext>::S4::?::ConcreteFeatureHolder<?, ?, ? volatile, ?, int, long, long, ?, ?, ?, long double, long double, ?, long double, ?, unsigned short, ?, ?, long double>>::S_`
+- `?::VanillaTreeFeature::_buildSchema::JsonUtil::JsonSchemaObjectNode<S0::?::JsonParseState<S0::?::EmptyClass, FeatureLoading::FeatureRootParseContext>, S4::?::ConcreteFeatureHolder<S_>>&`
+- `AggregateFeature<?, long, ?, char, long double, ?, unsigned long long, ?, long double, ?>`
+- `AncientCityFeature`
+- `BambooFeature`
+- `BasaltColumnsFeature`
+- `BasaltPillarFeature`
+- `BastionFeature`
+- `BeardAndShaverFeature`
+- `Bedrock::PubSub::Connector<?, void, Editor::FeatureFlagEntry const&>`
+- `Bedrock::PubSub::Connector<?, void, std::__1::basic_string<char, S2::?::char_traits<char>, S2::?::allocator<char>> const&, bool, Editor::FeatureFlagCategory>`
+- `Bedrock::PubSub::Detail::DispatchingPublisherBase<S0::?::ThreadModel::SingleThreaded, S1::?::SubscriptionBody<?, void, Editor::FeatureFlagEntry const&>::S0::?::ReturnPolicyType>`
+- `Bedrock::PubSub::Detail::SubscriptionBody<?, void, Editor::FeatureFlagEntry const&>::S0::?::ReturnPolicyType`
+- `Bedrock::PubSub::Detail::SubscriptionBody<?, void, std::__1::basic_string<char, S3::?::char_traits<char>, S3::?::allocator<char>> const&, bool, Editor::FeatureFlagCategory>::S0::?::ReturnPolicyType`
+- `Bedrock::PubSub::Publisher<?, void, Editor::FeatureFlagEntry const&>::S0::?::ThreadModel::SingleThreaded::S0::?::ReturnPolicyType`
+- `Bedrock::PubSub::Publisher<?, void, std::__1::basic_string<char, S2::?::char_traits<char>, S2::?::allocator<char>> const&, bool, Editor::FeatureFlagCategory>::S0::?::ThreadModel::SingleThreaded::S0::?::ReturnPolicyType`
+- `BlockBlobFeature`
+- `BlockPileFeature`
+- `BlueIceFeature`
+- `BonusChestFeature`
+- `BuriedTreasureFeature`
+- `CactusFeature`
+- `CanyonFeature`
+- `CaveFeature`
+- `CentralSpikedFeature`
+- `ClayFeature`
+- `ConditionalListFeature`
+- `CoralCrustFeature`
+- `CoralFeature`
+- `CoralHangFeature`
+- `DeadBushFeature`
+- `DeltaFeature`
+- `DesertWellFeature`
+- `DiscFeature`
+- `DoublePlantFeature`
+- `DripleafFeature`
+- `Editor::Network::FeatureFlagBulkSyncPayload`
+- `Editor::Network::FeatureFlagChangedPayload`
+- `Editor::Services::EditorFeatureFlagService`
+- `Editor::Services::EditorFeatureFlagServiceProvider`
+- `Editor::Services::ServerFeatureFlagManagerService`
+- `Editor::Services::ServerFeatureFlagManagerServiceProvider`
+- `Editor::Services::ServerFeatureFlagPlayerService`
+- `EndCityFeature`
+- `EndGatewayFeature`
+- `EndIslandFeature`
+- `EndPodiumFeature`
+- `EyeblossomFeature`
+- `Feature`
+- `FeatureLoading::ConcreteFeatureHolder<?, ?, ? volatile, ?, int, long, long, ?, ?, ?, long double, long double, ?, long double, ?, unsigned short, ?, ?, long double>`
+- `FeatureLoading::ConcreteFeatureHolder<?, ?, ?&&, long double, ?, long double, ?, unsigned short, ?, ?, long double>`
+- `FeatureLoading::ConcreteFeatureHolder<?, ?, ?*, ?, unsigned short, int, ?, long, long, unsigned long long>::long long::?::?::short::long double::double::?::long::?::bool::?::long double::?::unsigned short::?::?::long double`
+- `FeatureLoading::ConcreteFeatureHolder<?, ?, ?, ?, ?, ?, long double, ?, ?, unsigned short, long double, ?, long double, ?, unsigned short, ?, ?, long double, ?, ?, long, ?, char, long double, ?, unsigned long long, ?, long double, ?>`
+- `FeatureLoading::ConcreteFeatureHolder<?, ?, ?, ?, ?, double, int, unsigned short, int, ?, ?, ?, long, int, unsigned short, ?, long double, ?, unsigned short, ?, ?, long double>`
+- `FeatureLoading::ConcreteFeatureHolder<?, ?, ?, ?, ?, int, ..., ?, ?, unsigned short, ?, long, ?, ?, long double, long double, ?, long double, char, ?, ?, ?, unsigned short, int, ?, ?, ?, long double, ?, unsigned short, ?, ?, long double>`
+- `FeatureLoading::ConcreteFeatureHolder<?, ?, ?, ?, ?, wchar_t, int, ?, ?, long*, ?, ?, unsigned short, ?, long double, ?, unsigned short, ?, ?, long double>`
+- `FeatureLoading::ConcreteFeatureHolder<?, ?, ?, ?, double, long double, ?, wchar_t, ?, unsigned short, long double, ?, ?, ?, void, long double, ?, long double, ?, unsigned short, ?, ?, long double>`
+- `FeatureLoading::ConcreteFeatureHolder<?, ?, ?, ?, long, unsigned short, int, ?, ?, ?, unsigned short, ?, long, ?, char, ?, ?, ?, long, ?, unsigned long, ?, ?, long double, ?, unsigned short, ?, ?, long double>`
+- `FeatureLoading::ConcreteFeatureHolder<?, ?, ?, ?, long, unsigned short, int, ?, long, ?, char, ?, ?, long double, ?, unsigned short, ?, ?, long double>`
+- `FeatureLoading::ConcreteFeatureHolder<?, ?, ?, ?, long, unsigned short, int, float, ?, char, long double, ?, long double, ?, unsigned short, ?, ?, long double>`
+- `FeatureLoading::ConcreteFeatureHolder<?, ?, ?, ?, short, short, int, long, ?, long double, ?, unsigned short, ?, ?, long double>`
+- `FeatureLoading::ConcreteFeatureHolder<?, ?, ?, ?, void, long double, ?, long double, ?, unsigned short, ?, ?, long double>`
+- `FeatureLoading::ConcreteFeatureHolder<?, ?, ?, long double, ?, ?, double, ?, ?, double, Sh, ?, void, long double, ?, ?, long double, ?, unsigned short, ?, ?, long double>`
+- `FeatureLoading::ConcreteFeatureHolder<?, ?, ?, long double, ?, double, long double, ?, long double, ?, unsigned short, ?, ?, long double>`
+- `FeatureLoading::ConcreteFeatureHolder<?, ?, ?, long double, int, ?, unsigned char, unsigned short, ?, int, float, float, long double, ?, long double, ?, char, long double, ?, int, long, unsigned short, long double, ?, ?, long double, ?, unsigned short, ?, ?, long double>`
+- `FeatureLoading::ConcreteFeatureHolder<?, ?, ?, long double, int, ?, unsigned char, unsigned short, long double, double, ?&, ?, double, ?, unsigned long, ?, long double, ?, unsigned short, ?, ?, long double>`
+- `FeatureLoading::ConcreteFeatureHolder<?, ?, Se, ?, ?, char, unsigned char, ?, long double, ?, unsigned short, ?, ?, long double>`
+- `FeatureLoading::ConcreteFeatureHolder<?, ?, Sn, ?, ?, ?, ?, Su, ?, float, ?, char, long double, ?, long double, ?, unsigned short, ?, ?, long double>`
+- `FeatureLoading::ConcreteFeatureHolder<?, ?, Su, ?, float, ?, char, long double, long double&, long, ?, unsigned short, int, void, long double, ?, unsigned char, ?, long double, short, unsigned char, ?, long, double, ?, long double, ?, unsigned short, ?, ?, long double>`
+- `FeatureLoading::ConcreteFeatureHolder<?, ?, long double volatile, ?, long double, unsigned short, ?, unsigned short, int, ?, ?, ?*, unsigned short, char, unsigned char, ?, long double, ?, unsigned short, ?, ?, long double>`
+- `FeatureLoading::ConcreteFeatureHolder<?, ?, long double&, char, unsigned short, ?, ?, ?, unsigned short, ?, long double, ?, unsigned short, ?, ?, long double>`
+- `FeatureLoading::ConcreteFeatureHolder<?, ?, long double::unsigned short::unsigned char::long double::?::?::?::void::long double::?::long double::?::unsigned short::?::?::long double>`
+- `FeatureLoading::ConcreteFeatureHolder<?, ?, std, ?, ?, char, unsigned short, ?, ?, long double, ?, long double, unsigned long, ?, long, ?, unsigned short, long double, ?, long double, ?, unsigned short, ?, ?, long double>`
+- `FeatureLoading::ConcreteFeatureHolder<?, ?, std::basic_string<char>, ?, ?, Su, ?, float, ?, char, long double, ?, long double, ?, unsigned short, ?, ?, long double>`
+- `FeatureLoading::ConcreteFeatureHolder<?, ?, std::basic_string<char>, ?, long, ?, ?*, unsigned short, char, unsigned char, ?, long double, ?, unsigned short, ?, ?, long double>`
+- `FeatureLoading::ConcreteFeatureHolder<?, ?, std::basic_string<char>, ?, unsigned short, unsigned short, long double, ?, ?, long double, ?, unsigned short, ?, ?, long double>`
+- `FeatureLoading::ConcreteFeatureHolder<?, ?, std::istream, ?, ?, long, long double, ?, long, ?, char, ?, ?, long double, ?, unsigned short, ?, ?, long double>`
+- `FeatureParser`
+- `FeaturePoolElement`
+- `FeatureRegistryPacket`
+- `FeatureToggles`
+- `FeatureTypeFactory`
+- `FeatureUpgrader`
+- `FireflyBushClusterFeature`
+- `FlowerBedFeature`
+- `FossilFeature`
+- `GeodeFeature`
+- `GlowStoneFeature`
+- `GrowingPlantFeature`
+- `HeightDifferenceFilterFeature`
+- `HorizontalTreeDecorationFeature`
+- `HugeFungusFeature`
+- `HugeMushroomFeature`
+- `ITreeFeature`
+- `IcePatchFeature`
+- `IceSpikeFeature`
+- `IcebergFeature`
+- `JsonUtil::JsonSchemaArrayNode<S_::JsonParseState<S1::?::?::S1::?::?::S1::?::?::S1::?::?::S1::?::?::S1::?::?::S_::EmptyClass::FeatureLoading::FeatureRootParseContext::S3::?::ConcreteFeatureHolder<?, ?, ? volatile, ?, int, long, long, ?, ?, ?, long double, long double, ?, long double, ?, unsigned short, ?, ?, long double>::AcaciaTreeTrunk, SA, ?>, SA, ?>`
+- `JsonUtil::JsonSchemaArrayNode<S_::JsonParseState<S1::?::?::S1::?::?::S1::?::?::S1::?::?::S1::?::?::S1::?::?::S_::EmptyClass::FeatureLoading::FeatureRootParseContext::S3::?::ConcreteFeatureHolder<?, ?, ? volatile, ?, int, long, long, ?, ?, ?, long double, long double, ?, long double, ?, unsigned short, ?, ?, long double>::CherryTreeTrunk, SA, ?>, SA, ?>`
+- `JsonUtil::JsonSchemaArrayNode<S_::JsonParseState<S1::?::?::S1::?::?::S1::?::?::S1::?::?::S1::?::?::S1::?::?::S_::EmptyClass::FeatureLoading::FeatureRootParseContext::S3::?::ConcreteFeatureHolder<?, ?, ? volatile, ?, int, long, long, ?, ?, ?, long double, long double, ?, long double, ?, unsigned short, ?, ?, long double>::MegaTreeTrunk, SA, ?>, SA, ?>`
+- `JsonUtil::JsonSchemaArrayNode<S_::JsonParseState<S1::?::?::S1::?::?::S1::?::?::S1::?::?::S1::?::?::S_::EmptyClass::FeatureLoading::FeatureRootParseContext::S3::?::ConcreteFeatureHolder<?, ?, ? volatile, ?, int, long, long, ?, ?, ?, long double, long double, ?, long double, ?, unsigned short, ?, ?, long double>::AcaciaTreeTrunk>::SA::?>::SA::?`
+- `JsonUtil::JsonSchemaArrayNode<S_::JsonParseState<S1::?::?::S1::?::?::S1::?::?::S1::?::?::S1::?::?::S_::EmptyClass::FeatureLoading::FeatureRootParseContext::S3::?::ConcreteFeatureHolder<?, ?, ? volatile, ?, int, long, long, ?, ?, ?, long double, long double, ?, long double, ?, unsigned short, ?, ?, long double>::CherryTreeTrunk>::SA::?>::SA::?`
+- `JsonUtil::JsonSchemaArrayNode<S_::JsonParseState<S1::?::?::S1::?::?::S1::?::?::S1::?::?::S1::?::?::S_::EmptyClass::FeatureLoading::FeatureRootParseContext::S3::?::ConcreteFeatureHolder<?, ?, ? volatile, ?, int, long, long, ?, ?, ?, long double, long double, ?, long double, ?, unsigned short, ?, ?, long double>::MegaTreeTrunk>::SA::?>::SA::?`
+- `JsonUtil::JsonSchemaArrayNode<S_::JsonParseState<S1::?::?::S1::?::?::S1::?::?::S_::EmptyClass::FeatureLoading::FeatureRootParseContext::S3::?::ConcreteFeatureHolder<?, ?, ? volatile, ?, int, long, long, ?, ?, ?, long double, long double, ?, long double, ?, unsigned short, ?, ?, long double>>::AcaciaTreeTrunk>::SA::?`
+- `JsonUtil::JsonSchemaArrayNode<S_::JsonParseState<S1::?::?::S1::?::?::S1::?::?::S_::EmptyClass::FeatureLoading::FeatureRootParseContext::S3::?::ConcreteFeatureHolder<?, ?, ? volatile, ?, int, long, long, ?, ?, ?, long double, long double, ?, long double, ?, unsigned short, ?, ?, long double>>::CherryTreeTrunk>::SA::?`
+- `JsonUtil::JsonSchemaArrayNode<S_::JsonParseState<S1::?::?::S1::?::?::S1::?::?::S_::EmptyClass::FeatureLoading::FeatureRootParseContext::S3::?::ConcreteFeatureHolder<?, ?, ? volatile, ?, int, long, long, ?, ?, ?, long double, long double, ?, long double, ?, unsigned short, ?, ?, long double>>::FallenTreeTrunk>::SA::?`
+- `JsonUtil::JsonSchemaArrayNode<S_::JsonParseState<S1::?::?::S1::?::?::S1::?::?::S_::EmptyClass::FeatureLoading::FeatureRootParseContext::S3::?::ConcreteFeatureHolder<?, ?, ? volatile, ?, int, long, long, ?, ?, ?, long double, long double, ?, long double, ?, unsigned short, ?, ?, long double>>::MangroveTreeCanopy>::SA::?`
+- `JsonUtil::JsonSchemaArrayNode<S_::JsonParseState<S1::?::?::S1::?::?::S1::?::?::S_::EmptyClass::FeatureLoading::FeatureRootParseContext::S3::?::ConcreteFeatureHolder<?, ?, ? volatile, ?, int, long, long, ?, ?, ?, long double, long double, ?, long double, ?, unsigned short, ?, ?, long double>>::MangroveTreeRoots>::SA::?`
+- `JsonUtil::JsonSchemaArrayNode<S_::JsonParseState<S1::?::?::S1::?::?::S1::?::?::S_::EmptyClass::FeatureLoading::FeatureRootParseContext::S3::?::ConcreteFeatureHolder<?, ?, ? volatile, ?, int, long, long, ?, ?, ?, long double, long double, ?, long double, ?, unsigned short, ?, ?, long double>>::MangroveTreeTrunk>::SA::?`
+- `JsonUtil::JsonSchemaArrayNode<S_::JsonParseState<S1::?::?::S1::?::?::S1::?::?::S_::EmptyClass::FeatureLoading::FeatureRootParseContext::S3::?::ConcreteFeatureHolder<?, ?, ? volatile, ?, int, long, long, ?, ?, ?, long double, long double, ?, long double, ?, unsigned short, ?, ?, long double>>::MegaTreeTrunk>::SA::?`
+- `JsonUtil::JsonSchemaArrayNode<S_::JsonParseState<S1::?::?::S1::?::?::S1::?::?::S_::EmptyClass::FeatureLoading::FeatureRootParseContext::S3::?::ConcreteFeatureHolder<?, ?, ? volatile, ?, int, long, long, ?, ?, ?, long double, long double, ?, long double, ?, unsigned short, ?, ?, long double>>::PoplarTreeTrunk>::SA::?`
+- `JsonUtil::JsonSchemaArrayNode<S_::JsonParseState<S1::?::?::S1::?::?::S1::?::?::S_::EmptyClass::FeatureLoading::FeatureRootParseContext::S3::?::ConcreteFeatureHolder<?, ?, ? volatile, ?, int, long, long, ?, ?, ?, long double, long double, ?, long double, ?, unsigned short, ?, ?, long double>>::RandomSpreadTreeCanopy>::SA::?`
+- … 1711 more
+
+### density (4)
+
+- `DensityEnchant`
+- `cereal::internal::CompositeSchema<SharedTypes::Legacy::Spawn::DensityLimit, void>`
+- `cereal::internal::TypeSchema<SharedTypes::Legacy::Spawn::DensityLimit>`
+- `cereal::internal::TypeSchema<std::__1::optional<SharedTypes::Legacy::Spawn::DensityLimit>>`
+
+### jigsaw (112)
+
+- `Bedrock::PubSub::Connector<?, void, std::__1::vector<Editor::Services::EditorJigsawSection, S2::?::allocator<S6, ?>>>`
+- `Bedrock::PubSub::Detail::SubscriptionBody<?, void, std::__1::vector<Editor::Services::EditorJigsawSection, S3::?::allocator<S7, ?>>>::S0::?::ReturnPolicyType`
+- `Bedrock::PubSub::Publisher<?, void, std::__1::vector<Editor::Services::EditorJigsawSection, S2::?::allocator<S6, ?>>>::S0::?::ThreadModel::SingleThreaded::S0::?::ReturnPolicyType`
+- `Editor::Services::EditorJigsawService`
+- `Editor::Services::EditorJigsawServiceProvider`
+- `JigsawBlock`
+- `JigsawBlockActor`
+- `Scripting::Promise<std::__1::vector<Editor::Services::EditorJigsawSection, S1::?::allocator<S5, ?>>, ?, S_::Error>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptJigsawService::deleteRegistryData, std::__1::basic_string<char, S5::?::char_traits<char>, S5::?::allocator<char>> const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptJigsawService::generateJigsaw, std::__1::basic_string<char, S5::?::char_traits<char>, S5::?::allocator<char>> const&, SD, ?, SD, ?, ? const&, long double volatile, char, ?, int, int, bool, S3::?::ScriptClipboardItem const&, S_::ScriptObjectFactory&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptJigsawService::getEmptyRegistryFiles, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptJigsawService::getExportLocation, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptJigsawService::getJigsawBlockData, ?&, long double volatile, char, ?>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptJigsawService::getRegistryData, std::__1::basic_string<char, S5::?::char_traits<char>, S5::?::allocator<char>> const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptJigsawService::getRegistryList, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptJigsawService::setJigsawBlockData, ?&, long double volatile, char, ?, S2::?::Services::JigsawBlockData&>`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptInternalPlayerServiceContext, S0::?::ReturnPolicy>::?::?::double::?::S4::?::_getJigsawService::void`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::Services::EditorJigsawSection, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mBounds`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::Services::EditorJigsawSection, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mOffset`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::Services::EditorJigsawSection, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mRotation`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::Services::JigsawBlockData, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mFinalBlock`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::Services::JigsawBlockData, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mJointType`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::Services::JigsawBlockData, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mJointTypeVisible`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::Services::JigsawBlockData, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mName`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::Services::JigsawBlockData, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mPlacementPriority`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::Services::JigsawBlockData, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mSelectionPriority`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::Services::JigsawBlockData, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mTarget`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::Services::JigsawBlockData, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mTargetPool`
+- `Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptJigsawPlaceOptions, S0::?::ReturnPolicy>::?::?::double::?::S3::?::mIncludeEntities`
+- `Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptJigsawPlaceOptions, S0::?::ReturnPolicy>::?::?::double::?::S3::?::mKeepJigsaws`
+- `Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptJigsawPlaceOptions, S0::?::ReturnPolicy>::?::?::double::?::S3::?::mLiquidSettings`
+- `Scripting::Reflection::MemberPropertySetter<Editor::Services::EditorJigsawSection, ?, ?, double, ?, S4::?::mBounds>`
+- `Scripting::Reflection::MemberPropertySetter<Editor::Services::EditorJigsawSection, ?, ?, double, ?, S4::?::mOffset>`
+- `Scripting::Reflection::MemberPropertySetter<Editor::Services::EditorJigsawSection, ?, ?, double, ?, S4::?::mRotation>`
+- `Scripting::Reflection::MemberPropertySetter<Editor::Services::JigsawBlockData, ?, ?, double, ?, S4::?::mFinalBlock>`
+- `Scripting::Reflection::MemberPropertySetter<Editor::Services::JigsawBlockData, ?, ?, double, ?, S4::?::mJointType>`
+- `Scripting::Reflection::MemberPropertySetter<Editor::Services::JigsawBlockData, ?, ?, double, ?, S4::?::mJointTypeVisible>`
+- `Scripting::Reflection::MemberPropertySetter<Editor::Services::JigsawBlockData, ?, ?, double, ?, S4::?::mName>`
+- `Scripting::Reflection::MemberPropertySetter<Editor::Services::JigsawBlockData, ?, ?, double, ?, S4::?::mPlacementPriority>`
+- `Scripting::Reflection::MemberPropertySetter<Editor::Services::JigsawBlockData, ?, ?, double, ?, S4::?::mSelectionPriority>`
+- `Scripting::Reflection::MemberPropertySetter<Editor::Services::JigsawBlockData, ?, ?, double, ?, S4::?::mTarget>`
+- `Scripting::Reflection::MemberPropertySetter<Editor::Services::JigsawBlockData, ?, ?, double, ?, S4::?::mTargetPool>`
+- `Scripting::Reflection::MemberPropertySetter<ScriptModuleMinecraft::ScriptJigsawPlaceOptions, ?, ?, double, ?, S3::?::mIncludeEntities>`
+- `Scripting::Reflection::MemberPropertySetter<ScriptModuleMinecraft::ScriptJigsawPlaceOptions, ?, ?, double, ?, S3::?::mKeepJigsaws>`
+- `Scripting::Reflection::MemberPropertySetter<ScriptModuleMinecraft::ScriptJigsawPlaceOptions, ?, ?, double, ?, S3::?::mLiquidSettings>`
+- `ZN11BlockEvents18BlockEventExecutorINS_24BlockPlayerInteractEventEE9subscribeI11JigsawBlockTkNSt3__114convertible_toIRKT_EERS1_EEN7Bedrock6PubSub12SubscriptionES9_MS7_KFvT0_EEUlSA_E_`
+- `br::worldgen::processors::JigsawReplacement`
+- `cereal::internal::CompositeSchema<SharedTypes::JigsawJointType, void>`
+- `cereal::internal::CompositeSchema<SharedTypes::v1_21_50::JigsawBlockMetadata, void>`
+- `cereal::internal::CompositeSchema<SharedTypes::v1_21_50::JigsawJunction, void>`
+- `cereal::internal::CompositeSchema<SharedTypes::v1_21_80::JigsawBlockMetadata, void>`
+- `cereal::internal::TypeSchema<SharedTypes::JigsawJointType>`
+- `cereal::internal::TypeSchema<SharedTypes::v1_21_50::JigsawBlockMetadata>`
+- `cereal::internal::TypeSchema<SharedTypes::v1_21_50::JigsawJunction>`
+- `cereal::internal::TypeSchema<SharedTypes::v1_21_80::JigsawBlockMetadata>`
+- `cereal::internal::TypeSchema<std::__1::vector<SharedTypes::v1_21_50::JigsawBlockMetadata, S2::?::allocator<S6, ?>>>`
+- `cereal::internal::TypeSchema<std::__1::vector<SharedTypes::v1_21_50::JigsawJunction, S2::?::allocator<S6, ?>>>`
+- `cereal::internal::TypeSchema<std::__1::vector<SharedTypes::v1_21_80::JigsawBlockMetadata, S2::?::allocator<S6, ?>>>`
+- `entt::basic_storage<Editor::ScriptModule::ScriptJigsawService, Scripting::ObjectHandleValue, std::__1::allocator<S3, ?>>`
+- `std::__1::__function::__func<?, ? const::char::long double::?::long double::?::long::internal::TypeSchema<S_::vector<SharedTypes::v1_21_50::JigsawBlockMetadata, S_::allocator<S8, ?>>>::doMap, entt::meta_any&, SF, ?, S2::?::MetaVisitor&>::?::long::void`
+- `std::__1::__function::__func<?, ? const::char::long double::?::long double::?::long::internal::TypeSchema<S_::vector<SharedTypes::v1_21_50::JigsawJunction, S_::allocator<S8, ?>>>::doMap, entt::meta_any&, SF, ?, S2::?::MetaVisitor&>::?::long::void`
+- `std::__1::__function::__func<?, ? const::char::long double::?::long double::?::long::internal::TypeSchema<S_::vector<SharedTypes::v1_21_80::JigsawBlockMetadata, S_::allocator<S8, ?>>>::doMap, entt::meta_any&, SF, ?, S2::?::MetaVisitor&>::?::long::void`
+- `std::__1::__function::__func<?, Editor::ServiceProviderCollection::addUnmanaged<S2::?::Services::EditorJigsawServiceProvider, S5::?::EditorJigsawService>, bool, ?*, ?, ?>::?::long::entt::meta_any`
+- `std::__1::__function::__func<?, Editor::ServiceProviderCollection::addUnmanaged<S2::?::Services::EditorJigsawServiceProvider, S6, ?>, bool, ?*, ?, ?>::?::long::entt::meta_any`
+- `std::__1::__function::__func<?, Editor::Services::EditorJigsawService::_loadBehaviorPackJigsawRegistries, ?&, ?, long double&, short, ?, ?, ?, char, long double, ?*, char, ?, ?, ?, ?, ?, ?, long double, ?>::$_0::S_::allocator<S7, ?>::?::void::Core::Path const&`
+- `std::__1::__function::__func<?, Editor::Services::EditorJigsawService::ready, void>::$_0::S_::allocator<S5, ?>::?::void::bool::S2::?::EditorManager&`
+- `std::__1::__function::__func<?, JigsawPlacement::_tryPlacingPiece, ? const&, ?, ?*, ?, long>::long::long double::unsigned long::long double::?::unsigned short::std::?::?::char::unsigned short::?::?::long double::int*::long double::char::long double::? const&::B::?::?::?::double::int::?::?::?::?::long long::? const&::Jigsa::wchar_t::?::long::?::char::?::?::?::float::?::? const&::?::long::?::char::?::?*::short::? const*::S::unsigned short::?::?::char::unsigned short::?::?::long double::?::long double::unsigned long::?::long::?::unsigned short::long double::?*::?::long::SE::?::unsigned long::PoolAliasBinding::PoolAliasLookup const&`
+- `std::__1::__function::__func<?, JigsawPlacement::addPieces, ? const&, ?, std, ?, ?, char, unsigned short, ?, ?, long double, ?*, ?, long>::long::long double::unsigned long::long double::?::unsigned short::? const&::?::long::?::char::?::?*::short::? const&::?&::unsigned short::?::unsigned short::int::?::?::S_::basic_string_view<char, S_::char_traits<char>>::PoolAliasBinding::PoolAliasLookup const&`
+- `std::__1::__function::__func<?, Scripting::EnumBindingBuilder<Editor::Services::JigsawJsonType, S6, ?>::value<S6, ?>, S2::?::ConstantFactory&, S_::basic_string<char, S_::char_traits<char>, S_::allocator<char>> const&, ?, ?>::?::long::S2::?::WeakLifetimeScope&`
+- `std::__1::__function::__func<?, Scripting::EnumBindingBuilder<SharedTypes::JigsawJointType, S5, ?>::value<S5, ?>, S2::?::ConstantFactory&, S_::basic_string<char, S_::char_traits<char>, S_::allocator<char>> const&, ?, ?>::?::long::S2::?::WeakLifetimeScope&`
+- `std::__1::__function::__func<?, Scripting::internal::BaseScriptComponent::?::I::Editor::ScriptModule::ScriptJigsawService>::S3::?::TypeCache&::bool::S4::?::Traits<?, ?>`
+- `std::__1::__shared_ptr_emplace<Bedrock::PubSub::Detail::SubscriptionBody<?, void, S_::vector<Editor::Services::EditorJigsawSection, S_::allocator<S8, ?>>>::S2::?::ReturnPolicyType>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptJigsawService::deleteRegistryData, S_::basic_string<char, S_::char_traits<char>, S_::allocator<char>> const&>>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptJigsawService::getEmptyRegistryFiles, void>>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptJigsawService::getExportLocation, void>>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptJigsawService::getJigsawBlockData, ?&, long double volatile, char, ?>>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptJigsawService::getRegistryData, S_::basic_string<char, S_::char_traits<char>, S_::allocator<char>> const&>>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptJigsawService::getRegistryList, void>>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptJigsawService::setJigsawBlockData, ?&, long double volatile, char, ?, S4::?::Services::JigsawBlockData&>>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptInternalPlayerServiceContext, S2::?::ReturnPolicy>::?::?::double::?::S6::?::_getJigsawService::void>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::Services::EditorJigsawSection, S2::?::ReturnPolicy>::?::?::double::?::S6::?::mBounds>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::Services::EditorJigsawSection, S2::?::ReturnPolicy>::?::?::double::?::S6::?::mOffset>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::Services::EditorJigsawSection, S2::?::ReturnPolicy>::?::?::double::?::S6::?::mRotation>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::Services::JigsawBlockData, S2::?::ReturnPolicy>::?::?::double::?::S6::?::mFinalBlock>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::Services::JigsawBlockData, S2::?::ReturnPolicy>::?::?::double::?::S6::?::mJointType>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::Services::JigsawBlockData, S2::?::ReturnPolicy>::?::?::double::?::S6::?::mJointTypeVisible>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::Services::JigsawBlockData, S2::?::ReturnPolicy>::?::?::double::?::S6::?::mName>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::Services::JigsawBlockData, S2::?::ReturnPolicy>::?::?::double::?::S6::?::mPlacementPriority>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::Services::JigsawBlockData, S2::?::ReturnPolicy>::?::?::double::?::S6::?::mSelectionPriority>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::Services::JigsawBlockData, S2::?::ReturnPolicy>::?::?::double::?::S6::?::mTarget>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::Services::JigsawBlockData, S2::?::ReturnPolicy>::?::?::double::?::S6::?::mTargetPool>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptJigsawPlaceOptions, S2::?::ReturnPolicy>::?::?::double::?::S5::?::mIncludeEntities>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptJigsawPlaceOptions, S2::?::ReturnPolicy>::?::?::double::?::S5::?::mKeepJigsaws>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptJigsawPlaceOptions, S2::?::ReturnPolicy>::?::?::double::?::S5::?::mLiquidSettings>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<Editor::Services::EditorJigsawSection, ?, ?, double, ?, S6::?::mBounds>>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<Editor::Services::EditorJigsawSection, ?, ?, double, ?, S6::?::mOffset>>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<Editor::Services::EditorJigsawSection, ?, ?, double, ?, S6::?::mRotation>>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<Editor::Services::JigsawBlockData, ?, ?, double, ?, S6::?::mFinalBlock>>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<Editor::Services::JigsawBlockData, ?, ?, double, ?, S6::?::mJointType>>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<Editor::Services::JigsawBlockData, ?, ?, double, ?, S6::?::mJointTypeVisible>>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<Editor::Services::JigsawBlockData, ?, ?, double, ?, S6::?::mName>>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<Editor::Services::JigsawBlockData, ?, ?, double, ?, S6::?::mPlacementPriority>>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<Editor::Services::JigsawBlockData, ?, ?, double, ?, S6::?::mSelectionPriority>>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<Editor::Services::JigsawBlockData, ?, ?, double, ?, S6::?::mTarget>>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<Editor::Services::JigsawBlockData, ?, ?, double, ?, S6::?::mTargetPool>>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<ScriptModuleMinecraft::ScriptJigsawPlaceOptions, ?, ?, double, ?, S5::?::mIncludeEntities>>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<ScriptModuleMinecraft::ScriptJigsawPlaceOptions, ?, ?, double, ?, S5::?::mKeepJigsaws>>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<ScriptModuleMinecraft::ScriptJigsawPlaceOptions, ?, ?, double, ?, S5::?::mLiquidSettings>>`
+- `std::__1::__shared_ptr_emplace<br::worldgen::processors::JigsawReplacement, S_::allocator<S4, ?>>`
+- `std::__1::__shared_ptr_emplace<entt::basic_storage<Editor::ScriptModule::ScriptJigsawService, Scripting::ObjectHandleValue, S_::allocator<S5, ?>>, S8::?::?::S7::?>`
+- `std::__1::__shared_ptr_pointer<Editor::Services::EditorJigsawServiceProvider*, ?, S1::?::ServiceProviderCollection::addUnmanaged<S3, ?, S2::?::EditorJigsawService>, bool, ?*, ?, ?>::?::long::void*`
+- `std::__1::__shared_ptr_pointer<Editor::Services::EditorJigsawServiceProvider*, ?, S1::?::ServiceProviderCollection::addUnmanaged<S3, ?, S3, ?>, bool, ?*, ?, ?>::?::long::void*`
+
+### terrain (14)
+
+- `Editor::Network::NativeBrushTerrainPayload`
+- `MixerOperationNode<OperationNodeValues::Terrain, ?, ?*, short, ?, double, S1, ?, ?>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptBrushShapeManagerService::setTerrainStrength, int>`
+- `TerrainBuilderComponent`
+- `TerrainBurstReactionComponent`
+- `ZoomOperationNodeCommon<OperationNodeValues::Terrain, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2x>`
+- `ZoomOperationNodeCommon<OperationNodeValues::Terrain, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2xFuzzy>`
+- `cereal::internal::CompositeSchema<Editor::Network::NativeBrushTerrainPayload, void>`
+- `cereal::internal::TypeSchema<Editor::Network::NativeBrushTerrainPayload>`
+- `std::__1::__function::__func<?, Editor::Network::PayloadServiceProvider::_registerPayload<S3::?::NativeBrushTerrainPayload>, S3::?::PayloadMetrics*, void>::?::long::void`
+- `std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::OperationNodeValues::Terrain::Pos2d::OperationNodeZooms::Zoom2x, S_::allocator<S7, ?>>`
+- `std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::OperationNodeValues::Terrain::Pos2d::OperationNodeZooms::Zoom2xFuzzy, S_::allocator<S7, ?>>`
+- `std::__1::__shared_ptr_emplace<Editor::Network::NativeBrushTerrainPayload, S_::allocator<S3, ?>>`
+- `std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptBrushShapeManagerService::setTerrainStrength, int>>`
+
+### random (361)
+
+- `?::Scripting::internal::BaseScriptComponent::?::I::ScriptModuleMinecraft::ScriptBlockCustomComponentRandomTickAfterEvent`
+- `ActorGoalDefinition<SharedTypes::v1_21_110::SlimeRandomDirectionGoalDefinition, ?, ?, Sl, int, unsigned long, long double, ?&, ?, double, ?, unsigned long, ?, int, ?, long double, char, unsigned short, int, ?, ?, ?, ?, ?, long>`
+- `ActorGoalDefinition<SharedTypes::v1_26_10::RandomSearchAndDigGoalDefinition, ?, ?, ?&, ?, double, ?, unsigned long, Se, ?, ?, char, unsigned char, ?, ?, double, ?, int, ?, ?, ?, ?, long>`
+- `ActorGoalDefinition<SharedTypes::v1_26_20::MoveToRandomBlockGoalDefinition, ?, ?, ?, ?, void, long double, ?, ?, ?&, ?, double, ?, unsigned long, ?, long, ?, char, ?, ?, ?, ?, long>`
+- `ActorGoalDefinition<SharedTypes::v1_26_20::RandomHoverGoalDefinition, ?, ?, ?&, ?, double, ?, unsigned long, ?, ?, void, long double, ?, ?, ?, ?, long>`
+- `ActorGoalDefinition<SharedTypes::v1_26_20::RandomSitGoalDefinition, ?, ?, ?&, ?, double, ?, unsigned long, std::istream, unsigned short, ?, ?, ?, long>`
+- `ActorGoalDefinition<SharedTypes::v1_26_20::RandomStrollGoalDefinition, ?, ?, ?&, ?, double, ?, unsigned long, std, ?, ?, long, long, ?, ?, ?, long>`
+- `ActorGoalDefinition<SharedTypes::v1_26_30::RandomBreachingGoalDefinition, ?, ?, ?&, ?, double, ?, unsigned long, ?, ?, long double, ?, char, unsigned char, int, ?, ?, ?, ?, ?, long>`
+- `ActorGoalDefinition<SharedTypes::v1_26_30::RandomFlyingGoalDefinition, ?, ?, ?&, ?, double, ?, unsigned long, ?, long, unsigned long long, int, ?, ?, ?, ?, ?, long>`
+- `ActorGoalDefinition<SharedTypes::v1_26_30::RandomLookAroundAndSitGoalDefinition, ?, ?, ?&, ?, double, ?, unsigned long, ?, ?, ?, ?, ?, ?, ?, double, ?, ?, double, std::istream, unsigned short, ?, ?, ?, long>`
+- `ActorGoalDefinition<SharedTypes::v1_26_30::RandomLookAroundGoalDefinition, ?, ?, ?&, ?, double, ?, unsigned long, ?, ?, ?, ?, ?, ?, ?, double, ?, ?, ?, long>`
+- `ActorGoalDefinition<SharedTypes::v1_26_30::RandomSwimmingGoalDefinition, ?, ?, ?&, ?, double, ?, unsigned long, Sw, int, unsigned long, unsigned long, int, ?, ?, ?, ?, ?, long>`
+- `ActorGoalDefinition<SharedTypes::v1_26_30::WitherRandomAttackPosGoalDefinition, ?, ?, ?, int, unsigned short, unsigned char, long double, ?, ?&, ?, double, ?, unsigned long, ?, unsigned short, unsigned short, ?, char, ?, ?*, short, ?, ?, ?, long>`
+- `ActorRandomChanceTest`
+- `Bedrock::PubSub::Connector<?, void, BlockEvents::BlockRandomTickEvent const&>`
+- `Bedrock::PubSub::Connector<?, void, BlockEvents::BlockRandomTickEvent&>`
+- `Bedrock::PubSub::Connector<?, void, BlockEvents::BlockRandomTickLegacyEvent&>`
+- `Bedrock::PubSub::Detail::DispatchingPublisherBase<S0::?::ThreadModel::SingleThreaded, S1::?::SubscriptionBody<?, void, BlockEvents::BlockRandomTickEvent&>::S0::?::ReturnPolicyType>`
+- `Bedrock::PubSub::Detail::SubscriptionBody<?, void, BlockEvents::BlockRandomTickEvent const&>::S0::?::ReturnPolicyType`
+- `Bedrock::PubSub::Detail::SubscriptionBody<?, void, BlockEvents::BlockRandomTickEvent&>::S0::?::ReturnPolicyType`
+- `Bedrock::PubSub::Detail::SubscriptionBody<?, void, BlockEvents::BlockRandomTickLegacyEvent&>::S0::?::ReturnPolicyType`
+- `Bedrock::PubSub::Publisher<?, void, BlockEvents::BlockRandomTickEvent const&>::S0::?::ThreadModel::SingleThreaded::S0::?::ReturnPolicyType`
+- `Bedrock::PubSub::Publisher<?, void, BlockEvents::BlockRandomTickEvent&>::S0::?::ThreadModel::SingleThreaded::S0::?::ReturnPolicyType`
+- `Bedrock::PubSub::Publisher<?, void, BlockEvents::BlockRandomTickLegacyEvent&>::S0::?::ThreadModel::SingleThreaded::S0::?::ReturnPolicyType`
+- `BlockEvents::BlockEventExecutor<S_::BlockRandomTickEvent const>`
+- `BlockEvents::BlockEventExecutor<S_::BlockRandomTickEvent>`
+- `BlockEvents::BlockEventExecutor<S_::BlockRandomTickLegacyEvent>`
+- `BlockEvents::BlockRandomTickEvent`
+- `BlockEvents::BlockRandomTickLegacyEvent`
+- `BlockEvents::Detail::BlockEventPublishingExecutor<S_::BlockRandomTickEvent const, void>`
+- `BlockEvents::Detail::BlockEventPublishingExecutor<S_::BlockRandomTickEvent, void>`
+- `BlockEvents::Detail::BlockEventPublishingExecutor<S_::BlockRandomTickLegacyEvent, void>`
+- `BlockRandomOffsetDescription`
+- `BlockRandomTickingComponent`
+- `BlockRandomTickingDescription`
+- `Core::Random`
+- `Crypto::Random::OpenSSLRandomInterface`
+- `Crypto::Random::Random`
+- `DefinitionInstance<SharedTypes::v1_26_10::RandomSearchAndDigGoalDefinition>`
+- `DefinitionInstance<SharedTypes::v1_26_30::RandomLookAroundAndSitGoalDefinition>`
+- `EnchantRandomEquipmentFunction`
+- `EnchantRandomlyFunction`
+- `InMemoryRandomAccessFile`
+- `JsonComponentGlueUtils::DefinitionInstanceHolder<SharedTypes::v1_21_110::SlimeRandomDirectionGoalDefinition>`
+- `JsonComponentGlueUtils::DefinitionInstanceHolder<SharedTypes::v1_26_10::RandomSearchAndDigGoalDefinition>`
+- `JsonDefinitionSerializer<SharedTypes::v1_21_110::SlimeRandomDirectionGoalDefinition, JsonComponentGlueUtils::DefinitionInstanceHolder<S2, ?>>`
+- `JsonDefinitionSerializer<SharedTypes::v1_26_10::RandomSearchAndDigGoalDefinition, JsonComponentGlueUtils::DefinitionInstanceHolder<S2, ?>>`
+- `JsonDefinitionSerializerSchemaNode<SharedTypes::v1_21_110::SlimeRandomDirectionGoalDefinition>`
+- `JsonDefinitionSerializerSchemaNode<SharedTypes::v1_26_10::RandomSearchAndDigGoalDefinition>`
+- `JsonUtil::JsonSchemaArrayNode<S_::JsonParseState<S_::EmptyClass, SharedTypes::v1_21_110::SlimeRandomDirectionGoalDefinition>, S5, ?>`
+- `JsonUtil::JsonSchemaArrayNode<S_::JsonParseState<S_::EmptyClass, SharedTypes::v1_26_10::RandomSearchAndDigGoalDefinition>, S5, ?>`
+- `JsonUtil::JsonSchemaChildOption<S_::EmptyClass, S_::JsonParseState<S1, ?, SharedTypes::v1_21_110::SlimeRandomDirectionGoalDefinition>, S5, ?>`
+- `JsonUtil::JsonSchemaChildOption<S_::EmptyClass, S_::JsonParseState<S1, ?, SharedTypes::v1_21_110::SlimeRandomDirectionGoalDefinition>, float>`
+- `JsonUtil::JsonSchemaChildOption<S_::EmptyClass, S_::JsonParseState<S1, ?, SharedTypes::v1_21_110::SlimeRandomDirectionGoalDefinition>, int>`
+- `JsonUtil::JsonSchemaChildOption<S_::EmptyClass, S_::JsonParseState<S1, ?, SharedTypes::v1_26_10::RandomSearchAndDigGoalDefinition>, S3::?::FloatRange>`
+- `JsonUtil::JsonSchemaChildOption<S_::EmptyClass, S_::JsonParseState<S1, ?, SharedTypes::v1_26_10::RandomSearchAndDigGoalDefinition>, S3::?::v1_21_120::ActorDefinitionTrigger>`
+- `JsonUtil::JsonSchemaChildOption<S_::EmptyClass, S_::JsonParseState<S1, ?, SharedTypes::v1_26_10::RandomSearchAndDigGoalDefinition>, S5, ?>`
+- `JsonUtil::JsonSchemaChildOption<S_::EmptyClass, S_::JsonParseState<S1, ?, SharedTypes::v1_26_10::RandomSearchAndDigGoalDefinition>, float>`
+- `JsonUtil::JsonSchemaChildOption<S_::EmptyClass, S_::JsonParseState<S1, ?, SharedTypes::v1_26_10::RandomSearchAndDigGoalDefinition>, int>`
+- `JsonUtil::JsonSchemaChildOption<S_::EmptyClass, S_::JsonParseState<S1, ?, SharedTypes::v1_26_10::RandomSearchAndDigGoalDefinition>, std::__1::basic_string<char, S7::?::char_traits<char>, S7::?::allocator<char>>>`
+- `JsonUtil::JsonSchemaChildOption<S_::JsonParseState<S_::EmptyClass, SharedTypes::v1_21_110::SlimeRandomDirectionGoalDefinition>, S1::?::?::S6::?::S5::?>::std::__1::basic_string<char, S8::?::char_traits<char>, S8::?::allocator<char>>`
+- `JsonUtil::JsonSchemaChildOption<S_::JsonParseState<S_::EmptyClass, SharedTypes::v1_26_10::RandomSearchAndDigGoalDefinition>, S1::?::?::S6::?::S5::?>::S3::?::Legacy::BlockDescriptor`
+- `JsonUtil::JsonSchemaChildOption<S_::JsonParseState<S_::EmptyClass, SharedTypes::v1_26_10::RandomSearchAndDigGoalDefinition>, S1::?::?::S6::?::S5::?>::std::__1::basic_string<char, S8::?::char_traits<char>, S8::?::allocator<char>>`
+- `JsonUtil::JsonSchemaChildOptionBase<S_::EmptyClass, SharedTypes::v1_21_110::SlimeRandomDirectionGoalDefinition>`
+- `JsonUtil::JsonSchemaChildOptionBase<S_::EmptyClass, SharedTypes::v1_26_10::RandomSearchAndDigGoalDefinition>`
+- `JsonUtil::JsonSchemaChildOptionBase<S_::JsonParseState<S_::EmptyClass, SharedTypes::v1_21_110::SlimeRandomDirectionGoalDefinition>, S5, ?>`
+- `JsonUtil::JsonSchemaChildOptionBase<S_::JsonParseState<S_::EmptyClass, SharedTypes::v1_26_10::RandomSearchAndDigGoalDefinition>, S5, ?>`
+- `JsonUtil::JsonSchemaNode<S_::EmptyClass, SharedTypes::v1_21_110::SlimeRandomDirectionGoalDefinition>`
+- `JsonUtil::JsonSchemaNode<S_::EmptyClass, SharedTypes::v1_26_10::RandomSearchAndDigGoalDefinition>`
+- `JsonUtil::JsonSchemaNode<S_::JsonParseState<S1::?::?::S_::EmptyClass::SharedTypes::v1_21_110::SlimeRandomDirectionGoalDefinition>::S5::?>::std::__1::basic_string<char, S8::?::char_traits<char>, S8::?::allocator<char>>`
+- `JsonUtil::JsonSchemaNode<S_::JsonParseState<S1::?::?::S_::EmptyClass::SharedTypes::v1_26_10::RandomSearchAndDigGoalDefinition>::S5::?>::S3::?::Legacy::BlockDescriptor`
+- `JsonUtil::JsonSchemaNode<S_::JsonParseState<S1::?::?::S_::EmptyClass::SharedTypes::v1_26_10::RandomSearchAndDigGoalDefinition>::S5::?>::std::__1::basic_string<char, S8::?::char_traits<char>, S8::?::allocator<char>>`
+- `JsonUtil::JsonSchemaNode<S_::JsonParseState<S_::EmptyClass, SharedTypes::v1_21_110::SlimeRandomDirectionGoalDefinition>, S5, ?>`
+- `JsonUtil::JsonSchemaNode<S_::JsonParseState<S_::EmptyClass, SharedTypes::v1_21_110::SlimeRandomDirectionGoalDefinition>, float>`
+- `JsonUtil::JsonSchemaNode<S_::JsonParseState<S_::EmptyClass, SharedTypes::v1_21_110::SlimeRandomDirectionGoalDefinition>, int>`
+- `JsonUtil::JsonSchemaNode<S_::JsonParseState<S_::EmptyClass, SharedTypes::v1_26_10::RandomSearchAndDigGoalDefinition>, S3::?::FloatRange>`
+- `JsonUtil::JsonSchemaNode<S_::JsonParseState<S_::EmptyClass, SharedTypes::v1_26_10::RandomSearchAndDigGoalDefinition>, S3::?::v1_21_120::ActorDefinitionTrigger>`
+- `JsonUtil::JsonSchemaNode<S_::JsonParseState<S_::EmptyClass, SharedTypes::v1_26_10::RandomSearchAndDigGoalDefinition>, S5, ?>`
+- `JsonUtil::JsonSchemaNode<S_::JsonParseState<S_::EmptyClass, SharedTypes::v1_26_10::RandomSearchAndDigGoalDefinition>, float>`
+- `JsonUtil::JsonSchemaNode<S_::JsonParseState<S_::EmptyClass, SharedTypes::v1_26_10::RandomSearchAndDigGoalDefinition>, int>`
+- `JsonUtil::JsonSchemaNode<S_::JsonParseState<S_::EmptyClass, SharedTypes::v1_26_10::RandomSearchAndDigGoalDefinition>, std::__1::basic_string<char, S7::?::char_traits<char>, S7::?::allocator<char>>>`
+- `JsonUtil::JsonSchemaObjectNode<S_::EmptyClass, SharedTypes::v1_21_110::SlimeRandomDirectionGoalDefinition>`
+- `JsonUtil::JsonSchemaObjectNode<S_::EmptyClass, SharedTypes::v1_26_10::RandomSearchAndDigGoalDefinition>`
+- `JsonUtil::JsonSchemaTypedNode<SharedTypes::FloatRange, S_::JsonParseState<S_::EmptyClass, S1::?::v1_26_10::RandomSearchAndDigGoalDefinition>, S2, ?>`
+- `JsonUtil::JsonSchemaTypedNode<SharedTypes::Legacy::BlockDescriptor, S_::JsonParseState<S4::?::?::S_::EmptyClass::S1::?::v1_26_10::RandomSearchAndDigGoalDefinition>::S7::?>::S3::?`
+- `JsonUtil::JsonSchemaTypedNode<SharedTypes::v1_21_120::ActorDefinitionTrigger, S_::JsonParseState<S_::EmptyClass, S1::?::v1_26_10::RandomSearchAndDigGoalDefinition>, S3, ?>`
+- `JsonUtil::JsonSchemaTypedNode<float, S_::JsonParseState<S_::EmptyClass, SharedTypes::v1_21_110::SlimeRandomDirectionGoalDefinition>, float>`
+- `JsonUtil::JsonSchemaTypedNode<float, S_::JsonParseState<S_::EmptyClass, SharedTypes::v1_26_10::RandomSearchAndDigGoalDefinition>, float>`
+- `JsonUtil::JsonSchemaTypedNode<int, S_::JsonParseState<S_::EmptyClass, SharedTypes::v1_21_110::SlimeRandomDirectionGoalDefinition>, int>`
+- `JsonUtil::JsonSchemaTypedNode<int, S_::JsonParseState<S_::EmptyClass, SharedTypes::v1_26_10::RandomSearchAndDigGoalDefinition>, int>`
+- `JsonUtil::JsonSchemaTypedNode<std::__1::basic_string<char, S1::?::char_traits<char>, S1::?::allocator<char>>, S_::JsonParseState<S8::?::?::S_::EmptyClass::SharedTypes::v1_21_110::SlimeRandomDirectionGoalDefinition>::SC::?>::S7::?`
+- `JsonUtil::JsonSchemaTypedNode<std::__1::basic_string<char, S1::?::char_traits<char>, S1::?::allocator<char>>, S_::JsonParseState<S8::?::?::S_::EmptyClass::SharedTypes::v1_26_10::RandomSearchAndDigGoalDefinition>::SC::?>::S7::?`
+- `JsonUtil::JsonSchemaTypedNode<std::__1::basic_string<char, S1::?::char_traits<char>, S1::?::allocator<char>>, S_::JsonParseState<S_::EmptyClass, SharedTypes::v1_26_10::RandomSearchAndDigGoalDefinition>, S7, ?>`
+- `LevelDbRandomAccessFile`
+- `LevelRandom`
+- `LootItemRandomChanceCondition`
+- `LootItemRandomChanceWithLootingCondition`
+- `LootItemRandomChanceWithSpecialModifierCondition`
+- `LootItemRandomDifficultyChanceCondition`
+- `MoveToRandomBlockGoal`
+- `NSt3__110__function6__funcIZN11BlockEvents18BlockEventExecutorINS2_20BlockRandomTickEventEE9subscribeI11CopperBlockI10ChainBlockETkNS_14convertible_toIRKT_EERS4_EEN7Bedrock6PubSub12SubscriptionESD_MSB_KFvT0_EEUlSE_E_NS_9allocatorISL_EEFvSE_EEE`
+- `NSt3__110__function6__funcIZN11BlockEvents18BlockEventExecutorINS2_20BlockRandomTickEventEE9subscribeI11CopperBlockI10ChestBlockETkNS_14convertible_toIRKT_EERS4_EEN7Bedrock6PubSub12SubscriptionESD_MSB_KFvT0_EEUlSE_E_NS_9allocatorISL_EEFvSE_EEE`
+- `NSt3__110__function6__funcIZN11BlockEvents18BlockEventExecutorINS2_20BlockRandomTickEventEE9subscribeI11CopperBlockI10StairBlockETkNS_14convertible_toIRKT_EERS4_EEN7Bedrock6PubSub12SubscriptionESD_MSB_KFvT0_EEUlSE_E_NS_9allocatorISL_EEFvSE_EEE`
+- `NSt3__110__function6__funcIZN11BlockEvents18BlockEventExecutorINS2_20BlockRandomTickEventEE9subscribeI11CopperBlockI12LanternBlockETkNS_14convertible_toIRKT_EERS4_EEN7Bedrock6PubSub12SubscriptionESD_MSB_KFvT0_EEUlSE_E_NS_9allocatorISL_EEFvSE_EEE`
+- `NSt3__110__function6__funcIZN11BlockEvents18BlockEventExecutorINS2_20BlockRandomTickEventEE9subscribeI11CopperBlockI13TrapDoorBlockETkNS_14convertible_toIRKT_EERS4_EEN7Bedrock6PubSub12SubscriptionESD_MSB_KFvT0_EEUlSE_E_NS_9allocatorISL_EEFvSE_EEE`
+- `NSt3__110__function6__funcIZN11BlockEvents18BlockEventExecutorINS2_20BlockRandomTickEventEE9subscribeI11CopperBlockI14ThinFenceBlockETkNS_14convertible_toIRKT_EERS4_EEN7Bedrock6PubSub12SubscriptionESD_MSB_KFvT0_EEUlSE_E_NS_9allocatorISL_EEFvSE_EEE`
+- `NSt3__110__function6__funcIZN11BlockEvents18BlockEventExecutorINS2_20BlockRandomTickEventEE9subscribeI11CopperBlockI17LightningRodBlockETkNS_14convertible_toIRKT_EERS4_EEN7Bedrock6PubSub12SubscriptionESD_MSB_KFvT0_EEUlSE_E_NS_9allocatorISL_EEFvSE_EEE`
+- `NSt3__110__function6__funcIZN11BlockEvents18BlockEventExecutorINS2_20BlockRandomTickEventEE9subscribeI11CopperBlockI9BlockTypeETkNS_14convertible_toIRKT_EERS4_EEN7Bedrock6PubSub12SubscriptionESD_MSB_KFvT0_EEUlSE_E_NS_9allocatorISL_EEFvSE_EEE`
+- `NSt3__110__function6__funcIZN11BlockEvents18BlockEventExecutorINS2_20BlockRandomTickEventEE9subscribeI11CopperBlockI9DoorBlockETkNS_14convertible_toIRKT_EERS4_EEN7Bedrock6PubSub12SubscriptionESD_MSB_KFvT0_EEUlSE_E_NS_9allocatorISL_EEFvSE_EEE`
+- `NSt3__110__function6__funcIZN11BlockEvents18BlockEventExecutorINS2_20BlockRandomTickEventEE9subscribeI11CopperBlockI9SlabBlockETkNS_14convertible_toIRKT_EERS4_EEN7Bedrock6PubSub12SubscriptionESD_MSB_KFvT0_EEUlSE_E_NS_9allocatorISL_EEFvSE_EEE`
+- `NSt3__110__function6__funcIZN11BlockEvents18BlockEventExecutorINS2_20BlockRandomTickEventEE9subscribeI11NyliumBlockTkNS_14convertible_toIRKT_EERS4_EEN7Bedrock6PubSub12SubscriptionESB_MS9_KFvT0_EEUlSC_E_NS_9allocatorISJ_EEFvSC_EEE`
+- `NSt3__110__function6__funcIZN11BlockEvents18BlockEventExecutorINS2_20BlockRandomTickEventEE9subscribeI15EyeblossomBlockTkNS_14convertible_toIRKT_EERS4_EEN7Bedrock6PubSub12SubscriptionESB_MS9_KFvT0_EEUlSC_E_NS_9allocatorISJ_EEFvSC_EEE`
+- `NSt3__110__function6__funcIZN11BlockEvents18BlockEventExecutorINS2_20BlockRandomTickEventEE9subscribeI15NetherWartBlockTkNS_14convertible_toIRKT_EERS4_EEN7Bedrock6PubSub12SubscriptionESB_MS9_KFvT0_EEUlSC_E_NS_9allocatorISJ_EEFvSC_EEE`
+- `NSt3__110__function6__funcIZN11BlockEvents18BlockEventExecutorINS2_26BlockRandomTickLegacyEventEE9subscribeI29BlockComponentEventSubscriberTkNS_14convertible_toIRKT_EERS4_EEN7Bedrock6PubSub12SubscriptionESB_MS9_KFvT0_EEUlSC_E_NS_9allocatorISJ_EEFvSC_EEE`
+- `PoolAliasBindingInternal::RandomGroupPoolAliasBinding`
+- `PoolAliasBindingInternal::RandomPoolAliasBinding`
+- `Random`
+- `RandomBlockStateFunction`
+- `RandomBreachingGoal`
+- `RandomDyeFunction`
+- … 241 more
+
+### dimension (309)
+
+- `?::Scripting::ClassBindingBuilder<ScriptModuleMinecraft::DeprecatedDimensionTypes>::constant<std::__1::basic_string<char, S5::?::char_traits<char>, S5::?::allocator<char>>>::S_::ConstantFactory&::SB const&::?::?::?`
+- `ActorDimensionTransferProxy`
+- `ActorDimensionTransferer`
+- `Bedrock::PubSub::Connector<?, void, ? const&, ?, long double::unsigned short::wchar_t::?::?::?::?::double::long double::?::unsigned short::int::float::int::long double::?::?::int::unsigned short::unsigned char::Su::bool::?::double::? const&::?::long::?::char::?::?*::short::unsigned int::DimensionType>`
+- `Bedrock::PubSub::Connector<?, void, ? const&, ?, long double::unsigned short::wchar_t::?::?::?::?::double::long double::?::unsigned short::int::float::int::long double::?::?::int::unsigned short::unsigned char::Su::bool::?::double::DimensionType>`
+- `Bedrock::PubSub::Connector<?, void, std::__1::variant<?, bool, S2::?::optional<ScriptModuleMinecraft::ScriptRGB>, S5::?::ScriptWaypointTextureSelector, S5::?::ScriptDimensionLocation> const&>`
+- `Bedrock::PubSub::Detail::SubscriptionBody<?, void, ? const&, ?, long double::unsigned short::wchar_t::?::?::?::?::double::long double::?::unsigned short::int::float::int::long double::?::?::int::unsigned short::unsigned char::Su::bool::?::double::? const&::?::long::?::char::?::?*::short::unsigned int::DimensionType, S0::?::ReturnPolicyType>`
+- `Bedrock::PubSub::Detail::SubscriptionBody<?, void, ? const&, ?, long double::unsigned short::wchar_t::?::?::?::?::double::long double::?::unsigned short::int::float::int::long double::?::?::int::unsigned short::unsigned char::Su::bool::?::double::DimensionType, S0::?::ReturnPolicyType>`
+- `Bedrock::PubSub::Detail::SubscriptionBody<?, void, std::__1::variant<?, bool, S3::?::optional<ScriptModuleMinecraft::ScriptRGB>, S6::?::ScriptWaypointTextureSelector, S6::?::ScriptDimensionLocation> const&>`
+- `Bedrock::PubSub::Publisher<?, void, ? const&, ?, long double::unsigned short::wchar_t::?::?::?::?::double::long double::?::unsigned short::int::float::int::long double::?::?::int::unsigned short::unsigned char::Su::bool::?::double::? const&::?::long::?::char::?::?*::short::unsigned int::DimensionType, S0::?::ThreadModel::MultiThreaded, S0::?::ReturnPolicyType>`
+- `Bedrock::PubSub::Publisher<?, void, ? const&, ?, long double::unsigned short::wchar_t::?::?::?::?::double::long double::?::unsigned short::int::float::int::long double::?::?::int::unsigned short::unsigned char::Su::bool::?::double::DimensionType, S0::?::ThreadModel::MultiThreaded, S0::?::ReturnPolicyType>`
+- `Bedrock::PubSub::Publisher<?, void, std::__1::variant<?, bool, S2::?::optional<ScriptModuleMinecraft::ScriptRGB>, S5::?::ScriptWaypointTextureSelector, S5::?::ScriptDimensionLocation> const&>`
+- `ChangeDimensionPacket`
+- `CustomDimension`
+- `Dimension`
+- `DimensionBrightnessRamp`
+- `DimensionDataPacket`
+- `DimensionFactory`
+- `DimensionManager`
+- `DimensionRegistry`
+- `EntityComponentDefinition<SharedTypes::v1_26_20::DimensionBoundComponentDefinition, ?, ?, ?, int, unsigned long, long double, ?, short, int, ?, ?, ?, ?, ?, ?, double, ?, ?, unsigned long, ?, ?, ?, long double, ?, unsigned short>`
+- `FilterTestDimensionWeather`
+- `IDimension`
+- `JsonComponentGlueUtils::DefinitionInstanceHolder<SharedTypes::v1_26_20::DimensionBoundComponentDefinition>`
+- `JsonDefinitionSerializer<SharedTypes::v1_26_20::DimensionBoundComponentDefinition, JsonComponentGlueUtils::DefinitionInstanceHolder<S2, ?>>`
+- `JsonDefinitionSerializerSchemaNode<SharedTypes::v1_26_20::DimensionBoundComponentDefinition>`
+- `JsonUtil::JsonSchemaNode<S_::EmptyClass, SharedTypes::v1_26_20::DimensionBoundComponentDefinition>`
+- `JsonUtil::JsonSchemaObjectNode<S_::EmptyClass, SharedTypes::v1_26_20::DimensionBoundComponentDefinition>`
+- `NetherDimension`
+- `OverworldDimension`
+- `PlayerDimensionTransferProxy`
+- `PlayerDimensionTransferer`
+- `Puv::CerealParser<SharedTypes::v1_21_60::DimensionDefinition::DimensionDocument, ? const&, ?>`
+- `Puv::CerealParser<SharedTypes::v1_26_50::DimensionDefinition::DimensionDocument, ? const&, ?>`
+- `Puv::CerealUpgrader<SharedTypes::v1_21_60::DimensionDefinition::DimensionDocument, S1::?::v1_26_50::DimensionDefinition::DimensionDocument, ?, ?>`
+- `Puv::internal::SliceSequence::LegacyParser<SharedTypes::v1_21_60::DimensionDefinition::DimensionDocument>`
+- `Puv::internal::SliceSequence::LegacyUpgrader<SharedTypes::v1_21_60::DimensionDefinition::DimensionDocument, S6, ?>`
+- `ScriptModuleMinecraft::ScriptAfterEventSignalBuilder<S_::ScriptWorldAfterEvents, S_::ScriptFilteredAfterEventSignal<S_::ScriptPlayerDimensionChangeAfterEvent, S_::EmptyFilter>>`
+- `ScriptModuleMinecraft::ScriptCustomDimensionRegistry`
+- `ScriptModuleMinecraft::ScriptDimension`
+- `ScriptModuleMinecraft::ScriptFilteredAfterEventSignal<S_::ScriptPlayerDimensionChangeAfterEvent, S_::EmptyFilter>`
+- `ScriptModuleMinecraft::ScriptFilteredEventSignal<S_::ScriptPlayerDimensionChangeAfterEvent, Scripting::Privilege>::S_::EmptyFilter`
+- `Scripting::Closure<?, void, S_::StrongTypedObjectHandle<ScriptModuleMinecraft::ScriptPlayerDimensionChangeAfterEvent>>::?`
+- `Scripting::Reflection::LambdaFunction<?, ScriptModuleMinecraft::ScriptDimensionTypes::bind, S_::ModuleBindingBuilder&>::$_0::bool`
+- `Scripting::Reflection::LambdaFunction<?, ScriptModuleMinecraft::ScriptDimensionTypes::bind, S_::ModuleBindingBuilder&>::$_1::bool`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptDimension::containsBlock, S_::StrongTypedObjectHandle<S2::?::ScriptBlockVolumeBase> const&, S2::?::ScriptBlockFilter const&, bool>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptDimension::createExplosion, ? const&, long double volatile, char, ?, float, std::__1::optional<S2::?::ScriptExplosionOptions>>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptDimension::createExplosion_V010, ? const&, long double volatile, char, ?, float, S_::TypedObjectHandle<S2::?::ScriptExplosionOptions>>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptDimension::getBlock, S_::WeakLifetimeScope, ? const&, long double volatile, char, ?>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptDimension::getBlockAbove, S_::WeakLifetimeScope, ? const&, long double volatile, char, ?, std::__1::optional<S2::?::ScriptBlockRaycastOptions> const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptDimension::getBlockBelow, S_::WeakLifetimeScope, ? const&, long double volatile, char, ?, std::__1::optional<S2::?::ScriptBlockRaycastOptions> const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptDimension::getBlockFromRay, S_::WeakLifetimeScope, ? const&, long double volatile, char, ?, S7, ?, std::__1::optional<S2::?::ScriptBlockRaycastOptions> const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptDimension::getBlockFromRay_V010, S_::WeakLifetimeScope, ? const&, long double volatile, char, ?, S2::?::ScriptVector const&, std::__1::optional<S2::?::ScriptBlockRaycastOptions> const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptDimension::getBlocksV1, S_::WeakLifetimeScope, S_::StrongTypedObjectHandle<S2::?::ScriptBlockVolumeBase> const&, S2::?::ScriptBlockFilter const&, bool>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptDimension::getBlocksV2, S_::WeakLifetimeScope, S_::StrongTypedObjectHandle<S2::?::ScriptBlockVolumeBase> const&, S2::?::ScriptBlockQueryOptions const&, bool>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptDimension::getEntities, std::__1::optional<S2::?::ScriptActorQueryOptions>>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptDimension::getEntitiesAtBlockLocation, ? const&, long double volatile, char, ?>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptDimension::getEntitiesAtBlockLocation_V010, ? const&, ?, long, ?, char, ?, ?*, short>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptDimension::getEntitiesFromRay, S_::WeakLifetimeScope, ? const&, long double volatile, char, ?, S7, ?, std::__1::optional<S2::?::ScriptEntityRaycastOptions> const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptDimension::getEntitiesFromRay_V010, S_::WeakLifetimeScope, ? const&, long double volatile, char, ?, S2::?::ScriptVector const&, std::__1::optional<S2::?::ScriptEntityRaycastOptions> const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptDimension::getEntities_V010, std::__1::optional<S2::?::ScriptActorQueryOptions>>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptDimension::getLightLevel, ? const&, long double volatile, char, ?>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptDimension::getPlayers, std::__1::optional<S2::?::ScriptActorQueryOptions>>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptDimension::getPlayers_V010, std::__1::optional<S2::?::ScriptActorQueryOptions>>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptDimension::getSkyLightLevel, ? const&, long double volatile, char, ?>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptDimension::getTopmostBlock, S_::WeakLifetimeScope, ? const&, long double volatile, char, ?, ?, std::__1::optional<float>>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptDimension::getWeather, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptDimension::isEmpty_V010, ? const&, ?, long, ?, char, ?, ?*, short>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptDimension::spawnEntity_V010, std::__1::basic_string<char, S4::?::char_traits<char>, S4::?::allocator<char>> const&, S4::?::variant<?, ?, ?, long, ?, char, ?, ?*, short, ?, long double volatile, char, ?> const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptDimension::spawnEntity_V130, std::__1::basic_string<char, S4::?::char_traits<char>, S4::?::allocator<char>> const&, ? const&, long double volatile, char, ?>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptDimension::spawnItem, S2::?::ScriptItemStack const&, ? const&, long double volatile, char, ?>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptDimension::spawnItem_V010, S2::?::ScriptItemStack const&, std::__1::variant<?, ?, ?, long, ?, char, ?, ?*, short, ?, long double volatile, char, ?> const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptDimension::spawnXp, ? const&, long double volatile, char, ?, int>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptPlayer::setSpawnPoint, std::__1::optional<S2::?::ScriptDimensionLocation> const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptWaypoint::getDimensionLocation, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptWorld::getDimension, std::__1::basic_string<char, S4::?::char_traits<char>, S4::?::allocator<char>> const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomDimensionManager::addDimension, std::__1::basic_string<char, S5::?::char_traits<char>, S5::?::allocator<char>> const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomDimensionManager::removeDimension, std::__1::basic_string<char, S5::?::char_traits<char>, S5::?::allocator<char>> const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleDebugUtilities::ScriptDebugDrawer::_addShape, S_::StrongTypedObjectHandle<S2::?::ScriptDebugShape>, std::__1::optional<S4::?::?::ScriptModuleMinecraft::ScriptDimension>>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleMinecraft::ScriptDimension::cloneBlocks, ? const&, long double volatile, char, ?, S6, ?, S6, ?, CloneBlocksUtils::CloneMode, std::__1::optional<S2::?::ScriptBlockFilter> const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleMinecraft::ScriptDimension::getBlock_V010, S_::WeakLifetimeScope, ? const&, ?, long, ?, char, ?, ?*, short>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleMinecraft::ScriptDimension::playSound, S_::WeakLifetimeScope const&, std::__1::basic_string<char, S7::?::char_traits<char>, S7::?::allocator<char>> const&, ? const&, long double volatile, char, ?, S7::?::optional<S2::?::ScriptWorldSoundOptions>>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleMinecraft::ScriptDimension::runCommand, S_::DependencyLocator&, S_::ContextConfig const&, std::__1::basic_string<char, S9::?::char_traits<char>, S9::?::allocator<char>> const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleMinecraft::ScriptDimension::runCommandAsync, S_::DependencyLocator&, S_::ContextConfig const&, S_::ScriptObjectFactory&, std::__1::basic_string<char, SB::?::char_traits<char>, SB::?::allocator<char>> const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleMinecraft::ScriptDimension::runCommand_V010, S_::ContextConfig const&, std::__1::basic_string<char, S7::?::char_traits<char>, S7::?::allocator<char>> const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleMinecraft::ScriptDimension::setBlockPermutation, ? const&, long double volatile, char, ?, S2::?::ScriptBlockPermutation const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleMinecraft::ScriptDimension::setBlockType, ? const&, long double volatile, char, ?, std::__1::variant<?, S_::StrongTypedObjectHandle<S2::?::ScriptBlockType>, S7::?::basic_string<char, S7::?::char_traits<char>, S7::?::allocator<char>>> const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleMinecraft::ScriptDimension::setWeather, S2::?::ScriptWeatherType, std::__1::optional<int>>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleMinecraft::ScriptDimension::spawnParticle, std::__1::basic_string<char, S4::?::char_traits<char>, S4::?::allocator<char>> const&, ? const&, long double volatile, char, ?, S4::?::optional<S_::StrongTypedObjectHandle<S2::?::ScriptMolangVariableMap>>>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleMinecraft::ScriptDimension::spawnParticle_V010, std::__1::basic_string<char, S4::?::char_traits<char>, S4::?::allocator<char>> const&, ? const&, long double volatile, char, ?, S_::StrongTypedObjectHandle<S2::?::ScriptMolangVariableMap>>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleMinecraft::ScriptDimension::stopAllSounds, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleMinecraft::ScriptDimension::stopSound, std::__1::basic_string<char, S4::?::char_traits<char>, S4::?::allocator<char>> const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleMinecraft::ScriptDimensionRegistry::registerCustomDimension, S_::ContextConfig const&, S_::WeakLifetimeScope&, std::__1::basic_string<char, S9::?::char_traits<char>, S9::?::allocator<char>> const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleMinecraft::ScriptFilteredEventSignal<S2::?::ScriptPlayerDimensionChangeAfterEvent, S_::Privilege>::S2::?::EmptyFilter, ?, ?, ?, ?, short, ?, bool, short, char, ?, int, bool, long double>::S_::Closure<?, void, S_::StrongTypedObjectHandle<S4, ?>>::? const&`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleMinecraft::ScriptFilteredEventSignal<S2::?::ScriptPlayerDimensionChangeAfterEvent, S_::Privilege>::S2::?::EmptyFilter, ?, ?, short, ?, bool, short, char, ?, int, bool, long double>::unsigned long::?::unsigned short::unsigned long long`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleMinecraft::ScriptLocationWaypoint::setDimensionLocation, S2::?::ScriptDimensionLocation const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleMinecraft::ScriptPrimitiveManager::_addShape, S_::StrongTypedObjectHandle<S2::?::ScriptTextPrimitive>, std::__1::optional<S4::?::?::S2::?::ScriptDimension>>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleMinecraft::ScriptPrimitiveShape::setLocation, std::__1::variant<?, S2::?::ScriptDimensionLocation, ?, long double volatile, char, ?> const&>`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::API::EditorScriptInternalAPI, S0::?::ReturnPolicy>::?::?::double::?::S4::?::_getCustomDimensionManager::void`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptGameOptions, S0::?::ReturnPolicy>::?::?::double::?::S2::?::GameOptions::mDimensionId`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptWidget, S0::?::ReturnPolicy>::?::?::double::?::S4 const::?::_scriptGetDimensionId::void`
+- `Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptWidgetCreateOptions, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mDimensionId`
+- `Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptBlock, S0::?::ReturnPolicy>::?::?::double::?::S3 const::?::getDimension::void`
+- `Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptBlockEvent, S0::?::ReturnPolicy>::?::?::double::?::S3::?::mDimension`
+- `Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptDimension, S0::?::ReturnPolicy>::?::?::double::?::S3 const::?::getHeightRange::void`
+- `Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptDimension, S0::?::ReturnPolicy>::?::?::double::?::S3 const::?::getId::void`
+- `Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptDimension, S0::?::ReturnPolicy>::?::?::double::?::S3 const::?::getLocalizationKey::void`
+- `Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptDimension, S0::?::ReturnPolicy>::?::?::double::?::S3 const::?::getPoiManager::void`
+- `Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptDimensionLocation, S0::?::ReturnPolicy>::?::?::double::?::S3::?::mDimension`
+- `Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptDimensionLocation, S0::?::ReturnPolicy>::?::?::double::?::S3::?::mX`
+- `Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptDimensionLocation, S0::?::ReturnPolicy>::?::?::double::?::S3::?::mY`
+- `Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptDimensionLocation, S0::?::ReturnPolicy>::?::?::double::?::S3::?::mZ`
+- `Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptDimensionType, S0::?::ReturnPolicy>::?::?::double::?::S3 const::?::getTypeId::void`
+- `Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptEntitySpawnCallbackArgs, S0::?::ReturnPolicy>::?::?::double::?::S3::?::mDimensionLocation`
+- `Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptExplosionStartedAfterEvent, S0::?::ReturnPolicy>::?::?::double::?::S3::?::mDimension`
+- `Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptModuleStartupBeforeEvent, S0::?::ReturnPolicy>::?::?::double::?::S3::?::mDimensionRegistry`
+- `Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptObstructionCallbackArgs, S0::?::ReturnPolicy>::?::?::double::?::S3::?::mDimension`
+- `Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptPlayerDimensionChangeAfterEvent, S0::?::ReturnPolicy>::?::?::double::?::S3::?::mFromDimension`
+- `Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptPlayerDimensionChangeAfterEvent, S0::?::ReturnPolicy>::?::?::double::?::S3::?::mFromLocation`
+- `Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptPlayerDimensionChangeAfterEvent, S0::?::ReturnPolicy>::?::?::double::?::S3::?::mPlayerHandle`
+- … 189 more
+
+### ore (1549)
+
+- `?::CreatorMetadataUtils::generateScriptingDocumentation::Scripting::ScriptEngine&::Core::Path const&`
+- `?::Editor::Network::PayloadServiceProvider::_registerPayload<S0::?::DataStoreEventPayload>::S0::?::PayloadMetrics*::void`
+- `?::Editor::ScriptModule::ScriptRealmsService::beginUploadToRealms::std::__1::basic_string<char, S2::?::char_traits<char>, S2::?::allocator<char>>::int::S0::?::ScriptGameOptions::Scripting::ScriptObjectFactory&`
+- `?::FileUploadManager::uploadFile::std::__1::basic_string<char, S0::?::char_traits<char>, S0::?::allocator<char>> const&::Core::Path const&::bool::Json::Value const&`
+- `?::Scripting::internal::BaseScriptComponent::?::I::ScriptModuleMinecraft::ScriptBlockCustomComponentPlayerPlaceBeforeEvent`
+- `?::Scripting::internal::BaseScriptComponent::?::I::ScriptModuleMinecraft::ScriptFilteredAfterEventSignal<S3::?::ScriptActorRemoveAfterEvent, S3::?::EventFilters::ScriptActorEventFilter>`
+- `?::Scripting::internal::BaseScriptComponent::?::I::ScriptModuleMinecraft::ScriptFilteredEventSignal<Editor::ScriptModule::ScriptDataStoreModalToolActivationChangedEvent, S_::Privilege>::S3::?::EmptyFilter`
+- `?::Scripting::internal::BaseScriptComponent::?::I::ScriptModuleMinecraft::ScriptFilteredEventSignal<S3::?::ScriptItemUseOnBeforeEvent, S_::Privilege>::S3::?::EmptyFilter`
+- `?::Scripting::internal::BaseScriptComponent::?::I::ScriptModuleMinecraft::ScriptFilteredEventSignal<S3::?::ScriptWorldInitializeBeforeEvent, S_::Privilege>::S3::?::EmptyFilter`
+- `?::webrtc::_GLOBAL__N_1::Store<S_::Clock>::void::std::__1::unique_ptr<?, ?, S3::?::default_delete<S5, ?>>::S_::scoped_refptr<S_::RefCountedBase const>&`
+- `?::webrtc::_GLOBAL__N_1::Store<S_::FieldTrialsView const>::void::std::__1::unique_ptr<?, ?, S4::?::default_delete<S6, ?>>::S_::scoped_refptr<S_::RefCountedBase const>&`
+- `?::webrtc::_GLOBAL__N_1::Store<S_::RtcEventLog>::void::std::__1::unique_ptr<?, ?, S3::?::default_delete<S5, ?>>::S_::scoped_refptr<S_::RefCountedBase const>&`
+- `?::webrtc::_GLOBAL__N_1::Store<S_::TaskQueueFactory>::void::std::__1::unique_ptr<?, ?, S3::?::default_delete<S5, ?>>::S_::scoped_refptr<S_::RefCountedBase const>&`
+- `ActorEnumPropertyTest`
+- `ActorEventCoordinator`
+- `ActorEventPacket`
+- `ActorEventResponse`
+- `ActorEventResponseFactory`
+- `ActorGoalDefinition<SharedTypes::v1_21_130::ExploreOutskirtsGoalDefinition, ?, ?>::long long::?::long::?::?::long double::?&&::unsigned short::short::?::int::?::unsigned short::short::?::?::?::long`
+- `AddActorEntityProxy`
+- `BackgroundTask<MakeCodeFileIO::MakeCodeFileIOReadResult, void>`
+- `BackgroundTask<void, MakeCodeFileIO::MakeCodeFileIOReadResult>`
+- `Bedrock::ApplicationDataStores`
+- `Bedrock::DDUI::DataStoreSync`
+- `Bedrock::DDUI::DataStoreSyncServer`
+- `Bedrock::DataStore`
+- `Bedrock::DataStore::EditorImpl`
+- `Bedrock::DataStore::ViewerImpl`
+- `Bedrock::PubSub::Connector<?, void, ? const&, ?, ?, ?, short, unsigned char, long double, double, std, ?, int, ?, ?, Editor::DataStore::EventType, Json::Value const&, S6::?::PayloadDescription const&>`
+- `Bedrock::PubSub::Connector<?, void, BlockEvents::ActorEvent&>`
+- `Bedrock::PubSub::Connector<?, void, Core::PathView>`
+- `Bedrock::PubSub::Connector<?, void, Core::Profile::ProfileGroup&>`
+- `Bedrock::PubSub::Connector<?, void, Editor::DataStore::IContentBadgeContainer::Config const&>`
+- `Bedrock::PubSub::Connector<?, void, FileArchiver::ExportType, Core::PathBuffer<S4::?::BasicStackString<char, unsigned long, ?, ?, ?>> const&>`
+- `Bedrock::PubSub::Connector<?, void, FileArchiver::ExportType, std::__1::basic_string<char, S4::?::char_traits<char>, S4::?::allocator<char>> const&, Core::Path const&>`
+- `Bedrock::PubSub::Detail::DispatchingPublisherBase<S0::?::ThreadModel::SingleThreaded, S1::?::SubscriptionBody<?, void, BlockEvents::ActorEvent&>::S0::?::ReturnPolicyType>`
+- `Bedrock::PubSub::Detail::SubscriptionBody<?, void, ? const&, ?, ?, ?, short, unsigned char, long double, double, std, ?, int, ?, ?, Editor::DataStore::EventType, Json::Value const&, S7::?::PayloadDescription const&>::S0::?::ReturnPolicyType`
+- `Bedrock::PubSub::Detail::SubscriptionBody<?, void, BlockEvents::ActorEvent&>::S0::?::ReturnPolicyType`
+- `Bedrock::PubSub::Detail::SubscriptionBody<?, void, Core::PathView>::S0::?::ReturnPolicyType`
+- `Bedrock::PubSub::Detail::SubscriptionBody<?, void, Core::Profile::ProfileGroup&>::S0::?::ReturnPolicyType`
+- `Bedrock::PubSub::Detail::SubscriptionBody<?, void, Editor::DataStore::IContentBadgeContainer::Config const&>::S0::?::ReturnPolicyType`
+- `Bedrock::PubSub::Detail::SubscriptionBody<?, void, FileArchiver::ExportType, Core::PathBuffer<S5::?::BasicStackString<char, unsigned long, ?, ?, ?>> const&>`
+- `Bedrock::PubSub::Detail::SubscriptionBody<?, void, FileArchiver::ExportType, std::__1::basic_string<char, S5::?::char_traits<char>, S5::?::allocator<char>> const&, Core::Path const&>::S0::?::ReturnPolicyType`
+- `Bedrock::PubSub::Publisher<?, void, ? const&, ?, ?, ?, short, unsigned char, long double, double, std, ?, int, ?, ?, Editor::DataStore::EventType, Json::Value const&, S6::?::PayloadDescription const&>::S0::?::ThreadModel::SingleThreaded::S0::?::ReturnPolicyType`
+- `Bedrock::PubSub::Publisher<?, void, BlockEvents::ActorEvent&>::S0::?::ThreadModel::SingleThreaded::S0::?::ReturnPolicyType`
+- `Bedrock::PubSub::Publisher<?, void, Core::PathView>::S0::?::ThreadModel::MultiThreaded::S0::?::ReturnPolicyType`
+- `Bedrock::PubSub::Publisher<?, void, Core::Profile::ProfileGroup&>::S0::?::ThreadModel::MultiThreaded::S0::?::ReturnPolicyType`
+- `Bedrock::PubSub::Publisher<?, void, Editor::DataStore::IContentBadgeContainer::Config const&>::S0::?::ThreadModel::SingleThreaded::S0::?::ReturnPolicyType`
+- `Bedrock::PubSub::Publisher<?, void, FileArchiver::ExportType, Core::PathBuffer<S4::?::BasicStackString<char, unsigned long, ?, ?, ?>> const&>`
+- `Bedrock::PubSub::Publisher<?, void, FileArchiver::ExportType, std::__1::basic_string<char, S4::?::char_traits<char>, S4::?::allocator<char>> const&, Core::Path const&>::S0::?::ThreadModel::MultiThreaded::S0::?::ReturnPolicyType`
+- `Bedrock::Threading::IAsyncGetResult<MakeCodeFileIO::MakeCodeFileIOReadResult>`
+- `Bedrock::Threading::IAsyncResult<MakeCodeFileIO::MakeCodeFileIOReadResult>`
+- `BlockEvents::ActorEvent`
+- `BlockEvents::BlockEventExecutor<S_::ActorEvent>`
+- `BlockEvents::Detail::BlockEventPublishingExecutor<S_::ActorEvent, void>`
+- `ClientboundDataStorePacket`
+- `ColoredTorchBlock`
+- `Core::BasicDirectoryStorageArea<S_::FileSystem_generic>`
+- `Core::FileImpl`
+- `Core::FilePathManager`
+- `Core::FileSizePresetManager`
+- `Core::FileSizePresetManagerImpl`
+- `Core::FileSizePresetTokenImpl`
+- `Core::FileStdStreamBuf`
+- `Core::FileStorageArea`
+- `Core::FileStorageAreaFetcher`
+- `Core::FileStream`
+- `Core::FileSystemImpl`
+- `Core::FileSystem_generic`
+- `Core::File_c`
+- `Core::FlatFile`
+- `Core::InputFileStream`
+- `Core::LoadTimeProfiler`
+- `Core::Observer<?, ?, ?, ?, ?, ?, bool&&, short, long double, ?, void, long double, ?, std::__1::mutex>`
+- `Core::Observer<?, ?, ?, long double, bool, void, int, long double, wchar_t, bool&&, short, long double, ?, void, long double, ?, S_::SingleThreadedLock>`
+- `Core::Observer<CodeBuilder::CommandOutputObserver, S_::SingleThreadedLock>`
+- `Core::Observer<Social::MultiplayerServiceObserver, S_::SingleThreadedLock>`
+- `Core::Observer<Social::XboxLiveUserObserver, S_::SingleThreadedLock>`
+- `Core::OutputFileStream`
+- `Core::Profile::NoOp_ProfileClient`
+- `Core::Profile::Whisker_ProfileClient`
+- `Core::StandardFileSystem`
+- `Core::StorageAreaStateListener`
+- `Core::UnzipFileLibZip`
+- `Core::UnzipFileMinizip`
+- `Core::ZipUtils::UnzipErrorCategory`
+- `Core::ZipUtils::ZipErrorCategory`
+- `Core::ZipUtils::ZipProgress`
+- `Core::ZipUtils::ZipUtility`
+- `DeepslateRedStoneOreBlock`
+- `DefinitionInstance<SharedTypes::v1_26_40::IgnoreCannotBeAttackedDefinition>`
+- `Editor::API::EditorExtension`
+- `Editor::API::EditorExtensionContext`
+- `Editor::API::EditorExtensionService`
+- `Editor::API::EditorExtensionServiceProvider`
+- `Editor::DataStore::ActionBarContainer`
+- `Editor::DataStore::ActionContainer`
+- `Editor::DataStore::Container`
+- `Editor::DataStore::ContentBadgeContainer`
+- `Editor::DataStore::IContentBadgeContainer`
+- `Editor::DataStore::MenuContainer`
+- `Editor::DataStore::ModalToolContainer`
+- `Editor::DataStore::PaneContainer`
+- `Editor::Network::DataStoreEventPayload`
+- `Editor::Network::ThumbnailCacheStorePayload`
+- `Editor::ScriptModule::ScriptDataStoreAfterEvents::ScriptDataStoreAfterEventsDeferredEventListener`
+- `Editor::Services::DataStoreService`
+- `Editor::Services::DataStoreServiceProvider`
+- `Editor::Services::EditorExportProjectManagerService`
+- `Editor::Services::PayloadStoreHelper`
+- `Editor::Services::ServerDataStoreService`
+- `EntityComponentDefinition<SharedTypes::v1_26_40::IgnoreCannotBeAttackedDefinition, ?, ?, ?, ?, ?, ?, ?, long double, ?, ?, ?, ?, ?, unsigned short, ?, long double, ?, unsigned short, unsigned short, ?, char, ?, long double, double, ?, ?, unsigned long, ?, ?, ?, long double, ?, unsigned short>`
+- `ExploreOutskirtsGoal`
+- `FilterOperationNode<OperationNodeFilters::Shore, ?, ?*, short, ?, double>`
+- `GameDirectorEntityServerCommandOrigin`
+- `HeavyCoreBlock`
+- `Interactions::ActorEventCoordinatorDependencies`
+- `JsonComponentGlueUtils::DefinitionInstanceHolder<SharedTypes::v1_21_130::ExploreOutskirtsGoalDefinition>`
+- `JsonComponentGlueUtils::DefinitionInstanceHolder<SharedTypes::v1_26_40::IgnoreCannotBeAttackedDefinition>`
+- `JsonDefinitionSerializer<SharedTypes::v1_21_130::ExploreOutskirtsGoalDefinition, JsonComponentGlueUtils::DefinitionInstanceHolder<S2, ?>>`
+- … 1429 more
+
+### spawn (397)
+
+- `ActorSpawnRuleGroup`
+- `BaseMobSpawner`
+- `Bedrock::PubSub::Connector<?, void, BlockEvents::BlockIsValidSpawnEvent&>`
+- `Bedrock::PubSub::Detail::SubscriptionBody<?, void, BlockEvents::BlockIsValidSpawnEvent&>::S0::?::ReturnPolicyType`
+- `Bedrock::PubSub::Publisher<?, void, BlockEvents::BlockIsValidSpawnEvent&>::S0::?::ThreadModel::SingleThreaded::S0::?::ReturnPolicyType`
+- `BedrockSpawner`
+- `BlockEvents::BlockEventExecutor<S_::BlockIsValidSpawnEvent>`
+- `BlockEvents::BlockIsValidSpawnEvent`
+- `BlockEvents::Detail::BlockEventPublishingExecutor<S_::BlockIsValidSpawnEvent, void>`
+- `ClearSpawnPointCommand`
+- `CreatureSpawnProbabilityComponent`
+- `DefaultMobSpawner`
+- `DefinitionInstance<SharedTypes::v1_26_20::SpawnOnDeathComponentDefinition>`
+- `DespawnComponent::WorldAccessor`
+- `DespawnSystem`
+- `EntityComponentDefinition<?, ?, Sp, ?, wchar_t, ?>::?::?::?::?::unsigned short::long double::?::?::char::unsigned short::?::long double::float::int::?::int::unsigned short::int::?::?::SpawnEggInteractComponent`
+- `EntityComponentDefinition<SharedTypes::v1_26_20::SpawnOnDeathComponentDefinition, ?, ?, Sp, ?, wchar_t, ?, ?&&, ?, long double, ?, unsigned short, unsigned char, ?, ?, unsigned long, ?, ?, ?, long double, ?, unsigned short>`
+- `EntityComponentDefinition<SharedTypes::v1_26_50::InstantDespawnComponentDefinition, ?, ?, ?, ?, short, unsigned short, ?, ?, unsigned short, ?, long double, short, ?, ?, wchar_t, ?, ?, ?, unsigned long, ?, ?, ?, long double, ?, unsigned short>`
+- `FrogSpawnBlock`
+- `FrogSpawnBlockItem`
+- `GetSpawnPointCommand`
+- `InstantDespawnSystem`
+- `IsSpawnableDescription`
+- `JsonComponentGlueUtils::DefinitionInstanceHolder<SharedTypes::v1_26_50::InstantDespawnComponentDefinition>`
+- `JsonDefinitionSerializer<?, ?, ?, long double, short, ?, ?, wchar_t, ?, ?, long double, float, int, ?, int, unsigned short, int, ?, ?, ?, ?>::?::unsigned short::int::unsigned short::unsigned long long::?::?::unsigned long::?::?::?::long double::?::unsigned short::?::long double::float::int::?::int::unsigned short::int::?::?::?::S0::?::DespawnComponent`
+- `JsonDefinitionSerializer<?, ?, Sp, ?, wchar_t, ?, ?, char, unsigned short, ?, ?, ?, long double, float, int, ?, int, unsigned short, int, ?, ?, ?, ?>::?::unsigned short::int::unsigned short::unsigned long long::?::?::unsigned long::?::?::?::long double::?::unsigned short::?::long double::float::int::?::int::unsigned short::int::?::?::?::S0::?::SpawnActorComponent`
+- `JsonDefinitionSerializer<SharedTypes::v1_26_50::InstantDespawnComponentDefinition, JsonComponentGlueUtils::DefinitionInstanceHolder<S2, ?>>`
+- `JsonDefinitionSerializerSchemaNode<SharedTypes::v1_26_50::InstantDespawnComponentDefinition>`
+- `JsonUtil::JsonSchemaChildOption<S_::EmptyClass, S_::JsonParseState<S1, ?, ?, ?>::void::long double::?::unsigned short::long double&::short::?::?::?::short::long double::?::?::long::long::long double::char::unsigned short::int::?::?>::SpawnLootEventResponse`
+- `JsonUtil::JsonSchemaChildOption<S_::EmptyClass, S_::JsonParseState<S1, ?, SharedTypes::v1_26_50::InstantDespawnComponentDefinition>, bool>`
+- `JsonUtil::JsonSchemaChildOption<S_::JsonParseState<S1::?::?::S_::EmptyClass::SharedTypes::v1_26_50::InteractComponentDefinition>::S4::?::InteractionData>::S1::?::?::S8::?::S7::?::SpawnItemsData`
+- `JsonUtil::JsonSchemaChildOption<S_::JsonParseState<S1::?::?::S_::EmptyClass::SpawnActorDefinition>::std::__1::vector<?, ?, Sp, ?, wchar_t, ?, ?, char, unsigned short, ?, ?, ?*, ?, ?, unsigned long, long double, unsigned short, long double, ?, short, S5::?::allocator<S7, ?>>>::S1::?::?::SB::?::S7::?`
+- `JsonUtil::JsonSchemaChildOption<S_::JsonParseState<S_::EmptyClass, ?, ?, ?, long double, short, ?, ?, wchar_t, ?, ?, long double, float, int, ?, int, unsigned short, int, ?, ?>, S1::?::?::S4::?::DespawnFromDistanceData>::int`
+- `JsonUtil::JsonSchemaChildOption<S_::JsonParseState<S_::EmptyClass, ?, ?, Sp, ?, wchar_t, ?, ?, char, unsigned short, ?, ?, ?, long double, float, int, ?, int, unsigned short, int, ?, ?>, S1::?::?::S4::?::SpawnActorParameters>::ActorDefinitionTrigger`
+- `JsonUtil::JsonSchemaChildOption<S_::JsonParseState<S_::EmptyClass, ?, ?, Sp, ?, wchar_t, ?, ?, char, unsigned short, ?, ?, ?, long double, float, int, ?, int, unsigned short, int, ?, ?>, S1::?::?::S4::?::SpawnActorParameters>::ActorFilterGroup`
+- `JsonUtil::JsonSchemaChildOption<S_::JsonParseState<S_::EmptyClass, ?, ?, Sp, ?, wchar_t, ?, ?, char, unsigned short, ?, ?, ?, long double, float, int, ?, int, unsigned short, int, ?, ?>, S1::?::?::S4::?::SpawnActorParameters>::ItemDescriptor`
+- `JsonUtil::JsonSchemaChildOption<S_::JsonParseState<S_::EmptyClass, ?, ?, Sp, ?, wchar_t, ?, ?, char, unsigned short, ?, ?, ?, long double, float, int, ?, int, unsigned short, int, ?, ?>, S1::?::?::S4::?::SpawnActorParameters>::bool`
+- `JsonUtil::JsonSchemaChildOption<S_::JsonParseState<S_::EmptyClass, ?, ?, Sp, ?, wchar_t, ?, ?, char, unsigned short, ?, ?, ?, long double, float, int, ?, int, unsigned short, int, ?, ?>, S1::?::?::S4::?::SpawnActorParameters>::int`
+- `JsonUtil::JsonSchemaChildOption<S_::JsonParseState<S_::EmptyClass, ?, ?, Sp, ?, wchar_t, ?, ?, char, unsigned short, ?, ?, ?, long double, float, int, ?, int, unsigned short, int, ?, ?>, S1::?::?::S4::?::SpawnActorParameters>::std::__1::basic_string<char, S7::?::char_traits<char>, S7::?::allocator<char>>`
+- `JsonUtil::JsonSchemaChildOption<S_::JsonParseState<S_::EmptyClass, ?, ?>::void::long double::?::unsigned short::long double&::short::?::?::?::short::long double::?::?::long::long::long double::char::unsigned short::int::?::?>::S1::?::?::S4::?::SpawnLootEventResponse`
+- `JsonUtil::JsonSchemaChildOption<S_::JsonParseState<S_::EmptyClass, SharedTypes::Legacy::ComponentItemData>, S1::?::?::S6::?::S5::?>::ShouldDespawnItemComponent`
+- `JsonUtil::JsonSchemaChildOption<S_::JsonParseState<S_::EmptyClass, SharedTypes::v1_26_50::InteractComponentDefinition>, S1::?::?::S6::?::S4::?::InteractionData>::S7::?::SpawnItemsData`
+- `JsonUtil::JsonSchemaChildOptionBase<S_::EmptyClass, SharedTypes::v1_26_50::InstantDespawnComponentDefinition>`
+- `JsonUtil::JsonSchemaChildOptionBase<S_::JsonParseState<S1::?::?::S_::EmptyClass::SharedTypes::v1_26_50::InteractComponentDefinition>::S4::?::InteractionData>::S7::?::SpawnItemsData`
+- `JsonUtil::JsonSchemaChildOptionBase<S_::JsonParseState<S1::?::?::S_::EmptyClass::SpawnActorDefinition>::std::__1::vector<?, ?, Sp, ?, wchar_t, ?, ?, char, unsigned short, ?, ?, ?*, ?, ?, unsigned long, long double, unsigned short, long double, ?, short, S5::?::allocator<S7, ?>>>::S7::?`
+- `JsonUtil::JsonSchemaChildOptionBase<S_::JsonParseState<S_::EmptyClass, ?, ?>::void::long double::?::unsigned short::long double&::short::?::?::?::short::long double::?::?::long::long::long double::char::unsigned short::int::?::?>::SpawnLootEventResponse`
+- `JsonUtil::JsonSchemaNode<S_::EmptyClass, SharedTypes::v1_26_50::InstantDespawnComponentDefinition>`
+- `JsonUtil::JsonSchemaNode<S_::JsonParseState<S1::?::?::S1::?::?::S1::?::?::S_::EmptyClass::SharedTypes::v1_26_50::InteractComponentDefinition::S5::?>::S4::?::InteractionData>::S8::?::SpawnItemsData`
+- `JsonUtil::JsonSchemaNode<S_::JsonParseState<S1::?::?::S1::?::?::S_::EmptyClass::SharedTypes::v1_26_50::InteractComponentDefinition, S4::?::InteractionData>, S7::?::SpawnItemsData>`
+- `JsonUtil::JsonSchemaNode<S_::JsonParseState<S1::?::?::S1::?::?::S_::EmptyClass::SpawnActorDefinition, std::__1::vector<?, ?, Sp, ?, wchar_t, ?, ?, char, unsigned short, ?, ?, ?*, ?, ?, unsigned long, long double, unsigned short, long double, ?, short, S5::?::allocator<S7, ?>>>, S7, ?>`
+- `JsonUtil::JsonSchemaNode<S_::JsonParseState<S1::?::?::S_::EmptyClass::DespawnDefinition>::DespawnFromDistanceData>::int`
+- `JsonUtil::JsonSchemaNode<S_::JsonParseState<S1::?::?::S_::EmptyClass::EventResponseCollection>::SpawnLootEventResponse>::std::__1::basic_string<char, S7::?::char_traits<char>, S7::?::allocator<char>>`
+- `JsonUtil::JsonSchemaNode<S_::JsonParseState<S1::?::?::S_::EmptyClass::SharedTypes::Legacy::ComponentItemData>::S5::?>::ShouldDespawnItemComponent`
+- `JsonUtil::JsonSchemaNode<S_::JsonParseState<S1::?::?::S_::EmptyClass::SharedTypes::v1_26_50::InteractComponentDefinition>::S4::?::InteractionData>::S7::?::SpawnItemsData`
+- `JsonUtil::JsonSchemaNode<S_::JsonParseState<S1::?::?::S_::EmptyClass::SpawnActorDefinition>::SpawnActorParameters>::ActorDefinitionTrigger`
+- `JsonUtil::JsonSchemaNode<S_::JsonParseState<S1::?::?::S_::EmptyClass::SpawnActorDefinition>::SpawnActorParameters>::ActorFilterGroup`
+- `JsonUtil::JsonSchemaNode<S_::JsonParseState<S1::?::?::S_::EmptyClass::SpawnActorDefinition>::SpawnActorParameters>::ItemDescriptor`
+- `JsonUtil::JsonSchemaNode<S_::JsonParseState<S1::?::?::S_::EmptyClass::SpawnActorDefinition>::SpawnActorParameters>::bool`
+- `JsonUtil::JsonSchemaNode<S_::JsonParseState<S1::?::?::S_::EmptyClass::SpawnActorDefinition>::SpawnActorParameters>::int`
+- `JsonUtil::JsonSchemaNode<S_::JsonParseState<S1::?::?::S_::EmptyClass::SpawnActorDefinition>::SpawnActorParameters>::std::__1::basic_string<char, S7::?::char_traits<char>, S7::?::allocator<char>>`
+- `JsonUtil::JsonSchemaNode<S_::JsonParseState<S1::?::?::S_::EmptyClass::SpawnActorDefinition>::std::__1::vector<?, ?, Sp, ?, wchar_t, ?, ?, char, unsigned short, ?, ?, ?*, ?, ?, unsigned long, long double, unsigned short, long double, ?, short, S5::?::allocator<S7, ?>>>::S7::?`
+- `JsonUtil::JsonSchemaNode<S_::JsonParseState<S_::EmptyClass, ?, ?>::void::long double::?::unsigned short::long double&::short::?::?::?::short::long double::?::?::long::long::long double::char::unsigned short::int::?::?>::SpawnLootEventResponse`
+- `JsonUtil::JsonSchemaNode<S_::JsonParseState<S_::EmptyClass, SharedTypes::v1_26_50::InstantDespawnComponentDefinition>, bool>`
+- `JsonUtil::JsonSchemaNode_CanHaveChildren<S_::JsonParseState<S1::?::?::S_::EmptyClass::SharedTypes::Legacy::ComponentItemData>::S5::?>::ShouldDespawnItemComponent`
+- `JsonUtil::JsonSchemaObjectNode<S_::EmptyClass, SharedTypes::v1_26_50::InstantDespawnComponentDefinition>`
+- `JsonUtil::JsonSchemaObjectNode<S_::JsonParseState<S1::?::?::S_::EmptyClass::SharedTypes::Legacy::ComponentItemData>::S5::?>::ShouldDespawnItemComponent`
+- `JsonUtil::JsonSchemaObjectNode<S_::JsonParseState<S1::?::?::S_::EmptyClass::SharedTypes::v1_26_50::InteractComponentDefinition>::S4::?::InteractionData>::S7::?::SpawnItemsData`
+- `JsonUtil::JsonSchemaObjectNode<S_::JsonParseState<S1::?::?::S_::EmptyClass::SpawnActorDefinition>::std::__1::vector<?, ?, Sp, ?, wchar_t, ?, ?, char, unsigned short, ?, ?, ?*, ?, ?, unsigned long, long double, unsigned short, long double, ?, short, S5::?::allocator<S7, ?>>>::S7::?`
+- `JsonUtil::JsonSchemaObjectNode<S_::JsonParseState<S_::EmptyClass, ?, ?>::void::long double::?::unsigned short::long double&::short::?::?::?::short::long double::?::?::long::long::long double::char::unsigned short::int::?::?>::SpawnLootEventResponse`
+- `JsonUtil::JsonSchemaTypedNode<?, ?, ?, char, unsigned short, ?, ?, ?, int, long, unsigned short, long double, ?, ?, ?, ?, ?, ?, S_::JsonParseState<S2::?::?::S2::?::?::S_::EmptyClass::SpawnActorDefinition, std::__1::vector<?, ?, Sp, ?, wchar_t, ?, ?, char, unsigned short, ?, ?, ?*, ?, ?, unsigned long, long double, unsigned short, long double, ?, short, S6::?::allocator<S8, ?>>>, S8, ?>`
+- `JsonUtil::JsonSchemaTypedNode<?, ?, ?, char, unsigned short, ?, ?, ?, int, long, unsigned short, long double, ?, ?, ?, ?, ?, ?, S_::JsonParseState<S2::?::?::S_::EmptyClass::SpawnActorDefinition>::SpawnActorParameters>::S1::?`
+- `JsonUtil::JsonSchemaTypedNode<?, ?, ?, char, unsigned short, ?, ?, ?, long double, float, int, ?, int, unsigned short, int, ?, ?, ?, ?, int, ?, ?, long double, ?, S_::JsonParseState<S2::?::?::S2::?::?::S_::EmptyClass::SpawnActorDefinition, std::__1::vector<?, ?, Sp, ?, wchar_t, ?, ?, char, unsigned short, ?, ?, ?*, ?, ?, unsigned long, long double, unsigned short, long double, ?, short, S6::?::allocator<S8, ?>>>, S8, ?>`
+- `JsonUtil::JsonSchemaTypedNode<?, ?, ?, char, unsigned short, ?, ?, ?, long double, float, int, ?, int, unsigned short, int, ?, ?, ?, ?, int, ?, ?, long double, ?, S_::JsonParseState<S2::?::?::S_::EmptyClass::SpawnActorDefinition>::SpawnActorParameters>::S1::?`
+- `JsonUtil::JsonSchemaTypedNode<?, ?, ?, unsigned short, long double, unsigned long, ?, long double, short, char, ?, int, ?, unsigned short, ?, ?, S_::JsonParseState<S2::?::?::S2::?::?::S_::EmptyClass::SpawnActorDefinition, std::__1::vector<?, ?, Sp, ?, wchar_t, ?, ?, char, unsigned short, ?, ?, ?*, ?, ?, unsigned long, long double, unsigned short, long double, ?, short, S6::?::allocator<S8, ?>>>, S8, ?>`
+- `JsonUtil::JsonSchemaTypedNode<?, ?, ?, unsigned short, long double, unsigned long, ?, long double, short, char, ?, int, ?, unsigned short, ?, ?, S_::JsonParseState<S2::?::?::S_::EmptyClass::SpawnActorDefinition>::SpawnActorParameters>::S1::?`
+- `JsonUtil::JsonSchemaTypedNode<SharedTypes::FileReference<S1::?::AssetType, ?>>::S_::JsonParseState<S5::?::?::S5::?::?::S_::EmptyClass::S1::?::v1_26_50::InteractComponentDefinition, S7::?::InteractionData>::SA::?::SpawnItemsData`
+- `JsonUtil::JsonSchemaTypedNode<bool, S_::JsonParseState<S1::?::?::S1::?::?::S_::EmptyClass::SpawnActorDefinition, std::__1::vector<?, ?, Sp, ?, wchar_t, ?, ?, char, unsigned short, ?, ?, ?*, ?, ?, unsigned long, long double, unsigned short, long double, ?, short, S5::?::allocator<S7, ?>>>, S7, ?>`
+- `JsonUtil::JsonSchemaTypedNode<bool, S_::JsonParseState<S1::?::?::S_::EmptyClass::SpawnActorDefinition>::SpawnActorParameters>::bool`
+- `JsonUtil::JsonSchemaTypedNode<bool, S_::JsonParseState<S_::EmptyClass, SharedTypes::v1_26_50::InstantDespawnComponentDefinition>, bool>`
+- `JsonUtil::JsonSchemaTypedNode<float, S_::JsonParseState<S1::?::?::S1::?::?::S1::?::?::S_::EmptyClass::SharedTypes::v1_26_50::InteractComponentDefinition::S5::?>::S4::?::InteractionData>::S8::?::SpawnItemsData`
+- `JsonUtil::JsonSchemaTypedNode<float, S_::JsonParseState<S1::?::?::S1::?::?::S_::EmptyClass::SharedTypes::v1_26_50::InteractComponentDefinition, S4::?::InteractionData>, S7::?::SpawnItemsData>`
+- `JsonUtil::JsonSchemaTypedNode<int, S_::JsonParseState<S1::?::?::S1::?::?::S_::EmptyClass::SpawnActorDefinition, std::__1::vector<?, ?, Sp, ?, wchar_t, ?, ?, char, unsigned short, ?, ?, ?*, ?, ?, unsigned long, long double, unsigned short, long double, ?, short, S5::?::allocator<S7, ?>>>, S7, ?>`
+- `JsonUtil::JsonSchemaTypedNode<int, S_::JsonParseState<S1::?::?::S_::EmptyClass::DespawnDefinition>::DespawnFromDistanceData>::int`
+- `JsonUtil::JsonSchemaTypedNode<int, S_::JsonParseState<S1::?::?::S_::EmptyClass::SpawnActorDefinition>::SpawnActorParameters>::int`
+- `JsonUtil::JsonSchemaTypedNode<std::__1::basic_string<char, S1::?::char_traits<char>, S1::?::allocator<char>>, S_::JsonParseState<S8::?::?::S8::?::?::S_::EmptyClass::SpawnActorDefinition, S1::?::vector<?, ?, Sp, ?, wchar_t, ?, ?, char, unsigned short, ?, ?, ?*, ?, ?, unsigned long, long double, unsigned short, long double, ?, short, S5::?::?::SD::?>>>::SD::?`
+- `JsonUtil::JsonSchemaTypedNode<std::__1::basic_string<char, S1::?::char_traits<char>, S1::?::allocator<char>>, S_::JsonParseState<S8::?::?::S_::EmptyClass::EventResponseCollection>::SpawnLootEventResponse>::S7::?`
+- `JsonUtil::JsonSchemaTypedNode<std::__1::basic_string<char, S1::?::char_traits<char>, S1::?::allocator<char>>, S_::JsonParseState<S8::?::?::S_::EmptyClass::SpawnActorDefinition>::SpawnActorParameters>::S7::?`
+- `MobSpawnerBlock`
+- `MobSpawnerBlockActor`
+- `OminousItemSpawner`
+- `Puv::CerealParser<SharedTypes::Legacy::Spawn::Contents, ? const&, ?, ?, long double, double, ?, ?, char, ?, ?, double, ?, ?, ?, unsigned short, long double, long long, unsigned short>`
+- `Puv::CerealParser<SharedTypes::v1_21_60::Spawn::Contents, ? const&, ?, ?, long double, double, ?, ?, char, ?, ?, double, ?, ?, ?, unsigned short, long double, long long, unsigned short>`
+- `RespawnAnchorBlock`
+- `RespawnPacket`
+- `ScriptModuleMinecraft::ScriptAfterEventSignalBuilder<S_::ScriptWorldAfterEvents, S_::ScriptFilteredAfterEventSignal<S_::ScriptActorSpawnAfterEvent, S_::EmptyFilter>>`
+- `ScriptModuleMinecraft::ScriptAfterEventSignalBuilder<S_::ScriptWorldAfterEvents, S_::ScriptFilteredAfterEventSignal<S_::ScriptPlayerSpawnAfterEvent, S_::EmptyFilter>>`
+- `ScriptModuleMinecraft::ScriptCustomSpawnRulesRegistry`
+- `ScriptModuleMinecraft::ScriptFilteredAfterEventSignal<S_::ScriptActorSpawnAfterEvent, S_::EmptyFilter>`
+- `ScriptModuleMinecraft::ScriptFilteredAfterEventSignal<S_::ScriptPlayerSpawnAfterEvent, S_::EmptyFilter>`
+- `ScriptModuleMinecraft::ScriptFilteredEventSignal<S_::ScriptActorSpawnAfterEvent, Scripting::Privilege>::S_::EmptyFilter`
+- `ScriptModuleMinecraft::ScriptFilteredEventSignal<S_::ScriptPlayerSpawnAfterEvent, Scripting::Privilege>::S_::EmptyFilter`
+- `ScriptModuleMinecraft::ScriptSetSpawnEggFunction`
+- `ScriptModuleMinecraft::ScriptV130SignalBuilder<S_::ScriptPlayerSpawnAfterEvent>`
+- `Scripting::Closure<?, bool, S_::StrongTypedObjectHandle<ScriptModuleMinecraft::ScriptEntitySpawnCallbackArgs>>::?`
+- `Scripting::Closure<?, void, S_::StrongTypedObjectHandle<ScriptModuleMinecraft::ScriptActorSpawnAfterEvent>>::?`
+- `Scripting::Closure<?, void, S_::StrongTypedObjectHandle<ScriptModuleMinecraft::ScriptPlayerSpawnAfterEvent>>::?`
+- `Scripting::Reflection::LambdaPropertyGetter<ScriptModuleMinecraft::ScriptEntitySpawnType, S0::?::ReturnPolicy>::?::S3::?::bind::void`
+- `Scripting::Reflection::LambdaPropertyGetter<ScriptModuleMinecraft::ScriptWorldAfterEvents, S0::?::ReturnPolicy>::?::S2 const::?::ScriptV130SignalBuilder<S2::?::ScriptPlayerSpawnAfterEvent>::bind::S_::ModuleBindingBuilder&::entt::meta_any&`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptBlock::liquidSpreadCausesSpawn, SharedTypes::v1_26_0::LiquidType>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptBlockPermutation::liquidSpreadCausesSpawn, SharedTypes::v1_26_0::LiquidType>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptEntitySpawnType::_getSpawnAABB, ? const&, long double volatile, char, ?>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptEntitySpawnType::_isBlockDangerous, S_::StrongTypedObjectHandle<S2::?::ScriptBlock> const&>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptPlayer::getSpawnPoint, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ? const::S::char::?::int::?::unsigned short::?::?::double::?::long::long double::?::int::?::long double::char::?::?::float::unsigned short::ScriptWorld::getDefaultSpawnLocation, void>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptProjectRegion::spawnEntity, std::__1::variant<?, ScriptModuleMinecraft::ScriptActorType, S5::?::basic_string<char, S5::?::char_traits<char>, S5::?::allocator<char>>> const&>::? const&::long double volatile::char::NS5::?::optional<float>`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleMinecraft::ScriptFilteredEventSignal<S2::?::ScriptActorSpawnAfterEvent, S_::Privilege>::S2::?::EmptyFilter, ?, ?, ?, ?, short, ?, bool, short, char, ?, int, bool, long double>::S_::Closure<?, void, S_::StrongTypedObjectHandle<S4, ?>>::? const&`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleMinecraft::ScriptFilteredEventSignal<S2::?::ScriptActorSpawnAfterEvent, S_::Privilege>::S2::?::EmptyFilter, ?, ?, short, ?, bool, short, char, ?, int, bool, long double>::unsigned long::?::unsigned short::unsigned long long`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleMinecraft::ScriptFilteredEventSignal<S2::?::ScriptPlayerSpawnAfterEvent, S_::Privilege>::S2::?::EmptyFilter, ?, ?, ?, ?, short, ?, bool, short, char, ?, int, bool, long double>::S_::Closure<?, void, S_::StrongTypedObjectHandle<S4, ?>>::? const&`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleMinecraft::ScriptFilteredEventSignal<S2::?::ScriptPlayerSpawnAfterEvent, S_::Privilege>::S2::?::EmptyFilter, ?, ?, short, ?, bool, short, char, ?, int, bool, long double>::unsigned long::?::unsigned short::unsigned long long`
+- `Scripting::Reflection::MemberFunction<?, ?, double, ?, ScriptModuleMinecraft::ScriptPlayer::spawnParticle, std::__1::basic_string<char, S4::?::char_traits<char>, S4::?::allocator<char>> const&, ? const&, long double volatile, char, ?, S4::?::optional<S_::StrongTypedObjectHandle<S2::?::ScriptMolangVariableMap>>>`
+- … 277 more
+
+## Functions attributed to a source file
+
+String literals in the binary include the original source paths
+(`/mnt/vss/_work/1/s/...`), so a function that references such a
+path can be attributed to that translation unit.
+
+| function | class::slot | source file | instructions |
+|---|---|---|---|
+
+## Translation units seen in the evidence
+
+
+## Hub functions (most distinct callers)
+
+- `412a280` called by 1026
+- `eec74c0` called by 715
+- `4108328` called by 613
+- `410844d` called by 606
+- `412c2d0` called by 372
+- `eee2d70` called by 285
+- `eee2f00` called by 259
+- `48aead0` called by 255
+- `eee2f40` called by 236
+- `488e200` called by 222
+- `4882eb0` called by 220
+- `412e5e0` called by 179
+- `48b1dc0` called by 170
+- `4890760` called by 153
+- `eeddcf0` called by 152
+- `eee2dd0` called by 146
+- `cc41df0` called by 117
+- `4882e20` called by 111
+- `5d84ba0` called by 100
+- `4882e40` called by 98
+- `ed6d600` called by 93
+- `4882e30` called by 82
+- `ed5ffe0` called by 80
+- `4885070` called by 77
+- `4931450` called by 75
+- `eee2ee0` called by 71
+- `ed75bc0` called by 70
+- `eee3000` called by 66
+- `48b0de0` called by 64
+- `470d9a0` called by 64
+- `412c1f0` called by 64
+- `49e8590` called by 63
+- `ed76130` called by 60
+- `ed764d0` called by 60
+- `ed77060` called by 60
+- `5d9a920` called by 58
+- `48b0900` called by 57
+- `b5d6180` called by 57
+- `b5d6330` called by 57
+- `eee3290` called by 56

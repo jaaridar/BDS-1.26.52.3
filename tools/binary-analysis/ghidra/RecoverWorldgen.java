@@ -152,6 +152,12 @@ public class RecoverWorldgen extends GhidraScript {
     private long rodataStart = Long.MAX_VALUE;
     private long rodataEnd = Long.MIN_VALUE;
 
+    // Decompilation order (breadth-first from the selected vtable slots) and a
+    // flat address -> owners view, used by the disassembly dumper.
+    private final List<Long> functionLoadOrder = new ArrayList<>();
+    private final List<Long> functionOrder = new ArrayList<>();
+    private final Map<Long, String> ownersByFunction = new HashMap<>();
+
     @Override
     protected void run() throws Exception {
         String[] args = getScriptArgs();
@@ -197,6 +203,8 @@ public class RecoverWorldgen extends GhidraScript {
             println("functions analysed: " + functions.size()
                 + " (" + (System.currentTimeMillis() - started) + " ms)");
             decompileAll(out, maxFunctions);
+            scanSourcePaths(out);
+            dumpDisassembly(out);
         } else {
             writeVtableReports(out);
         }
@@ -941,6 +949,9 @@ public class RecoverWorldgen extends GhidraScript {
             }
         }
         info.instructionCount = count;
+        if (!functions.containsKey(address)) {
+            functionLoadOrder.add(address);
+        }
         functions.put(address, info);
         return info;
     }
@@ -1248,28 +1259,65 @@ public class RecoverWorldgen extends GhidraScript {
     //   * the constructor(s) that install it (ctor:<Class>), and
     //   * for lambda/`__func` vtables, the function that created the lambda
     //     (fn:<Class>::<method>), which names otherwise anonymous code.
-    private void scanCodeReferences(File out, int maxFunctions) throws Exception {
-        Map<Long, List<String>> interesting = new HashMap<>();
-        for (Vtable table : vtables) {
-            if (looksLikeLambda(table.mangled)) {
-                String enclosing = enclosingFunction(table.mangled);
-                if (enclosing != null && enclosing.length() >= 5 && enclosing.indexOf('?') < 0) {
-                    interesting.computeIfAbsent(table.addressPoint, key -> new ArrayList<>())
-                        .add("fn:" + enclosing);
-                }
+    /**
+     * Find the function that owns {@code site}.
+     *
+     * Because the binary is imported with {@code -noanalysis}, Ghidra only knows
+     * the functions this script created. Inside those bodies attribution is
+     * exact. For sites further out we fall back to the nearest preceding
+     * function only when the bytes between its body and the site contain no
+     * return/padding byte, which is the usual "Ghidra stopped at the first
+     * ret" case. Everything else is reported as unresolved rather than
+     * mis-attributed.
+     */
+    private Function locateFunction(long site) {
+        Function containing = getFunctionContaining(addr(site));
+        if (containing != null) {
+            return containing;
+        }
+        Function previous = getFunctionBefore(addr(site));
+        if (previous == null) {
+            return null;
+        }
+        long end = previous.getBody().getMaxAddress().getOffset();
+        if (site <= end) {
+            return previous;
+        }
+        long gap = site - end;
+        if (gap > 0x4000) {
+            return null;
+        }
+        byte[] buffer = new byte[(int) gap];
+        try {
+            memory.getBytes(addr(end + 1), buffer);
+        } catch (Exception e) {
+            return null;
+        }
+        for (byte value : buffer) {
+            int unsigned = value & 0xff;
+            if (unsigned == 0xc3 || unsigned == 0xcb || unsigned == 0xcc) {
+                return null;
             }
         }
-        for (Vtable table : vtables) {
-            if (table.selected && table.demangled != null && table.demangled.indexOf('?') < 0
-                    && table.demangled.length() < 80) {
-                interesting.computeIfAbsent(table.addressPoint, key -> new ArrayList<>())
-                    .add("ctor:" + table.demangled);
-            }
-        }
-        println("code-scan targets: " + interesting.size());
+        return previous;
+    }
 
-        Map<Long, Set<String>> owners = new LinkedHashMap<>();
+    /**
+     * Scan every executable block for `REX.W 8D /r` (lea r64, [rip+disp32]) and
+     * return function entry -> set of rip-relative targets that land on one of
+     * {@code targets}.
+     *
+     * Ghidra's reference manager does not expose these operands for this
+     * imported image, so the raw encoding is decoded here instead.
+     */
+    private Map<Long, Set<Long>> scanLeaSites(Set<Long> targets) throws Exception {
+        Map<Long, Set<Long>> owners = new LinkedHashMap<>();
+        if (targets.isEmpty()) {
+            return owners;
+        }
         int chunkSize = 8 << 20;
+        long sites = 0;
+        long unresolvedSites = 0;
         for (MemoryBlock block : execBlocks) {
             long base = block.getStart().getOffset();
             long size = block.getSize();
@@ -1298,20 +1346,203 @@ public class RecoverWorldgen extends GhidraScript {
                         | ((buffer[i + 5] & 0xff) << 16)
                         | ((buffer[i + 6] & 0xff) << 24);
                     long target = base + chunkStart + i + 7 + displacement;
-                    List<String> names = interesting.get(target);
-                    if (names == null) {
+                    if (!targets.contains(target)) {
                         continue;
                     }
                     long site = base + chunkStart + i;
-                    Function container = getFunctionContaining(addr(site));
+                    Function container = locateFunction(site);
                     if (container == null) {
-                        container = getFunctionBefore(addr(site));
-                    }
-                    if (container == null) {
+                        unresolvedSites++;
                         continue;
                     }
-                    long functionAddress = container.getEntryPoint().getOffset();
-                    owners.computeIfAbsent(functionAddress, key -> new LinkedHashSet<>()).addAll(names);
+                    sites++;
+                    owners.computeIfAbsent(container.getEntryPoint().getOffset(),
+                        key -> new LinkedHashSet<>()).add(target);
+                }
+            }
+        }
+        println("lea sites matched: " + sites + " in " + owners.size()
+            + " functions (" + unresolvedSites + " outside any known function)");
+        return owners;
+    }
+
+    /** Map every `/mnt/vss/...` source path in .rodata to the functions using it. */
+    private void scanSourcePaths(File out) throws Exception {
+        Map<Long, String> byAddress = new LinkedHashMap<>();
+        for (MemoryBlock block : allDataBlocks) {
+            long base = block.getStart().getOffset();
+            long size = block.getSize();
+            if (size <= 0 || size > (64L << 20)) {
+                continue;
+            }
+            byte[] buffer = new byte[(int) size];
+            try {
+                memory.getBytes(addr(base), buffer);
+            } catch (Exception e) {
+                continue;
+            }
+            StringBuilder current = new StringBuilder();
+            long runStart = -1;
+            for (int i = 0; i < buffer.length; i++) {
+                int value = buffer[i] & 0xff;
+                if (value >= 0x20 && value < 0x7f) {
+                    if (current.length() == 0) {
+                        runStart = base + i;
+                    }
+                    current.append((char) value);
+                } else {
+                    if (current.length() > 8) {
+                        recordSourcePath(byAddress, runStart, current.toString());
+                    }
+                    current.setLength(0);
+                }
+            }
+            if (current.length() > 8) {
+                recordSourcePath(byAddress, runStart, current.toString());
+            }
+        }
+        println("source paths in data: " + byAddress.size());
+        Map<Long, Set<Long>> hits = scanLeaSites(new LinkedHashSet<>(byAddress.keySet()));
+        Map<String, Integer> perPath = new LinkedHashMap<>();
+        try (BufferedWriter writer = utf8(new File(out, "source-attribution.tsv"))) {
+            writer.write("function_address\tsource_path\tcount\n");
+            for (Map.Entry<Long, Set<Long>> entry : hits.entrySet()) {
+                Map<String, Integer> counts = new LinkedHashMap<>();
+                for (Long target : entry.getValue()) {
+                    String path = byAddress.get(target);
+                    if (path != null) {
+                        counts.merge(path, 1, Integer::sum);
+                    }
+                }
+                List<Map.Entry<String, Integer>> ordered = new ArrayList<>(counts.entrySet());
+                ordered.sort((a, b) -> b.getValue() - a.getValue());
+                for (Map.Entry<String, Integer> item : ordered) {
+                    writer.write(Long.toHexString(entry.getKey()));
+                    writer.write('\t');
+                    writer.write(item.getKey());
+                    writer.write('\t');
+                    writer.write(Integer.toString(item.getValue()));
+                    writer.write('\n');
+                    perPath.merge(item.getKey(), 1, Integer::sum);
+                }
+            }
+        }
+        List<Map.Entry<String, Integer>> ranked = new ArrayList<>(perPath.entrySet());
+        ranked.sort((a, b) -> b.getValue() - a.getValue());
+        try (BufferedWriter writer = utf8(new File(out, "source-files.tsv"))) {
+            writer.write("source_path\tfunction_count\n");
+            for (Map.Entry<String, Integer> entry : ranked) {
+                writer.write(entry.getKey());
+                writer.write('\t');
+                writer.write(Integer.toString(entry.getValue()));
+                writer.write('\n');
+            }
+        }
+        println("source-attributed functions: " + hits.size() + " over " + perPath.size() + " files");
+    }
+
+    private void recordSourcePath(Map<Long, String> byAddress, long address, String text) {
+        int index = text.indexOf("/mnt/");
+        if (index < 0) {
+            index = text.indexOf("/src-vanilla/");
+            if (index < 0) {
+                index = text.indexOf("/handheld/");
+                if (index < 0) {
+                    return;
+                }
+            }
+        }
+        String path = text.substring(index);
+        if (!(path.endsWith(".cpp") || path.endsWith(".h") || path.endsWith(".hpp")
+                || path.endsWith(".cc") || path.endsWith(".c"))) {
+            return;
+        }
+        if (path.length() > 200 || path.indexOf(' ') >= 0) {
+            return;
+        }
+        byAddress.put(address, path);
+    }
+
+    /**
+     * Dump assembly for the most interesting functions so that signedness and
+     * shift semantics lost by the decompiler can still be checked.
+     */
+    private void dumpDisassembly(File out) throws Exception {
+        File directory = new File(out, "disassembly");
+        directory.mkdirs();
+        List<Function> candidates = new ArrayList<>();
+        for (long functionAddress : functionOrder) {
+            Function function = getFunctionAt(addr(functionAddress));
+            if (function == null) {
+                continue;
+            }
+            long count = instructionCount(function);
+            if (count <= 0 || count > 600) {
+                continue;
+            }
+            candidates.add(function);
+        }
+        candidates.sort(Comparator.comparingLong(Function::getEntryPointOffset));
+        long budget = 6L << 20;
+        int written = 0;
+        for (Function function : candidates) {
+            if (budget <= 0 || written >= 400) {
+                break;
+            }
+            long address = function.getEntryPoint().getOffset();
+            String owner = ownersByFunction.get(address);
+            StringBuilder text = new StringBuilder();
+            text.append("# ").append(Long.toHexString(address));
+            if (owner != null) {
+                text.append("  ").append(owner);
+            }
+            text.append("\n\n```asm\n");
+            InstructionIterator iterator = listing.getInstructions(function.getBody(), true);
+            while (iterator.hasNext()) {
+                Instruction instruction = iterator.next();
+                text.append(instruction.getAddress()).append("  ")
+                    .append(instruction.toString()).append('\n');
+            }
+            text.append("```\n");
+            if (text.length() > budget) {
+                break;
+            }
+            budget -= text.length();
+            written++;
+            try (BufferedWriter writer = utf8(new File(directory,
+                    String.format("disasm-%s.md", Long.toHexString(address))))) {
+                writer.write(text.toString());
+            }
+        }
+        println("disassembly files: " + written);
+    }
+
+    private void scanCodeReferences(File out, int maxFunctions) throws Exception {
+        Map<Long, List<String>> interesting = new HashMap<>();
+        for (Vtable table : vtables) {
+            if (looksLikeLambda(table.mangled)) {
+                String enclosing = enclosingFunction(table.mangled);
+                if (enclosing != null && enclosing.length() >= 5 && enclosing.indexOf('?') < 0) {
+                    interesting.computeIfAbsent(table.addressPoint, key -> new ArrayList<>())
+                        .add("fn:" + enclosing);
+                }
+            }
+        }
+        for (Vtable table : vtables) {
+            if (table.selected && table.demangled != null && table.demangled.indexOf('?') < 0
+                    && table.demangled.length() < 80) {
+                interesting.computeIfAbsent(table.addressPoint, key -> new ArrayList<>())
+                    .add("ctor:" + table.demangled);
+            }
+        }
+        println("code-scan targets: " + interesting.size());
+        Map<Long, Set<Long>> hits = scanLeaSites(new LinkedHashSet<>(interesting.keySet()));
+        Map<Long, Set<String>> owners = new LinkedHashMap<>();
+        for (Map.Entry<Long, Set<Long>> entry : hits.entrySet()) {
+            for (Long target : entry.getValue()) {
+                List<String> names = interesting.get(target);
+                if (names != null) {
+                    owners.computeIfAbsent(entry.getKey(), key -> new LinkedHashSet<>()).addAll(names);
                 }
             }
         }
@@ -1395,6 +1626,14 @@ public class RecoverWorldgen extends GhidraScript {
     }
 
     private void decompileAll(File out, int maxFunctions) throws Exception {
+        for (Map.Entry<Long, Set<String>> entry : slotOwners.entrySet()) {
+            if (!entry.getValue().isEmpty()) {
+                ownersByFunction.put(entry.getKey(), entry.getValue().iterator().next());
+            }
+        }
+        if (functionOrder.isEmpty()) {
+            functionOrder.addAll(functionLoadOrder);
+        }
         File dir = new File(out, "pseudocode");
         if (!dir.isDirectory() && !dir.mkdirs()) {
             throw new IllegalStateException("cannot create " + dir);
