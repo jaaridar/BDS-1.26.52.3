@@ -1,0 +1,20 @@
+# 49ca820  XoroshiroRandom::vslot5
+
+```asm
+049ca820  MOV RCX,qword ptr [RDI + 0x8]
+049ca824  MOV RDX,qword ptr [RDI + 0x10]
+049ca828  LEA RAX,[RDX + RCX*0x1]
+049ca82c  SHR RAX,0x2f
+049ca830  ADD EAX,ECX
+049ca832  XOR RDX,RCX
+049ca835  ROL RCX,0x31
+049ca839  MOV RSI,RDX
+049ca83c  SHL RSI,0x15
+049ca840  XOR RSI,RCX
+049ca843  XOR RSI,RDX
+049ca846  ROL RDX,0x1c
+049ca84a  MOV qword ptr [RDI + 0x8],RSI
+049ca84e  MOV qword ptr [RDI + 0x10],RDX
+049ca852  AND AL,0x1
+049ca854  RET
+```

@@ -108,3 +108,29 @@
 2026-10-22 13:57:29 INFO  RecoverWorldgen.java> pseudocode: 4860 functions, 17285975 bytes, 9 file(s)  
 2026-10-22 13:57:29 INFO  RecoverWorldgen.java> constant references: 581  
 2026-10-22 13:57:29 INFO  RecoverWorldgen.java> done  
+2026-10-22 14:12:51 INFO  RecoverWorldgen.java> targets loaded: 19  
+2026-10-22 14:12:51 INFO  RecoverWorldgen.java> image base: 0x100000  
+2026-10-22 14:12:51 INFO  RecoverWorldgen.java> Blocks: data=7 allData=26 exec=6  
+2026-10-22 14:12:52 INFO  RecoverWorldgen.java> .rela.dyn: 723948 relative relocation(s)  
+2026-10-22 14:12:52 INFO  RecoverWorldgen.java> .rela.plt: 0 relative relocation(s)  
+2026-10-22 14:12:52 INFO  RecoverWorldgen.java> relocation overlay entries: 723948  
+2026-10-22 14:12:56 INFO  RecoverWorldgen.java> type_info objects: 51998  
+2026-10-22 14:12:59 INFO  RecoverWorldgen.java> vtables: 50263  
+2026-10-22 14:13:03 INFO  RecoverWorldgen.java> seed diagnostics written: 12 distinct names referenced  
+2026-10-22 14:13:03 INFO  RecoverWorldgen.java> selected classes: 616  
+2026-10-22 14:13:30 INFO  RecoverWorldgen.java> lambda enclosing names: 4583  
+2026-10-22 14:13:30 INFO  RecoverWorldgen.java> code-scan targets: 14021  
+2026-10-22 14:13:32 INFO  RecoverWorldgen.java> lea sites matched: 401 in 326 functions (16289 outside any known function)  
+2026-10-22 14:13:32 INFO  RecoverWorldgen.java> code references resolved to 326 functions  
+2026-10-22 14:13:32 INFO  RecoverWorldgen.java> code-reference functions added: 0, renamed: 326  
+2026-10-22 14:13:34 INFO  RecoverWorldgen.java> renamed slot functions: 3219  
+2026-10-22 14:13:34 INFO  RecoverWorldgen.java> string literals defined: 97  
+2026-10-22 14:13:37 INFO  RecoverWorldgen.java> lambda-attributed functions: 0, renamed: 0  
+2026-10-22 14:13:37 INFO  RecoverWorldgen.java> functions analysed: 5000 (33915 ms)  
+2026-10-22 14:22:05 INFO  RecoverWorldgen.java> pseudocode: 4830 functions, 17125597 bytes, 9 file(s)  
+2026-10-22 14:22:06 INFO  RecoverWorldgen.java> source paths in data: 330  
+2026-10-22 14:22:08 INFO  RecoverWorldgen.java> lea sites matched: 355 in 155 functions (15484 outside any known function)  
+2026-10-22 14:22:08 INFO  RecoverWorldgen.java> source-attributed functions: 155 over 37 files  
+2026-10-22 14:22:09 INFO  RecoverWorldgen.java> disassembly files: 400  
+2026-10-22 14:22:09 INFO  RecoverWorldgen.java> constant references: 581  
+2026-10-22 14:22:09 INFO  RecoverWorldgen.java> done  

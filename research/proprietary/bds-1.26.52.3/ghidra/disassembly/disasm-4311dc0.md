@@ -1,0 +1,39 @@
+# 4311dc0
+
+```asm
+04311dc0  PUSH R15
+04311dc2  PUSH R14
+04311dc4  PUSH RBX
+04311dc5  MOV R14,RSI
+04311dc8  MOV RBX,RDI
+04311dcb  CALL 0x042e3100
+04311dd0  MOVUPS XMM0,xmmword ptr [R14 + 0x70]
+04311dd5  MOVUPS XMM1,xmmword ptr [R14 + 0x80]
+04311ddd  MOVUPS XMM2,xmmword ptr [R14 + 0x90]
+04311de5  MOVUPS XMM3,xmmword ptr [R14 + 0x9d]
+04311ded  MOVUPS xmmword ptr [RBX + 0x9d],XMM3
+04311df4  MOVUPS xmmword ptr [RBX + 0x90],XMM2
+04311dfb  MOVUPS xmmword ptr [RBX + 0x80],XMM1
+04311e02  MOVUPS xmmword ptr [RBX + 0x70],XMM0
+04311e06  MOV R15,qword ptr [R14 + 0xb0]
+04311e0d  TEST R15,R15
+04311e10  JZ 0x04311e17
+04311e12  INC.LOCK dword ptr [R15 + 0x8]
+04311e17  MOV RDI,qword ptr [RBX + 0xb0]
+04311e1e  TEST RDI,RDI
+04311e21  JZ 0x04311e2f
+04311e23  DEC.LOCK dword ptr [RDI + 0x8]
+04311e27  JNZ 0x04311e2f
+04311e29  MOV RAX,qword ptr [RDI]
+04311e2c  CALL qword ptr [RAX + 0x8]
+04311e2f  MOV qword ptr [RBX + 0xb0],R15
+04311e36  MOVUPS XMM0,xmmword ptr [R14 + 0xb8]
+04311e3e  MOVUPS xmmword ptr [RBX + 0xb8],XMM0
+04311e45  MOVZX EAX,byte ptr [R14 + 0xc8]
+04311e4d  MOV byte ptr [RBX + 0xc8],AL
+04311e53  MOV RAX,RBX
+04311e56  POP RBX
+04311e57  POP R14
+04311e59  POP R15
+04311e5b  RET
+```

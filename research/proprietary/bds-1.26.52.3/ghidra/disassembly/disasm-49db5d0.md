@@ -1,0 +1,23 @@
+# 49db5d0
+
+```asm
+049db5d0  TEST RDI,RDI
+049db5d3  JZ 0x049db60f
+049db5d5  PUSH RBX
+049db5d6  MOV RBX,RDI
+049db5d9  MOV RDI,qword ptr [RDI]
+049db5dc  CALL 0x049db5d0
+049db5e1  MOV RDI,qword ptr [RBX + 0x8]
+049db5e5  CALL 0x049db5d0
+049db5ea  TEST byte ptr [RBX + 0x20],0x1
+049db5ee  JZ 0x049db601
+049db5f0  MOV RSI,qword ptr [RBX + 0x20]
+049db5f4  MOV RDI,qword ptr [RBX + 0x30]
+049db5f8  AND RSI,-0x2
+049db5fc  CALL 0x0412a280
+049db601  MOV ESI,0x48
+049db606  MOV RDI,RBX
+049db609  POP RBX
+049db60a  JMP 0x0412a280
+049db60f  RET
+```

@@ -1,0 +1,8 @@
+# 4882ee0
+
+```asm
+04882ee0  PUSH RAX
+04882ee1  LEA RDI,[0x1429271]
+04882ee8  CALL 0x04882ef0
+04882eed  INT3
+```

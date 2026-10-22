@@ -1,0 +1,97 @@
+# 49cc650  XoroshiroPositionalRandomFactory::vslot3
+
+```asm
+049cc650  PUSH RBP
+049cc651  PUSH R15
+049cc653  PUSH R14
+049cc655  PUSH R13
+049cc657  PUSH R12
+049cc659  PUSH RBX
+049cc65a  SUB RSP,0x18
+049cc65e  MOV R15,RDX
+049cc661  MOV R14,RSI
+049cc664  MOV RBX,RDI
+049cc667  MOV RAX,qword ptr FS:[0x0]
+049cc673  CMP byte ptr [RAX + -0x16b0],0x0
+049cc67a  JZ 0x049cc760
+049cc680  MOV R13,RAX
+049cc683  LEA R12,[RAX + -0x1750]
+049cc68a  MOV RAX,qword ptr [RAX + -0x1750]
+049cc691  MOV RDI,R12
+049cc694  CALL qword ptr [RAX + 0x10]
+049cc697  MOVZX EDX,byte ptr [R15]
+049cc69b  TEST DL,0x1
+049cc69e  JZ 0x049cc6aa
+049cc6a0  MOV EDX,dword ptr [R15 + 0x8]
+049cc6a4  MOV R15,qword ptr [R15 + 0x10]
+049cc6a8  JMP 0x049cc6af
+049cc6aa  INC R15
+049cc6ad  SHR EDX,0x1
+049cc6af  MOV RAX,qword ptr [R13 + -0x1750]
+049cc6b6  MOV RDI,R12
+049cc6b9  MOV RSI,R15
+049cc6bc  CALL qword ptr [RAX + 0x18]
+049cc6bf  MOV RAX,qword ptr [R13 + -0x1750]
+049cc6c6  MOV RSI,RSP
+049cc6c9  MOV RDI,R12
+049cc6cc  CALL qword ptr [RAX + 0x20]
+049cc6cf  MOV R12,qword ptr [RSP]
+049cc6d3  MOV R13,qword ptr [RSP + 0x8]
+049cc6d8  MOV R15,qword ptr [R14 + 0x8]
+049cc6dc  MOV R14,qword ptr [R14 + 0x10]
+049cc6e0  MOV RAX,qword ptr [0x0f5463b0]
+049cc6e7  LEA RDI,[0xf5463b0]
+049cc6ee  MOV ESI,0x28
+049cc6f3  CALL qword ptr [RAX + 0x10]
+049cc6f6  TEST RAX,RAX
+049cc6f9  JZ 0x049cc7d4
+049cc6ff  BSWAP R13
+049cc702  XOR R14,R13
+049cc705  BSWAP R12
+049cc708  XOR R15,R12
+049cc70b  MOV RCX,R14
+049cc70e  OR RCX,R15
+049cc711  MOV RCX,-0x61c8864680b583eb
+049cc71b  CMOVNZ RCX,R15
+049cc71f  MOV RDX,0x6a09e667f3bcc909
+049cc729  CMOVNZ RDX,R14
+049cc72d  LEA RSI,[0xef512d0]
+049cc734  MOV qword ptr [RAX],RSI
+049cc737  MOV qword ptr [RAX + 0x8],RCX
+049cc73b  MOV qword ptr [RAX + 0x10],RDX
+049cc73f  MOV qword ptr [RAX + 0x18],0x0
+049cc747  MOV byte ptr [RAX + 0x20],0x0
+049cc74b  MOV qword ptr [RBX],RAX
+049cc74e  MOV RAX,RBX
+049cc751  ADD RSP,0x18
+049cc755  POP RBX
+049cc756  POP R12
+049cc758  POP R13
+049cc75a  POP R14
+049cc75c  POP R15
+049cc75e  POP RBP
+049cc75f  RET
+049cc760  MOV byte ptr [RAX + -0x16b0],0x1
+049cc767  LEA RDX,[0xf53bd88]
+049cc76e  MOV qword ptr [RAX + -0x1750],RDX
+049cc775  MOV RDX,0x1032547698badcfe
+049cc77f  MOV qword ptr [RAX + -0x1738],RDX
+049cc786  MOVAPS XMM0,xmmword ptr [0x014e11d0]
+049cc78d  MOVUPS xmmword ptr [RAX + -0x1748],XMM0
+049cc794  XORPS XMM0,XMM0
+049cc797  MOVUPS xmmword ptr [RAX + -0x1730],XMM0
+049cc79e  MOVUPS xmmword ptr [RAX + -0x1720],XMM0
+049cc7a5  MOVUPS xmmword ptr [RAX + -0x1710],XMM0
+049cc7ac  MOVUPS xmmword ptr [RAX + -0x1700],XMM0
+049cc7b3  MOVUPS xmmword ptr [RAX + -0x16f0],XMM0
+049cc7ba  MOVUPS xmmword ptr [RAX + -0x16e0],XMM0
+049cc7c1  MOVUPS xmmword ptr [RAX + -0x16d0],XMM0
+049cc7c8  MOVUPS xmmword ptr [RAX + -0x16c0],XMM0
+049cc7cf  JMP 0x049cc680
+049cc7d4  MOV EDI,0x28
+049cc7d9  XOR ESI,ESI
+049cc7db  MOV RBP,RAX
+049cc7de  CALL 0x0eec74c0
+049cc7e3  MOV RAX,RBP
+049cc7e6  JMP 0x049cc6ff
+```

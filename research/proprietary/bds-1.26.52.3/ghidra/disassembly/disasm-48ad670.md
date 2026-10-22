@@ -1,0 +1,89 @@
+# 48ad670
+
+```asm
+048ad670  PUSH RBP
+048ad671  PUSH R15
+048ad673  PUSH R14
+048ad675  PUSH R13
+048ad677  PUSH R12
+048ad679  PUSH RBX
+048ad67a  SUB RSP,0x68
+048ad67e  MOV dword ptr [RSP + 0x2c],ECX
+048ad682  XORPS XMM0,XMM0
+048ad685  MOVUPS xmmword ptr [RDI],XMM0
+048ad688  MOV qword ptr [RDI + 0x10],0x0
+048ad690  TEST RDX,RDX
+048ad693  JZ 0x048adc60
+048ad699  MOV RBX,RDX
+048ad69c  LEA RAX,[RDI + 0x1]
+048ad6a0  MOV qword ptr [RSP + 0x30],RAX
+048ad6a5  MOV qword ptr [RSP + 0x38],0x0
+048ad6ae  MOVSX EAX,byte ptr [RSP + 0x2c]
+048ad6b3  MOV dword ptr [RSP + 0x4c],EAX
+048ad6b7  XOR ECX,ECX
+048ad6b9  MOV qword ptr [RSP + 0x50],RDX
+048ad6be  MOV qword ptr [RSP + 0x8],RDI
+048ad6c3  MOV qword ptr [RSP + 0x10],RSI
+048ad6c8  JMP 0x048ad6eb
+048ad6d0  MOV RDI,qword ptr [RSP + 0x8]
+048ad6d5  MOV RSI,qword ptr [RSP + 0x10]
+048ad6da  MOV RCX,qword ptr [RSP + 0x18]
+048ad6df  INC RCX
+048ad6e2  CMP RCX,RBX
+048ad6e5  JZ 0x048adc60
+048ad6eb  MOV RAX,RCX
+048ad6ee  SHL RAX,0x4
+048ad6f2  MOV RDX,qword ptr [RSI + RAX*0x1 + 0x8]
+048ad6f7  MOV qword ptr [RSP + 0x20],RDX
+048ad6fc  TEST RDX,RDX
+048ad6ff  JZ 0x048ad6df
+048ad701  MOV qword ptr [RSP + 0x18],RCX
+048ad706  MOV R14,qword ptr [RSI + RAX*0x1]
+048ad70a  CMP dword ptr [RSP + 0x38],0x0
+048ad70f  SETNZ BPL
+048ad713  JZ 0x048ad723
+048ad715  MOV RDI,qword ptr [RSP + 0x8]
+048ad71a  MOV ESI,dword ptr [RSP + 0x4c]
+048ad71e  CALL 0x0412fea0
+048ad723  MOV RAX,qword ptr [RSP + 0x38]
+048ad728  INC EAX
+048ad72a  MOV qword ptr [RSP + 0x38],RAX
+048ad72f  JMP 0x048ad769
+048ad769  MOVZX EAX,byte ptr [R14]
+048ad76d  LEA RCX,[0x1e4aef0]
+048ad774  MOVSX RDX,byte ptr [RAX + RCX*0x1]
+048ad779  TEST RDX,RDX
+048ad77c  JZ 0x048ad6d0
+048ad782  MOV RCX,qword ptr [RSP + 0x20]
+048ad787  TEST RCX,RCX
+048ad78a  JS 0x048ad795
+048ad78c  CMP RCX,RDX
+048ad78f  JL 0x048ad6d0
+048ad795  CMP DL,0x2
+048ad798  JL 0x048ad7b3
+048ad79a  MOV ECX,0x1
+048ad79f  NOP
+048ad7a0  CMP byte ptr [R14 + RCX*0x1],0xc0
+048ad7a5  JGE 0x048ad6d0
+048ad7ab  INC RCX
+048ad7ae  CMP RDX,RCX
+048ad7b1  JNZ 0x048ad7a0
+048ad7b3  MOVZX ECX,DL
+048ad7b6  DEC ECX
+048ad7b8  CMP ECX,0x3
+048ad7bb  JA 0x048ad6d0
+048ad7c1  MOV qword ptr [RSP + 0x40],RDX
+048ad7c6  LEA RDX,[0x1563d44]
+048ad7cd  MOVSXD RCX,dword ptr [RDX + RCX*0x4]
+048ad7d1  ADD RCX,RDX
+048ad7d4  JMP RCX
+048adc60  MOV RAX,RDI
+048adc63  ADD RSP,0x68
+048adc67  POP RBX
+048adc68  POP R12
+048adc6a  POP R13
+048adc6c  POP R14
+048adc6e  POP R15
+048adc70  POP RBP
+048adc71  RET
+```

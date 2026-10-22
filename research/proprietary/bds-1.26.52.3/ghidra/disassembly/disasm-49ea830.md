@@ -1,0 +1,38 @@
+# 49ea830  cereal::internal::TypeSchema<SharedTypes::v1_21_20::JigsawStructure::Processors::Type>::vslot10
+
+```asm
+049ea830  PUSH R15
+049ea832  PUSH R14
+049ea834  PUSH RBX
+049ea835  MOV R14,qword ptr [RSI]
+049ea838  TEST R14,R14
+049ea83b  JZ 0x049ea88b
+049ea83d  MOV RBX,RSI
+049ea840  MOV R15,qword ptr [RSI + 0x8]
+049ea844  MOV RDI,R14
+049ea847  CMP R14,R15
+049ea84a  JNZ 0x049ea859
+049ea84c  JMP 0x049ea876
+049ea850  ADD R15,-0x18
+049ea854  CMP R15,R14
+049ea857  JZ 0x049ea873
+049ea859  TEST byte ptr [R15 + -0x18],0x1
+049ea85e  JZ 0x049ea850
+049ea860  MOV RSI,qword ptr [R15 + -0x18]
+049ea864  MOV RDI,qword ptr [R15 + -0x8]
+049ea868  AND RSI,-0x2
+049ea86c  CALL 0x0412a280
+049ea871  JMP 0x049ea850
+049ea873  MOV RDI,qword ptr [RBX]
+049ea876  MOV qword ptr [RBX + 0x8],R14
+049ea87a  MOV RSI,qword ptr [RBX + 0x10]
+049ea87e  SUB RSI,RDI
+049ea881  POP RBX
+049ea882  POP R14
+049ea884  POP R15
+049ea886  JMP 0x0412a280
+049ea88b  POP RBX
+049ea88c  POP R14
+049ea88e  POP R15
+049ea890  RET
+```

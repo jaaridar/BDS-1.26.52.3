@@ -1,0 +1,66 @@
+# 49ea2c0
+
+```asm
+049ea2c0  PUSH RBP
+049ea2c1  PUSH R15
+049ea2c3  PUSH R14
+049ea2c5  PUSH R13
+049ea2c7  PUSH R12
+049ea2c9  PUSH RBX
+049ea2ca  SUB RSP,0x18
+049ea2ce  MOV qword ptr [RSP + 0x10],RDI
+049ea2d3  MOV RBP,qword ptr [RDI + 0x8]
+049ea2d7  MOV qword ptr [RSP + 0x8],RSI
+049ea2dc  CMP RSI,RBP
+049ea2df  JZ 0x049ea393
+049ea2e5  MOV R12D,0xffffffff
+049ea2eb  LEA R13,[0xef4aaa8]
+049ea2f2  LEA R15,[RSP + 0x7]
+049ea2f7  JMP 0x049ea30e
+049ea300  MOV RBP,RBX
+049ea303  CMP qword ptr [RSP + 0x8],RBX
+049ea308  JZ 0x049ea393
+049ea30e  MOV R14,qword ptr [RBP + -0x18]
+049ea312  TEST R14,R14
+049ea315  JZ 0x049ea374
+049ea317  MOV RBX,qword ptr [RBP + -0x10]
+049ea31b  MOV RDI,R14
+049ea31e  CMP R14,RBX
+049ea321  JNZ 0x049ea340
+049ea323  JMP 0x049ea364
+049ea330  MOV dword ptr [RBX + -0x8],0xffffffff
+049ea337  ADD RBX,-0x40
+049ea33b  CMP RBX,R14
+049ea33e  JZ 0x049ea360
+049ea340  MOV EAX,dword ptr [RBX + -0x8]
+049ea343  CMP RAX,R12
+049ea346  JZ 0x049ea330
+049ea348  LEA RSI,[RBX + -0x38]
+049ea34c  MOV RDI,R15
+049ea34f  CALL qword ptr [R13 + RAX*0x8]
+049ea354  JMP 0x049ea330
+049ea360  MOV RDI,qword ptr [RBP + -0x18]
+049ea364  MOV qword ptr [RBP + -0x10],R14
+049ea368  MOV RSI,qword ptr [RBP + -0x8]
+049ea36c  SUB RSI,RDI
+049ea36f  CALL 0x0412a280
+049ea374  LEA RBX,[RBP + -0x30]
+049ea378  TEST byte ptr [RBX],0x1
+049ea37b  JZ 0x049ea300
+049ea37d  MOV RSI,qword ptr [RBP + -0x30]
+049ea381  MOV RDI,qword ptr [RBP + -0x20]
+049ea385  AND RSI,-0x2
+049ea389  CALL 0x0412a280
+049ea38e  JMP 0x049ea300
+049ea393  MOV RAX,qword ptr [RSP + 0x8]
+049ea398  MOV RCX,qword ptr [RSP + 0x10]
+049ea39d  MOV qword ptr [RCX + 0x8],RAX
+049ea3a1  ADD RSP,0x18
+049ea3a5  POP RBX
+049ea3a6  POP R12
+049ea3a8  POP R13
+049ea3aa  POP R14
+049ea3ac  POP R15
+049ea3ae  POP RBP
+049ea3af  RET
+```

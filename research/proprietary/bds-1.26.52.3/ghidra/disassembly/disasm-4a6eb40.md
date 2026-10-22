@@ -1,0 +1,20 @@
+# 4a6eb40
+
+```asm
+04a6eb40  CMP byte ptr [RDI + 0xa0],0x1
+04a6eb47  JNZ 0x04a6eb76
+04a6eb49  MOV RSI,qword ptr [RDI + 0x70]
+04a6eb4d  TEST RSI,RSI
+04a6eb50  JZ 0x04a6eb76
+04a6eb52  PUSH RBX
+04a6eb53  LEA RAX,[RDI + 0x70]
+04a6eb57  MOV RBX,RDI
+04a6eb5a  MOV RDI,RAX
+04a6eb5d  CALL 0x04a67380
+04a6eb62  MOV RDI,qword ptr [RBX + 0x70]
+04a6eb66  MOV RSI,qword ptr [RBX + 0x80]
+04a6eb6d  SUB RSI,RDI
+04a6eb70  POP RBX
+04a6eb71  JMP 0x0412a280
+04a6eb76  RET
+```

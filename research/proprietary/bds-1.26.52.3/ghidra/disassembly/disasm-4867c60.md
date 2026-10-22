@@ -1,0 +1,11 @@
+# 4867c60
+
+```asm
+04867c60  LEA RAX,[0xef40c90]
+04867c67  ADD RAX,0x10
+04867c6b  MOV qword ptr [RDI],RAX
+04867c6e  XORPS XMM0,XMM0
+04867c71  MOVUPS xmmword ptr [RDI + 0x8],XMM0
+04867c75  MOVUPS xmmword ptr [RDI + 0x11],XMM0
+04867c79  RET
+```
