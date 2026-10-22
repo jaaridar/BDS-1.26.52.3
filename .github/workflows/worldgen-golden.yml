@@ -1,0 +1,156 @@
+name: Worldgen golden capture
+
+# Produces server-authored ground truth for world generation: it runs the
+# official bedrock_server with a fixed seed, forces chunk generation, and saves
+# the result with the in-game `structure save` command. The output is decoded
+# into a canonical block grid and committed under research/proprietary/ as
+# verification data (not MIT source).
+#
+# The server is run headless with cheats enabled and no players; nothing is
+# connected to it. The binary is the proprietary release asset, downloaded and
+# hash-verified first.
+
+on:
+  workflow_dispatch:
+    inputs:
+      seed:
+        description: 'World seed to capture'
+        required: false
+        default: '1'
+      recheck:
+        description: 'Re-run the same seed and require a byte-identical capture'
+        required: false
+        default: 'true'
+  push:
+    paths:
+      - .github/workflows/worldgen-golden.yml
+      - tools/worldgen-golden/**
+
+permissions:
+  contents: write
+
+concurrency:
+  group: worldgen-golden-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  OUTPUT_DIR: research/proprietary/bds-1.26.52.3/golden
+  MODE: ${{ github.event.inputs.seed || '1' }}
+  RECHECK: ${{ github.event.inputs.recheck || 'true' }}
+
+jobs:
+  capture:
+    if: startsWith(github.ref, 'refs/heads/arena/')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # The binary is a GitHub release asset (proprietary, not tracked in git).
+      # The repository is private, so the download needs the Actions token.
+      - name: Fetch the official binary from the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download v1.26.52.3 --repo "${GITHUB_REPOSITORY}" \
+            --pattern bedrock_server --clobber
+          chmod +x bedrock_server
+          test "$(stat --printf=%s bedrock_server)" = 256133808
+          echo "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207  bedrock_server" \
+            | sha256sum --check --strict
+
+      - name: Self-test the golden tooling
+        run: node tools/worldgen-golden/self-test.js
+
+      - name: Capture the world from the official server
+        run: |
+          node tools/worldgen-golden/run-golden.js \
+            --binary ./bedrock_server \
+            --seed "${MODE}" \
+            --out "capture/seed-${MODE}" \
+            --timeout 900 \
+            --verbose
+
+      - name: Decode the capture into golden format
+        run: |
+          node tools/worldgen-golden/build-golden.js "capture/seed-${MODE}" \
+            --out "${OUTPUT_DIR}"
+
+      # Determinism check: the same seed must produce the same world. If this
+      # ever fails, the capture is not a trustworthy oracle and must not be
+      # used to judge an implementation.
+      - name: Re-capture and require an exact match
+        if: ${{ env.RECHECK == 'true' }}
+        run: |
+          node tools/worldgen-golden/run-golden.js \
+            --binary ./bedrock_server \
+            --seed "${MODE}" \
+            --out "capture/seed-${MODE}-recheck" \
+            --timeout 900
+          node tools/worldgen-golden/build-golden.js "capture/seed-${MODE}-recheck" \
+            --out "capture/golden-${MODE}-recheck"
+          node tools/worldgen-golden/verify.js \
+            --golden "${OUTPUT_DIR}" \
+            --candidate "capture/golden-${MODE}-recheck" \
+            --label "c.*" \
+            --require-exact \
+            --write-report "capture/verify-${MODE}.md"
+
+      - name: Record capture diagnostics
+        if: always()
+        run: |
+          {
+            echo "seed: ${MODE}"
+            echo "recheck: ${RECHECK}"
+            echo
+            echo 'capture files:'
+            find capture -maxdepth 3 -type f -printf '%s %p\n' 2>/dev/null | sort -n | tail -40
+            echo
+            echo 'golden directory:'
+            ls -l "${OUTPUT_DIR}" 2>/dev/null || true
+            echo
+            echo 'server log tail:'
+            tail -n 40 "capture/seed-${MODE}/server.log" 2>/dev/null || true
+          } > capture/report.txt
+          cat capture/report.txt
+
+      - name: Upload capture artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: worldgen-golden-seed-${{ env.MODE }}
+          path: |
+            capture/
+          retention-days: 30
+          if-no-files-found: warn
+
+      - name: Commit golden data to the analysis branch
+        if: always()
+        run: |
+          if [ ! -d "${OUTPUT_DIR}" ]; then
+            echo 'no golden output produced'; exit 0
+          fi
+          git add -f "${OUTPUT_DIR}"
+          if git diff --cached --quiet -- "${OUTPUT_DIR}"; then
+            echo 'golden data unchanged'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m "research: golden worldgen capture for seed ${MODE}"
+          for attempt in 1 2 3 4 5; do
+            if git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}"; then
+              echo 'pushed'; exit 0
+            fi
+            sleep $((attempt * 5))
+          done
+          echo 'could not push golden data' >&2
+          exit 1
