@@ -121,6 +121,28 @@ class BlockPalette {
       { name: 'minecraft:grass_block', states: { 'minecraft:infiniburn_bit': false } }
     ])
   }
+
+  /**
+   * Palette for the infinite terrain generator: strata, surfaces, water,
+   * the common ores and tree blocks. Self-consistent on the wire like the
+   * flat palette; use a full vanilla dump palette to place other blocks.
+   */
+  static terrain () {
+    const names = [
+      'minecraft:air', 'minecraft:grass_block', 'minecraft:bedrock', 'minecraft:stone',
+      'minecraft:deepslate', 'minecraft:dirt', 'minecraft:sand',
+      'minecraft:sandstone', 'minecraft:gravel', 'minecraft:water',
+      'minecraft:clay', 'minecraft:coal_ore', 'minecraft:iron_ore',
+      'minecraft:copper_ore', 'minecraft:gold_ore', 'minecraft:redstone_ore',
+      'minecraft:lapis_ore', 'minecraft:diamond_ore', 'minecraft:emerald_ore',
+      'minecraft:oak_log', 'minecraft:oak_leaves', 'minecraft:birch_log',
+      'minecraft:birch_leaves', 'minecraft:spruce_log', 'minecraft:spruce_leaves'
+    ]
+    return new BlockPalette([
+      ...names.map((name) => ({ name, states: {} })),
+      { name: 'minecraft:grass_block', states: { 'minecraft:infiniburn_bit': false } }
+    ])
+  }
 }
 
 /**
@@ -135,6 +157,8 @@ function loadPalette (spec, { baseDir = process.cwd() } = {}) {
       return BlockPalette.air()
     case 'flat':
       return BlockPalette.flat()
+    case 'terrain':
+      return BlockPalette.terrain()
     case 'vanilla':
       return BlockPalette.fromFile(require('path').join(baseDir, 'data', 'palettes', 'vanilla.json'))
     default: {

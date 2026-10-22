@@ -71,8 +71,8 @@ Environment variables map from the **camelCase** setting name:
 | --- | --- | --- |
 | `openbds-game-version` | `1.26.52.3` | version string advertised in the server list |
 | `openbds-protocol-version` | `1.26.51` | protocol data version to speak (minecraft-data key) |
-| `openbds-palette` | `flat` | `air`, `flat`, `vanilla` (needs `data/palettes/vanilla.json`) or a path to a palette JSON |
-| `openbds-generator` | `flat` | `flat` or `void` |
+| `openbds-palette` | `flat` | `air`, `flat`, `terrain`, `vanilla` (needs `data/palettes/vanilla.json`) or a path to a palette JSON |
+| `openbds-generator` | `flat` | `flat`, `void` or `infinite` (seeded terrain - pair with `terrain`/`vanilla` palette; see docs/world-generation.md) |
 | `openbds-raknet-backend` | `auto` | `auto`, `jsp-raknet`, `raknet-native` |
 | `openbds-log-level` | `info` | `debug`, `info`, `warn`, `error` |
 | `openbds-tick-rate-ms` | `50` | tick interval (50 ms = 20 TPS) |

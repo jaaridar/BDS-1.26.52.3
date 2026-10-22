@@ -16,3 +16,9 @@ logs/
 
 # Generated from proprietary data - keep out of public forks (docs/licensing.md)
 data/palettes/
+
+# Local reverse-engineering output - NEVER commit (tools/re/README.md)
+re-output/
+tools/re/sample/noise_sample
+*.gpr
+*.rep/

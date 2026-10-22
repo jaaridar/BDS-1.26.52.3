@@ -35,7 +35,11 @@ class OpenBDSServer extends EventEmitter {
     this._stopped = false
 
     this.palette = loadPalette(config.palette)
-    const generator = createGenerator(this.palette, config.generator)
+    const generator = createGenerator(this.palette, config.generator, { seed: config.levelSeed })
+    if (config.generator === 'infinite' && this.palette.tryRuntimeId('minecraft:water', {}, -1) === -1) {
+      this.logger.warn('generator "infinite" with a palette that has no water/ore/tree blocks: ' +
+        'terrain will degrade (oceans become air). Use --palette terrain (or vanilla).')
+    }
     this.world = new World({
       generator,
       palette: this.palette,

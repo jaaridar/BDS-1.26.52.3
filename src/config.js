@@ -16,8 +16,8 @@ const path = require('path')
 
 const GAMEMODES = new Set(['survival', 'creative', 'adventure', 'spectator'])
 const DIFFICULTIES = new Set(['peaceful', 'easy', 'normal', 'hard'])
-const PALETTES = new Set(['air', 'flat', 'vanilla'])
-const GENERATORS = new Set(['flat', 'void'])
+const PALETTES = new Set(['air', 'flat', 'terrain', 'vanilla'])
+const GENERATORS = new Set(['flat', 'void', 'infinite'])
 const RAKNET_BACKENDS = new Set(['auto', 'jsp-raknet', 'raknet-native'])
 const LOG_LEVELS = new Set(['debug', 'info', 'warn', 'error'])
 

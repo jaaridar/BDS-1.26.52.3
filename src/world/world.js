@@ -42,9 +42,17 @@ class World {
     const key = World.key(x, z)
     let col = this.chunks.get(key)
     if (!col) {
+      // Generate blocks first: the infinite generator caches per-column
+      // biomes during generate(), which biomeIdAt then serves cheaply.
+      const subChunks = this.generator.generate(x, z)
       const encoded = encodeColumn({
-        subChunks: this.generator.generate(x, z),
-        biomeId: this.biomeId
+        subChunks,
+        biomeId: this.biomeId,
+        biomeSampler: typeof this.generator.biomeIdAt === 'function'
+          ? (wx, wy, wz) => this.generator.biomeIdAt(wx, wy, wz)
+          : undefined,
+        chunkX: x,
+        chunkZ: z
       })
       col = encoded
       this.chunks.set(key, col)

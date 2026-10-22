@@ -3,13 +3,16 @@
 /**
  * Terrain generators.
  *
- * OpenBDS ships two generators:
+ * OpenBDS ships three generators:
  *  - 'flat': classic superflat - bedrock, two dirt layers, grass on top,
  *    air above. This is what BDS `generator=flat` feels like.
  *  - 'void': empty air columns (bring your own floor via commands later).
+ *  - 'infinite': seeded, vanilla-shaped overworld terrain (climate noises,
+ *    biomes, oceans/rivers, caves, ores, trees) - see terrain.js and
+ *    docs/world-generation.md. Clean-room: built from publicly documented
+ *    algorithms, not from Mojang's binary or data tables.
  *
- * Both are deterministic and fully open source. Real terrain generation
- * (noise, biomes, structures) is tracked in docs/roadmap.md.
+ * All are deterministic functions of (seed, chunkX, chunkZ).
  */
 
 const { BLOCKS_PER_SUBCHUNK, OVERWORLD } = require('./chunk')
@@ -35,9 +38,13 @@ function worldToSubChunk (y) {
  * Create a generator.
  *
  * @param {import('./palette').BlockPalette} palette
- * @param {'flat'|'void'} name
+ * @param {'flat'|'void'|'infinite'} name
+ * @param {{ seed?: (string|number|bigint) }} [opts] world seed ('infinite')
  */
-function createGenerator (palette, name = 'flat') {
+function createGenerator (palette, name = 'flat', opts = {}) {
+  if (name === 'infinite') {
+    return require('./terrain').createInfiniteGenerator(palette, opts)
+  }
   const ids = {
     air: palette.tryRuntimeId('minecraft:air', {}, 0),
     bedrock: palette.tryRuntimeId('minecraft:bedrock', {}, palette.tryRuntimeId('minecraft:air', {}, 0)),

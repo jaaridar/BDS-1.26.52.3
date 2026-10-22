@@ -13,6 +13,8 @@ codebase clean-room and MIT.
 - [x] Chunk streaming (classic `level_chunk`, verified wire format)
 - [x] Chat, commands (console + in-game), movement relay
 - [x] Config (`server.properties`, env, CLI), logging, tick loop
+- [x] Seeded `infinite` terrain (clean-room, from public docs) + black-box
+      worldgen map/compare tools; local-only RE harness (tools/re/)
 - [x] Headless ops: Docker, docker-compose, systemd, health-check ping tool
 - [x] Test suite incl. end-to-end client session over loopback
 
@@ -35,7 +37,9 @@ codebase clean-room and MIT.
 - [ ] **Redstone-free block logic first**: fluids, lighting updates, gravity
 - [ ] **Multi-dimension support** (nether/end columns, portals later)
 - [ ] **Worker-threaded chunk generation** for larger worlds
-- [ ] **Noise-based terrain generator** (biomes from the biome registry)
+- [x] **Noise-based terrain generator** - `infinite` generator with
+      climate noises, 19 biomes, caves and ores (docs/world-generation.md);
+      follow-ups: aquifers, underground biomes, structures
 
 ## Long term
 

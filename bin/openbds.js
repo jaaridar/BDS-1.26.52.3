@@ -28,8 +28,8 @@ Options:
   --offline-mode        accept unauthenticated (self-signed) logins
   --mc-version <ver>    protocol data version to speak (default: ${DEFAULTS.protocolVersion})
   --game-version <ver>  version string advertised in the server list (default: ${DEFAULTS.gameVersion})
-  --palette <name|json> block palette: air | flat | vanilla | <file.json> (default: ${DEFAULTS.palette})
-  --generator <name>    world generator: flat | void (default: ${DEFAULTS.generator})
+  --palette <name|json> block palette: air | flat | terrain | vanilla | <file.json> (default: ${DEFAULTS.palette})
+  --generator <name>    world generator: flat | void | infinite (default: ${DEFAULTS.generator}; infinite wants --palette terrain)
   --log-level <level>   debug | info | warn | error (default: ${DEFAULTS.logLevel})
   --raknet-backend <b>  auto | jsp-raknet | raknet-native (default: ${DEFAULTS.raknetBackend})
   --help                show this help

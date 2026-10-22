@@ -138,9 +138,15 @@ function isAllAir (blocks) {
  *   Block arrays per sub-chunk slot; slot 0 is y index -4. Null/omitted slots
  *   are air. Only slots below the highest non-empty one are written.
  * @param {number} [opts.biomeId] biome id for the whole column (default 1 = plains)
+ * @param {(wx: number, wy: number, wz: number) => number} [opts.biomeSampler]
+ *   Per-cell biome lookup in world coordinates. When given, each 4x4x4
+ *   biome cell is sampled at its center block and `biomeId` is ignored.
+ *   Requires `chunkX`/`chunkZ` to translate cells to world coordinates.
+ * @param {number} [opts.chunkX] chunk x (only used with biomeSampler)
+ * @param {number} [opts.chunkZ] chunk z (only used with biomeSampler)
  * @returns {{ payload: Buffer, subChunkCount: number }}
  */
-function encodeColumn ({ subChunks = [], biomeId = 1 } = {}) {
+function encodeColumn ({ subChunks = [], biomeId = 1, biomeSampler, chunkX = 0, chunkZ = 0 } = {}) {
   let highest = -1
   for (let i = 0; i < subChunks.length; i++) {
     if (!isAllAir(subChunks[i])) highest = i
@@ -155,9 +161,24 @@ function encodeColumn ({ subChunks = [], biomeId = 1 } = {}) {
     parts.push(encodeSubChunk(blocks))
   }
 
-  // One biome storage per column slot (always all 24 for the overworld)
-  const biomeCells = new Uint8Array(BIOMES_PER_SUBCHUNK).fill(biomeId)
+  // One biome storage per column slot (always all 24 for the overworld).
+  // Cell order inside a storage is (x << 4) | (z << 2) | y over 4x4x4 cells.
   for (let i = 0; i < OVERWORLD.subChunkSlots; i++) {
+    let biomeCells
+    if (biomeSampler) {
+      biomeCells = new Uint16Array(BIOMES_PER_SUBCHUNK)
+      const baseY = (i + OVERWORLD.minSubChunkIndex) * 16
+      for (let bx = 0; bx < 4; bx++) {
+        for (let bz = 0; bz < 4; bz++) {
+          for (let by = 0; by < 4; by++) {
+            biomeCells[(bx << 4) | (bz << 2) | by] = biomeSampler(
+              chunkX * 16 + bx * 4 + 2, baseY + by * 4 + 2, chunkZ * 16 + bz * 4 + 2) & 0xffff
+          }
+        }
+      }
+    } else {
+      biomeCells = new Uint8Array(BIOMES_PER_SUBCHUNK).fill(biomeId)
+    }
     parts.push(Buffer.from(encodePalettedStorage(biomeCells)))
   }
 

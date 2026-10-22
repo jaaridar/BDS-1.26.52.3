@@ -42,7 +42,10 @@
     "test:unit": "node --test test/unit/*.test.js",
     "test:integration": "node --test test/integration/*.test.js",
     "ping": "node tools/ping.js",
-    "palette:gen": "node tools/gen-block-palette.js"
+    "palette:gen": "node tools/gen-block-palette.js",
+    "worldgen:map": "node tools/worldgen-map.js",
+    "worldgen:compare": "node tools/worldgen-compare.js",
+    "re:check": "node tools/re/check-target.js"
   },
   "dependencies": {
     "bedrock-protocol": "^3.60.1",

@@ -20,7 +20,7 @@ are **not** open source - see [NOTICE](NOTICE) and
 │  ├── RakNet transport (jsp-raknet, optional raknet-native)           │
 │  ├── login + encryption + Xbox auth (bedrock-protocol, MIT)          │
 │  ├── game layer: spawn sequence, chunks, chat, commands, tick loop   │
-│  └── world layer: palettes, sub-chunk encoder, flat/void generators  │
+│  └── world layer: palettes, sub-chunk encoder, flat/void/infinite    │
 ├──────────────────────────────────────────────────────────────────────┤
 │  Mojang distribution (proprietary, clearly marked, not required)     │
 │  bedrock_server, behavior_packs/, resource_packs/, definitions/ ...  │
@@ -54,8 +54,8 @@ node bin/openbds.js --help
   --config <file>       server.properties to read
   --port <n>            UDP port (default 19132)
   --online-mode         require Xbox/Microsoft authenticated logins
-  --palette <name|json> block palette: air | flat | vanilla | <file.json>
-  --generator <name>    flat | void
+  --palette <name|json> block palette: air | flat | terrain | vanilla | <file.json>
+  --generator <name>    flat | void | infinite
   --log-level <level>   debug | info | warn | error
 ```
 
@@ -89,7 +89,9 @@ The stdin console (and in-game chat, with cheats on) supports:
   sub-chunk format, verified against PocketMine-MP and Dragonfly formats)
 * Chat and commands (console + in-game), game mode/difficulty/time changes,
   player movement relay, clean join/leave flow
-* Config, logs, ticking world clock, flat/void world generation
+* Config, logs, ticking world clock, flat/void world generation, plus a
+  seeded `infinite` terrain generator (climate noises, 19 biomes, oceans,
+  rivers, caves, ores, trees - [docs/world-generation.md](docs/world-generation.md))
 * Test suite including a real end-to-end client session over loopback
 
 The full picture and the plan for vanilla parity (redstone, entities,
@@ -109,6 +111,15 @@ headless implementation written against public protocol definitions and
 verified by an automated test client. Everything under `bin/`, `src/`,
 `tools/`, `test/`, `scripts/`, `deploy/` and `docs/` is MIT-licensed and
 yours to fork.
+
+For world generation specifically, [docs/world-generation.md](docs/world-generation.md)
+distills the publicly documented algorithm and maps it to our `infinite`
+generator plus black-box parity tools (`tools/worldgen-map.js`,
+`tools/worldgen-compare.js`). If you still want to study your own binary
+copy privately with Ghidra/`rea`-style tooling, `tools/re/` contains a
+gated, local-only harness for that - its output must never be committed
+here; see `tools/re/README.md` for the rules and the practical
+requirements (the binary in this repo is only a Git LFS pointer).
 
 ## Contributing
 
