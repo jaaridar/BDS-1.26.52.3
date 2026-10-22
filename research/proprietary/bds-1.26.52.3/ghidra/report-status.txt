@@ -1,11 +1,12 @@
 Generated files:
 2 headless-exit-status.txt
+17 report-status.txt
 854 README.md
-6125 headless.txt
-7443 direct-callees.tsv
+6124 headless.txt
+7533 direct-callees.tsv
 47502 vtable-functions.tsv
-535901 direct-callee-pseudocode.md
-766172 virtual-function-pseudocode.md
+536024 direct-callee-pseudocode.md
+766193 virtual-function-pseudocode.md
 
 README.md: present
 vtable-functions.tsv: present

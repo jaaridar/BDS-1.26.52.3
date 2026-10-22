@@ -6034,7 +6034,7 @@ void OverworldGeneratorMultinoise___generateDensityCellsForChunk
         if (-1 < iVar6) {
           iVar2 = iVar6;
         }
-        auVar20._0_8_ = FUN_05259f00(*(undefined8 *)(param_2 + 0xc90),uVar10 & 0xffffffff);
+        auVar20._0_8_ = Cavifier__carve(*(undefined8 *)(param_2 + 0xc90),uVar10 & 0xffffffff);
         auVar20._8_8_ = extraout_XMM0_Qb;
         iVar8 = (int)*(short *)(*(long *)(param_2 + 0x28) + 0xaa);
         iVar4 = iVar8 >> 0x1f;
@@ -10832,7 +10832,7 @@ LAB_0525b0e1:
 
 ## `05258c60` — depth 1 from OverworldGeneratorMultinoise___prepareHeights (root OverworldGeneratorMultinoise___prepareHeights)
 
-- Ghidra name: `FUN_05258c60`
+- Ghidra name: `Aquifer__computeSubstance`
 - Body: `[[05258c60, 05258d89] [05258d90, 05258de1] [05258df0, 05258e42] [05258e50, 05258fe6] [05258ff0, 05259062] [05259070, 052590d8] [052590e0, 0525994d]]`
 
 ### Pseudocode
@@ -10841,8 +10841,9 @@ LAB_0525b0e1:
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void FUN_05258c60(undefined8 param_1,undefined8 param_2,undefined8 param_3,long *param_4,
-                 ulong *param_5)
+void Aquifer__computeSubstance
+               (undefined8 param_1,undefined8 param_2,undefined8 param_3,long *param_4,
+               ulong *param_5)
 
 {
   ulong *puVar1;
@@ -11122,7 +11123,7 @@ void FUN_05258c60(undefined8 param_1,undefined8 param_2,undefined8 param_3,long 
     uStack_74 = uVar7;
     puStack_58 = param_5;
     if (uVar11 == 0x7fffffff) {
-      FUN_05259950(&uStack_6c,param_4,&uStack_80);
+      Aquifer__computeFluid(&uStack_6c,param_4,&uStack_80);
       *puVar2 = CONCAT44(uStack_68,uStack_6c);
       puVar2[1] = CONCAT44(uStack_60,uStack_64);
       *(char *)(puVar2 + 2) = cStack_5c;
@@ -11183,7 +11184,7 @@ void FUN_05258c60(undefined8 param_1,undefined8 param_2,undefined8 param_3,long 
       uStack_88 = CONCAT44(uStack_88._4_4_,fVar37);
       if (auStack_a8._0_4_ == 0x7fffffff) {
         auStack_a8 = auVar4;
-        FUN_05259950(&uStack_6c,param_4,&uStack_f0);
+        Aquifer__computeFluid(&uStack_6c,param_4,&uStack_f0);
         auVar4 = auStack_a8;
         *puVar3 = uStack_6c;
         puVar3[1] = uStack_68;
@@ -11223,7 +11224,7 @@ void FUN_05258c60(undefined8 param_1,undefined8 param_2,undefined8 param_3,long 
       puVar2 = (undefined8 *)(lVar22 + lVar29 * 0x14);
       iVar13 = *(int *)(lVar22 + 0xc + lVar29 * 0x14);
       if (iVar13 == 0x7fffffff) {
-        FUN_05259950(&uStack_6c,param_4,&uStack_d8);
+        Aquifer__computeFluid(&uStack_6c,param_4,&uStack_d8);
         *puVar2 = CONCAT44(uStack_68,uStack_6c);
         puVar2[1] = CONCAT44(uStack_60,uStack_64);
         *(char *)(puVar2 + 2) = cStack_5c;
@@ -12542,7 +12543,7 @@ FUN_05286980(undefined8 param_1,undefined4 param_2,undefined8 param_3,long param
 
 ## `052588d0` — depth 1 from OverworldGeneratorMultinoise__tryMakeAquifer (root OverworldGeneratorMultinoise__tryMakeAquifer)
 
-- Ghidra name: `FUN_052588d0`
+- Ghidra name: `Aquifer__Aquifer`
 - Body: `[[052588d0, 05258c51]]`
 
 ### Pseudocode
@@ -12553,8 +12554,8 @@ FUN_05286980(undefined8 param_1,undefined4 param_2,undefined8 param_3,long param
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
 undefined8 *
-FUN_052588d0(undefined8 *param_1,int *param_2,undefined8 param_3,undefined8 param_4,
-            undefined8 param_5,int param_6,int param_7,undefined4 param_8)
+Aquifer__Aquifer(undefined8 *param_1,int *param_2,undefined8 param_3,undefined8 param_4,
+                undefined8 param_5,int param_6,int param_7,undefined4 param_8)
 
 {
   code *pcVar1;
@@ -13511,7 +13512,7 @@ undefined8 * FUN_052580c0(undefined8 param_1,undefined8 *param_2,long param_3,un
 
 ## `05259f00` — depth 2 from OverworldGeneratorMultinoise___generateDensityCellsForChunk (root OverworldGeneratorMultinoise__generateDensityCellsForChunk)
 
-- Ghidra name: `FUN_05259f00`
+- Ghidra name: `Cavifier__carve`
 - Body: `[[05259f00, 0525a61c]]`
 
 ### Pseudocode
@@ -13521,7 +13522,7 @@ undefined8 * FUN_052580c0(undefined8 param_1,undefined8 *param_2,long param_3,un
 /* WARNING: Type propagation algorithm not settling */
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void FUN_05259f00(undefined8 param_1,float param_2,float param_3,long *param_4)
+void Cavifier__carve(undefined8 param_1,float param_2,float param_3,long *param_4)
 
 {
   undefined1 auVar1 [16];
@@ -15364,9 +15365,9 @@ SUB_0412a280:
 0525d378  INT3
 ```
 
-## `05259950` — depth 2 from FUN_05258c60 (root OverworldGeneratorMultinoise___prepareHeights)
+## `05259950` — depth 2 from Aquifer__computeSubstance (root OverworldGeneratorMultinoise___prepareHeights)
 
-- Ghidra name: `FUN_05259950`
+- Ghidra name: `Aquifer__computeFluid`
 - Body: `[[05259950, 0525999e] [052599a0, 05259eb3]]`
 
 ### Pseudocode
@@ -15375,7 +15376,7 @@ SUB_0412a280:
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-uint FUN_05259950(undefined8 *param_1,long *param_2,int *param_3)
+uint Aquifer__computeFluid(undefined8 *param_1,long *param_2,int *param_3)
 
 {
   ulong uVar1;
@@ -16045,7 +16046,7 @@ undefined8 FUN_0525a640(long *param_1,int *param_2,float *param_3)
 0525a7ca  RET
 ```
 
-## `0525ec90` — depth 2 from FUN_052588d0 (root OverworldGeneratorMultinoise__tryMakeAquifer)
+## `0525ec90` — depth 2 from Aquifer__Aquifer (root OverworldGeneratorMultinoise__tryMakeAquifer)
 
 - Ghidra name: `FUN_0525ec90`
 - Body: `[[0525ec90, 0525ec9d]]`

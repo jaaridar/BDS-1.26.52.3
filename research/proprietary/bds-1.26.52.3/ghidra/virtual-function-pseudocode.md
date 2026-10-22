@@ -15209,8 +15209,8 @@ long * OverworldGeneratorMultinoise__tryMakeAquifer
   if (lVar1 == 0) {
     func_0x0eec74c0(0x68,0);
   }
-  FUN_052588d0(lVar1,param_3,param_2 + 0x5e8,param_2 + 0x908,param_4,(int)param_5,(int)param_6,
-               (int)param_7);
+  Aquifer__Aquifer(lVar1,param_3,param_2 + 0x5e8,param_2 + 0x908,param_4,(int)param_5,(int)param_6,
+                   (int)param_7);
   *param_1 = lVar1;
   return param_1;
 }
@@ -16131,7 +16131,7 @@ LAB_052897f7:
               }
               plVar16 = plStack_2148;
               if ((float)auStack_2248._0_4_ <= 0.0) {
-                FUN_05258c60(lStack_2188);
+                Aquifer__computeSubstance(lStack_2188);
                 if ((float)auStack_2248._0_4_ + *(float *)(lStack_2188 + 0x20) <= _DAT_011983fc)
                 goto LAB_05289d01;
 LAB_05289bcb:
