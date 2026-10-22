@@ -1,4 +1,4 @@
-Error: timeout waiting for server start
-    at Timeout._onTimeout (/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/worldgen-golden/run-golden.js:159:16)
-    at listOnTimeout (node:internal/timers:585:17)
-    at process.processTimers (node:internal/timers:521:7)
+ReferenceError: saved is not defined
+    at captureInner (/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/worldgen-golden/run-golden.js:356:20)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async capture (/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/worldgen-golden/run-golden.js:194:12)
