@@ -1,0 +1,59 @@
+{
+ "format_version": "1.21.110",
+ "minecraft:biome": {
+  "components": {
+   "minecraft:climate": {
+    "downfall": 0.0,
+    "snow_accumulation": [
+     0.0,
+     0.125
+    ],
+    "temperature": 2.0
+   },
+   "minecraft:creature_spawn_probability": {
+    "probability": 0.03
+   },
+   "minecraft:map_tints": {
+    "foliage": "#90814d",
+    "grass": {
+     "tint": "#aea42a",
+     "type": "tint"
+    }
+   },
+   "minecraft:overworld_generation_rules": {
+    "mutate_transformation": "minecraft:mesa_bryce"
+   },
+   "minecraft:overworld_height": {
+    "noise_type": "default"
+   },
+   "minecraft:surface_builder": {
+    "builder": {
+     "bryce_pillars": false,
+     "clay_material": "minecraft:white_terracotta",
+     "foundation_material": "minecraft:stone",
+     "hard_clay_material": "minecraft:hardened_clay",
+     "has_forest": false,
+     "mid_material": "minecraft:hardened_clay",
+     "sea_floor_depth": 7,
+     "sea_floor_material": "minecraft:gravel",
+     "sea_material": "minecraft:water",
+     "top_material": "minecraft:red_sand",
+     "type": "minecraft:mesa"
+    }
+   },
+   "minecraft:tags": {
+    "tags": [
+     "animal",
+     "mesa",
+     "monster",
+     "overworld",
+     "spawns_mesa_mobs",
+     "spawns_warm_variant_farm_animals"
+    ]
+   }
+  },
+  "description": {
+   "identifier": "minecraft:mesa"
+  }
+ }
+}

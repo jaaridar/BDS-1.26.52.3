@@ -10,6 +10,9 @@
 // or by address.  Output is proprietary research evidence (see
 // research/proprietary/README.md), not MIT-licensed OpenBDS source.
 //
+// Diagnostics are written even when individual steps fail, so a failed CI run
+// is still debuggable from the committed evidence.
+//
 // @category BDS.Research
 
 import java.io.BufferedReader;
@@ -17,6 +20,8 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -39,13 +44,16 @@ import ghidra.program.model.listing.Function;
 import ghidra.program.model.listing.Instruction;
 import ghidra.program.model.listing.Listing;
 import ghidra.program.model.mem.MemoryBlock;
+import ghidra.program.model.symbol.Reference;
 import ghidra.program.model.symbol.SourceType;
+import ghidra.util.task.ConsoleTaskMonitor;
 
 public class DecompileTargets extends GhidraScript {
     private static final int MAX_PSEUDOCODE_CHARS = 200_000;
     private static final int MAX_ASSEMBLY_INSTRUCTIONS = 4000;
-    private static final int DECOMPILE_TIMEOUT_SECONDS = 150;
-    private static final int ASSEMBLY_FOR_TOP = 25;
+    private static final int DECOMPILE_TIMEOUT_SECONDS = 90;
+    private static final int ASSEMBLY_FOR_TOP = 20;
+    private static final long MAX_FUNCTION_BYTES = 160_000;
 
     private static class Target {
         long address;
@@ -60,15 +68,20 @@ public class DecompileTargets extends GhidraScript {
     private final Map<Long, Function> functions = new LinkedHashMap<>();
     private final Map<Long, Integer> depths = new HashMap<>();
     private final List<String> failures = new ArrayList<>();
-    private final Set<Long> attempted = new HashSet<>();
+    private final List<String> notes = new ArrayList<>();
 
     private File outputDir;
+    private File functionsDir;
     private long deadlineNanos;
+    private long startedNanos;
     private int maxFunctions;
     private int order = 0;
+    private int decompiled = 0;
+    private int failed = 0;
 
     @Override
     protected void run() throws Exception {
+        startedNanos = System.nanoTime();
         String[] args = getScriptArgs();
         if (args.length < 2) {
             throw new IllegalArgumentException(
@@ -83,32 +96,82 @@ public class DecompileTargets extends GhidraScript {
         if (!outputDir.isDirectory() && !outputDir.mkdirs()) {
             throw new IllegalArgumentException("cannot create output directory " + outputDir);
         }
-        deadlineNanos = System.nanoTime() + budgetSeconds * 1_000_000_000L;
-
-        if (labelsFile != null && labelsFile.isFile()) {
-            loadLabels(labelsFile);
+        functionsDir = new File(outputDir, "functions");
+        if (!functionsDir.isDirectory() && !functionsDir.mkdirs()) {
+            throw new IllegalArgumentException("cannot create " + functionsDir);
         }
-        List<Target> targets = loadTargets(targetsFile);
-        println("DecompileTargets: " + targets.size() + " targets, budget " + budgetSeconds +
-            "s, max " + maxFunctions + " functions");
+        deadlineNanos = startedNanos + budgetSeconds * 1_000_000_000L;
 
-        // Phase 1: create the functions (and their direct callees) so the
-        // decompiler resolves call sites instead of printing raw pointers.
-        List<Target> frontier = new ArrayList<>(targets);
-        int explored = 0;
-        Deque<Target> queue = new ArrayDeque<>(frontier);
+        // Index file is created first so the CI job can tell "nothing to do"
+        // apart from "the script died before producing anything".
+        BufferedWriter index = new BufferedWriter(new FileWriter(
+            new File(outputDir, "index.md"), StandardCharsets.UTF_8));
+        try {
+            index.write("# Recovered pseudocode\n\n");
+            index.write("> Mechanically generated from the proprietary `bedrock_server` binary ");
+            index.write("by Ghidra. Not original source, not MIT-licensed, not part of OpenBDS.\n\n");
+            index.write("| address | score | depth | label | bytes | pseudocode |\n");
+            index.write("|---|---|---|---|---|---|\n");
+            index.flush();
+
+            if (labelsFile != null && labelsFile.isFile()) {
+                loadLabels(labelsFile);
+            }
+            List<Target> targets = loadTargets(targetsFile);
+            println("DecompileTargets: " + targets.size() + " targets, budget " + budgetSeconds +
+                "s, max " + maxFunctions + " functions, labelled " + labels.size());
+
+            prepareFunctions(targets);
+            println("DecompileTargets: prepared " + functions.size() + " functions, " +
+                failures.size() + " preparation notes");
+
+            decompileAll(index);
+        } catch (Throwable throwable) {
+            notes.add("fatal: " + describe(throwable));
+            try {
+                index.write("\n> Fatal error: " + md(describe(throwable)) + "\n");
+            } catch (Exception ignored) {
+                // index is best effort at this point
+            }
+            throw new RuntimeException(throwable);
+        } finally {
+            try {
+                index.write("\nDecompiled: " + decompiled + ", failed: " + failed +
+                    ", budget used: " + elapsedSeconds() + "s\n");
+                index.close();
+            } catch (Exception ignored) {
+                // closing twice is harmless
+            }
+            writeFailures();
+            writeDiagnostics();
+        }
+    }
+
+    private void prepareFunctions(List<Target> targets) {
+        Deque<Target> queue = new ArrayDeque<>(targets);
         Set<Long> seen = new HashSet<>();
         for (Target target : targets) {
             seen.add(target.address);
         }
-        while (!queue.isEmpty() && functions.size() < maxFunctions * 3 && explored < 4000) {
-            if (System.nanoTime() > deadlineNanos) {
-                println("preparation budget exhausted");
+        int explored = 0;
+        while (!queue.isEmpty() && explored < 5000 && functions.size() < maxFunctions * 3) {
+            if (deadlineNanos - System.nanoTime() < 300L * 1_000_000_000L) {
+                notes.add("preparation stopped: less than 300s of budget left");
                 break;
             }
             Target target = queue.pollFirst();
             explored++;
-            Function function = ensureFunction(target);
+            if (target.size > MAX_FUNCTION_BYTES) {
+                failures.add("0x" + Long.toHexString(target.address) + "\tskipped-oversized:" + target.size);
+                continue;
+            }
+            Function function;
+            try {
+                function = ensureFunction(target);
+            } catch (Throwable throwable) {
+                failures.add("0x" + Long.toHexString(target.address) + "\tprepare: " + describe(throwable));
+                continue;
+            }
             if (function == null) {
                 continue;
             }
@@ -116,137 +179,167 @@ public class DecompileTargets extends GhidraScript {
             depths.putIfAbsent(target.address, target.depth);
             if (target.depth == 0) {
                 scores.putIfAbsent(target.address, target.score);
-                labels.putIfAbsent(target.address, target.label);
+                if (target.label != null && !target.label.isEmpty()) {
+                    labels.putIfAbsent(target.address, target.label);
+                }
             }
-            int maxDepth = target.score >= 30 ? 2 : 1;
+            int maxDepth = target.score >= 100 ? 2 : 1;
             if (target.depth >= maxDepth) {
                 continue;
             }
             Set<Function> callees;
             try {
                 callees = function.getCalledFunctions(monitor);
-            } catch (Exception exception) {
+            } catch (Throwable throwable) {
                 continue;
             }
             for (Function callee : callees) {
-                long key = callee.getEntryPoint().getOffset();
-                if (seen.add(key)) {
-                    Target child = new Target();
-                    child.address = key;
-                    child.size = callee.getBody().getNumAddresses();
-                    child.score = 0;
-                    child.label = "callee-of:0x" + Long.toHexString(target.address);
-                    child.depth = target.depth + 1;
-                    queue.addLast(child);
+                if (callee == null) {
+                    continue;
                 }
+                long key;
+                try {
+                    key = callee.getEntryPoint().getOffset();
+                } catch (Throwable throwable) {
+                    continue;
+                }
+                if (!seen.add(key)) {
+                    continue;
+                }
+                Target child = new Target();
+                child.address = key;
+                child.size = 0;
+                try {
+                    child.size = callee.getBody().getNumAddresses();
+                } catch (Throwable ignored) {
+                    child.size = 0;
+                }
+                child.score = 0;
+                child.label = "callee-of:0x" + Long.toHexString(target.address);
+                child.depth = target.depth + 1;
+                queue.addLast(child);
             }
         }
-        println("DecompileTargets: prepared " + functions.size() + " functions");
+    }
 
-        // Phase 2: decompile.
+    private void decompileAll(BufferedWriter index) throws Exception {
         DecompInterface decompiler = new DecompInterface();
         decompiler.toggleCCode(true);
         decompiler.toggleSyntaxTree(true);
         decompiler.setSimplificationStyle("decompile");
         if (!decompiler.openProgram(currentProgram)) {
-            throw new IllegalStateException("decompiler could not open program");
+            notes.add("decompiler could not open program");
+            index.write("\n> Decompiler could not open the program.\n");
+            return;
         }
-
-        File functionsDir = new File(outputDir, "functions");
-        if (!functionsDir.isDirectory() && !functionsDir.mkdirs()) {
-            throw new IllegalStateException("cannot create " + functionsDir);
-        }
-
-        List<Long> ordered = new ArrayList<>(functions.keySet());
-        ordered.sort((a, b) -> Integer.compare(
-            scores.getOrDefault(b, 0) + (depths.getOrDefault(b, 1) == 0 ? 1 : 0),
-            scores.getOrDefault(a, 0) + (depths.getOrDefault(a, 1) == 0 ? 1 : 0)));
-
-        int done = 0;
-        int failed = 0;
-        try (BufferedWriter index = new BufferedWriter(new FileWriter(
-                new File(outputDir, "index.md"), StandardCharsets.UTF_8))) {
-            index.write("# Recovered pseudocode\n\n");
-            index.write("> Mechanically generated from the proprietary `bedrock_server` binary ");
-            index.write("by Ghidra. Not original source, not MIT-licensed, not part of OpenBDS.\n\n");
-            index.write("| address | score | depth | label | bytes | pseudocode |\n");
-            index.write("|---|---|---|---|---|---|\n");
-
-            try (BufferedWriter callgraph = new BufferedWriter(new FileWriter(
-                    new File(outputDir, "callgraph.tsv"), StandardCharsets.UTF_8))) {
+        try {
+            BufferedWriter callgraph = new BufferedWriter(new FileWriter(
+                new File(outputDir, "callgraph.tsv"), StandardCharsets.UTF_8));
+            try {
                 callgraph.write("function\tlabel\tcallees\tcallers\n");
+                List<Long> ordered = new ArrayList<>(functions.keySet());
+                ordered.sort((left, right) -> Integer.compare(
+                    scoreOf(right), scoreOf(left)));
+                println("DecompileTargets: decompiling " + ordered.size() + " functions");
                 for (long key : ordered) {
+                    if (System.nanoTime() > deadlineNanos) {
+                        notes.add("decompile budget exhausted after " + decompiled + " functions");
+                        index.write("\n> Budget exhausted: " + decompiled + " of " +
+                            ordered.size() + " functions decompiled in this run.\n");
+                        break;
+                    }
                     Function function = functions.get(key);
                     if (function == null) {
                         continue;
                     }
-                    if (System.nanoTime() > deadlineNanos) {
-                        println("decompile budget exhausted after " + done + " functions");
-                        index.write("\n> Budget exhausted: " + done + " of " + ordered.size() +
-                            " functions decompiled in this run.\n");
-                        break;
-                    }
-                    attempted.add(key);
-                    DecompileResults results = decompiler.decompileFunction(
-                        function, DECOMPILE_TIMEOUT_SECONDS, monitor);
-                    String pseudocode = null;
-                    if (results.decompileCompleted() && results.getDecompiledFunction() != null) {
-                        pseudocode = results.getDecompiledFunction().getC();
-                        if (pseudocode.length() > MAX_PSEUDOCODE_CHARS) {
-                            pseudocode = pseudocode.substring(0, MAX_PSEUDOCODE_CHARS) +
-                                "\n/* truncated by DecompileTargets.java */\n";
+                    String pseudocode;
+                    try {
+                        DecompileResults results = decompiler.decompileFunction(
+                            function, DECOMPILE_TIMEOUT_SECONDS, new ConsoleTaskMonitor());
+                        if (results == null || !results.decompileCompleted() ||
+                            results.getDecompiledFunction() == null) {
+                            failures.add("0x" + Long.toHexString(key) + "\tdecompile: " +
+                                (results == null ? "null" : results.getErrorMessage()));
+                            failed++;
+                            continue;
                         }
-                    } else {
-                        failures.add("0x" + Long.toHexString(key) + "\t" +
-                            (results == null ? "null" : results.getErrorMessage()));
+                        pseudocode = results.getDecompiledFunction().getC();
+                    } catch (Throwable throwable) {
+                        failures.add("0x" + Long.toHexString(key) + "\tdecompile: " + describe(throwable));
                         failed++;
                         continue;
                     }
-                    done++;
-                    if (done % 20 == 0) {
-                        println("DecompileTargets: " + done + " done, elapsed " +
-                            ((System.nanoTime() - (deadlineNanos - 1000L * 1000L * 1000L * 60 * 60)) /
-                             1_000_000_000L) + "s (approx)");
+                    if (pseudocode == null) {
+                        failures.add("0x" + Long.toHexString(key) + "\tdecompile: null C");
+                        failed++;
+                        continue;
                     }
+                    if (pseudocode.length() > MAX_PSEUDOCODE_CHARS) {
+                        pseudocode = pseudocode.substring(0, MAX_PSEUDOCODE_CHARS) +
+                            "\n/* truncated by DecompileTargets.java */\n";
+                    }
+                    decompiled++;
                     String label = labels.getOrDefault(key, "fn_0x" + Long.toHexString(key));
                     String fileName = String.format("%05d_%x.c", order++, key);
-                    writeFunctionFile(new File(functionsDir, fileName), function, label,
-                        pseudocode, done <= ASSEMBLY_FOR_TOP);
+                    try {
+                        writeFunctionFile(new File(functionsDir, fileName), function, label,
+                            pseudocode, decompiled <= ASSEMBLY_FOR_TOP);
+                    } catch (Throwable throwable) {
+                        failures.add("0x" + Long.toHexString(key) + "\twrite: " + describe(throwable));
+                        continue;
+                    }
                     index.write(String.format("| `0x%x` | %d | %d | `%s` | %d | [%s](functions/%s) |%n",
-                        key, scores.getOrDefault(key, 0), depths.getOrDefault(key, 1),
-                        md(label), function.getBody().getNumAddresses(), fileName, fileName));
-
-                    StringBuilder callees = new StringBuilder();
-                    for (Function callee : function.getCalledFunctions(monitor)) {
-                        if (callees.length() > 0) {
-                            callees.append(",");
-                        }
-                        callees.append("0x").append(Long.toHexString(callee.getEntryPoint().getOffset()));
-                    }
-                    StringBuilder callers = new StringBuilder();
-                    for (Function caller : function.getCallingFunctions(monitor)) {
-                        if (callers.length() > 0) {
-                            callers.append(",");
-                        }
-                        callers.append("0x").append(Long.toHexString(caller.getEntryPoint().getOffset()));
-                    }
+                        key, scoreOf(key), depths.getOrDefault(key, 1), md(label),
+                        function.getBody().getNumAddresses(), fileName, fileName));
+                    index.flush();
                     callgraph.write(String.format("0x%x\t%s\t%s\t%s%n",
-                        key, tsv(label), callees, callers));
+                        key, tsv(label), joinedCallees(function), joinedCallers(function)));
+                    if (decompiled % 25 == 0) {
+                        println("DecompileTargets: " + decompiled + " decompiled, " +
+                            failed + " failed, elapsed " + elapsedSeconds() + "s");
+                    }
                 }
+            } finally {
+                callgraph.close();
             }
-            index.write("\nDecompiled: " + done + ", failed: " + failed + "\n");
         } finally {
             decompiler.dispose();
         }
+    }
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(
-                new File(outputDir, "failures.tsv"), StandardCharsets.UTF_8))) {
-            writer.write("function\terror\n");
-            for (String failure : failures) {
-                writer.write(failure + "\n");
+    private int scoreOf(long key) {
+        int score = scores.getOrDefault(key, 0);
+        return depths.getOrDefault(key, 1) == 0 ? score * 4 + 10 : score;
+    }
+
+    private String joinedCallees(Function function) {
+        StringBuilder builder = new StringBuilder();
+        try {
+            for (Function callee : function.getCalledFunctions(monitor)) {
+                if (builder.length() > 0) {
+                    builder.append(",");
+                }
+                builder.append("0x").append(Long.toHexString(callee.getEntryPoint().getOffset()));
             }
+        } catch (Throwable ignored) {
+            return "";
         }
-        println("DecompileTargets: decompiled " + done + " functions, " + failed + " failures");
+        return builder.toString();
+    }
+
+    private String joinedCallers(Function function) {
+        StringBuilder builder = new StringBuilder();
+        try {
+            for (Function caller : function.getCallingFunctions(monitor)) {
+                if (builder.length() > 0) {
+                    builder.append(",");
+                }
+                builder.append("0x").append(Long.toHexString(caller.getEntryPoint().getOffset()));
+            }
+        } catch (Throwable ignored) {
+            return "";
+        }
+        return builder.toString();
     }
 
     private List<Target> loadTargets(File file) throws Exception {
@@ -254,17 +347,21 @@ public class DecompileTargets extends GhidraScript {
         try (BufferedReader reader = new BufferedReader(new FileReader(file, StandardCharsets.UTF_8))) {
             String line = reader.readLine();
             while ((line = reader.readLine()) != null) {
-                String[] fields = line.split("\t");
-                if (fields.length < 3) {
+                String[] fields = line.trim().split("\t");
+                if (fields.length < 2 || fields[0].isEmpty()) {
                     continue;
                 }
-                Target target = new Target();
-                target.address = Long.decode(fields[0].trim());
-                target.size = Long.parseLong(fields[1].trim());
-                target.score = Integer.parseInt(fields[2].trim());
-                target.label = fields.length > 3 ? fields[3].trim() : "";
-                target.depth = 0;
-                targets.add(target);
+                try {
+                    Target target = new Target();
+                    target.address = Long.decode(fields[0].trim());
+                    target.size = (long) Double.parseDouble(fields[1].trim());
+                    target.score = fields.length > 2 ? Integer.parseInt(fields[2].trim()) : 0;
+                    target.label = fields.length > 3 ? fields[3].trim() : "";
+                    target.depth = 0;
+                    targets.add(target);
+                } catch (NumberFormatException exception) {
+                    notes.add("skipping malformed target line: " + line);
+                }
             }
         }
         return targets;
@@ -280,8 +377,7 @@ public class DecompileTargets extends GhidraScript {
                 }
                 try {
                     long address = Long.decode(fields[4].trim());
-                    String label = fields[0] + "::vslot" + fields[3];
-                    labels.put(address, label);
+                    labels.put(address, fields[0] + "::vslot" + fields[3]);
                 } catch (NumberFormatException ignored) {
                     // header or malformed line
                 }
@@ -292,6 +388,7 @@ public class DecompileTargets extends GhidraScript {
     private Function ensureFunction(Target target) {
         Address entry = toAddr(target.address);
         if (entry == null) {
+            failures.add("0x" + Long.toHexString(target.address) + "\tbad-address");
             return null;
         }
         Function existing = getFunctionAt(entry);
@@ -324,14 +421,13 @@ public class DecompileTargets extends GhidraScript {
             if (label != null && !label.isEmpty()) {
                 try {
                     function.setName("wg_" + sanitize(label), SourceType.USER_DEFINED);
-                } catch (Exception ignored) {
-                    // duplicate names are fine
+                } catch (Throwable ignored) {
+                    // duplicate or invalid names are not fatal
                 }
             }
             return function;
-        } catch (Exception exception) {
-            failures.add("0x" + Long.toHexString(target.address) + "\t" +
-                exception.getClass().getSimpleName() + ": " + exception.getMessage());
+        } catch (Throwable throwable) {
+            failures.add("0x" + Long.toHexString(target.address) + "\t" + describe(throwable));
             return null;
         }
     }
@@ -365,21 +461,20 @@ public class DecompileTargets extends GhidraScript {
     }
 
     private void writeReferencedStrings(BufferedWriter writer, Function function) throws Exception {
-        Set<String> seen = new HashSet<>();
+        Set<Long> seen = new HashSet<>();
         TreeMap<Long, String> found = new TreeMap<>();
         Listing listing = currentProgram.getListing();
         for (Instruction instruction : listing.getInstructions(function.getBody(), true)) {
-            for (ghidra.program.model.symbol.Reference reference : instruction.getReferencesFrom()) {
+            for (Reference reference : instruction.getReferencesFrom()) {
                 if (!reference.getReferenceType().isData()) {
                     continue;
                 }
                 long target = reference.getToAddress().getOffset();
-                if (seen.contains(Long.toHexString(target))) {
+                if (!seen.add(target)) {
                     continue;
                 }
                 String text = readPrintable(target);
                 if (text != null && text.length() >= 4) {
-                    seen.add(Long.toHexString(target));
                     found.put(target, text);
                 }
                 if (found.size() >= 24) {
@@ -419,9 +514,60 @@ public class DecompileTargets extends GhidraScript {
                 builder.append((char) value);
             }
             return builder.toString();
-        } catch (Exception exception) {
+        } catch (Throwable throwable) {
             return null;
         }
+    }
+
+    private void writeFailures() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(
+                new File(outputDir, "failures.tsv"), StandardCharsets.UTF_8))) {
+            writer.write("detail\n");
+            for (String failure : failures) {
+                writer.write(failure.replace("\n", " ") + "\n");
+            }
+        } catch (Exception ignored) {
+            // best effort
+        }
+    }
+
+    private void writeDiagnostics() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(
+                new File(outputDir, "diagnostics.txt"), StandardCharsets.UTF_8))) {
+            writer.write("script: DecompileTargets.java\n");
+            writer.write("program: " + currentProgram.getName() + "\n");
+            writer.write("image base: " + currentProgram.getImageBase() + "\n");
+            writer.write("functions in program: " + currentProgram.getFunctionManager().getFunctionCount() + "\n");
+            writer.write("functions prepared: " + functions.size() + "\n");
+            writer.write("functions decompiled: " + decompiled + "\n");
+            writer.write("functions failed: " + failed + "\n");
+            writer.write("pseudocode files: " + (functionsDir == null ? 0 : functionsDir.listFiles().length) + "\n");
+            writer.write("elapsed seconds: " + elapsedSeconds() + "\n");
+            writer.write("preparation notes: " + failures.size() + "\n\n");
+            for (String note : notes) {
+                writer.write("note: " + note + "\n");
+            }
+            writer.write("\nfirst failures:\n");
+            for (int index = 0; index < Math.min(40, failures.size()); index++) {
+                writer.write("  " + failures.get(index) + "\n");
+            }
+        } catch (Exception ignored) {
+            // best effort
+        }
+    }
+
+    private long elapsedSeconds() {
+        return (System.nanoTime() - startedNanos) / 1_000_000_000L;
+    }
+
+    private String describe(Throwable throwable) {
+        StringWriter buffer = new StringWriter();
+        throwable.printStackTrace(new PrintWriter(buffer));
+        String text = buffer.toString();
+        if (text.length() > 800) {
+            text = text.substring(0, 800);
+        }
+        return text.replace("\n", " | ").replace("\t", " ");
     }
 
     private String sanitize(String value) {

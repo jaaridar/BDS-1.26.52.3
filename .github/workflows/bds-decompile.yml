@@ -18,11 +18,7 @@ on:
       max_functions:
         description: Maximum functions per shard
         required: false
-        default: "600"
-      shards:
-        description: Number of parallel decompiler shards
-        required: false
-        default: "4"
+        default: "500"
   push:
     paths:
       - .github/workflows/bds-decompile.yml
@@ -72,11 +68,16 @@ jobs:
 
       - name: Stage 1 - ELF, RTTI/vtable and string-xref triage (never executes the target)
         run: |
+          set -eu
           mkdir -p "$EVIDENCE/triage"
+          extra=()
+          if [ -f "$EVIDENCE/next-targets.tsv" ]; then
+            extra=(--extra-targets "$EVIDENCE/next-targets.tsv")
+          fi
           python3 tools/binary-analysis/triage.py bedrock_server "$EVIDENCE/triage" \
             --expected-sha256 "$BINARY_SHA256" \
-            --max-targets 1200
-          sed -n '1,60p' "$EVIDENCE/triage/summary.md"
+            --max-targets 1200 "${extra[@]}"
+          sed -n '1,40p' "$EVIDENCE/triage/summary.md" || true
 
       - name: Select JDK 21
         uses: actions/setup-java@v4
@@ -100,31 +101,38 @@ jobs:
             tools/binary-analysis/ghidra/DecompileTargets.java
           echo "headless scripts compile cleanly"
 
-      - name: Record triage identity
-        run: cat "$EVIDENCE/triage/identity.json"
-
-      - name: Commit triage evidence
+      - name: Smoke-test the headless decompiler on a small system binary
         run: |
-          set -eu
-          git add -f "$EVIDENCE/triage" "$EVIDENCE/manifest.txt" 2>/dev/null || git add -f "$EVIDENCE/triage"
-          if git diff --cached --quiet -- "$EVIDENCE/triage"; then
-            echo "triage evidence unchanged"
-            exit 0
+          set -u
+          mkdir -p "$EVIDENCE/smoke"
+          cp /bin/ls "$RUNNER_TEMP/small.bin"
+          entry="$(readelf -h "$RUNNER_TEMP/small.bin" | awk '/Entry point/{print $4}')"
+          printf 'address\tsize\tscore\tlabel\n%s\t256\t100\tsmoke-entry\n' "$entry" \
+            > "$EVIDENCE/smoke/targets.tsv"
+          cd "$GITHUB_WORKSPACE"
+          "$RUNNER_TEMP/ghidra/support/analyzeHeadless" \
+            "$RUNNER_TEMP/smokeproj" smoke \
+            -import "$RUNNER_TEMP/small.bin" -overwrite -noanalysis \
+            -scriptPath "$GITHUB_WORKSPACE/tools/binary-analysis/ghidra" \
+            -postScript DecompileTargets.java "$GITHUB_WORKSPACE/$EVIDENCE/smoke/out" \
+                "$GITHUB_WORKSPACE/$EVIDENCE/smoke/targets.tsv" 180 4 \
+            -deleteProject > "$EVIDENCE/smoke/headless.txt" 2>&1
+          status=$?
+          echo "$status" > "$EVIDENCE/smoke/exit-status.txt"
+          tail -30 "$EVIDENCE/smoke/headless.txt" || true
+          if [ -s "$EVIDENCE/smoke/out/diagnostics.txt" ]; then
+            cat "$EVIDENCE/smoke/out/diagnostics.txt"
           fi
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git commit -m "research: triage official BDS worldgen structure"
-          for attempt in 1 2 3 4 5; do
-            git pull --rebase "origin" "${GITHUB_REF_NAME}" || true
-            if git push origin "HEAD:${GITHUB_REF_NAME}"; then exit 0; fi
-            sleep $((attempt * 5))
-          done
-          exit 1
+          test -s "$EVIDENCE/smoke/out/index.md"
 
-      - uses: actions/upload-artifact@v4
+      - name: Publish triage evidence
+        if: always()
+        uses: actions/upload-artifact@v4
         with:
           name: triage
-          path: research/proprietary/bds-1.26.52.3/worldgen/triage
+          path: |
+            research/proprietary/bds-1.26.52.3/worldgen/triage
+            research/proprietary/bds-1.26.52.3/worldgen/smoke
           retention-days: 14
 
   decompile:
@@ -138,9 +146,9 @@ jobs:
         shard: [0, 1, 2, 3]
     env:
       SHARD: ${{ matrix.shard }}
-      SHARDS: ${{ github.event.inputs.shards || '4' }}
+      SHARDS: '4'
       BUDGET: ${{ github.event.inputs.budget_seconds || '3300' }}
-      MAXFN: ${{ github.event.inputs.max_functions || '600' }}
+      MAXFN: ${{ github.event.inputs.max_functions || '500' }}
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -201,7 +209,6 @@ jobs:
         env:
           MAXMEM: 6G
         run: |
-          set -eu
           out="$GITHUB_WORKSPACE/$EVIDENCE/decompiled/shard-$SHARD"
           rm -rf "$out" "$RUNNER_TEMP/project"
           mkdir -p "$out" "$RUNNER_TEMP/project"
@@ -214,37 +221,93 @@ jobs:
             -postScript DecompileTargets.java "$out" \
                 "$GITHUB_WORKSPACE/shard-targets.tsv" "$BUDGET" "$MAXFN" \
                 "$GITHUB_WORKSPACE/$EVIDENCE/triage/worldgen-vtables.tsv" \
-            -deleteProject 2>&1 | tee "$out/headless.txt"
-          status="${PIPESTATUS[0]}"
+            -deleteProject > "$out/headless.txt" 2>&1
+          echo "$?" > "$out/headless-exit-status.txt"
           set -e
-          echo "$status" > "$out/headless-exit-status.txt"
-          echo "analyzeHeadless exit status: $status"
-          echo "pseudocode files: $(find "$out/functions" -type f 2>/dev/null | wc -l)"
-
-      - name: Commit shard evidence
-        run: |
-          set -eu
-          test -s "$EVIDENCE/decompiled/shard-$SHARD/index.md"
-          git add -f "$EVIDENCE/decompiled/shard-$SHARD"
-          if git diff --cached --quiet -- "$EVIDENCE/decompiled/shard-$SHARD"; then
-            echo "shard evidence unchanged"
-            exit 0
-          fi
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git commit -m "research: decompile BDS worldgen shard $SHARD"
-          for attempt in 1 2 3 4 5 6 7 8; do
-            git pull --rebase "origin" "${GITHUB_REF_NAME}" || true
-            if git push origin "HEAD:${GITHUB_REF_NAME}"; then exit 0; fi
-            sleep $((attempt * 4))
-          done
-          exit 1
+          tail -30 "$out/headless.txt" || true
+          {
+            echo "shard: $SHARD"
+            echo "analyzeHeadless exit: $(cat "$out/headless-exit-status.txt")"
+            echo "pseudocode files: $(find "$out/functions" -type f 2>/dev/null | wc -l)"
+            echo "index present: $([ -s "$out/index.md" ] && echo yes || echo no)"
+            echo "targets: $(($(wc -l < shard-targets.tsv) - 1))"
+            echo
+            echo "--- errors from headless log ---"
+            grep -a -E "ERROR|Exception|error|WARN.*script|SCRIPT" "$out/headless.txt" | head -40 || true
+            echo
+            echo "--- script output ---"
+            grep -a "DecompileTargets" "$out/headless.txt" | tail -40 || true
+          } > "$out/diagnostics.txt"
+          cat "$out/diagnostics.txt"
 
       - uses: actions/upload-artifact@v4
         if: always()
-        continue-on-error: true
         with:
           name: shard-${{ matrix.shard }}
           path: research/proprietary/bds-1.26.52.3/worldgen/decompiled/shard-${{ matrix.shard }}
           retention-days: 14
           if-no-files-found: warn
+
+  collect:
+    needs: [triage, decompile]
+    if: always() && startsWith(github.ref, 'refs/heads/arena/')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Download every shard (and the triage report)
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          pattern: "*"
+          path: artifacts
+
+      - name: Assemble the evidence tree
+        run: |
+          set -eu
+          mkdir -p "$EVIDENCE"
+          if [ -d artifacts/triage ]; then
+            rm -rf "$EVIDENCE/triage"
+            cp -r artifacts/triage "$EVIDENCE/triage"
+          fi
+          for shard in 0 1 2 3; do
+            if [ -d "artifacts/shard-$shard" ]; then
+              rm -rf "$EVIDENCE/decompiled/shard-$shard"
+              mkdir -p "$EVIDENCE/decompiled"
+              cp -r "artifacts/shard-$shard" "$EVIDENCE/decompiled/shard-$shard"
+            fi
+          done
+          {
+            echo "collected: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            echo "run: ${GITHUB_RUN_ID}"
+            for shard in 0 1 2 3; do
+              dir="$EVIDENCE/decompiled/shard-$shard"
+              echo "shard $shard: $([ -d "$dir" ] && echo present || echo missing), \
+          functions=$(find "$dir/functions" -type f 2>/dev/null | wc -l), \
+          exit=$(cat "$dir/headless-exit-status.txt" 2>/dev/null || echo none)"
+            done
+            echo
+            du -sh "$EVIDENCE" || true
+          } | tee "$EVIDENCE/collect-report.txt"
+
+      - name: Commit the collected evidence
+        run: |
+          set -eu
+          git add -f "$EVIDENCE"
+          if git diff --cached --quiet -- "$EVIDENCE"; then
+            echo "evidence unchanged"
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m "research: worldgen triage and decompiled worldgen functions"
+          for attempt in 1 2 3 4 5; do
+            git pull --rebase origin "${GITHUB_REF_NAME}" || true
+            if git push origin "HEAD:${GITHUB_REF_NAME}"; then exit 0; fi
+            sleep $((attempt * 5))
+          done
+          exit 1

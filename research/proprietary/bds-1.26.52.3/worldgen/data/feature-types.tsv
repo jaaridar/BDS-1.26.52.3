@@ -1,0 +1,13 @@
+feature_type	count
+minecraft:scatter_feature	44
+minecraft:aggregate_feature	29
+minecraft:tree_feature	24
+minecraft:single_block_feature	17
+minecraft:ore_feature	14
+minecraft:weighted_random_feature	5
+minecraft:search_feature	1
+minecraft:fossil_feature	1
+minecraft:sequence_feature	1
+minecraft:nether_cave_carver_feature	1
+minecraft:cave_carver_feature	1
+minecraft:underwater_cave_carver_feature	1

@@ -1,0 +1,6 @@
+builder	parameters
+minecraft:frozen_ocean	foundation_material,mid_material,sea_floor_depth,sea_floor_material,sea_material,top_material,type
+minecraft:mesa	bryce_pillars,clay_material,foundation_material,hard_clay_material,has_forest,mid_material,sea_floor_depth,sea_floor_material,sea_material,top_material,type
+minecraft:overworld	foundation_material,mid_material,sea_floor_depth,sea_floor_material,sea_material,top_material,type
+minecraft:swamp	foundation_material,max_puddle_depth_below_sea_level,mid_material,sea_floor_depth,sea_floor_material,sea_material,top_material,type
+minecraft:the_end	type

@@ -762,6 +762,9 @@ def main(argv=None) -> int:
     parser.add_argument("--max-targets", type=int, default=400)
     parser.add_argument("--skip-sweep", action="store_true")
     parser.add_argument(
+        "--extra-targets", default=None,
+        help="TSV of address<TAB>score<TAB>label to prioritise (round-2 seeds)")
+    parser.add_argument(
         "--extra-pattern", action="append", default=[],
         help="additional case-insensitive string pattern (harness self-test)")
     args = parser.parse_args(argv)
@@ -948,20 +951,20 @@ def main(argv=None) -> int:
         weight = class_score(IDENT_TOKEN.findall(mangled))
         if is_core(pretty):
             core_slots += 1
-            bump(target, max(12, weight // 2), "core-vtable:%s#%d" % (pretty, index))
+            bump(target, 120 + weight // 2, "core-vtable:%s#%d" % (pretty, index))
         else:
-            bump(target, max(4, weight // 4), "vtable:%s#%d" % (pretty, index))
+            bump(target, 12 + weight // 4, "vtable:%s#%d" % (pretty, index))
     log("core world-gen vtable slots: %d" % core_slots)
 
     for target, addrs in references.items():
         text = interesting_strings[target]
-        weight = 10 if is_core(text) else 4
+        weight = 60 if is_core(text) else 20
         for address in addrs:
             function = owner.get(address)
             if function:
                 bump(function, weight, "string:%s" % text[:60])
 
-    seeds = {function for function, score in scores.items() if score >= 10}
+    seeds = {function for function, score in scores.items() if score >= 100}
     log("seeds: %d" % len(seeds))
 
     edges_out, edges_in = ({}, {})
@@ -970,10 +973,16 @@ def main(argv=None) -> int:
         edges_out, edges_in = build_call_edges(binary, starts, seeds, {})
         for function, callees in edges_out.items():
             for callee in callees:
-                bump(callee, 2, "callee-of:0x%x" % function)
+                # Do not let huge generic helpers (allocators, logging, ...)
+                # crowd out the focused world-generation functions.
+                if function_size.get(callee, 0) > 60000:
+                    continue
+                bump(callee, 6, "callee-of:0x%x" % function)
         for function, callers in edges_in.items():
             for caller in callers:
-                bump(caller, 1, "caller-of-seed")
+                if function_size.get(caller, 0) > 120000:
+                    continue
+                bump(caller, 4, "caller-of-seed")
 
     with open(os.path.join(args.outdir, "callgraph-worldgen.tsv"), "w") as handle:
         handle.write("function\tcallees\tcallers\n")
@@ -983,6 +992,23 @@ def main(argv=None) -> int:
                 ",".join("0x%x" % c for c in sorted(edges_out.get(function, ()))),
                 ",".join("0x%x" % c for c in sorted(edges_in.get(function, ()))),
             ))
+
+    extra_count = 0
+    if args.extra_targets and os.path.isfile(args.extra_targets):
+        with open(args.extra_targets) as handle:
+            for line in handle:
+                fields = line.rstrip("\n").split("\t")
+                if len(fields) < 2 or fields[0].startswith("address"):
+                    continue
+                try:
+                    function = int(fields[0], 0)
+                    score = int(fields[1])
+                except ValueError:
+                    continue
+                label = fields[2] if len(fields) > 2 else "round-2-seed"
+                bump(function, score, label)
+                extra_count += 1
+        log("merged %d externally supplied targets" % extra_count)
 
     ranked = sorted(scores.items(), key=lambda item: -item[1])
     with open(os.path.join(args.outdir, "candidates.tsv"), "w") as handle:
