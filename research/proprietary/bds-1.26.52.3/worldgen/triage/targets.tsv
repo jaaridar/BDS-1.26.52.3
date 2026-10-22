@@ -1,0 +1,496 @@
+address	size	score	label
+0x402bcc0	16	499	core-vtable:OverworldGenerator#49
+0x402a280	16	228	callee-of:0x4228e90
+0x4e2bb50	74992	221	caller-of-seed
+0xede2d70	0	186	callee-of:0x4228e90
+0xedc74c0	144	160	callee-of:0x485b6e0
+0x4782e20	16	142	callee-of:0x494e5e0
+0xc9730a0	608	138	core-vtable:OverworldGenerator#17
+0xca31380	16	134	core-vtable:OverworldGenerator#2
+0xca31390	32	134	core-vtable:OverworldGenerator#3
+0xca313b0	16	134	core-vtable:OverworldGenerator#4
+0xca313c0	16	134	core-vtable:OverworldGenerator#5
+0xca313d0	32	134	core-vtable:OverworldGenerator#6
+0xca313f0	32	134	core-vtable:OverworldGenerator#7
+0xca31410	208	134	core-vtable:OverworldGenerator#8
+0xca314e0	4672	134	core-vtable:OverworldGenerator#9
+0xca32740	16	134	core-vtable:OverworldGenerator#12
+0xca32750	16	134	core-vtable:OverworldGenerator#13
+0xca32760	16	134	core-vtable:OverworldGenerator#14
+0xc973030	112	134	core-vtable:OverworldGenerator#16
+0xca32f20	528	134	core-vtable:OverworldGenerator#18
+0xca33130	528	134	core-vtable:OverworldGenerator#19
+0xca33340	32	134	core-vtable:OverworldGenerator#20
+0xca33360	32	134	core-vtable:OverworldGenerator#21
+0xca33380	32	134	core-vtable:OverworldGenerator#22
+0xca333a0	32	134	core-vtable:OverworldGenerator#23
+0xca32790	32	134	core-vtable:OverworldGenerator#24
+0xca327b0	32	134	core-vtable:OverworldGenerator#25
+0xca32c90	160	134	core-vtable:OverworldGenerator#26
+0xca333c0	32	134	core-vtable:OverworldGenerator#27
+0xca32d30	32	134	core-vtable:OverworldGenerator#28
+0xca32d50	32	134	core-vtable:OverworldGenerator#29
+0xca33420	16	134	core-vtable:OverworldGenerator#30
+0xca33430	16	134	core-vtable:OverworldGenerator#31
+0xca32f10	16	134	core-vtable:OverworldGenerator#32
+0x519ba60	16	134	core-vtable:OverworldGenerator#33
+0xca2f090	16	134	core-vtable:OverworldGenerator#34
+0xca2f0a0	48	134	core-vtable:OverworldGenerator#35
+0xca2f0d0	272	134	core-vtable:OverworldGenerator#36
+0xca33440	16	134	core-vtable:OverworldGenerator#37
+0xca334c0	32	134	core-vtable:OverworldGenerator#38
+0xc972b00	272	134	core-vtable:OverworldGenerator#41
+0xc970eb0	208	134	core-vtable:OverworldGenerator#45
+0xc972c60	16	134	core-vtable:OverworldGenerator#53
+0x51d3ea0	15456	134	callee-of:0x4e2bb50
+0xc970bd0	32	125	core-vtable:OverworldGenerator#42
+0xc970bf0	208	125	core-vtable:OverworldGenerator#43
+0xc970cc0	496	125	core-vtable:OverworldGenerator#44
+0xc972c10	80	125	core-vtable:OverworldGenerator#46
+0xe3ddaa0	74624	124	callee-of:0xd1f8f10
+0x871a310	201072	112	string:BiomeClimateData
+0x517c470	2208	111	core-vtable:OverworldGenerator#10
+0x517cd10	7024	111	core-vtable:OverworldGenerator#11
+0x517ab30	6400	111	core-vtable:OverworldGenerator#15
+0x517a850	592	111	core-vtable:OverworldGenerator#47
+0x517aae0	64	111	core-vtable:OverworldGenerator#48
+0x517a840	16	111	core-vtable:OverworldGenerator#50
+0x517a720	288	111	core-vtable:OverworldGenerator#55
+0x4008328	293	110	callee-of:0x517ab30
+0x400844d	137	110	callee-of:0x517ab30
+0xc973310	16	94	core-vtable:OverworldGenerator#2
+0xca334e0	32	94	core-vtable:OverworldGenerator#39
+0xca33450	32	94	core-vtable:OverworldGenerator#40
+0xc973300	16	94	core-vtable:OverworldGenerator#52
+0xc972ef0	16	94	core-vtable:OverworldGenerator#54
+0x402c2d0	48	88	callee-of:0x4de9260
+0xedddcf0	256	84	callee-of:0x493a160
+0xe706340	10752	73	caller-of-seed
+0x517ab20	16	71	core-vtable:OverworldGenerator#60
+0x517a6f0	48	71	core-vtable:OverworldGenerator#61
+0xd200630	28240	64	string:auto Puv::SlicedLoader<SharedTypes::v1_21_20::JigsawStructur
+0x5182630	16352	56	caller-of-seed
+0xe4118a0	59984	52	string:internal::BasicSchema::EnumMapping::View &cereal::BasicFacto
+0xede2f00	0	50	callee-of:0x4de9260
+0x47b05a0	288	48	callee-of:0x78de530
+0x47b0bc0	208	48	callee-of:0x78de530
+0xede2f40	0	46	callee-of:0x6142da0
+0x5186800	304	44	callee-of:0x5186940
+0xe3f1ef0	24512	44	callee-of:0xd1f8f10
+0x51884e0	640	42	callee-of:0x5188b10
+0x517a670	48	41	core-vtable:OverworldGenerator#0
+0x517a6a0	48	41	core-vtable:OverworldGenerator#0
+0x517a6d0	16	41	core-vtable:OverworldGenerator#1
+0x517a6e0	16	41	core-vtable:OverworldGenerator#1
+0x5186940	32	41	caller-of-seed
+0x5186960	32	41	caller-of-seed
+0x5188b10	6672	41	caller-of-seed
+0x5186930	16	40	core-vtable:OverworldGeneratorMultinoise#0
+0x5188760	16	40	core-vtable:OverworldGeneratorMultinoise#2
+0x5193840	96	40	core-vtable:OverworldGeneratorMultinoise#39
+0x5186a80	16	40	core-vtable:OverworldGeneratorMultinoise#40
+0x518a520	16	40	core-vtable:OverworldGeneratorMultinoise#49
+0x5188770	928	40	core-vtable:OverworldGeneratorMultinoise#51
+0x5188460	96	40	core-vtable:OverworldGeneratorMultinoise#54
+0x5181650	640	40	core-vtable:OverworldGeneratorMultinoise#56
+0x5187590	928	40	core-vtable:OverworldGeneratorMultinoise#57
+0x5187580	16	40	core-vtable:OverworldGeneratorMultinoise#58
+0x5186b50	240	40	core-vtable:OverworldGeneratorMultinoise#59
+0x5186a90	192	40	core-vtable:OverworldGeneratorMultinoise#60
+0x5186c40	48	40	core-vtable:OverworldGeneratorMultinoise#61
+0x51884c0	16	40	core-vtable:OverworldGeneratorMultinoise#62
+0x51884d0	16	40	core-vtable:OverworldGeneratorMultinoise#63
+0x5a1f120	1048576	40	string:minecraft:birch_tree_feature
+0x47b0c90	144	40	callee-of:0x7e0b3b0
+0x47b0d20	192	40	callee-of:0x7e0b3b0
+0xaf95f80	12240	38	string:Spawn rules for minecraft:density_limit in {} need to be put
+0xbe12270	12256	38	string:Spawn rules for minecraft:density_limit in {} need to be put
+0xede3000	0	38	callee-of:0x4de9260
+0x497b3e0	16	37	core-vtable:WorldGenMultiNoiseClimateAttributes#0
+0x523db30	16	36	core-vtable:VanillaSurfaceBuilders::NoiseGradientSurfaceBuilder#0
+0x4de9260	272624	36	string:minecraft:aggregate_feature
+0x519ba70	576	34	callee-of:0x519bcb0
+0x460d9a0	256	34	callee-of:0x494e5e0
+0x493a160	400	33	core-vtable:BiomeSource3d#2
+0x493aaf0	688	33	core-vtable:BiomeSource3d#4
+0xda370f0	5232	32	callee-of:0xeba4760
+0xeba4760	4816	32	callee-of:0xeba2170
+0x7e0b3b0	21488	32	string:SubChunkHeightmapData
+0x5c9c620	1104	32	callee-of:0x78de530
+0x519bcb0	32	31	caller-of-seed
+0x519bce0	32	31	caller-of-seed
+0x519bcd0	16	30	core-vtable:OverworldGenerator2d#0
+0x5181620	16	30	core-vtable:OverworldGenerator2d#49
+0x51815f0	48	30	core-vtable:OverworldGenerator2d#51
+0x517e8e0	416	30	core-vtable:OverworldGenerator2d#56
+0x5180730	16	30	core-vtable:OverworldGenerator2d#57
+0x5181640	16	30	core-vtable:OverworldGenerator2d#58
+0x5181630	16	30	core-vtable:OverworldGenerator2d#59
+0x51815d0	16	30	core-vtable:OverworldGenerator2d#62
+0x51815e0	16	30	core-vtable:OverworldGenerator2d#63
+0x517ea80	3136	30	core-vtable:OverworldGenerator2d#64
+0xe8800c0	3648	30	callee-of:0xe875070
+0xc786220	2416	30	string:climate
+0x4782eb0	48	30	callee-of:0x494e5e0
+0x47aead0	224	30	callee-of:0x881f420
+0x47b5060	592	30	callee-of:0xda370f0
+0x5258ea0	16	29	core-vtable:ClimateBiomeComponentGlue#0
+0x52511f0	1392	29	string:Weighted temperature categories must be arrays with 2 elemen
+0xc7d7690	16	29	core-vtable:SharedTypes::v1_20_60::ClimateBiomeJsonComponent#0
+0xd1bf390	48	28	vtable:br::worldgen::StructureProcessor#3
+0xe7af270	30224	28	callee-of:0xda370f0
+0x6142da0	13776	28	string:Jigsaw path does not exist: 
+0x402e5e0	128	28	callee-of:0x494e5e0
+0x4785070	176	28	callee-of:0x4de9260
+0xed386e0	80	28	callee-of:0x4de9260
+0xede2dd0	0	28	callee-of:0x517ab30
+0x478e200	144	28	callee-of:0x524f1c0
+0x478e120	112	28	callee-of:0xda370f0
+0xe401380	21696	26	callee-of:0xe3dd970
+0x4782e30	16	26	callee-of:0x5a1f120
+0x47afca0	128	26	callee-of:0x871a310
+0x47afb10	400	26	callee-of:0x871a310
+0xea7cb80	47472	25	caller-of-seed
+0xe874df0	640	24	callee-of:0xe706340
+0xe875070	656	24	callee-of:0xe706340
+0xe1d0880	14176	24	string:Jigsaw Block Metadata
+0xe2d33f0	11120	24	string:Jigsaw Structure Metadata
+0xda65d50	400	24	callee-of:0xda5fe60
+0x5250790	400	23	core-vtable:MultinoiseGenerationRulesBiomeComponentGlue#3
+0x524f1c0	368	22	core-vtable:ClimateBiomeComponentGlue#2
+0x493d130	1488	22	string:/mnt/vss/_work/1/s/handheld/src-vanilla/vanilla_shared/src/c
+0xeba2170	9712	22	caller-of-seed
+0xc7b6470	3024	22	string:Returns a Perlin simplex noise value for the given (x, z) po
+0xd235180	1120	22	callee-of:0xd21b1e0
+0x4790760	16	22	callee-of:0x493b030
+0xcb41df0	224	22	callee-of:0x4e2bb50
+0x47ae910	48	22	callee-of:0x871a310
+0x47afd20	288	22	callee-of:0x871a310
+0xda61aa0	224	22	callee-of:0xda370f0
+0x525d920	16	21	core-vtable:WorldGenMultiNoiseClimateAttributes#1
+0xd1d9d30	16	20	vtable:br::worldgen::processors::BlockRules::AlwaysTrue#0
+0x5156180	7552	20	callee-of:0x5182630
+0xe3dd970	304	20	caller-of-seed
+0xd208860	2480	20	string:Loading Jigsaw Structure .json files
+0xc4b8460	44576	20	string:Tests the current temperature against a provided value in th
+0xbf19d20	23376	20	string:density
+0xca2cd50	9024	20	string:surfaceBuildersResolved
+0xda65110	656	20	string:static const BasicSchema::EnumMapping::View &cereal::interna
+0xe3f7eb0	34112	20	callee-of:0xd1f8f10
+0x47b1040	144	20	callee-of:0x7e0b3b0
+0x47b10d0	192	20	callee-of:0x7e0b3b0
+0x47b0ac0	48	20	callee-of:0x871a310
+0x47b0af0	112	20	callee-of:0x871a310
+0xec621a0	256	20	callee-of:0x871a310
+0xc74fde0	16	19	core-vtable:BiomeSource3d#3
+0xd1f8f10	18912	19	caller-of-seed
+0x6146460	7696	18	caller-of-seed
+0xc7e3540	3376	18	string:The SurfaceBuilderComponent could not be resolved.
+0xc7ead20	5856	18	string:The SurfaceBuilderComponent could not be resolved.
+0x6148270	22256	18	callee-of:0x6146460
+0x4791200	48	18	callee-of:0x5188b10
+0xede2ee0	0	18	callee-of:0x5a1f120
+0xda5fe60	992	17	callee-of:0xda370f0
+0xda60240	992	17	callee-of:0xda370f0
+0xda60620	992	17	callee-of:0xda370f0
+0xda60a00	992	17	callee-of:0xda370f0
+0xda60de0	992	17	callee-of:0xda370f0
+0xda611c0	992	17	callee-of:0xda370f0
+0x48caae0	32	16	core-vtable:XoroshiroRandom#11
+0x48cab00	16	16	core-vtable:XoroshiroRandom#12
+0x48cab10	16	16	core-vtable:XoroshiroRandom#13
+0x48cab20	64	16	core-vtable:XoroshiroRandom#14
+0x48cab60	64	16	core-vtable:XoroshiroRandom#15
+0x48caba0	64	16	core-vtable:XoroshiroRandom#16
+0x48cabe0	64	16	core-vtable:XoroshiroRandom#17
+0xd1c4580	16	16	vtable:br::worldgen::StructureProcessor#0
+0xe872740	432	16	callee-of:0xe706340
+0xd305930	2992	16	string:minecraft:search_feature
+0xd2e8de0	1408	16	string:minecraft:tree_feature
+0x50ce980	503840	16	string:minecraft:pine_tree_feature
+0x62f3d70	672	16	string:worldgen/processors
+0x9a95090	27296	16	string:  Jigsaw Persistence Enabled
+0xca5db60	25184	16	string:minecraft:cave_spider
+0xced62c0	192816	16	string:minecraft:cave_vines
+0x4ea7a10	1856	16	callee-of:0x4de9260
+0x47b46f0	112	16	callee-of:0xe1d0880
+0x52518f0	992	15	string:minecraft:overworld_generation_rules
+0xda615a0	992	15	callee-of:0xda370f0
+0x5258b90	288	14	callee-of:0x5258cb0
+0xc970460	192	14	vtable:WorldGenerator#0
+0xc970ba0	16	14	vtable:WorldGenerator#0
+0xc970bb0	16	14	vtable:WorldGenerator#1
+0xc970bc0	16	14	vtable:WorldGenerator#1
+0xca32720	16	14	vtable:WorldGenerator#10
+0xca32730	16	14	vtable:WorldGenerator#11
+0xca32770	32	14	vtable:WorldGenerator#15
+0xda34c00	304	14	callee-of:0xeba2170
+0x518e660	17392	14	callee-of:0x5182630
+0xd1fe510	2848	14	callee-of:0x6146460
+0xede2e90	0	14	callee-of:0x4de9260
+0x4831450	48	14	callee-of:0x52518f0
+0xda65680	1008	14	callee-of:0xda5fe60
+0xda61a20	112	14	callee-of:0xda5fe60
+0xda65a70	624	14	callee-of:0xda5fe60
+0x495e290	112	13	core-vtable:BiomeSource3d#0
+0x495e300	112	13	core-vtable:BiomeSource3d#1
+0x493ae00	48	13	core-vtable:BiomeSource3d#5
+0x493ae30	512	13	core-vtable:BiomeSource3d#6
+0x493b030	608	13	core-vtable:BiomeSource3d#7
+0x493b4d0	64	13	core-vtable:BiomeSource3d#8
+0x493b510	64	13	core-vtable:BiomeSource3d#9
+0x493b550	16	13	core-vtable:BiomeSource3d#10
+0x493b290	16	13	core-vtable:BiomeSource3d#11
+0x5258970	16	13	core-vtable:MultinoiseGenerationRulesBiomeComponentGlue#1
+0x5250780	16	13	core-vtable:MultinoiseGenerationRulesBiomeComponentGlue#2
+0xe76d070	16	13	core-vtable:SharedTypes::v1_20_60::MultinoiseGenerationRulesBiomeJsonComponent#1
+0x5258cb0	32	13	caller-of-seed
+0xd21b1e0	16928	13	caller-of-seed
+0xe3efe20	8400	13	callee-of:0xd1f8f10
+0x5258910	16	12	core-vtable:ClimateBiomeComponentGlue#1
+0x524f4c0	272	12	core-vtable:ClimateBiomeComponentGlue#3
+0xc7e7ff0	80	12	core-vtable:SharedTypes::Beta::SurfaceBuilderBiomeJsonComponent#0
+0xc7e8040	80	12	core-vtable:SharedTypes::Beta::SurfaceBuilderBiomeJsonComponent#1
+0xe768960	16	12	core-vtable:SharedTypes::v1_20_60::ClimateBiomeJsonComponent#1
+0xe77c290	80	12	core-vtable:SharedTypes::v1_21_100::SurfaceBuilderBiomeJsonComponent#0
+0xe77c2e0	80	12	core-vtable:SharedTypes::v1_21_100::SurfaceBuilderBiomeJsonComponent#1
+0xe1df5f0	3648	12	string:minecraft:overworld
+0xc7e48d0	80	12	core-vtable:SharedTypes::v1_26_30::SurfaceBuilderBiomeJsonComponent#0
+0xc7e4920	80	12	core-vtable:SharedTypes::v1_26_30::SurfaceBuilderBiomeJsonComponent#1
+0x5253490	480	12	core-vtable:SurfaceBuilderBiomeComponentGlue#2
+0x5253670	688	12	core-vtable:SurfaceBuilderBiomeComponentGlue#3
+0xc7bf330	16	12	core-vtable:SurfaceBuilderComponent#0
+0xc7bf340	16	12	core-vtable:SurfaceBuilderComponent#1
+0xc759ae0	112	12	core-vtable:VanillaSurfaceBuilders::CappedSurfaceBuilder#0
+0xc759b50	128	12	core-vtable:VanillaSurfaceBuilders::CappedSurfaceBuilder#1
+0xc752060	464	12	core-vtable:VanillaSurfaceBuilders::CappedSurfaceBuilder#2
+0xc752230	176	12	core-vtable:VanillaSurfaceBuilders::CappedSurfaceBuilder#3
+0xc7522e0	144	12	core-vtable:VanillaSurfaceBuilders::CappedSurfaceBuilder#4
+0xc752370	1952	12	core-vtable:VanillaSurfaceBuilders::CappedSurfaceBuilder#5
+0xc752b10	16	12	core-vtable:VanillaSurfaceBuilders::CappedSurfaceBuilder#6
+0xc759ac0	16	12	core-vtable:VanillaSurfaceBuilders::CappedSurfaceBuilder::MaterialHelper#0
+0xc759ad0	16	12	core-vtable:VanillaSurfaceBuilders::CappedSurfaceBuilder::MaterialHelper#1
+0xc751b50	240	12	core-vtable:VanillaSurfaceBuilders::CappedSurfaceBuilder::MaterialHelper#2
+0xc751c40	432	12	core-vtable:VanillaSurfaceBuilders::CappedSurfaceBuilder::MaterialHelper#3
+0xc751df0	432	12	core-vtable:VanillaSurfaceBuilders::CappedSurfaceBuilder::MaterialHelper#4
+0xc751fa0	80	12	core-vtable:VanillaSurfaceBuilders::CappedSurfaceBuilder::MaterialHelper#5
+0x523d7a0	208	12	core-vtable:VanillaSurfaceBuilders::LegacyMesaSurfaceBuilder#0
+0x523d870	208	12	core-vtable:VanillaSurfaceBuilders::LegacyMesaSurfaceBuilder#1
+0x51f0d20	1648	12	core-vtable:VanillaSurfaceBuilders::LegacyMesaSurfaceBuilder#2
+0x51f1390	368	12	core-vtable:VanillaSurfaceBuilders::LegacyMesaSurfaceBuilder#3
+0x51f1500	16	12	core-vtable:VanillaSurfaceBuilders::LegacyMesaSurfaceBuilder#4
+0x51f0250	2480	12	core-vtable:VanillaSurfaceBuilders::LegacyMesaSurfaceBuilder#5
+0x51f0d10	16	12	core-vtable:VanillaSurfaceBuilders::LegacyMesaSurfaceBuilder#6
+0x523d940	64	12	core-vtable:VanillaSurfaceBuilders::MesaSurfaceBuilder#0
+0x523d980	96	12	core-vtable:VanillaSurfaceBuilders::MesaSurfaceBuilder#1
+0x51f1f50	5536	12	core-vtable:VanillaSurfaceBuilders::MesaSurfaceBuilder#2
+0x51f34f0	368	12	core-vtable:VanillaSurfaceBuilders::MesaSurfaceBuilder#3
+0x51f3660	16	12	core-vtable:VanillaSurfaceBuilders::MesaSurfaceBuilder#4
+0x51f1510	2368	12	core-vtable:VanillaSurfaceBuilders::MesaSurfaceBuilder#5
+0x51f1e50	16	12	core-vtable:VanillaSurfaceBuilders::MesaSurfaceBuilder#6
+0x523d9e0	16	12	core-vtable:VanillaSurfaceBuilders::NoiseGradientSurfaceBuilder#1
+0x51f3670	16	12	core-vtable:VanillaSurfaceBuilders::NoiseGradientSurfaceBuilder#2
+0x51f3680	864	12	core-vtable:VanillaSurfaceBuilders::NoiseGradientSurfaceBuilder#3
+0x51f39e0	144	12	core-vtable:VanillaSurfaceBuilders::NoiseGradientSurfaceBuilder#4
+0x51f3a70	1072	12	core-vtable:VanillaSurfaceBuilders::NoiseGradientSurfaceBuilder#5
+0x51f4030	16	12	core-vtable:VanillaSurfaceBuilders::NoiseGradientSurfaceBuilder#6
+0x523d9f0	64	12	core-vtable:VanillaSurfaceBuilders::OceanFrozenSurfaceBuilder#0
+0x523da30	80	12	core-vtable:VanillaSurfaceBuilders::OceanFrozenSurfaceBuilder#1
+0x51f40e0	3648	12	core-vtable:VanillaSurfaceBuilders::OceanFrozenSurfaceBuilder#2
+0x51f4fd0	160	12	core-vtable:VanillaSurfaceBuilders::OceanFrozenSurfaceBuilder#3
+0x51f5070	256	12	core-vtable:VanillaSurfaceBuilders::OceanFrozenSurfaceBuilder#4
+0x51f5170	1424	12	core-vtable:VanillaSurfaceBuilders::OceanFrozenSurfaceBuilder#5
+0x51f5700	16	12	core-vtable:VanillaSurfaceBuilders::OceanFrozenSurfaceBuilder#6
+0xc759bd0	16	12	core-vtable:VanillaSurfaceBuilders::OverworldDefaultSurfaceBuilder#1
+0xc752b20	16	12	core-vtable:VanillaSurfaceBuilders::OverworldDefaultSurfaceBuilder#2
+0xc752b30	192	12	core-vtable:VanillaSurfaceBuilders::OverworldDefaultSurfaceBuilder#3
+0xc752cd0	256	12	core-vtable:VanillaSurfaceBuilders::OverworldDefaultSurfaceBuilder#4
+0xc752dd0	16	12	core-vtable:VanillaSurfaceBuilders::OverworldDefaultSurfaceBuilder#5
+0xc754010	16	12	core-vtable:VanillaSurfaceBuilders::OverworldDefaultSurfaceBuilder#6
+0x523da80	80	12	core-vtable:VanillaSurfaceBuilders::SwampSurfaceBuilder#0
+0x523dad0	96	12	core-vtable:VanillaSurfaceBuilders::SwampSurfaceBuilder#1
+0x51f5750	416	12	core-vtable:VanillaSurfaceBuilders::SwampSurfaceBuilder#2
+0x51f58f0	160	12	core-vtable:VanillaSurfaceBuilders::SwampSurfaceBuilder#3
+0x51f5990	256	12	core-vtable:VanillaSurfaceBuilders::SwampSurfaceBuilder#4
+0x51f5a90	672	12	core-vtable:VanillaSurfaceBuilders::SwampSurfaceBuilder#5
+0x51f5d30	16	12	core-vtable:VanillaSurfaceBuilders::SwampSurfaceBuilder#6
+0x523db40	16	12	core-vtable:VanillaSurfaceBuilders::TheEndSurfaceBuilder#1
+0x523db50	16	12	core-vtable:VanillaSurfaceBuilders::TheEndSurfaceBuilder#2
+0x523db60	16	12	core-vtable:VanillaSurfaceBuilders::TheEndSurfaceBuilder#3
+0x51f5e20	144	12	core-vtable:VanillaSurfaceBuilders::TheEndSurfaceBuilder#4
+0x51f5d40	208	12	core-vtable:VanillaSurfaceBuilders::TheEndSurfaceBuilder#5
+0x51f5e10	16	12	core-vtable:VanillaSurfaceBuilders::TheEndSurfaceBuilder#6
+0x52452b0	48	12	core-vtable:WorldGenClimateMappingAttributes#0
+0x52452e0	64	12	core-vtable:WorldGenClimateMappingAttributes#1
+0x485d8e0	16	12	core-vtable:XoroshiroRandom#0
+0x48ca700	16	12	core-vtable:XoroshiroRandom#1
+0x48ca710	64	12	core-vtable:XoroshiroRandom#2
+0x48ca750	144	12	core-vtable:XoroshiroRandom#3
+0x48ca7e0	64	12	core-vtable:XoroshiroRandom#4
+0x48ca820	64	12	core-vtable:XoroshiroRandom#5
+0x48ca860	80	12	core-vtable:XoroshiroRandom#6
+0x48ca8b0	80	12	core-vtable:XoroshiroRandom#7
+0x48ca900	352	12	core-vtable:XoroshiroRandom#8
+0x48caa60	128	12	core-vtable:XoroshiroRandom#9
+0x485b6e0	208	12	core-vtable:XoroshiroRandom#10
+0xe87f2e0	3552	12	callee-of:0xe875070
+0xc8204b0	1296	12	string:world_gen
+0x9babf40	10448	12	string:JigsawStructure
+0xd1f5270	5696	12	string:Failed to parse jigsaw structure definition '%s'.
+0xd1f3fc0	4784	12	string:Failed to parse jigsaw structure processor list '%s'.
+0xd1f7bb0	4960	12	string:Failed to parse jigsaw structure template pool '%s'.
+0xe7b7880	592	12	callee-of:0xe7af270
+0xe7bb270	576	12	callee-of:0xe7af270
+0xea6df80	17808	12	string:ambient.cave
+0xea888c0	976	12	callee-of:0xea7cb80
+0x4785120	320	12	callee-of:0x4de9260
+0xd2411f0	752	12	callee-of:0x5156180
+0xedb81b0	256	12	callee-of:0x524f1c0
+0xedb79f0	1840	12	callee-of:0x524f1c0
+0x402f0e0	576	12	callee-of:0xd1f3fc0
+0xd1d97a0	32	11	string:jigsaw_replacement
+0x4953380	192	11	caller-of-seed
+0xd2c3840	112	10	caller-of-seed
+0xd2c3920	128	10	caller-of-seed
+0xc97b600	16	10	vtable:_GLOBAL__N_1::WorldGeneratorAnon::StructureAccess#0
+0xc97b610	16	10	vtable:_GLOBAL__N_1::WorldGeneratorAnon::StructureAccess#1
+0xc97b620	1136	10	vtable:_GLOBAL__N_1::WorldGeneratorAnon::StructureAccess#2
+0xc97ba90	16	10	vtable:_GLOBAL__N_1::WorldGeneratorAnon::StructureAccess#3
+0xc972ac0	16	10	vtable:_GLOBAL__N_1::WorldGeneratorAnon::StructureAccess#4
+0x4228e90	2016	10	string:WebRTC-Bwe-LimitPacingFactorByUpperLinkCapacityEstimate
+0x494e5e0	3040	10	string:M-spline for continentalness: {:.2f}
+0x4953440	208	10	string:minecraft:climate
+0x4953a10	288	10	string:minecraft:multinoise_generation_rules
+0x4953b30	288	10	string:minecraft:overworld_generation_rules
+0x4978d20	32	10	string:ZN21BiomeJsonDocumentGlue17registerComponentIN11SharedTypes8
+0x4979780	32	10	string:ZN21BiomeJsonDocumentGlue17registerComponentIN11SharedTypes8
+0x4979ed0	32	10	string:ZN21BiomeJsonDocumentGlue17registerComponentIN11SharedTypes8
+0x497a100	32	10	string:ZN21BiomeJsonDocumentGlue17registerComponentITkNSt3__112deri
+0x497a310	32	10	string:ZN21BiomeJsonDocumentGlue17registerComponentIN11SharedTypes4
+0xd3064e0	1344	10	callee-of:0xd305930
+0xd306a20	1344	10	callee-of:0xd305930
+0x51be650	32	10	string:ZN7Bedrock9Threading20InstancedThreadLocalIN18OverworldGener
+0x51be830	32	10	string:ZN18OverworldGenerator9loadChunkER10LevelChunkbE3$_0
+0x51d3480	1360	10	callee-of:0x4e2bb50
+0x78de530	48800	10	string:Density
+0x881f420	784	10	string:virtual void cereal::internal::TypeSchema<std::optional<Biom
+0x8826f90	784	10	string:virtual void cereal::internal::TypeSchema<std::optional<Biom
+0x882cc90	784	10	string:virtual void cereal::internal::TypeSchema<std::optional<Biom
+0xc75af20	32	10	string:ZZZN18BiomeSurfaceSystem28resolveBuilderImplementationER13Bi
+0xc7817c0	32	10	string:ZN15ISurfaceBuilder24SurfaceBuilderParametersC1ERK5BiomePK18
+0xc7818a0	32	10	string:ZNK22VanillaSurfaceBuilders20CappedSurfaceBuilder14buildSurf
+0xc7819e0	32	10	string:ZNK22VanillaSurfaceBuilders20CappedSurfaceBuilder14buildSurf
+0xc781ae0	32	10	string:ZN18BiomeSurfaceSystem28resolveBuilderImplementationER13Biom
+0xc7dc630	32	10	string:ZN3Puv14CerealUpgraderIN11SharedTypes7v1_26_017BiomeJsonDocu
+0xe410f80	1168	10	callee-of:0xe3f7eb0
+0xe411410	1168	10	callee-of:0xe3f7eb0
+0xe424600	768	10	callee-of:0xe3f7eb0
+0xeb1e200	784	10	string:virtual void cereal::internal::TypeSchema<std::optional<Shar
+0xd2430a0	3216	10	callee-of:0x4e2bb50
+0x48cce40	528	10	callee-of:0x5156180
+0x48cd290	64	10	callee-of:0x5156180
+0x4786070	112	10	callee-of:0x517a720
+0x47aea50	128	10	callee-of:0xe3ddaa0
+0x48057f0	384	10	callee-of:0xe3ddaa0
+0xd2c37d0	112	9	vtable:FlatWorldGenerator#0
+0xd2c38b0	112	9	vtable:FlatWorldGenerator#0
+0xd2a4db0	16	9	vtable:FlatWorldGenerator#10
+0xd2a4dc0	1152	9	vtable:FlatWorldGenerator#11
+0xd2a46a0	1808	9	vtable:FlatWorldGenerator#15
+0xd2a5240	32	9	vtable:FlatWorldGenerator#42
+0xd2a5260	16	9	vtable:FlatWorldGenerator#43
+0xd2a5270	16	9	vtable:FlatWorldGenerator#44
+0xd2a5ae0	16	9	vtable:FlatWorldGenerator#46
+0xd2a5280	2144	9	vtable:FlatWorldGenerator#47
+0xd2a5b10	48	9	vtable:FlatWorldGenerator#48
+0xd2a5b50	16	9	vtable:FlatWorldGenerator#49
+0xd2a5b60	32	9	vtable:FlatWorldGenerator#50
+0xd2a5b40	16	9	vtable:FlatWorldGenerator#51
+0xd2a5af0	16	9	vtable:FlatWorldGenerator#55
+0xd2a5b00	16	9	vtable:FlatWorldGenerator#56
+0xd1bf350	64	9	vtable:br::worldgen::StructureProcessor#2
+0xd1bf3d0	64	9	string:virtual void br::worldgen::StructureProcessor::appendMetadat
+0xc81fc20	2112	9	caller-of-seed
+0xc95fb20	4768	8	string:virtual void Dimension::init(const br::worldgen::StructureSe
+0x6140b00	464	8	string:jigsaws
+0x6140cd0	16	8	string:Editor::Services::EditorJigsawService
+0xd2086c0	208	8	vtable:EditorJigsawStructureLoader#0
+0x8a13c30	160	8	vtable:FeatureRegistryPacket#5
+0x8a14040	960	8	vtable:FeatureRegistryPacket#10
+0x82e9b20	16	8	string:JigsawStructureDataPacket
+0xd1cf130	4736	8	string:JigsawReplacement
+0xd2e8ac0	128	8	string:"cave_carver_feature" is the only valid feature in "pregener
+0xe1d4060	368	8	string:Check that there is at least one value in the array, that th
+0x764b410	16	8	vtable:SharedTypes::v1_21_80::BiomeReplacementConstraint#4
+0xec5f1e0	16	8	vtable:SharedTypes::v1_21_80::BiomeReplacementConstraint#6
+0xe055e60	3680	8	string:minecraft:overworld
+0xe032560	368	8	string:minecraft:overworld
+0xd234750	416	8	vtable:StructurePoolBlockPredicateCappedArcheologyBlockReplacement#2
+0xd2348f0	80	8	vtable:StructurePoolBlockPredicateCappedArcheologyBlockReplacement#3
+0xd2349c0	448	8	vtable:StructurePoolBlockPredicateCappedArcheologyBlockReplacement#7
+0xd231480	720	8	vtable:StructurePoolBlockPredicateCappedArcheologyBlockReplacement#8
+0xd234b80	16	8	vtable:StructurePoolBlockPredicateCappedArcheologyBlockReplacement#9
+0x5253d60	2640	8	string:world_gen
+0xd1d9b20	16	8	vtable:br::worldgen::ConstantHeight#0
+0xd1ff960	624	8	caller-of-seed
+0xd1d9b10	16	8	vtable:br::worldgen::processors::PosRules::AlwaysTrue#0
+0x523ae40	1632	8	string:minecraft:overworld
+0x493d700	608	8	string:/mnt/vss/_work/1/s/handheld/src-vanilla/vanilla_shared/src/c
+0x493f6c0	976	8	string:/mnt/vss/_work/1/s/handheld/src-vanilla/vanilla_shared/src/c
+0x4941c20	976	8	string:/mnt/vss/_work/1/s/handheld/src-vanilla/vanilla_shared/src/c
+0x4942800	656	8	string:/mnt/vss/_work/1/s/handheld/src-vanilla/vanilla_shared/src/c
+0x4949aa0	15904	8	string:Erosion Factor for base value: {:.2f}
+0xd2f38d0	6784	8	string:minecraft:ore_feature
+0xd325480	656	8	string:minecraft:weighted_random_feature
+0x51650f0	15424	8	string:minecraft:nether_gold_ore_feature
+0xc543930	1536	8	string:minecraft:mangrove_tree_feature
+0x79941e0	121824	8	string:SubChunk_BiomeData
+0x82ea3e0	304	8	string:JigsawStructureDataPacket
+0x7e4e700	656	8	string:static const BasicSchema::EnumMapping::View &cereal::interna
+0x82eb930	2240	8	string:Jigsaw Structure Data Tag
+0xafb24f0	512	8	string:is_temperature_value
+0x87b42d0	992	8	callee-of:0x871a310
+0x87b46b0	992	8	callee-of:0x871a310
+0x87b4a90	992	8	callee-of:0x871a310
+0x87b4e70	992	8	callee-of:0x871a310
+0x87b5250	992	8	callee-of:0x871a310
+0x87b8cf0	656	8	string:static const BasicSchema::EnumMapping::View &cereal::interna
+0xb199fb0	3632	8	string:minecraft:cave_s
+0xb713a20	2080	8	string:Invalid Custom Biome Source
+0xc4d7da0	24384	8	string:The Biome temperature catagory to test
+0xc88c1b0	21248	8	string:virtual bool Level::initialize(const std::string &, const Le
+0xd1cda40	4800	8	string:Identifier '%s' failed validation when registering jigsaw st
+0xd1f68b0	4864	8	string:Jigsaw Structure Set .json file 
+0xd25ce20	6688	8	string:minecraft:jigsaw_structure_metadata
+0xd279e60	2480	8	string:Failed to map jigsaw structure final block: '%s'. There is n
+0xd4dc7a0	54432	8	string:caves_and_cliffs
+0xd780440	272	8	callee-of:0xe1d0880
+0xd780930	1168	8	string:Factory<Type> cereal::BasicFactory<SharedTypes::JigsawJointT
+0xd780dc0	1168	8	string:Factory<Type> cereal::BasicFactory<SharedTypes::JigsawJointT
+0xd789050	656	8	string:static const BasicSchema::EnumMapping::View &cereal::interna
+0xe2c1920	11392	8	string:minecraft:biome_music
+0xe3b0690	656	8	string:static const BasicSchema::EnumMapping::View &cereal::interna
+0xe40ba60	3504	8	callee-of:0xe3ddaa0
+0xe423ae0	656	8	string:static const BasicSchema::EnumMapping::View &cereal::interna
+0xe4346d0	656	8	string:static const BasicSchema::EnumMapping::View &cereal::interna
+0xe438f60	656	8	string:static const BasicSchema::EnumMapping::View &cereal::interna
+0xe43d670	656	8	string:static const BasicSchema::EnumMapping::View &cereal::interna
+0xe441f40	656	8	string:static const BasicSchema::EnumMapping::View &cereal::interna
+0xe456b90	656	8	string:static const BasicSchema::EnumMapping::View &cereal::interna
+0xe557990	656	8	string:static const BasicSchema::EnumMapping::View &cereal::interna
+0xe55c3c0	656	8	string:static const BasicSchema::EnumMapping::View &cereal::interna
+0xe560bb0	656	8	string:static const BasicSchema::EnumMapping::View &cereal::interna
+0xe5652e0	656	8	string:static const BasicSchema::EnumMapping::View &cereal::interna
+0xe58ec80	656	8	string:static const BasicSchema::EnumMapping::View &cereal::interna
+0xe592b20	656	8	string:static const BasicSchema::EnumMapping::View &cereal::interna
+0x49b5580	144	8	callee-of:0x4e2bb50
+0x49b5520	80	8	callee-of:0x4e2bb50
+0x49a5c60	112	8	callee-of:0x4e2bb50
+0x517a590	224	8	callee-of:0x517a670
+0x497efb0	48	8	callee-of:0x517c470
+0x407cc60	80	8	callee-of:0x51884e0
+0xd2414e0	752	8	callee-of:0x5188b10
+0x5246af0	384	8	callee-of:0x51f1390
+0x5c85c50	192	8	callee-of:0xd1f3fc0
+0x4805bb0	48	8	callee-of:0xe3ddaa0
+0x4805be0	112	8	callee-of:0xe3ddaa0

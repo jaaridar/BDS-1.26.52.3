@@ -1,0 +1,24 @@
+Generated: 2026-10-22T13:11:14Z
+
+## triage
+     45748  callgraph-worldgen.tsv
+    224513  candidates.tsv
+    399876  classes.tsv
+       109  functions.txt
+       835  identity.json
+      8810  interesting-classes.tsv
+      1012  sections.txt
+     62129  string-xrefs.tsv
+     11247  summary.md
+     27548  targets.tsv
+     84453  worldgen-vtables.tsv
+
+## decompiled
+         2  headless-exit-status.txt
+      8353  headless.txt
+pseudocode files: 0
+
+sizes:
+8355	research/proprietary/bds-1.26.52.3/worldgen/decompiled
+456	research/proprietary/bds-1.26.52.3/worldgen/manifest.txt
+866280	research/proprietary/bds-1.26.52.3/worldgen/triage
