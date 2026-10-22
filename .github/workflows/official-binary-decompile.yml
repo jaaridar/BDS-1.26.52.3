@@ -50,8 +50,8 @@ jobs:
           MAXMEM: 5G
         run: |
           output="$GITHUB_WORKSPACE/research/proprietary/bds-1.26.52.3/ghidra"
-          rm -rf "$output"
-          mkdir -p "$output"
+          rm -rf "$output" "$RUNNER_TEMP/ghidra-project"
+          mkdir -p "$output" "$RUNNER_TEMP/ghidra-project"
           set +e
           "$RUNNER_TEMP/ghidra_12.1.4_PUBLIC/support/analyzeHeadless" \
             "$RUNNER_TEMP/ghidra-project" bds-worldgen \
