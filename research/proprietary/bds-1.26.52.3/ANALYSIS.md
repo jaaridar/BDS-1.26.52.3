@@ -389,6 +389,19 @@ For chunks the seed is the mixed chunk coordinate described in §3.1. Feature
 placement uses the same construction with its own seed derivation, which is why
 BDS feature placement cannot be reproduced with a single xoroshiro stream.
 
+The object layout falls out of the same loop and is worth recording, because it
+identifies the field offsets a reimplementation has to match:
+
+```
++0x00  vptr
++0x08  seed      (the 32-bit value the engine seeded with)
++0x0c  mt[0]     (624 words -> +0x9cb)
++0x9cc mti       (written as 624 = 0x270 together with a following 0x18e word)
+```
+
+`0x0c + 624 * 4 = 0x9cc`, which is exactly where the terminating store lands, so
+`mt[0]` starts at `+0xc` and `+8` holds the original seed.
+
 ### 4.4 `br::worldgen::WorldGenRandom` — a `java.util.Random` clone
 
 `br::worldgen::WorldGenRandom` has an 18-slot vtable (`f45e800`, slots
