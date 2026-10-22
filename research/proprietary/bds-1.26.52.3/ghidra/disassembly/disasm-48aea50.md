@@ -1,0 +1,41 @@
+# 48aea50
+
+```asm
+048aea50  PUSH R14
+048aea52  PUSH RBX
+048aea53  PUSH RAX
+048aea54  MOV RBX,qword ptr [RDI + 0x50]
+048aea58  TEST RBX,RBX
+048aea5b  JZ 0x048aea6f
+048aea5d  MOV RAX,-0x1
+048aea64  XADD.LOCK qword ptr [RBX + 0x8],RAX
+048aea6a  TEST RAX,RAX
+048aea6d  JZ 0x048aea9c
+048aea6f  MOV RBX,qword ptr [RDI + 0x38]
+048aea73  MOV qword ptr [RDI + 0x38],0x0
+048aea7b  TEST RBX,RBX
+048aea7e  JZ 0x048aeac4
+048aea80  MOV RDI,RBX
+048aea83  CALL 0x048aea50
+048aea88  MOV ESI,0x58
+048aea8d  MOV RDI,RBX
+048aea90  ADD RSP,0x8
+048aea94  POP RBX
+048aea95  POP R14
+048aea97  JMP 0x0412a280
+048aea9c  MOV RAX,qword ptr [RBX]
+048aea9f  MOV R14,RDI
+048aeaa2  MOV RDI,RBX
+048aeaa5  CALL qword ptr [RAX + 0x10]
+048aeaa8  MOV RDI,RBX
+048aeaab  CALL 0x0412c2d0
+048aeab0  MOV RDI,R14
+048aeab3  MOV RBX,qword ptr [RDI + 0x38]
+048aeab7  MOV qword ptr [RDI + 0x38],0x0
+048aeabf  TEST RBX,RBX
+048aeac2  JNZ 0x048aea80
+048aeac4  ADD RSP,0x8
+048aeac8  POP RBX
+048aeac9  POP R14
+048aeacb  RET
+```

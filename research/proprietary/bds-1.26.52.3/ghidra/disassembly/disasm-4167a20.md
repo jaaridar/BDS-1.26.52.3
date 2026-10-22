@@ -1,0 +1,11 @@
+# 4167a20
+
+```asm
+04167a20  MOV RAX,qword ptr [RSI]
+04167a23  MOV qword ptr [RDI],RAX
+04167a26  LEA RCX,[0xf5478c0]
+04167a2d  CMP RAX,RCX
+04167a30  JZ 0x04167a37
+04167a32  INC.LOCK qword ptr [RAX + 0x8]
+04167a37  RET
+```

@@ -1,4 +1,5 @@
 function_address	referenced_vtables	renamed_to
+48a56c0	fn:BackgroundTask	BackgroundTask
 495b6e0	ctor:XoroshiroPositionalRandomFactory	XoroshiroPositionalRandomFactory_ctor
 495c870	ctor:XoroshiroPositionalRandomFactory	XoroshiroPositionalRandomFactory_ctor
 49cac20	ctor:EditorCustomBiomeSource	EditorCustomBiomeSource_ctor
@@ -192,12 +193,16 @@ cb3ade0	ctor:ChunkViewSource	ChunkViewSource_ctor
 cb3ae10	ctor:ChunkSource	ChunkSource_ctor
 cf33660	ctor:JigsawBlockActor	JigsawBlockActor_ctor
 d27dc70	fn:Poi::Storage::getOrCreate	Poi_Storage_getOrCreate
+d280230	fn:Poi::Region::getOrCreate	Poi_Region_getOrCreate
 d2be5c0	ctor:br::worldgen::processors::ProtectedBlock	br_worldgen_processors_ProtectedBlock_ctor
 d2be660	ctor:br::worldgen::WorldGenRandom	br_worldgen_WorldGenRandom_ctor
 d2beb00	ctor:br::worldgen::processors::Rule	br_worldgen_processors_Rule_ctor
 d2bf7f0	ctor:br::worldgen::processors::Capped	br_worldgen_processors_Capped_ctor
 d2c4540	ctor:br::worldgen::processors::ProtectedBlock	br_worldgen_processors_ProtectedBlock_ctor
 d2c45a0	ctor:br::worldgen::processors::Rule	br_worldgen_processors_Rule_ctor
+d2c46f0	ctor:OceanMixerOperationNode	OceanMixerOperationNode_ctor
+d2c4960	ctor:RegionHillsOperationNode	RegionHillsOperationNode_ctor
+d2c49f0	ctor:RegionHillsOperationNode	RegionHillsOperationNode_ctor
 d2c80f0	ctor:br::worldgen::StructureHeightProvider	br_worldgen_StructureHeightProvider_ctor
 d2c81e0	ctor:br::worldgen::JigsawStructure, ctor:br::worldgen::StructureHeightProvider	br_worldgen_JigsawStructure_ctor
 d2cedd0	ctor:br::worldgen::WorldGenRandom	br_worldgen_WorldGenRandom_ctor
@@ -217,6 +222,8 @@ d2d9e80	ctor:JigsawStructurePostprocessAction	JigsawStructurePostprocessAction_c
 d2d9ee0	ctor:br::worldgen::processors::BlockIgnore	br_worldgen_processors_BlockIgnore_ctor
 d2d9f20	ctor:br::worldgen::processors::Capped	br_worldgen_processors_Capped_ctor
 d2de2e0	ctor:br::worldgen::Structure	br_worldgen_Structure_ctor
+d2ed140	fn:FeatureTerrainAdjustments::setBeardifier	FeatureTerrainAdjustments_setBeardifier
+d2edca0	fn:FeatureTerrainAdjustments::setBeardAndShaver	FeatureTerrainAdjustments_setBeardAndShaver
 d2eddc0	fn:FeatureTerrainAdjustments::setBury	FeatureTerrainAdjustments_setBury
 d2eeb90	ctor:SurfaceLevelCache	SurfaceLevelCache_ctor
 d2f20d0	ctor:br::worldgen::WorldGenRandom	br_worldgen_WorldGenRandom_ctor
@@ -249,6 +256,7 @@ d344770	ctor:StructurePoolBlockPredicateTrueIfFound	StructurePoolBlockPredicateT
 d3447b0	ctor:StructurePoolBlockPredicateAlwaysTrueExcept	StructurePoolBlockPredicateAlwaysTrueExcept_ctor
 d3447d0	ctor:StructurePoolBlockPredicateAlwaysTrueExcept	StructurePoolBlockPredicateAlwaysTrueExcept_ctor
 d34fe50	ctor:StructureFeature	StructureFeature_ctor
+d366670	ctor:StructureTemplate, ctor:StructureTemplateData	StructureTemplate_ctor
 d366a60	ctor:StructureTemplate	StructureTemplate_ctor
 d36ee70	ctor:br::worldgen::WorldGenRandom	br_worldgen_WorldGenRandom_ctor
 d36f010	ctor:StructureTemplateData	StructureTemplateData_ctor
@@ -325,3 +333,4 @@ e9049e0	ctor:SharedTypes::v1_21_100::FrozenNoiseBasedBiomeJsonComponent	SharedTy
 e905370	ctor:SharedTypes::v1_21_100::SurfaceBuilderBiomeJsonComponent	SharedTypes_v1_21_100_SurfaceBuilderBiomeJsonComponent_ctor
 ecfa290	ctor:SharedTypes::Beta::SurfaceBuilderBiomeJsonComponent	SharedTypes_Beta_SurfaceBuilderBiomeJsonComponent_ctor
 ed02940	ctor:SharedTypes::Beta::SurfaceBuilderBiomeJsonComponent	SharedTypes_Beta_SurfaceBuilderBiomeJsonComponent_ctor
+ee77140	fn:Core::FileImpl::_writeOperation	Core_FileImpl_writeOperation

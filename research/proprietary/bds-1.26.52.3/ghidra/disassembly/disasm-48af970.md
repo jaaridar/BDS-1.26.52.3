@@ -1,0 +1,116 @@
+# 48af970
+
+```asm
+048af970  PUSH RBP
+048af971  PUSH R15
+048af973  PUSH R14
+048af975  PUSH R13
+048af977  PUSH R12
+048af979  PUSH RBX
+048af97a  PUSH RAX
+048af97b  MOV RBX,RDI
+048af97e  MOV RAX,qword ptr [RDI + 0x18]
+048af982  MOV R13,qword ptr [RDI + 0x20]
+048af986  MOV RCX,R13
+048af989  SUB RCX,RAX
+048af98c  SAR RCX,0x3
+048af990  MOV R12,-0x5555555555555555
+048af99a  IMUL R12,RCX
+048af99e  DEC R12
+048af9a1  CMP RSI,R12
+048af9a4  JZ 0x048afa89
+048af9aa  MOV ECX,dword ptr [R13 + -0x10]
+048af9ae  MOV RDX,qword ptr [RBX]
+048af9b1  MOV RDI,qword ptr [RBX + 0x8]
+048af9b5  SUB RDI,RDX
+048af9b8  SHR RDI,0x3
+048af9bc  DEC EDI
+048af9be  AND EDI,ECX
+048af9c0  LEA RBP,[RDX + RDI*0x8]
+048af9c4  LEA RDX,[RSI + RSI*0x2]
+048af9c8  MOV RDI,qword ptr [R13 + -0x18]
+048af9cc  MOV qword ptr [RAX + RDX*0x8],RDI
+048af9d0  MOV dword ptr [RAX + RDX*0x8 + 0x8],ECX
+048af9d4  MOV RCX,qword ptr [R13 + -0x8]
+048af9d8  MOV qword ptr [R13 + -0x8],0x0
+048af9e0  MOV R14,qword ptr [RAX + RDX*0x8 + 0x10]
+048af9e5  MOV qword ptr [RAX + RDX*0x8 + 0x10],RCX
+048af9ea  TEST R14,R14
+048af9ed  JZ 0x048afa54
+048af9ef  MOV R13,RSI
+048af9f2  MOV R15,qword ptr [R14 + 0x78]
+048af9f6  MOV qword ptr [R14 + 0x78],0x0
+048af9fe  TEST R15,R15
+048afa01  JZ 0x048afa18
+048afa03  MOV RDI,R15
+048afa06  CALL 0x048ae940
+048afa0b  MOV ESI,0x78
+048afa10  MOV RDI,R15
+048afa13  CALL 0x0412a280
+048afa18  MOV R15,qword ptr [R14 + 0x70]
+048afa1c  TEST R15,R15
+048afa1f  JZ 0x048afa44
+048afa21  MOV RAX,-0x1
+048afa28  XADD.LOCK qword ptr [R15 + 0x8],RAX
+048afa2e  TEST RAX,RAX
+048afa31  JNZ 0x048afa44
+048afa33  MOV RAX,qword ptr [R15]
+048afa36  MOV RDI,R15
+048afa39  CALL qword ptr [RAX + 0x10]
+048afa3c  MOV RDI,R15
+048afa3f  CALL 0x0412c2d0
+048afa44  MOV ESI,0x80
+048afa49  MOV RDI,R14
+048afa4c  CALL 0x0412a280
+048afa51  MOV RSI,R13
+048afa54  MOV RAX,qword ptr [RBP]
+048afa58  CMP RAX,R12
+048afa5b  JZ 0x048afa81
+048afa5d  MOV RCX,qword ptr [RBX + 0x18]
+048afa61  NOP dword ptr CS:[RAX + RAX*0x1]
+048afa70  LEA RDX,[RAX + RAX*0x2]
+048afa74  MOV RAX,qword ptr [RCX + RDX*0x8]
+048afa78  CMP RAX,R12
+048afa7b  JNZ 0x048afa70
+048afa7d  LEA RBP,[RCX + RDX*0x8]
+048afa81  MOV qword ptr [RBP],RSI
+048afa85  MOV R13,qword ptr [RBX + 0x20]
+048afa89  MOV R14,qword ptr [R13 + -0x8]
+048afa8d  MOV qword ptr [R13 + -0x8],0x0
+048afa95  TEST R14,R14
+048afa98  JZ 0x048afaf9
+048afa9a  MOV R15,qword ptr [R14 + 0x78]
+048afa9e  MOV qword ptr [R14 + 0x78],0x0
+048afaa6  TEST R15,R15
+048afaa9  JZ 0x048afac0
+048afaab  MOV RDI,R15
+048afaae  CALL 0x048ae940
+048afab3  MOV ESI,0x78
+048afab8  MOV RDI,R15
+048afabb  CALL 0x0412a280
+048afac0  MOV R15,qword ptr [R14 + 0x70]
+048afac4  TEST R15,R15
+048afac7  JZ 0x048afaec
+048afac9  MOV RAX,-0x1
+048afad0  XADD.LOCK qword ptr [R15 + 0x8],RAX
+048afad6  TEST RAX,RAX
+048afad9  JNZ 0x048afaec
+048afadb  MOV RAX,qword ptr [R15]
+048afade  MOV RDI,R15
+048afae1  CALL qword ptr [RAX + 0x10]
+048afae4  MOV RDI,R15
+048afae7  CALL 0x0412c2d0
+048afaec  MOV ESI,0x80
+048afaf1  MOV RDI,R14
+048afaf4  CALL 0x0412a280
+048afaf9  ADD R13,-0x18
+048afafd  MOV qword ptr [RBX + 0x20],R13
+048afb01  ADD RSP,0x8
+048afb05  POP RBX
+048afb06  POP R12
+048afb08  POP R13
+048afb0a  POP R14
+048afb0c  POP R15
+048afb0e  POP RBP
+048afb0f  RET
+```

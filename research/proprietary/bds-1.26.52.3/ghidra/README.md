@@ -9,10 +9,10 @@
 - relative relocations parsed: `723948`
 - RTTI `type_info` objects recovered: `51998`
 - distinct classes/vtables recovered: `41849` / `50263`
-- vtables selected by name filter: `616`
-- selected vtable slots: `5120`
-- functions analysed: `5000`
-- functions decompiled: `4830`
+- vtables selected by name filter: `701`
+- selected vtable slots: `5544`
+- functions analysed: `5823`
+- functions decompiled: `5653`
 
 ## How the class names were recovered
 
@@ -50,13 +50,84 @@ binary rather than a hand-written guess list.
 - OverworldGeneratorMultinoise
 - TheEndGenerator
 - NormalNoiseOperationNode<?, ?*, short, ?, double>
+- BiomeClimateSelectorOperationNode<?, ?*, short, ?, double>
+- MixerOperationNode<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, float, ?, float, float, float>
+- std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::? const*::?::int::?::unsigned long::long double::Pos2d::OperationNodeZooms::Zoom4xVoronoi, S_::allocator<S8, ?>>
+- ZoomOperationNodeCommon<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, OperationNodeZooms::Zoom4xVoronoi>
 - VanillaOverworldBiomeSource<?, ?*, short, ?, double>
 - NodeGraphBiomeSource<?, ?*, short, ?, double>
+- std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::OperationNodeValues::Terrain::Pos2d::OperationNodeZooms::Zoom2xFuzzy, S_::allocator<S7, ?>>
+- ZoomOperationNodeCommon<OperationNodeValues::Terrain, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2xFuzzy>
+- MixerOperationNode<OperationNodeValues::Terrain, ?, ?*, short, ?, double, S1, ?, ?>
+- std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddIsland::Pos2d, S_::allocator<S5, ?>>
+- FilterOperationNode<OperationNodeFilters::AddIsland, ?, ?*, short, ?, double>
+- std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::OperationNodeValues::Terrain::Pos2d::OperationNodeZooms::Zoom2x, S_::allocator<S7, ?>>
+- ZoomOperationNodeCommon<OperationNodeValues::Terrain, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2x>
+- std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::RemoveTooMuchOcean::Pos2d, S_::allocator<S5, ?>>
+- FilterOperationNode<OperationNodeFilters::RemoveTooMuchOcean, ?, ?*, short, ?, double>
+- std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddSnow::Pos2d, S_::allocator<S5, ?>>
+- FilterOperationNode<OperationNodeFilters::AddSnow, ?, ?*, short, ?, double>
+- MixerOperationNode<OperationNodeValues::PreBiome, ?, ?*, short, ?, double, S0::?::Terrain, ?>
+- std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddIslandWithTemperature::Pos2d, S_::allocator<S5, ?>>
+- FilterOperationNode<OperationNodeFilters::AddIslandWithTemperature, ?, ?*, short, ?, double>
+- MixerOperationNode<OperationNodeValues::PreBiome, ?, ?*, short, ?, double, S1, ?, ?>
+- std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddEdgeCoolWarm::Pos2d, S_::allocator<S5, ?>>
+- FilterOperationNode<OperationNodeFilters::AddEdgeCoolWarm, ?, ?*, short, ?, double>
+- std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddEdgeHeatIce::Pos2d, S_::allocator<S5, ?>>
+- FilterOperationNode<OperationNodeFilters::AddEdgeHeatIce, ?, ?*, short, ?, double>
+- std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddEdgeSpecial::Pos2d, S_::allocator<S5, ?>>
+- FilterOperationNode<OperationNodeFilters::AddEdgeSpecial, ?, ?*, short, ?, double>
+- std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::OperationNodeValues::PreBiome::Pos2d::OperationNodeZooms::Zoom2x, S_::allocator<S7, ?>>
+- ZoomOperationNodeCommon<OperationNodeValues::PreBiome, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2x>
+- std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::BiomeInit::Pos2d, S_::allocator<S5, ?>>
+- FilterOperationNode<OperationNodeFilters::BiomeInit, ?, ?*, short, ?, double>
+- MixerOperationNode<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, OperationNodeValues::PreBiome, ?>
+- std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddMushroomIsland::Pos2d, S_::allocator<S5, ?>>
+- FilterOperationNode<OperationNodeFilters::AddMushroomIsland, ?, ?*, short, ?, double>
+- std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::PromoteCenter::Pos2d, S_::allocator<S5, ?>>
+- FilterOperationNode<OperationNodeFilters::PromoteCenter, ?, ?*, short, ?, double>
+- std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::RiverInit::Pos2d, S_::allocator<S5, ?>>
+- FilterOperationNode<OperationNodeFilters::RiverInit, ?, ?*, short, ?, double>
+- MixerOperationNode<int, ?, ?*, short, ?, double, ? const*, ?, int, ?, unsigned long, long double, ?>
+- std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::int::Pos2d::OperationNodeZooms::Zoom2x, S_::allocator<S5, ?>>
+- ZoomOperationNodeCommon<int, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2x>
+- MixerOperationNode<int, ?, ?*, short, ?, double, int, ?>
+- std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::River::Pos2d, S_::allocator<S5, ?>>
+- FilterOperationNode<OperationNodeFilters::River, ?, ?*, short, ?, double>
+- MixerOperationNode<bool, ?, ?*, short, ?, double, int, ?>
+- std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::Smooth<bool>::Pos2d, S_::allocator<S6, ?>>
+- FilterOperationNode<OperationNodeFilters::Smooth<bool>, ?, ?*, short, ?, double>
+- MixerOperationNode<bool, ?, ?*, short, ?, double, bool, ?>
+- std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::RareBiomeSpot::Pos2d, S_::allocator<S5, ?>>
+- FilterOperationNode<OperationNodeFilters::RareBiomeSpot, ?, ?*, short, ?, double>
+- std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::FilteredTransformation<?, ?, ?, int, long, unsigned short, long double, ?, long double, double, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, ?*, long double, ?, int, long, long, short>::double::?::long double::?::?::?::?::short::float::?::?::unsigned long::?::unsigned short::int::?::?>::Pos2d
+- FilterOperationNode<OperationNodeFilters::FilteredTransformation<?, ?, ?, int, long, unsigned short, long double, ?, long double, double, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, ?*, long double, ?, int, long, long, short>::double::?::long double::?::?::?::?::short::float::?::?::unsigned long::?::unsigned short::int::?::?>
+- std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::FilteredTransformation<?, ?, ?, int, long, unsigned short, long double, ?, long double, double, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, long double, ?, char, unsigned long long, ?*, long double, ?, int, long, long, short>::double::?::long double::?::?::?::?::short::float::?::?::unsigned long::?::unsigned short::int::?::?>::Pos2d
+- FilterOperationNode<OperationNodeFilters::FilteredTransformation<?, ?, ?, int, long, unsigned short, long double, ?, long double, double, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, long double, ?, char, unsigned long long, ?*, long double, ?, int, long, long, short>::double::?::long double::?::?::?::?::short::float::?::?::unsigned long::?::unsigned short::int::?::?>
+- std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::? const*::?::int::?::unsigned long::long double::Pos2d::OperationNodeZooms::Zoom2x, S_::allocator<S8, ?>>
+- ZoomOperationNodeCommon<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2x>
+- std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddBiomeIsland::Pos2d, S_::allocator<S5, ?>>
+- FilterOperationNode<OperationNodeFilters::AddBiomeIsland, ?, ?*, short, ?, double>
+- std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::Shore::Pos2d, S_::allocator<S5, ?>>
+- FilterOperationNode<OperationNodeFilters::Shore, ?, ?*, short, ?, double>
+- std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::FilteredTransformation<?, ?, ?, int, long, unsigned short, long double, ?, long double, double, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, ?*, short, unsigned short, Sh, ?, ?, long double>::double::?::long double::?::?::?::?::short::float::?::?::unsigned long::?::unsigned short::int::?::?>::Pos2d
+- FilterOperationNode<OperationNodeFilters::FilteredTransformation<?, ?, ?, int, long, unsigned short, long double, ?, long double, double, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, ?*, short, unsigned short, Sh, ?, ?, long double>::double::?::long double::?::?::?::?::short::float::?::?::unsigned long::?::unsigned short::int::?::?>
+- std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::Smooth<? const*, ?, int, ?, unsigned long, long double>::Pos2d, S_::allocator<S9, ?>>
+- FilterOperationNode<OperationNodeFilters::Smooth<? const*, ?, int, ?, unsigned long, long double>, ?, ?*, short, ?, double>
+- TransformationMixerOperationNode<?, ?, ?, long double, int, ?, unsigned char, unsigned short, long double, double, ?, int, ?, unsigned long, long double, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, int&, void, long double, ?, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?>
+- MixerOperationNode<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, S2, ?, ?, bool>
+- std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddOceanEdge::Pos2d, S_::allocator<S5, ?>>
+- FilterOperationNode<OperationNodeFilters::AddOceanEdge, ?, ?*, short, ?, double>
+- MixerOperationNode<?, ?, ?, int, ?, unsigned long, long double, ?, long double, unsigned long, ?, long double, ?, ?, unsigned short, ?, ?, long double, ?, ?, unsigned short, long double, ?, ?, ?, unsigned long long, ?, ?*, short, ?, double, S0, ?, ?>
+- std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::BiomeTemperatureCategory::Pos2d::OperationNodeZooms::Zoom2x, S_::allocator<S6, ?>>
+- ZoomOperationNodeCommon<?, ?, ?, int, ?, unsigned long, long double, ?, long double, unsigned long, ?, long double, ?, ?, unsigned short, ?, ?, long double, ?, ?, unsigned short, long double, ?, ?, ?, unsigned long long, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2x>
 - CachedBiomeSource<?, ?, ? volatile, ?, int, long, long, ?, void&&, long double, ?, wchar_t, ?, ?, long, double, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, ?, ?*, short, ?, double>
 - std::__1::__function::__func<?, Bedrock::Threading::InstancedThreadLocal<OverworldGenerator::ThreadData, S_::allocator<S6, ?>>::?::E::void, ?, long, S6*, ?>::?::S7::?::?::SB::?
 - std::__1::__function::__func<?, OverworldGenerator::loadChunk, ?&, ?, long double, long double, long, ?, unsigned char, ?, ?, ?, bool>::$_0::S_::allocator<S5, ?>::?::void::? const&::?::long::?::char::?::?*::short::? const&::?::long::?::char::?::int
 - CachedBiomeSource<?, ?, long double&, ?, long, ?, char, long double, unsigned long, long double, ?, unsigned short, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, ?, ?, long, ?, char, ?, ?*, short>
 - CachedBiomeSource<?, ?, ?, int, ?, unsigned long, long double, std::ostream, ?, ?, char, long double, ?, double>
+- OperationNode<?, ?, ?, int, ?, unsigned long, long double, ?, long double, unsigned long, ?, long double, ?, ?, unsigned short, ?, ?, long double, ?, ?, unsigned short, long double, ?, ?, ?, unsigned long long, ?, ?*, short, ?, double>
+- MixerOperationNode<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, S2, ?, ?>
 - VanillaSurfaceBuilders::LegacyMesaSurfaceBuilder
 - VanillaSurfaceBuilders::MesaSurfaceBuilder
 - VanillaSurfaceBuilders::NoiseGradientSurfaceBuilder
@@ -163,77 +234,6 @@ binary rather than a hand-written guess list.
 - Scripting::Reflection::MemberPropertySetter<ScriptModuleMinecraft::ScriptJigsawStructurePlaceOptions, ?, ?, double, ?, S3::?::mKeepJigsaws>
 - std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptJigsawStructurePlaceOptions, S2::?::ReturnPolicy>::?::?::double::?::S5::?::mKeepJigsaws>
 - Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptJigsawStructurePlaceOptions, S0::?::ReturnPolicy>::?::?::double::?::S3::?::mKeepJigsaws
-- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<ScriptModuleMinecraft::ScriptJigsawStructurePlaceOptions, ?, ?, double, ?, S5::?::mIncludeEntities>>
-- Scripting::Reflection::MemberPropertySetter<ScriptModuleMinecraft::ScriptJigsawStructurePlaceOptions, ?, ?, double, ?, S3::?::mIncludeEntities>
-- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptJigsawStructurePlaceOptions, S2::?::ReturnPolicy>::?::?::double::?::S5::?::mIncludeEntities>
-- Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptJigsawStructurePlaceOptions, S0::?::ReturnPolicy>::?::?::double::?::S3::?::mIncludeEntities
-- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<ScriptModuleMinecraft::ScriptJigsawStructurePlaceOptions, ?, ?, double, ?, S5::?::mLiquidSettings>>
-- Scripting::Reflection::MemberPropertySetter<ScriptModuleMinecraft::ScriptJigsawStructurePlaceOptions, ?, ?, double, ?, S3::?::mLiquidSettings>
-- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptJigsawStructurePlaceOptions, S2::?::ReturnPolicy>::?::?::double::?::S5::?::mLiquidSettings>
-- Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptJigsawStructurePlaceOptions, S0::?::ReturnPolicy>::?::?::double::?::S3::?::mLiquidSettings
-- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<ScriptModuleMinecraft::ScriptJigsawPlaceOptions, ?, ?, double, ?, S5::?::mKeepJigsaws>>
-- Scripting::Reflection::MemberPropertySetter<ScriptModuleMinecraft::ScriptJigsawPlaceOptions, ?, ?, double, ?, S3::?::mKeepJigsaws>
-- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptJigsawPlaceOptions, S2::?::ReturnPolicy>::?::?::double::?::S5::?::mKeepJigsaws>
-- Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptJigsawPlaceOptions, S0::?::ReturnPolicy>::?::?::double::?::S3::?::mKeepJigsaws
-- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<ScriptModuleMinecraft::ScriptJigsawPlaceOptions, ?, ?, double, ?, S5::?::mIncludeEntities>>
-- Scripting::Reflection::MemberPropertySetter<ScriptModuleMinecraft::ScriptJigsawPlaceOptions, ?, ?, double, ?, S3::?::mIncludeEntities>
-- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptJigsawPlaceOptions, S2::?::ReturnPolicy>::?::?::double::?::S5::?::mIncludeEntities>
-- Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptJigsawPlaceOptions, S0::?::ReturnPolicy>::?::?::double::?::S3::?::mIncludeEntities
-- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<ScriptModuleMinecraft::ScriptJigsawPlaceOptions, ?, ?, double, ?, S5::?::mLiquidSettings>>
-- Scripting::Reflection::MemberPropertySetter<ScriptModuleMinecraft::ScriptJigsawPlaceOptions, ?, ?, double, ?, S3::?::mLiquidSettings>
-- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptJigsawPlaceOptions, S2::?::ReturnPolicy>::?::?::double::?::S5::?::mLiquidSettings>
-- Scripting::Reflection::MemberPropertyGetter<ScriptModuleMinecraft::ScriptJigsawPlaceOptions, S0::?::ReturnPolicy>::?::?::double::?::S3::?::mLiquidSettings
-- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, ?, ?, double, ?, S6::?::mSeed>>
-- Scripting::Reflection::MemberPropertySetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, ?, ?, double, ?, S4::?::mSeed>
-- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, S2::?::ReturnPolicy>::?::?::double::?::S6::?::mSeed>
-- Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mSeed
-- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertySetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, ?, ?, double, ?, S6::?::mNewBiomes>>
-- Scripting::Reflection::MemberPropertySetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, ?, ?, double, ?, S4::?::mNewBiomes>
-- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, S2::?::ReturnPolicy>::?::?::double::?::S6::?::mNewBiomes>
-- Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSourceConfig, S0::?::ReturnPolicy>::?::?::double::?::S4::?::mNewBiomes
-- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSource, S2::?::ReturnPolicy>::?::?::double::?::S6 const::?::getId::void>
-- Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptCustomBiomeSource, S0::?::ReturnPolicy>::?::?::double::?::S4 const::?::getId::void
-- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::destroy, void>>
-- Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::destroy, void>
-- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::recalculateBiomes, S_::vector<S5::?::ScriptCustomBiomeConfig, S_::allocator<S8, ?>> const&>>
-- Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::recalculateBiomes, std::__1::vector<S3::?::ScriptCustomBiomeConfig, S5::?::allocator<S7, ?>> const&>
-- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::updateColor, S_::basic_string<char, S_::char_traits<char>, S_::allocator<char>> const&, ScriptModuleMinecraft::ScriptRGBA const&>>
-- Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::ScriptModule::ScriptCustomBiomeSource::updateColor, std::__1::basic_string<char, S5::?::char_traits<char>, S5::?::allocator<char>> const&, ScriptModuleMinecraft::ScriptRGBA const&>
-- std::__1::__shared_ptr_pointer<Editor::Services::EditorJigsawServiceProvider*, ?, S1::?::ServiceProviderCollection::addUnmanaged<S3, ?, S3, ?>, bool, ?*, ?, ?>::?::long::void*
-- std::__1::__function::__func<?, Editor::ServiceProviderCollection::addUnmanaged<S2::?::Services::EditorJigsawServiceProvider, S6, ?>, bool, ?*, ?, ?>::?::long::entt::meta_any
-- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::API::EditorScriptInternalAPI::_createCustomBiomeSource, S4::?::ScriptModule::ScriptCustomBiomeSourceConfig const&>>
-- Scripting::Reflection::MemberFunction<?, ?, double, ?, Editor::API::EditorScriptInternalAPI::_createCustomBiomeSource, S2::?::ScriptModule::ScriptCustomBiomeSourceConfig const&>
-- std::__1::__function::__func<?, Scripting::internal::BaseScriptComponent::?::I::Editor::ScriptModule::ScriptCustomBiomeSource>::S3::?::TypeCache&::bool::S4::?::Traits<?, ?>
-- std::__1::__shared_ptr_emplace<entt::basic_storage<Editor::ScriptModule::ScriptCustomBiomeSource, Scripting::ObjectHandleValue, S_::allocator<S5, ?>>, S8::?::?::S7::?>
-- entt::basic_storage<Editor::ScriptModule::ScriptCustomBiomeSource, Scripting::ObjectHandleValue, std::__1::allocator<S3, ?>>
-- std::__1::__function::__func<?, Scripting::internal::BaseScriptComponent::?::I::Editor::ScriptModule::ScriptJigsawService>::S3::?::TypeCache&::bool::S4::?::Traits<?, ?>
-- std::__1::__shared_ptr_emplace<entt::basic_storage<Editor::ScriptModule::ScriptJigsawService, Scripting::ObjectHandleValue, S_::allocator<S5, ?>>, S8::?::?::S7::?>
-- entt::basic_storage<Editor::ScriptModule::ScriptJigsawService, Scripting::ObjectHandleValue, std::__1::allocator<S3, ?>>
-- std::__1::__shared_ptr_emplace<Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptInternalPlayerServiceContext, S2::?::ReturnPolicy>::?::?::double::?::S6::?::_getJigsawService::void>
-- Scripting::Reflection::MemberPropertyGetter<Editor::ScriptModule::ScriptInternalPlayerServiceContext, S0::?::ReturnPolicy>::?::?::double::?::S4::?::_getJigsawService::void
-- JigsawBlock
-- ZN11BlockEvents18BlockEventExecutorINS_24BlockPlayerInteractEventEE9subscribeI11JigsawBlockTkNSt3__114convertible_toIRKT_EERS1_EEN7Bedrock6PubSub12SubscriptionES9_MS7_KFvT0_EEUlSA_E_
-- FixedBiomeSource
-- VanillaSurfaceBuilders::CappedSurfaceBuilder::MaterialHelper
-- VanillaSurfaceBuilders::CappedSurfaceBuilder
-- VanillaSurfaceBuilders::OverworldDefaultSurfaceBuilder
-- std::__1::__function::__func<?, ISurfaceBuilder::SurfaceBuilderParameters::?::E::? const&::?::int::?::unsigned long::long double::? const*::SurfaceB::?::int::long::double::long double::?::?::?::unsigned short::?, ?, ?, ?, ?, S_::allocator<SA, ?>, ?, float, ? const&, ?, long, ?, char, ?, ?*, short, short>
-- std::__1::__function::__func<?, ? const::Va::?::int::long::long::?::Su::?::float::?::char::long double::?::?::int::long::double::long double::?::short::CappedSurfaceBuilder::buildSurfaceAt, ISurfaceBuilder::GlobalParameters const&, S4::?::SurfaceBuilderParameters const&, S4::?::PerColumnParameters const&>::$_0::S_::allocator<SE, ?>::?::? const*::?::long::?::char::?::int
-- std::__1::__function::__func<?, ? const::Va::?::int::long::long::?::Su::?::float::?::char::long double::?::?::int::long::double::long double::?::short::CappedSurfaceBuilder::buildSurfaceAt, ISurfaceBuilder::GlobalParameters const&, S4::?::SurfaceBuilderParameters const&, S4::?::PerColumnParameters const&>::$_1::S_::allocator<SE, ?>::?::? const*::?::long::?::char::?::int
-- SurfaceBuilderComponent
-- SharedTypes::Beta::SurfaceBuilderBiomeJsonComponent
-- SharedTypes::v1_26_30::SurfaceBuilderBiomeJsonComponent
-- VoidGenerator
-- _GLOBAL__N_1::WorldGeneratorAnon::StructureAccess
-- WorldGenerator
-- JigsawBlockActor
-- br::worldgen::WorldGenRandom
-- JigsawStructurePostprocessAction
-- br::worldgen::processors::JigsawReplacement
-- std::__1::__shared_ptr_emplace<br::worldgen::processors::JigsawReplacement, S_::allocator<S4, ?>>
-- br::worldgen::JigsawStructure
-- JigsawStructureLoader
-- cereal::internal::CompositeSchema<Bedrock::Resources::MinecraftDocumentOutput<SharedTypes::v1_21_20::JigsawStructureProcessorList::Contents, ?, ?, double, ?, _GLOBAL__N_1::EditorJigsawStructureLoaderAnon::PROCESSOR_LIST_PAYLOAD_KEY>>
 - …
 
 ## Diagnostics

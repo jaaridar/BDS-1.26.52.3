@@ -1,0 +1,13 @@
+# 48856d0
+
+```asm
+048856d0  CMP byte ptr [RDI + 0x18],0x1
+048856d4  JNZ 0x048856db
+048856d6  TEST byte ptr [RDI],0x1
+048856d9  JNZ 0x048856dc
+048856db  RET
+048856dc  MOV RSI,qword ptr [RDI]
+048856df  MOV RDI,qword ptr [RDI + 0x10]
+048856e3  AND RSI,-0x2
+048856e7  JMP 0x0412a280
+```

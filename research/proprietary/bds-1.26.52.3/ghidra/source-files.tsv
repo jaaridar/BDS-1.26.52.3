@@ -1,11 +1,12 @@
 source_path	function_count
-/mnt/vss/_work/1/s/handheld/src/common/world/level/block/registry/BlockTypeRegistry.cpp	35
-/mnt/vss/_work/1/s/src/base/Platform/src/Threading/SpinLock.cpp	34
+/mnt/vss/_work/1/s/src/base/Platform/src/Threading/SpinLock.cpp	39
+/mnt/vss/_work/1/s/handheld/src/common/world/level/block/registry/BlockTypeRegistry.cpp	36
 /mnt/vss/_work/1/s/handheld/src-deps/Cereal/include/Cereal/schema/TypeSchema.h	22
 /mnt/vss/_work/1/s/src/base/Core/include/Core/Utility/NonOwnerPointer.h	16
-/mnt/vss/_work/1/s/handheld/src/common/world/level/dimension/Dimension.cpp	6
+/mnt/vss/_work/1/s/handheld/src-deps/Cereal/include/Cereal/ContainerBinding.h	10
+/mnt/vss/_work/1/s/handheld/src/common/world/level/dimension/Dimension.cpp	7
+/mnt/vss/_work/1/s/handheld/src/common/world/level/biome/components/BiomeComponentStorage.h	7
 /mnt/vss/_work/1/s/handheld/src-vanilla/vanilla_shared/src/common/world/level/biome/ReplacementBiomeSource.cpp	5
-/mnt/vss/_work/1/s/handheld/src/common/world/level/biome/components/BiomeComponentStorage.h	5
 /mnt/vss/_work/1/s/handheld/src/common/editor/ServiceProviderCollection.h	4
 /mnt/vss/_work/1/s/handheld/src-deps/Cereal/src/schema/CompositeSchema.cpp	4
 /mnt/vss/_work/1/s/handheld/src-vanilla/vanilla_shared/src/common/world/level/biome/BiomeSource3d.cpp	2
@@ -13,7 +14,7 @@ source_path	function_count
 /mnt/vss/_work/1/s/handheld/src/common/world/level/block/VolumeOf.h	2
 /mnt/vss/_work/1/s/handheld/src/common/world/level/levelgen/v2/StructureInstance.cpp	2
 /mnt/vss/_work/1/s/handheld/src/common/world/level/chunk/LevelChunkBiomes.cpp	2
-/mnt/vss/_work/1/s/handheld/src-deps/Cereal/include/Cereal/ContainerBinding.h	2
+/mnt/vss/_work/1/s/handheld/src-deps/Cereal/src/schema/dynamic/DynamicValue.cpp	2
 /mnt/vss/_work/1/s/handheld/src-deps/Cereal/src/ReflectionVisiting.cpp	2
 /mnt/vss/_work/1/s/vcpkg/git/vcpkg/buildtrees/webrtc/src/webrtc-build/webrtc/modules/rtp_rtcp/source/rtp_packet.cc	1
 /mnt/vss/_work/1/s/vcpkg/git/vcpkg/buildtrees/webrtc/src/webrtc-build/webrtc/modules/rtp_rtcp/source/ulpfec_generator.cc	1

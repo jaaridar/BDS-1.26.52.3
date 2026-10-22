@@ -1,4 +1,9 @@
 demangled_name	vtable_address_point	slot	target_address
+AddOceanTemperatureOperationNode	f45e2b0	0	d2c7300
+AddOceanTemperatureOperationNode	f45e2b0	1	d2c4680
+AddOceanTemperatureOperationNode	f45e2b0	2	d2c4690
+AddOceanTemperatureOperationNode	f45e2b0	3	d2c7310
+AddOceanTemperatureOperationNode	f45e2b0	4	d2c1340
 AncientCityFeature	ef8caf0	0	4fa16b0
 AncientCityFeature	ef8caf0	1	4fa16f0
 AncientCityFeature	ef8caf0	2	d351350
@@ -51,6 +56,12 @@ Bedrock::PubSub::Publisher<?, void, std::__1::vector<Editor::Services::EditorJig
 Bedrock::PubSub::Publisher<?, void, std::__1::vector<Editor::Services::EditorJigsawSection, S2::?::allocator<S6, ?>>>::S0::?::ThreadModel::SingleThreaded::S0::?::ReturnPolicyType	f023cc8	2	629d580
 Biome	f3e1c90	0	c8b8060
 Biome	f3e1c90	1	c8b8190
+BiomeClimateSelectorOperationNode<?, ?*, short, ?, double>	ef9de88	0	529c550
+BiomeClimateSelectorOperationNode<?, ?*, short, ?, double>	ef9de88	1	529c650
+BiomeClimateSelectorOperationNode<?, ?*, short, ?, double>	ef9de88	2	529c670
+BiomeClimateSelectorOperationNode<?, ?*, short, ?, double>	ef9de88	3	529c700
+BiomeClimateSelectorOperationNode<?, ?*, short, ?, double>	ef9de88	4	529cb70
+BiomeClimateSelectorOperationNode<?, ?*, short, ?, double>	ef9de88	5	529cdc0
 BiomeRegistry	f3e2550	0	c8caf60
 BiomeRegistry	f3e2550	1	c8cb250
 BiomeSource3d	ef52f68	0	4a5e290
@@ -417,6 +428,132 @@ Feature	f4636f8	2	d3dfa90
 Feature	f4636f8	3	d3e8ac0
 Feature	f4636f8	4	d3e8dd0
 Feature	f4636f8	5	412bcc0
+FilterOperationNode<OperationNodeFilters::AddBiomeIsland, ?, ?*, short, ?, double>	ef9f2b0	0	52b8c40
+FilterOperationNode<OperationNodeFilters::AddBiomeIsland, ?, ?*, short, ?, double>	ef9f2b0	1	52b8ca0
+FilterOperationNode<OperationNodeFilters::AddBiomeIsland, ?, ?*, short, ?, double>	ef9f2b0	2	529d010
+FilterOperationNode<OperationNodeFilters::AddBiomeIsland, ?, ?*, short, ?, double>	ef9f2b0	3	529d080
+FilterOperationNode<OperationNodeFilters::AddBiomeIsland, ?, ?*, short, ?, double>	ef9f2b0	4	52b8d20
+FilterOperationNode<OperationNodeFilters::AddBiomeIsland, ?, ?*, short, ?, double>	ef9f2b0	5	52b8ec0
+FilterOperationNode<OperationNodeFilters::AddEdgeCoolWarm, ?, ?*, short, ?, double>	ef9e6a0	0	52ae240
+FilterOperationNode<OperationNodeFilters::AddEdgeCoolWarm, ?, ?*, short, ?, double>	ef9e6a0	1	52adab0
+FilterOperationNode<OperationNodeFilters::AddEdgeCoolWarm, ?, ?*, short, ?, double>	ef9e6a0	2	52ad6f0
+FilterOperationNode<OperationNodeFilters::AddEdgeCoolWarm, ?, ?*, short, ?, double>	ef9e6a0	3	52ad760
+FilterOperationNode<OperationNodeFilters::AddEdgeCoolWarm, ?, ?*, short, ?, double>	ef9e6a0	4	52adb10
+FilterOperationNode<OperationNodeFilters::AddEdgeCoolWarm, ?, ?*, short, ?, double>	ef9e6a0	5	52adc70
+FilterOperationNode<OperationNodeFilters::AddEdgeHeatIce, ?, ?*, short, ?, double>	ef9e748	0	52ae240
+FilterOperationNode<OperationNodeFilters::AddEdgeHeatIce, ?, ?*, short, ?, double>	ef9e748	1	52add00
+FilterOperationNode<OperationNodeFilters::AddEdgeHeatIce, ?, ?*, short, ?, double>	ef9e748	2	52ad6f0
+FilterOperationNode<OperationNodeFilters::AddEdgeHeatIce, ?, ?*, short, ?, double>	ef9e748	3	52ad760
+FilterOperationNode<OperationNodeFilters::AddEdgeHeatIce, ?, ?*, short, ?, double>	ef9e748	4	52add60
+FilterOperationNode<OperationNodeFilters::AddEdgeHeatIce, ?, ?*, short, ?, double>	ef9e748	5	52adef0
+FilterOperationNode<OperationNodeFilters::AddEdgeSpecial, ?, ?*, short, ?, double>	ef9e7f0	0	52ae240
+FilterOperationNode<OperationNodeFilters::AddEdgeSpecial, ?, ?*, short, ?, double>	ef9e7f0	1	52adf80
+FilterOperationNode<OperationNodeFilters::AddEdgeSpecial, ?, ?*, short, ?, double>	ef9e7f0	2	52ad6f0
+FilterOperationNode<OperationNodeFilters::AddEdgeSpecial, ?, ?*, short, ?, double>	ef9e7f0	3	52ad760
+FilterOperationNode<OperationNodeFilters::AddEdgeSpecial, ?, ?*, short, ?, double>	ef9e7f0	4	52adfe0
+FilterOperationNode<OperationNodeFilters::AddEdgeSpecial, ?, ?*, short, ?, double>	ef9e7f0	5	52ae1d0
+FilterOperationNode<OperationNodeFilters::AddIsland, ?, ?*, short, ?, double>	ef9e290	0	52acfa0
+FilterOperationNode<OperationNodeFilters::AddIsland, ?, ?*, short, ?, double>	ef9e290	1	52aadd0
+FilterOperationNode<OperationNodeFilters::AddIsland, ?, ?*, short, ?, double>	ef9e290	2	52a8af0
+FilterOperationNode<OperationNodeFilters::AddIsland, ?, ?*, short, ?, double>	ef9e290	3	52a8b60
+FilterOperationNode<OperationNodeFilters::AddIsland, ?, ?*, short, ?, double>	ef9e290	4	52aae30
+FilterOperationNode<OperationNodeFilters::AddIsland, ?, ?*, short, ?, double>	ef9e290	5	52ab0f0
+FilterOperationNode<OperationNodeFilters::AddIslandWithTemperature, ?, ?*, short, ?, double>	ef9e5a0	0	52ae240
+FilterOperationNode<OperationNodeFilters::AddIslandWithTemperature, ?, ?*, short, ?, double>	ef9e5a0	1	52ad690
+FilterOperationNode<OperationNodeFilters::AddIslandWithTemperature, ?, ?*, short, ?, double>	ef9e5a0	2	52ad6f0
+FilterOperationNode<OperationNodeFilters::AddIslandWithTemperature, ?, ?*, short, ?, double>	ef9e5a0	3	52ad760
+FilterOperationNode<OperationNodeFilters::AddIslandWithTemperature, ?, ?*, short, ?, double>	ef9e5a0	4	52ad870
+FilterOperationNode<OperationNodeFilters::AddIslandWithTemperature, ?, ?*, short, ?, double>	ef9e5a0	5	52ada10
+FilterOperationNode<OperationNodeFilters::AddMushroomIsland, ?, ?*, short, ?, double>	ef9ea40	0	52b9be0
+FilterOperationNode<OperationNodeFilters::AddMushroomIsland, ?, ?*, short, ?, double>	ef9ea40	1	52b0e90
+FilterOperationNode<OperationNodeFilters::AddMushroomIsland, ?, ?*, short, ?, double>	ef9ea40	2	529d010
+FilterOperationNode<OperationNodeFilters::AddMushroomIsland, ?, ?*, short, ?, double>	ef9ea40	3	529d080
+FilterOperationNode<OperationNodeFilters::AddMushroomIsland, ?, ?*, short, ?, double>	ef9ea40	4	52b0ef0
+FilterOperationNode<OperationNodeFilters::AddMushroomIsland, ?, ?*, short, ?, double>	ef9ea40	5	52b1470
+FilterOperationNode<OperationNodeFilters::AddOceanEdge, ?, ?*, short, ?, double>	ef9f6a0	0	52baa30
+FilterOperationNode<OperationNodeFilters::AddOceanEdge, ?, ?*, short, ?, double>	ef9f6a0	1	52ba620
+FilterOperationNode<OperationNodeFilters::AddOceanEdge, ?, ?*, short, ?, double>	ef9f6a0	2	52ba680
+FilterOperationNode<OperationNodeFilters::AddOceanEdge, ?, ?*, short, ?, double>	ef9f6a0	3	52ba6f0
+FilterOperationNode<OperationNodeFilters::AddOceanEdge, ?, ?*, short, ?, double>	ef9f6a0	4	52ba7f0
+FilterOperationNode<OperationNodeFilters::AddOceanEdge, ?, ?*, short, ?, double>	ef9f6a0	5	52ba930
+FilterOperationNode<OperationNodeFilters::AddSnow, ?, ?*, short, ?, double>	ef9e488	0	52ad260
+FilterOperationNode<OperationNodeFilters::AddSnow, ?, ?*, short, ?, double>	ef9e488	1	52ad2a0
+FilterOperationNode<OperationNodeFilters::AddSnow, ?, ?*, short, ?, double>	ef9e488	2	52ad300
+FilterOperationNode<OperationNodeFilters::AddSnow, ?, ?*, short, ?, double>	ef9e488	3	52ad370
+FilterOperationNode<OperationNodeFilters::AddSnow, ?, ?*, short, ?, double>	ef9e488	4	52ad480
+FilterOperationNode<OperationNodeFilters::AddSnow, ?, ?*, short, ?, double>	ef9e488	5	52ad610
+FilterOperationNode<OperationNodeFilters::BiomeInit, ?, ?*, short, ?, double>	ef9e940	0	52b08b0
+FilterOperationNode<OperationNodeFilters::BiomeInit, ?, ?*, short, ?, double>	ef9e940	1	52b0900
+FilterOperationNode<OperationNodeFilters::BiomeInit, ?, ?*, short, ?, double>	ef9e940	2	52b0970
+FilterOperationNode<OperationNodeFilters::BiomeInit, ?, ?*, short, ?, double>	ef9e940	3	52b09e0
+FilterOperationNode<OperationNodeFilters::BiomeInit, ?, ?*, short, ?, double>	ef9e940	4	52b0af0
+FilterOperationNode<OperationNodeFilters::BiomeInit, ?, ?*, short, ?, double>	ef9e940	5	52b0c90
+FilterOperationNode<OperationNodeFilters::FilteredTransformation<?, ?, ?, int, long, unsigned short, long double, ?, long double, double, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, ?*, long double, ?, int, long, long, short>::double::?::long double::?::?::?::?::short::float::?::?::unsigned long::?::unsigned short::int::?::?>	ef9f068	0	52b9be0
+FilterOperationNode<OperationNodeFilters::FilteredTransformation<?, ?, ?, int, long, unsigned short, long double, ?, long double, double, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, ?*, long double, ?, int, long, long, short>::double::?::long double::?::?::?::?::short::float::?::?::unsigned long::?::unsigned short::int::?::?>	ef9f068	1	52b4620
+FilterOperationNode<OperationNodeFilters::FilteredTransformation<?, ?, ?, int, long, unsigned short, long double, ?, long double, double, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, ?*, long double, ?, int, long, long, short>::double::?::long double::?::?::?::?::short::float::?::?::unsigned long::?::unsigned short::int::?::?>	ef9f068	2	529d010
+FilterOperationNode<OperationNodeFilters::FilteredTransformation<?, ?, ?, int, long, unsigned short, long double, ?, long double, double, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, ?*, long double, ?, int, long, long, short>::double::?::long double::?::?::?::?::short::float::?::?::unsigned long::?::unsigned short::int::?::?>	ef9f068	3	529d080
+FilterOperationNode<OperationNodeFilters::FilteredTransformation<?, ?, ?, int, long, unsigned short, long double, ?, long double, double, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, ?*, long double, ?, int, long, long, short>::double::?::long double::?::?::?::?::short::float::?::?::unsigned long::?::unsigned short::int::?::?>	ef9f068	4	52b4680
+FilterOperationNode<OperationNodeFilters::FilteredTransformation<?, ?, ?, int, long, unsigned short, long double, ?, long double, double, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, ?*, long double, ?, int, long, long, short>::double::?::long double::?::?::?::?::short::float::?::?::unsigned long::?::unsigned short::int::?::?>	ef9f068	5	52b4f10
+FilterOperationNode<OperationNodeFilters::FilteredTransformation<?, ?, ?, int, long, unsigned short, long double, ?, long double, double, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, ?*, short, unsigned short, Sh, ?, ?, long double>::double::?::long double::?::?::?::?::short::float::?::?::unsigned long::?::unsigned short::int::?::?>	ef9f400	0	52b9be0
+FilterOperationNode<OperationNodeFilters::FilteredTransformation<?, ?, ?, int, long, unsigned short, long double, ?, long double, double, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, ?*, short, unsigned short, Sh, ?, ?, long double>::double::?::long double::?::?::?::?::short::float::?::?::unsigned long::?::unsigned short::int::?::?>	ef9f400	1	52b9260
+FilterOperationNode<OperationNodeFilters::FilteredTransformation<?, ?, ?, int, long, unsigned short, long double, ?, long double, double, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, ?*, short, unsigned short, Sh, ?, ?, long double>::double::?::long double::?::?::?::?::short::float::?::?::unsigned long::?::unsigned short::int::?::?>	ef9f400	2	529d010
+FilterOperationNode<OperationNodeFilters::FilteredTransformation<?, ?, ?, int, long, unsigned short, long double, ?, long double, double, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, ?*, short, unsigned short, Sh, ?, ?, long double>::double::?::long double::?::?::?::?::short::float::?::?::unsigned long::?::unsigned short::int::?::?>	ef9f400	3	529d080
+FilterOperationNode<OperationNodeFilters::FilteredTransformation<?, ?, ?, int, long, unsigned short, long double, ?, long double, double, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, ?*, short, unsigned short, Sh, ?, ?, long double>::double::?::long double::?::?::?::?::short::float::?::?::unsigned long::?::unsigned short::int::?::?>	ef9f400	4	52b92c0
+FilterOperationNode<OperationNodeFilters::FilteredTransformation<?, ?, ?, int, long, unsigned short, long double, ?, long double, double, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, ?*, short, unsigned short, Sh, ?, ?, long double>::double::?::long double::?::?::?::?::short::float::?::?::unsigned long::?::unsigned short::int::?::?>	ef9f400	5	52b9b50
+FilterOperationNode<OperationNodeFilters::FilteredTransformation<?, ?, ?, int, long, unsigned short, long double, ?, long double, double, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, long double, ?, char, unsigned long long, ?*, long double, ?, int, long, long, short>::double::?::long double::?::?::?::?::short::float::?::?::unsigned long::?::unsigned short::int::?::?>	ef9f110	0	52b9be0
+FilterOperationNode<OperationNodeFilters::FilteredTransformation<?, ?, ?, int, long, unsigned short, long double, ?, long double, double, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, long double, ?, char, unsigned long long, ?*, long double, ?, int, long, long, short>::double::?::long double::?::?::?::?::short::float::?::?::unsigned long::?::unsigned short::int::?::?>	ef9f110	1	52b4fa0
+FilterOperationNode<OperationNodeFilters::FilteredTransformation<?, ?, ?, int, long, unsigned short, long double, ?, long double, double, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, long double, ?, char, unsigned long long, ?*, long double, ?, int, long, long, short>::double::?::long double::?::?::?::?::short::float::?::?::unsigned long::?::unsigned short::int::?::?>	ef9f110	2	529d010
+FilterOperationNode<OperationNodeFilters::FilteredTransformation<?, ?, ?, int, long, unsigned short, long double, ?, long double, double, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, long double, ?, char, unsigned long long, ?*, long double, ?, int, long, long, short>::double::?::long double::?::?::?::?::short::float::?::?::unsigned long::?::unsigned short::int::?::?>	ef9f110	3	529d080
+FilterOperationNode<OperationNodeFilters::FilteredTransformation<?, ?, ?, int, long, unsigned short, long double, ?, long double, double, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, long double, ?, char, unsigned long long, ?*, long double, ?, int, long, long, short>::double::?::long double::?::?::?::?::short::float::?::?::unsigned long::?::unsigned short::int::?::?>	ef9f110	4	52b5000
+FilterOperationNode<OperationNodeFilters::FilteredTransformation<?, ?, ?, int, long, unsigned short, long double, ?, long double, double, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, long double, ?, char, unsigned long long, ?*, long double, ?, int, long, long, short>::double::?::long double::?::?::?::?::short::float::?::?::unsigned long::?::unsigned short::int::?::?>	ef9f110	5	52b5890
+FilterOperationNode<OperationNodeFilters::PromoteCenter, ?, ?*, short, ?, double>	ef9eae8	0	52b9be0
+FilterOperationNode<OperationNodeFilters::PromoteCenter, ?, ?*, short, ?, double>	ef9eae8	1	52b1500
+FilterOperationNode<OperationNodeFilters::PromoteCenter, ?, ?*, short, ?, double>	ef9eae8	2	529d010
+FilterOperationNode<OperationNodeFilters::PromoteCenter, ?, ?*, short, ?, double>	ef9eae8	3	529d080
+FilterOperationNode<OperationNodeFilters::PromoteCenter, ?, ?*, short, ?, double>	ef9eae8	4	52b1560
+FilterOperationNode<OperationNodeFilters::PromoteCenter, ?, ?*, short, ?, double>	ef9eae8	5	52b1680
+FilterOperationNode<OperationNodeFilters::RareBiomeSpot, ?, ?*, short, ?, double>	ef9efc0	0	52b9be0
+FilterOperationNode<OperationNodeFilters::RareBiomeSpot, ?, ?*, short, ?, double>	ef9efc0	1	52b43d0
+FilterOperationNode<OperationNodeFilters::RareBiomeSpot, ?, ?*, short, ?, double>	ef9efc0	2	529d010
+FilterOperationNode<OperationNodeFilters::RareBiomeSpot, ?, ?*, short, ?, double>	ef9efc0	3	529d080
+FilterOperationNode<OperationNodeFilters::RareBiomeSpot, ?, ?*, short, ?, double>	ef9efc0	4	52b4430
+FilterOperationNode<OperationNodeFilters::RareBiomeSpot, ?, ?*, short, ?, double>	ef9efc0	5	52b45b0
+FilterOperationNode<OperationNodeFilters::RemoveTooMuchOcean, ?, ?*, short, ?, double>	ef9e3e0	0	52acfa0
+FilterOperationNode<OperationNodeFilters::RemoveTooMuchOcean, ?, ?*, short, ?, double>	ef9e3e0	1	52acfe0
+FilterOperationNode<OperationNodeFilters::RemoveTooMuchOcean, ?, ?*, short, ?, double>	ef9e3e0	2	52a8af0
+FilterOperationNode<OperationNodeFilters::RemoveTooMuchOcean, ?, ?*, short, ?, double>	ef9e3e0	3	52a8b60
+FilterOperationNode<OperationNodeFilters::RemoveTooMuchOcean, ?, ?*, short, ?, double>	ef9e3e0	4	52ad040
+FilterOperationNode<OperationNodeFilters::RemoveTooMuchOcean, ?, ?*, short, ?, double>	ef9e3e0	5	52ad1d0
+FilterOperationNode<OperationNodeFilters::River, ?, ?*, short, ?, double>	ef9eda8	0	52b3b40
+FilterOperationNode<OperationNodeFilters::River, ?, ?*, short, ?, double>	ef9eda8	1	52b3b80
+FilterOperationNode<OperationNodeFilters::River, ?, ?*, short, ?, double>	ef9eda8	2	52b3be0
+FilterOperationNode<OperationNodeFilters::River, ?, ?*, short, ?, double>	ef9eda8	3	52b3c50
+FilterOperationNode<OperationNodeFilters::River, ?, ?*, short, ?, double>	ef9eda8	4	52b3d60
+FilterOperationNode<OperationNodeFilters::River, ?, ?*, short, ?, double>	ef9eda8	5	52b3eb0
+FilterOperationNode<OperationNodeFilters::RiverInit, ?, ?*, short, ?, double>	ef9eb90	0	52b1710
+FilterOperationNode<OperationNodeFilters::RiverInit, ?, ?*, short, ?, double>	ef9eb90	1	52b1770
+FilterOperationNode<OperationNodeFilters::RiverInit, ?, ?*, short, ?, double>	ef9eb90	2	52b17f0
+FilterOperationNode<OperationNodeFilters::RiverInit, ?, ?*, short, ?, double>	ef9eb90	3	52b1860
+FilterOperationNode<OperationNodeFilters::RiverInit, ?, ?*, short, ?, double>	ef9eb90	4	52b1970
+FilterOperationNode<OperationNodeFilters::RiverInit, ?, ?*, short, ?, double>	ef9eb90	5	52b1b30
+FilterOperationNode<OperationNodeFilters::Shore, ?, ?*, short, ?, double>	ef9f358	0	52b8f50
+FilterOperationNode<OperationNodeFilters::Shore, ?, ?*, short, ?, double>	ef9f358	1	52b8fb0
+FilterOperationNode<OperationNodeFilters::Shore, ?, ?*, short, ?, double>	ef9f358	2	529d010
+FilterOperationNode<OperationNodeFilters::Shore, ?, ?*, short, ?, double>	ef9f358	3	529d080
+FilterOperationNode<OperationNodeFilters::Shore, ?, ?*, short, ?, double>	ef9f358	4	52b9030
+FilterOperationNode<OperationNodeFilters::Shore, ?, ?*, short, ?, double>	ef9f358	5	52b91d0
+FilterOperationNode<OperationNodeFilters::Smooth<? const*, ?, int, ?, unsigned long, long double>, ?, ?*, short, ?, double>	ef9f4a8	0	52b9be0
+FilterOperationNode<OperationNodeFilters::Smooth<? const*, ?, int, ?, unsigned long, long double>, ?, ?*, short, ?, double>	ef9f4a8	1	52b9c20
+FilterOperationNode<OperationNodeFilters::Smooth<? const*, ?, int, ?, unsigned long, long double>, ?, ?*, short, ?, double>	ef9f4a8	2	529d010
+FilterOperationNode<OperationNodeFilters::Smooth<? const*, ?, int, ?, unsigned long, long double>, ?, ?*, short, ?, double>	ef9f4a8	3	529d080
+FilterOperationNode<OperationNodeFilters::Smooth<? const*, ?, int, ?, unsigned long, long double>, ?, ?*, short, ?, double>	ef9f4a8	4	52b9c80
+FilterOperationNode<OperationNodeFilters::Smooth<? const*, ?, int, ?, unsigned long, long double>, ?, ?*, short, ?, double>	ef9f4a8	5	52b9e50
+FilterOperationNode<OperationNodeFilters::Smooth<bool>, ?, ?*, short, ?, double>	ef9eec0	0	52b3f50
+FilterOperationNode<OperationNodeFilters::Smooth<bool>, ?, ?*, short, ?, double>	ef9eec0	1	52b3f90
+FilterOperationNode<OperationNodeFilters::Smooth<bool>, ?, ?*, short, ?, double>	ef9eec0	2	52b3ff0
+FilterOperationNode<OperationNodeFilters::Smooth<bool>, ?, ?*, short, ?, double>	ef9eec0	3	52b4060
+FilterOperationNode<OperationNodeFilters::Smooth<bool>, ?, ?*, short, ?, double>	ef9eec0	4	52b4160
+FilterOperationNode<OperationNodeFilters::Smooth<bool>, ?, ?*, short, ?, double>	ef9eec0	5	52b4330
 FilterTestBiome	f38f778	0	c5caa80
 FilterTestBiome	f38f778	1	c5ca3c0
 FilterTestBiome	f38f778	2	c5c8dc0
@@ -587,6 +724,11 @@ IcebergFeature	efa0028	5	52cc190
 InstanceIdGenerator	f1fd338	0	9fb6960
 InstanceIdGenerator	f1fd338	1	9fb6970
 InstanceIdGenerator	f1fd338	2	9fb4020
+IslandOperationNode	f45e318	0	d2c7300
+IslandOperationNode	f45e318	1	d2c46e0
+IslandOperationNode	f45e318	2	d2c4690
+IslandOperationNode	f45e318	3	d2c7490
+IslandOperationNode	f45e318	4	d2c1ec0
 JigsawBlock	f3a6720	0	c6e1d20
 JigsawBlock	f3a6720	1	c65c710
 JigsawBlock	f3a6720	2	c6c9a10
@@ -934,6 +1076,84 @@ MineshaftFeature	ef9b8d8	5	d351790
 MineshaftFeature	ef9b8d8	6	4f497d0
 MineshaftFeature	ef9b8d8	7	4f49990
 MineshaftFeature	ef9b8d8	8	d3515c0
+MixerOperationNode<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, OperationNodeValues::PreBiome, ?>	ef9e9b0	0	52b0ca0
+MixerOperationNode<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, OperationNodeValues::PreBiome, ?>	ef9e9b0	1	52b0ce0
+MixerOperationNode<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, OperationNodeValues::PreBiome, ?>	ef9e9b0	2	52b0970
+MixerOperationNode<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, OperationNodeValues::PreBiome, ?>	ef9e9b0	3	52b09e0
+MixerOperationNode<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, OperationNodeValues::PreBiome, ?>	ef9e9b0	4	412bcc0
+MixerOperationNode<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, OperationNodeValues::PreBiome, ?>	ef9e9b0	5	412bcc0
+MixerOperationNode<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, S2, ?, ?, ?, ?, ?, int, ?, unsigned long, long double, ?, long double, unsigned long, ?, long double, ?, ?, unsigned short, ?, ?, long double, ?, ?, unsigned short, long double, ?, ?, ?, unsigned long long>	f45e4c8	0	d2c6d80
+MixerOperationNode<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, S2, ?, ?, ?, ?, ?, int, ?, unsigned long, long double, ?, long double, unsigned long, ?, long double, ?, ?, unsigned short, ?, ?, long double, ?, ?, unsigned short, long double, ?, ?, ?, unsigned long long>	f45e4c8	1	d2c6e10
+MixerOperationNode<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, S2, ?, ?, ?, ?, ?, int, ?, unsigned long, long double, ?, long double, unsigned long, ?, long double, ?, ?, unsigned short, ?, ?, long double, ?, ?, unsigned short, long double, ?, ?, ?, unsigned long long>	f45e4c8	2	d2c48e0
+MixerOperationNode<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, S2, ?, ?, ?, ?, ?, int, ?, unsigned long, long double, ?, long double, unsigned long, ?, long double, ?, ?, unsigned short, ?, ?, long double, ?, ?, unsigned short, long double, ?, ?, ?, unsigned long long>	f45e4c8	3	d2c7610
+MixerOperationNode<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, S2, ?, ?, ?, ?, ?, int, ?, unsigned long, long double, ?, long double, unsigned long, ?, long double, ?, ?, unsigned short, ?, ?, long double, ?, ?, unsigned short, long double, ?, ?, ?, unsigned long long>	f45e4c8	4	412bcc0
+MixerOperationNode<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, S2, ?, ?, ?, ?, ?, int, ?, unsigned long, long double, ?, long double, unsigned long, ?, long double, ?, ?, unsigned short, ?, ?, long double, ?, ?, unsigned short, long double, ?, ?, ?, unsigned long long>	f45e4c8	5	412bcc0
+MixerOperationNode<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, S2, ?, ?, bool>	ef9f5c0	0	52b9ee0
+MixerOperationNode<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, S2, ?, ?, bool>	ef9f5c0	1	52ba550
+MixerOperationNode<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, S2, ?, ?, bool>	ef9f5c0	2	52ba000
+MixerOperationNode<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, S2, ?, ?, bool>	ef9f5c0	3	52ba080
+MixerOperationNode<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, S2, ?, ?, bool>	ef9f5c0	4	412bcc0
+MixerOperationNode<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, S2, ?, ?, bool>	ef9f5c0	5	412bcc0
+MixerOperationNode<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, S2, ?, ?>	ef9ff18	0	52b9be0
+MixerOperationNode<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, S2, ?, ?>	ef9ff18	1	52a1f50
+MixerOperationNode<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, S2, ?, ?>	ef9ff18	2	529d010
+MixerOperationNode<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, S2, ?, ?>	ef9ff18	3	529d080
+MixerOperationNode<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, S2, ?, ?>	ef9ff18	4	412bcc0
+MixerOperationNode<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, S2, ?, ?>	ef9ff18	5	412bcc0
+MixerOperationNode<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, float, ?, float, float, float>	ef9def8	0	529cdd0
+MixerOperationNode<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, float, ?, float, float, float>	ef9def8	1	529ceb0
+MixerOperationNode<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, float, ?, float, float, float>	ef9def8	2	529c670
+MixerOperationNode<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, float, ?, float, float, float>	ef9def8	3	529c700
+MixerOperationNode<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, float, ?, float, float, float>	ef9def8	4	412bcc0
+MixerOperationNode<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, float, ?, float, float, float>	ef9def8	5	412bcc0
+MixerOperationNode<?, ?, ?, int, ?, unsigned long, long double, ?, long double, unsigned long, ?, long double, ?, ?, unsigned short, ?, ?, long double, ?, ?, unsigned short, long double, ?, ?, ?, unsigned long long, ?, ?*, short, ?, double, S0, ?, ?>	ef9f710	0	52baa30
+MixerOperationNode<?, ?, ?, int, ?, unsigned long, long double, ?, long double, unsigned long, ?, long double, ?, ?, unsigned short, ?, ?, long double, ?, ?, unsigned short, long double, ?, ?, ?, unsigned long long, ?, ?*, short, ?, double, S0, ?, ?>	ef9f710	1	52ba960
+MixerOperationNode<?, ?, ?, int, ?, unsigned long, long double, ?, long double, unsigned long, ?, long double, ?, ?, unsigned short, ?, ?, long double, ?, ?, unsigned short, long double, ?, ?, ?, unsigned long long, ?, ?*, short, ?, double, S0, ?, ?>	ef9f710	2	52ba680
+MixerOperationNode<?, ?, ?, int, ?, unsigned long, long double, ?, long double, unsigned long, ?, long double, ?, ?, unsigned short, ?, ?, long double, ?, ?, unsigned short, long double, ?, ?, ?, unsigned long long, ?, ?*, short, ?, double, S0, ?, ?>	ef9f710	3	52ba6f0
+MixerOperationNode<?, ?, ?, int, ?, unsigned long, long double, ?, long double, unsigned long, ?, long double, ?, ?, unsigned short, ?, ?, long double, ?, ?, unsigned short, long double, ?, ?, ?, unsigned long long, ?, ?*, short, ?, double, S0, ?, ?>	ef9f710	4	412bcc0
+MixerOperationNode<?, ?, ?, int, ?, unsigned long, long double, ?, long double, unsigned long, ?, long double, ?, ?, unsigned short, ?, ?, long double, ?, ?, unsigned short, long double, ?, ?, ?, unsigned long long, ?, ?*, short, ?, double, S0, ?, ?>	ef9f710	5	412bcc0
+MixerOperationNode<OperationNodeValues::PreBiome, ?, ?*, short, ?, double, S0::?::Terrain, ?>	ef9e510	0	52ad260
+MixerOperationNode<OperationNodeValues::PreBiome, ?, ?*, short, ?, double, S0::?::Terrain, ?>	ef9e510	1	52ad620
+MixerOperationNode<OperationNodeValues::PreBiome, ?, ?*, short, ?, double, S0::?::Terrain, ?>	ef9e510	2	52ad300
+MixerOperationNode<OperationNodeValues::PreBiome, ?, ?*, short, ?, double, S0::?::Terrain, ?>	ef9e510	3	52ad370
+MixerOperationNode<OperationNodeValues::PreBiome, ?, ?*, short, ?, double, S0::?::Terrain, ?>	ef9e510	4	412bcc0
+MixerOperationNode<OperationNodeValues::PreBiome, ?, ?*, short, ?, double, S0::?::Terrain, ?>	ef9e510	5	412bcc0
+MixerOperationNode<OperationNodeValues::PreBiome, ?, ?*, short, ?, double, S1, ?, ?>	ef9e610	0	52ae240
+MixerOperationNode<OperationNodeValues::PreBiome, ?, ?*, short, ?, double, S1, ?, ?>	ef9e610	1	52ada40
+MixerOperationNode<OperationNodeValues::PreBiome, ?, ?*, short, ?, double, S1, ?, ?>	ef9e610	2	52ad6f0
+MixerOperationNode<OperationNodeValues::PreBiome, ?, ?*, short, ?, double, S1, ?, ?>	ef9e610	3	52ad760
+MixerOperationNode<OperationNodeValues::PreBiome, ?, ?*, short, ?, double, S1, ?, ?>	ef9e610	4	412bcc0
+MixerOperationNode<OperationNodeValues::PreBiome, ?, ?*, short, ?, double, S1, ?, ?>	ef9e610	5	412bcc0
+MixerOperationNode<OperationNodeValues::Terrain, ?, ?*, short, ?, double, S1, ?, ?>	ef9e200	0	52acfa0
+MixerOperationNode<OperationNodeValues::Terrain, ?, ?*, short, ?, double, S1, ?, ?>	ef9e200	1	52aad60
+MixerOperationNode<OperationNodeValues::Terrain, ?, ?*, short, ?, double, S1, ?, ?>	ef9e200	2	52a8af0
+MixerOperationNode<OperationNodeValues::Terrain, ?, ?*, short, ?, double, S1, ?, ?>	ef9e200	3	52a8b60
+MixerOperationNode<OperationNodeValues::Terrain, ?, ?*, short, ?, double, S1, ?, ?>	ef9e200	4	412bcc0
+MixerOperationNode<OperationNodeValues::Terrain, ?, ?*, short, ?, double, S1, ?, ?>	ef9e200	5	412bcc0
+MixerOperationNode<bool, ?, ?*, short, ?, double, bool, ?>	ef9ef30	0	52b3f50
+MixerOperationNode<bool, ?, ?*, short, ?, double, bool, ?>	ef9ef30	1	52b4360
+MixerOperationNode<bool, ?, ?*, short, ?, double, bool, ?>	ef9ef30	2	52b3ff0
+MixerOperationNode<bool, ?, ?*, short, ?, double, bool, ?>	ef9ef30	3	52b4060
+MixerOperationNode<bool, ?, ?*, short, ?, double, bool, ?>	ef9ef30	4	412bcc0
+MixerOperationNode<bool, ?, ?*, short, ?, double, bool, ?>	ef9ef30	5	412bcc0
+MixerOperationNode<bool, ?, ?*, short, ?, double, int, ?>	ef9ee30	0	52b3b40
+MixerOperationNode<bool, ?, ?*, short, ?, double, int, ?>	ef9ee30	1	52b3ee0
+MixerOperationNode<bool, ?, ?*, short, ?, double, int, ?>	ef9ee30	2	52b3be0
+MixerOperationNode<bool, ?, ?*, short, ?, double, int, ?>	ef9ee30	3	52b3c50
+MixerOperationNode<bool, ?, ?*, short, ?, double, int, ?>	ef9ee30	4	412bcc0
+MixerOperationNode<bool, ?, ?*, short, ?, double, int, ?>	ef9ee30	5	412bcc0
+MixerOperationNode<int, ?, ?*, short, ?, double, ? const*, ?, int, ?, unsigned long, long double, ?>	ef9ec18	0	52b1b40
+MixerOperationNode<int, ?, ?*, short, ?, double, ? const*, ?, int, ?, unsigned long, long double, ?>	ef9ec18	1	52b1b80
+MixerOperationNode<int, ?, ?*, short, ?, double, ? const*, ?, int, ?, unsigned long, long double, ?>	ef9ec18	2	52b17f0
+MixerOperationNode<int, ?, ?*, short, ?, double, ? const*, ?, int, ?, unsigned long, long double, ?>	ef9ec18	3	52b1860
+MixerOperationNode<int, ?, ?*, short, ?, double, ? const*, ?, int, ?, unsigned long, long double, ?>	ef9ec18	4	412bcc0
+MixerOperationNode<int, ?, ?*, short, ?, double, ? const*, ?, int, ?, unsigned long, long double, ?>	ef9ec18	5	412bcc0
+MixerOperationNode<int, ?, ?*, short, ?, double, int, ?>	ef9ed18	0	52b1bf0
+MixerOperationNode<int, ?, ?*, short, ?, double, int, ?>	ef9ed18	1	52b3950
+MixerOperationNode<int, ?, ?*, short, ?, double, int, ?>	ef9ed18	2	52b1c90
+MixerOperationNode<int, ?, ?*, short, ?, double, int, ?>	ef9ed18	3	52b1d00
+MixerOperationNode<int, ?, ?*, short, ?, double, int, ?>	ef9ed18	4	412bcc0
+MixerOperationNode<int, ?, ?*, short, ?, double, int, ?>	ef9ed18	5	412bcc0
 MonsterRoomFeature	efa0358	0	d427a00
 MonsterRoomFeature	efa0358	1	52d9b70
 MonsterRoomFeature	efa0358	2	d3dfa90
@@ -1101,6 +1321,12 @@ NormalNoiseOperationNode<?, ?*, short, ?, double>	ef9ddb8	1	529be50
 NormalNoiseOperationNode<?, ?*, short, ?, double>	ef9ddb8	2	529bef0
 NormalNoiseOperationNode<?, ?*, short, ?, double>	ef9ddb8	3	529c1b0
 NormalNoiseOperationNode<?, ?*, short, ?, double>	ef9ddb8	4	529c330
+OceanMixerOperationNode	f45e128	0	d2c46f0
+OceanMixerOperationNode	f45e128	1	d2c48c0
+OceanMixerOperationNode	f45e128	2	d2c48e0
+OceanMixerOperationNode	f45e128	3	d2c7610
+OceanMixerOperationNode	f45e128	4	d2c2730
+OceanMixerOperationNode	f45e128	5	d2c29a0
 OceanMonumentFeature	ef8d9b0	0	4fa2690
 OceanMonumentFeature	ef8d9b0	1	4fa26f0
 OceanMonumentFeature	ef8d9b0	2	4f5ea80
@@ -1412,6 +1638,12 @@ ReedsFeature	ef8c928	2	d3dfa90
 ReedsFeature	ef8c928	3	d3e8ac0
 ReedsFeature	ef8c928	4	d3e8dd0
 ReedsFeature	ef8c928	5	4ac10d0
+RegionHillsOperationNode	f45e168	0	d2c4960
+RegionHillsOperationNode	f45e168	1	d2c49f0
+RegionHillsOperationNode	f45e168	2	529d010
+RegionHillsOperationNode	f45e168	3	529d080
+RegionHillsOperationNode	f45e168	4	d2c2b70
+RegionHillsOperationNode	f45e168	5	d2c3c90
 ReplacementBiomeSource<?, ?*, short, ?, double>	ef52d78	0	4a5e470
 ReplacementBiomeSource<?, ?*, short, ?, double>	ef52d78	1	4a5e550
 ReplacementBiomeSource<?, ?*, short, ?, double>	ef52d78	2	c84fdd0
@@ -1984,6 +2216,10 @@ ShipwreckFeature	ef8eb40	5	4f9d190
 ShipwreckFeature	ef8eb40	6	4f9d1f0
 ShipwreckFeature	ef8eb40	7	4f9d4a0
 ShipwreckFeature	ef8eb40	8	d3515c0
+SimplePositionalRandomFactory	f2bde20	0	495b7b0
+SimplePositionalRandomFactory	f2bde20	1	b5d05b0
+SimplePositionalRandomFactory	f2bde20	2	b5cbb10
+SimplePositionalRandomFactory	f2bde20	3	b5cbbe0
 SingleBlockFeature	f463c40	0	d428010
 SingleBlockFeature	f463c40	1	d4280e0
 SingleBlockFeature	f463c40	2	d40bc80
@@ -2259,6 +2495,12 @@ TrailToSurfaceFeature	ef56a80	2	d3dfa90
 TrailToSurfaceFeature	ef56a80	3	d3e8ac0
 TrailToSurfaceFeature	ef56a80	4	d3e8dd0
 TrailToSurfaceFeature	ef56a80	5	4ac5ee0
+TransformationMixerOperationNode<?, ?, ?, long double, int, ?, unsigned char, unsigned short, long double, double, ?, int, ?, unsigned long, long double, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, int&, void, long double, ?, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?>	ef9f550	0	52b9ee0
+TransformationMixerOperationNode<?, ?, ?, long double, int, ?, unsigned char, unsigned short, long double, double, ?, int, ?, unsigned long, long double, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, int&, void, long double, ?, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?>	ef9f550	1	52b9f70
+TransformationMixerOperationNode<?, ?, ?, long double, int, ?, unsigned char, unsigned short, long double, double, ?, int, ?, unsigned long, long double, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, int&, void, long double, ?, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?>	ef9f550	2	52ba000
+TransformationMixerOperationNode<?, ?, ?, long double, int, ?, unsigned char, unsigned short, long double, double, ?, int, ?, unsigned long, long double, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, int&, void, long double, ?, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?>	ef9f550	3	52ba080
+TransformationMixerOperationNode<?, ?, ?, long double, int, ?, unsigned char, unsigned short, long double, double, ?, int, ?, unsigned long, long double, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, int&, void, long double, ?, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?>	ef9f550	4	52ba270
+TransformationMixerOperationNode<?, ?, ?, long double, int, ?, unsigned char, unsigned short, long double, double, ?, int, ?, unsigned long, long double, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, int&, void, long double, ?, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?>	ef9f550	5	52ba540
 TwistingVinesClusterFeature	ef8ca68	0	d427a00
 TwistingVinesClusterFeature	ef8ca68	1	4aec520
 TwistingVinesClusterFeature	ef8ca68	2	d3dfa90
@@ -2606,6 +2848,48 @@ XoroshiroRandom	ef512d0	14	49cab20
 XoroshiroRandom	ef512d0	15	49cab60
 XoroshiroRandom	ef512d0	16	49caba0
 XoroshiroRandom	ef512d0	17	49cabe0
+ZoomOperationNodeCommon<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2x>	ef9f208	0	52b9be0
+ZoomOperationNodeCommon<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2x>	ef9f208	1	52b5980
+ZoomOperationNodeCommon<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2x>	ef9f208	2	529d010
+ZoomOperationNodeCommon<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2x>	ef9f208	3	529d080
+ZoomOperationNodeCommon<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2x>	ef9f208	4	52b59e0
+ZoomOperationNodeCommon<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2x>	ef9f208	5	52b8ba0
+ZoomOperationNodeCommon<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, OperationNodeZooms::Zoom4xVoronoi>	ef9df88	0	52b9be0
+ZoomOperationNodeCommon<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, OperationNodeZooms::Zoom4xVoronoi>	ef9df88	1	529cfb0
+ZoomOperationNodeCommon<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, OperationNodeZooms::Zoom4xVoronoi>	ef9df88	2	529d010
+ZoomOperationNodeCommon<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, OperationNodeZooms::Zoom4xVoronoi>	ef9df88	3	529d080
+ZoomOperationNodeCommon<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, OperationNodeZooms::Zoom4xVoronoi>	ef9df88	4	529d190
+ZoomOperationNodeCommon<? const*, ?, int, ?, unsigned long, long double, ?, ?*, short, ?, double, OperationNodeZooms::Zoom4xVoronoi>	ef9df88	5	52a1ef0
+ZoomOperationNodeCommon<?, ?, ?, int, ?, unsigned long, long double, ?, long double, unsigned long, ?, long double, ?, ?, unsigned short, ?, ?, long double, ?, ?, unsigned short, long double, ?, ?, ?, unsigned long long, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2x>	ef9f7a0	0	52baa30
+ZoomOperationNodeCommon<?, ?, ?, int, ?, unsigned long, long double, ?, long double, unsigned long, ?, long double, ?, ?, unsigned short, ?, ?, long double, ?, ?, unsigned short, long double, ?, ?, ?, unsigned long long, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2x>	ef9f7a0	1	52baa70
+ZoomOperationNodeCommon<?, ?, ?, int, ?, unsigned long, long double, ?, long double, unsigned long, ?, long double, ?, ?, unsigned short, ?, ?, long double, ?, ?, unsigned short, long double, ?, ?, ?, unsigned long long, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2x>	ef9f7a0	2	52ba680
+ZoomOperationNodeCommon<?, ?, ?, int, ?, unsigned long, long double, ?, long double, unsigned long, ?, long double, ?, ?, unsigned short, ?, ?, long double, ?, ?, unsigned short, long double, ?, ?, ?, unsigned long long, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2x>	ef9f7a0	3	52ba6f0
+ZoomOperationNodeCommon<?, ?, ?, int, ?, unsigned long, long double, ?, long double, unsigned long, ?, long double, ?, ?, unsigned short, ?, ?, long double, ?, ?, unsigned short, long double, ?, ?, ?, unsigned long long, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2x>	ef9f7a0	4	52baad0
+ZoomOperationNodeCommon<?, ?, ?, int, ?, unsigned long, long double, ?, long double, unsigned long, ?, long double, ?, ?, unsigned short, ?, ?, long double, ?, ?, unsigned short, long double, ?, ?, ?, unsigned long long, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2x>	ef9f7a0	5	52bc650
+ZoomOperationNodeCommon<OperationNodeValues::PreBiome, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2x>	ef9e898	0	52ae240
+ZoomOperationNodeCommon<OperationNodeValues::PreBiome, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2x>	ef9e898	1	52ae280
+ZoomOperationNodeCommon<OperationNodeValues::PreBiome, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2x>	ef9e898	2	52ad6f0
+ZoomOperationNodeCommon<OperationNodeValues::PreBiome, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2x>	ef9e898	3	52ad760
+ZoomOperationNodeCommon<OperationNodeValues::PreBiome, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2x>	ef9e898	4	52ae2e0
+ZoomOperationNodeCommon<OperationNodeValues::PreBiome, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2x>	ef9e898	5	52b06a0
+ZoomOperationNodeCommon<OperationNodeValues::Terrain, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2x>	ef9e338	0	52acfa0
+ZoomOperationNodeCommon<OperationNodeValues::Terrain, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2x>	ef9e338	1	52ab180
+ZoomOperationNodeCommon<OperationNodeValues::Terrain, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2x>	ef9e338	2	52a8af0
+ZoomOperationNodeCommon<OperationNodeValues::Terrain, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2x>	ef9e338	3	52a8b60
+ZoomOperationNodeCommon<OperationNodeValues::Terrain, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2x>	ef9e338	4	52ab1e0
+ZoomOperationNodeCommon<OperationNodeValues::Terrain, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2x>	ef9e338	5	52acd60
+ZoomOperationNodeCommon<OperationNodeValues::Terrain, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2xFuzzy>	ef9e190	0	52acfa0
+ZoomOperationNodeCommon<OperationNodeValues::Terrain, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2xFuzzy>	ef9e190	1	52a8a90
+ZoomOperationNodeCommon<OperationNodeValues::Terrain, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2xFuzzy>	ef9e190	2	52a8af0
+ZoomOperationNodeCommon<OperationNodeValues::Terrain, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2xFuzzy>	ef9e190	3	52a8b60
+ZoomOperationNodeCommon<OperationNodeValues::Terrain, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2xFuzzy>	ef9e190	4	52a8c60
+ZoomOperationNodeCommon<OperationNodeValues::Terrain, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2xFuzzy>	ef9e190	5	52aad20
+ZoomOperationNodeCommon<int, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2x>	ef9eca8	0	52b1bf0
+ZoomOperationNodeCommon<int, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2x>	ef9eca8	1	52b1c30
+ZoomOperationNodeCommon<int, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2x>	ef9eca8	2	52b1c90
+ZoomOperationNodeCommon<int, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2x>	ef9eca8	3	52b1d00
+ZoomOperationNodeCommon<int, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2x>	ef9eca8	4	52b1e10
+ZoomOperationNodeCommon<int, ?, ?*, short, ?, double, OperationNodeZooms::Zoom2x>	ef9eca8	5	52b3910
 _GLOBAL__N_1::WorldGeneratorAnon::StructureAccess	f3ed9d8	0	ca7b600
 _GLOBAL__N_1::WorldGeneratorAnon::StructureAccess	f3ed9d8	1	ca7b610
 _GLOBAL__N_1::WorldGeneratorAnon::StructureAccess	f3ed9d8	2	ca7b620
@@ -4783,6 +5067,146 @@ std::__1::__function::__func<?, Scripting::internal::BaseScriptComponent::?::I::
 std::__1::__function::__func<?, Scripting::internal::BaseScriptComponent::?::I::Editor::ScriptModule::ScriptJigsawService>::S3::?::TypeCache&::bool::S4::?::Traits<?, ?>	f2fc368	6	baedb00
 std::__1::__function::__func<?, Scripting::internal::BaseScriptComponent::?::I::Editor::ScriptModule::ScriptJigsawService>::S3::?::TypeCache&::bool::S4::?::Traits<?, ?>	f2fc368	7	baedb30
 std::__1::__function::__func<?, Scripting::internal::BaseScriptComponent::?::I::Editor::ScriptModule::ScriptJigsawService>::S3::?::TypeCache&::bool::S4::?::Traits<?, ?>	f2fc368	8	baedb50
+std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::? const*::?::int::?::unsigned long::long double::Pos2d::OperationNodeZooms::Zoom2x, S_::allocator<S8, ?>>	ef9f1b8	0	52b5920
+std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::? const*::?::int::?::unsigned long::long double::Pos2d::OperationNodeZooms::Zoom2x, S_::allocator<S8, ?>>	ef9f1b8	1	52b5930
+std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::? const*::?::int::?::unsigned long::long double::Pos2d::OperationNodeZooms::Zoom2x, S_::allocator<S8, ?>>	ef9f1b8	2	52b5960
+std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::? const*::?::int::?::unsigned long::long double::Pos2d::OperationNodeZooms::Zoom2x, S_::allocator<S8, ?>>	ef9f1b8	3	412c330
+std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::? const*::?::int::?::unsigned long::long double::Pos2d::OperationNodeZooms::Zoom2x, S_::allocator<S8, ?>>	ef9f1b8	4	52b5970
+std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::? const*::?::int::?::unsigned long::long double::Pos2d::OperationNodeZooms::Zoom4xVoronoi, S_::allocator<S8, ?>>	ef9df38	0	529cf50
+std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::? const*::?::int::?::unsigned long::long double::Pos2d::OperationNodeZooms::Zoom4xVoronoi, S_::allocator<S8, ?>>	ef9df38	1	529cf60
+std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::? const*::?::int::?::unsigned long::long double::Pos2d::OperationNodeZooms::Zoom4xVoronoi, S_::allocator<S8, ?>>	ef9df38	2	529cf90
+std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::? const*::?::int::?::unsigned long::long double::Pos2d::OperationNodeZooms::Zoom4xVoronoi, S_::allocator<S8, ?>>	ef9df38	3	412c330
+std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::? const*::?::int::?::unsigned long::long double::Pos2d::OperationNodeZooms::Zoom4xVoronoi, S_::allocator<S8, ?>>	ef9df38	4	529cfa0
+std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::BiomeTemperatureCategory::Pos2d::OperationNodeZooms::Zoom2x, S_::allocator<S6, ?>>	ef9f750	0	52ba9d0
+std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::BiomeTemperatureCategory::Pos2d::OperationNodeZooms::Zoom2x, S_::allocator<S6, ?>>	ef9f750	1	52ba9e0
+std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::BiomeTemperatureCategory::Pos2d::OperationNodeZooms::Zoom2x, S_::allocator<S6, ?>>	ef9f750	2	52baa10
+std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::BiomeTemperatureCategory::Pos2d::OperationNodeZooms::Zoom2x, S_::allocator<S6, ?>>	ef9f750	3	412c330
+std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::BiomeTemperatureCategory::Pos2d::OperationNodeZooms::Zoom2x, S_::allocator<S6, ?>>	ef9f750	4	52baa20
+std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::OperationNodeValues::PreBiome::Pos2d::OperationNodeZooms::Zoom2x, S_::allocator<S7, ?>>	ef9e848	0	52ae1e0
+std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::OperationNodeValues::PreBiome::Pos2d::OperationNodeZooms::Zoom2x, S_::allocator<S7, ?>>	ef9e848	1	52ae1f0
+std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::OperationNodeValues::PreBiome::Pos2d::OperationNodeZooms::Zoom2x, S_::allocator<S7, ?>>	ef9e848	2	52ae220
+std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::OperationNodeValues::PreBiome::Pos2d::OperationNodeZooms::Zoom2x, S_::allocator<S7, ?>>	ef9e848	3	412c330
+std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::OperationNodeValues::PreBiome::Pos2d::OperationNodeZooms::Zoom2x, S_::allocator<S7, ?>>	ef9e848	4	52ae230
+std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::OperationNodeValues::Terrain::Pos2d::OperationNodeZooms::Zoom2x, S_::allocator<S7, ?>>	ef9e2e8	0	52ab120
+std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::OperationNodeValues::Terrain::Pos2d::OperationNodeZooms::Zoom2x, S_::allocator<S7, ?>>	ef9e2e8	1	52ab130
+std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::OperationNodeValues::Terrain::Pos2d::OperationNodeZooms::Zoom2x, S_::allocator<S7, ?>>	ef9e2e8	2	52ab160
+std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::OperationNodeValues::Terrain::Pos2d::OperationNodeZooms::Zoom2x, S_::allocator<S7, ?>>	ef9e2e8	3	412c330
+std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::OperationNodeValues::Terrain::Pos2d::OperationNodeZooms::Zoom2x, S_::allocator<S7, ?>>	ef9e2e8	4	52ab170
+std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::OperationNodeValues::Terrain::Pos2d::OperationNodeZooms::Zoom2xFuzzy, S_::allocator<S7, ?>>	ef9e140	0	52a8a30
+std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::OperationNodeValues::Terrain::Pos2d::OperationNodeZooms::Zoom2xFuzzy, S_::allocator<S7, ?>>	ef9e140	1	52a8a40
+std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::OperationNodeValues::Terrain::Pos2d::OperationNodeZooms::Zoom2xFuzzy, S_::allocator<S7, ?>>	ef9e140	2	52a8a70
+std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::OperationNodeValues::Terrain::Pos2d::OperationNodeZooms::Zoom2xFuzzy, S_::allocator<S7, ?>>	ef9e140	3	412c330
+std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::OperationNodeValues::Terrain::Pos2d::OperationNodeZooms::Zoom2xFuzzy, S_::allocator<S7, ?>>	ef9e140	4	52a8a80
+std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::int::Pos2d::OperationNodeZooms::Zoom2x, S_::allocator<S5, ?>>	ef9ec58	0	52b1b90
+std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::int::Pos2d::OperationNodeZooms::Zoom2x, S_::allocator<S5, ?>>	ef9ec58	1	52b1ba0
+std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::int::Pos2d::OperationNodeZooms::Zoom2x, S_::allocator<S5, ?>>	ef9ec58	2	52b1bd0
+std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::int::Pos2d::OperationNodeZooms::Zoom2x, S_::allocator<S5, ?>>	ef9ec58	3	412c330
+std::__1::__shared_ptr_emplace<?, ?, ?, ?, ?, unsigned long, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::?::unsigned long::unsigned long::?::?::?::int::Pos2d::OperationNodeZooms::Zoom2x, S_::allocator<S5, ?>>	ef9ec58	4	52b1be0
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddBiomeIsland::Pos2d, S_::allocator<S5, ?>>	ef9f260	0	52b8be0
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddBiomeIsland::Pos2d, S_::allocator<S5, ?>>	ef9f260	1	52b8bf0
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddBiomeIsland::Pos2d, S_::allocator<S5, ?>>	ef9f260	2	52b8c20
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddBiomeIsland::Pos2d, S_::allocator<S5, ?>>	ef9f260	3	412c330
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddBiomeIsland::Pos2d, S_::allocator<S5, ?>>	ef9f260	4	52b8c30
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddEdgeCoolWarm::Pos2d, S_::allocator<S5, ?>>	ef9e650	0	52ada50
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddEdgeCoolWarm::Pos2d, S_::allocator<S5, ?>>	ef9e650	1	52ada60
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddEdgeCoolWarm::Pos2d, S_::allocator<S5, ?>>	ef9e650	2	52ada90
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddEdgeCoolWarm::Pos2d, S_::allocator<S5, ?>>	ef9e650	3	412c330
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddEdgeCoolWarm::Pos2d, S_::allocator<S5, ?>>	ef9e650	4	52adaa0
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddEdgeHeatIce::Pos2d, S_::allocator<S5, ?>>	ef9e6f8	0	52adca0
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddEdgeHeatIce::Pos2d, S_::allocator<S5, ?>>	ef9e6f8	1	52adcb0
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddEdgeHeatIce::Pos2d, S_::allocator<S5, ?>>	ef9e6f8	2	52adce0
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddEdgeHeatIce::Pos2d, S_::allocator<S5, ?>>	ef9e6f8	3	412c330
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddEdgeHeatIce::Pos2d, S_::allocator<S5, ?>>	ef9e6f8	4	52adcf0
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddEdgeSpecial::Pos2d, S_::allocator<S5, ?>>	ef9e7a0	0	52adf20
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddEdgeSpecial::Pos2d, S_::allocator<S5, ?>>	ef9e7a0	1	52adf30
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddEdgeSpecial::Pos2d, S_::allocator<S5, ?>>	ef9e7a0	2	52adf60
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddEdgeSpecial::Pos2d, S_::allocator<S5, ?>>	ef9e7a0	3	412c330
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddEdgeSpecial::Pos2d, S_::allocator<S5, ?>>	ef9e7a0	4	52adf70
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddIsland::Pos2d, S_::allocator<S5, ?>>	ef9e240	0	52aad70
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddIsland::Pos2d, S_::allocator<S5, ?>>	ef9e240	1	52aad80
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddIsland::Pos2d, S_::allocator<S5, ?>>	ef9e240	2	52aadb0
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddIsland::Pos2d, S_::allocator<S5, ?>>	ef9e240	3	412c330
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddIsland::Pos2d, S_::allocator<S5, ?>>	ef9e240	4	52aadc0
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddIslandWithTemperature::Pos2d, S_::allocator<S5, ?>>	ef9e550	0	52ad630
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddIslandWithTemperature::Pos2d, S_::allocator<S5, ?>>	ef9e550	1	52ad640
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddIslandWithTemperature::Pos2d, S_::allocator<S5, ?>>	ef9e550	2	52ad670
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddIslandWithTemperature::Pos2d, S_::allocator<S5, ?>>	ef9e550	3	412c330
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddIslandWithTemperature::Pos2d, S_::allocator<S5, ?>>	ef9e550	4	52ad680
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddMushroomIsland::Pos2d, S_::allocator<S5, ?>>	ef9e9f0	0	52b0e30
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddMushroomIsland::Pos2d, S_::allocator<S5, ?>>	ef9e9f0	1	52b0e40
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddMushroomIsland::Pos2d, S_::allocator<S5, ?>>	ef9e9f0	2	52b0e70
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddMushroomIsland::Pos2d, S_::allocator<S5, ?>>	ef9e9f0	3	412c330
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddMushroomIsland::Pos2d, S_::allocator<S5, ?>>	ef9e9f0	4	52b0e80
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddOceanEdge::Pos2d, S_::allocator<S5, ?>>	ef9f650	0	52ba5c0
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddOceanEdge::Pos2d, S_::allocator<S5, ?>>	ef9f650	1	52ba5d0
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddOceanEdge::Pos2d, S_::allocator<S5, ?>>	ef9f650	2	52ba600
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddOceanEdge::Pos2d, S_::allocator<S5, ?>>	ef9f650	3	412c330
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddOceanEdge::Pos2d, S_::allocator<S5, ?>>	ef9f650	4	52ba610
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddSnow::Pos2d, S_::allocator<S5, ?>>	ef9e438	0	52ad200
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddSnow::Pos2d, S_::allocator<S5, ?>>	ef9e438	1	52ad210
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddSnow::Pos2d, S_::allocator<S5, ?>>	ef9e438	2	52ad240
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddSnow::Pos2d, S_::allocator<S5, ?>>	ef9e438	3	412c330
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::AddSnow::Pos2d, S_::allocator<S5, ?>>	ef9e438	4	52ad250
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::BiomeInit::Pos2d, S_::allocator<S5, ?>>	ef9e8f0	0	52b0850
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::BiomeInit::Pos2d, S_::allocator<S5, ?>>	ef9e8f0	1	52b0860
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::BiomeInit::Pos2d, S_::allocator<S5, ?>>	ef9e8f0	2	52b0890
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::BiomeInit::Pos2d, S_::allocator<S5, ?>>	ef9e8f0	3	412c330
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::BiomeInit::Pos2d, S_::allocator<S5, ?>>	ef9e8f0	4	52b08a0
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::FilteredTransformation<?, ?, ?, int, long, unsigned short, long double, ?, long double, double, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, ?*, long double, ?, int, long, long, short>::double::?::long double::?::?::?::?::short::float::?::?::unsigned long::?::unsigned short::int::?::?>::Pos2d	ef9f018	0	52b45c0
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::FilteredTransformation<?, ?, ?, int, long, unsigned short, long double, ?, long double, double, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, ?*, long double, ?, int, long, long, short>::double::?::long double::?::?::?::?::short::float::?::?::unsigned long::?::unsigned short::int::?::?>::Pos2d	ef9f018	1	52b45d0
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::FilteredTransformation<?, ?, ?, int, long, unsigned short, long double, ?, long double, double, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, ?*, long double, ?, int, long, long, short>::double::?::long double::?::?::?::?::short::float::?::?::unsigned long::?::unsigned short::int::?::?>::Pos2d	ef9f018	2	52b4600
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::FilteredTransformation<?, ?, ?, int, long, unsigned short, long double, ?, long double, double, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, ?*, long double, ?, int, long, long, short>::double::?::long double::?::?::?::?::short::float::?::?::unsigned long::?::unsigned short::int::?::?>::Pos2d	ef9f018	3	412c330
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::FilteredTransformation<?, ?, ?, int, long, unsigned short, long double, ?, long double, double, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, ?*, long double, ?, int, long, long, short>::double::?::long double::?::?::?::?::short::float::?::?::unsigned long::?::unsigned short::int::?::?>::Pos2d	ef9f018	4	52b4610
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::FilteredTransformation<?, ?, ?, int, long, unsigned short, long double, ?, long double, double, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, ?*, short, unsigned short, Sh, ?, ?, long double>::double::?::long double::?::?::?::?::short::float::?::?::unsigned long::?::unsigned short::int::?::?>::Pos2d	ef9f3b0	0	52b9200
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::FilteredTransformation<?, ?, ?, int, long, unsigned short, long double, ?, long double, double, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, ?*, short, unsigned short, Sh, ?, ?, long double>::double::?::long double::?::?::?::?::short::float::?::?::unsigned long::?::unsigned short::int::?::?>::Pos2d	ef9f3b0	1	52b9210
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::FilteredTransformation<?, ?, ?, int, long, unsigned short, long double, ?, long double, double, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, ?*, short, unsigned short, Sh, ?, ?, long double>::double::?::long double::?::?::?::?::short::float::?::?::unsigned long::?::unsigned short::int::?::?>::Pos2d	ef9f3b0	2	52b9240
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::FilteredTransformation<?, ?, ?, int, long, unsigned short, long double, ?, long double, double, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, ?*, short, unsigned short, Sh, ?, ?, long double>::double::?::long double::?::?::?::?::short::float::?::?::unsigned long::?::unsigned short::int::?::?>::Pos2d	ef9f3b0	3	412c330
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::FilteredTransformation<?, ?, ?, int, long, unsigned short, long double, ?, long double, double, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, ?*, short, unsigned short, Sh, ?, ?, long double>::double::?::long double::?::?::?::?::short::float::?::?::unsigned long::?::unsigned short::int::?::?>::Pos2d	ef9f3b0	4	52b9250
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::FilteredTransformation<?, ?, ?, int, long, unsigned short, long double, ?, long double, double, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, long double, ?, char, unsigned long long, ?*, long double, ?, int, long, long, short>::double::?::long double::?::?::?::?::short::float::?::?::unsigned long::?::unsigned short::int::?::?>::Pos2d	ef9f0c0	0	52b4f40
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::FilteredTransformation<?, ?, ?, int, long, unsigned short, long double, ?, long double, double, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, long double, ?, char, unsigned long long, ?*, long double, ?, int, long, long, short>::double::?::long double::?::?::?::?::short::float::?::?::unsigned long::?::unsigned short::int::?::?>::Pos2d	ef9f0c0	1	52b4f50
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::FilteredTransformation<?, ?, ?, int, long, unsigned short, long double, ?, long double, double, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, long double, ?, char, unsigned long long, ?*, long double, ?, int, long, long, short>::double::?::long double::?::?::?::?::short::float::?::?::unsigned long::?::unsigned short::int::?::?>::Pos2d	ef9f0c0	2	52b4f80
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::FilteredTransformation<?, ?, ?, int, long, unsigned short, long double, ?, long double, double, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, long double, ?, char, unsigned long long, ?*, long double, ?, int, long, long, short>::double::?::long double::?::?::?::?::short::float::?::?::unsigned long::?::unsigned short::int::?::?>::Pos2d	ef9f0c0	3	412c330
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::FilteredTransformation<?, ?, ?, int, long, unsigned short, long double, ?, long double, double, ?, ?, ?, ?, short, float, ?, ?, unsigned long, ?, unsigned short, int, ?, ?, ?, unsigned short, unsigned short, ?, int, bool, ?, unsigned short, long double, short, ?, ?, ?, long double, ?, char, unsigned long long, ?*, long double, ?, int, long, long, short>::double::?::long double::?::?::?::?::short::float::?::?::unsigned long::?::unsigned short::int::?::?>::Pos2d	ef9f0c0	4	52b4f90
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::PromoteCenter::Pos2d, S_::allocator<S5, ?>>	ef9ea98	0	52b14a0
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::PromoteCenter::Pos2d, S_::allocator<S5, ?>>	ef9ea98	1	52b14b0
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::PromoteCenter::Pos2d, S_::allocator<S5, ?>>	ef9ea98	2	52b14e0
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::PromoteCenter::Pos2d, S_::allocator<S5, ?>>	ef9ea98	3	412c330
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::PromoteCenter::Pos2d, S_::allocator<S5, ?>>	ef9ea98	4	52b14f0
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::RareBiomeSpot::Pos2d, S_::allocator<S5, ?>>	ef9ef70	0	52b4370
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::RareBiomeSpot::Pos2d, S_::allocator<S5, ?>>	ef9ef70	1	52b4380
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::RareBiomeSpot::Pos2d, S_::allocator<S5, ?>>	ef9ef70	2	52b43b0
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::RareBiomeSpot::Pos2d, S_::allocator<S5, ?>>	ef9ef70	3	412c330
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::RareBiomeSpot::Pos2d, S_::allocator<S5, ?>>	ef9ef70	4	52b43c0
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::RemoveTooMuchOcean::Pos2d, S_::allocator<S5, ?>>	ef9e390	0	52acf40
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::RemoveTooMuchOcean::Pos2d, S_::allocator<S5, ?>>	ef9e390	1	52acf50
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::RemoveTooMuchOcean::Pos2d, S_::allocator<S5, ?>>	ef9e390	2	52acf80
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::RemoveTooMuchOcean::Pos2d, S_::allocator<S5, ?>>	ef9e390	3	412c330
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::RemoveTooMuchOcean::Pos2d, S_::allocator<S5, ?>>	ef9e390	4	52acf90
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::River::Pos2d, S_::allocator<S5, ?>>	ef9ed58	0	52b3ae0
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::River::Pos2d, S_::allocator<S5, ?>>	ef9ed58	1	52b3af0
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::River::Pos2d, S_::allocator<S5, ?>>	ef9ed58	2	52b3b20
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::River::Pos2d, S_::allocator<S5, ?>>	ef9ed58	3	412c330
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::River::Pos2d, S_::allocator<S5, ?>>	ef9ed58	4	52b3b30
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::RiverInit::Pos2d, S_::allocator<S5, ?>>	ef9eb40	0	52b16b0
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::RiverInit::Pos2d, S_::allocator<S5, ?>>	ef9eb40	1	52b16c0
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::RiverInit::Pos2d, S_::allocator<S5, ?>>	ef9eb40	2	52b16f0
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::RiverInit::Pos2d, S_::allocator<S5, ?>>	ef9eb40	3	412c330
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::RiverInit::Pos2d, S_::allocator<S5, ?>>	ef9eb40	4	52b1700
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::Shore::Pos2d, S_::allocator<S5, ?>>	ef9f308	0	52b8ef0
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::Shore::Pos2d, S_::allocator<S5, ?>>	ef9f308	1	52b8f00
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::Shore::Pos2d, S_::allocator<S5, ?>>	ef9f308	2	52b8f30
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::Shore::Pos2d, S_::allocator<S5, ?>>	ef9f308	3	412c330
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::Shore::Pos2d, S_::allocator<S5, ?>>	ef9f308	4	52b8f40
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::Smooth<? const*, ?, int, ?, unsigned long, long double>::Pos2d, S_::allocator<S9, ?>>	ef9f458	0	52b9b80
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::Smooth<? const*, ?, int, ?, unsigned long, long double>::Pos2d, S_::allocator<S9, ?>>	ef9f458	1	52b9b90
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::Smooth<? const*, ?, int, ?, unsigned long, long double>::Pos2d, S_::allocator<S9, ?>>	ef9f458	2	52b9bc0
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::Smooth<? const*, ?, int, ?, unsigned long, long double>::Pos2d, S_::allocator<S9, ?>>	ef9f458	3	412c330
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::Smooth<? const*, ?, int, ?, unsigned long, long double>::Pos2d, S_::allocator<S9, ?>>	ef9f458	4	52b9bd0
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::Smooth<bool>::Pos2d, S_::allocator<S6, ?>>	ef9ee70	0	52b3ef0
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::Smooth<bool>::Pos2d, S_::allocator<S6, ?>>	ef9ee70	1	52b3f00
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::Smooth<bool>::Pos2d, S_::allocator<S6, ?>>	ef9ee70	2	52b3f30
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::Smooth<bool>::Pos2d, S_::allocator<S6, ?>>	ef9ee70	3	412c330
+std::__1::__shared_ptr_emplace<?, ?, ?, int, long, unsigned short, long double, ?, ?&&, long double, ?, ?, unsigned short, int, ?, ?, ?::double::long double::?::OperationNodeFilters::Smooth<bool>::Pos2d, S_::allocator<S6, ?>>	ef9ee70	4	52b3f40
 std::__1::__shared_ptr_emplace<Bedrock::PubSub::Detail::SubscriptionBody<?, void, S_::vector<Editor::Services::EditorJigsawSection, S_::allocator<S8, ?>>>::S2::?::ReturnPolicyType>	f023d50	0	629d5d0
 std::__1::__shared_ptr_emplace<Bedrock::PubSub::Detail::SubscriptionBody<?, void, S_::vector<Editor::Services::EditorJigsawSection, S_::allocator<S8, ?>>>::S2::?::ReturnPolicyType>	f023d50	1	629d5e0
 std::__1::__shared_ptr_emplace<Bedrock::PubSub::Detail::SubscriptionBody<?, void, S_::vector<Editor::Services::EditorJigsawSection, S_::allocator<S8, ?>>>::S2::?::ReturnPolicyType>	f023d50	2	629d610
