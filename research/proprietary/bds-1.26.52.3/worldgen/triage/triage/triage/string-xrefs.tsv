@@ -1,0 +1,479 @@
+string	string_addr	referenced_by
+minecraft:overworld	0x132bedc	0x485c870,0x523ae40,0x52597f0,0x525a740,0x95abd10,0xc9ac9f0,0xda370f0,0xe032560,0xe055e60,0xe1df5f0,0xe7af270,0xeba4760
+temperature	0x131a29e	0x871a310,0xafb24f0,0xc74ce30,0xc786220,0xc797d50,0xc7ade20,0xea72510
+internal::BasicSchema::EnumMapping::View &cereal::BasicFactory<SharedTypes::v1_21_20::JigsawStructureDefinition::GenerationStep>::viewFromScope(const entt::id_type) [Type = SharedTypes::v1_21_20::JigsawStructureDefinition::GenerationStep]	0x13278e9	0xe3ddaa0
+minecraft:search_feature	0x124029e	0x4de9260,0xd305930,0xd3064e0,0xd306a20
+world_gen	0x149187c	0x5253d60,0xc7b6470,0xc7bf860,0xc81ef30,0xc81fc20,0xc8204b0
+minecraft:biome_music	0x1d2f670	0xe5d0070,0xe5f8eb0,0xe5f8f90,0xe5fa9c0,0xe645310,0xe6c9cd0,0xe70ae30,0xe70da20,0xe7876a0
+minecraft:overworld_generation_rules	0x1d366e0	0x4953b30,0x52511f0,0x52518f0,0xe706340,0xe875070,0xe87f2e0,0xe8800c0
+minecraft:surface_builder	0x1cf4730	0x4953e90,0xc7c2830,0xc7e3540,0xc7ead20,0xda34c00,0xda395e0,0xeba2170
+minecraft:select_oak_tree_feature	0x125c337	0x50ce980,0x51d3ea0
+Biomes in Nether are only compatible with following Surface Builders: overworld, frozen_ocean, capped, the_end	0x10fee39	0xc7e9b30,0xc7e9c40,0xc7e9d60,0xc7e9e80,0xc7e9fa0,0xc7ea0c0,0xc7ea1e0
+internal::BasicSchema::EnumMapping::View &cereal::BasicFactory<SurfaceBuilderType>::viewFromScope(const entt::id_type) [Type = SurfaceBuilderType]	0x13dd388	0xda5fe60,0xda60240,0xda60620,0xda60a00,0xda60de0,0xda611c0,0xda615a0
+minecraft:biome_music	0x1d13870	0xe1c45c0,0xe1d06e0,0xe2491a0,0xe249280,0xe24ad30,0xe6ef910,0xe717140
+/mnt/vss/_work/1/s/handheld/src-vanilla/vanilla_shared/src/common/world/level/biome/ReplacementBiomeSource.cpp	0x12f93ad	0x493d130,0x493d700,0x493f6c0,0x4941c20,0x4942800
+minecraft:select_spruce_tree_feature	0x1347ec8	0x50ce980,0x51d3ea0
+Jigsaw path does not exist: 	0x131433a	0x6142da0
+minecraft:biome_filter	0x117ef61	0xaf95f80,0xbe12270,0xe3db870,0xea7cb80
+minecraft:biome	0x118206d	0xc7edc70,0xda359f0,0xe030f60,0xe627990,0xe6f40d0,0xeba2170
+internal::BasicSchema::EnumMapping::View &cereal::BasicFactory<SharedTypes::v1_21_20::JigsawStructure::ProcessorRule::BlockType>::viewFromScope(const entt::id_type) [Type = SharedTypes::v1_21_20::JigsawStructure::ProcessorRule::BlockType]	0x13deddf	0xe4118a0
+minecraft:subsurface_builder	0x1d44d00	0x4953380,0xc7e3540,0xc7e88f0,0xc7ead20,0xeba2170
+minecraft:multinoise_generation_rules	0x1d36650	0x4953a10,0x5250790,0xe706340,0xe874df0
+minecraft:overworld_height	0x1d367b0	0x4953c50,0x5251cd0,0xe706340,0xe875300
+minecraft:tree_feature	0x12252a3	0x4de9260,0xd2e8de0
+internal::BasicSchema::EnumMapping::View &cereal::BasicFactory<SubChunkPacketPayload::HeightMapDataType>::viewFromScope(const entt::id_type) [Type = SubChunkPacketPayload::HeightMapDataType]	0x1365450	0x7e0b3b0
+internal::BasicSchema::EnumMapping::View &cereal::BasicFactory<BiomeTemperatureCategory>::viewFromScope(const entt::id_type) [Type = BiomeTemperatureCategory]	0x11aac04	0x87b42d0,0x87b46b0,0x87b4a90,0x87b4e70,0x87b5250
+minecraft:density_limit	0x1115a8f	0xaf95f80,0xbe12270,0xea7cb80
+minecraft:jigsaw_structure_metadata	0x137125d	0xd25ce20,0xe1d0880,0xe2d33f0
+internal::BasicSchema::EnumMapping::View &cereal::BasicFactory<SharedTypes::v1_21_20::JigsawStructureDefinition::TerrainAdaptation>::viewFromScope(const entt::id_type) [Type = SharedTypes::v1_21_20::JigsawStructureDefinition::TerrainAdaptation]	0x1153611	0xe3ddaa0
+minecraft:azalea_tree_feature	0x1171a53	0x4e2bb50,0xc759560
+minecraft:savanna_tree_feature	0x13792e3	0x50ce980,0x51d3ea0,0x5a1f120
+minecraft:pine_tree_feature	0x12c5424	0x50ce980,0x51d3ea0
+minecraft:select_birch_tree_feature	0x12c5579	0x51d3ea0
+minecraft:noise_gradient	0x11a48a9	0x525a240,0xda370f0,0xeba4760
+JigsawStructure	0x1230767	0x9babf40,0xe3ddaa0,0xe3f1ef0
+is_temperature_value	0x124e21c	0xaf45f50,0xafb24f0,0xc4b8460,0xc4ca540
+Invalid Custom Biome Source	0x1166555	0xb713a20,0xb715390,0xb715e10
+Tint method logic varies, but often refers to the "rain" and "temperature" of the biome the block is placed in to compute the tint. Supported tint methods are "none", "default_foliage", "birch_foliage", "evergreen_foliage", "dry_foliage", "grass" and "water"	0x10af8a7	0xcc99350,0xccae530,0xcd372c0,0xcf12060
+minecraft:jigsaw	0x1357e1d	0xceb5cc0,0xced62c0,0xd1f5270,0xd1f8f10
+minecraft:surface_builder	0x1d349f0	0xda34c00,0xe706340,0xe79e420
+Tint method logic varies, but often refers to the "rain" and "temperature" of the biome the block is placed in to compute the tint. Supported tint methods are "{}", "{}", "{}", "{}", "{}", "{}" and "{}"	0x12f2e9e	0xdbe62c0,0xdbe70d0,0xdce4110,0xddb3de0
+minecraft:biome_music	0x1d190c0	0xe2c1920,0xe329c70,0xe329eb0
+internal::BasicSchema::EnumMapping::View &cereal::BasicFactory<SharedTypes::v1_21_20::JigsawStructure::Processors::Type>::viewFromScope(const entt::id_type) [Type = SharedTypes::v1_21_20::JigsawStructure::Processors::Type]	0x13a9708	0xe401380
+const Biome *ReplacementBiomeSource<BlockPos>::tryReplace(const Biome *, const BlockPos &) const [VectorType = BlockPos]	0x10b8340	0x493d130,0x493d700,0x493f6c0
+minecraft:subsurface_builder	0x1cf4750	0x4953380,0xda34c00,0xeba2170
+minecraft:climate	0x1d365c0	0x4953440,0xe706340,0xe872740
+minecraft:humidity	0x1d34990	0x4953630,0xe706340,0xe79e140
+minecraft:surface_builder	0x1d44ce0	0x4954120,0xeba2170,0xeba4760
+minecraft:aggregate_feature	0x13c90bb	0x4de9260,0xd4100e0,0xd410380
+minecraft:ore_feature	0x109c615	0x4de9260,0xd2f38d0
+minecraft:weighted_random_feature	0x11bd5bc	0x4de9260,0xd325480
+minecraft:nether_gold_ore_feature	0x11f1548	0x4e2bb50,0x51650f0
+minecraft:nether_quartz_ore_feature	0x1107d3a	0x4e2bb50,0x51650f0
+minecraft:mangrove_tree_feature	0x12402d5	0x4e2bb50,0xc543930
+minecraft:tall_mangrove_tree_feature	0x109c677	0x4e2bb50,0xc543930
+minecraft:pale_oak_tree_feature	0x1171b0c	0x4e2bb50,0x5a1f120
+minecraft:select_poplar_tree_feature	0x11d6d41	0x4e2bb50,0x5a1f120
+minecraft:scatter_tall_grass_around_tree_feature	0x1395740	0x51d3480,0x51d3ea0
+minecraft:fancy_oak_tree_feature	0x10d44b8	0x51d3ea0
+minecraft:mega_spruce_tree_feature	0x125c43b	0x51d3ea0,0x5a1f120
+minecraft:mega_jungle_tree_feature	0x13ae7f0	0x51d3ea0,0x5a1f120
+JigsawStructureDataPacket	0x118f7e2	0x7a4d280,0x82e9b20,0x82ea3e0
+entt::meta_data cereal::BasicFactory<SubChunkPacketPayload::HeightmapData>::currMetaMember() [Type = SubChunkPacketPayload::HeightmapData]	0x10f327d	0x7e0ad80,0x7e0b3b0
+BiomeTemperatureCategory	0x127d3d1	0x871a310,0xe8800c0
+climate	0x12fff02	0x871a310,0xc786220
+PlaceJigsawError	0x13030d8	0xa19eab0,0xa2279c0,0xa22a7b0
+minecraft:cave_spider	0x1198b5b	0xc28df40,0xca5db60
+JigsawReplacement	0x13249aa	0xd1cf130,0xd1d03b0,0xd1d1930
+const Block *JigsawStructureUtils::MetadataCache::getOrCreateBlockCache(size_t)	0x1169402	0xd235180
+SurfaceBuilderType	0x1239a9c	0xda370f0,0xe7af270,0xeba4760
+JigsawTemplatePool	0x1150bf9	0xe3ddaa0,0xe3f7eb0,0xe40ba60
+internal::BasicSchema::EnumMapping::View &cereal::BasicFactory<SharedTypes::v1_21_20::JigsawStructureDefinition::HeightmapProjection>::viewFromScope(const entt::id_type) [Type = SharedTypes::v1_21_20::JigsawStructureDefinition::HeightmapProjection]	0x13c42d7	0xe3ddaa0
+internal::BasicSchema::EnumMapping::View &cereal::BasicFactory<SharedTypes::v1_21_20::JigsawStructure::ProcessorRule::Axis>::viewFromScope(const entt::id_type) [Type = SharedTypes::v1_21_20::JigsawStructure::ProcessorRule::Axis]	0x111d0d5	0xe4118a0
+/mnt/vss/_work/1/s/handheld/src-vanilla/vanilla_shared/src/common/world/level/biome/BiomeSource3d.cpp	0x11d6c22	0x493a160,0x493aaf0
+const Biome *ReplacementBiomeSource<Pos2d>::tryReplace(const Biome *, const BlockPos &) const [VectorType = Pos2d]	0x11bd4e5	0x4941c20,0x4942800
+minecraft:legacy:bamboo_jungle_tree_feature	0x1209ff6	0x4e2bb50
+minecraft:legacy:birch_forest_tree_feature	0x13adebd	0x4e2bb50
+minecraft:legacy:birch_forest_mutated_tree_feature	0x11d6d0e	0x4e2bb50
+minecraft:legacy:extreme_hills_plus_trees_tree_feature	0x11bd654	0x4e2bb50
+minecraft:legacy:flower_forest_tree_feature	0x132c1d0	0x4e2bb50
+minecraft:legacy:forest_tree_feature	0x131237b	0x4e2bb50
+minecraft:legacy:ice_tree_feature	0x1378a48	0x4e2bb50
+minecraft:legacy:jungle_tree_feature	0x135eb63	0x4e2bb50
+minecraft:legacy:jungle_edge_tree_feature	0x12df1cb	0x4e2bb50
+minecraft:legacy:mega_taiga_tree_feature	0x132c1fc	0x4e2bb50
+minecraft:legacy:mesa_plateau_stone_tree_feature	0x1171a99	0x4e2bb50
+minecraft:legacy:plains_tree_feature	0x12904f2	0x4e2bb50
+minecraft:legacy:redwood_taiga_mutated_tree_feature	0x12c4cc8	0x4e2bb50
+minecraft:legacy:savanna_tree_feature	0x12f94ca	0x4e2bb50
+minecraft:legacy:savanna_mutated_tree_feature	0x10b84ef	0x4e2bb50
+minecraft:legacy:taiga_tree_feature	0x12df1f5	0x4e2bb50
+minecraft:legacy:emerald_ore_feature	0x118aeb0	0x4e2bb50
+minecraft:orange_poplar_tree_feature	0x109c69c	0x4e2bb50
+minecraft:red_poplar_tree_feature	0x10b8546	0x4e2bb50
+minecraft:yellow_poplar_tree_feature	0x135ebb9	0x4e2bb50
+minecraft:select_jungle_tree_feature	0x1290eb3	0x51d3ea0
+WorldGenBelowZeroFixed	0x1312e2b	0x523e0f0,0xc854280
+jigsaws	0x12e0c25	0x6140b00,0xe3dd970
+Editor::Services::EditorJigsawService	0x13afd82	0x6140cd0,0xb8f6b60
+Type &Editor::ServiceProviderCollection::get() [Type = Editor::Services::EditorJigsawServiceProvider]	0x13b030c	0x6146460,0xb921df0
+{}, ()NSt3__110__function6__funcIZN6Editor8Services19EditorJigsawService33_loadBehaviorPackJigsawRegistriesER19ResourcePackManagerE3$_0NS_9allocatorIS7_EEFvRKN4Core4PathEEEE	0x16383b9	0x623d5d0,0x623e820
+worldgen/structures	0x1396cea	0x62f3d70,0xd208860
+worldgen/structure_sets	0x12923b3	0x62f3d70,0xd208860
+worldgen/template_pools	0x1227389	0x62f3d70,0xd208860
+worldgen/processors	0x12ae05d	0x62f3d70,0xd208860
+DisableTerrainRendering	0x16984e0	0x68cf450,0x68d05d0
+worldGeneratorType	0x12948d1	0x6c300d0,0xb93af20
+Temperature	0x1363d67	0x7723900,0x8499030
+static const BasicSchema::EnumMapping::View &cereal::internal::TypeSchema<SubChunkPacketPayload::HeightMapDataType>::scopedView(const entt::meta_type &, const entt::id_type) [Type = SubChunkPacketPayload::HeightMapDataType]	0x12fe68d	0x7e4e700
+humidity	0x115e79c	0x871a310,0xc786220
+weirdness	0x12ffe88	0x871a310,0xc786220
+static const BasicSchema::EnumMapping::View &cereal::internal::TypeSchema<BiomeTemperatureCategory>::scopedView(const entt::meta_type &, const entt::id_type) [Type = BiomeTemperatureCategory]	0x13664ce	0x87b8cf0
+PlaceJigsawAction	0x1267a64	0x9babf40
+Spawn rules for minecraft:density_limit in {} need to be put inside a json object - it has to start with an "{{" and end with a "}}" - using default values	0x1354abd	0xaf95f80,0xbe12270
+is_temperature_type	0x11b46d0	0xc4b8460,0xc4ca4f0
+The SurfaceBuilderComponent could not be resolved.	0x125210b	0xc7e3540,0xc7ead20
+virtual bool Level::initialize(const std::string &, const LevelSettings &, const Experiments &, const std::string *, OptionalResolvedBiomeDataReference)	0x10ff134	0xc88c1b0
+bool br::worldgen::StructureInstance::postProcess(BlockSource &, IRandom &, const BoundingBox &) const	0x13a6688	0xc972420,0xd1d4df0
+void br::worldgen::StructureInstance::placeEntities(BlockSource &, const BoundingBox &) const	0x12024d7	0xc9730a0,0xd1d4f40
+surfaceBuildersResolved	0x138add0	0xca2cd50
+minecraft:trial_chamber/small_melee/cave_spider	0x13dadcf	0xca5db60
+Identifier '%s' failed validation when registering jigsaw structure set json	0x119cb11	0xd1cda40
+minecraft:processor_list	0x11693e9	0xd1f3fc0,0xd1f8f10
+minecraft:structure_set	0x12be01f	0xd1f68b0,0xd1f8f10
+minecraft:template_pool	0x130afe9	0xd1f7bb0,0xd1f8f10
+std::unique_ptr<ParserBase> Puv::internal::SliceSequence::UncommittedEntry<SharedTypes::v1_21_20::JigsawStructureProcessorList::Contents, BedrockLoadContext, std::nullptr_t, SharedTypes::v1_21_20::JigsawStructureProcessorList::Contents>::_makeParser(EntryType, const SemVersion &, RangeType, bool) [FinalType = SharedTypes::v1_21_20::JigsawStructureProcessorList::Contents, CustomParseData = BedrockL	0x12388ad	0xd200630
+std::unique_ptr<ParserBase> Puv::internal::SliceSequence::UncommittedEntry<SharedTypes::v1_21_20::JigsawStructureTemplatePool::Contents, BedrockLoadContext, std::nullptr_t, SharedTypes::v1_21_20::JigsawStructureTemplatePool::Contents>::_makeParser(EntryType, const SemVersion &, RangeType, bool) [FinalType = SharedTypes::v1_21_20::JigsawStructureTemplatePool::Contents, CustomParseData = BedrockLoad	0x110064d	0xd200630
+std::unique_ptr<ParserBase> Puv::internal::SliceSequence::UncommittedEntry<SharedTypes::v1_21_20::JigsawStructureDefinition::Contents, BedrockLoadContext, std::nullptr_t, SharedTypes::v1_21_20::JigsawStructureDefinition::Contents>::_makeParser(EntryType, const SemVersion &, RangeType, bool) [FinalType = SharedTypes::v1_21_20::JigsawStructureDefinition::Contents, CustomParseData = BedrockLoadContex	0x138c0a9	0xd200630
+std::unique_ptr<ParserBase> Puv::internal::SliceSequence::UncommittedEntry<SharedTypes::v1_21_20::JigsawStructureSet::Contents, BedrockLoadContext, std::nullptr_t, SharedTypes::v1_21_20::JigsawStructureSet::Contents>::_makeParser(EntryType, const SemVersion &, RangeType, bool) [FinalType = SharedTypes::v1_21_20::JigsawStructureSet::Contents, CustomParseData = BedrockLoadContext, CustomUpgradeData 	0x10cb89f	0xd200630
+Factory<Type> cereal::BasicFactory<SharedTypes::JigsawJointType>::scope(std::string_view) [Type = SharedTypes::JigsawJointType]	0x11b6441	0xd780930,0xd780dc0
+internal::BasicSchema::EnumMapping::View &cereal::BasicFactory<SharedTypes::JigsawJointType>::viewFromScope(const entt::id_type) [Type = SharedTypes::JigsawJointType]	0x10cc5c5	0xd780930,0xd780dc0
+static const BasicSchema::EnumMapping::View &cereal::internal::TypeSchema<SharedTypes::JigsawJointType>::scopedView(const entt::meta_type &, const entt::id_type) [Type = SharedTypes::JigsawJointType]	0x12a4b30	0xd789050
+static const BasicSchema::EnumMapping::View &cereal::internal::TypeSchema<SurfaceBuilderType>::scopedView(const entt::meta_type &, const entt::id_type) [Type = SurfaceBuilderType]	0x13a7ad3	0xda65110
+Jigsaw Structure Metadata	0x119ec28	0xe1d0880,0xe2d33f0
+static const BasicSchema::EnumMapping::View &cereal::internal::TypeSchema<SharedTypes::v1_21_20::JigsawStructureTemplatePool::Projection>::scopedView(const entt::meta_type &, const entt::id_type) [Type = SharedTypes::v1_21_20::JigsawStructureTemplatePool::Projection]	0x1102a1a	0xe3b0690
+internal::BasicSchema::EnumMapping::View &cereal::BasicFactory<SharedTypes::v1_21_20::JigsawStructureDefinition::LiquidSettings>::viewFromScope(const entt::id_type) [Type = SharedTypes::v1_21_20::JigsawStructureDefinition::LiquidSettings]	0x130db35	0xe3ddaa0
+JigsawProcessorList	0x1150be5	0xe3efe20,0xe3f7eb0
+minecraft:random_spread	0x128b3ad	0xe3f1ef0
+internal::BasicSchema::EnumMapping::View &cereal::BasicFactory<SharedTypes::v1_21_20::JigsawStructureSet::SpreadType>::viewFromScope(const entt::id_type) [Type = SharedTypes::v1_21_20::JigsawStructureSet::SpreadType]	0x1220c22	0xe3f1ef0
+terrain_matching	0x11532dd	0xe3f7eb0,0xe410e40
+Factory<Type> cereal::BasicFactory<SharedTypes::v1_21_20::JigsawStructureTemplatePool::Projection>::scope(std::string_view) [Type = SharedTypes::v1_21_20::JigsawStructureTemplatePool::Projection]	0x1220cfb	0xe410f80,0xe411410
+internal::BasicSchema::EnumMapping::View &cereal::BasicFactory<SharedTypes::v1_21_20::JigsawStructureTemplatePool::Projection>::viewFromScope(const entt::id_type) [Type = SharedTypes::v1_21_20::JigsawStructureTemplatePool::Projection]	0x130dd14	0xe410f80,0xe411410
+internal::BasicSchema::EnumMapping::View &cereal::BasicFactory<SharedTypes::v1_21_20::JigsawStructure::ProcessorRule::PosType>::viewFromScope(const entt::id_type) [Type = SharedTypes::v1_21_20::JigsawStructure::ProcessorRule::PosType]	0x119f3a4	0xe4118a0
+internal::BasicSchema::EnumMapping::View &cereal::BasicFactory<SharedTypes::v1_21_20::JigsawStructure::ProcessorRule::BlockEntityModifierType>::viewFromScope(const entt::id_type) [Type = SharedTypes::v1_21_20::JigsawStructure::ProcessorRule::BlockEntityModifierType]	0x10e7332	0xe4118a0
+static const BasicSchema::EnumMapping::View &cereal::internal::TypeSchema<SharedTypes::v1_21_20::JigsawStructureTemplatePool::(anonymous namespace)::ElementType>::scopedView(const entt::meta_type &, const entt::id_type) [Type = SharedTypes::v1_21_20::JigsawStructureTemplatePool::(anonymous namespace)::ElementType]	0x125671c	0xe423ae0
+static const BasicSchema::EnumMapping::View &cereal::internal::TypeSchema<SharedTypes::v1_21_20::JigsawStructure::ProcessorRule::BlockType>::scopedView(const entt::meta_type &, const entt::id_type) [Type = SharedTypes::v1_21_20::JigsawStructure::ProcessorRule::BlockType]	0x123b916	0xe4346d0
+static const BasicSchema::EnumMapping::View &cereal::internal::TypeSchema<SharedTypes::v1_21_20::JigsawStructure::ProcessorRule::PosType>::scopedView(const entt::meta_type &, const entt::id_type) [Type = SharedTypes::v1_21_20::JigsawStructure::ProcessorRule::PosType]	0x1342d94	0xe438f60
+static const BasicSchema::EnumMapping::View &cereal::internal::TypeSchema<SharedTypes::v1_21_20::JigsawStructure::ProcessorRule::BlockEntityModifierType>::scopedView(const entt::meta_type &, const entt::id_type) [Type = SharedTypes::v1_21_20::JigsawStructure::ProcessorRule::BlockEntityModifierType]	0x1271af5	0xe43d670
+static const BasicSchema::EnumMapping::View &cereal::internal::TypeSchema<SharedTypes::v1_21_20::JigsawStructure::ProcessorRule::Axis>::scopedView(const entt::meta_type &, const entt::id_type) [Type = SharedTypes::v1_21_20::JigsawStructure::ProcessorRule::Axis]	0x128b597	0xe441f40
+static const BasicSchema::EnumMapping::View &cereal::internal::TypeSchema<SharedTypes::v1_21_20::JigsawStructure::Processors::Type>::scopedView(const entt::meta_type &, const entt::id_type) [Type = SharedTypes::v1_21_20::JigsawStructure::Processors::Type]	0x1137a36	0xe456b90
+static const BasicSchema::EnumMapping::View &cereal::internal::TypeSchema<SharedTypes::v1_21_20::JigsawStructureDefinition::GenerationStep>::scopedView(const entt::meta_type &, const entt::id_type) [Type = SharedTypes::v1_21_20::JigsawStructureDefinition::GenerationStep]	0x11b89f5	0xe557990
+static const BasicSchema::EnumMapping::View &cereal::internal::TypeSchema<SharedTypes::v1_21_20::JigsawStructureDefinition::TerrainAdaptation>::scopedView(const entt::meta_type &, const entt::id_type) [Type = SharedTypes::v1_21_20::JigsawStructureDefinition::TerrainAdaptation]	0x120528d	0xe55c3c0
+static const BasicSchema::EnumMapping::View &cereal::internal::TypeSchema<SharedTypes::v1_21_20::JigsawStructureDefinition::HeightmapProjection>::scopedView(const entt::meta_type &, const entt::id_type) [Type = SharedTypes::v1_21_20::JigsawStructureDefinition::HeightmapProjection]	0x119f639	0xe560bb0
+static const BasicSchema::EnumMapping::View &cereal::internal::TypeSchema<SharedTypes::v1_21_20::JigsawStructureDefinition::LiquidSettings>::scopedView(const entt::meta_type &, const entt::id_type) [Type = SharedTypes::v1_21_20::JigsawStructureDefinition::LiquidSettings]	0x119f753	0xe5652e0
+static const BasicSchema::EnumMapping::View &cereal::internal::TypeSchema<SharedTypes::v1_21_20::JigsawStructureSet::PlacementType>::scopedView(const entt::meta_type &, const entt::id_type) [Type = SharedTypes::v1_21_20::JigsawStructureSet::PlacementType]	0x11b8b05	0xe58ec80
+static const BasicSchema::EnumMapping::View &cereal::internal::TypeSchema<SharedTypes::v1_21_20::JigsawStructureSet::SpreadType>::scopedView(const entt::meta_type &, const entt::id_type) [Type = SharedTypes::v1_21_20::JigsawStructureSet::SpreadType]	0x123bc16	0xe592b20
+WebRTC-Bwe-LimitPacingFactorByUpperLinkCapacityEstimate	0x12dc78c	0x4228e90
+jigsaw-persistence-enabled	0x125b3bc	0x47e8d90
+virtual ChunkVolume::VolumeOf<Biome> BiomeSource3d::getBiomeVolumeToFill(Height, BlockPos, RandomSeed, const ChunkLocalNoiseCache *) const	0x1107c1f	0x493a160
+virtual void BiomeSource3d::fillBiomes(LevelChunk &, const ChunkLocalNoiseCache *) const	0x10b82db	0x493aaf0
+virtual void ReplacementBiomeSource<BlockPos>::fillBiomes(LevelChunk &, const ChunkLocalNoiseCache *) const [VectorType = BlockPos]	0x1209eae	0x493d130
+Weirdness Shattered	0x13adda5	0x4949aa0
+Erosion Factor for base value: {:.2f}	0x11f1499	0x4949aa0
+Erosion Spline For ({:.2f}, {:.2f}, {:.2f}, {:.2f})	0x13c8d06	0x494d8c0
+M-spline for continentalness: {:.2f}	0x1209f32	0x494e5e0
+WeirdnessSpline for {:.2f} jaggedness factor 	0x10b83b9	0x4950a40
+ZN21BiomeJsonDocumentGlue17registerComponentIN11SharedTypes8v1_20_6025ClimateBiomeJsonComponentE25ClimateBiomeComponentGlueEEvvEUlvE_	0x148cdd3	0x4978d20
+ZN21BiomeJsonDocumentGlue17registerComponentIN11SharedTypes9v1_21_10032CustomHumidityBiomeJsonComponentE32CustomHumidityBiomeComponentGlueEEvvEUlvE_	0x148d1a8	0x4979130
+ZN21BiomeJsonDocumentGlue17registerComponentIN11SharedTypes8v1_20_6043MultinoiseGenerationRulesBiomeJsonComponentE43MultinoiseGenerationRulesBiomeComponentGlueEEvvEUlvE_	0x148d947	0x4979780
+ZN21BiomeJsonDocumentGlue17registerComponentIN11SharedTypes8v1_20_6042OverworldGenerationRulesBiomeJsonComponentE42OverworldGenerationRulesBiomeComponentGlueEEvvEUlvE_	0x148db53	0x4979930
+ZN21BiomeJsonDocumentGlue17registerComponentIN11SharedTypes8v1_26_3032SurfaceBuilderBiomeJsonComponentE32SurfaceBuilderBiomeComponentGlueEEvvEUlvE_	0x148e0ed	0x4979ed0
+ZN21BiomeJsonDocumentGlue17registerComponentITkNSt3__112derived_fromI19IBiomeComponentGlueEE32SurfaceBuilderBiomeComponentGlueJNS4_11BuilderTypeEEEEvNS1_17basic_string_viewIcNS1_11char_traitsIcEEEEDpOT0_EUlvE_	0x148e295	0x497a100
+ZN21BiomeJsonDocumentGlue17registerComponentIN11SharedTypes4Beta32SurfaceBuilderBiomeJsonComponentE32SurfaceBuilderBiomeComponentGlueEEvvEUlvE_	0x148e451	0x497a310
+Cave placement is only valid in the "pregeneration_pass" placement pass.	0x11a3db2	0x498be50
+ZN14FeatureLoading28_addCaveFeatureMembersCommonIN8JsonUtil20JsonSchemaObjectNodeINS1_14JsonParseStateINS1_10EmptyClassENS_23FeatureRootParseContextEEENS_21ConcreteFeatureHolderI11CaveFeatureEEEEEEvRT_RK10SemVersionEUlSC_E_	0x1490b00	0x49b34f0
+random_spread_canopy	0x12abfa3	0x49c9ab0
+ZN14FeatureLoading28_addCaveFeatureMembersCommonIN8JsonUtil20JsonSchemaObjectNodeINS1_14JsonParseStateINS1_10EmptyClassENS_23FeatureRootParseContextEEENS_21ConcreteFeatureHolderI17NetherCaveFeatureEEEEEEvRT_RK10SemVersionEUlSC_E_	0x1493d19	0x49fd630
+ZNK24SpeleothemClusterFeature12_placeColumnER17IBlockWorldGenAPIR6RandomRK8BlockPosiifdifE3$_0	0x1494a94	0x4a02610
+ZNK24SpeleothemClusterFeature12_placeColumnER17IBlockWorldGenAPIR6RandomRK8BlockPosiifdifE3$_1	0x1494b88	0x4a02710
+ZN14FeatureLoading28_addCaveFeatureMembersCommonIN8JsonUtil20JsonSchemaObjectNodeINS1_14JsonParseStateINS1_10EmptyClassENS_23FeatureRootParseContextEEENS_21ConcreteFeatureHolderI21UnderwaterCaveFeatureEEEEEEvRT_RK10SemVersionEUlSC_E_	0x1494e05	0x4a03380
+ZN14FeatureLoading12_buildSchemaI21UnderwaterCaveFeatureEEvRN8JsonUtil20JsonSchemaObjectNodeINS2_14JsonParseStateINS2_10EmptyClassENS_23FeatureRootParseContextEEENS_21ConcreteFeatureHolderIT_EEEERK10SemVersionE3$_1	0x1495c69	0x4a08120
+minecraft:cave_carver_feature	0x10b8472	0x4de9260
+minecraft:nether_cave_carver_feature	0x12df1a6	0x4de9260
+minecraft:sequence_feature	0x11a3e43	0x4de9260
+minecraft:underwater_cave_carver_feature	0x10ec5c2	0x4de9260
+minecraft:temperature	0x139569f	0x5156180
+minecraft:continentalness	0x135f399	0x5156180
+minecraft:erosion	0x13c97d5	0x5156180
+minecraft:terrain	0x12f9e45	0x5182630
+minecraft:aquifer_barrier	0x125c3f8	0x5182630
+minecraft:aquifer_fluid_level_floodedness	0x1108660	0x5182630
+minecraft:aquifer_fluid_level_spread	0x120a81f	0x5182630
+minecraft:aquifer_lava	0x1290e6c	0x5182630
+minecraft:aquifer	0x1158374	0x5182630
+minecraft:cave_entrance	0x1348023	0x518e660
+minecraft:cave_layer	0x132c9de	0x518e660
+minecraft:cave_cheese	0x11a4815	0x518e660
+ZN7Bedrock9Threading20InstancedThreadLocalIN18OverworldGenerator10ThreadDataENSt3__19allocatorIS3_EEEC1EvEUlPS3_E_	0x1543d37	0x51be650
+ZN18OverworldGenerator9loadChunkER10LevelChunkbE3$_0	0x1543e5b	0x51be830
+minecraft:swamp_tree_feature	0x12ac986	0x51d3480
+minecraft:select_super_birch_tree_feature	0x1122a4e	0x51d3ea0
+minecraft:mega_pine_tree_feature	0x13ae813	0x51d3ea0
+minecraft:climate	0x11d759b	0x524f1c0
+Biome named: %s contains %s component which is a pre-caves and cliffs component and is unused for custom biomes	0x11d75ad	0x5250920
+generate_for_climates	0x1549640	0x52511f0
+Weighted temperature categories must be arrays with 2 elements, the first being a string temperature category and the second being a positive weight integer	0x137949b	0x52511f0
+minecraft:cherry_tree_feature	0x135fa53	0x5a1f120
+minecraft:select_standing_spruce_tree_feature	0x125cbe4	0x5a1f120
+minecraft:birch_tree_feature	0x1226087	0x5a1f120
+minecraft:select_undecorated_jungle_tree_feature	0x13799b7	0x5a1f120
+minecraft:select_roofed_tree_feature	0x11d7aa5	0x5a1f120
+disable_terrain_rendering	0x135fba8	0x5c2c950
+resourcePack.editor.jigsaw.save.fileOpenError	0x11d9085	0x6142da0
+Jigsaw depth (Value:{}) is invalid. Depth must be between {} and {} inclusive.	0x12e0c2d	0x6146460
+Jigsaw generation failed. Check registry JSON to validate contents.	0x113e7f3	0x6146460
+[JIGSAW GENERATION FAILURE] Structure name [{}] referenced in template pool [{}] does not exist.	0x11d8b7c	0x6148270
+[JIGSAW GENERATION FAILURE] Jigsaw block in structure [{}] has an invalid "Turns Into" block: [{}].	0x11d8bdd	0x6148270
+[JIGSAW GENERATION FAILURE] Jigsaw block target template pool [{}] does not exist. List of Structure IDs containing a jigsaw block with the unfound target pool name: {}	0x10ee744	0x6148270
+[JIGSAW GENERATION WARNING] Jigsaw block target name [{}] does not exist in template pool [{}]. List of Structure IDs containing a jigsaw block with the unfound target name: {}	0x109e43e	0x6148270
+terrainStrength	0x113e868	0x6159ac0
+ZN12_GLOBAL__N_123EditorJigsawServiceAnon21_placeOrDeferSectionsER11ServerLevelR9DimensionRKNSt3__16vectorINS5_10unique_ptrIN2br8worldgen27PoolElementStructureSectionENS5_14default_deleteISA_EEEENS5_9allocatorISD_EEEERK8BlockPosbbNS9_14LiquidSettingsER11BlockSourceE3$_0	0x162dddd	0x619dfd0
+ZN6Editor25ServiceProviderCollection12addUnmanagedINS_8Services27EditorJigsawServiceProviderENS2_19EditorJigsawServiceEEEbPT0_EUlPvE_	0x1638121	0x6237430
+ZN6Editor25ServiceProviderCollection12addUnmanagedINS_8Services27EditorJigsawServiceProviderENS2_19EditorJigsawServiceEEEbPT0_EUlN4entt8meta_anyEE_	0x1638272	0x6237ff0
+ZN6Editor8Services19EditorJigsawService5readyEvE3$_0	0x1638384	0x6239920
+ZN6Editor8Services19EditorJigsawService33_loadBehaviorPackJigsawRegistriesER19ResourcePackManagerE3$_0	0x1638467	0x623f210
+bool cereal::BasicLoader::load(SchemaReader &, Type &, const LoadContext &) [Type = Editor::Network::NativeBrushTerrainPayload, LoadContext = BedrockLoadContext]	0x118cdfb	0x628c820
+EditorJigsawSection	0x120d8c3	0x6a16460
+Failed to set Jigsaw registry.	0x10d6dd9	0x6b282b0
+ZN6Editor12ScriptModule19ScriptJigsawServiceC1EPNS_8Services27EditorJigsawServiceProviderEPNS_27EditorPlayerServiceProviderERKN9Scripting17WeakLifetimeScopeEE3$_0	0x16e0a51	0x6b285c0
+Failed to generate jigsaw.	0x11402df	0x6b28810
+ZN6Editor12ScriptModule19ScriptJigsawServiceC1EPNS_8Services27EditorJigsawServiceProviderEPNS_27EditorPlayerServiceProviderERKN9Scripting17WeakLifetimeScopeEE3$_1	0x16e0c65	0x6b28cd0
+ZN9Scripting18EnumBindingBuilderIN6Editor8Services14JigsawJsonTypeES3_E5valueIS3_EERNS_15ConstantFactoryERKNSt3__112basic_stringIcNS8_11char_traitsIcEENS8_9allocatorIcEEEET_EUlRNS_17WeakLifetimeScopeEE_	0x16e1b4f	0x6b3bc00
+ZN9Scripting18EnumBindingBuilderIN11SharedTypes15JigsawJointTypeES2_E5valueIS2_EERNS_15ConstantFactoryERKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEET_EUlRNS_17WeakLifetimeScopeEE_	0x16e1d1b	0x6b3c7b0
+CaveSpider	0x13b274a	0x7740640
+JIGSAW_EDITOR	0x12617d1	0x78c20e0
+Density	0x1245381	0x78de530
+SubChunk_BiomeData	0x10a20f5	0x79941e0
+World_Generator	0x1127a9a	0x79941e0
+Contains subchunk terrain data, heightmaps, and optional blob cache IDs.	0x13653dd	0x7e079c0
+SubChunkHeightmapData	0x122ad31	0x7e0b3b0
+Factory<Type> cereal::BasicFactory<SubChunkPacketPayload::HeightMapDataType>::scope(std::string_view) [Type = SubChunkPacketPayload::HeightMapDataType]	0x11c353a	0x7e4f420
+Sends the serialized jigsaw rule JSON to the client as it's needed on both the client and server.	0x1143ed6	0x82ea3e0
+JigsawStructureDataPacketPayload	0x1263510	0x82eb930
+Jigsaw Structure Data Tag	0x1365cd4	0x82eb930
+These are sent from the client to tell the Server map about terrain pixels it doesn't know about	0x1129684	0x836acf0
+bool cereal::BasicLoader::load(SchemaReader &, Type &, const LoadContext &) [Type = JigsawStructureDataPacketPayload, LoadContext = BedrockLoadContext]	0x137eb69	0x838dd60
+- mBiomeData: map of biome string indices to biome definition data.	0x122cbb7	0x8716ca0
+BiomeClimateData	0x11c4a6c	0x871a310
+BiomeMultinoiseGenRulesData	0x12e5ed9	0x871a310
+BiomeWeightedTemperatureData	0x110ecb7	0x871a310
+entt::meta_data cereal::BasicFactory<BiomeWeightedTemperatureData>::currMetaMember() [Type = BiomeWeightedTemperatureData]	0x10a433b	0x871a310
+BiomeLegacyWorldGenRulesData	0x11aad5d	0x871a310
+BiomeOverworldGenRulesData	0x13d0237	0x871a310
+BiomeSurfaceBuilderData	0x12e5fac	0x871a310
+multinoise gen rules	0x12fff0a	0x871a310
+surface builder data	0x1192814	0x871a310
+subsurface builder data	0x122cdcc	0x871a310
+Factory<Type> cereal::BasicFactory<BiomeTemperatureCategory>::scope(std::string_view) [Type = BiomeTemperatureCategory]	0x10f4648	0x87b9930
+ZNK6cereal8internal10TypeSchemaINSt3__16vectorI28BiomeWeightedTemperatureDataNS2_9allocatorIS4_EEEEE5doMapERN4entt8meta_anyESB_RNS_11MetaVisitorEEUlvE_	0x17e5afd	0x88076c0
+virtual void cereal::internal::TypeSchema<std::optional<BiomeClimateData>>::doSave(SchemaWriter &, const entt::meta_any &, const SaveState &) const [Type = std::optional<BiomeClimateData>]	0x13d02d8	0x881f420
+virtual void cereal::internal::TypeSchema<std::optional<BiomeOverworldGenRulesData>>::doSave(SchemaWriter &, const entt::meta_any &, const SaveState &) const [Type = std::optional<BiomeOverworldGenRulesData>]	0x13d0395	0x88256c0
+virtual void cereal::internal::TypeSchema<std::optional<BiomeMultinoiseGenRulesData>>::doSave(SchemaWriter &, const entt::meta_any &, const SaveState &) const [Type = std::optional<BiomeMultinoiseGenRulesData>]	0x121164f	0x8826f90
+virtual void cereal::internal::TypeSchema<std::optional<BiomeLegacyWorldGenRulesData>>::doSave(SchemaWriter &, const entt::meta_any &, const SaveState &) const [Type = std::optional<BiomeLegacyWorldGenRulesData>]	0x12e6030	0x8828740
+virtual void cereal::internal::TypeSchema<std::optional<BiomeSurfaceBuilderData>>::doSave(SchemaWriter &, const entt::meta_any &, const SaveState &) const [Type = std::optional<BiomeSurfaceBuilderData>]	0x115ea07	0x882cc90
+mojang-biomes.json	0x10a796e	0x99fbfb0
+Jigsaw Persistence manual override:	0x11954cc	0x9a95090
+override_jigsaw_persistence	0x10dd7a9	0x9a95090
+  Jigsaw Persistence Enabled	0x1267989	0x9a95090
+jigsaw_persistence_enabled	0x1147e88	0x9a95090
+ZN12_GLOBAL__N_116PlaceCommandAnon21_placeOrDeferSectionsER11ServerLevelR9DimensionRKNSt3__16vectorINS5_10unique_ptrIN2br8worldgen27PoolElementStructureSectionENS5_14default_deleteISA_EEEENS5_9allocatorISD_EEEERK8BlockPosbbNS9_14LiquidSettingsEE3$_0	0x192a5ef	0x9be4800
+ZN9Scripting18EnumBindingBuilderINSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEN2br8worldgen14LiquidSettingsEE5valueERKS7_SA_EUlRNS_17WeakLifetimeScopeEE_	0x1983a37	0xa2174f0
+JigsawStructurePlaceOptions	0x131e16c	0xa237580
+JigsawPlaceOptions	0x11e2e9f	0xa3bf3c0
+raft:cave_spider	0x13e49a0	0xb199fb0
+minecraft:cave_s	0x13e3400	0xb199fb0
+Spawn Rules for 'heightmap' in {} must use a registered heightmap type	0x11fe20b	0xb1a7d30
+CustomBiomeSourceConfig	0x1284f83	0xb668470
+CustomBiomeSource	0x12bacf5	0xb668e30
+WorldGeneratorType	0x1131a96	0xb824110
+Custom biome source with provided ID not found	0x12baff3	0xb8502f0
+createCustomBiomeSource	0x123501f	0xb919b40
+ZN6Editor25ServiceProviderCollection12addUnmanagedINS_8Services27EditorJigsawServiceProviderES3_EEbPT0_EUlPvE_	0x1b56106	0xb96a1e0
+ZN6Editor25ServiceProviderCollection12addUnmanagedINS_8Services27EditorJigsawServiceProviderES3_EEbPT0_EUlN4entt8meta_anyEE_	0x1b56229	0xb96a490
+ZN9Scripting8internal19BaseScriptComponentC1IN6Editor12ScriptModule23ScriptCustomBiomeSourceEEERNS0_9TypeCacheEbNS1_6TraitsIT_EEEUlvE_	0x1b616cb	0xb9dadd0
+ZN9Scripting8internal19BaseScriptComponentC1IN6Editor12ScriptModule19ScriptJigsawServiceEEERNS0_9TypeCacheEbNS1_6TraitsIT_EEEUlvE_	0x1b628e4	0xb9edb30
+ZN6Editor7Network22PayloadServiceProvider16_registerPayloadINS0_25NativeBrushTerrainPayloadEEEPNS0_14PayloadMetricsEvEUlvE_	0x1b6730c	0xba071b0
+enchantment.heavy_weapon.density	0x114e007	0xbf19d20
+density	0x109c60d	0xbf19d20
+minecraft:cave_spider_spawn_egg	0x11330db	0xc327190
+Tests whether the Subject is in an area with humidity	0x133ebed	0xc4b8460
+Tests whether the current temperature is a given type.	0x12bca28	0xc4b8460
+Tests the current temperature against a provided value in the range (0.0, 1.0) where 0.0f is the coldest temp and 1.0f is the hottest.	0x1251e8f	0xc4b8460
+ZN12_GLOBAL__N_114FilterListAnon20_addFilterDefinitionI25FilterTestTemperatureTypeEEbRKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEEPK21FilterParamDefinitionSE_SE_SE_EUlvE_	0x1bf6d9e	0xc4d3300
+ZN12_GLOBAL__N_114FilterListAnon20_addFilterDefinitionI26FilterTestTemperatureValueEEbRKNSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEEPK21FilterParamDefinitionSE_SE_SE_EUlvE_	0x1bf6fb1	0xc4d34a0
+The Biome temperature catagory to test	0x132308e	0xc4d7da0
+The Biome temperature value to compare with.	0x1309455	0xc4d7da0
+ZN11BlockEvents18BlockEventExecutorINS_24BlockPlayerInteractEventEE9subscribeI11JigsawBlockTkNSt3__114convertible_toIRKT_EERS1_EEN7Bedrock6PubSub12SubscriptionES9_MS7_KFvT0_EEUlSA_E_	0x1c07ced	0xc55e1b0
+minecraft:biome_tinted_leaves_particle	0x121b786	0xc55e9e0
+ZN11BlockEvents18BlockEventExecutorINS_18ActorInternalEventEE9subscribeI14CaveVinesBlockTkNSt3__114convertible_toIRKT_EERS1_EEN7Bedrock6PubSub12SubscriptionES9_MS7_KFvT0_EEUlSA_E_	0x1c126e2	0xc5c3f00
+ZN11BlockEvents18BlockEventExecutorINS_15BlockPlaceEventEE9subscribeI14CaveVinesBlockTkNSt3__114convertible_toIRKT_EERS1_EEN7Bedrock6PubSub12SubscriptionES9_MS7_KFvT0_EEUlSA_E_	0x1c1287a	0xc5c4000
+ZN11BlockEvents18BlockEventExecutorINS_20BlockQueuedTickEventEE9subscribeI14CaveVinesBlockTkNSt3__114convertible_toIRKT_EERS1_EEN7Bedrock6PubSub12SubscriptionES9_MS7_KFvT0_EEUlSA_E_	0x1c12a14	0xc5c4100
+ZN11BlockEvents18BlockEventExecutorINS_24BlockPlayerInteractEventEE9subscribeI14CaveVinesBlockTkNSt3__114convertible_toIRKT_EERS1_EEN7Bedrock6PubSub12SubscriptionES9_MS7_KFvT0_EEUlSA_E_	0x1c12bb7	0xc5c4200
+ZN11BlockEvents18BlockEventExecutorINS_20BlockRandomTickEventEE9subscribeI14CaveVinesBlockTkNSt3__114convertible_toIRKT_EERS1_EEN7Bedrock6PubSub12SubscriptionES9_MS7_KFvT0_EEUlSA_E_	0x1c12d5a	0xc5c4300
+ZZZN18BiomeSurfaceSystem28resolveBuilderImplementationER13BiomeRegistryRK22SurfaceBuilderRegistry11LevelSeed64ENK3$_1clER5BiomeENKUlR18SurfaceBuilderDataE_clESA_EUlR15ISurfaceBuilderE_	0x1c30ffb	0xc75af20
+ZN15ISurfaceBuilder24SurfaceBuilderParametersC1ERK5BiomePK18SurfaceBuilderDataE3$_0	0x1c31174	0xc7817c0
+ZNK22VanillaSurfaceBuilders20CappedSurfaceBuilder14buildSurfaceAtERKN15ISurfaceBuilder16GlobalParametersERKNS1_24SurfaceBuilderParametersERKNS1_19PerColumnParametersEE3$_0	0x1c312af	0xc7818a0
+ZNK22VanillaSurfaceBuilders20CappedSurfaceBuilder14buildSurfaceAtERKN15ISurfaceBuilder16GlobalParametersERKNS1_24SurfaceBuilderParametersERKNS1_19PerColumnParametersEE3$_1	0x1c31442	0xc7819e0
+ZN18BiomeSurfaceSystem28resolveBuilderImplementationER13BiomeRegistryRK22SurfaceBuilderRegistry11LevelSeed64E3$_0	0x1c315a5	0xc781ae0
+weighted temperature	0x119b70a	0xc786220
+ZN12BinaryStream15writeVectorListI28BiomeWeightedTemperatureDataEEvRKNSt3__16vectorIT_NS2_9allocatorIS4_EEEEONS2_8functionIFvRS_RKS4_EEEPKcSI_EUlSB_E_	0x1c33a4d	0xc7adbf0
+ZN12BinaryStream15writeVectorListI28BiomeWeightedTemperatureDataEEvRKNSt3__16vectorIT_NS2_9allocatorIS4_EEEEONS2_8functionIFvRS_RKS4_EEEPKcSI_EUlSB_E0_	0x1c33ba4	0xc7add30
+ZN12BinaryStream15writeVectorListI28BiomeWeightedTemperatureDataEEvRKNSt3__16vectorIT_NS2_9allocatorIS4_EEEEPKcSB_SB_SB_EUlRS_RKS1_E_	0x1c33d3e	0xc7ade60
+ZN20ReadOnlyBinaryStream14readVectorListI28BiomeWeightedTemperatureDataEEN7Bedrock6ResultIvNSt3__110error_codeEEERNS4_6vectorIT_NS4_9allocatorIS8_EEEEmEUlRS_E_	0x1c33f10	0xc7ae2c0
+no_legacy_worldgen	0x13a51f3	0xc7b5240
+Returns a Perlin simplex noise value for the given (x, z) position.	0x11336aa	0xc7b6470
+query.heightmap	0x1323319	0xc7b6470
+Returns the heightmap value at the given (x, z) position.	0x10ae51a	0xc7b6470
+worldGenerator	0x1200cb1	0xc7b7b90
+BiomeData	0x12bcbb7	0xc7bbb10
+ZN3Puv14CerealUpgraderIN11SharedTypes7v1_26_017BiomeJsonDocument15BiomeJsonObjectENS1_8v1_26_3017BiomeJsonDocument15BiomeJsonObjectEDnE8callbackITkNS_11FunctionPtrEPFvRKNS1_9v1_21_10032SurfaceBuilderBiomeJsonComponentERNS5_32SurfaceBuilderBiomeJsonComponentEEEEvT_NSt3__16vectorINSJ_12basic_stringIcNSJ_11char_traitsIcEENSJ_9allocatorIcEEEENSO_ISQ_EEEESS_EUlRN4entt8meta_anyESV_E_	0x1c36daa	0xc7dc630
+ZN23BiomeJsonDocumentLoaderC1ERN6cereal13ReflectionCtxEN7Bedrock15NonOwnerPointerI20LinkedAssetValidatorEER21BiomeJsonDocumentGlueRK13BiomeRegistryRKN4Core4PathEbRNSt3__113unordered_mapINSG_12basic_stringIcNSG_11char_traitsIcEENSG_9allocatorIcEEEENSG_10unique_ptrI38BiomeJsonDocumentGlueResolvedBiomeDataNSG_14default_deleteISP_EEEENSG_4hashISN_EENSG_8equal_toISN_EENSL_INSG_4pairIKSN_SS_EEEEEERK11Ex	0x1c378e1	0xc7e4270
+ZN23BiomeJsonDocumentLoaderC1ERN6cereal13ReflectionCtxEN7Bedrock15NonOwnerPointerI20LinkedAssetValidatorEER21BiomeJsonDocumentGlueRK13BiomeRegistryRKN4Core4PathEbRNSt3__113unordered_mapINSG_12basic_stringIcNSG_11char_traitsIcEENSG_9allocatorIcEEEENSG_10unique_ptrI38BiomeJsonDocumentGlueResolvedBiomeDataNSG_14default_deleteISP_EEEENSG_4hashISN_EENSG_8equal_toISN_EENSL_INSG_4pairIKSN_SS_EEEEEERK11Ex	0x1c37cef	0xc7ec400
+ZN13BiomeRegistry21loadAllBiomeDocumentsERK19ResourcePackManagerRN6cereal13ReflectionCtxEN7Bedrock15NonOwnerPointerI20LinkedAssetValidatorEERK15BaseGameVersionR21BiomeJsonDocumentGlueRNSt3__113unordered_mapINSF_12basic_stringIcNSF_11char_traitsIcEENSF_9allocatorIcEEEENSF_10unique_ptrI38BiomeJsonDocumentGlueResolvedBiomeDataNSF_14default_deleteISO_EEEENSF_4hashISM_EENSF_8equal_toISM_EENSK_INSF_4pai	0x1c38084	0xc7ee610
+virtual void Dimension::init(const br::worldgen::StructureSetRegistry &)	0x10ff4a9	0xc95fb20
+ZN19ChunkLoadActionList13_loadRequestsER12LevelStorageR20ICommandOriginLoaderRKNSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEERK30JigsawStructureElementRegistry13DimensionTypeN7Bedrock15NonOwnerPointerI25IUnknownBlockTypeRegistryEEE3$_0	0x1c4739e	0xca551a0
+JigsawBlock	0x10af406	0xce74f00
+minecraft:cave_vines	0x11ceba6	0xced62c0
+minecraft:cave_vines_body_with_berries	0x12a32ca	0xced62c0
+minecraft:cave_vines_head_with_berries	0x114fe53	0xced62c0
+ZN18SculkBlockBehavior15_canPlaceGrowthER17IBlockWorldGenAPIRK8BlockPosS4_E3$_0	0x1c7cbe8	0xcf4ee40
+virtual void br::worldgen::StructureProcessor::appendMetadataKey(Util::XXHash &) const	0x133fdf4	0xd1bf3d0
+Identifier '%s' failed validation when registering jigsaw structure processor list json	0x1134903	0xd1c8290
+Identifier '%s' failed validation when registering jigsaw structure template pool json	0x113495b	0xd1c8f20
+Identifier '%s' failed validation when registering jigsaw structure json	0x11e9ccc	0xd1cc080
+jigsaw_replacement	0x110051e	0xd1d97a0
+const br::worldgen::MobFilter *StructureSpawnRegistry::get(const std::string &) const	0x12f1859	0xd1ee9f0
+Jigsaw Structure Processor List .json file 	0x10afef2	0xd1f3fc0
+Failed to parse jigsaw structure processor list '%s'.	0x1288da3	0xd1f3fc0
+Jigsaw Structure Definition .json file 	0x13a66ef	0xd1f5270
+Failed to parse jigsaw structure definition '%s'.	0x13249c5	0xd1f5270
+Jigsaw Structure Set .json file 	0x12533bb	0xd1f68b0
+Jigsaw Structure Template Pool .json file 	0x11693be	0xd1f7bb0
+Failed to parse jigsaw structure template pool '%s'.	0x13711f8	0xd1f7bb0
+[[Jigsaw Structure]] couldn't be constructed, pool `%s` has no elements	0x1169376	0xd1fe510
+[[Jigsaw Structure]] couldn't be constructed, no pool named `%s`	0x11b5bb8	0xd1fe510
+[[Jigsaw Structure]] Couldn't find anchor named `%s` in element pool '%s'	0x13dbf71	0xd1fe510
+[Jigsaw Structure Builder] start_pool is empty. Fill it in with a valid template pool e.g. minecraft:example/structure	0x119cbe2	0xd1ffee0
+auto Puv::SlicedLoader<SharedTypes::v1_21_20::JigsawStructureProcessorList::Contents, BedrockLoadContext>::_cerealSlice(const SemVersion &, cereal::ResultCode, bool) [FinalType = SharedTypes::v1_21_20::JigsawStructureProcessorList::Contents, CustomParseData = BedrockLoadContext, CustomUpgradeData = std::nullptr_t, CustomValidateData = std::nullptr_t, BetaType = SharedTypes::v1_21_20::JigsawStructu	0x11cf3e8	0xd200630
+const CustomParseData &Puv::SlicedLoader<SharedTypes::v1_21_20::JigsawStructureProcessorList::Contents, BedrockLoadContext>::_resolveCustomParseData() [FinalType = SharedTypes::v1_21_20::JigsawStructureProcessorList::Contents, CustomParseData = BedrockLoadContext, CustomUpgradeData = std::nullptr_t, CustomValidateData = std::nullptr_t, BetaType = SharedTypes::v1_21_20::JigsawStructureProcessorList	0x13c0e49	0xd200630
+auto Puv::SlicedLoader<SharedTypes::v1_21_20::JigsawStructureTemplatePool::Contents, BedrockLoadContext>::_cerealSlice(const SemVersion &, cereal::ResultCode, bool) [FinalType = SharedTypes::v1_21_20::JigsawStructureTemplatePool::Contents, CustomParseData = BedrockLoadContext, CustomUpgradeData = std::nullptr_t, CustomValidateData = std::nullptr_t, BetaType = SharedTypes::v1_21_20::JigsawStructure	0x118345c	0xd200630
+const CustomParseData &Puv::SlicedLoader<SharedTypes::v1_21_20::JigsawStructureTemplatePool::Contents, BedrockLoadContext>::_resolveCustomParseData() [FinalType = SharedTypes::v1_21_20::JigsawStructureTemplatePool::Contents, CustomParseData = BedrockLoadContext, CustomUpgradeData = std::nullptr_t, CustomValidateData = std::nullptr_t, BetaType = SharedTypes::v1_21_20::JigsawStructureTemplatePool::C	0x12a396e	0xd200630
+auto Puv::SlicedLoader<SharedTypes::v1_21_20::JigsawStructureDefinition::Contents, BedrockLoadContext>::_cerealSlice(const SemVersion &, cereal::ResultCode, bool) [FinalType = SharedTypes::v1_21_20::JigsawStructureDefinition::Contents, CustomParseData = BedrockLoadContext, CustomUpgradeData = std::nullptr_t, CustomValidateData = std::nullptr_t, BetaType = SharedTypes::v1_21_20::JigsawStructureDefi	0x12533dc	0xd200630
+const CustomParseData &Puv::SlicedLoader<SharedTypes::v1_21_20::JigsawStructureDefinition::Contents, BedrockLoadContext>::_resolveCustomParseData() [FinalType = SharedTypes::v1_21_20::JigsawStructureDefinition::Contents, CustomParseData = BedrockLoadContext, CustomUpgradeData = std::nullptr_t, CustomValidateData = std::nullptr_t, BetaType = SharedTypes::v1_21_20::JigsawStructureDefinition::Content	0x12d79d8	0xd200630
+auto Puv::SlicedLoader<SharedTypes::v1_21_20::JigsawStructureSet::Contents, BedrockLoadContext>::_cerealSlice(const SemVersion &, cereal::ResultCode, bool) [FinalType = SharedTypes::v1_21_20::JigsawStructureSet::Contents, CustomParseData = BedrockLoadContext, CustomUpgradeData = std::nullptr_t, CustomValidateData = std::nullptr_t, BetaType = SharedTypes::v1_21_20::JigsawStructureSet::Contents, Typ	0x12535c1	0xd200630
+const CustomParseData &Puv::SlicedLoader<SharedTypes::v1_21_20::JigsawStructureSet::Contents, BedrockLoadContext>::_resolveCustomParseData() [FinalType = SharedTypes::v1_21_20::JigsawStructureSet::Contents, CustomParseData = BedrockLoadContext, CustomUpgradeData = std::nullptr_t, CustomValidateData = std::nullptr_t, BetaType = SharedTypes::v1_21_20::JigsawStructureSet::Contents]	0x10aff1e	0xd200630
+Loading Jigsaw Structure .json files	0x1100531	0xd208860
+M21JigsawStructureLoaderFbNSt3__117basic_string_viewIcNS0_11char_traitsIcEEEEONS0_12basic_stringIcS3_NS0_9allocatorIcEEEERN11PuvLoadData18TelemetryEventDataEE	0x1c9e00c	0xd20ae50
+ZN25FeatureTerrainAdjustments13setBeardifierERK11BoundingBoxiE3$_0	0x1c9e226	0xd20bae0
+ZN25FeatureTerrainAdjustments17setBeardAndShaverERK11BoundingBoxiffE3$_0	0x1c9e309	0xd20c020
+ZN25FeatureTerrainAdjustments7setBuryERK11BoundingBoxE3$_0	0x1c9e3e4	0xd20c3d0
+[[Jigsaw Structure]] Non-existent fallback pool: '%s'	0x1150453	0xd21b1e0
+[[Jigsaw Structure]] Empty or non-existent pool: '%s'	0x133fe61	0xd21b1e0
+[[Jigsaw Structure]] Empty fallback pool: '%s'	0x11b5b89	0xd21b1e0
+ZN2br8worldgen15JigsawAssembler9constructERNS0_17GenerationContextERKNS0_15WorldGenContextENSt3__117basic_string_viewIcNS7_11char_traitsIcEEEESB_i8BlockPosNS0_19HeightmapProjection4TypeENS0_21MaxDistanceFromCenterENS0_16DimensionPaddingEON16PoolAliasBinding15PoolAliasLookupENS0_15JigsawExpansionENS0_14LiquidSettingsEE3$_0	0x1c9eea3	0xd21f400
+bool cereal::BasicLoader::load(SchemaReader &, Type &, const LoadContext &) [Type = SharedTypes::v1_21_20::JigsawStructureProcessorList::Contents, LoadContext = BedrockLoadContext]	0x13a6717	0xd2215d0
+bool cereal::BasicLoader::load(SchemaReader &, Type &, const LoadContext &) [Type = SharedTypes::v1_21_20::JigsawStructureTemplatePool::Contents, LoadContext = BedrockLoadContext]	0x1134a96	0xd222e70
+bool cereal::BasicLoader::load(SchemaReader &, Type &, const LoadContext &) [Type = SharedTypes::v1_21_20::JigsawStructureDefinition::Contents, LoadContext = BedrockLoadContext]	0x126f3fd	0xd2246c0
+bool cereal::BasicLoader::load(SchemaReader &, Type &, const LoadContext &) [Type = SharedTypes::v1_21_20::JigsawStructureSet::Contents, LoadContext = BedrockLoadContext]	0x12be037	0xd226050
+ZN21JigsawStructureLoader23loadJigsawStructureDataER19ResourcePackManagerR18IMinecraftEventingE3$_0	0x1c9f22e	0xd2271d0
+Index out of jigsaw block metadata range	0x11b5c64	0xd235180
+index < mMetadata.mJigsawBlocks.size()	0x1134bc3	0xd235180
+auto StructurePoolElement::place(BlockSource &, BlockPos, BlockPos, BoundingBox, Rotation, IRandom &, br::worldgen::JigsawReplacement, br::worldgen::LiquidSettings)::(anonymous class)::operator()() const	0x12d7b7e	0xd238c00
+ZN20StructurePoolElement6singleENSt3__117basic_string_viewIcNS0_11char_traitsIcEEEEN3gsl8not_nullINS0_10shared_ptrIKNS0_6vectorINS6_INS7_IKN2br8worldgen18StructureProcessorEEEEENS0_9allocatorISE_EEEEEEEEE3$_0	0x1c9fe91	0xd24be40
+ZN16PoolAliasBinding22registerTargetsAsPoolsER23JigsawStructureRegistryR36StructureTemplateRegistrationContextNSt3__117basic_string_viewIcNS4_11char_traitsIcEEEERKNS4_6vectorINS4_10shared_ptrIS_EENS4_9allocatorISB_EEEEE3$_0	0x1ca02cb	0xd24d110
+worldgen/metadata	0x1468ef8	0xd25ce20
+cave_air	0x13dc0b3	0xd279e60
+Failed to map jigsaw structure final block: '%s'. There is no block registered with that name.	0x1134c00	0xd279e60
+bool cereal::BasicLoader::load(SchemaReader &, Type &, const LoadContext &) [Type = SharedTypes::v1_21_50::JigsawStructureMetadataFile, LoadContext = BedrockLoadContext]	0x126f529	0xd287f20
+bool cereal::BasicLoader::load(SchemaReader &, Type &, const LoadContext &) [Type = SharedTypes::v1_21_80::JigsawStructureMetadataFile, LoadContext = BedrockLoadContext]	0x1288ee7	0xd28bdb0
+ZN3Puv8internal21CerealUpgraderVisitor14performUpgradeIN11SharedTypes8v1_21_5027JigsawStructureMetadataFileENS3_8v1_21_8027JigsawStructureMetadataFileEEEvRT_RT0_RKNS0_14AlterationNodeERNS_6LoggerEEUlS9_SB_E_	0x1ca0e16	0xd28cf90
+ZN12VillagePiece9addPiecesE8BlockPosRNSt3__16vectorINS1_10unique_ptrI14StructurePieceNS1_14default_deleteIS4_EEEENS1_9allocatorIS7_EEEER6RandomR23JigsawStructureRegistryN11SharedTypes11VillageTypeER9DimensionE3$_0	0x1ca190d	0xd2925f0
+minecraft:trial_chambers/spawner/small_melee/cave_spider	0x1169501	0xd293fc0
+const std::vector<Holder<const StructureProcessor>> &br::worldgen::getProjectionProcessors(Projection)	0x119cc8a	0xd2ad330
+ZN16AncientCityPiece9addPiecesE8BlockPosRNSt3__16vectorINS1_10unique_ptrI14StructurePieceNS1_14default_deleteIS4_EEEENS1_9allocatorIS7_EEEER6RandomR23JigsawStructureRegistryR9DimensionE3$_0	0x1ca2546	0xd2cc9c0
+ZN12BastionPiece9addPiecesE8BlockPosRNSt3__16vectorINS1_10unique_ptrI14StructurePieceNS1_14default_deleteIS4_EEEENS1_9allocatorIS7_EEEER6RandomR23JigsawStructureRegistryR9DimensionE3$_0	0x1ca2758	0xd2ccbb0
+ZN15JigsawPlacement9addPiecesERK20StructurePoolElementRK8BlockPosRK8RotationNSt3__117basic_string_viewIcNS9_11char_traitsIcEEEERKN16PoolAliasBinding15PoolAliasLookupEE3$_0	0x1ca28ed	0xd2ce610
+ZN15JigsawPlacement16_tryPlacingPieceERK25PoolElementStructurePieceRK11BoundingBoxRK15JigsawBlockInfoRK8BlockPosPK21StructureTemplatePoolSB_mRKN16PoolAliasBinding15PoolAliasLookupEE3$_0	0x1ca2a87	0xd2ce740
+ZN11ColumnUtils24scanColumnWithinPosBiomeER17IBlockWorldGenAPIRK8BlockPosihRKNSt3__18functionIFbS4_EEESA_E3$_0	0x1ca2eac	0xd2de690
+"cave_carver_feature" is the only valid feature in "pregeneration_pass" placement pass.	0x10b03a4	0xd2e8ac0
+ZNK20SnapToSurfaceFeature23_findSnapPosInDirectionER17IBlockWorldGenAPIRK8BlockPoshE3$_0	0x1cbfdaf	0xd3e55f0
+ZNK20SnapToSurfaceFeature23_findSnapPosInDirectionER17IBlockWorldGenAPIRK8BlockPoshE3$_1	0x1cbfe97	0xd3e5710
+ZNK20SnapToSurfaceFeature23_findSnapPosInDirectionER17IBlockWorldGenAPIRK8BlockPoshE3$_2	0x1cbff7f	0xd3e5840
+ZNK20SnapToSurfaceFeature23_findSnapPosInDirectionER17IBlockWorldGenAPIRK8BlockPoshE3$_3	0x1cc0067	0xd3e59b0
+minecraft:feature_rules	0x12a3d94	0xd400ec0
+definitions/feature_rules	0x13dc253	0xd403eb0
+caves_and_cliffs	0x12be30b	0xd4dc7a0
+jigsaw_structures	0x10cbed1	0xd4dc7a0
+TerrainAtlas	0x111a083	0xd525a60
+Jigsaw Joint Type	0x1289928	0xd780440
+Factory<Type> cereal::BasicFactory<SurfaceBuilderType>::scope(std::string_view) [Type = SurfaceBuilderType]	0x1239aaf	0xda65d50
+heightmap	0x133bd0f	0xe1b5820
+Jigsaw Block Metadata	0x1342683	0xe1d0880
+Jigsaw Structure Metadata Registry	0x13c353b	0xe1d0880
+Jigsaw Structure Metadata File	0x12041e0	0xe1d0880
+Check that there is at least one value in the array, that there are no duplicates, and that dimension is for all "minecraft:overworld"	0x12f3b4a	0xe1d4060
+ZNK6cereal8internal10TypeSchemaINSt3__16vectorIN11SharedTypes8v1_21_8019JigsawBlockMetadataENS2_9allocatorIS6_EEEEE5doMapERN4entt8meta_anyESD_RNS_11MetaVisitorEEUlvE_	0x1d17436	0xe2a59c0
+virtual bool cereal::internal::TypeSchema<std::unordered_map<unsigned long, SharedTypes::v1_21_80::JigsawStructureMetadata>>::doMap(entt::meta_any &, entt::meta_any &, MetaVisitor &) const [Type = std::unordered_map<unsigned long, SharedTypes::v1_21_80::JigsawStructureMetadata>]	0x123b632	0xe2a8fd0
+ZNK6cereal8internal10TypeSchemaINSt3__113unordered_mapImN11SharedTypes8v1_21_8023JigsawStructureMetadataENS2_4hashImEENS2_8equal_toImEENS2_9allocatorINS2_4pairIKmS6_EEEEEEE5doMapERN4entt8meta_anyESK_RNS_11MetaVisitorEEUlvE_	0x1d1773f	0xe2ac100
+JigsawBlockMetadata	0x123b754	0xe2d33f0
+JigsawStructureMetadata	0x111cd42	0xe2d33f0
+JigsawStructureMetadataRegistry	0x116be79	0xe2d33f0
+JigsawJunction	0x11ec135	0xe2de2f0
+ZNK6cereal8internal10TypeSchemaINSt3__16vectorIN11SharedTypes8v1_21_5019JigsawBlockMetadataENS2_9allocatorIS6_EEEEE5doMapERN4entt8meta_anyESD_RNS_11MetaVisitorEEUlvE_	0x1d1c8f0	0xe39cba0
+virtual bool cereal::internal::TypeSchema<std::unordered_map<unsigned long, SharedTypes::v1_21_50::JigsawStructureMetadata>>::doMap(entt::meta_any &, entt::meta_any &, MetaVisitor &) const [Type = std::unordered_map<unsigned long, SharedTypes::v1_21_50::JigsawStructureMetadata>]	0x12565bb	0xe3a03c0
+ZNK6cereal8internal10TypeSchemaINSt3__113unordered_mapImN11SharedTypes8v1_21_5023JigsawStructureMetadataENS2_4hashImEENS2_8equal_toImEENS2_9allocatorINS2_4pairIKmS6_EEEEEEE5doMapERN4entt8meta_anyESK_RNS_11MetaVisitorEEUlvE_	0x1d1cbf9	0xe3a39c0
+ZNK6cereal8internal10TypeSchemaINSt3__16vectorIN11SharedTypes8v1_21_5014JigsawJunctionENS2_9allocatorIS6_EEEEE5doMapERN4entt8meta_anyESD_RNS_11MetaVisitorEEUlvE_	0x1d1d006	0xe3b5920
+JigsawStructureData	0x12f3fe2	0xe3dd970
+template_pools	0x1204a1f	0xe3dd970
+structure_sets	0x10e72a5	0xe3dd970
+JigsawDescriptionIdentifier	0x11532ae	0xe3ddaa0
+TerrainAdaptation	0x119f354	0xe3ddaa0
+HeightmapProjection	0x116c0ca	0xe3ddaa0
+terrain_adaptation	0x11b87ce	0xe3ddaa0
+start_jigsaw_name	0x12c0330	0xe3ddaa0
+heightmap_projection	0x11ec380	0xe3ddaa0
+Rules used by Jigsaw Structures to determine which blocks to modify or replace when placing a Structure Template in the world.	0x10cee88	0xe3efe20
+JigsawStructureSet	0x1202d5c	0xe3f1ef0
+Jigsaw Structure Set Description	0x12f4016	0xe3f1ef0
+Factory<Type> cereal::BasicFactory<SharedTypes::v1_21_20::JigsawStructureSet::PlacementType>::scope(std::string_view) [Type = SharedTypes::v1_21_20::JigsawStructureSet::PlacementType]	0x1256cf2	0xe3f1ef0
+internal::BasicSchema::EnumMapping::View &cereal::BasicFactory<SharedTypes::v1_21_20::JigsawStructureSet::PlacementType>::viewFromScope(const entt::id_type) [Type = SharedTypes::v1_21_20::JigsawStructureSet::PlacementType]	0x11ecc6e	0xe3f1ef0
+A Jigsaw Structure Set is a collection of Jigsaw Structures that are placed according to a set of rules.	0x11b87ef	0xe3f1ef0
+Jigsaw Template Pool Description	0x13c395b	0xe3f7eb0
+Jigsaw Processro Type	0x1342ea0	0xe401380
+JigsawStructureProcessor	0x13dedc6	0xe401380
+entt::meta_data cereal::BasicFactory<SharedTypes::v1_21_20::JigsawStructureDefinition::MaxDistanceFromCenter>::currMetaMember() [Type = SharedTypes::v1_21_20::JigsawStructureDefinition::MaxDistanceFromCenter]	0x10e8135	0xe410a70
+internal::BasicSchema::EnumMapping::View &cereal::BasicFactory<SharedTypes::v1_21_20::JigsawStructureTemplatePool::(anonymous namespace)::ElementType>::viewFromScope(const entt::id_type) [Type = SharedTypes::v1_21_20::JigsawStructureTemplatePool::(anonymous namespace)::ElementType]	0x13a9551	0xe424600
+Factory<Type> cereal::BasicFactory<SharedTypes::v1_21_20::JigsawStructureTemplatePool::(anonymous namespace)::ElementType>::scope(std::string_view) [Type = SharedTypes::v1_21_20::JigsawStructureTemplatePool::(anonymous namespace)::ElementType]	0x128b3db	0xe424600
+Factory<Type> cereal::BasicFactory<SharedTypes::v1_21_20::JigsawStructure::ProcessorRule::BlockType>::scope(std::string_view) [Type = SharedTypes::v1_21_20::JigsawStructure::ProcessorRule::BlockType]	0x128b4cf	0xe4353b0
+Factory<Type> cereal::BasicFactory<SharedTypes::v1_21_20::JigsawStructure::ProcessorRule::PosType>::scope(std::string_view) [Type = SharedTypes::v1_21_20::JigsawStructure::ProcessorRule::PosType]	0x111d011	0xe439c40
+Factory<Type> cereal::BasicFactory<SharedTypes::v1_21_20::JigsawStructure::ProcessorRule::BlockEntityModifierType>::scope(std::string_view) [Type = SharedTypes::v1_21_20::JigsawStructure::ProcessorRule::BlockEntityModifierType]	0x135a78a	0xe43e510
+Factory<Type> cereal::BasicFactory<SharedTypes::v1_21_20::JigsawStructure::ProcessorRule::Axis>::scope(std::string_view) [Type = SharedTypes::v1_21_20::JigsawStructure::ProcessorRule::Axis]	0x119f48f	0xe442af0
+entt::meta_data cereal::BasicFactory<SharedTypes::v1_21_20::JigsawStructure::ProcessorRule::AxisAlignedLinear>::currMetaMember() [Type = SharedTypes::v1_21_20::JigsawStructure::ProcessorRule::AxisAlignedLinear]	0x1153302	0xe44dc40
+Factory<Type> cereal::BasicFactory<SharedTypes::v1_21_20::JigsawStructure::Processors::Type>::scope(std::string_view) [Type = SharedTypes::v1_21_20::JigsawStructure::Processors::Type]	0x12c03d2	0xe457870
+ZNK6cereal8internal10TypeSchemaINSt3__16vectorIN11SharedTypes8v1_21_2015JigsawStructure4RuleENS2_9allocatorIS7_EEEEE5doMapERN4entt8meta_anyESE_RNS_11MetaVisitorEEUlvE_	0x1d1fd59	0xe45fde0
+ZNK6cereal8internal10TypeSchemaINSt3__16vectorIN11SharedTypes8v1_21_2028JigsawStructureProcessorList8ContentsENS2_9allocatorIS7_EEEEE5doMapERN4entt8meta_anyESE_RNS_11MetaVisitorEEUlvE_	0x1d25c14	0xe513e50
+ZNK6cereal8internal10TypeSchemaINSt3__16vectorIN11SharedTypes8v1_21_2027JigsawStructureTemplatePool8ContentsENS2_9allocatorIS7_EEEEE5doMapERN4entt8meta_anyESE_RNS_11MetaVisitorEEUlvE_	0x1d25e30	0xe517a80
+ZNK6cereal8internal10TypeSchemaINSt3__16vectorIN11SharedTypes8v1_21_2025JigsawStructureDefinition8ContentsENS2_9allocatorIS7_EEEEE5doMapERN4entt8meta_anyESE_RNS_11MetaVisitorEEUlvE_	0x1d26047	0xe51b620
+ZNK6cereal8internal10TypeSchemaINSt3__16vectorIN11SharedTypes8v1_21_2018JigsawStructureSet8ContentsENS2_9allocatorIS7_EEEEE5doMapERN4entt8meta_anyESE_RNS_11MetaVisitorEEUlvE_	0x1d2624e	0xe51f270
+Factory<Type> cereal::BasicFactory<SharedTypes::v1_21_20::JigsawStructureDefinition::GenerationStep>::scope(std::string_view) [Type = SharedTypes::v1_21_20::JigsawStructureDefinition::GenerationStep]	0x10b34c1	0xe558630
+Factory<Type> cereal::BasicFactory<SharedTypes::v1_21_20::JigsawStructureDefinition::TerrainAdaptation>::scope(std::string_view) [Type = SharedTypes::v1_21_20::JigsawStructureDefinition::TerrainAdaptation]	0x128babe	0xe55d060
+Factory<Type> cereal::BasicFactory<SharedTypes::v1_21_20::JigsawStructureDefinition::HeightmapProjection>::scope(std::string_view) [Type = SharedTypes::v1_21_20::JigsawStructureDefinition::HeightmapProjection]	0x1138142	0xe561850
+Factory<Type> cereal::BasicFactory<SharedTypes::v1_21_20::JigsawStructureDefinition::LiquidSettings>::scope(std::string_view) [Type = SharedTypes::v1_21_20::JigsawStructureDefinition::LiquidSettings]	0x10e8206	0xe565f60
+ZNK6cereal8internal10TypeSchemaINSt3__16vectorINS2_7variantIJN11SharedTypes8v1_21_2015JigsawStructure10Processors10BlockRulesENS8_14ProtectedBlockENS8_11BlockIgnoreENS8_6CappedEEEENS2_9allocatorISD_EEEEE5doMapERN4entt8meta_anyESK_RNS_11MetaVisitorEEUlvE_	0x1d2846d	0xe57f470
+Factory<Type> cereal::BasicFactory<SharedTypes::v1_21_20::JigsawStructureSet::SpreadType>::scope(std::string_view) [Type = SharedTypes::v1_21_20::JigsawStructureSet::SpreadType]	0x13df4c9	0xe5937c0
+ZNK6cereal8internal10TypeSchemaINSt3__16vectorIN11SharedTypes8v1_21_2018JigsawStructureSet9StructureENS2_9allocatorIS7_EEEEE5doMapERN4entt8meta_anyESE_RNS_11MetaVisitorEEUlvE_	0x1d28c19	0xe59e360
+ZNK6cereal8internal10TypeSchemaINSt3__16vectorIN11SharedTypes8v1_21_2027JigsawStructureTemplatePool19TemplatePoolElementENS2_9allocatorIS7_EEEEE5doMapERN4entt8meta_anyESE_RNS_11MetaVisitorEEUlvE_	0x1d29349	0xe5af2e0
+virtual void cereal::internal::TypeSchema<std::optional<std::variant<SharedTypes::v1_21_20::JigsawStructure::ProcessorRule::AlwaysTruePos, SharedTypes::v1_21_20::JigsawStructure::ProcessorRule::AxisAlignedLinear>>>::doSave(SchemaWriter &, const entt::meta_any &, const SaveState &) const [Type = std::optional<std::variant<SharedTypes::v1_21_20::JigsawStructure::ProcessorRule::AlwaysTruePos, SharedT	0x127208c	0xe5c5080
+virtual void cereal::internal::TypeSchema<std::optional<std::variant<SharedTypes::v1_21_20::JigsawStructure::ProcessorRule::Passthrough, SharedTypes::v1_21_20::JigsawStructure::ProcessorRule::AppendLoot>>>::doSave(SchemaWriter &, const entt::meta_any &, const SaveState &) const [Type = std::optional<std::variant<SharedTypes::v1_21_20::JigsawStructure::ProcessorRule::Passthrough, SharedTypes::v1_21	0x1272261	0xe5c6560
+entt::meta_data cereal::BasicFactory<SharedTypes::v1_21_100::SurfaceBuilder::CappedSurfaceSettings>::currMetaMember() [Type = SharedTypes::v1_21_100::SurfaceBuilder::CappedSurfaceSettings]	0x111db83	0xe7b7880
+entt::meta_data cereal::BasicFactory<SharedTypes::v1_21_100::SurfaceBuilder::SwampSurfaceSettings>::currMetaMember() [Type = SharedTypes::v1_21_100::SurfaceBuilder::SwampSurfaceSettings]	0x1153a73	0xe7bb270
+temperature	0x1d365f2	0xe872740
+target_temperature	0x1d36680	0xe874df0
+target_humidity	0x1d366a0	0xe874df0
+target_weirdness	0x1d366c0	0xe874df0
+generate_for_climates	0x1d36750	0xe875070
+Weighted climate categories	0x10e870d	0xe8800c0
+ZNK6cereal8internal10TypeSchemaINSt3__16vectorIN11SharedTypes8v1_20_6042OverworldGenerationRulesBiomeJsonComponent17WeightedBiomeNameENS2_9allocatorIS7_EEEEE5doMapERN4entt8meta_anyESE_RNS_11MetaVisitorEEUlvE_	0x1d37a14	0xe8dc4b0
+virtual bool cereal::internal::TypeSchema<std::array<std::variant<BiomeTemperatureCategory, unsigned int>, 2>>::doMap(entt::meta_any &, entt::meta_any &, MetaVisitor &) const [Type = std::array<std::variant<BiomeTemperatureCategory, unsigned int>, 2>]	0x128c3bb	0xe8df1a0
+virtual void cereal::internal::TypeSchema<std::array<std::variant<BiomeTemperatureCategory, unsigned int>, 2>>::doLoad(SchemaReader &, entt::meta_any &, const entt::meta_any &, const LoadState &) const [Type = std::array<std::variant<BiomeTemperatureCategory, unsigned int>, 2>]	0x111de29	0xe8df6a0
+ZNK6cereal8internal10TypeSchemaINSt3__15arrayINS2_7variantIJ24BiomeTemperatureCategoryjEEELm2EEEE5doMapERN4entt8meta_anyESB_RNS_11MetaVisitorEEUlvE_	0x1d37ce3	0xe8e09b0
+virtual void cereal::internal::TypeSchema<std::optional<SharedTypes::v1_20_60::OverworldGenerationRulesBiomeJsonComponent::WeightedBiomeNameVector>>::doSave(SchemaWriter &, const entt::meta_any &, const SaveState &) const [Type = std::optional<SharedTypes::v1_20_60::OverworldGenerationRulesBiomeJsonComponent::WeightedBiomeNameVector>]	0x116d17c	0xe8e2fe0
+virtual void cereal::internal::TypeSchema<std::optional<std::vector<SharedTypes::v1_20_60::OverworldGenerationRulesBiomeJsonComponent::WeightedTemperatureCategory>>>::doSave(SchemaWriter &, const entt::meta_any &, const SaveState &) const [Type = std::optional<std::vector<SharedTypes::v1_20_60::OverworldGenerationRulesBiomeJsonComponent::WeightedTemperatureCategory>>]	0x10b3c06	0xe8e5120
+ZNK6cereal8internal10TypeSchemaINSt3__16vectorIN11SharedTypes8v1_20_6042OverworldGenerationRulesBiomeJsonComponent27WeightedTemperatureCategoryENS2_9allocatorIS7_EEEEE5doMapERN4entt8meta_anyESE_RNS_11MetaVisitorEEUlvE_	0x1d381d4	0xe8e6940
+imitate.cave_spider	0x11543d8	0xea6df80
+ambient.cave	0x10cfd02	0xea6df80
+pick_berries.cave_vines	0x10e8d31	0xea6df80
+Spawn DensityLimit	0x12f5874	0xea7cb80
+entt::meta_data cereal::BasicFactory<SharedTypes::Legacy::Spawn::DensityLimit>::currMetaMember() [Type = SharedTypes::Legacy::Spawn::DensityLimit]	0x111e6fc	0xea888c0
+virtual void cereal::internal::TypeSchema<std::optional<SharedTypes::Legacy::Spawn::DensityLimit>>::doSave(SchemaWriter &, const entt::meta_any &, const SaveState &) const [Type = std::optional<SharedTypes::Legacy::Spawn::DensityLimit>]	0x11ed9a8	0xeb1e200
+terrain	0x13aa939	0xebaf190
