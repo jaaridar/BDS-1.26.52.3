@@ -41,7 +41,7 @@ jobs:
   triage:
     if: startsWith(github.ref, 'refs/heads/arena/')
     runs-on: ubuntu-24.04
-    timeout-minutes: 40
+    timeout-minutes: 45
     steps:
       # The 256 MB LFS object has a monthly bandwidth quota, so the binary is
       # restored from the Actions cache whenever possible and only fetched via
@@ -226,10 +226,10 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        shard: [0, 1, 2, 3]
+        shard: [0, 1, 2, 3, 4, 5]
     env:
       SHARD: ${{ matrix.shard }}
-      SHARDS: '4'
+      SHARDS: '6'
       BUDGET: ${{ github.event.inputs.budget_seconds || '3300' }}
       MAXFN: ${{ github.event.inputs.max_functions || '900' }}
     steps:
