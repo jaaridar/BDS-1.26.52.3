@@ -3,12 +3,41 @@ recheck: true
 capture exit: 1
 
 capture files:
+266 capture/seed-1/error.txt
 487 capture/seed-1/server/server.properties
 1664 capture/seed-1/server/Dedicated_Server.txt
+1701 capture/seed-1/server.log
+1727 capture/seed-1/server-transcript.txt
 256133808 capture/seed-1/server/bedrock_server
 
 golden directory:
 total 4
-drwxr-xr-x 2 runner runner 4096 Oct 22 23:35 diagnostics
+drwxr-xr-x 2 runner runner 4096 Oct 22 23:39 diagnostics
 
 server log tail:
+NO LOG FILE! - setting up server logging...
+[2026-10-22 23:39:52:800 INFO] Starting Server
+[2026-10-22 23:39:52:800 INFO] Version: 1.26.52.3
+[2026-10-22 23:39:52:800 INFO] Session ID: 4dc1bd34-7946-4e0e-81f6-f22b6fd69de7
+[2026-10-22 23:39:52:800 INFO] Build ID: 51798919
+[2026-10-22 23:39:52:800 INFO] Branch: r/26_u5
+[2026-10-22 23:39:52:800 INFO] Commit ID: 54116bb5ee0b7aee0b5591efbcc8bc3cf64f168a
+[2026-10-22 23:39:52:800 INFO] Configuration: Publish
+[2026-10-22 23:39:52:800 INFO] Contents of server.properties: {}
+[2026-10-22 23:39:52:800 INFO] Level Name: golden
+[2026-10-22 23:39:52:800 INFO] Profiler config ('bootstrap.json') load result: success=0, errorMessage=Failed to open file for reading at: /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/capture/seed-1/server/data/bootstrap.json (No such file or directory)
+[2026-10-22 23:39:52:800 ERROR] Failed to load profiler config file (bootstrap.json)
+[2026-10-22 23:39:52:803 ERROR] Error opening allow list file: allowlist.json
+[2026-10-22 23:39:52:803 INFO] No CDN config file found at: cdn_config.json for dedicated server
+[2026-10-22 23:39:52:803 INFO] Game mode: 1 Creative
+[2026-10-22 23:39:52:803 INFO] Difficulty: 0 PEACEFUL
+[2026-10-22 23:39:52:806 INFO] Content logging to console is enabled.
+[2026-10-22 23:39:52:807 INFO] 
+
+#####################################################
+#                                                   #
+#              CREATING VANILLA WORLD               #
+#                                                   #
+#####################################################
+[2026-10-22 23:39:52:808 ERROR] Failed to load Vanilla Resource Pack, is the vanilla pack missing from the loaded world?
+Quit correctly
