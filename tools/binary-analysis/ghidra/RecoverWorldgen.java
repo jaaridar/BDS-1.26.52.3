@@ -35,8 +35,8 @@ import ghidra.util.task.TaskMonitor;
 
 public class RecoverWorldgen extends GhidraScript {
     private static final int POINTER_SIZE = 8;
-    private static final int MAX_SLOTS_PER_VTABLE = 48;
-    private static final int MAX_UNIQUE_FUNCTIONS = 180;
+    private static final int MAX_SLOTS_PER_VTABLE = 96;
+    private static final int MAX_UNIQUE_FUNCTIONS = 320;
     private static final int MAX_PSEUDOCODE_CHARS = 240_000;
     private static final int MAX_ASSEMBLY_INSTRUCTIONS = 5000;
     private static final int DECOMPILE_TIMEOUT_SECONDS = 90;
