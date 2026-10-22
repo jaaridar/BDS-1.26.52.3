@@ -1,16 +1,25 @@
 # Extra classes to decompile, one regular expression per line.
 # Format: <regex> <TAB> <call-graph depth>
-# Depth 0 = only the vtable slots, 1..4 = expand that many call levels deeper.
+# Depth 0 = only the vtable slots, 1..5 = expand that many call levels deeper.
 # These are combined with the built-in worldgen keyword filter; a match here
 # forces selection and raises the expansion depth.
 
-OverworldGenerator	3
-OverworldGenerator2d	3
-OverworldGeneratorMultinoise	3
-WorldGenerator	3
-BiomeSource	3
-VanillaOverworldBiomeSource	3
-NodeGraphBiomeSource	3
-CachedBiomeSource	3
-BiomeSource3d	3
-ChunkVolume	2
+OverworldGenerator	5
+OverworldGenerator2d	5
+OverworldGeneratorMultinoise	5
+WorldGenerator	5
+BiomeSource	5
+VanillaOverworldBiomeSource	5
+NodeGraphBiomeSource	5
+CachedBiomeSource	5
+BiomeSource3d	5
+ChunkVolume	4
+BiomeVolume	4
+Noise	4
+Xoroshiro	5
+WorldGenRandom	4
+SurfaceBuilder	4
+Aquifer	4
+Carver	4
+Jigsaw	3
+Heightmap	4

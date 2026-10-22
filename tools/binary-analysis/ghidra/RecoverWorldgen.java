@@ -65,8 +65,8 @@ public class RecoverWorldgen extends GhidraScript {
     private static final int MAX_STRING_LENGTH = 400;
     private static final int MAX_CALLEES_PER_FUNCTION = 48;
     private static final int MAX_PSEUDOCODE_PER_FUNCTION = 60_000;
-    private static final long MAX_TOTAL_PSEUDOCODE = 24L * 1024 * 1024;
-    private static final int MAX_PSEUDOCODE_FILE_BYTES = 1536 * 1024;
+    private static final long MAX_TOTAL_PSEUDOCODE = 48L * 1024 * 1024;
+    private static final int MAX_PSEUDOCODE_FILE_BYTES = 2048 * 1024;
     private static final int DECOMPILE_TIMEOUT_SECONDS = 120;
     private static final int MAX_INSTRUCTIONS_PER_FUNCTION = 12_000;
 
@@ -386,7 +386,8 @@ public class RecoverWorldgen extends GhidraScript {
         // Layout of every Itanium type_info: [vptr][name pointer][...].
         for (MemoryBlock block : allDataBlocks) {
             forEachPointerSlot(block, (slot, vptr) -> {
-                if (!isNonExecData(vptr)) {
+                MemoryBlock vtableBlock = blockAt(vptr);
+                if (vtableBlock == null || !isDataBlockName(vtableBlock.getName())) {
                     return;
                 }
                 long namePointer = readLong(slot + PTR);
@@ -1096,6 +1097,10 @@ public class RecoverWorldgen extends GhidraScript {
                 if (totalBytes >= MAX_TOTAL_PSEUDOCODE) {
                     diagnostics.add("pseudocode budget exhausted at " + i + "/" + ordered.size());
                     break;
+                }
+                if (slotOwners.getOrDefault(info.address, Collections.emptySet()).size() > 60) {
+                    info.failure = "skipped_high_fanout_shim";
+                    continue;
                 }
                 Function function = getFunctionAt(addr(info.address));
                 if (function == null) {
