@@ -48,6 +48,7 @@ import ghidra.app.decompiler.DecompInterface;
 import ghidra.app.decompiler.DecompileResults;
 import ghidra.app.script.GhidraScript;
 import ghidra.program.model.address.Address;
+import ghidra.program.model.data.TerminatedStringDataType;
 import ghidra.program.model.listing.Function;
 import ghidra.program.model.listing.Instruction;
 import ghidra.program.model.listing.InstructionIterator;
@@ -55,6 +56,7 @@ import ghidra.program.model.listing.Listing;
 import ghidra.program.model.mem.Memory;
 import ghidra.program.model.mem.MemoryBlock;
 import ghidra.program.model.symbol.Reference;
+import ghidra.program.model.symbol.SourceType;
 
 public class RecoverWorldgen extends GhidraScript {
 
@@ -118,6 +120,9 @@ public class RecoverWorldgen extends GhidraScript {
     private final Map<Long, FunctionInfo> functions = new LinkedHashMap<>();
     private final Map<Long, Set<String>> slotOwners = new LinkedHashMap<>();
     private final List<String> diagnostics = new ArrayList<>();
+    private final Map<Long, String> stringRefs = new LinkedHashMap<>();
+    private final List<Pattern> forcedPatterns = new ArrayList<>();
+    private final List<Integer> forcedDepths = new ArrayList<>();
 
     // Applied .rela.dyn (R_X86_64_RELATIVE) overlay, so the scan works whether
     // or not the loader patched the on-disk pointer values.
@@ -138,6 +143,9 @@ public class RecoverWorldgen extends GhidraScript {
         }
         String mode = args.length > 1 ? args[1].toLowerCase() : "worldgen";
         int maxFunctions = args.length > 2 ? Integer.parseInt(args[2]) : 1200;
+        if (args.length > 3 && !args[3].isEmpty()) {
+            loadTargets(args[3]);
+        }
 
         memory = currentProgram.getMemory();
         indexBlocks();
@@ -156,6 +164,8 @@ public class RecoverWorldgen extends GhidraScript {
             writeVtableReports(out);
             long started = System.currentTimeMillis();
             buildFunctionSet(maxFunctions);
+            assignOwners();
+            enrichSymbols();
             println("functions analysed: " + functions.size()
                 + " (" + (System.currentTimeMillis() - started) + " ms)");
             decompileAll(out, maxFunctions);
@@ -626,6 +636,22 @@ public class RecoverWorldgen extends GhidraScript {
             table.depth = PRIORITY.matcher(name).find() ? 2 : 1;
             selected++;
         }
+
+        for (int i = 0; i < forcedPatterns.size(); i++) {
+            Pattern pattern = forcedPatterns.get(i);
+            int depth = forcedDepths.get(i);
+            for (Vtable table : vtables) {
+                String name = table.demangled != null ? table.demangled : table.mangled;
+                if (name == null || !pattern.matcher(name).find()) {
+                    continue;
+                }
+                if (!table.selected) {
+                    table.selected = true;
+                    selected++;
+                }
+                table.depth = Math.max(table.depth, depth);
+            }
+        }
         return selected;
     }
 
@@ -742,12 +768,125 @@ public class RecoverWorldgen extends GhidraScript {
                 String text = readCString(to.getOffset());
                 if (text != null && text.length() >= 4) {
                     info.strings.add(text);
+                    if (stringRefs.size() < 60000) {
+                        stringRefs.put(to.getOffset(), text);
+                    }
                 }
             }
         }
         info.instructionCount = count;
         functions.put(address, info);
         return info;
+    }
+
+    private void loadTargets(String path) {
+        try {
+            java.nio.file.Path file = java.nio.file.Paths.get(path);
+            if (!java.nio.file.Files.isReadable(file)) {
+                diagnostics.add("targets file not readable: " + path);
+                return;
+            }
+            for (String line : java.nio.file.Files.readAllLines(file, StandardCharsets.UTF_8)) {
+                String trimmed = line.trim();
+                if (trimmed.isEmpty() || trimmed.startsWith("#")) {
+                    continue;
+                }
+                String[] parts = trimmed.split("\t");
+                int depth = 2;
+                if (parts.length > 1) {
+                    try {
+                        depth = Integer.parseInt(parts[1].trim());
+                    } catch (NumberFormatException ignored) {
+                        depth = 2;
+                    }
+                }
+                forcedPatterns.add(Pattern.compile(parts[0].trim()));
+                forcedDepths.add(depth);
+            }
+            println("targets loaded: " + forcedPatterns.size());
+        } catch (Exception e) {
+            diagnostics.add("cannot read targets: " + e);
+        }
+    }
+
+    private void enrichSymbols() {
+        Set<String> seenLabels = new LinkedHashSet<>();
+        for (Vtable table : vtables) {
+            if (!table.selected) {
+                continue;
+            }
+            String base = sanitize(table.demangled != null ? table.demangled : table.mangled);
+            if (base.isEmpty()) {
+                continue;
+            }
+            if (seenLabels.add("vt_" + base)) {
+                try {
+                    createLabel(addr(table.addressPoint), "vt_" + base, true);
+                } catch (Exception e) {
+                    diagnostics.add("label failed for vtable " + base + ": " + e);
+                }
+            }
+            if (seenLabels.add("ti_" + base)) {
+                try {
+                    createLabel(addr(table.typeInfo), "ti_" + base, true);
+                } catch (Exception e) {
+                    // duplicate or invalid label; harmless
+                }
+            }
+        }
+
+        int renamed = 0;
+        for (Map.Entry<Long, Set<String>> entry : slotOwners.entrySet()) {
+            Function function = getFunctionAt(addr(entry.getKey()));
+            if (function == null) {
+                continue;
+            }
+            String name = sanitize(entry.getValue().iterator().next().replace("::vslot", "_v"));
+            if (name.isEmpty()) {
+                continue;
+            }
+            try {
+                function.setName(name, SourceType.USER_DEFINED);
+                renamed++;
+            } catch (Exception e) {
+                // name collisions are not fatal
+            }
+        }
+        println("renamed slot functions: " + renamed);
+
+        TerminatedStringDataType stringType = new TerminatedStringDataType();
+        int defined = 0;
+        for (Map.Entry<Long, String> entry : stringRefs.entrySet()) {
+            if (defined >= 50000) {
+                break;
+            }
+            try {
+                createData(addr(entry.getKey()), stringType);
+                defined++;
+            } catch (Exception e) {
+                // already defined or untyped area; harmless
+            }
+        }
+        println("string literals defined: " + defined);
+    }
+
+    private static String sanitize(String value) {
+        if (value == null) {
+            return "";
+        }
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < value.length(); i++) {
+            char c = value.charAt(i);
+            builder.append(Character.isLetterOrDigit(c) ? c : '_');
+        }
+        String result = builder.toString();
+        while (result.contains("__")) {
+            result = result.replace("__", "_");
+        }
+        if (result.length() > 120) {
+            result = result.substring(0, 120);
+        }
+        return result;
     }
 
     // ------------------------------------------------------------ decompile

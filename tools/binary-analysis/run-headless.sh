@@ -22,6 +22,12 @@ mkdir -p "$PROJECT_PARENT" || exit 1
 
 export MAXMEM="${MAXMEM:-6G}"
 
+TARGETS_ARG=()
+if [ -f "$PWD/tools/binary-analysis/targets.txt" ]; then
+  TARGETS_ARG=("$PWD/tools/binary-analysis/targets.txt")
+  echo "targets:       tools/binary-analysis/targets.txt"
+fi
+
 echo "== analyzeHeadless =="
 echo "ghidra:        $GHIDRA_DIR"
 echo "projectParent: $PROJECT_PARENT"
@@ -37,12 +43,10 @@ ls -ld "$PROJECT_PARENT" || true
   -overwrite \
   -noanalysis \
   -scriptPath "$PWD/tools/binary-analysis/ghidra" \
-  -postScript RecoverWorldgen.java "$OUT" "$MODE" "$MAX_FUNCTIONS" \
+  -postScript RecoverWorldgen.java "$OUT" "$MODE" "$MAX_FUNCTIONS" "${TARGETS_ARG[@]+"${TARGETS_ARG[@]}"}" \
   -max-cpu "$(nproc)" \
   -log "$OUT/ghidra-application.log" \
-  -scriptlog "$OUT/ghidra-script.log" \
-  -loglanguage English \
-  -scriptloglanguage English
+  -scriptlog "$OUT/ghidra-script.log"
 
 status=$?
 echo "analyzeHeadless exit: $status"
