@@ -1,0 +1,35 @@
+
+Elf file type is DYN (Position-Independent Executable file)
+Entry point 0x4008240
+There are 12 program headers, starting at offset 64
+
+Program Headers:
+  Type           Offset   VirtAddr           PhysAddr           FileSiz  MemSiz   Flg Align
+  PHDR           0x000040 0x0000000000000040 0x0000000000000040 0x0002a0 0x0002a0 R   0x8
+  INTERP         0x0002e0 0x00000000000002e0 0x00000000000002e0 0x00001c 0x00001c R   0x1
+      [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]
+  LOAD           0x000000 0x0000000000000000 0x0000000000000000 0x400723c 0x400723c R   0x1000
+  LOAD           0x4007240 0x0000000004008240 0x0000000004008240 0xaddc190 0xaddc190 R E 0x1000
+  LOAD           0xede33d0 0x000000000ede53d0 0x000000000ede53d0 0x6576e0 0x657c30 RW  0x1000
+  LOAD           0xf43aab0 0x000000000f43dab0 0x000000000f43dab0 0x0094d0 0x27c788 RW  0x1000
+  TLS            0xede33d0 0x000000000ede43d0 0x000000000ede43d0 0x000000 0x0017b1 R   0x8
+  DYNAMIC        0xf43a618 0x000000000f43c618 0x000000000f43c618 0x000200 0x000200 RW  0x8
+  GNU_RELRO      0xede33d0 0x000000000ede53d0 0x000000000ede53d0 0x6576e0 0x657c30 R   0x1
+  GNU_EH_FRAME   0x258c5c4 0x000000000258c5c4 0x000000000258c5c4 0x43489c 0x43489c R   0x4
+  GNU_STACK      0x000000 0x0000000000000000 0x0000000000000000 0x000000 0x000000 RW  0
+  NOTE           0x0002fc 0x00000000000002fc 0x00000000000002fc 0x000044 0x000044 R   0x4
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     
+   01     .interp 
+   02     .interp .note.ABI-tag .note.gnu.build-id .dynsym .gnu.version .gnu.version_r .gnu.hash .dynstr .rela.dyn .rela.plt .rodata .gcc_except_table .eh_frame_hdr .eh_frame 
+   03     .text .init .fini __lcxx_override malloc_hook .plt 
+   04     .fini_array .init_array .data.rel.ro .dynamic .got .relro_padding 
+   05     .data .tm_clone_table .got.plt .bss 
+   06     .tbss 
+   07     .dynamic 
+   08     .fini_array .init_array .data.rel.ro .dynamic .got .relro_padding 
+   09     .eh_frame_hdr 
+   10     
+   11     .note.ABI-tag .note.gnu.build-id 
