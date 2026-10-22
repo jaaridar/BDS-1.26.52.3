@@ -1,0 +1,4 @@
+detail
+0x871a310	skipped-oversized:201072
+0xea7cb80	decompile: Exception while decompiling 0eb7cb80: Response buffer size exceeded for: bedrock_server 
+0xd228c00	decompile: Exception while decompiling 0d328c00: process: timeout 

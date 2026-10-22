@@ -17,6 +17,8 @@
 [triage] core world-gen vtable slots: 17
 [triage] seeds: 17
 [triage] building call edges around seeds...
+[triage] expanding one more call ring (9 functions)...
+[triage] call edges after expansion: 11 out, 12 in
 [triage] wrote reports to research/proprietary/bds-1.26.52.3/worldgen/smoke/triage in 0.0s
 fixture .text vaddr: 0x1160
 fixture worldgen string hits: 0

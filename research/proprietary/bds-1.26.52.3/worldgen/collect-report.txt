@@ -1,8 +1,10 @@
-collected: 2026-10-22T14:56:35Z
-run: 39797971453
-shard 0: present, functions=298, exit=0
-shard 1: present, functions=298, exit=0
-shard 2: present, functions=294, exit=0
-shard 3: present, functions=292, exit=0
+collected: 2026-10-22T15:51:56Z
+run: 39803900203
+shard 0: present, functions=594, exit=0
+shard 1: present, functions=598, exit=0
+shard 2: present, functions=595, exit=0
+shard 3: present, functions=598, exit=0
+shard 4: present, functions=596, exit=0
+shard 5: present, functions=597, exit=0
 
-16M	research/proprietary/bds-1.26.52.3/worldgen
+101M	research/proprietary/bds-1.26.52.3/worldgen

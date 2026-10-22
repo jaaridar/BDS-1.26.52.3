@@ -1,8 +1,6 @@
 detail
-0x5a1f120	skipped-oversized:1048576
-0x4de9260	skipped-oversized:272624
-0x7a4d280	skipped-oversized:260272
-0xc28df40	skipped-oversized:276672
+0x50ce980	skipped-oversized:503840
 0xc4b8460	decompile: Exception while decompiling 0c5b8460: process: timeout 
-0x9a95090	decompile: Exception while decompiling 09b95090: Response buffer size exceeded for: bedrock_server 
-0x6146460	decompile:  Low-level Error: Symbol offset is incompatible with VariableGroup
+0xbb66ce0	decompile:  Low-level Error: Conditional execution: Illegal op in iblock
+0xd4dc7a0	decompile: Exception while decompiling 0d5dc7a0: process: timeout 
+0xc4d7da0	decompile: Exception while decompiling 0c5d7da0: process: timeout 

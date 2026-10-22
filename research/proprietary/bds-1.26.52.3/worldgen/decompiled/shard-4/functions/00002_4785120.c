@@ -1,0 +1,170 @@
+/*
+ * Recovered pseudocode - proprietary BDS binary (evidence, not source).
+ * Entry: 0x4885120 (ELF vaddr 0x4785120)
+ * Label: callee-of:0x4de9260
+ * Body:  [[04885120, 04885259]]
+ * Ghidra: FUN_04885120
+ */
+
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+ulong * FUN_04885120(ulong *param_1,undefined8 param_2,ulong param_3)
+
+{
+  code *pcVar1;
+  ulong uVar2;
+  ulong *puVar3;
+  ulong uVar4;
+  ulong uVar5;
+  ulong uVar6;
+  ulong uVar7;
+  
+  uVar7 = *param_1 & 0xfffffffffffffffe;
+  if (param_3 < uVar7) {
+    uVar2 = param_1[2];
+    param_1[1] = param_3;
+    if (param_3 != 0) {
+      memmove(uVar2,param_2,param_3);
+    }
+  }
+  else {
+    if (-uVar7 - 9 < (param_3 - uVar7) + 1) {
+      func_0x04882e30();
+      pcVar1 = (code *)swi(3);
+      puVar3 = (ulong *)(*pcVar1)();
+      return puVar3;
+    }
+    if ((*param_1 & 1) == 0) {
+      uVar5 = (long)param_1 + 1;
+    }
+    else {
+      uVar5 = param_1[2];
+    }
+    uVar6 = 0xfffffffffffffff7;
+    if (uVar7 - 1 < 0x7ffffffffffffff3) {
+      uVar2 = (uVar7 - 1) * 2;
+      if (uVar2 < param_3) {
+        uVar2 = param_3;
+      }
+      uVar4 = 0x1a;
+      if ((uVar2 | 7) != 0x17) {
+        uVar4 = (uVar2 | 7) + 1;
+      }
+      uVar6 = 0x17;
+      if (0x16 < uVar2) {
+        uVar6 = uVar4;
+      }
+    }
+    uVar2 = (**(code **)(_DAT_0f5463b0 + 0x10))(&DAT_0f5463b0,uVar6);
+    if (uVar6 != 0 && uVar2 == 0) {
+      func_0x0eec74c0(uVar6,0);
+    }
+    if (param_3 != 0) {
+      func_0x0eee2f00(uVar2,param_2,param_3);
+    }
+    func_0x0412a280(uVar5,uVar7);
+    param_1[2] = uVar2;
+    *param_1 = uVar6 | 1;
+    param_1[1] = param_3;
+  }
+  *(undefined1 *)(uVar2 + param_3) = 0;
+  return param_1;
+}
+
+
+
+/* ---- assembly ---- */
+/* 04885120 */  PUSH RBP
+/* 04885121 */  PUSH R15
+/* 04885123 */  PUSH R14
+/* 04885125 */  PUSH R13
+/* 04885127 */  PUSH R12
+/* 04885129 */  PUSH RBX
+/* 0488512a */  PUSH RAX
+/* 0488512b */  MOV RBX,RDX
+/* 0488512e */  MOV R14,RDI
+/* 04885131 */  MOV RCX,qword ptr [RDI]
+/* 04885134 */  MOV R15,RCX
+/* 04885137 */  AND R15,-0x2
+/* 0488513b */  MOV RAX,RDX
+/* 0488513e */  SUB RAX,R15
+/* 04885141 */  JNC 0x04885164
+/* 04885143 */  MOV RBP,qword ptr [R14 + 0x10]
+/* 04885147 */  MOV qword ptr [R14 + 0x8],RBX
+/* 0488514b */  TEST RBX,RBX
+/* 0488514e */  JZ 0x0488522c
+/* 04885154 */  MOV RDI,RBP
+/* 04885157 */  MOV RDX,RBX
+/* 0488515a */  CALL 0x0eee2ee0
+/* 0488515f */  JMP 0x0488522c
+/* 04885164 */  INC RAX
+/* 04885167 */  MOV RDX,-0x9
+/* 0488516e */  SUB RDX,R15
+/* 04885171 */  CMP RAX,RDX
+/* 04885174 */  JA 0x04885254
+/* 0488517a */  LEA RAX,[R15 + -0x1]
+/* 0488517e */  TEST CL,0x1
+/* 04885181 */  JZ 0x04885189
+/* 04885183 */  MOV R12,qword ptr [R14 + 0x10]
+/* 04885187 */  JMP 0x0488518d
+/* 04885189 */  LEA R12,[R14 + 0x1]
+/* 0488518d */  MOV qword ptr [RSP],RSI
+/* 04885191 */  MOV R13,-0x9
+/* 04885198 */  MOV RCX,0x7ffffffffffffff2
+/* 048851a2 */  CMP RAX,RCX
+/* 048851a5 */  JA 0x048851d7
+/* 048851a7 */  ADD RAX,RAX
+/* 048851aa */  CMP RBX,RAX
+/* 048851ad */  CMOVA RAX,RBX
+/* 048851b1 */  MOV RCX,RAX
+/* 048851b4 */  OR RCX,0x7
+/* 048851b8 */  LEA RDX,[RCX + 0x1]
+/* 048851bc */  CMP RCX,0x17
+/* 048851c0 */  MOV ECX,0x1a
+/* 048851c5 */  CMOVNZ RCX,RDX
+/* 048851c9 */  CMP RAX,0x17
+/* 048851cd */  MOV R13D,0x17
+/* 048851d3 */  CMOVNC R13,RCX
+/* 048851d7 */  MOV RAX,qword ptr [0x0f5463b0]
+/* 048851de */  LEA RDI,[0xf5463b0]
+/* 048851e5 */  MOV RSI,R13
+/* 048851e8 */  CALL qword ptr [RAX + 0x10]
+/* 048851eb */  MOV RBP,RAX
+/* 048851ee */  TEST RAX,RAX
+/* 048851f1 */  SETNZ AL
+/* 048851f4 */  TEST R13,R13
+/* 048851f7 */  SETZ CL
+/* 048851fa */  OR CL,AL
+/* 048851fc */  JZ 0x04885243
+/* 048851fe */  TEST RBX,RBX
+/* 04885201 */  JZ 0x04885212
+/* 04885203 */  MOV RDI,RBP
+/* 04885206 */  MOV RSI,qword ptr [RSP]
+/* 0488520a */  MOV RDX,RBX
+/* 0488520d */  CALL 0x0eee2f00
+/* 04885212 */  MOV RDI,R12
+/* 04885215 */  MOV RSI,R15
+/* 04885218 */  CALL 0x0412a280
+/* 0488521d */  MOV qword ptr [R14 + 0x10],RBP
+/* 04885221 */  OR R13,0x1
+/* 04885225 */  MOV qword ptr [R14],R13
+/* 04885228 */  MOV qword ptr [R14 + 0x8],RBX
+/* 0488522c */  MOV byte ptr [RBP + RBX*0x1],0x0
+/* 04885231 */  MOV RAX,R14
+/* 04885234 */  ADD RSP,0x8
+/* 04885238 */  POP RBX
+/* 04885239 */  POP R12
+/* 0488523b */  POP R13
+/* 0488523d */  POP R14
+/* 0488523f */  POP R15
+/* 04885241 */  POP RBP
+/* 04885242 */  RET
+/* 04885243 */  MOV RDI,R13
+/* 04885246 */  XOR ESI,ESI
+/* 04885248 */  CALL 0x0eec74c0
+/* 0488524d */  TEST RBX,RBX
+/* 04885250 */  JNZ 0x04885203
+/* 04885252 */  JMP 0x04885212
+/* 04885254 */  CALL 0x04882e30
+/* 04885259 */  INT3
