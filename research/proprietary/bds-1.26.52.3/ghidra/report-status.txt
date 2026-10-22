@@ -1,8 +1,11 @@
 Generated files:
 2 headless-exit-status.txt
 17 report-status.txt
-4211 headless.txt
+646 README.md
+6096 headless.txt
+38399 vtable-functions.tsv
+594065 virtual-function-pseudocode.md
 
-README.md: MISSING_OR_EMPTY
-vtable-functions.tsv: MISSING_OR_EMPTY
-virtual-function-pseudocode.md: MISSING_OR_EMPTY
+README.md: present
+vtable-functions.tsv: present
+virtual-function-pseudocode.md: present
