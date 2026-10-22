@@ -284,7 +284,7 @@ runtime ASLR addresses.
 ## Evidence files
 
 - `elf-header.txt`, `program-headers.txt`, `section-headers.txt`
-- `dynamic-section.txt`, `notes.txt`, `relocations-summary.txt`
+- `dynamic-section.txt`, `notes.txt`, `debug-link.txt`, `relocations-summary.txt`
 - `priority-functions.tsv`, `worldgen-symbols.tsv`, `worldgen-strings.txt`
 - `metadata.json`
 
@@ -331,6 +331,11 @@ def main() -> int:
     run_to_file(["readelf", "-W", "-S", str(target)], output_dir / "section-headers.txt")
     run_to_file(["readelf", "-W", "-d", str(target)], output_dir / "dynamic-section.txt")
     run_to_file(["readelf", "-W", "-n", str(target)], output_dir / "notes.txt", allow_failure=True)
+    run_to_file(
+        ["readelf", "--string-dump=.gnu_debuglink", str(target)],
+        output_dir / "debug-link.txt",
+        allow_failure=True,
+    )
     run_to_file(
         ["readelf", "-W", "-r", "--use-dynamic", str(target)],
         output_dir / "relocations-summary.txt",

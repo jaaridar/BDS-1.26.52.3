@@ -1,0 +1,84 @@
+name: Targeted official binary decompile
+
+# Static, bounded headless Ghidra pass. The generated pseudocode remains
+# proprietary research evidence and is kept outside the MIT OpenBDS source tree.
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/official-binary-decompile.yml
+      - tools/binary-analysis/ghidra/RecoverWorldgen.java
+
+permissions:
+  contents: write
+
+concurrency:
+  group: official-binary-decompile-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  decompile:
+    if: startsWith(github.ref, 'refs/heads/arena/')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - name: Check out repository and proprietary LFS object
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+          fetch-depth: 1
+
+      - name: Select JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Install verified Ghidra 12.1.4 release
+        env:
+          GHIDRA_URL: https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_12.1.4_build/ghidra_12.1.4_PUBLIC_20260921.zip
+          GHIDRA_SHA256: ddac49f903da9d5bac833e5cc79395098b9c33cfd3279be5f31bd00387d2d4db
+        run: |
+          curl --fail --location --retry 3 --progress-bar \
+            "$GHIDRA_URL" -o "$RUNNER_TEMP/ghidra.zip"
+          echo "$GHIDRA_SHA256  $RUNNER_TEMP/ghidra.zip" | sha256sum --check --strict
+          unzip -q "$RUNNER_TEMP/ghidra.zip" -d "$RUNNER_TEMP"
+          test -x "$RUNNER_TEMP/ghidra_12.1.4_PUBLIC/support/analyzeHeadless"
+
+      - name: Recover RTTI vtables and decompile virtual world-generation functions
+        env:
+          MAXMEM: 5G
+        run: |
+          output="$GITHUB_WORKSPACE/research/proprietary/bds-1.26.52.3/ghidra"
+          rm -rf "$output"
+          mkdir -p "$output"
+          "$RUNNER_TEMP/ghidra_12.1.4_PUBLIC/support/analyzeHeadless" \
+            "$RUNNER_TEMP/ghidra-project" bds-worldgen \
+            -import "$GITHUB_WORKSPACE/bedrock_server" \
+            -overwrite \
+            -noanalysis \
+            -scriptPath "$GITHUB_WORKSPACE/tools/binary-analysis/ghidra" \
+            -postScript RecoverWorldgen.java "$output" \
+            -deleteProject \
+            | tee "$output/headless.log"
+
+      - name: Enforce bounded reports
+        run: |
+          test -s research/proprietary/bds-1.26.52.3/ghidra/README.md
+          test -s research/proprietary/bds-1.26.52.3/ghidra/vtable-functions.tsv
+          test -s research/proprietary/bds-1.26.52.3/ghidra/virtual-function-pseudocode.md
+          size="$(du -sb research/proprietary/bds-1.26.52.3/ghidra | cut -f1)"
+          echo "Generated report bytes: $size"
+          test "$size" -le 67108864
+
+      - name: Commit bounded evidence to the analysis branch
+        run: |
+          git add research/proprietary/bds-1.26.52.3/ghidra
+          if git diff --cached --quiet -- research/proprietary/bds-1.26.52.3/ghidra; then
+            echo 'Ghidra evidence is unchanged.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'research: recover official BDS worldgen vtables'
+          git push origin "HEAD:${GITHUB_REF_NAME}"
