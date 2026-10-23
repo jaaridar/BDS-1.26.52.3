@@ -1,5 +1,5 @@
-missing candidate for 1-c128_128
-missing candidate for 1-c128_129
-missing candidate for 1-c129_128
-missing candidate for 1-c129_129
+1-c128_128: 98303/98304 blocks (99.9990%) NOT EXACT
+1-c128_129: 98289/98304 blocks (99.9847%) NOT EXACT
+1-c129_128: 98281/98304 blocks (99.9766%) NOT EXACT
+1-c129_129: 98201/98304 blocks (99.8952%) NOT EXACT
 wrote capture/verify-1.md

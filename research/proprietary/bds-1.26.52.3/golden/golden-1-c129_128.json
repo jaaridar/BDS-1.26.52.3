@@ -6,7 +6,7 @@
   "generator": "default",
   "capture": {
     "binarySha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
-    "generatedAt": "2026-10-23T02:27:55.320Z",
+    "generatedAt": "2026-10-23T02:46:23.287Z",
     "source": "leveldb",
     "database": "db-dump.json",
     "comparedCaptures": 2
@@ -112,7 +112,7 @@
     {
       "name": "minecraft:glow_lichen",
       "states": {
-        "multi_face_direction_bits": 24
+        "multi_face_direction_bits": 1
       }
     },
     {
@@ -183,19 +183,13 @@
     {
       "name": "minecraft:cave_vines",
       "states": {
-        "growing_plant_age": 24
-      }
-    },
-    {
-      "name": "minecraft:cave_vines",
-      "states": {
         "growing_plant_age": 19
       }
     },
     {
       "name": "minecraft:cave_vines_head_with_berries",
       "states": {
-        "growing_plant_age": 20
+        "growing_plant_age": 21
       }
     },
     {
@@ -397,15 +391,15 @@
   ],
   "blocks": {
     "file": "golden-1-c129_128.blocks.bin",
-    "sha256": "094dae94accc6bfdadbcaebe4b96df4d745517ac78a8d38fa882667f0c749f58",
+    "sha256": "6dacb84c4eeea7abca1d76f7be556fbd5b4f0677b633cdd17137455195bdbd0d",
     "bytes": 196608,
     "layers": 2,
     "file1": "golden-1-c129_128.layer1.bin",
     "sha256_1": "aa01e318e525151f7a3206d11d55ef938c1ad13e9c786e961d7e8ef4040f18e9"
   },
   "stability": {
-    "stableBlocks": 98210,
-    "unstableBlocks": 94,
+    "stableBlocks": 98294,
+    "unstableBlocks": 10,
     "file": "golden-1-c129_128.unstable.json",
     "note": "Blocks listed in `file` are not reproducible by BDS itself across captures of the same seed; a candidate must produce one of the listed variants there. Every other block must match exactly."
   }
