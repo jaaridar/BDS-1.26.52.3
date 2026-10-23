@@ -6,10 +6,10 @@
   "generator": "default",
   "capture": {
     "binarySha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
-    "generatedAt": "2026-10-23T02:46:23.287Z",
+    "generatedAt": "2026-10-23T03:05:55.108Z",
     "source": "leveldb",
     "database": "db-dump.json",
-    "comparedCaptures": 2
+    "comparedCaptures": 3
   },
   "origin": [
     2064,
@@ -110,12 +110,6 @@
       }
     },
     {
-      "name": "minecraft:glow_lichen",
-      "states": {
-        "multi_face_direction_bits": 1
-      }
-    },
-    {
       "name": "minecraft:big_dripleaf",
       "states": {
         "big_dripleaf_head": 1,
@@ -160,6 +154,12 @@
       "name": "minecraft:glow_lichen",
       "states": {
         "multi_face_direction_bits": 2
+      }
+    },
+    {
+      "name": "minecraft:glow_lichen",
+      "states": {
+        "multi_face_direction_bits": 18
       }
     },
     {
@@ -391,15 +391,15 @@
   ],
   "blocks": {
     "file": "golden-1-c129_128.blocks.bin",
-    "sha256": "6dacb84c4eeea7abca1d76f7be556fbd5b4f0677b633cdd17137455195bdbd0d",
+    "sha256": "70f684289c168af7930de7b1189a2806bd355808fbecf210fc53eb037a6d21c7",
     "bytes": 196608,
     "layers": 2,
     "file1": "golden-1-c129_128.layer1.bin",
-    "sha256_1": "aa01e318e525151f7a3206d11d55ef938c1ad13e9c786e961d7e8ef4040f18e9"
+    "sha256_1": "5b610323ad4465548591a8809c17b47fe5fb30af4eb14e860f7999d5964cde8f"
   },
   "stability": {
-    "stableBlocks": 98294,
-    "unstableBlocks": 10,
+    "stableBlocks": 98229,
+    "unstableBlocks": 75,
     "file": "golden-1-c129_128.unstable.json",
     "note": "Blocks listed in `file` are not reproducible by BDS itself across captures of the same seed; a candidate must produce one of the listed variants there. Every other block must match exactly."
   }

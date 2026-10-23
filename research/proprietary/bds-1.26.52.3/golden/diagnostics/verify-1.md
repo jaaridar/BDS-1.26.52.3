@@ -4,50 +4,66 @@
 - candidate: `capture/golden-1-check`
 - captures compared: 4
 - total blocks: 393,216
-- total mismatches: 142
+- total mismatches: 51
 
 # worldgen comparison — 1-c128_128
 
 - volume: `16 x 384 x 16` = 98,304 blocks
-- matched: 98,303
-- mismatched: 1
-- accuracy: 99.9990%
+- matched: 98,296
+- mismatched: 8
+- accuracy: 99.9919%
 
 ## Most common disagreements
 
 | expected (BDS) | got (candidate) | blocks |
 |---|---|---|
-| `minecraft:air` | `minecraft:glow_lichen{"multi_face_direction_bits":1}` | 1 |
+| `minecraft:moss_block` | `minecraft:deepslate{"pillar_axis":"y"}` | 2 |
+| `minecraft:short_grass` | `minecraft:tall_grass{"upper_block_bit":0}` | 2 |
+| `minecraft:air` | `minecraft:tall_grass{"upper_block_bit":1}` | 2 |
+| `minecraft:air` | `minecraft:glow_lichen{"multi_face_direction_bits":8}` | 1 |
+| `minecraft:glow_lichen{"multi_face_direction_bits":17}` | `minecraft:glow_lichen{"multi_face_direction_bits":16}` | 1 |
 
 ## Worst layers
 
 | y | matched | mismatched |
 |---|---|---|
-| 13 | 255 | 1 |
+| 12 | 254 | 2 |
+| 18 | 254 | 2 |
+| 21 | 255 | 1 |
+| 22 | 255 | 1 |
+| 25 | 255 | 1 |
+| 26 | 255 | 1 |
 
-- 2 block(s) matched an accepted variant of a block the server itself does not reproduce
+- 22 block(s) matched an accepted variant of a block the server itself does not reproduce
 
 ## First mismatches
 
 | x | y | z | expected | got |
 |---|---|---|---|---|
-| 10 | 13 | 8 | `minecraft:air` | `minecraft:glow_lichen{"multi_face_direction_bits":1}` |
+| 11 | 12 | 8 | `minecraft:air` | `minecraft:glow_lichen{"multi_face_direction_bits":8}` |
+| 10 | 12 | 9 | `minecraft:glow_lichen{"multi_face_direction_bits":17}` | `minecraft:glow_lichen{"multi_face_direction_bits":16}` |
+| 2 | 18 | 0 | `minecraft:moss_block` | `minecraft:deepslate{"pillar_axis":"y"}` |
+| 2 | 18 | 1 | `minecraft:moss_block` | `minecraft:deepslate{"pillar_axis":"y"}` |
+| 0 | 21 | 4 | `minecraft:short_grass` | `minecraft:tall_grass{"upper_block_bit":0}` |
+| 0 | 22 | 4 | `minecraft:air` | `minecraft:tall_grass{"upper_block_bit":1}` |
+| 0 | 25 | 7 | `minecraft:short_grass` | `minecraft:tall_grass{"upper_block_bit":0}` |
+| 0 | 26 | 7 | `minecraft:air` | `minecraft:tall_grass{"upper_block_bit":1}` |
 
 
 # worldgen comparison — 1-c128_129
 
 - volume: `16 x 384 x 16` = 98,304 blocks
-- matched: 98,289
-- mismatched: 15
-- accuracy: 99.9847%
+- matched: 98,285
+- mismatched: 19
+- accuracy: 99.9807%
 
 ## Most common disagreements
 
 | expected (BDS) | got (candidate) | blocks |
 |---|---|---|
 | `minecraft:moss_block` | `minecraft:deepslate{"pillar_axis":"y"}` | 7 |
+| `minecraft:deepslate{"pillar_axis":"y"}` | `minecraft:moss_block` | 5 |
 | `minecraft:air` | `minecraft:cave_vines{"growing_plant_age":0}` | 3 |
-| `minecraft:air` | `minecraft:glow_lichen{"multi_face_direction_bits":32}` | 1 |
 | `minecraft:air` | `minecraft:cave_vines_head_with_berries{"growing_plant_age":22}` | 1 |
 | `minecraft:air` | `minecraft:cave_vines{"growing_plant_age":25}` | 1 |
 | `minecraft:air` | `minecraft:cave_vines{"growing_plant_age":19}` | 1 |
@@ -57,22 +73,20 @@
 
 | y | matched | mismatched |
 |---|---|---|
+| 63 | 250 | 6 |
+| 64 | 252 | 4 |
 | 61 | 253 | 3 |
 | 62 | 253 | 3 |
-| 63 | 253 | 3 |
-| 64 | 254 | 2 |
-| 12 | 255 | 1 |
 | 58 | 255 | 1 |
 | 59 | 255 | 1 |
 | 60 | 255 | 1 |
 
-- 21 block(s) matched an accepted variant of a block the server itself does not reproduce
+- 61 block(s) matched an accepted variant of a block the server itself does not reproduce
 
 ## First mismatches
 
 | x | y | z | expected | got |
 |---|---|---|---|---|
-| 12 | 12 | 9 | `minecraft:air` | `minecraft:glow_lichen{"multi_face_direction_bits":32}` |
 | 1 | 58 | 14 | `minecraft:air` | `minecraft:cave_vines_head_with_berries{"growing_plant_age":22}` |
 | 1 | 59 | 14 | `minecraft:air` | `minecraft:cave_vines{"growing_plant_age":0}` |
 | 1 | 60 | 14 | `minecraft:air` | `minecraft:cave_vines{"growing_plant_age":0}` |
@@ -84,156 +98,109 @@
 | 1 | 62 | 13 | `minecraft:air` | `minecraft:cave_vines{"growing_plant_age":0}` |
 | 2 | 63 | 6 | `minecraft:moss_block` | `minecraft:deepslate{"pillar_axis":"y"}` |
 | 3 | 63 | 7 | `minecraft:moss_block` | `minecraft:deepslate{"pillar_axis":"y"}` |
+| 1 | 63 | 8 | `minecraft:deepslate{"pillar_axis":"y"}` | `minecraft:moss_block` |
+| 3 | 63 | 8 | `minecraft:deepslate{"pillar_axis":"y"}` | `minecraft:moss_block` |
 | 0 | 63 | 9 | `minecraft:moss_block` | `minecraft:deepslate{"pillar_axis":"y"}` |
+| 4 | 63 | 14 | `minecraft:deepslate{"pillar_axis":"y"}` | `minecraft:moss_block` |
+| 1 | 64 | 12 | `minecraft:deepslate{"pillar_axis":"y"}` | `minecraft:moss_block` |
 | 0 | 64 | 13 | `minecraft:moss_block` | `minecraft:deepslate{"pillar_axis":"y"}` |
+| 3 | 64 | 13 | `minecraft:deepslate{"pillar_axis":"y"}` | `minecraft:moss_block` |
 | 3 | 64 | 14 | `minecraft:moss_block` | `minecraft:deepslate{"pillar_axis":"y"}` |
 
 
 # worldgen comparison — 1-c129_128
 
 - volume: `16 x 384 x 16` = 98,304 blocks
-- matched: 98,281
-- mismatched: 23
-- accuracy: 99.9766%
+- matched: 98,284
+- mismatched: 20
+- accuracy: 99.9797%
 
 ## Most common disagreements
 
 | expected (BDS) | got (candidate) | blocks |
 |---|---|---|
-| `minecraft:short_grass` | `minecraft:moss_carpet` | 3 |
-| `minecraft:moss_carpet` | `minecraft:short_grass` | 2 |
-| `minecraft:air` | `minecraft:short_grass` | 2 |
-| `minecraft:short_grass` | `minecraft:air` | 2 |
-| `minecraft:air` | `minecraft:glow_lichen{"multi_face_direction_bits":2}` | 2 |
-| `minecraft:deepslate{"pillar_axis":"y"}` | `minecraft:moss_block` | 1 |
-| `minecraft:moss_carpet` | `minecraft:azalea` | 1 |
-| `minecraft:tall_grass{"upper_block_bit":0}` | `minecraft:moss_carpet` | 1 |
-| `minecraft:moss_block` | `minecraft:deepslate{"pillar_axis":"y"}` | 1 |
-| `minecraft:air` | `minecraft:tall_grass{"upper_block_bit":0}` | 1 |
-| `minecraft:tall_grass{"upper_block_bit":1}` | `minecraft:air` | 1 |
-| `minecraft:air` | `minecraft:glow_lichen{"multi_face_direction_bits":17}` | 1 |
-| `minecraft:glow_lichen{"multi_face_direction_bits":16}` | `minecraft:air` | 1 |
-| `minecraft:air` | `minecraft:tall_grass{"upper_block_bit":1}` | 1 |
-| `minecraft:air` | `minecraft:azalea` | 1 |
-| `minecraft:azalea` | `minecraft:short_grass` | 1 |
-| `minecraft:glow_lichen{"multi_face_direction_bits":16}` | `minecraft:glow_lichen{"multi_face_direction_bits":2}` | 1 |
+| `minecraft:moss_block` | `minecraft:deepslate{"pillar_axis":"y"}` | 11 |
+| `minecraft:air` | `minecraft:tall_grass{"upper_block_bit":1}` | 3 |
+| `minecraft:moss_carpet` | `minecraft:tall_grass{"upper_block_bit":0}` | 2 |
+| `minecraft:moss_carpet` | `minecraft:glow_lichen{"multi_face_direction_bits":8}` | 1 |
+| `minecraft:air` | `minecraft:glow_lichen{"multi_face_direction_bits":16}` | 1 |
+| `minecraft:short_grass` | `minecraft:tall_grass{"upper_block_bit":0}` | 1 |
+| `minecraft:glow_lichen{"multi_face_direction_bits":18}` | `minecraft:glow_lichen{"multi_face_direction_bits":16}` | 1 |
 
 ## Worst layers
 
 | y | matched | mismatched |
 |---|---|---|
-| 37 | 247 | 9 |
-| 36 | 251 | 5 |
-| 35 | 252 | 4 |
-| 59 | 253 | 3 |
-| 34 | 255 | 1 |
-| 38 | 255 | 1 |
+| 37 | 251 | 5 |
+| 36 | 252 | 4 |
+| 38 | 252 | 4 |
+| 33 | 254 | 2 |
+| 34 | 254 | 2 |
+| 35 | 255 | 1 |
+| 39 | 255 | 1 |
+| 59 | 255 | 1 |
 
-- 5 block(s) matched an accepted variant of a block the server itself does not reproduce
+- 52 block(s) matched an accepted variant of a block the server itself does not reproduce
 
 ## First mismatches
 
 | x | y | z | expected | got |
 |---|---|---|---|---|
-| 9 | 34 | 4 | `minecraft:short_grass` | `minecraft:moss_carpet` |
-| 9 | 35 | 2 | `minecraft:deepslate{"pillar_axis":"y"}` | `minecraft:moss_block` |
-| 9 | 35 | 3 | `minecraft:moss_carpet` | `minecraft:azalea` |
-| 10 | 35 | 3 | `minecraft:tall_grass{"upper_block_bit":0}` | `minecraft:moss_carpet` |
-| 10 | 35 | 4 | `minecraft:moss_carpet` | `minecraft:short_grass` |
+| 8 | 33 | 3 | `minecraft:moss_block` | `minecraft:deepslate{"pillar_axis":"y"}` |
+| 9 | 33 | 4 | `minecraft:moss_block` | `minecraft:deepslate{"pillar_axis":"y"}` |
+| 9 | 34 | 3 | `minecraft:moss_block` | `minecraft:deepslate{"pillar_axis":"y"}` |
+| 10 | 34 | 4 | `minecraft:moss_block` | `minecraft:deepslate{"pillar_axis":"y"}` |
+| 10 | 35 | 2 | `minecraft:moss_block` | `minecraft:deepslate{"pillar_axis":"y"}` |
+| 11 | 36 | 0 | `minecraft:moss_block` | `minecraft:deepslate{"pillar_axis":"y"}` |
 | 10 | 36 | 1 | `minecraft:moss_block` | `minecraft:deepslate{"pillar_axis":"y"}` |
-| 9 | 36 | 2 | `minecraft:air` | `minecraft:short_grass` |
-| 10 | 36 | 2 | `minecraft:air` | `minecraft:tall_grass{"upper_block_bit":0}` |
-| 10 | 36 | 3 | `minecraft:tall_grass{"upper_block_bit":1}` | `minecraft:air` |
-| 11 | 36 | 5 | `minecraft:short_grass` | `minecraft:moss_carpet` |
-| 10 | 37 | 1 | `minecraft:air` | `minecraft:glow_lichen{"multi_face_direction_bits":17}` |
-| 9 | 37 | 2 | `minecraft:glow_lichen{"multi_face_direction_bits":16}` | `minecraft:air` |
-| 10 | 37 | 2 | `minecraft:air` | `minecraft:tall_grass{"upper_block_bit":1}` |
-| 13 | 37 | 3 | `minecraft:air` | `minecraft:short_grass` |
-| 14 | 37 | 3 | `minecraft:air` | `minecraft:azalea` |
-| 13 | 37 | 4 | `minecraft:short_grass` | `minecraft:air` |
-| 14 | 37 | 4 | `minecraft:azalea` | `minecraft:short_grass` |
-| 12 | 37 | 9 | `minecraft:short_grass` | `minecraft:moss_carpet` |
-| 12 | 37 | 10 | `minecraft:moss_carpet` | `minecraft:short_grass` |
-| 15 | 38 | 4 | `minecraft:short_grass` | `minecraft:air` |
+| 12 | 36 | 9 | `minecraft:moss_block` | `minecraft:deepslate{"pillar_axis":"y"}` |
+| 12 | 36 | 10 | `minecraft:moss_block` | `minecraft:deepslate{"pillar_axis":"y"}` |
+| 11 | 37 | 0 | `minecraft:moss_carpet` | `minecraft:glow_lichen{"multi_face_direction_bits":8}` |
+| 9 | 37 | 1 | `minecraft:moss_block` | `minecraft:deepslate{"pillar_axis":"y"}` |
+| 10 | 37 | 1 | `minecraft:air` | `minecraft:glow_lichen{"multi_face_direction_bits":16}` |
+| 13 | 37 | 2 | `minecraft:moss_carpet` | `minecraft:tall_grass{"upper_block_bit":0}` |
+| 12 | 37 | 6 | `minecraft:moss_carpet` | `minecraft:tall_grass{"upper_block_bit":0}` |
+| 10 | 38 | 0 | `minecraft:moss_block` | `minecraft:deepslate{"pillar_axis":"y"}` |
+| 13 | 38 | 2 | `minecraft:air` | `minecraft:tall_grass{"upper_block_bit":1}` |
+| 12 | 38 | 6 | `minecraft:air` | `minecraft:tall_grass{"upper_block_bit":1}` |
+| 13 | 38 | 8 | `minecraft:short_grass` | `minecraft:tall_grass{"upper_block_bit":0}` |
+| 13 | 39 | 8 | `minecraft:air` | `minecraft:tall_grass{"upper_block_bit":1}` |
+| 1 | 59 | 0 | `minecraft:glow_lichen{"multi_face_direction_bits":18}` | `minecraft:glow_lichen{"multi_face_direction_bits":16}` |
 
 
 # worldgen comparison — 1-c129_129
 
 - volume: `16 x 384 x 16` = 98,304 blocks
-- matched: 98,201
-- mismatched: 103
-- accuracy: 99.8952%
+- matched: 98,300
+- mismatched: 4
+- accuracy: 99.9959%
 
 ## Most common disagreements
 
 | expected (BDS) | got (candidate) | blocks |
 |---|---|---|
-| `minecraft:deepslate{"pillar_axis":"y"}` | `minecraft:clay` | 22 |
-| `minecraft:moss_carpet` | `minecraft:short_grass` | 7 |
-| `minecraft:clay` | `minecraft:deepslate{"pillar_axis":"y"}` | 6 |
-| `minecraft:clay` | `minecraft:water{"liquid_depth":0}` | 6 |
-| `minecraft:short_grass` | `minecraft:air` | 5 |
-| `minecraft:moss_block` | `minecraft:clay` | 4 |
-| `minecraft:air` | `minecraft:moss_carpet` | 3 |
-| `minecraft:moss_block` | `minecraft:water{"liquid_depth":0}` | 3 |
-| `minecraft:short_grass` | `minecraft:moss_carpet` | 3 |
-| `minecraft:tall_grass{"upper_block_bit":1}` | `minecraft:air` | 3 |
-| `minecraft:air` | `minecraft:tall_grass{"upper_block_bit":1}` | 3 |
-| `minecraft:clay` | `minecraft:tuff` | 2 |
-| `minecraft:clay` | `minecraft:moss_block` | 2 |
-| `minecraft:air` | `minecraft:flowering_azalea` | 2 |
-| `minecraft:small_dripleaf_block{"minecraft:cardinal_direction":"south","upper_block_bit":0}` | `minecraft:air` | 2 |
-| `minecraft:small_dripleaf_block{"minecraft:cardinal_direction":"south","upper_block_bit":1}` | `minecraft:air` | 2 |
-| `minecraft:tall_grass{"upper_block_bit":0}` | `minecraft:short_grass` | 2 |
-| `minecraft:air` | `minecraft:glow_lichen{"multi_face_direction_bits":2}` | 2 |
-| `minecraft:glow_lichen{"multi_face_direction_bits":16}` | `minecraft:glow_lichen{"multi_face_direction_bits":9}` | 1 |
-| `minecraft:glow_lichen{"multi_face_direction_bits":8}` | `minecraft:glow_lichen{"multi_face_direction_bits":9}` | 1 |
+| `minecraft:air` | `minecraft:glow_lichen{"multi_face_direction_bits":16}` | 2 |
+| `minecraft:glow_lichen{"multi_face_direction_bits":8}` | `minecraft:glow_lichen{"multi_face_direction_bits":24}` | 1 |
+| `minecraft:air` | `minecraft:glow_lichen{"multi_face_direction_bits":2}` | 1 |
 
 ## Worst layers
 
 | y | matched | mismatched |
 |---|---|---|
-| 36 | 236 | 20 |
-| 37 | 240 | 16 |
-| 35 | 242 | 14 |
-| 34 | 244 | 12 |
-| 31 | 247 | 9 |
-| 33 | 247 | 9 |
-| 32 | 250 | 6 |
-| 29 | 253 | 3 |
-| 30 | 253 | 3 |
-| 28 | 254 | 2 |
-| 38 | 254 | 2 |
 | 17 | 255 | 1 |
 | 18 | 255 | 1 |
-| 26 | 255 | 1 |
-| 27 | 255 | 1 |
+| 19 | 255 | 1 |
+| 56 | 255 | 1 |
 
-- 8 block(s) matched an accepted variant of a block the server itself does not reproduce
+- 79 block(s) matched an accepted variant of a block the server itself does not reproduce
 
 ## First mismatches
 
 | x | y | z | expected | got |
 |---|---|---|---|---|
-| 8 | 17 | 11 | `minecraft:glow_lichen{"multi_face_direction_bits":16}` | `minecraft:glow_lichen{"multi_face_direction_bits":9}` |
-| 7 | 18 | 11 | `minecraft:glow_lichen{"multi_face_direction_bits":8}` | `minecraft:glow_lichen{"multi_face_direction_bits":9}` |
-| 3 | 26 | 7 | `minecraft:clay` | `minecraft:deepslate{"pillar_axis":"y"}` |
-| 3 | 27 | 9 | `minecraft:clay` | `minecraft:deepslate{"pillar_axis":"y"}` |
-| 3 | 28 | 9 | `minecraft:clay` | `minecraft:tuff` |
-| 5 | 28 | 10 | `minecraft:clay` | `minecraft:tuff` |
-| 4 | 29 | 4 | `minecraft:deepslate{"pillar_axis":"y"}` | `minecraft:clay` |
-| 6 | 29 | 7 | `minecraft:tuff` | `minecraft:clay` |
-| 3 | 29 | 9 | `minecraft:clay` | `minecraft:moss_block` |
-| 3 | 30 | 9 | `minecraft:air` | `minecraft:azalea` |
-| 2 | 30 | 11 | `minecraft:air` | `minecraft:moss_carpet` |
-| 1 | 30 | 12 | `minecraft:air` | `minecraft:flowering_azalea` |
-| 11 | 31 | 7 | `minecraft:deepslate{"pillar_axis":"y"}` | `minecraft:clay` |
-| 12 | 31 | 8 | `minecraft:deepslate{"pillar_axis":"y"}` | `minecraft:clay` |
-| 11 | 31 | 9 | `minecraft:clay` | `minecraft:deepslate{"pillar_axis":"y"}` |
-| 3 | 31 | 11 | `minecraft:air` | `minecraft:moss_carpet` |
-| 12 | 31 | 11 | `minecraft:deepslate{"pillar_axis":"y"}` | `minecraft:clay` |
-| 2 | 31 | 14 | `minecraft:air` | `minecraft:flowering_azalea` |
-| 11 | 31 | 14 | `minecraft:clay` | `minecraft:deepslate{"pillar_axis":"y"}` |
-| 4 | 31 | 15 | `minecraft:big_dripleaf{"big_dripleaf_head":0,"big_dripleaf_tilt":"none","minecraft:cardinal_direction":"east"}` | `minecraft:water{"liquid_depth":0}` |
+| 8 | 17 | 11 | `minecraft:glow_lichen{"multi_face_direction_bits":8}` | `minecraft:glow_lichen{"multi_face_direction_bits":24}` |
+| 8 | 18 | 10 | `minecraft:air` | `minecraft:glow_lichen{"multi_face_direction_bits":16}` |
+| 8 | 19 | 10 | `minecraft:air` | `minecraft:glow_lichen{"multi_face_direction_bits":16}` |
+| 13 | 56 | 15 | `minecraft:air` | `minecraft:glow_lichen{"multi_face_direction_bits":2}` |
 
 

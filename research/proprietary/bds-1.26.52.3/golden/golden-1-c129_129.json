@@ -6,10 +6,10 @@
   "generator": "default",
   "capture": {
     "binarySha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
-    "generatedAt": "2026-10-23T02:46:23.287Z",
+    "generatedAt": "2026-10-23T03:05:55.108Z",
     "source": "leveldb",
     "database": "db-dump.json",
-    "comparedCaptures": 2
+    "comparedCaptures": 3
   },
   "origin": [
     2064,
@@ -84,14 +84,6 @@
       }
     },
     {
-      "name": "minecraft:big_dripleaf",
-      "states": {
-        "big_dripleaf_head": 0,
-        "big_dripleaf_tilt": "none",
-        "minecraft:cardinal_direction": "east"
-      }
-    },
-    {
       "name": "minecraft:moss_block",
       "states": {}
     },
@@ -120,13 +112,19 @@
     {
       "name": "minecraft:glow_lichen",
       "states": {
+        "multi_face_direction_bits": 8
+      }
+    },
+    {
+      "name": "minecraft:glow_lichen",
+      "states": {
         "multi_face_direction_bits": 16
       }
     },
     {
       "name": "minecraft:glow_lichen",
       "states": {
-        "multi_face_direction_bits": 8
+        "multi_face_direction_bits": 4
       }
     },
     {
@@ -134,6 +132,10 @@
       "states": {
         "vine_direction_bits": 1
       }
+    },
+    {
+      "name": "minecraft:flowering_azalea",
+      "states": {}
     },
     {
       "name": "minecraft:tall_grass",
@@ -155,6 +157,14 @@
         "big_dripleaf_head": 1,
         "big_dripleaf_tilt": "none",
         "minecraft:cardinal_direction": "west"
+      }
+    },
+    {
+      "name": "minecraft:big_dripleaf",
+      "states": {
+        "big_dripleaf_head": 0,
+        "big_dripleaf_tilt": "none",
+        "minecraft:cardinal_direction": "east"
       }
     },
     {
@@ -440,15 +450,15 @@
   ],
   "blocks": {
     "file": "golden-1-c129_129.blocks.bin",
-    "sha256": "81c42f9309da7b75d38fdcb1daa05d2f7a0838bb19b5b80614d80d7f8c74b489",
+    "sha256": "ba864dca518f24169d4a97ef7e008cfbdd8b4d3daf6060f8867c8ae12d4806ab",
     "bytes": 196608,
     "layers": 2,
     "file1": "golden-1-c129_129.layer1.bin",
-    "sha256_1": "8cf357d7714e8a2618ce45dd0fb1d2d66932486a892bfbe15e35396ae3492134"
+    "sha256_1": "ee953c2aecfbf2471969203e84fb171c4974c8e8e4ff37de30a4a5d1343569ac"
   },
   "stability": {
-    "stableBlocks": 98294,
-    "unstableBlocks": 10,
+    "stableBlocks": 98193,
+    "unstableBlocks": 111,
     "file": "golden-1-c129_129.unstable.json",
     "note": "Blocks listed in `file` are not reproducible by BDS itself across captures of the same seed; a candidate must produce one of the listed variants there. Every other block must match exactly."
   }
