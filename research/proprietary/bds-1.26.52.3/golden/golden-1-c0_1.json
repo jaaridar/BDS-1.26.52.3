@@ -6,7 +6,7 @@
   "generator": "default",
   "capture": {
     "binarySha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
-    "generatedAt": "2026-10-23T00:53:17.079Z",
+    "generatedAt": "2026-10-23T01:06:07.040Z",
     "source": "leveldb",
     "database": "db-dump.json"
   },
@@ -97,7 +97,7 @@
     {
       "name": "minecraft:glow_lichen",
       "states": {
-        "multi_face_direction_bits": 10
+        "multi_face_direction_bits": 6
       }
     },
     {
@@ -166,12 +166,6 @@
       "name": "minecraft:water",
       "states": {
         "liquid_depth": 7
-      }
-    },
-    {
-      "name": "minecraft:glow_lichen",
-      "states": {
-        "multi_face_direction_bits": 8
       }
     },
     {
@@ -375,10 +369,10 @@
   ],
   "blocks": {
     "file": "golden-1-c0_1.blocks.bin",
-    "sha256": "d3e4035a23efd44647de1c26bd422ea850502556e629e1bf438d0e22f31abe78",
+    "sha256": "bdb24bd598509b7b3743befe19934d5d5d5bd9ba81f23aa8d0f2e50ca095e094",
     "bytes": 196608,
     "layers": 2,
     "file1": "golden-1-c0_1.layer1.bin",
-    "sha256_1": "c4bbf69adf63311961ee5d488844d7bd1d0e400599a8347b1830e00373264580"
+    "sha256_1": "709ed7a91dd918b049f69b7e55a139603c4e53d01e88a645f4074c2e033d9cce"
   }
 }
