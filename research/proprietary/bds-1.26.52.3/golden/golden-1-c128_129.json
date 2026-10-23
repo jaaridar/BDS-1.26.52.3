@@ -6,10 +6,10 @@
   "generator": "default",
   "capture": {
     "binarySha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
-    "generatedAt": "2026-10-23T04:16:06.610Z",
+    "generatedAt": "2026-10-23T04:21:54.212Z",
     "source": "leveldb",
     "database": "db-dump.json",
-    "comparedCaptures": 7
+    "comparedCaptures": 9
   },
   "origin": [
     2048,
@@ -46,12 +46,6 @@
       }
     },
     {
-      "name": "minecraft:lava",
-      "states": {
-        "liquid_depth": 10
-      }
-    },
-    {
       "name": "minecraft:deepslate_redstone_ore",
       "states": {}
     },
@@ -62,6 +56,12 @@
     {
       "name": "minecraft:tuff",
       "states": {}
+    },
+    {
+      "name": "minecraft:lava",
+      "states": {
+        "liquid_depth": 10
+      }
     },
     {
       "name": "minecraft:moss_block",
@@ -82,6 +82,16 @@
       }
     },
     {
+      "name": "minecraft:glow_lichen",
+      "states": {
+        "multi_face_direction_bits": 1
+      }
+    },
+    {
+      "name": "minecraft:deepslate_iron_ore",
+      "states": {}
+    },
+    {
       "name": "minecraft:lava",
       "states": {
         "liquid_depth": 1
@@ -92,10 +102,6 @@
       "states": {
         "liquid_depth": 2
       }
-    },
-    {
-      "name": "minecraft:deepslate_iron_ore",
-      "states": {}
     },
     {
       "name": "minecraft:tall_grass",
@@ -386,15 +392,15 @@
   ],
   "blocks": {
     "file": "golden-1-c128_129.blocks.bin",
-    "sha256": "ccf43db2281202eb31f91653e7fe2824a17f573a1f602ba893abf9eba64685aa",
+    "sha256": "df74118bd67073578bc9a4dcec7b66c744dd47e9f432e86c64a0feeb1137ff0e",
     "bytes": 196608,
     "layers": 2,
     "file1": "golden-1-c128_129.layer1.bin",
-    "sha256_1": "393343a6e0a90acddf8b5290049bc55d52be01864a6efe548bfabee78f160263"
+    "sha256_1": "894aa42b91fcd0ab299ca6f1bf87119ee74ef6f3d6f479ace2e591288d547b14"
   },
   "stability": {
-    "stableBlocks": 98233,
-    "unstableBlocks": 71,
+    "stableBlocks": 98220,
+    "unstableBlocks": 84,
     "file": "golden-1-c128_129.unstable.json",
     "note": "Blocks listed in `file` are not reproducible by BDS itself across captures of the same seed; a candidate must produce one of the listed variants there. Every other block must match exactly."
   }
