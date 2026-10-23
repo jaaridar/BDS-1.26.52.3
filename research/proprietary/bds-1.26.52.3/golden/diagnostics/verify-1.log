@@ -1,5 +1,5 @@
-1-c128_128: 98278/98278 blocks (+26 measured decoration variance) (100.0000%) exact
-1-c128_129: 98277/98277 blocks (+27 measured decoration variance) (100.0000%) exact
-1-c129_128: 98270/98270 blocks (+34 measured decoration variance) (100.0000%) exact
-1-c129_129: 98264/98264 blocks (+40 measured decoration variance) (100.0000%) exact
+1-c128_128: 98275/98275 blocks (+29 measured decoration variance) (100.0000%) exact
+1-c128_129: 98273/98273 blocks (+31 measured decoration variance) (100.0000%) exact
+1-c129_128: 98275/98275 blocks (+29 measured decoration variance) (100.0000%) exact
+1-c129_129: 98301/98301 blocks (+3 measured decoration variance) (100.0000%) exact
 wrote capture/verify-1.md

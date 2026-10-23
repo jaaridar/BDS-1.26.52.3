@@ -1,11 +1,106 @@
 seed: 1
-verify exit: unknown
+verify exit: 0
 
 capture files:
+3 capture/golden-1-check/golden-1-c128_128.unstable.json
+3 capture/golden-1-check/golden-1-c128_129.unstable.json
+3 capture/golden-1-check/golden-1-c129_128.unstable.json
+3 capture/golden-1-check/golden-1-c129_129.unstable.json
+361 capture/verify-1.log
+975 capture/verify-1.md
+1802 capture/seed-1-a/capture.json
+1802 capture/seed-1-c/capture.json
+1802 capture/seed-1-check/capture.json
+2853 capture/golden-1-check/MANIFEST.json
+4975 capture/seed-1-a/server.log
+4975 capture/seed-1-c/server.log
+4975 capture/seed-1-check/server.log
+7362 capture/golden-1-check/golden-1-c128_129.json
+7558 capture/golden-1-check/golden-1-c129_128.json
+7854 capture/golden-1-check/golden-1-c128_128.json
+8854 capture/golden-1-check/golden-1-c129_129.json
+196608 capture/golden-1-check/golden-1-c128_128.blocks.bin
+196608 capture/golden-1-check/golden-1-c128_128.layer1.bin
+196608 capture/golden-1-check/golden-1-c128_129.blocks.bin
+196608 capture/golden-1-check/golden-1-c128_129.layer1.bin
+196608 capture/golden-1-check/golden-1-c129_128.blocks.bin
+196608 capture/golden-1-check/golden-1-c129_128.layer1.bin
+196608 capture/golden-1-check/golden-1-c129_129.blocks.bin
+196608 capture/golden-1-check/golden-1-c129_129.layer1.bin
+975954 capture/seed-1-check/db-dump.json
+983772 capture/seed-1-a/db-dump.json
+985050 capture/seed-1-c/db-dump.json
 
 capture timing (per variant, from capture.json):
+  a: total 18490 ms; generation 3969 ms
+  c: total 18616 ms; generation 3963 ms
+  check: total 17962 ms; generation 3963 ms
 
 server log tail (reference capture):
+[2026-10-23 04:15:48:135 INFO] 
+
+#####################################################
+#                                                   #
+#              CREATING VANILLA WORLD               #
+#                                                   #
+#####################################################
+[2026-10-23 04:15:48:535 INFO] Opening level 'worlds/golden/db'
+[2026-10-23 04:15:48:565 INFO] Pack Stack - None
+[2026-10-23 04:15:48:731 INFO] Signed in to signaling service successfully
+[2026-10-23 04:15:49:365 INFO] IPv4 supported, port: 19132: Used for gameplay and LAN discovery
+[2026-10-23 04:15:49:365 INFO] IPv6 supported, port: 19133: Used for gameplay
+[2026-10-23 04:15:49:398 INFO] Server started.
+[2026-10-23 04:15:49:398 ERROR] ================ TRANSPORT TYPE ERROR  ===================
+[2026-10-23 04:15:49:398 ERROR] Your current connection type is not set to NetherNet. In this release, NetherNet is the only supported transport type.
+[2026-10-23 04:15:49:398 ERROR] Players will not be able to connect to your game without NetherNet.
+[2026-10-23 04:15:49:398 ERROR] 
+[2026-10-23 04:15:49:398 ERROR] To switch, set 'transport=nethernet' in server.properties.
+[2026-10-23 04:15:49:398 ERROR] 
+[2026-10-23 04:15:49:398 ERROR] For more information, please reference the included bedrock_server_how_to.html file.
+[2026-10-23 04:15:49:398 ERROR] =======================================================
+[2026-10-23 04:15:49:398 INFO] ================ TELEMETRY MESSAGE ===================
+[2026-10-23 04:15:49:398 INFO] Server Telemetry is currently not enabled. 
+[2026-10-23 04:15:49:398 INFO] Enabling this telemetry helps us improve the game.
+[2026-10-23 04:15:49:398 INFO] 
+[2026-10-23 04:15:49:398 INFO] To enable this feature, add the line 'emit-server-telemetry=true'
+[2026-10-23 04:15:49:398 INFO] to the server.properties file in the handheld/src-server directory
+[2026-10-23 04:15:49:398 INFO] ======================================================
+[2026-10-23 04:15:49:535 INFO] Game rule randomTickSpeed has been updated to 0
+[2026-10-23 04:15:49:550 INFO] Game rule doMobSpawning has been updated to false
+[2026-10-23 04:15:49:650 INFO] Game rule doFireTick has been updated to false
+[2026-10-23 04:15:49:800 INFO] Game rule doWeatherCycle has been updated to false
+[2026-10-23 04:15:49:900 INFO] Game rule doDaylightCycle has been updated to false
+[2026-10-23 04:15:50:050 INFO] Game rule doInsomnia has been updated to false
+[2026-10-23 04:15:50:150 ERROR] Syntax error: Unexpected "doTraderSpawning": at "/gamerule >>doTraderSpawning<< false"
+[2026-10-23 04:15:50:250 ERROR] Syntax error: Unexpected "doPatrolSpawning": at "/gamerule >>doPatrolSpawning<< false"
+[2026-10-23 04:15:50:405 ERROR] Syntax error: Unexpected "doWanderingTraderSpawning": at "/gamerule >>doWanderingTraderSpawning<< false"
+[2026-10-23 04:15:50:505 INFO] Game rule mobGriefing has been updated to false
+[2026-10-23 04:15:50:655 INFO] Game rule tntExplodes has been updated to false
+[2026-10-23 04:15:50:755 INFO] Added ticking area from 2016, 0, 2016 to 2111, 0, 2111.
+1/10 ticking areas in use.
+[2026-10-23 04:15:50:855 ERROR] Cannot place block outside of the world
+[2026-10-23 04:15:51:005 ERROR] Cannot place block outside of the world
+[2026-10-23 04:15:51:105 ERROR] Cannot place block outside of the world
+[2026-10-23 04:15:51:255 ERROR] Cannot place block outside of the world
+[2026-10-23 04:15:52:861 INFO] Block placed
+[2026-10-23 04:15:52:960 INFO] Block placed
+[2026-10-23 04:15:53:111 INFO] Block placed
+[2026-10-23 04:15:53:210 INFO] Block placed
+[2026-10-23 04:16:02:971 ERROR] 0 blocks filled
+[2026-10-23 04:16:03:071 INFO] Block placed
+[2026-10-23 04:16:03:221 INFO] Block placed
+[2026-10-23 04:16:03:321 INFO] Block placed
+[2026-10-23 04:16:03:471 INFO] Block placed
+[2026-10-23 04:16:03:575 INFO] Block placed
+[2026-10-23 04:16:03:675 INFO] Block placed
+[2026-10-23 04:16:06:325 INFO] Server stop requested.
+[2026-10-23 04:16:06:375 INFO] Stopping server...
+Quit correctly
+[exit] code=0 signal=null
 
 held-out capture verification:
-(not run)
+1-c128_128: 98275/98275 blocks (+29 measured decoration variance) (100.0000%) exact
+1-c128_129: 98273/98273 blocks (+31 measured decoration variance) (100.0000%) exact
+1-c129_128: 98275/98275 blocks (+29 measured decoration variance) (100.0000%) exact
+1-c129_129: 98301/98301 blocks (+3 measured decoration variance) (100.0000%) exact
+wrote capture/verify-1.md
