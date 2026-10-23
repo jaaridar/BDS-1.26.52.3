@@ -2,10 +2,10 @@
   "schema": 1,
   "captures": [],
   "blockOrdering": "x*256 + z*16 + y (y fastest), proven by the marker probe",
-  "updatedAt": "2026-10-23T01:06:14.331Z",
+  "updatedAt": "2026-10-23T01:36:47.465Z",
   "columns": [
     {
-      "label": "1-c0_0",
+      "label": "1-c128_128",
       "seed": "1",
       "size": [
         16,
@@ -13,24 +13,24 @@
         16
       ],
       "origin": [
-        0,
+        2048,
         -64,
-        0
+        2048
       ],
-      "palette": 74,
+      "palette": 70,
       "blocks": {
-        "file": "golden-1-c0_0.blocks.bin",
-        "sha256": "1c84866be68ac4ce6fdef223499167fc60cd67ee731f75976576ae4d37161a32",
+        "file": "golden-1-c128_128.blocks.bin",
+        "sha256": "aa9e447cd1dade9b373739f1d560909766199be599e657840b4665adc51b38dc",
         "bytes": 196608,
         "layers": 2,
-        "file1": "golden-1-c0_0.layer1.bin",
-        "sha256_1": "6c76753e34152748fa2b72f109bd5e22018d61019fe23e6ab685f1dd18c0ba85"
+        "file1": "golden-1-c128_128.layer1.bin",
+        "sha256_1": "a96dd75b5e30aad26f16c22c06573e9e1968db3968e6596ea9c22fa4ef65fb38"
       },
       "binarySha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
       "source": "leveldb"
     },
     {
-      "label": "1-c0_1",
+      "label": "1-c128_130",
       "seed": "1",
       "size": [
         16,
@@ -38,43 +38,18 @@
         16
       ],
       "origin": [
-        0,
+        2048,
         -64,
-        16
+        2080
       ],
-      "palette": 64,
+      "palette": 97,
       "blocks": {
-        "file": "golden-1-c0_1.blocks.bin",
-        "sha256": "bdb24bd598509b7b3743befe19934d5d5d5bd9ba81f23aa8d0f2e50ca095e094",
+        "file": "golden-1-c128_130.blocks.bin",
+        "sha256": "b757f82dc6066ff99af61dffe1737721065492a411a102cb106529ef758ecfc7",
         "bytes": 196608,
         "layers": 2,
-        "file1": "golden-1-c0_1.layer1.bin",
-        "sha256_1": "709ed7a91dd918b049f69b7e55a139603c4e53d01e88a645f4074c2e033d9cce"
-      },
-      "binarySha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
-      "source": "leveldb"
-    },
-    {
-      "label": "1-c1_1",
-      "seed": "1",
-      "size": [
-        16,
-        384,
-        16
-      ],
-      "origin": [
-        16,
-        -64,
-        16
-      ],
-      "palette": 44,
-      "blocks": {
-        "file": "golden-1-c1_1.blocks.bin",
-        "sha256": "a00a8ea42d6c54b5182f016b0a967dcac2d97919922ce3b37b93e82ea8fde13d",
-        "bytes": 196608,
-        "layers": 2,
-        "file1": "golden-1-c1_1.layer1.bin",
-        "sha256_1": "4d091044c775f65d884c032ba6ca8c6bb330de6ab3e817bf50f6939d43e271c2"
+        "file1": "golden-1-c128_130.layer1.bin",
+        "sha256_1": "fe4c659abd91ec42ed4522728509d98082f726b8b99a47031981adcb65919aec"
       },
       "binarySha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
       "source": "leveldb"
