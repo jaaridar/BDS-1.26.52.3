@@ -6,10 +6,10 @@
   "generator": "default",
   "capture": {
     "binarySha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
-    "generatedAt": "2026-10-23T04:27:05.174Z",
+    "generatedAt": "2026-10-23T04:56:16.294Z",
     "source": "leveldb",
     "database": "db-dump.json",
-    "comparedCaptures": 11
+    "comparedCaptures": 13
   },
   "origin": [
     2064,
@@ -397,7 +397,7 @@
   ],
   "blocks": {
     "file": "golden-1-c129_128.blocks.bin",
-    "sha256": "ec13d532c8c58d5de8f0f90fdf7d6cdbb81fa0762e2cf2d9ca43853102940214",
+    "sha256": "fdc7f1a886e42224207d507b2e215f555fa72311e44a075a22ca807a4fd066ec",
     "bytes": 196608,
     "layers": 2,
     "file1": "golden-1-c129_128.layer1.bin",
