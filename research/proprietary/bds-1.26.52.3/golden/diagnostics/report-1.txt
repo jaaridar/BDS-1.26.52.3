@@ -35,133 +35,133 @@ capture files:
 196608 capture/golden-1-check/golden-1-c129_128.layer1.bin
 196608 capture/golden-1-check/golden-1-c129_129.blocks.bin
 196608 capture/golden-1-check/golden-1-c129_129.layer1.bin
-967051 capture/seed-1-c/db-dump.json
-971826 capture/seed-1-check/db-dump.json
-982287 capture/seed-1/db-dump.json
-983738 capture/seed-1-b/db-dump.json
+962947 capture/seed-1-check/db-dump.json
+968237 capture/seed-1-c/db-dump.json
+981447 capture/seed-1-b/db-dump.json
+984361 capture/seed-1/db-dump.json
 256133808 capture/seed-1-b/server/bedrock_server
 256133808 capture/seed-1-c/server/bedrock_server
 256133808 capture/seed-1-check/server/bedrock_server
 256133808 capture/seed-1/server/bedrock_server
 
 golden directory:
-total 1624
--rw-r--r-- 1 runner runner   7180 Oct 23 03:25 CAPTURE-FINDINGS.md
--rw-r--r-- 1 runner runner   2853 Oct 23 03:31 MANIFEST.json
-drwxr-xr-x 2 runner runner   4096 Oct 23 03:25 db
-drwxr-xr-x 2 runner runner   4096 Oct 23 03:25 diagnostics
--rw-r--r-- 1 runner runner 196608 Oct 23 03:31 golden-1-c128_128.blocks.bin
--rw-r--r-- 1 runner runner   7374 Oct 23 03:31 golden-1-c128_128.json
--rw-r--r-- 1 runner runner 196608 Oct 23 03:31 golden-1-c128_128.layer1.bin
--rw-r--r-- 1 runner runner   3584 Oct 23 03:31 golden-1-c128_128.unstable.json
--rw-r--r-- 1 runner runner 196608 Oct 23 03:31 golden-1-c128_129.blocks.bin
--rw-r--r-- 1 runner runner   7363 Oct 23 03:31 golden-1-c128_129.json
--rw-r--r-- 1 runner runner 196608 Oct 23 03:31 golden-1-c128_129.layer1.bin
--rw-r--r-- 1 runner runner  10540 Oct 23 03:31 golden-1-c128_129.unstable.json
--rw-r--r-- 1 runner runner 196608 Oct 23 03:31 golden-1-c129_128.blocks.bin
--rw-r--r-- 1 runner runner   7685 Oct 23 03:31 golden-1-c129_128.json
--rw-r--r-- 1 runner runner 196608 Oct 23 03:31 golden-1-c129_128.layer1.bin
--rw-r--r-- 1 runner runner  10002 Oct 23 03:31 golden-1-c129_128.unstable.json
--rw-r--r-- 1 runner runner 196608 Oct 23 03:31 golden-1-c129_129.blocks.bin
--rw-r--r-- 1 runner runner   8972 Oct 23 03:31 golden-1-c129_129.json
--rw-r--r-- 1 runner runner 196608 Oct 23 03:31 golden-1-c129_129.layer1.bin
--rw-r--r-- 1 runner runner   1163 Oct 23 03:31 golden-1-c129_129.unstable.json
+total 1656
+-rw-r--r-- 1 runner runner   7452 Oct 23 03:43 CAPTURE-FINDINGS.md
+-rw-r--r-- 1 runner runner   2853 Oct 23 03:49 MANIFEST.json
+drwxr-xr-x 2 runner runner   4096 Oct 23 03:43 db
+drwxr-xr-x 2 runner runner   4096 Oct 23 03:43 diagnostics
+-rw-r--r-- 1 runner runner 196608 Oct 23 03:49 golden-1-c128_128.blocks.bin
+-rw-r--r-- 1 runner runner   7375 Oct 23 03:49 golden-1-c128_128.json
+-rw-r--r-- 1 runner runner 196608 Oct 23 03:49 golden-1-c128_128.layer1.bin
+-rw-r--r-- 1 runner runner  12946 Oct 23 03:49 golden-1-c128_128.unstable.json
+-rw-r--r-- 1 runner runner 196608 Oct 23 03:49 golden-1-c128_129.blocks.bin
+-rw-r--r-- 1 runner runner   7137 Oct 23 03:49 golden-1-c128_129.json
+-rw-r--r-- 1 runner runner 196608 Oct 23 03:49 golden-1-c128_129.layer1.bin
+-rw-r--r-- 1 runner runner  11020 Oct 23 03:49 golden-1-c128_129.unstable.json
+-rw-r--r-- 1 runner runner 196608 Oct 23 03:49 golden-1-c129_128.blocks.bin
+-rw-r--r-- 1 runner runner   7568 Oct 23 03:49 golden-1-c129_128.json
+-rw-r--r-- 1 runner runner 196608 Oct 23 03:49 golden-1-c129_128.layer1.bin
+-rw-r--r-- 1 runner runner  16810 Oct 23 03:49 golden-1-c129_128.unstable.json
+-rw-r--r-- 1 runner runner 196608 Oct 23 03:49 golden-1-c129_129.blocks.bin
+-rw-r--r-- 1 runner runner   8856 Oct 23 03:49 golden-1-c129_129.json
+-rw-r--r-- 1 runner runner 196608 Oct 23 03:49 golden-1-c129_129.layer1.bin
+-rw-r--r-- 1 runner runner  13424 Oct 23 03:49 golden-1-c129_129.unstable.json
 
 server log tail:
 NO LOG FILE! - setting up server logging...
-[2026-10-23 03:25:43:265 INFO] Starting Server
-[2026-10-23 03:25:43:265 INFO] Version: 1.26.52.3
-[2026-10-23 03:25:43:265 INFO] Session ID: 1dbd551e-884b-4eed-abc0-0d500455d4a9
-[2026-10-23 03:25:43:265 INFO] Build ID: 51798919
-[2026-10-23 03:25:43:265 INFO] Branch: r/26_u5
-[2026-10-23 03:25:43:265 INFO] Commit ID: 54116bb5ee0b7aee0b5591efbcc8bc3cf64f168a
-[2026-10-23 03:25:43:265 INFO] Configuration: Publish
-[2026-10-23 03:25:43:265 INFO] Contents of server.properties: {}
-[2026-10-23 03:25:43:265 INFO] Level Name: golden
-[2026-10-23 03:25:43:265 INFO] Profiler config ('bootstrap.json') load result: success=1, errorMessage=(null)
-[2026-10-23 03:25:43:270 INFO] No CDN config file found at: cdn_config.json for dedicated server
-[2026-10-23 03:25:43:270 INFO] Game mode: 1 Creative
-[2026-10-23 03:25:43:270 INFO] Difficulty: 0 PEACEFUL
-[2026-10-23 03:25:43:274 INFO] Content logging to console is enabled.
-[2026-10-23 03:25:43:276 INFO] 
+[2026-10-23 03:43:40:878 INFO] Starting Server
+[2026-10-23 03:43:40:878 INFO] Version: 1.26.52.3
+[2026-10-23 03:43:40:878 INFO] Session ID: 0879754b-b506-4d22-93c6-2c121fc777bd
+[2026-10-23 03:43:40:878 INFO] Build ID: 51798919
+[2026-10-23 03:43:40:878 INFO] Branch: r/26_u5
+[2026-10-23 03:43:40:878 INFO] Commit ID: 54116bb5ee0b7aee0b5591efbcc8bc3cf64f168a
+[2026-10-23 03:43:40:878 INFO] Configuration: Publish
+[2026-10-23 03:43:40:878 INFO] Contents of server.properties: {}
+[2026-10-23 03:43:40:878 INFO] Level Name: golden
+[2026-10-23 03:43:40:878 INFO] Profiler config ('bootstrap.json') load result: success=1, errorMessage=(null)
+[2026-10-23 03:43:40:882 INFO] No CDN config file found at: cdn_config.json for dedicated server
+[2026-10-23 03:43:40:882 INFO] Game mode: 1 Creative
+[2026-10-23 03:43:40:882 INFO] Difficulty: 0 PEACEFUL
+[2026-10-23 03:43:40:884 INFO] Content logging to console is enabled.
+[2026-10-23 03:43:40:885 INFO] 
 
 #####################################################
 #                                                   #
 #              CREATING VANILLA WORLD               #
 #                                                   #
 #####################################################
-[2026-10-23 03:25:43:705 INFO] Opening level 'worlds/golden/db'
-[2026-10-23 03:25:43:741 INFO] Pack Stack - None
-[2026-10-23 03:25:43:928 INFO] Signed in to signaling service successfully
-[2026-10-23 03:25:44:607 INFO] IPv4 supported, port: 19132: Used for gameplay and LAN discovery
-[2026-10-23 03:25:44:607 INFO] IPv6 supported, port: 19133: Used for gameplay
-[2026-10-23 03:25:44:641 INFO] Server started.
-[2026-10-23 03:25:44:641 ERROR] ================ TRANSPORT TYPE ERROR  ===================
-[2026-10-23 03:25:44:641 ERROR] Your current connection type is not set to NetherNet. In this release, NetherNet is the only supported transport type.
-[2026-10-23 03:25:44:641 ERROR] Players will not be able to connect to your game without NetherNet.
-[2026-10-23 03:25:44:641 ERROR] 
-[2026-10-23 03:25:44:641 ERROR] To switch, set 'transport=nethernet' in server.properties.
-[2026-10-23 03:25:44:641 ERROR] 
-[2026-10-23 03:25:44:641 ERROR] For more information, please reference the included bedrock_server_how_to.html file.
-[2026-10-23 03:25:44:641 ERROR] =======================================================
-[2026-10-23 03:25:44:641 INFO] ================ TELEMETRY MESSAGE ===================
-[2026-10-23 03:25:44:641 INFO] Server Telemetry is currently not enabled. 
-[2026-10-23 03:25:44:641 INFO] Enabling this telemetry helps us improve the game.
-[2026-10-23 03:25:44:641 INFO] 
-[2026-10-23 03:25:44:641 INFO] To enable this feature, add the line 'emit-server-telemetry=true'
-[2026-10-23 03:25:44:641 INFO] to the server.properties file in the handheld/src-server directory
-[2026-10-23 03:25:44:641 INFO] ======================================================
-[2026-10-23 03:25:44:782 INFO] Game rule randomTickSpeed has been updated to 0
-[2026-10-23 03:25:44:793 INFO] Game rule doMobSpawning has been updated to false
-[2026-10-23 03:25:44:893 INFO] Game rule doFireTick has been updated to false
-[2026-10-23 03:25:45:043 INFO] Game rule doWeatherCycle has been updated to false
-[2026-10-23 03:25:45:143 INFO] Game rule doDaylightCycle has been updated to false
-[2026-10-23 03:25:45:293 INFO] Game rule doInsomnia has been updated to false
-[2026-10-23 03:25:45:393 ERROR] Syntax error: Unexpected "doTraderSpawning": at "/gamerule >>doTraderSpawning<< false"
-[2026-10-23 03:25:45:493 ERROR] Syntax error: Unexpected "doPatrolSpawning": at "/gamerule >>doPatrolSpawning<< false"
-[2026-10-23 03:25:45:643 ERROR] Syntax error: Unexpected "doWanderingTraderSpawning": at "/gamerule >>doWanderingTraderSpawning<< false"
-[2026-10-23 03:25:45:743 INFO] Game rule mobGriefing has been updated to false
-[2026-10-23 03:25:45:899 INFO] Game rule tntExplodes has been updated to false
-[2026-10-23 03:25:45:999 INFO] Added ticking area from 2016, 0, 2016 to 2111, 0, 2111.
+[2026-10-23 03:43:41:311 INFO] Opening level 'worlds/golden/db'
+[2026-10-23 03:43:41:346 INFO] Pack Stack - None
+[2026-10-23 03:43:41:534 INFO] Signed in to signaling service successfully
+[2026-10-23 03:43:42:218 INFO] IPv4 supported, port: 19132: Used for gameplay and LAN discovery
+[2026-10-23 03:43:42:218 INFO] IPv6 supported, port: 19133: Used for gameplay
+[2026-10-23 03:43:42:252 INFO] Server started.
+[2026-10-23 03:43:42:252 ERROR] ================ TRANSPORT TYPE ERROR  ===================
+[2026-10-23 03:43:42:252 ERROR] Your current connection type is not set to NetherNet. In this release, NetherNet is the only supported transport type.
+[2026-10-23 03:43:42:252 ERROR] Players will not be able to connect to your game without NetherNet.
+[2026-10-23 03:43:42:252 ERROR] 
+[2026-10-23 03:43:42:252 ERROR] To switch, set 'transport=nethernet' in server.properties.
+[2026-10-23 03:43:42:252 ERROR] 
+[2026-10-23 03:43:42:252 ERROR] For more information, please reference the included bedrock_server_how_to.html file.
+[2026-10-23 03:43:42:252 ERROR] =======================================================
+[2026-10-23 03:43:42:252 INFO] ================ TELEMETRY MESSAGE ===================
+[2026-10-23 03:43:42:252 INFO] Server Telemetry is currently not enabled. 
+[2026-10-23 03:43:42:252 INFO] Enabling this telemetry helps us improve the game.
+[2026-10-23 03:43:42:252 INFO] 
+[2026-10-23 03:43:42:252 INFO] To enable this feature, add the line 'emit-server-telemetry=true'
+[2026-10-23 03:43:42:252 INFO] to the server.properties file in the handheld/src-server directory
+[2026-10-23 03:43:42:252 INFO] ======================================================
+[2026-10-23 03:43:42:392 INFO] Game rule randomTickSpeed has been updated to 0
+[2026-10-23 03:43:42:404 INFO] Game rule doMobSpawning has been updated to false
+[2026-10-23 03:43:42:504 INFO] Game rule doFireTick has been updated to false
+[2026-10-23 03:43:42:654 INFO] Game rule doWeatherCycle has been updated to false
+[2026-10-23 03:43:42:754 INFO] Game rule doDaylightCycle has been updated to false
+[2026-10-23 03:43:42:904 INFO] Game rule doInsomnia has been updated to false
+[2026-10-23 03:43:43:004 ERROR] Syntax error: Unexpected "doTraderSpawning": at "/gamerule >>doTraderSpawning<< false"
+[2026-10-23 03:43:43:104 ERROR] Syntax error: Unexpected "doPatrolSpawning": at "/gamerule >>doPatrolSpawning<< false"
+[2026-10-23 03:43:43:259 ERROR] Syntax error: Unexpected "doWanderingTraderSpawning": at "/gamerule >>doWanderingTraderSpawning<< false"
+[2026-10-23 03:43:43:359 INFO] Game rule mobGriefing has been updated to false
+[2026-10-23 03:43:43:509 INFO] Game rule tntExplodes has been updated to false
+[2026-10-23 03:43:43:609 INFO] Added ticking area from 2016, 0, 2016 to 2111, 0, 2111.
 1/10 ticking areas in use.
-[2026-10-23 03:26:18:520 INFO] Block placed
-[2026-10-23 03:26:18:620 INFO] Block placed
-[2026-10-23 03:26:18:770 INFO] Block placed
-[2026-10-23 03:26:18:870 INFO] Block placed
-[2026-10-23 03:26:20:120 ERROR] 0 blocks filled
-[2026-10-23 03:26:20:225 INFO] Block placed
-[2026-10-23 03:26:20:375 INFO] Block placed
-[2026-10-23 03:26:20:475 INFO] Block placed
-[2026-10-23 03:26:20:625 INFO] Block placed
-[2026-10-23 03:26:20:725 INFO] Block placed
-[2026-10-23 03:26:20:825 INFO] Block placed
-[2026-10-23 03:26:21:475 INFO] Saved a structure with name mystructure:wp_probe
-[2026-10-23 03:26:23:081 INFO] Saved a structure with name mystructure:c128_128_y0
-[2026-10-23 03:26:23:481 INFO] Saved a structure with name mystructure:c128_128_y1
-[2026-10-23 03:26:23:831 INFO] Saved a structure with name mystructure:c128_128_y2
-[2026-10-23 03:26:24:181 INFO] Saved a structure with name mystructure:c128_128_y3
-[2026-10-23 03:26:24:580 INFO] Saved a structure with name mystructure:c128_128_y4
-[2026-10-23 03:26:24:931 INFO] Saved a structure with name mystructure:c128_128_y5
-[2026-10-23 03:26:25:336 INFO] Saved a structure with name mystructure:c129_128_y0
-[2026-10-23 03:26:25:686 INFO] Saved a structure with name mystructure:c129_128_y1
-[2026-10-23 03:26:26:035 INFO] Saved a structure with name mystructure:c129_128_y2
-[2026-10-23 03:26:26:435 INFO] Saved a structure with name mystructure:c129_128_y3
-[2026-10-23 03:26:26:785 INFO] Saved a structure with name mystructure:c129_128_y4
-[2026-10-23 03:26:27:185 INFO] Saved a structure with name mystructure:c129_128_y5
-[2026-10-23 03:26:27:536 INFO] Saved a structure with name mystructure:c128_129_y0
-[2026-10-23 03:26:27:941 INFO] Saved a structure with name mystructure:c128_129_y1
-[2026-10-23 03:26:28:291 INFO] Saved a structure with name mystructure:c128_129_y2
-[2026-10-23 03:26:28:640 INFO] Saved a structure with name mystructure:c128_129_y3
-[2026-10-23 03:26:29:040 INFO] Saved a structure with name mystructure:c128_129_y4
-[2026-10-23 03:26:29:390 INFO] Saved a structure with name mystructure:c128_129_y5
-[2026-10-23 03:26:29:791 INFO] Saved a structure with name mystructure:c129_129_y0
-[2026-10-23 03:26:30:146 INFO] Saved a structure with name mystructure:c129_129_y1
-[2026-10-23 03:26:30:495 INFO] Saved a structure with name mystructure:c129_129_y2
-[2026-10-23 03:26:30:895 INFO] Saved a structure with name mystructure:c129_129_y3
-[2026-10-23 03:26:31:246 INFO] Saved a structure with name mystructure:c129_129_y4
-[2026-10-23 03:26:31:645 INFO] Saved a structure with name mystructure:c129_129_y5
-[2026-10-23 03:29:19:969 INFO] Server stop requested.
-[2026-10-23 03:29:20:019 INFO] Stopping server...
+[2026-10-23 03:44:16:168 INFO] Block placed
+[2026-10-23 03:44:16:272 INFO] Block placed
+[2026-10-23 03:44:16:422 INFO] Block placed
+[2026-10-23 03:44:16:522 INFO] Block placed
+[2026-10-23 03:44:17:772 ERROR] 0 blocks filled
+[2026-10-23 03:44:17:872 INFO] Block placed
+[2026-10-23 03:44:18:022 INFO] Block placed
+[2026-10-23 03:44:18:122 INFO] Block placed
+[2026-10-23 03:44:18:222 INFO] Block placed
+[2026-10-23 03:44:18:372 INFO] Block placed
+[2026-10-23 03:44:18:472 INFO] Block placed
+[2026-10-23 03:44:19:127 INFO] Saved a structure with name mystructure:wp_probe
+[2026-10-23 03:44:20:728 INFO] Saved a structure with name mystructure:c128_128_y0
+[2026-10-23 03:44:21:078 INFO] Saved a structure with name mystructure:c128_128_y1
+[2026-10-23 03:44:21:483 INFO] Saved a structure with name mystructure:c128_128_y2
+[2026-10-23 03:44:21:833 INFO] Saved a structure with name mystructure:c128_128_y3
+[2026-10-23 03:44:22:233 INFO] Saved a structure with name mystructure:c128_128_y4
+[2026-10-23 03:44:22:583 INFO] Saved a structure with name mystructure:c128_128_y5
+[2026-10-23 03:44:22:983 INFO] Saved a structure with name mystructure:c129_128_y0
+[2026-10-23 03:44:23:333 INFO] Saved a structure with name mystructure:c129_128_y1
+[2026-10-23 03:44:23:683 INFO] Saved a structure with name mystructure:c129_128_y2
+[2026-10-23 03:44:24:088 INFO] Saved a structure with name mystructure:c129_128_y3
+[2026-10-23 03:44:24:438 INFO] Saved a structure with name mystructure:c129_128_y4
+[2026-10-23 03:44:24:838 INFO] Saved a structure with name mystructure:c129_128_y5
+[2026-10-23 03:44:25:188 INFO] Saved a structure with name mystructure:c128_129_y0
+[2026-10-23 03:44:25:538 INFO] Saved a structure with name mystructure:c128_129_y1
+[2026-10-23 03:44:25:938 INFO] Saved a structure with name mystructure:c128_129_y2
+[2026-10-23 03:44:26:288 INFO] Saved a structure with name mystructure:c128_129_y3
+[2026-10-23 03:44:26:693 INFO] Saved a structure with name mystructure:c128_129_y4
+[2026-10-23 03:44:27:043 INFO] Saved a structure with name mystructure:c128_129_y5
+[2026-10-23 03:44:27:393 INFO] Saved a structure with name mystructure:c129_129_y0
+[2026-10-23 03:44:27:793 INFO] Saved a structure with name mystructure:c129_129_y1
+[2026-10-23 03:44:28:143 INFO] Saved a structure with name mystructure:c129_129_y2
+[2026-10-23 03:44:28:543 INFO] Saved a structure with name mystructure:c129_129_y3
+[2026-10-23 03:44:28:898 INFO] Saved a structure with name mystructure:c129_129_y4
+[2026-10-23 03:44:29:248 INFO] Saved a structure with name mystructure:c129_129_y5
+[2026-10-23 03:47:24:382 INFO] Server stop requested.
+[2026-10-23 03:47:24:430 INFO] Stopping server...
 Quit correctly
 structure files found in the working tree:
 2742 server/behavior_packs/vanilla/structures/bastion/mobs/melee_piglin_always.mcstructure
@@ -203,21 +203,19 @@ capture/seed-1/server/behavior_packs/vanilla/structures/bastion/mobs/sword_pigli
 capture/seed-1/server/behavior_packs/vanilla/structures/bastion/mobs/melee_piglin.mcstructure
 
 db dump / decode log:
-golden 1-c128_128: 16x384x16 = 98304 blocks, 196608 B, palette 70, layers 2, stable 98275, unstable 29
-golden 1-c129_128: 16x384x16 = 98304 blocks, 196608 B, palette 69, layers 2, stable 98229, unstable 75
-golden 1-c128_129: 16x384x16 = 98304 blocks, 196608 B, palette 68, layers 2, stable 98221, unstable 83
-golden 1-c129_129: 16x384x16 = 98304 blocks, 196608 B, palette 78, layers 2, stable 98295, unstable 9
+golden 1-c128_128: 16x384x16 = 98304 blocks, 196608 B, palette 70, layers 2, stable 98201, unstable 103
+golden 1-c129_128: 16x384x16 = 98304 blocks, 196608 B, palette 68, layers 2, stable 98171, unstable 133
+golden 1-c128_129: 16x384x16 = 98304 blocks, 196608 B, palette 66, layers 2, stable 98218, unstable 86
+golden 1-c129_129: 16x384x16 = 98304 blocks, 196608 B, palette 77, layers 2, stable 98195, unstable 109
 
 wrote 4 column(s) to research/proprietary/bds-1.26.52.3/golden; skipped 0
 probe marker present at 2048,100,2048: ordering claim is supported
 
 determinism check (re-capture vs golden):
-1-c128_128: 98223/98304 blocks (99.9176%)
-  below threshold 0.9995
-1-c128_129: 98303/98304 blocks (99.9990%)
-1-c129_128: 98239/98304 blocks (99.9339%)
-  below threshold 0.9995
-1-c129_129: 98302/98304 blocks (99.9980%)
+1-c128_128: 98302/98302 blocks (+2 measured decoration variance) (100.0000%) exact
+1-c128_129: 98281/98281 blocks (+23 measured decoration variance) (100.0000%) exact
+1-c129_128: 98285/98285 blocks (+19 measured decoration variance) (100.0000%) exact
+1-c129_129: 98301/98301 blocks (+3 measured decoration variance) (100.0000%) exact
 wrote capture/verify-1.md
 
 structure save note:

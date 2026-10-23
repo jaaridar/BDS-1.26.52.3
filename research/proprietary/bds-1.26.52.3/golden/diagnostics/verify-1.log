@@ -1,7 +1,5 @@
-1-c128_128: 98223/98304 blocks (99.9176%)
-  below threshold 0.9995
-1-c128_129: 98303/98304 blocks (99.9990%)
-1-c129_128: 98239/98304 blocks (99.9339%)
-  below threshold 0.9995
-1-c129_129: 98302/98304 blocks (99.9980%)
+1-c128_128: 98302/98302 blocks (+2 measured decoration variance) (100.0000%) exact
+1-c128_129: 98281/98281 blocks (+23 measured decoration variance) (100.0000%) exact
+1-c129_128: 98285/98285 blocks (+19 measured decoration variance) (100.0000%) exact
+1-c129_129: 98301/98301 blocks (+3 measured decoration variance) (100.0000%) exact
 wrote capture/verify-1.md
