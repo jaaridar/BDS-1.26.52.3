@@ -1,30 +1,55 @@
-# FUN_041086b0
+# FUN_04134310
 
-- entry: `0x41086b0`
-- body size: 67 bytes
-- callers: `FUN_04882e40`, `FUN_04882eb0`, `FUN_04891200`
+- entry: `0x4134310`
+- body size: 263 bytes
+- callers: `FUN_0d33fd60`
 
 ```c
 
-long FUN_041086b0(long param_1)
+/* WARNING: Removing unreachable block (ram,0x04134355) */
+/* WARNING: Removing unreachable block (ram,0x0413435a) */
+
+long * FUN_04134310(long *param_1,int param_2)
 
 {
   code *pcVar1;
-  long lVar2;
-  undefined8 uVar3;
-  ulong uVar4;
+  undefined1 *puVar2;
+  char *pcVar3;
+  long *plVar4;
+  long lVar5;
+  ulong uVar6;
+  undefined1 auStack_3b [11];
   
-  uVar4 = param_1 + 0x8fU & 0xfffffffffffffff0;
-  lVar2 = func_0x04108d40(uVar4);
-  if (lVar2 != 0) {
-    memset(lVar2,0,uVar4);
-    return lVar2 + 0x80;
+  if (param_2 < 0) {
+    auStack_3b[0] = 0x2d;
   }
-  uVar3 = func_0x04109e60();
-  func_0x04882e20(uVar3);
+  puVar2 = (undefined1 *)func_0x04136630();
+  uVar6 = (long)puVar2 - (long)auStack_3b;
+  if (uVar6 < 0xfffffffffffffff8) {
+    if (uVar6 < 0x17) {
+      *(char *)param_1 = (char)uVar6 * '\x02';
+      pcVar3 = (char *)((long)param_1 + 1);
+    }
+    else {
+      lVar5 = 0x1a;
+      if ((uVar6 | 7) != 0x17) {
+        lVar5 = (uVar6 | 7) + 1;
+      }
+      pcVar3 = (char *)func_0x0ee32660(lVar5);
+      param_1[2] = (long)pcVar3;
+      *param_1 = lVar5 + 1;
+      param_1[1] = uVar6;
+    }
+    if (puVar2 != auStack_3b) {
+      memcpy(pcVar3,auStack_3b,uVar6);
+    }
+    pcVar3[uVar6] = '\0';
+    return param_1;
+  }
+  func_0x04882e30();
   pcVar1 = (code *)swi(3);
-  lVar2 = (*pcVar1)();
-  return lVar2;
+  plVar4 = (long *)(*pcVar1)();
+  return plVar4;
 }
 
 

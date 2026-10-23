@@ -1,15 +1,19 @@
-# memcpy
+# FUN_052bdae0
 
-- entry: `0xeee2f00`
-- body size: 6 bytes
-- callers: `FUN_0d33fd60`, `FUN_0d341b00`, `FUN_0d3430a0`
+- entry: `0x52bdae0`
+- body size: 14 bytes
+- callers: `FUN_0d3430a0`
 
 ```c
 
-void memcpy(void)
+void FUN_052bdae0(void)
 
 {
-  (*(code *)PTR_memcpy_0f546518)();
+  code *pcVar1;
+  
+  func_0x04882e40(&UNK_013f6512);
+  pcVar1 = (code *)swi(3);
+  (*pcVar1)();
   return;
 }
 

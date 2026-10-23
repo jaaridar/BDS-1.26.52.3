@@ -1,8 +1,5 @@
-# FUN_0d345700 (disassembly)
+# thunk_FUN_0eeb5980 (disassembly)
 
 ```
-0d345700  PUSH RAX
-0d345701  LEA RDI,[0x13f6512]
-0d345708  CALL 0x04882ef0
-0d34570d  INT3
+0eeb5fa0  JMP 0x0eeb5980
 ```

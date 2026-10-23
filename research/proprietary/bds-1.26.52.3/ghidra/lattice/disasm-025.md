@@ -1,5 +1,8 @@
-# ldexp (disassembly)
+# FUN_049cd2d0 (disassembly)
 
 ```
-0eee3a30  JMP qword ptr [0x0f546ab0]
+049cd2d0  PUSH RAX
+049cd2d1  LEA RDI,[0x13f6512]
+049cd2d8  CALL 0x04882e40
+049cd2dd  INT3
 ```

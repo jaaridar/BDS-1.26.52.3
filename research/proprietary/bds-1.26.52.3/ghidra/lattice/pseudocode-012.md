@@ -1,22 +1,15 @@
-# FUN_04882eb0
+# _Unwind_Resume
 
-- entry: `0x4882eb0`
-- body size: 45 bytes
-- callers: `FUN_0d33fd60`, `FUN_0d341b00`, `FUN_0d3430a0`
+- entry: `0xeee2d70`
+- body size: 6 bytes
+- callers: `FUN_04882e40`, `FUN_0d33fd60`, `FUN_0d3430a0`, `FUN_0eeddcf0`
 
 ```c
 
-void FUN_04882eb0(void)
+void _Unwind_Resume(void)
 
 {
-  code *pcVar1;
-  undefined8 uVar2;
-  
-  uVar2 = func_0x041086b0(8);
-  func_0x0412a430(uVar2);
-  func_0x041088a0(uVar2,&UNK_0eeebbc0,&UNK_0412a380);
-  pcVar1 = (code *)swi(3);
-  (*pcVar1)();
+  (*(code *)PTR__Unwind_Resume_0f546450)();
   return;
 }
 

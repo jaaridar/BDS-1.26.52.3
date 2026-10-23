@@ -1,20 +1,15 @@
-# FUN_04882e20
+# _Unwind_RaiseException
 
-- entry: `0x4882e20`
-- body size: 12 bytes
-- callers: `FUN_041086b0`, `FUN_04108700`, `FUN_04109e60`, `FUN_04109ee0`
+- entry: `0xeee2de0`
+- body size: 6 bytes
+- callers: `FUN_041088a0`
 
 ```c
 
-void FUN_04882e20(void)
+void _Unwind_RaiseException(void)
 
 {
-  code *pcVar1;
-  
-  FUN_04108700();
-  FUN_04109e60();
-  pcVar1 = (code *)swi(3);
-  (*pcVar1)();
+  (*(code *)PTR__Unwind_RaiseException_0f546488)();
   return;
 }
 

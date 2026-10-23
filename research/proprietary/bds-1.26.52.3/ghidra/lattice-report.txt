@@ -1,123 +1,123 @@
 lattice files:
-total 824
--rw-r--r-- 1 runner runner     14 Oct 23 05:15 compile.log
--rw-r----- 1 runner runner  16838 Oct 23 05:15 constants.tsv
--rw-r----- 1 runner runner  21014 Oct 23 05:15 disasm-001.md
--rw-r----- 1 runner runner   8010 Oct 23 05:15 disasm-002.md
--rw-r----- 1 runner runner  21267 Oct 23 05:15 disasm-003.md
--rw-r----- 1 runner runner   4675 Oct 23 05:15 disasm-004.md
--rw-r----- 1 runner runner   4386 Oct 23 05:15 disasm-005.md
--rw-r----- 1 runner runner   3170 Oct 23 05:15 disasm-006.md
--rw-r----- 1 runner runner     69 Oct 23 05:15 disasm-007.md
--rw-r----- 1 runner runner     69 Oct 23 05:15 disasm-008.md
--rw-r----- 1 runner runner    796 Oct 23 05:15 disasm-009.md
--rw-r----- 1 runner runner     69 Oct 23 05:15 disasm-010.md
--rw-r----- 1 runner runner    128 Oct 23 05:15 disasm-011.md
--rw-r----- 1 runner runner    298 Oct 23 05:15 disasm-012.md
--rw-r----- 1 runner runner     77 Oct 23 05:15 disasm-013.md
--rw-r----- 1 runner runner     69 Oct 23 05:15 disasm-014.md
--rw-r----- 1 runner runner    128 Oct 23 05:15 disasm-015.md
--rw-r----- 1 runner runner    733 Oct 23 05:15 disasm-016.md
--rw-r----- 1 runner runner  32009 Oct 23 05:15 disasm-017.md
--rw-r----- 1 runner runner   1792 Oct 23 05:15 disasm-018.md
--rw-r----- 1 runner runner    499 Oct 23 05:15 disasm-019.md
--rw-r----- 1 runner runner    502 Oct 23 05:15 disasm-020.md
--rw-r----- 1 runner runner    139 Oct 23 05:15 disasm-021.md
--rw-r----- 1 runner runner    654 Oct 23 05:15 disasm-022.md
--rw-r----- 1 runner runner   2051 Oct 23 05:15 disasm-023.md
--rw-r----- 1 runner runner   3042 Oct 23 05:15 disasm-024.md
--rw-r----- 1 runner runner     68 Oct 23 05:15 disasm-025.md
--rw-r----- 1 runner runner    128 Oct 23 05:15 disasm-026.md
--rw-r----- 1 runner runner    128 Oct 23 05:15 disasm-027.md
--rw-r----- 1 runner runner    128 Oct 23 05:15 disasm-028.md
--rw-r----- 1 runner runner    128 Oct 23 05:15 disasm-029.md
--rw-r----- 1 runner runner     69 Oct 23 05:15 disasm-030.md
--rw-r----- 1 runner runner    315 Oct 23 05:15 disasm-031.md
--rw-r----- 1 runner runner    224 Oct 23 05:15 disasm-032.md
--rw-r----- 1 runner runner    139 Oct 23 05:15 disasm-033.md
--rw-r----- 1 runner runner   2765 Oct 23 05:15 disasm-034.md
--rw-r----- 1 runner runner    650 Oct 23 05:15 disasm-035.md
--rw-r----- 1 runner runner    124 Oct 23 05:15 disasm-036.md
--rw-r----- 1 runner runner    160 Oct 23 05:15 disasm-037.md
--rw-r----- 1 runner runner    774 Oct 23 05:15 disasm-038.md
--rw-r----- 1 runner runner     85 Oct 23 05:15 disasm-039.md
--rw-r----- 1 runner runner   1036 Oct 23 05:15 disasm-040.md
--rw-r----- 1 runner runner    343 Oct 23 05:15 disasm-041.md
--rw-r----- 1 runner runner   6240 Oct 23 05:15 disasm-042.md
--rw-r----- 1 runner runner    514 Oct 23 05:15 disasm-043.md
--rw-r----- 1 runner runner    128 Oct 23 05:15 disasm-044.md
--rw-r----- 1 runner runner     70 Oct 23 05:15 disasm-045.md
--rw-r----- 1 runner runner    499 Oct 23 05:15 disasm-046.md
--rw-r----- 1 runner runner  23693 Oct 23 05:15 pseudocode-001.md
--rw-r----- 1 runner runner   5615 Oct 23 05:15 pseudocode-002.md
--rw-r----- 1 runner runner  26529 Oct 23 05:15 pseudocode-003.md
--rw-r----- 1 runner runner   6958 Oct 23 05:15 pseudocode-004.md
--rw-r----- 1 runner runner   3353 Oct 23 05:15 pseudocode-005.md
--rw-r----- 1 runner runner   2110 Oct 23 05:15 pseudocode-006.md
--rw-r----- 1 runner runner    417 Oct 23 05:15 pseudocode-007.md
--rw-r----- 1 runner runner    192 Oct 23 05:15 pseudocode-008.md
--rw-r----- 1 runner runner    971 Oct 23 05:15 pseudocode-009.md
--rw-r----- 1 runner runner    192 Oct 23 05:15 pseudocode-010.md
--rw-r----- 1 runner runner    232 Oct 23 05:15 pseudocode-011.md
--rw-r----- 1 runner runner    360 Oct 23 05:15 pseudocode-012.md
--rw-r----- 1 runner runner    248 Oct 23 05:15 pseudocode-013.md
--rw-r----- 1 runner runner    160 Oct 23 05:15 pseudocode-014.md
--rw-r----- 1 runner runner    229 Oct 23 05:15 pseudocode-015.md
--rw-r----- 1 runner runner    547 Oct 23 05:15 pseudocode-016.md
--rw-r----- 1 runner runner  27247 Oct 23 05:15 pseudocode-017.md
--rw-r----- 1 runner runner   1758 Oct 23 05:15 pseudocode-018.md
--rw-r----- 1 runner runner    474 Oct 23 05:15 pseudocode-019.md
--rw-r----- 1 runner runner    514 Oct 23 05:15 pseudocode-020.md
--rw-r----- 1 runner runner    180 Oct 23 05:15 pseudocode-021.md
--rw-r----- 1 runner runner    576 Oct 23 05:15 pseudocode-022.md
--rw-r----- 1 runner runner   1166 Oct 23 05:15 pseudocode-023.md
--rw-r----- 1 runner runner   1983 Oct 23 05:15 pseudocode-024.md
--rw-r----- 1 runner runner    157 Oct 23 05:15 pseudocode-025.md
--rw-r----- 1 runner runner    232 Oct 23 05:15 pseudocode-026.md
--rw-r----- 1 runner runner    229 Oct 23 05:15 pseudocode-027.md
--rw-r----- 1 runner runner    229 Oct 23 05:15 pseudocode-028.md
--rw-r----- 1 runner runner    229 Oct 23 05:15 pseudocode-029.md
--rw-r----- 1 runner runner   8247 Oct 23 05:15 pseudocode-030.md
--rw-r----- 1 runner runner    357 Oct 23 05:15 pseudocode-031.md
--rw-r----- 1 runner runner    201 Oct 23 05:15 pseudocode-032.md
--rw-r----- 1 runner runner    234 Oct 23 05:15 pseudocode-033.md
--rw-r----- 1 runner runner   2355 Oct 23 05:15 pseudocode-034.md
--rw-r----- 1 runner runner    677 Oct 23 05:15 pseudocode-035.md
--rw-r----- 1 runner runner    282 Oct 23 05:15 pseudocode-036.md
--rw-r----- 1 runner runner    202 Oct 23 05:15 pseudocode-037.md
--rw-r----- 1 runner runner    609 Oct 23 05:15 pseudocode-038.md
--rw-r----- 1 runner runner    208 Oct 23 05:15 pseudocode-039.md
--rw-r----- 1 runner runner    985 Oct 23 05:15 pseudocode-040.md
--rw-r----- 1 runner runner    389 Oct 23 05:15 pseudocode-041.md
--rw-r----- 1 runner runner   3850 Oct 23 05:15 pseudocode-042.md
--rw-r----- 1 runner runner    425 Oct 23 05:15 pseudocode-043.md
--rw-r----- 1 runner runner    245 Oct 23 05:15 pseudocode-044.md
--rw-r----- 1 runner runner    163 Oct 23 05:15 pseudocode-045.md
--rw-r----- 1 runner runner    439 Oct 23 05:15 pseudocode-046.md
--rw-r----- 1 runner runner   5208 Oct 23 05:15 summary.md
--rw-r----- 1 runner runner 258678 Oct 23 05:15 tables.md
+total 752
+-rw-r--r-- 1 runner runner     14 Oct 23 05:17 compile.log
+-rw-r--r-- 1 runner runner  14741 Oct 23 05:18 constants.tsv
+-rw-r--r-- 1 runner runner   3220 Oct 23 05:17 disasm-001.md
+-rw-r--r-- 1 runner runner    346 Oct 23 05:17 disasm-002.md
+-rw-r--r-- 1 runner runner    302 Oct 23 05:17 disasm-003.md
+-rw-r--r-- 1 runner runner  21267 Oct 23 05:17 disasm-004.md
+-rw-r--r-- 1 runner runner   4675 Oct 23 05:17 disasm-005.md
+-rw-r--r-- 1 runner runner     69 Oct 23 05:17 disasm-006.md
+-rw-r--r-- 1 runner runner     69 Oct 23 05:17 disasm-007.md
+-rw-r--r-- 1 runner runner     69 Oct 23 05:17 disasm-008.md
+-rw-r--r-- 1 runner runner    796 Oct 23 05:17 disasm-009.md
+-rw-r--r-- 1 runner runner    128 Oct 23 05:17 disasm-010.md
+-rw-r--r-- 1 runner runner    298 Oct 23 05:17 disasm-011.md
+-rw-r--r-- 1 runner runner     77 Oct 23 05:17 disasm-012.md
+-rw-r--r-- 1 runner runner    733 Oct 23 05:17 disasm-013.md
+-rw-r--r-- 1 runner runner  32009 Oct 23 05:18 disasm-014.md
+-rw-r--r-- 1 runner runner   1792 Oct 23 05:18 disasm-015.md
+-rw-r--r-- 1 runner runner    499 Oct 23 05:18 disasm-016.md
+-rw-r--r-- 1 runner runner    502 Oct 23 05:18 disasm-017.md
+-rw-r--r-- 1 runner runner    139 Oct 23 05:18 disasm-018.md
+-rw-r--r-- 1 runner runner    654 Oct 23 05:18 disasm-019.md
+-rw-r--r-- 1 runner runner   2051 Oct 23 05:18 disasm-020.md
+-rw-r--r-- 1 runner runner   3042 Oct 23 05:18 disasm-021.md
+-rw-r--r-- 1 runner runner     68 Oct 23 05:18 disasm-022.md
+-rw-r--r-- 1 runner runner    128 Oct 23 05:18 disasm-023.md
+-rw-r--r-- 1 runner runner    128 Oct 23 05:18 disasm-024.md
+-rw-r--r-- 1 runner runner    128 Oct 23 05:18 disasm-025.md
+-rw-r--r-- 1 runner runner    128 Oct 23 05:18 disasm-026.md
+-rw-r--r-- 1 runner runner     69 Oct 23 05:18 disasm-027.md
+-rw-r--r-- 1 runner runner    315 Oct 23 05:18 disasm-028.md
+-rw-r--r-- 1 runner runner    224 Oct 23 05:18 disasm-029.md
+-rw-r--r-- 1 runner runner    139 Oct 23 05:18 disasm-030.md
+-rw-r--r-- 1 runner runner   2765 Oct 23 05:18 disasm-031.md
+-rw-r--r-- 1 runner runner    650 Oct 23 05:18 disasm-032.md
+-rw-r--r-- 1 runner runner    124 Oct 23 05:18 disasm-033.md
+-rw-r--r-- 1 runner runner    160 Oct 23 05:18 disasm-034.md
+-rw-r--r-- 1 runner runner    774 Oct 23 05:18 disasm-035.md
+-rw-r--r-- 1 runner runner     85 Oct 23 05:18 disasm-036.md
+-rw-r--r-- 1 runner runner   1036 Oct 23 05:18 disasm-037.md
+-rw-r--r-- 1 runner runner    343 Oct 23 05:18 disasm-038.md
+-rw-r--r-- 1 runner runner   6240 Oct 23 05:18 disasm-039.md
+-rw-r--r-- 1 runner runner    514 Oct 23 05:18 disasm-040.md
+-rw-r--r-- 1 runner runner    128 Oct 23 05:18 disasm-041.md
+-rw-r--r-- 1 runner runner     70 Oct 23 05:18 disasm-042.md
+-rw-r--r-- 1 runner runner    499 Oct 23 05:18 disasm-043.md
+-rw-r--r-- 1 runner runner    128 Oct 23 05:17 disasm-044.md
+-rw-r--r-- 1 runner runner     70 Oct 23 05:17 disasm-045.md
+-rw-r--r-- 1 runner runner    499 Oct 23 05:17 disasm-046.md
+-rw-r--r-- 1 runner runner   2513 Oct 23 05:17 pseudocode-001.md
+-rw-r--r-- 1 runner runner    329 Oct 23 05:17 pseudocode-002.md
+-rw-r--r-- 1 runner runner    246 Oct 23 05:17 pseudocode-003.md
+-rw-r--r-- 1 runner runner  26571 Oct 23 05:17 pseudocode-004.md
+-rw-r--r-- 1 runner runner   6958 Oct 23 05:17 pseudocode-005.md
+-rw-r--r-- 1 runner runner    176 Oct 23 05:17 pseudocode-006.md
+-rw-r--r-- 1 runner runner    385 Oct 23 05:17 pseudocode-007.md
+-rw-r--r-- 1 runner runner    176 Oct 23 05:17 pseudocode-008.md
+-rw-r--r-- 1 runner runner    939 Oct 23 05:17 pseudocode-009.md
+-rw-r--r-- 1 runner runner    232 Oct 23 05:17 pseudocode-010.md
+-rw-r--r-- 1 runner runner    344 Oct 23 05:17 pseudocode-011.md
+-rw-r--r-- 1 runner runner    232 Oct 23 05:17 pseudocode-012.md
+-rw-r--r-- 1 runner runner    547 Oct 23 05:17 pseudocode-013.md
+-rw-r--r-- 1 runner runner  27247 Oct 23 05:18 pseudocode-014.md
+-rw-r--r-- 1 runner runner   1758 Oct 23 05:18 pseudocode-015.md
+-rw-r--r-- 1 runner runner    458 Oct 23 05:18 pseudocode-016.md
+-rw-r--r-- 1 runner runner    514 Oct 23 05:18 pseudocode-017.md
+-rw-r--r-- 1 runner runner    180 Oct 23 05:18 pseudocode-018.md
+-rw-r--r-- 1 runner runner    576 Oct 23 05:18 pseudocode-019.md
+-rw-r--r-- 1 runner runner   1166 Oct 23 05:18 pseudocode-020.md
+-rw-r--r-- 1 runner runner   1983 Oct 23 05:18 pseudocode-021.md
+-rw-r--r-- 1 runner runner    157 Oct 23 05:18 pseudocode-022.md
+-rw-r--r-- 1 runner runner    232 Oct 23 05:18 pseudocode-023.md
+-rw-r--r-- 1 runner runner    229 Oct 23 05:18 pseudocode-024.md
+-rw-r--r-- 1 runner runner    229 Oct 23 05:18 pseudocode-025.md
+-rw-r--r-- 1 runner runner    229 Oct 23 05:18 pseudocode-026.md
+-rw-r--r-- 1 runner runner   8247 Oct 23 05:18 pseudocode-027.md
+-rw-r--r-- 1 runner runner    357 Oct 23 05:18 pseudocode-028.md
+-rw-r--r-- 1 runner runner    201 Oct 23 05:18 pseudocode-029.md
+-rw-r--r-- 1 runner runner    234 Oct 23 05:18 pseudocode-030.md
+-rw-r--r-- 1 runner runner   2355 Oct 23 05:18 pseudocode-031.md
+-rw-r--r-- 1 runner runner    677 Oct 23 05:18 pseudocode-032.md
+-rw-r--r-- 1 runner runner    282 Oct 23 05:18 pseudocode-033.md
+-rw-r--r-- 1 runner runner    202 Oct 23 05:18 pseudocode-034.md
+-rw-r--r-- 1 runner runner    609 Oct 23 05:18 pseudocode-035.md
+-rw-r--r-- 1 runner runner    208 Oct 23 05:18 pseudocode-036.md
+-rw-r--r-- 1 runner runner    985 Oct 23 05:18 pseudocode-037.md
+-rw-r--r-- 1 runner runner    389 Oct 23 05:18 pseudocode-038.md
+-rw-r--r-- 1 runner runner   3850 Oct 23 05:18 pseudocode-039.md
+-rw-r--r-- 1 runner runner    425 Oct 23 05:18 pseudocode-040.md
+-rw-r--r-- 1 runner runner    245 Oct 23 05:18 pseudocode-041.md
+-rw-r--r-- 1 runner runner    163 Oct 23 05:18 pseudocode-042.md
+-rw-r--r-- 1 runner runner    439 Oct 23 05:18 pseudocode-043.md
+-rw-r--r-- 1 runner runner    245 Oct 23 05:17 pseudocode-044.md
+-rw-r--r-- 1 runner runner    163 Oct 23 05:17 pseudocode-045.md
+-rw-r--r-- 1 runner runner    439 Oct 23 05:17 pseudocode-046.md
+-rw-r--r-- 1 runner runner   4807 Oct 23 05:18 summary.md
+-rw-r--r-- 1 runner runner 242183 Oct 23 05:18 tables.md
 
 summary:
 # Noise lattice call tree
 
-- seeds: `0xd341b00` `0xd342930` `0xd3430a0` `0xd3411f0` `0x529bef0` `0x529c330` 
+- seeds: `0xee4a030` `0x8b5a9c0` `0x8b5aa40` `0xd3430a0` `0xd3411f0` 
 - depth: 3
-- functions: 46
-- referenced data addresses: 143
+- functions: 43
+- referenced data addresses: 134
 
 | depth | function | entry | bytes | pseudocode | disassembly | callers |
 | --- | --- | --- | --- | --- | --- | --- |
-| 0 | `FUN_0d341b00` | `0xd341b00` | 3148 | pseudocode-001.md | disasm-001.md | FUN_0529bef0 |
-| 0 | `FUN_0d342930` | `0xd342930` | 1074 | pseudocode-002.md | disasm-002.md | FUN_0529c330 |
-| 0 | `FUN_0d3430a0` | `0xd3430a0` | 3181 | pseudocode-003.md | disasm-003.md |  |
-| 0 | `FUN_0d3411f0` | `0xd3411f0` | 710 | pseudocode-004.md | disasm-004.md |  |
-| 0 | `FUN_0529bef0` | `0x529bef0` | 640 | pseudocode-005.md | disasm-005.md |  |
-| 0 | `FUN_0529c330` | `0x529c330` | 441 | pseudocode-006.md | disasm-006.md |  |
-| 1 | `thunk_FUN_0ee326a0` | `0x412a280` | 5 | pseudocode-007.md | disasm-007.md | FUN_0412f8c0, FUN_0529bef0, FUN_0d33fd60, FUN_0d341b00, FUN_0d3430a0, FUN_0eeb5980 |
-| 1 | `memset` | `0xeee2dd0` | 6 | pseudocode-008.md | disasm-008.md | FUN_041086b0, FUN_0d33fd60, FUN_0d341b00, FUN_0d3430a0 |
-| 1 | `FUN_0eec74c0` | `0xeec74c0` | 129 | pseudocode-009.md | disasm-009.md | FUN_0529bef0, FUN_0d33fd60, FUN_0d341b00, FUN_0d3430a0, FUN_0ee32660, FUN_0eeb5980 |
-| 1 | `memcpy` | `0xeee2f00` | 6 | pseudocode-010.md | disasm-010.md | FUN_0412f8c0, FUN_04134310, FUN_0d33fd60, FUN_0d341b00, FUN_0d3430a0 |
-| 1 | `FUN_052bdad0` | `0x52bdad0` | 14 | pseudocode-011.md | disasm-011.md | FUN_0d341b00 |
+| 0 | `FUN_0ee4a030` | `0xee4a030` | 426 | pseudocode-001.md | disasm-001.md | FUN_08b5a9c0, FUN_08b5aa40 |
+| 0 | `FUN_08b5a9c0` | `0x8b5a9c0` | 32 | pseudocode-002.md | disasm-002.md |  |
+| 0 | `FUN_08b5aa40` | `0x8b5aa40` | 36 | pseudocode-003.md | disasm-003.md |  |
+| 0 | `FUN_0d3430a0` | `0xd3430a0` | 3181 | pseudocode-004.md | disasm-004.md |  |
+| 0 | `FUN_0d3411f0` | `0xd3411f0` | 710 | pseudocode-005.md | disasm-005.md |  |
+| 1 | `memcpy` | `0xeee2f00` | 6 | pseudocode-006.md | disasm-006.md | FUN_0412f8c0, FUN_04134310, FUN_0d33fd60, FUN_0d3430a0 |
+| 1 | `thunk_FUN_0ee326a0` | `0x412a280` | 5 | pseudocode-007.md | disasm-007.md | FUN_0412f8c0, FUN_0d33fd60, FUN_0d3430a0, FUN_0eeb5980 |
+| 1 | `memset` | `0xeee2dd0` | 6 | pseudocode-008.md | disasm-008.md | FUN_041086b0, FUN_0d33fd60, FUN_0d3430a0 |
+| 1 | `FUN_0eec74c0` | `0xeec74c0` | 129 | pseudocode-009.md | disasm-009.md | FUN_0d33fd60, FUN_0d3430a0, FUN_0ee32660, FUN_0eeb5980 |
+| 1 | `FUN_052bdae0` | `0x52bdae0` | 14 | pseudocode-010.md | disasm-010.md | FUN_0d3430a0 |
+| 1 | `FUN_04882eb0` | `0x4882eb0` | 45 | pseudocode-011.md | disasm-011.md | FUN_0d33fd60, FUN_0d3430a0 |
 
 run log tail:
     /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/Decompiler/ghidra_scripts
@@ -153,10 +153,10 @@ Linking the External Programs of 'bedrock_server' to imported libraries...
 Resolving External Symbols of [/bedrock_server] - 382 unresolved symbols, no external libraries configured - skipping
  (ProgramLoader)  
 INFO  IMPORTING: Loaded 0 additional files (HeadlessAnalyzer)  
-INFO  REPORT: Execute script: DumpNoiseLattice.java 'research/proprietary/bds-1.26.52.3/ghidra' '0xd341b00,0xd342930,0xd3430a0,0xd3411f0,0x529bef0,0x529c330' '3'  (HeadlessAnalyzer)  
+INFO  REPORT: Execute script: DumpNoiseLattice.java 'research/proprietary/bds-1.26.52.3/ghidra' '0xee4a030,0x8b5a9c0,0x8b5aa40,0xd3430a0,0xd3411f0' '3'  (HeadlessAnalyzer)  
 INFO  SCRIPT: /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/ghidra/DumpNoiseLattice.java (HeadlessAnalyzer)  
-INFO  DumpNoiseLattice.java> seeds: 6, depth: 3 (GhidraScript)  
-INFO  DumpNoiseLattice.java> functions visited: 46 (GhidraScript)  
+INFO  DumpNoiseLattice.java> seeds: 5, depth: 3 (GhidraScript)  
+INFO  DumpNoiseLattice.java> functions visited: 43 (GhidraScript)  
 INFO  /bedrock_server: file created (runner) (LocalFileSystem)  
 INFO  REPORT: Save succeeded for: /bedrock_server (bds-lattice:/bedrock_server) (HeadlessAnalyzer)  
 INFO  REPORT: Import succeeded (HeadlessAnalyzer)  

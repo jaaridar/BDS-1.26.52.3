@@ -1,19 +1,16 @@
-# FUN_0d345710
+# FUN_04882e90
 
-- entry: `0xd345710`
-- body size: 14 bytes
-- callers: `FUN_0d33fd60`
+- entry: `0x4882e90`
+- body size: 25 bytes
+- callers: `FUN_04882e40`
 
 ```c
 
-void FUN_0d345710(void)
+void FUN_04882e90(undefined8 *param_1)
 
 {
-  code *pcVar1;
-  
-  FUN_04882e40(&UNK_013f6512);
-  pcVar1 = (code *)swi(3);
-  (*pcVar1)();
+  func_0x0412bf30();
+  *param_1 = &UNK_0eeec920;
   return;
 }
 

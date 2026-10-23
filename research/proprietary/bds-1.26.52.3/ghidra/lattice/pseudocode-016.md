@@ -1,30 +1,26 @@
-# FUN_0d3457a0
+# FUN_04882e40
 
-- entry: `0xd3457a0`
-- body size: 100 bytes
-- callers: `FUN_0d3430a0`
+- entry: `0x4882e40`
+- body size: 73 bytes
+- callers: `FUN_049cd2d0`, `FUN_052bdae0`, `FUN_0d345710`
 
 ```c
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
-long FUN_0d3457a0(long *param_1)
+void FUN_04882e40(undefined8 param_1)
 
 {
-  long lVar1;
+  code *pcVar1;
+  undefined8 uVar2;
+  undefined8 uVar3;
   
-  lVar1 = param_1[2];
-  if (param_1[1] != lVar1) {
-    param_1[2] = lVar1 + (((lVar1 - param_1[1]) - 0x80cU) / 0x80c) * -0x80c + -0x80c;
-  }
-  lVar1 = *param_1;
-  if (lVar1 != 0) {
-    if (lVar1 != 0) {
-      (**(code **)(_DAT_0f5463b0 + 0x18))(&DAT_0f5463b0,lVar1);
-    }
-    return lVar1;
-  }
-  return 0;
+  uVar2 = FUN_041086b0(0x10);
+  func_0x04882e90(uVar2,param_1);
+  uVar3 = FUN_041088a0(uVar2,&UNK_0eeec938,&UNK_0412bce0);
+  func_0x04108780(uVar2);
+  _Unwind_Resume(uVar3);
+  pcVar1 = (code *)swi(3);
+  (*pcVar1)();
+  return;
 }
 
 

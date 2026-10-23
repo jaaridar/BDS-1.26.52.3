@@ -1,33 +1,26 @@
-# FUN_04109e60
+# FUN_041087a0
 
-- entry: `0x4109e60`
-- body size: 82 bytes
-- callers: `FUN_041086b0`, `FUN_04108700`, `FUN_04882e20`
+- entry: `0x41087a0`
+- body size: 95 bytes
+- callers: `FUN_041088a0`
 
 ```c
 
-void FUN_04109e60(void)
+long FUN_041087a0(long param_1,undefined8 param_2,undefined8 param_3)
 
 {
-  char cVar1;
-  long *plVar2;
-  code *pcVar3;
-  long unaff_RBX;
+  undefined8 uVar1;
   
-  plVar2 = (long *)func_0x0410a0b0();
-  if ((plVar2 != (long *)0x0) && (unaff_RBX = *plVar2, unaff_RBX != 0)) goto LAB_04109e82;
-  do {
-    FUN_04109ee0(uRam000000000f53dac8);
-LAB_04109e82:
-    cVar1 = func_0x04108690(unaff_RBX + 0x60);
-  } while (cVar1 == '\0');
-  pcVar3 = (code *)FUN_04109ee0(*(undefined8 *)(unaff_RBX + 0x28));
-  FUN_04882e20();
-  (*pcVar3)();
-  func_0x041085a0(&UNK_011e925c);
-  pcVar3 = (code *)swi(3);
-  (*pcVar3)();
-  return;
+  *(undefined8 *)(param_1 + -0x78) = 0;
+  uVar1 = func_0x04109e50();
+  *(undefined8 *)(param_1 + -0x60) = uVar1;
+  uVar1 = func_0x04109ed0();
+  *(undefined8 *)(param_1 + -0x58) = uVar1;
+  *(undefined8 *)(param_1 + -0x70) = param_2;
+  *(undefined8 *)(param_1 + -0x68) = param_3;
+  *(undefined8 *)(param_1 + -0x20) = 0x434c4e47432b2b00;
+  *(undefined **)(param_1 + -0x18) = &UNK_04108800;
+  return param_1 + -0x80;
 }
 
 

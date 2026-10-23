@@ -1,18 +1,21 @@
-# FUN_04108780
+# FUN_04882e20
 
-- entry: `0x4108780`
+- entry: `0x4882e20`
 - body size: 12 bytes
-- callers: `FUN_04882e40`, `FUN_04882ef0`
+- callers: `FUN_041086b0`, `FUN_04108700`, `FUN_04109e60`, `FUN_04109ee0`
 
 ```c
 
-undefined8 FUN_04108780(long param_1)
+void FUN_04882e20(void)
 
 {
-  undefined8 in_RAX;
+  code *pcVar1;
   
-  func_0x04108f40(param_1 + -0x80);
-  return in_RAX;
+  FUN_04108700();
+  FUN_04109e60();
+  pcVar1 = (code *)swi(3);
+  (*pcVar1)();
+  return;
 }
 
 

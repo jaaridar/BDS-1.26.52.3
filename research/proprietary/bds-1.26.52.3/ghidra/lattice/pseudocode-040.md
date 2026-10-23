@@ -1,49 +1,24 @@
-# FUN_04108700
+# FUN_0ee32660
 
-- entry: `0x4108700`
-- body size: 115 bytes
-- callers: `FUN_041088a0`, `FUN_04109ee0`, `FUN_04882e20`
+- entry: `0xee32660`
+- body size: 60 bytes
+- callers: `FUN_0412f8c0`, `FUN_04134310`
 
 ```c
 
-ulong * FUN_04108700(ulong *param_1)
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+long FUN_0ee32660(long param_1)
 
 {
-  ulong uVar1;
-  code *pcVar2;
-  long *plVar3;
-  undefined8 uVar4;
-  ulong *puVar5;
-  int iVar6;
+  long lVar1;
   
-  uVar1 = *param_1;
-  plVar3 = (long *)FUN_0410a090();
-  puVar5 = param_1 + -0xc;
-  if (uVar1 >> 8 == 0x434c4e47432b2b) {
-    iVar6 = -(int)param_1[-5];
-    if (iVar6 < 0) {
-      iVar6 = (int)param_1[-5];
-    }
-    *(int *)(param_1 + -5) = iVar6 + 1;
-    if (puVar5 != (ulong *)*plVar3) {
-      param_1[-6] = (ulong)*plVar3;
-      *plVar3 = (long)puVar5;
-    }
-    *(int *)(plVar3 + 1) = (int)plVar3[1] + -1;
-    param_1 = (ulong *)param_1[-1];
+  lVar1 = (**(code **)(_DAT_0f5463b0 + 0x10))(&DAT_0f5463b0,param_1);
+  if (param_1 == 0 || lVar1 != 0) {
+    return lVar1;
   }
-  else {
-    if (*plVar3 != 0) {
-      uVar4 = FUN_04109e60();
-      FUN_04882e20(uVar4);
-      pcVar2 = (code *)swi(3);
-      puVar5 = (ulong *)(*pcVar2)();
-      return puVar5;
-    }
-    *plVar3 = (long)puVar5;
-    param_1 = param_1 + 4;
-  }
-  return param_1;
+  FUN_0eec74c0(param_1,0);
+  return lVar1;
 }
 
 

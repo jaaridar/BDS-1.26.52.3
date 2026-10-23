@@ -2,7 +2,7 @@
 
 - entry: `0xeec74c0`
 - body size: 129 bytes
-- callers: `FUN_0529bef0`, `FUN_0d33fd60`, `FUN_0d341b00`, `FUN_0d3430a0`
+- callers: `FUN_0d33fd60`, `FUN_0d3430a0`
 
 ```c
 

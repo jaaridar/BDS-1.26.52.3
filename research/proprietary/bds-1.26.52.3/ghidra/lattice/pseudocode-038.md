@@ -1,26 +1,25 @@
-# FUN_041087a0
+# FUN_04109ee0
 
-- entry: `0x41087a0`
-- body size: 95 bytes
-- callers: `FUN_041088a0`
+- entry: `0x4109ee0`
+- body size: 48 bytes
+- callers: `FUN_041088a0`, `FUN_04109e60`
 
 ```c
 
-long FUN_041087a0(long param_1,undefined8 param_2,undefined8 param_3)
+void FUN_04109ee0(code *param_1)
 
 {
-  undefined8 uVar1;
+  code *pcVar1;
+  undefined8 uVar2;
   
-  *(undefined8 *)(param_1 + -0x78) = 0;
-  uVar1 = func_0x04109e50();
-  *(undefined8 *)(param_1 + -0x60) = uVar1;
-  uVar1 = func_0x04109ed0();
-  *(undefined8 *)(param_1 + -0x58) = uVar1;
-  *(undefined8 *)(param_1 + -0x70) = param_2;
-  *(undefined8 *)(param_1 + -0x68) = param_3;
-  *(undefined8 *)(param_1 + -0x20) = 0x434c4e47432b2b00;
-  *(undefined **)(param_1 + -0x18) = &UNK_04108800;
-  return param_1 + -0x80;
+  (*param_1)();
+  uVar2 = func_0x041085a0(&UNK_0126e48a);
+  FUN_04108700(uVar2);
+  uVar2 = func_0x041085a0(&UNK_0133d0e2);
+  FUN_04882e20(uVar2);
+  pcVar1 = (code *)swi(3);
+  (*pcVar1)();
+  return;
 }
 
 

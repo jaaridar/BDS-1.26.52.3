@@ -1,5 +1,9 @@
-# thunk_FUN_0eeb5980 (disassembly)
+# FUN_04108780 (disassembly)
 
 ```
-0eeb5fa0  JMP 0x0eeb5980
+04108780  PUSH RAX
+04108781  ADD RDI,-0x80
+04108785  CALL 0x04108f40
+0410878a  POP RAX
+0410878b  RET
 ```
