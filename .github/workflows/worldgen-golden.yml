@@ -89,22 +89,26 @@ jobs:
           echo "capture exit status: $status"
           exit $status
 
-      # A second capture is needed to MEASURE which blocks the server itself
-      # reproduces: its terrain is stable, its decoration features are not.
+      # Extra captures are needed to MEASURE which blocks the server itself
+      # reproduces: its terrain is stable, its decoration features are not. Two
+      # extras are used because a single pair can accidentally agree on a block
+      # that is unstable.
       - name: Capture the same seed again
         if: ${{ env.RECHECK == 'true' }}
         run: |
-          node tools/worldgen-golden/run-golden.js \
-            --binary ./bedrock_server \
-            --seed "${MODE}" \
-            --out "capture/seed-${MODE}-b" \
-            --chunk-base 128 128 \
-            --timeout 900
+          for suffix in "-b" "-c"; do
+            node tools/worldgen-golden/run-golden.js \
+              --binary ./bedrock_server \
+              --seed "${MODE}" \
+              --out "capture/seed-${MODE}${suffix}" \
+              --chunk-base 128 128 \
+              --timeout 900
+          done
 
       - name: Dump the world databases
         run: |
           npm install --no-save --no-audit --no-fund classic-level
-          for suffix in "" "-b"; do
+          for suffix in "" "-b" "-c"; do
             dir="capture/seed-${MODE}${suffix}"
             [ -d "$dir/server/worlds/golden/db" ] || continue
             node tools/worldgen-golden/dump-db.js \
@@ -128,9 +132,10 @@ jobs:
                 "${OUTPUT_DIR}"/golden-${MODE}-*.unstable.json \
                 "${OUTPUT_DIR}"/golden-${MODE}-*.json
           args=""
-          if [ -f "capture/seed-${MODE}-b/db-dump.json" ]; then
-            args="--also capture/seed-${MODE}-b/db-dump.json"
-          fi
+          for suffix in "-b" "-c"; do
+            [ -f "capture/seed-${MODE}${suffix}/db-dump.json" ] && \
+              args="$args --also capture/seed-${MODE}${suffix}/db-dump.json"
+          done
           set +e
           node tools/worldgen-golden/build-golden-db.js \
             "capture/seed-${MODE}/db-dump.json" \
