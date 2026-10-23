@@ -341,8 +341,31 @@ async function captureInner({ binary, seed, out, timeout, probe, verbose, assets
         return `<find failed: ${error.message}>`;
       }
     };
-    console.log(`worlds tree:\n${worldsTree()}`);
-    console.log(`on-disk search:\n${probeOnDisk()}`);
+    const fsReport = [
+      `workDir: ${workDir}`,
+      `cwd: ${process.cwd()}`,
+      '',
+      'top level of workDir:',
+      (() => { try { return fs.readdirSync(workDir).join(' '); } catch (e) { return String(e); } })(),
+      '',
+      'worlds tree:',
+      worldsTree(),
+      '',
+      'on-disk search (c0_0_y0.mcstructure anywhere):',
+      probeOnDisk(),
+      '',
+      'any .mcstructure modified in the last 20 minutes:',
+      (() => {
+        try {
+          return execSync(
+            "find / -name '*.mcstructure' -mmin -20 -not -path '*/node_modules/*' 2>/dev/null | head -20",
+            { encoding: 'utf8', timeout: 180000 }
+          ).trim() || '(none)';
+        } catch (error) { return `<find failed: ${error.message}>`; }
+      })(),
+    ].join('\n');
+    fs.writeFileSync(path.join(absOut, 'filesystem.txt'), `${fsReport}\n`);
+    console.log(fsReport);
   } finally {
     await server.stop();
     if (server.logStream) {

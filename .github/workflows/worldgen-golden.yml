@@ -135,6 +135,7 @@ jobs:
           cp "capture/seed-${MODE}/server.log" "${OUTPUT_DIR}/diagnostics/server-${MODE}.log" 2>/dev/null || true
           cp "capture/seed-${MODE}/server-transcript.txt" "${OUTPUT_DIR}/diagnostics/transcript-${MODE}.txt" 2>/dev/null || true
           cp "capture/seed-${MODE}/error.txt" "${OUTPUT_DIR}/diagnostics/error-${MODE}.txt" 2>/dev/null || true
+          cp "capture/seed-${MODE}/filesystem.txt" "${OUTPUT_DIR}/diagnostics/filesystem-${MODE}.txt" 2>/dev/null || true
           {
             echo 'structure files found in the working tree:'
             find "capture/seed-${MODE}" -name '*.mcstructure' -printf '%s %P\n' 2>/dev/null | head -40
