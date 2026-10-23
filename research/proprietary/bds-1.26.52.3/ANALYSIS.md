@@ -592,10 +592,80 @@ which is the "expected deviation scaled by octave count" formula, with the three
 `.rodata` doubles interpreted through `constants.tsv`.
 
 So the noise stack is: **data-driven `NoiseDescriptor` → operation node →
-xoroshiro-seeded/Mersenne-seeded layers → `FUN_0d341b00` (lattice evaluation)**.
-`FUN_0d341b00` is itself 551 instructions; it is the one function anybody
-reimplementing BDS terrain must read next, and it is included in the pseudocode
-set.
+Mersenne-seeded layers → a legacy octave Perlin stack**.
+
+#### Correction (2026-10-23)
+
+An earlier revision of this report called `FUN_0d341b00` "the lattice
+evaluation". It is not. Read in full, it is the *constructor* of the octave
+stack: 551 instructions of which about 500 are the compiler unrolling a
+256-entry copy of the identity permutation. The sampler is a different
+function. The two are separated below, and both are measured rather than
+inferred; the evidence is `ghidra/lattice/`.
+
+`0xd341b00` -- octave-stack constructor. Arguments are
+`(this, Random&, qword, byte)`. For `this.layers` iterations it allocates a
+0x818-byte layer and fills it:
+
+| offset | contents |
+|---|---|
+| `+0x00` | `xo` = `nextUnit() * 256` |
+| `+0x04` | `yo` = `nextUnit() * 256` |
+| `+0x08` | `zo` = `nextUnit() * 256` |
+| `+0x0c` | 512-word permutation: `0..255` shuffled, then mirrored |
+| `+0x80c` | 8-byte argument passed through (both callers pass 0) |
+| `+0x814` | 1-byte argument passed through (0) |
+
+The shuffle is a descending Fisher-Yates: for `i` in `0..255`,
+`j = nextInt(256 - i) + i`, swap `perm[i]`/`perm[j]`, then
+`perm[256 + i] = perm[i]`. `nextInt` is `Random::vslot3` (`8b5a9c0`), a plain
+**`raw32 % bound`** with no rejection loop -- which matters, because a modulo
+over a non-power-of-two bound is not what a standard-library
+`uniform_int_distribution` would do.
+
+Finally the constructor stores `this.amplitude = 1 / sum(2^-i for i in
+0..layers-1)` at `+0x20`, computed as an unrolled reciprocal sum.
+
+`0xd342930` -- the sampler, `float getValue(float* xyz)`. Per layer it adds the
+layer offset, splits each axis into integer and fraction, applies the quintic
+fade `t^3 (t (6t - 15) + 10)`, forms the permutation indices
+`A = perm[X] + Y`, `B = perm[X+1] + Y`, `AA = perm[A] + Z`, `AB = perm[A+1] + Z`,
+`BA = perm[B] + Z`, `BB = perm[B+1] + Z`, fetches eight gradients from
+`perm[{AA,BA,AB,BB}] & 15` and `perm[{AA,BA,AB,BB} + 1] & 15`, blends them
+trilinearly, divides by the octave factor (1, 2, 4, ...) and accumulates. The
+caller multiplies by `this.amplitude`.
+
+The gradient table is a real measured table, not an arithmetic `grad(hash)`
+function: 16 entries of three floats at `0x01d9f3c0`, 12 bytes apart. Entries
+12-15 are `(1,1,0) (0,-1,1) (-1,1,0) (0,-1,-1)` -- not the
+`(1,1,0) (-1,1,0) (0,-1,1) (0,-1,-1)` padding a naive port would assume.
+
+`0xd3430a0` is a second constructor with the same body plus a byte flag, used
+by callers that already hold a prepared random; `0xd3411f0` and `0xd342fa0` are
+the small wrappers that forward to the two constructors.
+
+The two-layer wrapper -- BDS's `NormalNoise` -- is
+`NormalNoiseOperationNode::vslot4` (`529c330`), which fills a 2-D column with
+
+```
+out[i] = (second.getValue(p * 1.0181268 * s) * second.amplitude
+        + first.getValue(p * s)             * first.amplitude) * maxValue
+```
+
+where `p = (x, 0, z)`, `s` is the descriptor's coordinate scale (`0.015625` =
+1/64 in the constant pool) and `maxValue` is what the builder stores at `+0x30`:
+
+```
+maxValue = 0.16666667 / ((1.0 / (layers + 1) + 1.0) * 0.1)
+```
+
+both literals read from `.rodata` (`0x014f0478` = 1.0 as a double,
+`0x014f0518` = 0.1 as a double). The second layer carries no separate value
+weight: each layer's own amplitude normalises it.
+
+So the multinoise router in BDS samples *legacy octave Perlin noise*, not the
+Java `NormalNoise` construction; the Java `INPUT_FACTOR` survives only as the
+1.0181268 coordinate multiplier.
 
 `OverworldGeneratorMultinoise::vslot2` (`5288760`) is the terrain-density entry
 point — the float pipeline:
@@ -611,7 +681,7 @@ allocates the 0x4180-byte per-chunk noise cache, fills 16³ volumes from a
 `.rodata` descriptor table (`_DAT_014ea7c0` … `_UNK_014ea7cc`) and calls
 `FUN_05286c70`.
 
-### 5.1 What the strings say about the noise stack
+### 5.3 What the strings say about the noise stack
 
 Several doc-comments and assert messages survived in `.rodata` and pin the
 design down without any guessing:
@@ -691,14 +761,16 @@ evidence is required. Each one is tracked by a concrete next step.
    `imul`/`sar` vs `imul`/`shr` pair is unambiguous.
    `tools/binary-analysis/reference_rng.py` implements both and defaults to the
    Java-compatible one (`get_seed_2d(..., sign_extend_x=True)`).
-2. **`FUN_0d341b00` (551 instructions).** The lattice evaluation behind every
-   noise layer. Its inner loop has not been read yet; it is the single most
-   important remaining function for bit-exact terrain.
-3. **`.rodata` float tables.** `_DAT_014f0a50` (a sign-indexed pair),
-   `_DAT_01198698`, `_DAT_0119880c`, `_DAT_014f0478`, `_DAT_014f0518` are the
-   actual multinoise constants. `constants.tsv` lists them with their `f32` and
-   `f64` interpretations; the table *contents* (not just the first word) still
-   need dumping.
+2. **~~`FUN_0d341b00`~~ -- resolved.** It is the octave-stack constructor, and
+   the sampler `0xd342930` is decoded; see the correction in §5. The gradient
+   table, the shuffle, the fade polynomial and the amplitude are all measured.
+3. **`.rodata` float tables** -- partially resolved. `0x014f0478` = 1.0 (f64),
+   `0x014f0518` = 0.1 (f64), `0x011988fc` = 1.0181268 (f32, input factor),
+   `0x01198af8` = 0.015625 (f32, 1/64), `0x0118698` = -0.0078125,
+   `0x011880c` = -90.0, `0x011988b0` = 1/6. The 16-entry gradient table at
+   `0x01d9f3c0` is dumped in full (`ghidra/lattice/tables.md`). Still
+   unresolved: the descriptor tables that give each climate noise its seed,
+   octave count and scale, and the spline control points.
 4. **`std::mt19937` output path in feature placement.** Which slot of
    `*Feature` consumes the MT19937 and how the per-feature seed is derived
    (`chunk seed ^ feature index` or a fresh `getSeed`) is not yet confirmed.
@@ -741,6 +813,7 @@ copy of Mojang source, and it is deliberately not wired into the OpenBDS build.
 | `disassembly/disasm-<addr>.md` | raw x86-64 for the functions a signedness question hinges on |
 | `SUMMARY.md` | one-page roll-up produced by `summarize_evidence.py` |
 | `constants.tsv` | referenced `.rodata` constants with `u32`/`f32`/`f64` interpretations |
+| `lattice/` | targeted dump of the noise cluster: `summary.md` (call tree), `tables.md` (constant regions as floats, incl. the 16-entry gradient table), `disasm-*.md`, `pseudocode-*.md`, `constants.tsv` |
 | `pseudocode/pseudocode-*.md` | Ghidra C output, index in `pseudocode-index.md` |
 | `seed-diagnostics.txt` | trace from a known mangled type name to its `type_info` and vtable |
 | `memory-blocks.txt` | Ghidra memory layout (image base, block permissions) |
