@@ -24,6 +24,10 @@ on:
         description: 'Call-graph depth to follow'
         required: false
         default: '3'
+      label:
+        description: 'Evidence subdirectory suffix (lattice-<label>)'
+        required: false
+        default: 'mt19937'
   push:
     paths:
       - .github/workflows/noise-lattice.yml
@@ -42,6 +46,7 @@ env:
   GHIDRA_SHA256: ddac49f903da9d5bac833e5cc79395098b9c33cfd3279be5f31bd00387d2d4db
   OUTPUT_DIR: research/proprietary/bds-1.26.52.3/ghidra
   SEEDS: ${{ github.event.inputs.seeds || '0xee4a030,0x8b5a9c0,0x8b5aa40,0xd3430a0,0xd3411f0' }}
+  LATTICE_LABEL: ${{ github.event.inputs.label || 'mt19937' }}
   DEPTH: ${{ github.event.inputs.depth || '3' }}
 
 jobs:
@@ -91,9 +96,9 @@ jobs:
           CP="$(find "$GHIDRA_DIR/Ghidra" -name '*.jar' -printf '%p:')"
           javac -nowarn -proc:none -d "$RUNNER_TEMP/scriptcheck" -cp "$CP" \
             tools/binary-analysis/ghidra/DumpNoiseLattice.java \
-            > "$OUTPUT_DIR/lattice/compile.log" 2>&1
-          echo "javac exit: $?" | tee -a "$OUTPUT_DIR/lattice/compile.log"
-          cat "$OUTPUT_DIR/lattice/compile.log"
+            > "$OUTPUT_DIR/lattice-$LATTICE_LABEL/compile.log" 2>&1
+          echo "javac exit: $?" | tee -a "$OUTPUT_DIR/lattice-$LATTICE_LABEL/compile.log"
+          cat "$OUTPUT_DIR/lattice-$LATTICE_LABEL/compile.log"
           test -f "$RUNNER_TEMP/scriptcheck/DumpNoiseLattice.class"
 
       - name: Run headless lattice dump
@@ -122,10 +127,10 @@ jobs:
         run: |
           {
             echo 'lattice files:'
-            ls -l "$OUTPUT_DIR/lattice" 2>/dev/null || echo '(no lattice directory)'
+            ls -l "$OUTPUT_DIR/lattice-$LATTICE_LABEL" 2>/dev/null || echo '(no lattice directory)'
             echo
             echo 'summary:'
-            head -20 "$OUTPUT_DIR/lattice/summary.md" 2>/dev/null || echo '(none)'
+            head -20 "$OUTPUT_DIR/lattice-$LATTICE_LABEL/summary.md" 2>/dev/null || echo '(none)'
             echo
             echo 'run log tail:'
             tail -n 40 "$RUNNER_TEMP/lattice.txt" 2>/dev/null || true
@@ -134,7 +139,7 @@ jobs:
       - name: Commit evidence
         if: always()
         run: |
-          mkdir -p "$OUTPUT_DIR/lattice"
+          mkdir -p "$OUTPUT_DIR/lattice-$LATTICE_LABEL"
           git add -A "$OUTPUT_DIR" || true
           if git diff --cached --quiet; then
             echo 'lattice evidence unchanged'

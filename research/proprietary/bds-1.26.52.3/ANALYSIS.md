@@ -601,7 +601,7 @@ evaluation". It is not. Read in full, it is the *constructor* of the octave
 stack: 551 instructions of which about 500 are the compiler unrolling a
 256-entry copy of the identity permutation. The sampler is a different
 function. The two are separated below, and both are measured rather than
-inferred; the evidence is `ghidra/lattice/`.
+inferred; the evidence is `ghidra/lattice-noise/` and `ghidra/lattice-mt19937/`.
 
 `0xd341b00` -- octave-stack constructor. Arguments are
 `(this, Random&, qword, byte)`. For `this.layers` iterations it allocates a
@@ -622,6 +622,14 @@ The shuffle is a descending Fisher-Yates: for `i` in `0..255`,
 **`raw32 % bound`** with no rejection loop -- which matters, because a modulo
 over a non-power-of-two bound is not what a standard-library
 `uniform_int_distribution` would do.
+
+The unit draw (`+0x30`, `Random::vslot6` = `8b5aa40`) is likewise explicit: one
+MT word, zero-extended to 64 bits, converted to double, multiplied by 2^-32
+(`0x014f0898`), then narrowed to float -- `MOV EAX,EAX / CVTSI2SD / MULSD /
+CVTSD2SS` in the instruction stream. So offsets are
+`(float)((double)raw * 2^-32) * 256`, carrying full 32-bit granularity before
+the float rounding. A port that assumes a 24-bit or 53-bit canonical draw will
+diverge.
 
 Finally the constructor stores `this.amplitude = 1 / sum(2^-i for i in
 0..layers-1)` at `+0x20`, computed as an unrolled reciprocal sum.
@@ -813,7 +821,7 @@ copy of Mojang source, and it is deliberately not wired into the OpenBDS build.
 | `disassembly/disasm-<addr>.md` | raw x86-64 for the functions a signedness question hinges on |
 | `SUMMARY.md` | one-page roll-up produced by `summarize_evidence.py` |
 | `constants.tsv` | referenced `.rodata` constants with `u32`/`f32`/`f64` interpretations |
-| `lattice/` | targeted dump of the noise cluster: `summary.md` (call tree), `tables.md` (constant regions as floats, incl. the 16-entry gradient table), `disasm-*.md`, `pseudocode-*.md`, `constants.tsv` |
+| `lattice-noise/`, `lattice-mt19937/` | targeted dumps (noise cluster; MT19937 draw conventions): `summary.md` (call tree), `tables.md` (constant regions as floats, incl. the 16-entry gradient table), `disasm-*.md`, `pseudocode-*.md`, `constants.tsv` |
 | `pseudocode/pseudocode-*.md` | Ghidra C output, index in `pseudocode-index.md` |
 | `seed-diagnostics.txt` | trace from a known mangled type name to its `type_info` and vtable |
 | `memory-blocks.txt` | Ghidra memory layout (image base, block permissions) |

@@ -1,0 +1,9 @@
+# FUN_0410a090 (disassembly)
+
+```
+0410a090  PUSH RAX
+0410a091  MOV RAX,qword ptr FS:[0x0]
+0410a09d  LEA RAX,[RAX + -0x17b8]
+0410a0a4  POP RCX
+0410a0a5  RET
+```

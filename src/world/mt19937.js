@@ -18,6 +18,8 @@
 
 /** Smallest float below 1 that a 24-bit draw can produce, as a double. */
 const INV_2_24 = 2.3283064365386963e-10
+/** 2^-32, the scale the binary applies to a full 32-bit draw. */
+const INV_2_32 = 2.3283064365386963e-10
 /** 2^-53, the scale of a 53-bit draw. */
 const INV_2_53 = 1.1102230246251565e-16
 
@@ -73,11 +75,19 @@ class Mt19937 {
   /**
    * A real in [0, 1).
    *
-   * 'float24' consumes one word and uses its top 24 bits -- what a float
-   * `generate_canonical<float, 24>` produces. 'double53' consumes two words
-   * and uses 53 bits, the double `generate_canonical<double, 53>` form.
+   * 'u32' is the measured convention: one word, widened to a double, scaled by
+   * 2^-32, then narrowed to float. That is exactly the binary's sequence
+   * `MOV EAX,EAX / CVTSI2SD / MULSD 2^-32 / CVTSD2SS`, so the value carries
+   * full 32-bit granularity before the float rounding.
+   *
+   * The other entries are kept as alternatives for fitting, not as guesses:
+   * 'float24' is a 24-bit float canonical draw, 'double53' a 53-bit double one.
    */
   nextUnit (policy) {
+    if (policy !== 'float24' && policy !== 'double53') {
+      // Default and measured: 32 bits through double, narrowed to float.
+      return Math.fround(this.nextU32() * INV_2_32)
+    }
     if (policy === 'double53') {
       const hi = this.nextU32() >>> 5
       const lo = this.nextU32() >>> 6
@@ -89,10 +99,9 @@ class Mt19937 {
   /**
    * A uniform integer in [0, bound).
    *
-   * 'topBits' takes the high bits of one word, which is exact and consuming
-   * one word per call when bound is a power of two. 'modulo' takes the low
-   * bits (biased, but the obvious implementation). 'reject' is the unbiased
-   * multiply-and-reject scheme (Lemire), also one word per successful call.
+   * 'modulo' is the measured convention: the binary issues an unsigned
+   * `DIV`, i.e. `raw32 % bound`, with no rejection. The others are fit
+   * candidates ('topBits' high-bit masking, 'reject' Lemire multiply-shift).
    */
   nextInt (bound, policy) {
     if (bound <= 1) {

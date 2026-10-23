@@ -13,7 +13,7 @@ const {
   shufflePermutation
 } = require('../../src/world/perlin')
 
-const POLICY = { unit: 'float24', int: 'topBits', gradients: GRADIENTS_CLASSIC }
+const POLICY = { unit: 'u32', int: 'modulo', gradients: GRADIENTS_CLASSIC }
 
 test('mt19937 matches the published reference stream', () => {
   // Reference values for init_genrand(5489), the canonical test vector.
@@ -33,7 +33,7 @@ test('mt19937 stays inside 32 bits across a block boundary', () => {
 })
 
 test('unit draws stay in [0, 1)', () => {
-  for (const unit of ['float24', 'double53']) {
+  for (const unit of ['u32', 'float24', 'double53']) {
     const random = new Mt19937(99)
     for (let i = 0; i < 1000; i++) {
       const value = random.nextUnit(unit)

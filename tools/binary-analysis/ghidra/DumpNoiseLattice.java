@@ -73,7 +73,11 @@ public class DumpNoiseLattice extends GhidraScript {
             throw new IllegalArgumentException(
                 "usage: DumpNoiseLattice.java OUTPUT_DIR <addr[,addr...]> [depth]");
         }
-        outDir = new File(args[0], "lattice");
+        // One directory per run: two passes over different clusters must not
+        // overwrite each other, and the evidence is the deliverable.
+        String label = System.getenv("LATTICE_LABEL");
+        String dirName = (label == null || label.trim().isEmpty()) ? "lattice" : "lattice-" + label.trim();
+        outDir = new File(args[0], dirName);
         if (!outDir.isDirectory() && !outDir.mkdirs()) {
             throw new IllegalArgumentException("cannot create " + outDir);
         }
