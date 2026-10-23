@@ -1,11 +1,15 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-23T01:06:07.040Z",
+  "generatedAt": "2026-10-23T01:20:29.416Z",
   "binary": {
     "path": "bedrock_server",
     "sha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
     "bytes": 256133808
   },
+  "chunkBase": [
+    128,
+    128
+  ],
   "assets": {
     "root": "/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3",
     "linked": [
