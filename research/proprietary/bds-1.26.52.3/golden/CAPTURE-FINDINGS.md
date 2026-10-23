@@ -147,6 +147,22 @@ Ruled out as causes (each checked):
 | missing chunks in the save | every captured chunk gets a marker block at Y 319 so the server marks it modified; the server only persists modified chunks |
 | decoder misread | the same decoder reproduces all six probe markers in every capture |
 
+## Cost
+
+Captures run as parallel jobs, so a full round is one capture long rather than
+four:
+
+| change | effect |
+| --- | --- |
+| four captures as a matrix of jobs | 4 x 75 s in parallel instead of 300 s serially |
+| dropped the 24 `structure save` commands | proven never to write a file; ~10 s per capture |
+| dropped the `find /` sweeps that looked for their output | ~20 s per capture |
+| dropped the probe `structure save` | the markers themselves prove the ordering |
+| content-addressed reference dumps | one file per distinct capture, no duplicates |
+
+Wall clock for a full round including build and verification: **77 seconds**
+(was ~8 minutes).
+
 ## Next
 
 * Grow the captured area (more chunks, and a `tickingarea` that covers them) so
