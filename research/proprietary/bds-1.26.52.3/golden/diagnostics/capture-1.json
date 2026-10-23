@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-22T23:48:34.577Z",
+  "generatedAt": "2026-10-23T00:43:46.379Z",
   "binary": {
     "path": "bedrock_server",
     "sha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
@@ -76,5 +76,81 @@
       1
     ]
   ],
-  "structures": []
+  "structures": [
+    {
+      "file": "crossbow_piglin.mcstructure",
+      "bytes": 3144,
+      "source": "behavior_packs/vanilla/structures/bastion/mobs/crossbow_piglin.mcstructure"
+    },
+    {
+      "file": "hoglin.mcstructure",
+      "bytes": 2601,
+      "source": "behavior_packs/vanilla/structures/bastion/mobs/hoglin.mcstructure"
+    },
+    {
+      "file": "melee_piglin.mcstructure",
+      "bytes": 2740,
+      "source": "behavior_packs/vanilla/structures/bastion/mobs/melee_piglin.mcstructure"
+    },
+    {
+      "file": "melee_piglin_always.mcstructure",
+      "bytes": 2742,
+      "source": "behavior_packs/vanilla/structures/bastion/mobs/melee_piglin_always.mcstructure"
+    },
+    {
+      "file": "sword_piglin.mcstructure",
+      "bytes": 3219,
+      "source": "behavior_packs/vanilla/structures/bastion/mobs/sword_piglin.mcstructure"
+    },
+    {
+      "file": "sulfur_spring_extra_large_1.mcstructure",
+      "bytes": 23737,
+      "source": "behavior_packs/vanilla_1.26.30/structures/minecraft/sulfur_spring_extra_large_1.mcstructure"
+    },
+    {
+      "file": "sulfur_spring_large_1.mcstructure",
+      "bytes": 14787,
+      "source": "behavior_packs/vanilla_1.26.30/structures/minecraft/sulfur_spring_large_1.mcstructure"
+    },
+    {
+      "file": "sulfur_spring_large_2.mcstructure",
+      "bytes": 14787,
+      "source": "behavior_packs/vanilla_1.26.30/structures/minecraft/sulfur_spring_large_2.mcstructure"
+    },
+    {
+      "file": "sulfur_spring_medium_1.mcstructure",
+      "bytes": 11794,
+      "source": "behavior_packs/vanilla_1.26.30/structures/minecraft/sulfur_spring_medium_1.mcstructure"
+    },
+    {
+      "file": "sulfur_spring_medium_2.mcstructure",
+      "bytes": 12693,
+      "source": "behavior_packs/vanilla_1.26.30/structures/minecraft/sulfur_spring_medium_2.mcstructure"
+    },
+    {
+      "file": "sulfur_spring_medium_3.mcstructure",
+      "bytes": 13749,
+      "source": "behavior_packs/vanilla_1.26.30/structures/minecraft/sulfur_spring_medium_3.mcstructure"
+    },
+    {
+      "file": "sulfur_spring_small_1.mcstructure",
+      "bytes": 7431,
+      "source": "behavior_packs/vanilla_1.26.30/structures/minecraft/sulfur_spring_small_1.mcstructure"
+    },
+    {
+      "file": "sulfur_spring_small_2.mcstructure",
+      "bytes": 7431,
+      "source": "behavior_packs/vanilla_1.26.30/structures/minecraft/sulfur_spring_small_2.mcstructure"
+    },
+    {
+      "file": "sulfur_spring_small_3.mcstructure",
+      "bytes": 8223,
+      "source": "behavior_packs/vanilla_1.26.30/structures/minecraft/sulfur_spring_small_3.mcstructure"
+    },
+    {
+      "file": "sulfur_spring_small_4.mcstructure",
+      "bytes": 8224,
+      "source": "behavior_packs/vanilla_1.26.30/structures/minecraft/sulfur_spring_small_4.mcstructure"
+    }
+  ]
 }

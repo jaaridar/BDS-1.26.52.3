@@ -1,80 +1,80 @@
 NO LOG FILE! - setting up server logging...
-[2026-10-23 00:29:43:803 INFO] Starting Server
-[2026-10-23 00:29:43:803 INFO] Version: 1.26.52.3
-[2026-10-23 00:29:43:803 INFO] Session ID: 0574b045-932b-414a-9dde-da703398fe3d
-[2026-10-23 00:29:43:803 INFO] Build ID: 51798919
-[2026-10-23 00:29:43:803 INFO] Branch: r/26_u5
-[2026-10-23 00:29:43:803 INFO] Commit ID: 54116bb5ee0b7aee0b5591efbcc8bc3cf64f168a
-[2026-10-23 00:29:43:803 INFO] Configuration: Publish
-[2026-10-23 00:29:43:804 INFO] Contents of server.properties: {}
-[2026-10-23 00:29:43:804 INFO] Level Name: golden
-[2026-10-23 00:29:43:804 INFO] Profiler config ('bootstrap.json') load result: success=1, errorMessage=(null)
-[2026-10-23 00:29:43:805 INFO] No CDN config file found at: cdn_config.json for dedicated server
-[2026-10-23 00:29:43:805 INFO] Game mode: 1 Creative
-[2026-10-23 00:29:43:805 INFO] Difficulty: 0 PEACEFUL
-[2026-10-23 00:29:43:807 INFO] Content logging to console is enabled.
-[2026-10-23 00:29:43:808 INFO] 
+[2026-10-23 00:38:42:126 INFO] Starting Server
+[2026-10-23 00:38:42:126 INFO] Version: 1.26.52.3
+[2026-10-23 00:38:42:126 INFO] Session ID: d47ffc77-eeb1-4a25-be2d-a48868696202
+[2026-10-23 00:38:42:126 INFO] Build ID: 51798919
+[2026-10-23 00:38:42:126 INFO] Branch: r/26_u5
+[2026-10-23 00:38:42:126 INFO] Commit ID: 54116bb5ee0b7aee0b5591efbcc8bc3cf64f168a
+[2026-10-23 00:38:42:126 INFO] Configuration: Publish
+[2026-10-23 00:38:42:126 INFO] Contents of server.properties: {}
+[2026-10-23 00:38:42:126 INFO] Level Name: golden
+[2026-10-23 00:38:42:126 INFO] Profiler config ('bootstrap.json') load result: success=1, errorMessage=(null)
+[2026-10-23 00:38:42:129 INFO] No CDN config file found at: cdn_config.json for dedicated server
+[2026-10-23 00:38:42:129 INFO] Game mode: 1 Creative
+[2026-10-23 00:38:42:129 INFO] Difficulty: 0 PEACEFUL
+[2026-10-23 00:38:42:131 INFO] Content logging to console is enabled.
+[2026-10-23 00:38:42:132 INFO] 
 
 #####################################################
 #                                                   #
 #              CREATING VANILLA WORLD               #
 #                                                   #
 #####################################################
-[2026-10-23 00:29:44:252 INFO] Opening level 'worlds/golden/db'
-[2026-10-23 00:29:44:289 INFO] Pack Stack - None
-[2026-10-23 00:29:44:486 INFO] Signed in to signaling service successfully
-[2026-10-23 00:29:45:198 INFO] IPv4 supported, port: 19132: Used for gameplay and LAN discovery
-[2026-10-23 00:29:45:198 INFO] IPv6 supported, port: 19133: Used for gameplay
-[2026-10-23 00:29:45:230 INFO] Server started.
-[2026-10-23 00:29:45:230 ERROR] ================ TRANSPORT TYPE ERROR  ===================
-[2026-10-23 00:29:45:230 ERROR] Your current connection type is not set to NetherNet. In this release, NetherNet is the only supported transport type.
-[2026-10-23 00:29:45:230 ERROR] Players will not be able to connect to your game without NetherNet.
-[2026-10-23 00:29:45:230 ERROR] 
-[2026-10-23 00:29:45:230 ERROR] To switch, set 'transport=nethernet' in server.properties.
-[2026-10-23 00:29:45:230 ERROR] 
-[2026-10-23 00:29:45:230 ERROR] For more information, please reference the included bedrock_server_how_to.html file.
-[2026-10-23 00:29:45:230 ERROR] =======================================================
-[2026-10-23 00:29:45:230 INFO] ================ TELEMETRY MESSAGE ===================
-[2026-10-23 00:29:45:230 INFO] Server Telemetry is currently not enabled. 
-[2026-10-23 00:29:45:230 INFO] Enabling this telemetry helps us improve the game.
-[2026-10-23 00:29:45:230 INFO] 
-[2026-10-23 00:29:45:230 INFO] To enable this feature, add the line 'emit-server-telemetry=true'
-[2026-10-23 00:29:45:230 INFO] to the server.properties file in the handheld/src-server directory
-[2026-10-23 00:29:45:230 INFO] ======================================================
-[2026-10-23 00:29:45:371 INFO] Added ticking area from 0, 0, 0 to 47, 0, 47.
+[2026-10-23 00:38:42:474 INFO] Opening level 'worlds/golden/db'
+[2026-10-23 00:38:42:505 INFO] Pack Stack - None
+[2026-10-23 00:38:42:652 INFO] Signed in to signaling service successfully
+[2026-10-23 00:38:43:197 INFO] IPv4 supported, port: 19132: Used for gameplay and LAN discovery
+[2026-10-23 00:38:43:197 INFO] IPv6 supported, port: 19133: Used for gameplay
+[2026-10-23 00:38:43:223 INFO] Server started.
+[2026-10-23 00:38:43:223 ERROR] ================ TRANSPORT TYPE ERROR  ===================
+[2026-10-23 00:38:43:223 ERROR] Your current connection type is not set to NetherNet. In this release, NetherNet is the only supported transport type.
+[2026-10-23 00:38:43:223 ERROR] Players will not be able to connect to your game without NetherNet.
+[2026-10-23 00:38:43:223 ERROR] 
+[2026-10-23 00:38:43:223 ERROR] To switch, set 'transport=nethernet' in server.properties.
+[2026-10-23 00:38:43:223 ERROR] 
+[2026-10-23 00:38:43:223 ERROR] For more information, please reference the included bedrock_server_how_to.html file.
+[2026-10-23 00:38:43:223 ERROR] =======================================================
+[2026-10-23 00:38:43:223 INFO] ================ TELEMETRY MESSAGE ===================
+[2026-10-23 00:38:43:223 INFO] Server Telemetry is currently not enabled. 
+[2026-10-23 00:38:43:223 INFO] Enabling this telemetry helps us improve the game.
+[2026-10-23 00:38:43:223 INFO] 
+[2026-10-23 00:38:43:223 INFO] To enable this feature, add the line 'emit-server-telemetry=true'
+[2026-10-23 00:38:43:223 INFO] to the server.properties file in the handheld/src-server directory
+[2026-10-23 00:38:43:223 INFO] ======================================================
+[2026-10-23 00:38:43:342 INFO] Added ticking area from 0, 0, 0 to 47, 0, 47.
 1/10 ticking areas in use.
-[2026-10-23 00:30:10:488 ERROR] 0 blocks filled
-[2026-10-23 00:30:10:639 INFO] Block placed
-[2026-10-23 00:30:10:738 INFO] Block placed
-[2026-10-23 00:30:10:842 INFO] Block placed
-[2026-10-23 00:30:10:992 INFO] Block placed
-[2026-10-23 00:30:11:092 INFO] Block placed
-[2026-10-23 00:30:11:242 INFO] Block placed
-[2026-10-23 00:30:11:842 INFO] Saved a structure with name mystructure:wp_probe
-[2026-10-23 00:30:13:448 INFO] Saved a structure with name mystructure:c0_0_y0
-[2026-10-23 00:30:13:849 INFO] Saved a structure with name mystructure:c0_0_y1
-[2026-10-23 00:30:14:198 INFO] Saved a structure with name mystructure:c0_0_y2
-[2026-10-23 00:30:14:598 INFO] Saved a structure with name mystructure:c0_0_y3
-[2026-10-23 00:30:14:948 INFO] Saved a structure with name mystructure:c0_0_y4
-[2026-10-23 00:30:15:303 INFO] Saved a structure with name mystructure:c0_0_y5
-[2026-10-23 00:30:15:703 INFO] Saved a structure with name mystructure:c1_0_y0
-[2026-10-23 00:30:16:053 INFO] Saved a structure with name mystructure:c1_0_y1
-[2026-10-23 00:30:16:453 INFO] Saved a structure with name mystructure:c1_0_y2
-[2026-10-23 00:30:16:803 INFO] Saved a structure with name mystructure:c1_0_y3
-[2026-10-23 00:30:17:153 INFO] Saved a structure with name mystructure:c1_0_y4
-[2026-10-23 00:30:17:553 INFO] Saved a structure with name mystructure:c1_0_y5
-[2026-10-23 00:30:17:908 INFO] Saved a structure with name mystructure:c0_1_y0
-[2026-10-23 00:30:18:308 INFO] Saved a structure with name mystructure:c0_1_y1
-[2026-10-23 00:30:18:658 INFO] Saved a structure with name mystructure:c0_1_y2
-[2026-10-23 00:30:19:008 INFO] Saved a structure with name mystructure:c0_1_y3
-[2026-10-23 00:30:19:408 INFO] Saved a structure with name mystructure:c0_1_y4
-[2026-10-23 00:30:19:758 INFO] Saved a structure with name mystructure:c0_1_y5
-[2026-10-23 00:30:20:163 INFO] Saved a structure with name mystructure:c1_1_y0
-[2026-10-23 00:30:20:513 INFO] Saved a structure with name mystructure:c1_1_y1
-[2026-10-23 00:30:20:913 INFO] Saved a structure with name mystructure:c1_1_y2
-[2026-10-23 00:30:21:263 INFO] Saved a structure with name mystructure:c1_1_y3
-[2026-10-23 00:30:21:613 INFO] Saved a structure with name mystructure:c1_1_y4
-[2026-10-23 00:30:22:013 INFO] Saved a structure with name mystructure:c1_1_y5
-[2026-10-23 00:32:25:852 INFO] Server stop requested.
-[2026-10-23 00:32:25:898 INFO] Stopping server...
+[2026-10-23 00:39:08:468 ERROR] 0 blocks filled
+[2026-10-23 00:39:08:618 INFO] Block placed
+[2026-10-23 00:39:08:718 INFO] Block placed
+[2026-10-23 00:39:08:868 INFO] Block placed
+[2026-10-23 00:39:08:968 INFO] Block placed
+[2026-10-23 00:39:09:118 INFO] Block placed
+[2026-10-23 00:39:09:218 INFO] Block placed
+[2026-10-23 00:39:09:823 INFO] Saved a structure with name mystructure:wp_probe
+[2026-10-23 00:39:11:474 INFO] Saved a structure with name mystructure:c0_0_y0
+[2026-10-23 00:39:11:825 INFO] Saved a structure with name mystructure:c0_0_y1
+[2026-10-23 00:39:12:224 INFO] Saved a structure with name mystructure:c0_0_y2
+[2026-10-23 00:39:12:574 INFO] Saved a structure with name mystructure:c0_0_y3
+[2026-10-23 00:39:12:928 INFO] Saved a structure with name mystructure:c0_0_y4
+[2026-10-23 00:39:13:328 INFO] Saved a structure with name mystructure:c0_0_y5
+[2026-10-23 00:39:13:679 INFO] Saved a structure with name mystructure:c1_0_y0
+[2026-10-23 00:39:14:079 INFO] Saved a structure with name mystructure:c1_0_y1
+[2026-10-23 00:39:14:428 INFO] Saved a structure with name mystructure:c1_0_y2
+[2026-10-23 00:39:14:778 INFO] Saved a structure with name mystructure:c1_0_y3
+[2026-10-23 00:39:15:178 INFO] Saved a structure with name mystructure:c1_0_y4
+[2026-10-23 00:39:15:533 INFO] Saved a structure with name mystructure:c1_0_y5
+[2026-10-23 00:39:15:934 INFO] Saved a structure with name mystructure:c0_1_y0
+[2026-10-23 00:39:16:284 INFO] Saved a structure with name mystructure:c0_1_y1
+[2026-10-23 00:39:16:633 INFO] Saved a structure with name mystructure:c0_1_y2
+[2026-10-23 00:39:17:033 INFO] Saved a structure with name mystructure:c0_1_y3
+[2026-10-23 00:39:17:383 INFO] Saved a structure with name mystructure:c0_1_y4
+[2026-10-23 00:39:17:783 INFO] Saved a structure with name mystructure:c0_1_y5
+[2026-10-23 00:39:18:133 INFO] Saved a structure with name mystructure:c1_1_y0
+[2026-10-23 00:39:18:539 INFO] Saved a structure with name mystructure:c1_1_y1
+[2026-10-23 00:39:18:888 INFO] Saved a structure with name mystructure:c1_1_y2
+[2026-10-23 00:39:19:238 INFO] Saved a structure with name mystructure:c1_1_y3
+[2026-10-23 00:39:19:638 INFO] Saved a structure with name mystructure:c1_1_y4
+[2026-10-23 00:39:19:988 INFO] Saved a structure with name mystructure:c1_1_y5
+[2026-10-23 00:43:46:038 INFO] Server stop requested.
+[2026-10-23 00:43:46:085 INFO] Stopping server...
 Quit correctly
