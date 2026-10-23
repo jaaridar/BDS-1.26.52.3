@@ -1,79 +1,75 @@
 NO LOG FILE! - setting up server logging...
-[2026-10-23 04:21:35:037 INFO] Starting Server
-[2026-10-23 04:21:35:037 INFO] Version: 1.26.52.3
-[2026-10-23 04:21:35:037 INFO] Session ID: bbdd8349-b130-42f7-8e3d-321c123a44c8
-[2026-10-23 04:21:35:037 INFO] Build ID: 51798919
-[2026-10-23 04:21:35:037 INFO] Branch: r/26_u5
-[2026-10-23 04:21:35:037 INFO] Commit ID: 54116bb5ee0b7aee0b5591efbcc8bc3cf64f168a
-[2026-10-23 04:21:35:037 INFO] Configuration: Publish
-[2026-10-23 04:21:35:038 INFO] Contents of server.properties: {}
-[2026-10-23 04:21:35:038 INFO] Level Name: golden
-[2026-10-23 04:21:35:038 INFO] Profiler config ('bootstrap.json') load result: success=1, errorMessage=(null)
-[2026-10-23 04:21:35:039 INFO] No CDN config file found at: cdn_config.json for dedicated server
-[2026-10-23 04:21:35:039 INFO] Game mode: 1 Creative
-[2026-10-23 04:21:35:039 INFO] Difficulty: 0 PEACEFUL
-[2026-10-23 04:21:35:041 INFO] Content logging to console is enabled.
-[2026-10-23 04:21:35:042 INFO] 
+[2026-10-23 04:26:47:957 INFO] Starting Server
+[2026-10-23 04:26:47:957 INFO] Version: 1.26.52.3
+[2026-10-23 04:26:47:957 INFO] Session ID: b792e519-64a8-41b2-be9b-965776804349
+[2026-10-23 04:26:47:957 INFO] Build ID: 51798919
+[2026-10-23 04:26:47:957 INFO] Branch: r/26_u5
+[2026-10-23 04:26:47:957 INFO] Commit ID: 54116bb5ee0b7aee0b5591efbcc8bc3cf64f168a
+[2026-10-23 04:26:47:957 INFO] Configuration: Publish
+[2026-10-23 04:26:47:957 INFO] Contents of server.properties: {}
+[2026-10-23 04:26:47:957 INFO] Level Name: golden
+[2026-10-23 04:26:47:957 INFO] Profiler config ('bootstrap.json') load result: success=1, errorMessage=(null)
+[2026-10-23 04:26:47:958 INFO] No CDN config file found at: cdn_config.json for dedicated server
+[2026-10-23 04:26:47:958 INFO] Game mode: 1 Creative
+[2026-10-23 04:26:47:958 INFO] Difficulty: 0 PEACEFUL
+[2026-10-23 04:26:47:960 INFO] Content logging to console is enabled.
+[2026-10-23 04:26:47:961 INFO] 
 
 #####################################################
 #                                                   #
 #              CREATING VANILLA WORLD               #
 #                                                   #
 #####################################################
-[2026-10-23 04:21:35:507 INFO] Opening level 'worlds/golden/db'
-[2026-10-23 04:21:35:543 INFO] Pack Stack - None
-[2026-10-23 04:21:36:312 INFO] Signed in to signaling service successfully
-[2026-10-23 04:21:36:480 INFO] IPv4 supported, port: 19132: Used for gameplay and LAN discovery
-[2026-10-23 04:21:36:480 INFO] IPv6 supported, port: 19133: Used for gameplay
-[2026-10-23 04:21:36:527 INFO] Server started.
-[2026-10-23 04:21:36:527 ERROR] ================ TRANSPORT TYPE ERROR  ===================
-[2026-10-23 04:21:36:527 ERROR] Your current connection type is not set to NetherNet. In this release, NetherNet is the only supported transport type.
-[2026-10-23 04:21:36:527 ERROR] Players will not be able to connect to your game without NetherNet.
-[2026-10-23 04:21:36:527 ERROR] 
-[2026-10-23 04:21:36:527 ERROR] To switch, set 'transport=nethernet' in server.properties.
-[2026-10-23 04:21:36:527 ERROR] 
-[2026-10-23 04:21:36:527 ERROR] For more information, please reference the included bedrock_server_how_to.html file.
-[2026-10-23 04:21:36:527 ERROR] =======================================================
-[2026-10-23 04:21:36:527 INFO] ================ TELEMETRY MESSAGE ===================
-[2026-10-23 04:21:36:527 INFO] Server Telemetry is currently not enabled. 
-[2026-10-23 04:21:36:527 INFO] Enabling this telemetry helps us improve the game.
-[2026-10-23 04:21:36:527 INFO] 
-[2026-10-23 04:21:36:527 INFO] To enable this feature, add the line 'emit-server-telemetry=true'
-[2026-10-23 04:21:36:527 INFO] to the server.properties file in the handheld/src-server directory
-[2026-10-23 04:21:36:527 INFO] ======================================================
-[2026-10-23 04:21:36:674 INFO] Game rule randomTickSpeed has been updated to 0
-[2026-10-23 04:21:36:680 INFO] Game rule doMobSpawning has been updated to false
-[2026-10-23 04:21:36:780 INFO] Game rule doFireTick has been updated to false
-[2026-10-23 04:21:36:930 INFO] Game rule doWeatherCycle has been updated to false
-[2026-10-23 04:21:37:030 INFO] Game rule doDaylightCycle has been updated to false
-[2026-10-23 04:21:37:180 INFO] Game rule doInsomnia has been updated to false
-[2026-10-23 04:21:37:280 ERROR] Syntax error: Unexpected "doTraderSpawning": at "/gamerule >>doTraderSpawning<< false"
-[2026-10-23 04:21:37:380 ERROR] Syntax error: Unexpected "doPatrolSpawning": at "/gamerule >>doPatrolSpawning<< false"
-[2026-10-23 04:21:37:530 ERROR] Syntax error: Unexpected "doWanderingTraderSpawning": at "/gamerule >>doWanderingTraderSpawning<< false"
-[2026-10-23 04:21:37:630 INFO] Game rule mobGriefing has been updated to false
-[2026-10-23 04:21:37:780 INFO] Game rule tntExplodes has been updated to false
-[2026-10-23 04:21:37:880 INFO] Added ticking area from 2016, 0, 2016 to 2111, 0, 2111.
+[2026-10-23 04:26:48:295 INFO] Opening level 'worlds/golden/db'
+[2026-10-23 04:26:48:327 INFO] Pack Stack - None
+[2026-10-23 04:26:48:472 INFO] Signed in to signaling service successfully
+[2026-10-23 04:26:49:012 INFO] IPv4 supported, port: 19132: Used for gameplay and LAN discovery
+[2026-10-23 04:26:49:012 INFO] IPv6 supported, port: 19133: Used for gameplay
+[2026-10-23 04:26:49:035 INFO] Server started.
+[2026-10-23 04:26:49:035 ERROR] ================ TRANSPORT TYPE ERROR  ===================
+[2026-10-23 04:26:49:035 ERROR] Your current connection type is not set to NetherNet. In this release, NetherNet is the only supported transport type.
+[2026-10-23 04:26:49:035 ERROR] Players will not be able to connect to your game without NetherNet.
+[2026-10-23 04:26:49:035 ERROR] 
+[2026-10-23 04:26:49:035 ERROR] To switch, set 'transport=nethernet' in server.properties.
+[2026-10-23 04:26:49:035 ERROR] 
+[2026-10-23 04:26:49:035 ERROR] For more information, please reference the included bedrock_server_how_to.html file.
+[2026-10-23 04:26:49:035 ERROR] =======================================================
+[2026-10-23 04:26:49:035 INFO] ================ TELEMETRY MESSAGE ===================
+[2026-10-23 04:26:49:035 INFO] Server Telemetry is currently not enabled. 
+[2026-10-23 04:26:49:035 INFO] Enabling this telemetry helps us improve the game.
+[2026-10-23 04:26:49:035 INFO] 
+[2026-10-23 04:26:49:035 INFO] To enable this feature, add the line 'emit-server-telemetry=true'
+[2026-10-23 04:26:49:035 INFO] to the server.properties file in the handheld/src-server directory
+[2026-10-23 04:26:49:035 INFO] ======================================================
+[2026-10-23 04:26:49:152 INFO] Game rule randomTickSpeed has been updated to 0
+[2026-10-23 04:26:49:187 INFO] Game rule doMobSpawning has been updated to false
+[2026-10-23 04:26:49:287 INFO] Game rule doFireTick has been updated to false
+[2026-10-23 04:26:49:437 INFO] Game rule doWeatherCycle has been updated to false
+[2026-10-23 04:26:49:537 INFO] Game rule doDaylightCycle has been updated to false
+[2026-10-23 04:26:49:637 INFO] Game rule doInsomnia has been updated to false
+[2026-10-23 04:26:49:787 ERROR] Syntax error: Unexpected "doTraderSpawning": at "/gamerule >>doTraderSpawning<< false"
+[2026-10-23 04:26:49:892 ERROR] Syntax error: Unexpected "doPatrolSpawning": at "/gamerule >>doPatrolSpawning<< false"
+[2026-10-23 04:26:50:042 ERROR] Syntax error: Unexpected "doWanderingTraderSpawning": at "/gamerule >>doWanderingTraderSpawning<< false"
+[2026-10-23 04:26:50:142 INFO] Game rule mobGriefing has been updated to false
+[2026-10-23 04:26:50:292 INFO] Game rule tntExplodes has been updated to false
+[2026-10-23 04:26:50:392 INFO] Added ticking area from 2016, 0, 2016 to 2111, 0, 2111.
 1/10 ticking areas in use.
-[2026-10-23 04:21:37:986 ERROR] Cannot place block outside of the world
-[2026-10-23 04:21:38:135 ERROR] Cannot place block outside of the world
-[2026-10-23 04:21:38:235 ERROR] Cannot place block outside of the world
-[2026-10-23 04:21:38:385 ERROR] Cannot place block outside of the world
-[2026-10-23 04:21:39:495 ERROR] Cannot place block outside of the world
-[2026-10-23 04:21:39:591 ERROR] Cannot place block outside of the world
-[2026-10-23 04:21:39:746 ERROR] Cannot place block outside of the world
-[2026-10-23 04:21:39:862 ERROR] Cannot place block outside of the world
-[2026-10-23 04:21:40:995 INFO] Block placed
-[2026-10-23 04:21:41:093 INFO] Block placed
-[2026-10-23 04:21:41:198 INFO] Block placed
-[2026-10-23 04:21:41:348 INFO] Block placed
-[2026-10-23 04:21:50:564 ERROR] 0 blocks filled
-[2026-10-23 04:21:50:713 INFO] Block placed
-[2026-10-23 04:21:50:813 INFO] Block placed
-[2026-10-23 04:21:50:963 INFO] Block placed
-[2026-10-23 04:21:51:063 INFO] Block placed
-[2026-10-23 04:21:51:163 INFO] Block placed
-[2026-10-23 04:21:51:313 INFO] Block placed
-[2026-10-23 04:21:53:923 INFO] Server stop requested.
-[2026-10-23 04:21:53:969 INFO] Stopping server...
+[2026-10-23 04:26:50:492 ERROR] Cannot place block outside of the world
+[2026-10-23 04:26:50:642 ERROR] Cannot place block outside of the world
+[2026-10-23 04:26:50:742 ERROR] Cannot place block outside of the world
+[2026-10-23 04:26:50:892 ERROR] Cannot place block outside of the world
+[2026-10-23 04:26:51:998 INFO] Block placed
+[2026-10-23 04:26:52:097 INFO] Block placed
+[2026-10-23 04:26:52:247 INFO] Block placed
+[2026-10-23 04:26:52:347 INFO] Block placed
+[2026-10-23 04:27:01:612 ERROR] 0 blocks filled
+[2026-10-23 04:27:01:711 INFO] Block placed
+[2026-10-23 04:27:01:862 INFO] Block placed
+[2026-10-23 04:27:01:962 INFO] Block placed
+[2026-10-23 04:27:02:062 INFO] Block placed
+[2026-10-23 04:27:02:212 INFO] Block placed
+[2026-10-23 04:27:02:312 INFO] Block placed
+[2026-10-23 04:27:04:916 INFO] Server stop requested.
+[2026-10-23 04:27:04:962 INFO] Stopping server...
 Quit correctly
 [exit] code=0 signal=null
