@@ -35,6 +35,7 @@ function parseArgs(argv) {
       case '--timeout': args.timeout = Number(next()); break;
       case '--assets': args.assets = next(); break;
       case '--chunk-base': args.chunkBase = [Number(next()), Number(next())]; break;
+      case '--buffer': args.buffer = Number(next()); break;
       case '--no-probe': args.probe = false; break;
       case '--verbose': args.verbose = true; break;
       case '--help':
@@ -201,7 +202,10 @@ async function capture(args) {
   }
 }
 
-async function captureInner({ binary, seed, out, timeout, probe, verbose, assets, chunkBase = [0, 0] }) {
+async function captureInner({
+  binary, seed, out, timeout, probe, verbose, assets,
+  chunkBase = [0, 0], buffer = 2,
+}) {
   const absOut = path.resolve(out);
   fs.rmSync(absOut, { recursive: true, force: true });
   fs.mkdirSync(absOut, { recursive: true });
@@ -264,6 +268,7 @@ async function captureInner({ binary, seed, out, timeout, probe, verbose, assets
   // Declared outside the try/finally so the collection phase can check that
   // every requested save actually produced a file.
   const saved = [];
+  const dirtied = [];
   const [bcx, bcz] = chunkBase;
   try {
     await server.waitFor(/Server started\.?/i, 300000, 'server start');
@@ -290,9 +295,26 @@ async function captureInner({ binary, seed, out, timeout, probe, verbose, assets
       await server.command(`gamerule ${rule}`);
     }
 
-    const area = [bcx * 16, 0, bcz * 16, bcx * 16 + 47, 0, bcz * 16 + 47];
-    await server.command(`tickingarea add ${area.join(' ')} capture`);
-    await sleep(25000); // let the generator finish the 3x3 chunk area
+    // Generate a border around the captured chunks: features that straddle a
+    // chunk border only place blocks when the neighbouring chunk exists, so
+    // without a buffer the captured edge depends on generation order.
+    const from = [(bcx - buffer) * 16, 0, (bcz - buffer) * 16];
+    const to = [(bcx + 1 + buffer) * 16 + 15, 0, (bcz + 1 + buffer) * 16 + 15];
+    await server.command(`tickingarea add ${from.join(' ')} ${to.join(' ')} capture`);
+    const side = 2 + 2 * buffer;
+    await sleep(Math.max(30000, side * side * 900)); // ~1s per generated chunk
+
+    // The server only persists chunks it considers modified. Touch one block
+    // per captured chunk so generation output is actually written to the
+    // database, and record where those markers are so they are expected blocks.
+    for (const [cx, cz] of [
+      [bcx, bcz], [bcx + 1, bcz], [bcx, bcz + 1], [bcx + 1, bcz + 1],
+    ]) {
+      const at = [cx * 16, 319, cz * 16];
+      await server.command(`setblock ${at.join(' ')} bedrock`);
+      dirtied.push({ chunk: [cx, cz], at, block: 'minecraft:bedrock' });
+    }
+    await sleep(1000);
 
     // --- probe: build a known marker pattern and save it -------------------
     // Used to pin down the block_indices ordering of `.mcstructure`.
@@ -489,6 +511,8 @@ async function captureInner({ binary, seed, out, timeout, probe, verbose, assets
     generatedAt: new Date().toISOString(),
     binary: { path: path.basename(binaryPath), sha256: binarySha, bytes: fs.statSync(binaryPath).size },
     chunkBase: [bcx, bcz],
+    buffer,
+    dirtied,
     assets: { root: assetRoot, linked },
     seed: String(seed),
     levelName,
