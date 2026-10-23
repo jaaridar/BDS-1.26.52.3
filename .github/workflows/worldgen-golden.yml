@@ -141,6 +141,10 @@ jobs:
             --probe "${PROBE}" \
             --out "capture/golden-${MODE}-recheck"
           set +e
+          # Keep the second capture too: diffing the two databases is how a
+          # reproducibility failure gets diagnosed without artifacts.
+          cp "capture/seed-${MODE}-recheck/db-dump.json" \
+             "${OUTPUT_DIR}/db/dump-seed-${MODE}-recheck.json" || true
           node tools/worldgen-golden/verify.js \
             --golden "${OUTPUT_DIR}" \
             --candidate "capture/golden-${MODE}-recheck" \
