@@ -318,6 +318,31 @@ async function captureInner({ binary, seed, out, timeout, probe, verbose, assets
     }
     await sleep(3000);
     console.log(`requested ${saved.length} structure saves in ${Date.now() - started} ms`);
+
+    // Where the server actually put the files is not documented, so record the
+    // filesystem state while the server is still alive.
+    const { execSync } = require('node:child_process');
+    const probeOnDisk = () => {
+      try {
+        return execSync(
+          `find / -name 'c0_0_y0.mcstructure' -not -path '*/node_modules/*' 2>/dev/null | head -5`,
+          { encoding: 'utf8', timeout: 120000 }
+        ).trim();
+      } catch (error) {
+        return `<find failed: ${error.message}>`;
+      }
+    };
+    const worldsTree = () => {
+      const worlds = path.join(workDir, 'worlds');
+      if (!fs.existsSync(worlds)) return '<no worlds directory>';
+      try {
+        return execSync(`find ${worlds} -maxdepth 4 | head -40`, { encoding: 'utf8', timeout: 30000 }).trim();
+      } catch (error) {
+        return `<find failed: ${error.message}>`;
+      }
+    };
+    console.log(`worlds tree:\n${worldsTree()}`);
+    console.log(`on-disk search:\n${probeOnDisk()}`);
   } finally {
     await server.stop();
     if (server.logStream) {
