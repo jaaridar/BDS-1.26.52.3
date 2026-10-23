@@ -97,18 +97,39 @@ jobs:
           VARIANT: ${{ matrix.variant }}
         run: |
           set +e
-          node tools/worldgen-golden/run-golden.js \
-            --binary ./bedrock_server \
-            --seed "${MODE}" \
-            --out "capture/seed-${MODE}-${VARIANT}" \
-            --chunk-base 128 128 \
-            --timeout 900
-          status=$?
+          # A capture is cheap now (~19 s), so absorb a transient failure rather
+          # than failing the whole round.
+          for attempt in 1 2 3; do
+            node tools/worldgen-golden/run-golden.js \
+              --binary ./bedrock_server \
+              --seed "${MODE}" \
+              --out "capture/seed-${MODE}-${VARIANT}" \
+              --chunk-base 128 128 \
+              --timeout 900
+            status=$?
+            [ $status -eq 0 ] && break
+            echo "capture attempt ${attempt} failed with ${status}; retrying"
+            rm -rf "capture/seed-${MODE}-${VARIANT}"
+            sleep 3
+          done
           # Print the reason into the run log and keep it for the build job: a
           # failed capture job is otherwise invisible from outside.
           cat "capture/seed-${MODE}-${VARIANT}/error.txt" 2>/dev/null || true
           tail -n 40 "capture/seed-${MODE}-${VARIANT}/server.log" 2>/dev/null || true
           exit $status
+
+      - name: Stage diagnostics
+        if: always()
+        env:
+          VARIANT: ${{ matrix.variant }}
+        run: |
+          stage="stage/seed-${MODE}-${VARIANT}"
+          mkdir -p "$stage"
+          dir="capture/seed-${MODE}-${VARIANT}"
+          for f in capture.json db-dump.json server.log server-transcript.txt error.txt; do
+            cp "$dir/$f" "$stage/" 2>/dev/null || true
+          done
+          ls -l "$stage"
 
       - name: Dump the world database
         env:
@@ -119,13 +140,7 @@ jobs:
           node tools/worldgen-golden/dump-db.js \
             --db "$dir/server/worlds/golden/db" \
             --out "$dir/db-dump.json"
-          # Stage everything under one root so the download in the build job
-          # lands the files at the same paths they had here.
-          stage="stage/seed-${MODE}-${VARIANT}"
-          mkdir -p "$stage"
-          cp "$dir/db-dump.json" "$dir/capture.json" "$stage/"
-          cp "$dir/server.log" "$stage/" 2>/dev/null || true
-          cp "$dir/error.txt" "$stage/" 2>/dev/null || true
+          cp "$dir/db-dump.json" "stage/seed-${MODE}-${VARIANT}/"
 
       - name: Publish this capture
         if: always()

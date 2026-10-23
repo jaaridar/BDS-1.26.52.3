@@ -320,17 +320,20 @@ async function captureInner({
       [bcx, bcz], [bcx + 1, bcz], [bcx, bcz + 1], [bcx + 1, bcz + 1],
     ].map(([cx, cz]) => [cx * 16, 319, cz * 16]);
     const generationStart = Date.now();
-    for (let round = 0; round < 60 && generationMs === null; round++) {
-      const mark = server.lines.length;
+    // Count cumulatively from the baseline: a per-round window can miss a reply
+    // that lands just after the next round starts, which would retry forever.
+    const baseline = server.lines.length;
+    let placed = 0;
+    for (let round = 0; round < 90 && placed < corners.length; round++) {
       for (const at of corners) await server.command(`setblock ${at.join(' ')} bedrock`);
-      await sleep(1500);
-      const fresh = server.lines.slice(mark).join('');
-      const placed = (fresh.match(/Block placed/g) || []).length;
-      if (placed >= corners.length) generationMs = Date.now() - generationStart;
+      await sleep(1000);
+      placed = (server.lines.slice(baseline).join('').match(/Block placed/g) || []).length;
     }
+    const generationMs = placed >= corners.length ? Date.now() - generationStart : null;
     if (generationMs === null) {
       throw new Error(
-        `the capture area was still not generated after 90 s; the world must exist ` +
+        `the capture area was still not generated after 90 s ` +
+        `(only ${placed}/${corners.length} placements accepted); the world must exist ` +
         `before it can be captured. Server said: ${server.tail(600)}`
       );
     }
