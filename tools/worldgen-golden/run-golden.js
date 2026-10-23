@@ -1,7 +1,8 @@
 'use strict';
 // Drives the official bedrock_server binary to produce *server-authored* ground
 // truth: it starts the server with a fixed seed, forces chunk generation with a
-// ticking area, and saves regions with the in-game `structure save` command.
+// ticking area, places a marker probe with in-game commands, and leaves the
+// world database on disk for `dump-db.js` to read.
 //
 // Nothing here executes anything but the server itself, and the server is only
 // asked to do what a normal admin would do. The interesting part is that the
@@ -236,9 +237,8 @@ async function captureInner({
     const target = path.join(workDir, name);
     if (!fs.existsSync(source) || fs.existsSync(target)) continue;
     try {
-      // Copied, not linked: `structure save` writes into the active behaviour
-      // pack, so a symlink would pollute the repository checkout with capture
-      // output.
+      // Copied rather than linked: the server writes into the working tree, and a
+      // symlink would let it modify the repository checkout.
       if (fs.statSync(source).isDirectory()) {
         fs.cpSync(source, target, { recursive: true, dereference: true });
       } else {
@@ -334,87 +334,13 @@ async function captureInner({
         await server.command(`setblock ${base.x + dx} ${base.y + dy} ${base.z + dz} ${block}`);
       }
       await sleep(500);
-      await server.command(
-        `structure save wp_probe ${base.x} ${base.y} ${base.z} ${base.x + 4} ${base.y + 4} ${base.z + 4}`
-      );
-      await sleep(1500);
-      if (!/Saved a structure with name .*wp_probe/i.test(server.lines.join(''))) {
-        throw new Error(
-          'the probe structure was not saved; the golden data cannot be trusted ' +
-          `without it. Server said: ${server.tail(800)}`
-        );
-      }
     }
 
-    // --- save each chunk column in 64-block vertical slices ---------------
-    const chunks = [
-      [bcx, bcz],
-      [bcx + 1, bcz],
-      [bcx, bcz + 1],
-      [bcx + 1, bcz + 1],
-    ];
-    const slices = [[-64, -1], [0, 63], [64, 127], [128, 191], [192, 255], [256, 319]];
-    for (const [cx, cz] of chunks) {
-      for (let i = 0; i < slices.length; i++) {
-        const [y0, y1] = slices[i];
-        const x0 = cx * 16;
-        const z0 = cz * 16;
-        const name = `c${cx}_${cz}_y${i}`;
-        await server.command(`structure save ${name} ${x0} ${y0} ${z0} ${x0 + 15} ${y1} ${z0 + 15}`);
-        saved.push({ name, chunk: [cx, cz], slice: i, y: [y0, y1] });
-        await sleep(250);
-      }
-    }
-    await sleep(3000);
-    console.log(`requested ${saved.length} structure saves in ${Date.now() - started} ms`);
-
-    // Where the server actually put the files is not documented, so record the
-    // filesystem state while the server is still alive.
-    const { execSync } = require('node:child_process');
-    const probeOnDisk = () => {
-      try {
-        return execSync(
-          `find / -name 'c0_0_y0.mcstructure' -not -path '*/node_modules/*' 2>/dev/null | head -5`,
-          { encoding: 'utf8', timeout: 120000 }
-        ).trim();
-      } catch (error) {
-        return `<find failed: ${error.message}>`;
-      }
-    };
-    const worldsTree = () => {
-      const worlds = path.join(workDir, 'worlds');
-      if (!fs.existsSync(worlds)) return '<no worlds directory>';
-      try {
-        return execSync(`find ${worlds} -maxdepth 4 | head -40`, { encoding: 'utf8', timeout: 30000 }).trim();
-      } catch (error) {
-        return `<find failed: ${error.message}>`;
-      }
-    };
-    const fsReport = [
-      `workDir: ${workDir}`,
-      `cwd: ${process.cwd()}`,
-      '',
-      'top level of workDir:',
-      (() => { try { return fs.readdirSync(workDir).join(' '); } catch (e) { return String(e); } })(),
-      '',
-      'worlds tree:',
-      worldsTree(),
-      '',
-      'on-disk search (c0_0_y0.mcstructure anywhere):',
-      probeOnDisk(),
-      '',
-      'any .mcstructure modified in the last 20 minutes:',
-      (() => {
-        try {
-          return execSync(
-            "find / -name '*.mcstructure' -mmin -20 -not -path '*/node_modules/*' 2>/dev/null | head -20",
-            { encoding: 'utf8', timeout: 180000 }
-          ).trim() || '(none)';
-        } catch (error) { return `<find failed: ${error.message}>`; }
-      })(),
-    ].join('\n');
-    fs.writeFileSync(path.join(absOut, 'filesystem.txt'), `${fsReport}\n`);
-    console.log(fsReport);
+    // Nothing else to request: `structure save` was measured never to write a
+    // file on the dedicated server (see CAPTURE-FINDINGS.md), so the world
+    // database written by `stop` is the capture. Skipping it also removes 24
+    // commands and the filesystem sweeps that looked for their output.
+    await sleep(2000);
   } finally {
     await server.stop();
     if (server.logStream) {
@@ -424,91 +350,12 @@ async function captureInner({
   }
 
   // --- collect -------------------------------------------------------------
-  // `structure save` writes into the world's structures directory, but the
-  // exact path depends on whether any behaviour pack is loaded, so search the
-  // whole working tree instead of assuming one location.
-  const collected = [];
-  const walk = (dir) => {
-    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-      const full = path.join(dir, entry.name);
-      let isDirectory = entry.isDirectory();
-      if (entry.isSymbolicLink()) {
-        try { isDirectory = fs.statSync(full).isDirectory(); } catch { isDirectory = false; }
-      }
-      if (isDirectory) walk(full);
-      else if (entry.name.endsWith('.mcstructure')) {
-        fs.mkdirSync(path.join(absOut, 'structures'), { recursive: true });
-        const to = path.join(absOut, 'structures', entry.name);
-        fs.copyFileSync(full, to);
-        collected.push({
-          file: entry.name,
-          bytes: fs.statSync(to).size,
-          source: path.relative(workDir, full),
-        });
-      }
-    }
-  };
-  if (fs.existsSync(workDir)) walk(workDir);
-  console.log(`collected ${collected.length} structure file(s) from the working directory`);
-
-  // `structure save` does not always write into the working directory (it
-  // depends on which pack is active), so if any requested name is still
-  // missing, sweep the rest of the checkout before giving up.
-  const requestNames = saved.map((item) => item.name);
-  if (probe) requestNames.push('wp_probe');
-  const have = new Set(collected.map((item) => item.file.replace(/\.mcstructure$/, '')));
-  const stillMissing = requestNames.filter((name) => !have.has(name));
-  if (stillMissing.length) {
-    const root = process.cwd();
-    const skip = new Set(['.git', 'node_modules', 'capture']);
-    const sweep = (dir) => {
-      let entries;
-      try { entries = fs.readdirSync(dir, { withFileTypes: true }); } catch { return; }
-      for (const entry of entries) {
-        if (skip.has(entry.name)) continue;
-        const full = path.join(dir, entry.name);
-        let isDirectory = entry.isDirectory();
-        if (entry.isSymbolicLink()) {
-          try { isDirectory = fs.statSync(full).isDirectory(); } catch { isDirectory = false; }
-        }
-        if (isDirectory) { sweep(full); continue; }
-        const base = entry.name.replace(/\.mcstructure$/, '');
-        if (!stillMissing.includes(base)) continue;
-        fs.mkdirSync(path.join(absOut, 'structures'), { recursive: true });
-        const to = path.join(absOut, 'structures', entry.name);
-        fs.copyFileSync(full, to);
-        collected.push({
-          file: entry.name,
-          bytes: fs.statSync(to).size,
-          source: path.relative(root, full),
-        });
-      }
-    };
-    sweep(root);
-    console.log(
-      `collected ${collected.length} structure file(s) after sweeping ${root}`
-    );
-  }
-
-  // On the dedicated server `structure save` keeps the structure in memory and
-  // writes no file, so a missing structure is expected there. Say so plainly
-  // instead of failing: the world database is the ground truth we ship.
-  const expected = saved.map((item) => item.name);
-  if (probe) expected.push('wp_probe');
-  const seen = new Set(collected.map((item) => item.file.replace(/\.mcstructure$/, '')));
-  const missing = expected.filter((name) => !seen.has(name));
-  if (missing.length) {
-    const note =
-      `structure save produced no file for ${missing.length}/${expected.length} names ` +
-      '(the dedicated server keeps structures in memory); the world database is ' +
-      'the ground truth for this capture.';
-    console.warn(note);
-    fs.writeFileSync(path.join(absOut, 'structures-missing.txt'), `${note}\n${missing.join('\n')}\n`);
-  }
+  fs.writeFileSync(path.join(absOut, 'server.log'), server.lines.join(''));
 
   const manifest = {
     schema: 1,
     generatedAt: new Date().toISOString(),
+    durationMs: Date.now() - started,
     binary: { path: path.basename(binaryPath), sha256: binarySha, bytes: fs.statSync(binaryPath).size },
     chunkBase: [bcx, bcz],
     buffer,
@@ -530,7 +377,7 @@ async function captureInner({
       [-64, -1], [0, 63], [64, 127], [128, 191], [192, 255], [256, 319],
     ],
     chunks: [[0, 0], [1, 0], [0, 1], [1, 1]],
-    structures: collected,
+
   };
   fs.writeFileSync(path.join(absOut, 'capture.json'), `${JSON.stringify(manifest, null, 2)}\n`);
   return manifest;
@@ -546,7 +393,10 @@ if (require.main === module) {
   }
   capture(args)
     .then((manifest) => {
-      console.log(`captured ${manifest.structures.length} structures for seed ${manifest.seed}`);
+      console.log(
+        `captured seed ${manifest.seed} at chunk ${manifest.chunkBase.join(',')} ` +
+        `in ${manifest.durationMs} ms`
+      );
     })
     .catch((error) => {
       console.error(`capture failed: ${error.message}`);
