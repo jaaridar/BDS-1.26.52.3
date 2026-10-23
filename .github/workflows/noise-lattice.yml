@@ -99,7 +99,7 @@ jobs:
       - name: Run headless lattice dump
         run: |
           set -o pipefail
-          mkdir -p "$OUTPUT_DIR"
+          mkdir -p "$OUTPUT_DIR" "$RUNNER_TEMP/projects"
           "$GHIDRA_DIR/support/analyzeHeadless" \
             "$RUNNER_TEMP/projects" "bds-lattice" \
             -import "$PWD/bedrock_server" \
