@@ -1,5 +1,7 @@
-1-c128_128: 98296/98304 blocks (99.9919%) NOT EXACT
-1-c128_129: 98285/98304 blocks (99.9807%) NOT EXACT
-1-c129_128: 98284/98304 blocks (99.9797%) NOT EXACT
-1-c129_129: 98300/98304 blocks (99.9959%) NOT EXACT
+1-c128_128: 98223/98304 blocks (99.9176%)
+  below threshold 0.9995
+1-c128_129: 98303/98304 blocks (99.9990%)
+1-c129_128: 98239/98304 blocks (99.9339%)
+  below threshold 0.9995
+1-c129_129: 98302/98304 blocks (99.9980%)
 wrote capture/verify-1.md

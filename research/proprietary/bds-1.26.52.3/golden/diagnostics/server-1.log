@@ -1,95 +1,95 @@
 NO LOG FILE! - setting up server logging...
-[2026-10-23 03:02:04:793 INFO] Starting Server
-[2026-10-23 03:02:04:793 INFO] Version: 1.26.52.3
-[2026-10-23 03:02:04:793 INFO] Session ID: 3b401014-5c53-49b7-b819-d0735abaa80a
-[2026-10-23 03:02:04:793 INFO] Build ID: 51798919
-[2026-10-23 03:02:04:793 INFO] Branch: r/26_u5
-[2026-10-23 03:02:04:793 INFO] Commit ID: 54116bb5ee0b7aee0b5591efbcc8bc3cf64f168a
-[2026-10-23 03:02:04:793 INFO] Configuration: Publish
-[2026-10-23 03:02:04:794 INFO] Contents of server.properties: {}
-[2026-10-23 03:02:04:794 INFO] Level Name: golden
-[2026-10-23 03:02:04:794 INFO] Profiler config ('bootstrap.json') load result: success=1, errorMessage=(null)
-[2026-10-23 03:02:04:796 INFO] No CDN config file found at: cdn_config.json for dedicated server
-[2026-10-23 03:02:04:797 INFO] Game mode: 1 Creative
-[2026-10-23 03:02:04:797 INFO] Difficulty: 0 PEACEFUL
-[2026-10-23 03:02:04:799 INFO] Content logging to console is enabled.
-[2026-10-23 03:02:04:800 INFO] 
+[2026-10-23 03:25:43:265 INFO] Starting Server
+[2026-10-23 03:25:43:265 INFO] Version: 1.26.52.3
+[2026-10-23 03:25:43:265 INFO] Session ID: 1dbd551e-884b-4eed-abc0-0d500455d4a9
+[2026-10-23 03:25:43:265 INFO] Build ID: 51798919
+[2026-10-23 03:25:43:265 INFO] Branch: r/26_u5
+[2026-10-23 03:25:43:265 INFO] Commit ID: 54116bb5ee0b7aee0b5591efbcc8bc3cf64f168a
+[2026-10-23 03:25:43:265 INFO] Configuration: Publish
+[2026-10-23 03:25:43:265 INFO] Contents of server.properties: {}
+[2026-10-23 03:25:43:265 INFO] Level Name: golden
+[2026-10-23 03:25:43:265 INFO] Profiler config ('bootstrap.json') load result: success=1, errorMessage=(null)
+[2026-10-23 03:25:43:270 INFO] No CDN config file found at: cdn_config.json for dedicated server
+[2026-10-23 03:25:43:270 INFO] Game mode: 1 Creative
+[2026-10-23 03:25:43:270 INFO] Difficulty: 0 PEACEFUL
+[2026-10-23 03:25:43:274 INFO] Content logging to console is enabled.
+[2026-10-23 03:25:43:276 INFO] 
 
 #####################################################
 #                                                   #
 #              CREATING VANILLA WORLD               #
 #                                                   #
 #####################################################
-[2026-10-23 03:02:05:224 INFO] Opening level 'worlds/golden/db'
-[2026-10-23 03:02:05:258 INFO] Pack Stack - None
-[2026-10-23 03:02:05:451 INFO] Signed in to signaling service successfully
-[2026-10-23 03:02:06:138 INFO] IPv4 supported, port: 19132: Used for gameplay and LAN discovery
-[2026-10-23 03:02:06:138 INFO] IPv6 supported, port: 19133: Used for gameplay
-[2026-10-23 03:02:06:168 INFO] Server started.
-[2026-10-23 03:02:06:168 ERROR] ================ TRANSPORT TYPE ERROR  ===================
-[2026-10-23 03:02:06:168 ERROR] Your current connection type is not set to NetherNet. In this release, NetherNet is the only supported transport type.
-[2026-10-23 03:02:06:168 ERROR] Players will not be able to connect to your game without NetherNet.
-[2026-10-23 03:02:06:168 ERROR] 
-[2026-10-23 03:02:06:168 ERROR] To switch, set 'transport=nethernet' in server.properties.
-[2026-10-23 03:02:06:168 ERROR] 
-[2026-10-23 03:02:06:168 ERROR] For more information, please reference the included bedrock_server_how_to.html file.
-[2026-10-23 03:02:06:168 ERROR] =======================================================
-[2026-10-23 03:02:06:168 INFO] ================ TELEMETRY MESSAGE ===================
-[2026-10-23 03:02:06:168 INFO] Server Telemetry is currently not enabled. 
-[2026-10-23 03:02:06:168 INFO] Enabling this telemetry helps us improve the game.
-[2026-10-23 03:02:06:168 INFO] 
-[2026-10-23 03:02:06:168 INFO] To enable this feature, add the line 'emit-server-telemetry=true'
-[2026-10-23 03:02:06:168 INFO] to the server.properties file in the handheld/src-server directory
-[2026-10-23 03:02:06:168 INFO] ======================================================
-[2026-10-23 03:02:06:306 INFO] Game rule randomTickSpeed has been updated to 0
-[2026-10-23 03:02:06:319 INFO] Game rule doMobSpawning has been updated to false
-[2026-10-23 03:02:06:419 INFO] Game rule doFireTick has been updated to false
-[2026-10-23 03:02:06:569 INFO] Game rule doWeatherCycle has been updated to false
-[2026-10-23 03:02:06:669 INFO] Game rule doDaylightCycle has been updated to false
-[2026-10-23 03:02:06:769 INFO] Game rule doInsomnia has been updated to false
-[2026-10-23 03:02:06:919 ERROR] Syntax error: Unexpected "doTraderSpawning": at "/gamerule >>doTraderSpawning<< false"
-[2026-10-23 03:02:07:024 ERROR] Syntax error: Unexpected "doPatrolSpawning": at "/gamerule >>doPatrolSpawning<< false"
-[2026-10-23 03:02:07:174 ERROR] Syntax error: Unexpected "doWanderingTraderSpawning": at "/gamerule >>doWanderingTraderSpawning<< false"
-[2026-10-23 03:02:07:274 INFO] Game rule mobGriefing has been updated to false
-[2026-10-23 03:02:07:374 INFO] Game rule tntExplodes has been updated to false
-[2026-10-23 03:02:07:524 INFO] Added ticking area from 2016, 0, 2016 to 2111, 0, 2111.
+[2026-10-23 03:25:43:705 INFO] Opening level 'worlds/golden/db'
+[2026-10-23 03:25:43:741 INFO] Pack Stack - None
+[2026-10-23 03:25:43:928 INFO] Signed in to signaling service successfully
+[2026-10-23 03:25:44:607 INFO] IPv4 supported, port: 19132: Used for gameplay and LAN discovery
+[2026-10-23 03:25:44:607 INFO] IPv6 supported, port: 19133: Used for gameplay
+[2026-10-23 03:25:44:641 INFO] Server started.
+[2026-10-23 03:25:44:641 ERROR] ================ TRANSPORT TYPE ERROR  ===================
+[2026-10-23 03:25:44:641 ERROR] Your current connection type is not set to NetherNet. In this release, NetherNet is the only supported transport type.
+[2026-10-23 03:25:44:641 ERROR] Players will not be able to connect to your game without NetherNet.
+[2026-10-23 03:25:44:641 ERROR] 
+[2026-10-23 03:25:44:641 ERROR] To switch, set 'transport=nethernet' in server.properties.
+[2026-10-23 03:25:44:641 ERROR] 
+[2026-10-23 03:25:44:641 ERROR] For more information, please reference the included bedrock_server_how_to.html file.
+[2026-10-23 03:25:44:641 ERROR] =======================================================
+[2026-10-23 03:25:44:641 INFO] ================ TELEMETRY MESSAGE ===================
+[2026-10-23 03:25:44:641 INFO] Server Telemetry is currently not enabled. 
+[2026-10-23 03:25:44:641 INFO] Enabling this telemetry helps us improve the game.
+[2026-10-23 03:25:44:641 INFO] 
+[2026-10-23 03:25:44:641 INFO] To enable this feature, add the line 'emit-server-telemetry=true'
+[2026-10-23 03:25:44:641 INFO] to the server.properties file in the handheld/src-server directory
+[2026-10-23 03:25:44:641 INFO] ======================================================
+[2026-10-23 03:25:44:782 INFO] Game rule randomTickSpeed has been updated to 0
+[2026-10-23 03:25:44:793 INFO] Game rule doMobSpawning has been updated to false
+[2026-10-23 03:25:44:893 INFO] Game rule doFireTick has been updated to false
+[2026-10-23 03:25:45:043 INFO] Game rule doWeatherCycle has been updated to false
+[2026-10-23 03:25:45:143 INFO] Game rule doDaylightCycle has been updated to false
+[2026-10-23 03:25:45:293 INFO] Game rule doInsomnia has been updated to false
+[2026-10-23 03:25:45:393 ERROR] Syntax error: Unexpected "doTraderSpawning": at "/gamerule >>doTraderSpawning<< false"
+[2026-10-23 03:25:45:493 ERROR] Syntax error: Unexpected "doPatrolSpawning": at "/gamerule >>doPatrolSpawning<< false"
+[2026-10-23 03:25:45:643 ERROR] Syntax error: Unexpected "doWanderingTraderSpawning": at "/gamerule >>doWanderingTraderSpawning<< false"
+[2026-10-23 03:25:45:743 INFO] Game rule mobGriefing has been updated to false
+[2026-10-23 03:25:45:899 INFO] Game rule tntExplodes has been updated to false
+[2026-10-23 03:25:45:999 INFO] Added ticking area from 2016, 0, 2016 to 2111, 0, 2111.
 1/10 ticking areas in use.
-[2026-10-23 03:02:40:040 INFO] Block placed
-[2026-10-23 03:02:40:139 INFO] Block placed
-[2026-10-23 03:02:40:289 INFO] Block placed
-[2026-10-23 03:02:40:389 INFO] Block placed
-[2026-10-23 03:02:41:644 ERROR] 0 blocks filled
-[2026-10-23 03:02:41:744 INFO] Block placed
-[2026-10-23 03:02:41:894 INFO] Block placed
-[2026-10-23 03:02:41:994 INFO] Block placed
-[2026-10-23 03:02:42:144 INFO] Block placed
-[2026-10-23 03:02:42:244 INFO] Block placed
-[2026-10-23 03:02:42:344 INFO] Block placed
-[2026-10-23 03:02:42:994 INFO] Saved a structure with name mystructure:wp_probe
-[2026-10-23 03:02:44:600 INFO] Saved a structure with name mystructure:c128_128_y0
-[2026-10-23 03:02:45:000 INFO] Saved a structure with name mystructure:c128_128_y1
-[2026-10-23 03:02:45:350 INFO] Saved a structure with name mystructure:c128_128_y2
-[2026-10-23 03:02:45:700 INFO] Saved a structure with name mystructure:c128_128_y3
-[2026-10-23 03:02:46:100 INFO] Saved a structure with name mystructure:c128_128_y4
-[2026-10-23 03:02:46:455 INFO] Saved a structure with name mystructure:c128_128_y5
-[2026-10-23 03:02:46:855 INFO] Saved a structure with name mystructure:c129_128_y0
-[2026-10-23 03:02:47:205 INFO] Saved a structure with name mystructure:c129_128_y1
-[2026-10-23 03:02:47:555 INFO] Saved a structure with name mystructure:c129_128_y2
-[2026-10-23 03:02:47:955 INFO] Saved a structure with name mystructure:c129_128_y3
-[2026-10-23 03:02:48:305 INFO] Saved a structure with name mystructure:c129_128_y4
-[2026-10-23 03:02:48:705 INFO] Saved a structure with name mystructure:c129_128_y5
-[2026-10-23 03:02:49:060 INFO] Saved a structure with name mystructure:c128_129_y0
-[2026-10-23 03:02:49:411 INFO] Saved a structure with name mystructure:c128_129_y1
-[2026-10-23 03:02:49:810 INFO] Saved a structure with name mystructure:c128_129_y2
-[2026-10-23 03:02:50:160 INFO] Saved a structure with name mystructure:c128_129_y3
-[2026-10-23 03:02:50:560 INFO] Saved a structure with name mystructure:c128_129_y4
-[2026-10-23 03:02:50:910 INFO] Saved a structure with name mystructure:c128_129_y5
-[2026-10-23 03:02:51:260 INFO] Saved a structure with name mystructure:c129_129_y0
-[2026-10-23 03:02:51:665 INFO] Saved a structure with name mystructure:c129_129_y1
-[2026-10-23 03:02:52:015 INFO] Saved a structure with name mystructure:c129_129_y2
-[2026-10-23 03:02:52:415 INFO] Saved a structure with name mystructure:c129_129_y3
-[2026-10-23 03:02:52:765 INFO] Saved a structure with name mystructure:c129_129_y4
-[2026-10-23 03:02:53:115 INFO] Saved a structure with name mystructure:c129_129_y5
-[2026-10-23 03:05:54:819 INFO] Server stop requested.
-[2026-10-23 03:05:54:865 INFO] Stopping server...
+[2026-10-23 03:26:18:520 INFO] Block placed
+[2026-10-23 03:26:18:620 INFO] Block placed
+[2026-10-23 03:26:18:770 INFO] Block placed
+[2026-10-23 03:26:18:870 INFO] Block placed
+[2026-10-23 03:26:20:120 ERROR] 0 blocks filled
+[2026-10-23 03:26:20:225 INFO] Block placed
+[2026-10-23 03:26:20:375 INFO] Block placed
+[2026-10-23 03:26:20:475 INFO] Block placed
+[2026-10-23 03:26:20:625 INFO] Block placed
+[2026-10-23 03:26:20:725 INFO] Block placed
+[2026-10-23 03:26:20:825 INFO] Block placed
+[2026-10-23 03:26:21:475 INFO] Saved a structure with name mystructure:wp_probe
+[2026-10-23 03:26:23:081 INFO] Saved a structure with name mystructure:c128_128_y0
+[2026-10-23 03:26:23:481 INFO] Saved a structure with name mystructure:c128_128_y1
+[2026-10-23 03:26:23:831 INFO] Saved a structure with name mystructure:c128_128_y2
+[2026-10-23 03:26:24:181 INFO] Saved a structure with name mystructure:c128_128_y3
+[2026-10-23 03:26:24:580 INFO] Saved a structure with name mystructure:c128_128_y4
+[2026-10-23 03:26:24:931 INFO] Saved a structure with name mystructure:c128_128_y5
+[2026-10-23 03:26:25:336 INFO] Saved a structure with name mystructure:c129_128_y0
+[2026-10-23 03:26:25:686 INFO] Saved a structure with name mystructure:c129_128_y1
+[2026-10-23 03:26:26:035 INFO] Saved a structure with name mystructure:c129_128_y2
+[2026-10-23 03:26:26:435 INFO] Saved a structure with name mystructure:c129_128_y3
+[2026-10-23 03:26:26:785 INFO] Saved a structure with name mystructure:c129_128_y4
+[2026-10-23 03:26:27:185 INFO] Saved a structure with name mystructure:c129_128_y5
+[2026-10-23 03:26:27:536 INFO] Saved a structure with name mystructure:c128_129_y0
+[2026-10-23 03:26:27:941 INFO] Saved a structure with name mystructure:c128_129_y1
+[2026-10-23 03:26:28:291 INFO] Saved a structure with name mystructure:c128_129_y2
+[2026-10-23 03:26:28:640 INFO] Saved a structure with name mystructure:c128_129_y3
+[2026-10-23 03:26:29:040 INFO] Saved a structure with name mystructure:c128_129_y4
+[2026-10-23 03:26:29:390 INFO] Saved a structure with name mystructure:c128_129_y5
+[2026-10-23 03:26:29:791 INFO] Saved a structure with name mystructure:c129_129_y0
+[2026-10-23 03:26:30:146 INFO] Saved a structure with name mystructure:c129_129_y1
+[2026-10-23 03:26:30:495 INFO] Saved a structure with name mystructure:c129_129_y2
+[2026-10-23 03:26:30:895 INFO] Saved a structure with name mystructure:c129_129_y3
+[2026-10-23 03:26:31:246 INFO] Saved a structure with name mystructure:c129_129_y4
+[2026-10-23 03:26:31:645 INFO] Saved a structure with name mystructure:c129_129_y5
+[2026-10-23 03:29:19:969 INFO] Server stop requested.
+[2026-10-23 03:29:20:019 INFO] Stopping server...
 Quit correctly

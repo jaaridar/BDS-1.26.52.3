@@ -6,7 +6,7 @@
   "generator": "default",
   "capture": {
     "binarySha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
-    "generatedAt": "2026-10-23T03:05:55.108Z",
+    "generatedAt": "2026-10-23T03:29:20.280Z",
     "source": "leveldb",
     "database": "db-dump.json",
     "comparedCaptures": 3
@@ -107,6 +107,12 @@
       "name": "minecraft:glow_lichen",
       "states": {
         "multi_face_direction_bits": 16
+      }
+    },
+    {
+      "name": "minecraft:glow_lichen",
+      "states": {
+        "multi_face_direction_bits": 8
       }
     },
     {
@@ -391,11 +397,11 @@
   ],
   "blocks": {
     "file": "golden-1-c129_128.blocks.bin",
-    "sha256": "70f684289c168af7930de7b1189a2806bd355808fbecf210fc53eb037a6d21c7",
+    "sha256": "8d9b1f4b8c11c678e71d623adaab8362e1dea99e78d1d15a90613a3bca1998c2",
     "bytes": 196608,
     "layers": 2,
     "file1": "golden-1-c129_128.layer1.bin",
-    "sha256_1": "5b610323ad4465548591a8809c17b47fe5fb30af4eb14e860f7999d5964cde8f"
+    "sha256_1": "aa01e318e525151f7a3206d11d55ef938c1ad13e9c786e961d7e8ef4040f18e9"
   },
   "stability": {
     "stableBlocks": 98229,
