@@ -260,6 +260,9 @@ async function captureInner({ binary, seed, out, timeout, probe, verbose, assets
 
   const server = new Server(localBinary, workDir, verbose, path.join(absOut, 'server.log')).start();
   const started = Date.now();
+  // Declared outside the try/finally so the collection phase can check that
+  // every requested save actually produced a file.
+  const saved = [];
   try {
     await server.waitFor(/Server started\.?/i, 300000, 'server start');
 
@@ -302,7 +305,6 @@ async function captureInner({ binary, seed, out, timeout, probe, verbose, assets
     // --- save each chunk column in 64-block vertical slices ---------------
     const chunks = [[0, 0], [1, 0], [0, 1], [1, 1]];
     const slices = [[-64, -1], [0, 63], [64, 127], [128, 191], [192, 255], [256, 319]];
-    const saved = [];
     for (const [cx, cz] of chunks) {
       for (let i = 0; i < slices.length; i++) {
         const [y0, y1] = slices[i];
