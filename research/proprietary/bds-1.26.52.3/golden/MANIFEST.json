@@ -2,7 +2,7 @@
   "schema": 1,
   "captures": [],
   "blockOrdering": "x*256 + z*16 + y (y fastest), proven by the marker probe",
-  "updatedAt": "2026-10-23T04:56:40.893Z",
+  "updatedAt": "2026-10-23T04:59:29.899Z",
   "columns": [
     {
       "label": "1-c128_128",
@@ -45,7 +45,7 @@
       "palette": 67,
       "blocks": {
         "file": "golden-1-c128_129.blocks.bin",
-        "sha256": "8f00b02d455492dbd576de8c8a6d0fd41f99fb998f73bc47738b01505b854c74",
+        "sha256": "2237b4da0b8ac383bf9cfff8c91ef2a21a980799b92b20a8a97d57fbb1456003",
         "bytes": 196608,
         "layers": 2,
         "file1": "golden-1-c128_129.layer1.bin",
@@ -67,10 +67,10 @@
         -64,
         2048
       ],
-      "palette": 69,
+      "palette": 68,
       "blocks": {
         "file": "golden-1-c129_128.blocks.bin",
-        "sha256": "fdc7f1a886e42224207d507b2e215f555fa72311e44a075a22ca807a4fd066ec",
+        "sha256": "d9ef61f959b42ed9ab2618d973cae0b267f3a10defa2fd9177e14efe490b4085",
         "bytes": 196608,
         "layers": 2,
         "file1": "golden-1-c129_128.layer1.bin",
@@ -95,7 +95,7 @@
       "palette": 76,
       "blocks": {
         "file": "golden-1-c129_129.blocks.bin",
-        "sha256": "5641967a8f777b7ae3e600a19c5c6e0dd361aa7aefd8f2ed32c2eed81591d7b3",
+        "sha256": "7652c60cdea9873c7a94bfc7ba8fa4f2d3cdeb083ca201367ed3e4211d8d8ca2",
         "bytes": 196608,
         "layers": 2,
         "file1": "golden-1-c129_129.layer1.bin",

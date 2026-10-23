@@ -6,7 +6,7 @@
   "generator": "default",
   "capture": {
     "binarySha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
-    "generatedAt": "2026-10-23T04:56:16.294Z",
+    "generatedAt": "2026-10-23T04:58:58.520Z",
     "source": "leveldb",
     "database": "db-dump.json",
     "comparedCaptures": 13
@@ -74,6 +74,12 @@
       }
     },
     {
+      "name": "minecraft:glow_lichen",
+      "states": {
+        "multi_face_direction_bits": 4
+      }
+    },
+    {
       "name": "minecraft:lava",
       "states": {
         "liquid_depth": 1
@@ -84,10 +90,6 @@
       "states": {
         "liquid_depth": 2
       }
-    },
-    {
-      "name": "minecraft:deepslate_iron_ore",
-      "states": {}
     },
     {
       "name": "minecraft:moss_block",
@@ -107,6 +109,10 @@
     },
     {
       "name": "minecraft:short_grass",
+      "states": {}
+    },
+    {
+      "name": "minecraft:deepslate_iron_ore",
       "states": {}
     },
     {
@@ -153,12 +159,6 @@
       "name": "minecraft:cave_vines_head_with_berries",
       "states": {
         "growing_plant_age": 22
-      }
-    },
-    {
-      "name": "minecraft:cave_vines",
-      "states": {
-        "growing_plant_age": 25
       }
     },
     {
@@ -386,15 +386,15 @@
   ],
   "blocks": {
     "file": "golden-1-c128_129.blocks.bin",
-    "sha256": "8f00b02d455492dbd576de8c8a6d0fd41f99fb998f73bc47738b01505b854c74",
+    "sha256": "2237b4da0b8ac383bf9cfff8c91ef2a21a980799b92b20a8a97d57fbb1456003",
     "bytes": 196608,
     "layers": 2,
     "file1": "golden-1-c128_129.layer1.bin",
     "sha256_1": "393343a6e0a90acddf8b5290049bc55d52be01864a6efe548bfabee78f160263"
   },
   "stability": {
-    "stableBlocks": 98219,
-    "unstableBlocks": 85,
+    "stableBlocks": 98193,
+    "unstableBlocks": 111,
     "file": "golden-1-c128_129.unstable.json",
     "note": "Blocks listed in `file` are not reproducible by BDS itself across captures of the same seed; a candidate must produce one of the listed variants there. Every other block must match exactly."
   }

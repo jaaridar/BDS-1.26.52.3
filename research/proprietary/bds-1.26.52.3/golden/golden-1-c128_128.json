@@ -6,7 +6,7 @@
   "generator": "default",
   "capture": {
     "binarySha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
-    "generatedAt": "2026-10-23T04:56:16.294Z",
+    "generatedAt": "2026-10-23T04:58:58.520Z",
     "source": "leveldb",
     "database": "db-dump.json",
     "comparedCaptures": 13
@@ -391,8 +391,8 @@
     "sha256_1": "53da1e91152ff243e9fee81dbbce395c5fa1a493e238f2b25ed7926834c90b95"
   },
   "stability": {
-    "stableBlocks": 98200,
-    "unstableBlocks": 104,
+    "stableBlocks": 98201,
+    "unstableBlocks": 103,
     "file": "golden-1-c128_128.unstable.json",
     "note": "Blocks listed in `file` are not reproducible by BDS itself across captures of the same seed; a candidate must produce one of the listed variants there. Every other block must match exactly."
   }

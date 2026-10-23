@@ -9,7 +9,7 @@
 # worldgen comparison — 1-c128_128
 
 - volume: `16 x 384 x 16` = 98,304 blocks
-- matched: 98,297
+- matched: 98,303
 - mismatched: 0
 - accuracy: 100.0000%
 
@@ -18,7 +18,7 @@
 # worldgen comparison — 1-c128_129
 
 - volume: `16 x 384 x 16` = 98,304 blocks
-- matched: 98,292
+- matched: 98,283
 - mismatched: 0
 - accuracy: 100.0000%
 
@@ -27,7 +27,7 @@
 # worldgen comparison — 1-c129_128
 
 - volume: `16 x 384 x 16` = 98,304 blocks
-- matched: 98,293
+- matched: 98,285
 - mismatched: 0
 - accuracy: 100.0000%
 
@@ -36,7 +36,7 @@
 # worldgen comparison — 1-c129_129
 
 - volume: `16 x 384 x 16` = 98,304 blocks
-- matched: 98,275
+- matched: 98,299
 - mismatched: 0
 - accuracy: 100.0000%
 
