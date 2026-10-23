@@ -126,11 +126,15 @@ jobs:
             "capture/seed-${MODE}-recheck/db-dump.json" \
             --capture "capture/seed-${MODE}-recheck" \
             --out "capture/golden-${MODE}-recheck"
+          set +e
           node tools/worldgen-golden/verify.js \
             --golden "${OUTPUT_DIR}" \
             --candidate "capture/golden-${MODE}-recheck" \
             --require-exact \
-            --write-report "capture/verify-${MODE}.md"
+            --write-report "capture/verify-${MODE}.md" 2>&1 | tee "capture/verify-${MODE}.log"
+          status=${PIPESTATUS[0]}
+          echo "VERIFY_EXIT=$status" >> "$GITHUB_ENV"
+          exit $status
 
       # Artifacts are not reachable from every environment, so the diagnostics
       # that explain a failure are committed next to the evidence as well.
@@ -167,10 +171,15 @@ jobs:
             echo 'db dump / decode log:'
             cat "capture/build-golden-${MODE}.log" 2>/dev/null || echo '(none)'
             echo
+            echo 'determinism check (re-capture vs golden):'
+            cat "capture/verify-${MODE}.log" 2>/dev/null | tail -60 || echo '(not run)'
+            echo
             echo 'structure save note:'
             cat "capture/seed-${MODE}/structures-missing.txt" 2>/dev/null | head -5 || true
           } >> "${OUTPUT_DIR}/diagnostics/report-${MODE}.txt"
           cp "capture/seed-${MODE}/capture.json" "${OUTPUT_DIR}/diagnostics/capture-${MODE}.json" 2>/dev/null || true
+          cp "capture/verify-${MODE}.md" "${OUTPUT_DIR}/diagnostics/verify-${MODE}.md" 2>/dev/null || true
+          cp "capture/verify-${MODE}.log" "${OUTPUT_DIR}/diagnostics/verify-${MODE}.log" 2>/dev/null || true
           cat capture/report.txt
 
       - name: Upload capture artifacts
