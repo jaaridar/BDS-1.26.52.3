@@ -129,3 +129,39 @@ generation must first be shown to be reproducible.
   cover negative coordinates, biome variety and structure placement.
 * OpenBDS' generator is then expected to emit golden-format files, and
   `verify.js` becomes the acceptance test for world generation.
+
+## Ground truth source: the world database
+
+`structure save` looks like the obvious way to extract blocks, but on the
+dedicated server it keeps the structure in memory and writes no file (see
+`research/proprietary/bds-1.26.52.3/golden/CAPTURE-FINDINGS.md`). The capture
+therefore reads the world's own LevelDB:
+
+| step | tool |
+| --- | --- |
+| run the server, force generation, place the marker probe | `run-golden.js` |
+| dump keys/values read-only to JSON | `dump-db.js` (needs `classic-level`) |
+| prove the decoder against the marker probe | `check-db.js` |
+| emit canonical golden columns | `build-golden-db.js` |
+| compare an implementation against the golden data | `verify.js` |
+
+```bash
+npm install --no-save classic-level
+node tools/worldgen-golden/run-golden.js --binary ./bedrock_server --seed 1 --out capture/seed-1
+node tools/worldgen-golden/dump-db.js --db capture/seed-1/server/worlds/golden/db \
+     --out capture/seed-1/db-dump.json
+node tools/worldgen-golden/check-db.js capture/seed-1/db-dump.json --probe 0,100,0
+node tools/worldgen-golden/build-golden-db.js capture/seed-1/db-dump.json \
+     --capture capture/seed-1 --out research/proprietary/bds-1.26.52.3/golden
+```
+
+`check-db.js` is the acceptance gate for the *decoder*: it must reproduce all
+six marker blocks at their exact coordinates, otherwise the pipeline fails.
+
+### Format, in one screen
+
+* subchunk key: `x:int32 LE, z:int32 LE, tag=0x2f, subchunkIndex:i8`
+* subchunk value: `version=9, storageCount, y:i8, bits`, then per storage the
+  packed u32 words followed by a little-endian NBT palette; `bpb = bits / 2`
+* block order inside a subchunk: `x*256 + z*16 + y`
+* subchunk index `i` covers world Y `i*16 .. i*16+15`; an absent subchunk is air

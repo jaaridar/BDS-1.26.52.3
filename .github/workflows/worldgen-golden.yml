@@ -85,42 +85,50 @@ jobs:
           exit $status
 
       # `structure save` keeps structures in memory on the dedicated server, so
-      # the world's own LevelDB is the ground truth. Dump it read-only here and
-      # decode it into the canonical grid on the analysis side.
+      # the world's own LevelDB is the ground truth. Dump it read-only, prove the
+      # decoder against the marker probe, then emit the canonical golden grid.
       - name: Dump the world database
         run: |
-          set +e
-          npm install --no-save --no-audit --no-fund classic-level >> "capture/build-golden-${MODE}.log" 2>&1
+          npm install --no-save --no-audit --no-fund classic-level
           node tools/worldgen-golden/dump-db.js \
             --db "capture/seed-${MODE}/server/worlds/golden/db" \
-            --out "capture/seed-${MODE}/db-dump.json" 2>&1 | tee -a "capture/build-golden-${MODE}.log"
-          status=${PIPESTATUS[0]}
-          if [ -f "capture/seed-${MODE}/db-dump.json" ]; then
-            mkdir -p "${OUTPUT_DIR}/db"
-            cp "capture/seed-${MODE}/db-dump.json" "${OUTPUT_DIR}/db/dump-seed-${MODE}.json"
-            ls -l "${OUTPUT_DIR}/db/"
-          fi
-          exit $status
+            --out "capture/seed-${MODE}/db-dump.json"
+          mkdir -p "${OUTPUT_DIR}/db"
+          cp "capture/seed-${MODE}/db-dump.json" "${OUTPUT_DIR}/db/dump-seed-${MODE}.json"
 
-      # Determinism check: the same seed must produce the same world. If this
-      # ever fails, the capture is not a trustworthy oracle and must not be
-      # used to judge an implementation.
+      - name: Prove the decoder against the marker probe
+        run: |
+          node tools/worldgen-golden/check-db.js "capture/seed-${MODE}/db-dump.json" \
+            --probe 0,100,0
+
+      - name: Build golden columns
+        run: |
+          node tools/worldgen-golden/build-golden-db.js \
+            "capture/seed-${MODE}/db-dump.json" \
+            --capture "capture/seed-${MODE}" \
+            --out "${OUTPUT_DIR}"
+
+      # Determinism check: the same seed must produce the same world twice. If
+      # this fails the capture is not a trustworthy oracle and must not be used
+      # to judge an implementation.
       - name: Re-capture and require an exact match
-        # Pending: needs the database decoder (build-golden.js still expects
-        # `.mcstructure` input, which the dedicated server does not write).
-        if: ${{ false }}
+        if: ${{ env.RECHECK == 'true' }}
         run: |
           node tools/worldgen-golden/run-golden.js \
             --binary ./bedrock_server \
             --seed "${MODE}" \
             --out "capture/seed-${MODE}-recheck" \
             --timeout 900
-          node tools/worldgen-golden/build-golden.js "capture/seed-${MODE}-recheck" \
+          node tools/worldgen-golden/dump-db.js \
+            --db "capture/seed-${MODE}-recheck/server/worlds/golden/db" \
+            --out "capture/seed-${MODE}-recheck/db-dump.json"
+          node tools/worldgen-golden/build-golden-db.js \
+            "capture/seed-${MODE}-recheck/db-dump.json" \
+            --capture "capture/seed-${MODE}-recheck" \
             --out "capture/golden-${MODE}-recheck"
           node tools/worldgen-golden/verify.js \
             --golden "${OUTPUT_DIR}" \
             --candidate "capture/golden-${MODE}-recheck" \
-            --label "c.*" \
             --require-exact \
             --write-report "capture/verify-${MODE}.md"
 

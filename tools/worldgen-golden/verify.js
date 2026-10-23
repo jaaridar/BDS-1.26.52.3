@@ -46,8 +46,11 @@ function loadGoldenSet(dir, filter) {
   const manifest = fs.existsSync(manifestPath)
     ? JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
     : null;
-  const labels = manifest
-    ? manifest.captures.map((c) => c.label)
+  // Newer manifests record `columns` (built from the world database); older
+  // ones recorded `captures` (built from structure files). Accept either.
+  const recorded = manifest ? [...(manifest.captures || []), ...(manifest.columns || [])] : [];
+  const labels = manifest && recorded.length
+    ? [...new Set(recorded.map((c) => c.label))]
     : fs.readdirSync(dir)
       .filter((f) => f.startsWith('golden-') && f.endsWith('.json'))
       .map((f) => f.replace(/^golden-/, '').replace(/\.json$/, ''));
