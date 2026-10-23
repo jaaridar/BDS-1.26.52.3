@@ -117,7 +117,8 @@ jobs:
             "capture/seed-${MODE}/db-dump.json" \
             --capture "capture/seed-${MODE}" \
             --probe "${PROBE}" \
-            --out "${OUTPUT_DIR}"
+            --out "${OUTPUT_DIR}" 2>&1 | tee "capture/build-golden-${MODE}.log"
+          exit ${PIPESTATUS[0]}
 
       # Determinism check: the same seed must produce the same world twice. If
       # this fails the capture is not a trustworthy oracle and must not be used

@@ -20,7 +20,12 @@ function parseArgs(argv) {
     const arg = argv[i];
     if (arg === '--out') args.out = argv[++i];
     else if (arg === '--capture') args.capture = argv[++i];
-    else if (arg === '--chunks') {
+    else if (arg === '--probe') {
+      args.probe = argv[++i].split(',').map(Number);
+      if (args.probe.length !== 3 || args.probe.some((n) => !Number.isFinite(n))) {
+        throw new Error('--probe expects x,y,z');
+      }
+    } else if (arg === '--chunks') {
       args.chunks = [];
       while (argv[i + 1] && !argv[i + 1].startsWith('--')) {
         const [x, z] = argv[++i].split(',').map(Number);
