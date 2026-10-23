@@ -8,7 +8,7 @@ function paletteName(grid, id) {
   return entry ? `${entry.name}${entry.states && Object.keys(entry.states).length ? JSON.stringify(entry.states) : ''}` : `<palette#${id}>`;
 }
 
-function compareGrids({ golden, candidate, ignoreAir = false, maxWorst = 25 }) {
+function compareGrids({ golden, candidate, ignoreAir = false, maxWorst = 25, unstable = null }) {
   const [gsx, gsy, gsz] = golden.size;
   const [csx, csy, csz] = candidate.size;
   if (gsx !== csx || gsy !== csy || gsz !== csz) {
@@ -21,6 +21,7 @@ function compareGrids({ golden, candidate, ignoreAir = false, maxWorst = 25 }) {
   let mismatched = 0;
   let skipped = 0;
   const confusion = new Map();
+  let unstableAccepted = 0;
   const perY = new Map();
   const worst = [];
   const firstMismatches = [];
@@ -36,6 +37,24 @@ function compareGrids({ golden, candidate, ignoreAir = false, maxWorst = 25 }) {
         if (ignoreAir && goldenName === 'minecraft:air') {
           skipped++;
           continue;
+        }
+        if (unstable && unstable[offset]) {
+          // The server itself is not reproducible here: accept any variant it was
+          // observed to produce, and flag anything else as a real mismatch.
+          const allowed = unstable[offset];
+          const candidateL1 = candidate.layer1
+            ? paletteName(candidate, candidate.layer1[offset])
+            : 'minecraft:air';
+          const ok = allowed.some(
+            (variant) => variant.layer0 === candidateName &&
+              (variant.layer1 === undefined || variant.layer1 === candidateL1)
+          );
+          if (ok) {
+            matched++;
+            yMatched++;
+            unstableAccepted++;
+            continue;
+          }
         }
         if (goldenName === candidateName) {
           matched++;
@@ -73,6 +92,7 @@ function compareGrids({ golden, candidate, ignoreAir = false, maxWorst = 25 }) {
     worst,
     worstRanked: ranked,
     firstMismatches,
+    unstableAccepted,
     maxWorst,
     size: golden.size,
   };
@@ -115,6 +135,12 @@ function formatReport(report, { title = 'worldgen comparison', limit = 20 } = {}
     for (const row of interesting) {
       lines.push(`| ${row.y} | ${row.matched} | ${row.mismatched} |`);
     }
+    lines.push('');
+  }
+
+  if (report.unstableAccepted) {
+    lines.push(`- ${report.unstableAccepted} block(s) matched an accepted variant of a ` +
+      'block the server itself does not reproduce');
     lines.push('');
   }
 

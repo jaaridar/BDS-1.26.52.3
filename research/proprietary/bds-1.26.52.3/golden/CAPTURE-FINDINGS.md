@@ -92,6 +92,41 @@ Additional structural checks that make a silent misread impossible:
 * Golden palette keeps block **states**, so `water[level=3]` and `water[level=0]`
   remain distinct.
 
+## Reproducibility: terrain is stable, decoration is not
+
+Two independent captures of the same seed were diffed block by block. Measured on
+the captured columns:
+
+* **98,229 of 98,304 blocks (99.92%)** were identical.
+* Every differing block was a **feature-placed** block: `moss_block`,
+  `moss_carpet`, `azalea`, `short_grass`, `tall_grass`, `cave_vines*`,
+  `glow_lichen`, `clay` discs, `big_dripleaf`, `vine`.
+* No terrain block (stone, deepslate, dirt, gravel, tuff, water body, bedrock)
+  ever differed in a way that was not itself a feature placement.
+
+So BDS's noise-based terrain is deterministic, while its decoration features are
+not stable between runs of the same seed. This was measured, not assumed, and the
+harness is built around it:
+
+* the golden set is built from **two** captures; a block is *stable* only if both
+  agree on it (layer 0 and layer 1 together);
+* stable blocks are compared **exactly**;
+* unstable blocks are recorded in `golden-<label>.unstable.json` with the
+  variants the server actually produced, and a candidate must produce one of
+  them;
+* CI then verifies a **third, unseen** capture against the golden set, so the
+  gate cannot pass by construction.
+
+Ruled out as causes (each checked):
+
+| hypothesis | evidence |
+| --- | --- |
+| random ticks (glow lichen, grass spreading) | `Game rule randomTickSpeed has been updated to 0` is applied before the capture area is loaded; grass and lichen still differ |
+| spawn-area ticking | capture moved to chunk (128,128), 2048 blocks from spawn |
+| missing neighbour chunks | a 2-chunk generation buffer is generated around the captured chunks |
+| missing chunks in the save | every captured chunk gets a marker block at Y 319 so the server marks it modified; the server only persists modified chunks |
+| decoder misread | the same decoder reproduces all six probe markers in every capture |
+
 ## Next
 
 * Grow the captured area (more chunks, and a `tickingarea` that covers them) so

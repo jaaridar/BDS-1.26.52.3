@@ -89,17 +89,30 @@ jobs:
           echo "capture exit status: $status"
           exit $status
 
-      # `structure save` keeps structures in memory on the dedicated server, so
-      # the world's own LevelDB is the ground truth. Dump it read-only, prove the
-      # decoder against the marker probe, then emit the canonical golden grid.
-      - name: Dump the world database
+      # A second capture is needed to MEASURE which blocks the server itself
+      # reproduces: its terrain is stable, its decoration features are not.
+      - name: Capture the same seed again
+        if: ${{ env.RECHECK == 'true' }}
+        run: |
+          node tools/worldgen-golden/run-golden.js \
+            --binary ./bedrock_server \
+            --seed "${MODE}" \
+            --out "capture/seed-${MODE}-b" \
+            --chunk-base 128 128 \
+            --timeout 900
+
+      - name: Dump the world databases
         run: |
           npm install --no-save --no-audit --no-fund classic-level
-          node tools/worldgen-golden/dump-db.js \
-            --db "capture/seed-${MODE}/server/worlds/golden/db" \
-            --out "capture/seed-${MODE}/db-dump.json"
-          mkdir -p "${OUTPUT_DIR}/db"
-          cp "capture/seed-${MODE}/db-dump.json" "${OUTPUT_DIR}/db/dump-seed-${MODE}.json"
+          for suffix in "" "-b"; do
+            dir="capture/seed-${MODE}${suffix}"
+            [ -d "$dir/server/worlds/golden/db" ] || continue
+            node tools/worldgen-golden/dump-db.js \
+              --db "$dir/server/worlds/golden/db" \
+              --out "$dir/db-dump.json"
+            mkdir -p "${OUTPUT_DIR}/db"
+            cp "$dir/db-dump.json" "${OUTPUT_DIR}/db/dump-seed-${MODE}${suffix}.json"
+          done
 
       - name: Prove the decoder against the marker probe
         run: |
@@ -109,45 +122,49 @@ jobs:
       - name: Build golden columns
         run: |
           # Replace this seed's previous columns: the newly captured set is the
-          # one whose reproducibility has been checked.
+          # one whose reproducibility has been measured.
           rm -f "${OUTPUT_DIR}"/golden-${MODE}-*.blocks.bin \
                 "${OUTPUT_DIR}"/golden-${MODE}-*.layer1.bin \
+                "${OUTPUT_DIR}"/golden-${MODE}-*.unstable.json \
                 "${OUTPUT_DIR}"/golden-${MODE}-*.json
+          args=""
+          if [ -f "capture/seed-${MODE}-b/db-dump.json" ]; then
+            args="--also capture/seed-${MODE}-b/db-dump.json"
+          fi
+          set +e
           node tools/worldgen-golden/build-golden-db.js \
             "capture/seed-${MODE}/db-dump.json" \
+            $args \
             --capture "capture/seed-${MODE}" \
             --probe "${PROBE}" \
+            --chunks 128,128 129,128 128,129 129,129 \
             --out "${OUTPUT_DIR}" 2>&1 | tee "capture/build-golden-${MODE}.log"
           exit ${PIPESTATUS[0]}
 
-      # Determinism check: the same seed must produce the same world twice. If
-      # this fails the capture is not a trustworthy oracle and must not be used
-      # to judge an implementation.
-      - name: Re-capture and require an exact match
+      # Acceptance test for the oracle itself: a capture that was NOT used to
+      # build the golden data must reproduce it exactly (modulo the blocks the
+      # server demonstrably does not reproduce).
+      - name: Verify an unseen capture against the golden data
         if: ${{ env.RECHECK == 'true' }}
         run: |
           node tools/worldgen-golden/run-golden.js \
             --binary ./bedrock_server \
             --seed "${MODE}" \
-            --out "capture/seed-${MODE}-recheck" \
+            --out "capture/seed-${MODE}-check" \
             --chunk-base 128 128 \
             --timeout 900
           node tools/worldgen-golden/dump-db.js \
-            --db "capture/seed-${MODE}-recheck/server/worlds/golden/db" \
-            --out "capture/seed-${MODE}-recheck/db-dump.json"
+            --db "capture/seed-${MODE}-check/server/worlds/golden/db" \
+            --out "capture/seed-${MODE}-check/db-dump.json"
           node tools/worldgen-golden/build-golden-db.js \
-            "capture/seed-${MODE}-recheck/db-dump.json" \
-            --capture "capture/seed-${MODE}-recheck" \
+            "capture/seed-${MODE}-check/db-dump.json" \
             --probe "${PROBE}" \
-            --out "capture/golden-${MODE}-recheck"
+            --chunks 128,128 129,128 128,129 129,129 \
+            --out "capture/golden-${MODE}-check"
           set +e
-          # Keep the second capture too: diffing the two databases is how a
-          # reproducibility failure gets diagnosed without artifacts.
-          cp "capture/seed-${MODE}-recheck/db-dump.json" \
-             "${OUTPUT_DIR}/db/dump-seed-${MODE}-recheck.json" || true
           node tools/worldgen-golden/verify.js \
             --golden "${OUTPUT_DIR}" \
-            --candidate "capture/golden-${MODE}-recheck" \
+            --candidate "capture/golden-${MODE}-check" \
             --require-exact \
             --write-report "capture/verify-${MODE}.md" 2>&1 | tee "capture/verify-${MODE}.log"
           status=${PIPESTATUS[0]}

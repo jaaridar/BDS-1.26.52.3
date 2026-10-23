@@ -67,10 +67,18 @@ function loadGoldenSet(dir, filter) {
       throw new Error(`${label}: blocks.bin sha256 mismatch (file is corrupt or truncated)`);
     }
     let layer1 = null;
+    let unstable = null;
     if (header.blocks.file1 && fs.existsSync(path.join(dir, header.blocks.file1))) {
       layer1 = fs.readFileSync(path.join(dir, header.blocks.file1));
     }
-    return { label, header, grid: decodeGolden(header, blocks, layer1) };
+    if (header.stability && header.stability.file) {
+      const file = path.join(dir, header.stability.file);
+      if (!fs.existsSync(file)) {
+        throw new Error(`${label}: header refers to ${header.stability.file} but it is missing`);
+      }
+      unstable = JSON.parse(fs.readFileSync(file, 'utf8'));
+    }
+    return { label, header, grid: decodeGolden(header, blocks, layer1), unstable };
   });
 }
 
@@ -106,7 +114,12 @@ function main() {
       failures++;
       continue;
     }
-    const report = compareGrids({ golden: golden.grid, candidate, ignoreAir: args.ignoreAir });
+    const report = compareGrids({
+      golden: golden.grid,
+      candidate,
+      ignoreAir: args.ignoreAir,
+      unstable: golden.unstable,
+    });
     report.label = golden.label;
     reports.push(report);
     const ok = args.requireExact ? report.mismatched === 0 : true;

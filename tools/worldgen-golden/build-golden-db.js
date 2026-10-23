@@ -15,11 +15,12 @@ const { parseDump, buildColumn, blockAt } = require('./lib/chunk-db');
 const { encodeGolden } = require('./lib/mcstructure');
 
 function parseArgs(argv) {
-  const args = { out: null, capture: null, chunks: null, probe: null };
+  const args = { out: null, capture: null, chunks: null, probe: null, also: [] };
   for (let i = 0; i < argv.length; i++) {
     const arg = argv[i];
     if (arg === '--out') args.out = argv[++i];
     else if (arg === '--capture') args.capture = argv[++i];
+    else if (arg === '--also') args.also.push(argv[++i]);
     else if (arg === '--probe') {
       args.probe = argv[++i].split(',').map(Number);
       if (args.probe.length !== 3 || args.probe.some((n) => !Number.isFinite(n))) {
@@ -66,6 +67,8 @@ function main() {
   const written = [];
   const skipped = [];
 
+  const extraDumps = args.also.map((file) => parseDump(fs.readFileSync(file, 'utf8')));
+
   for (const [cx, cz] of requested) {
     const id = `${cx},${cz}`;
     if (!parsed.chunks.has(id)) {
@@ -73,29 +76,77 @@ function main() {
       console.warn(`chunk ${id}: not in the database, skipping`);
       continue;
     }
-    const column = buildColumn(parsed, cx, cz);
+    const primary = buildColumn(parsed, cx, cz);
+    const columns = [primary];
+    for (const extra of extraDumps) {
+      if (!extra.chunks.has(id)) {
+        console.warn(`chunk ${id}: absent from an extra capture; stability is not measured for it`);
+        columns.length = 0;
+        break;
+      }
+      columns.push(buildColumn(extra, cx, cz));
+    }
+
+    // Block-level stability measured across independent captures of the same
+    // seed. BDS reproduces terrain exactly but decorates caves and surfaces with
+    // features whose placement is not stable between runs, so only blocks that
+    // every capture agrees on may be demanded of an implementation; the rest are
+    // recorded with the variants that were actually observed.
+    const keyOf = (column, index) => {
+      const entry = column.palette[column.layer0[index]];
+      const second = column.palette[column.layer1[index]];
+      return `${entry.name}|${JSON.stringify(entry.states || {})}|` +
+        `${second.name}|${JSON.stringify(second.states || {})}`;
+    };
+    const unstable = {};
+    let stableCount = 0;
+    const total = primary.layer0.length;
+    for (let i = 0; i < total; i++) {
+      if (columns.length < 2) { stableCount++; continue; }
+      const seen = new Set(columns.map((c) => keyOf(c, i)));
+      if (seen.size === 1) {
+        stableCount++;
+      } else {
+        unstable[i] = [...seen].map((key) => {
+          const [l0, , l1] = key.split('|');
+          return { layer0: l0, layer1: l1 };
+        });
+      }
+    }
+
     const label = `${seed}-c${cx}_${cz}`;
-    const { header, bytes, layer1Bytes } = encodeGolden(column, {
+    const { header, bytes, layer1Bytes } = encodeGolden(primary, {
       label,
       seed,
-      origin: column.origin,
+      origin: primary.origin,
       capture: {
         binarySha256: capture.binarySha256 || null,
         generatedAt: capture.generatedAt || null,
         source: 'leveldb',
         database: path.basename(args.dump),
+        comparedCaptures: 1 + extraDumps.length,
       },
     });
+    header.stability = {
+      stableBlocks: stableCount,
+      unstableBlocks: Object.keys(unstable).length,
+      file: `golden-${label}.unstable.json`,
+      note:
+        'Blocks listed in `file` are not reproducible by BDS itself across ' +
+        'captures of the same seed; a candidate must produce one of the listed ' +
+        'variants there. Every other block must match exactly.',
+    };
     fs.writeFileSync(path.join(args.out, `golden-${label}.json`), `${JSON.stringify(header, null, 2)}\n`);
     fs.writeFileSync(path.join(args.out, `golden-${label}.blocks.bin`), bytes);
     if (layer1Bytes) {
       fs.writeFileSync(path.join(args.out, `golden-${label}.layer1.bin`), layer1Bytes);
     }
+    fs.writeFileSync(path.join(args.out, `golden-${label}.unstable.json`), `${JSON.stringify(unstable)}\n`);
     written.push({ label, header, bytes: bytes.length });
     console.log(
-      `golden ${label}: ${column.size.join('x')} = ${column.layer0.length} blocks, ` +
-      `${bytes.length} B, palette ${column.palette.length}, ` +
-      `layers ${layer1Bytes ? 2 : 1}`
+      `golden ${label}: ${primary.size.join('x')} = ${total} blocks, ${bytes.length} B, ` +
+      `palette ${primary.palette.length}, layers ${layer1Bytes ? 2 : 1}, ` +
+      `stable ${stableCount}, unstable ${total - stableCount}`
     );
   }
 
