@@ -183,3 +183,37 @@ golden set records it instead of pretending otherwise:
   construction.
 
 Measured on seed 1, chunk (128,128): 98,202 stable, 102 unstable of 98,304.
+
+## Any seed, one dispatch
+
+The capture is seed-agnostic. Give it a seed and it produces that world's
+verified blocks; there is nothing special about seed 1.
+
+**Run it:** Actions -> "Worldgen golden capture" -> *Run workflow* -> set `seed`.
+
+**Ask it questions** (no server, offline, exact):
+
+```bash
+node tools/worldgen-golden/lookup.js --info                      # what is captured
+node tools/worldgen-golden/lookup.js --seed 12345 --x 2048 --y 100 --z 2048
+node tools/worldgen-golden/lookup.js --seed 12345 --column 2050 2050
+node tools/worldgen-golden/lookup.js --seed 12345 --area 2048 -60 2048 2051 -56 2051
+```
+
+Each seed costs one dispatch (~65 s) and yields 4 chunks x 384 heights of
+block-exact data, plus the reference captures that prove it is reproducible.
+
+Layout on disk — one directory per seed, so seeds cannot contaminate each other:
+
+```
+golden/
+  MANIFEST.json              columns from every captured seed
+  golden-<seed>-c<x>_<z>.json / .blocks.bin / .layer1.bin
+  golden-<seed>-c<x>_<z>.unstable.json   positions the server itself varies
+  db/seed-<seed>/dump.json               the capture the golden data came from
+  db/seed-<seed>/ref-<sha16>.json        extra captures used to measure stability
+```
+
+Capturing more seeds never invalidates earlier ones: `verify.js --label "^<seed>-"`
+only judges the seed being captured.
+

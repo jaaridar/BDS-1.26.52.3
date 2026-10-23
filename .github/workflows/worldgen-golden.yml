@@ -201,8 +201,7 @@ jobs:
           args=""
           for f in "capture/seed-${MODE}-b/db-dump.json" \
                    "capture/seed-${MODE}-c/db-dump.json" \
-                   "${OUTPUT_DIR}"/db/ref-*.json \
-                   "${OUTPUT_DIR}"/db/dump-seed-${MODE}-*.json; do
+                   "${OUTPUT_DIR}/db/seed-${MODE}"/ref-*.json; do
             [ -f "$f" ] || continue
             args="$args --also $f"
           done
@@ -219,20 +218,15 @@ jobs:
           # Store this run's captures for future runs. Names are content
           # addressed, so a re-capture that changed nothing in the decoration
           # features collapses instead of piling up duplicates.
-          mkdir -p "${OUTPUT_DIR}/db"
-          cp "capture/seed-${MODE}-a/db-dump.json" "${OUTPUT_DIR}/db/dump-seed-${MODE}.json"
+          mkdir -p "${OUTPUT_DIR}/db/seed-${MODE}"
+          cp "capture/seed-${MODE}-a/db-dump.json" "${OUTPUT_DIR}/db/seed-${MODE}/dump.json"
           for f in "capture/seed-${MODE}-b/db-dump.json" \
-                   "capture/seed-${MODE}-c/db-dump.json" \
-                   "${OUTPUT_DIR}"/db/dump-seed-${MODE}-*.json \
-                   "${OUTPUT_DIR}"/db/dump-seed-${MODE}-*-*.json; do
+                   "capture/seed-${MODE}-c/db-dump.json"; do
             [ -f "$f" ] || continue
-            # Skip the primary dump: it is stored under its own name above.
-            case "$f" in "${OUTPUT_DIR}/db/dump-seed-${MODE}.json") continue;; esac
             hash="$(sha256sum "$f" | cut -c1-16)"
-            cp "$f" "${OUTPUT_DIR}/db/ref-${hash}.json"
-            case "$f" in capture/*) : ;; *) rm -f "$f";; esac
+            cp "$f" "${OUTPUT_DIR}/db/seed-${MODE}/ref-${hash}.json"
           done
-          ls -l "${OUTPUT_DIR}/db/"
+          ls -l "${OUTPUT_DIR}/db/seed-${MODE}/"
 
       # Acceptance test for the ORACLE: a capture that was NOT used to build the
       # golden data must reproduce it. Two different gates exist:
@@ -254,6 +248,7 @@ jobs:
           node tools/worldgen-golden/verify.js \
             --golden "${OUTPUT_DIR}" \
             --candidate "capture/golden-${MODE}-check" \
+            --label "^${MODE}-" \
             --require-exact \
             --tolerate-features \
             --write-report "capture/verify-${MODE}.md" 2>&1 | tee "capture/verify-${MODE}.log"

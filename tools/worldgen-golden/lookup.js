@@ -44,6 +44,7 @@ function loadGolden(dir) {
     const [sx, sy, sz] = header.size;
     columns.push({
       label: header.label,
+      seed: header.seed,
       origin: header.origin,
       size: header.size,
       palette: header.palette,
@@ -113,6 +114,7 @@ function main() {
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     if (a === '--golden') args.dir = path.resolve(argv[++i]);
+    else if (a === '--seed') args.seed = String(argv[++i]);
     else if (a === '--info') args.info = true;
     else if (a === '--x') args.x = Number(argv[++i]);
     else if (a === '--y') args.y = Number(argv[++i]);
@@ -122,17 +124,29 @@ function main() {
     else throw new Error(`unknown argument ${a}`);
   }
 
-  const columns = loadGolden(args.dir);
+  let columns = loadGolden(args.dir);
   if (!columns.length) throw new Error(`no golden columns in ${args.dir}`);
+  if (args.seed !== undefined) {
+    columns = columns.filter((c) => String(c.seed) === args.seed);
+    if (!columns.length) {
+      const seeds = [...new Set(loadGolden(args.dir).map((c) => String(c.seed)))];
+      throw new Error(
+        `seed ${args.seed} has not been captured; captured seed(s): ${seeds.join(', ')}`
+      );
+    }
+  }
 
   if (args.info || argv.length === 0) {
     console.log('Offline lookup over verified golden data (no server needed).\n');
+    const seeds = [...new Set(columns.map((c) => String(c.seed)))];
+    console.log(`  captured seed(s): ${seeds.join(', ')}`);
+    console.log('  pick one with --seed <n>\n');
     for (const c of columns) {
       const [ox, oy, oz] = c.origin;
       const [sx, sy, sz] = c.size;
       const unstable = c.unstable ? Object.keys(c.unstable).length : 0;
       console.log(
-        `  ${c.label}: x ${ox}..${ox + sx - 1}, y ${oy}..${oy + sy - 1}, ` +
+        `  [seed ${c.seed}] ${c.label}: x ${ox}..${ox + sx - 1}, y ${oy}..${oy + sy - 1}, ` +
         `z ${oz}..${oz + sz - 1}  (${c.size.join('x')} = ${c.count} blocks, ` +
         `${unstable} server-unstable)`
       );
