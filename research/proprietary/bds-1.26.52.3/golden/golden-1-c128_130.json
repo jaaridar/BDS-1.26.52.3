@@ -6,7 +6,7 @@
   "generator": "default",
   "capture": {
     "binarySha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
-    "generatedAt": "2026-10-23T01:53:24.203Z",
+    "generatedAt": "2026-10-23T02:09:33.999Z",
     "source": "leveldb",
     "database": "db-dump.json"
   },
@@ -323,12 +323,6 @@
       "states": {}
     },
     {
-      "name": "minecraft:cave_vines_head_with_berries",
-      "states": {
-        "growing_plant_age": 24
-      }
-    },
-    {
       "name": "minecraft:cave_vines",
       "states": {
         "growing_plant_age": 20
@@ -519,18 +513,6 @@
       }
     },
     {
-      "name": "minecraft:seagrass",
-      "states": {
-        "sea_grass_type": "double_bot"
-      }
-    },
-    {
-      "name": "minecraft:seagrass",
-      "states": {
-        "sea_grass_type": "double_top"
-      }
-    },
-    {
       "name": "minecraft:andesite",
       "states": {}
     },
@@ -541,6 +523,18 @@
     {
       "name": "minecraft:coal_ore",
       "states": {}
+    },
+    {
+      "name": "minecraft:seagrass",
+      "states": {
+        "sea_grass_type": "double_bot"
+      }
+    },
+    {
+      "name": "minecraft:seagrass",
+      "states": {
+        "sea_grass_type": "double_top"
+      }
     },
     {
       "name": "minecraft:lapis_ore",
@@ -577,10 +571,10 @@
   ],
   "blocks": {
     "file": "golden-1-c128_130.blocks.bin",
-    "sha256": "cad3c58195bee85175eda9e39faa5eca89318c3480afd3e159d6b9c0165b7bbb",
+    "sha256": "644809745b45f4562567268ce9a10c078b02f482b38a57308615b0d92dbf128a",
     "bytes": 196608,
     "layers": 2,
     "file1": "golden-1-c128_130.layer1.bin",
-    "sha256_1": "959f3c7bb605bd6b3988fe4c751d2926f6ddd96c02142128f5eea8c71bba3444"
+    "sha256_1": "7778a0f85af4376c875e106bb9bc8f7b758cdebb1f67493c4f540926b9347c46"
   }
 }

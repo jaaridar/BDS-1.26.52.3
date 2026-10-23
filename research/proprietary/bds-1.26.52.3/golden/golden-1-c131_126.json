@@ -1,0 +1,229 @@
+{
+  "schema": 1,
+  "label": "1-c131_126",
+  "seed": "1",
+  "dimension": "overworld",
+  "generator": "default",
+  "capture": {
+    "binarySha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
+    "generatedAt": "2026-10-23T02:09:33.999Z",
+    "source": "leveldb",
+    "database": "db-dump.json"
+  },
+  "origin": [
+    2096,
+    -64,
+    2016
+  ],
+  "size": [
+    16,
+    384,
+    16
+  ],
+  "ordering": "y,z,x row-major (x fastest)",
+  "palette": [
+    {
+      "name": "minecraft:air",
+      "states": {}
+    },
+    {
+      "name": "minecraft:bedrock",
+      "states": {
+        "infiniburn_bit": 0
+      }
+    },
+    {
+      "name": "minecraft:deepslate",
+      "states": {
+        "pillar_axis": "y"
+      }
+    },
+    {
+      "name": "minecraft:tuff",
+      "states": {}
+    },
+    {
+      "name": "minecraft:deepslate_iron_ore",
+      "states": {}
+    },
+    {
+      "name": "minecraft:deepslate_redstone_ore",
+      "states": {}
+    },
+    {
+      "name": "minecraft:deepslate_diamond_ore",
+      "states": {}
+    },
+    {
+      "name": "minecraft:gravel",
+      "states": {}
+    },
+    {
+      "name": "minecraft:deepslate_lapis_ore",
+      "states": {}
+    },
+    {
+      "name": "minecraft:deepslate_gold_ore",
+      "states": {}
+    },
+    {
+      "name": "minecraft:oak_planks",
+      "states": {}
+    },
+    {
+      "name": "minecraft:oak_fence",
+      "states": {
+        "minecraft:connection_east": 0,
+        "minecraft:connection_north": 0,
+        "minecraft:connection_south": 0,
+        "minecraft:connection_west": 0
+      }
+    },
+    {
+      "name": "minecraft:rail",
+      "states": {
+        "rail_direction": 0
+      }
+    },
+    {
+      "name": "minecraft:web",
+      "states": {}
+    },
+    {
+      "name": "minecraft:mob_spawner",
+      "states": {}
+    },
+    {
+      "name": "minecraft:torch",
+      "states": {
+        "torch_facing_direction": "west"
+      }
+    },
+    {
+      "name": "minecraft:oak_fence",
+      "states": {
+        "minecraft:connection_east": 0,
+        "minecraft:connection_north": 1,
+        "minecraft:connection_south": 0,
+        "minecraft:connection_west": 0
+      }
+    },
+    {
+      "name": "minecraft:oak_fence",
+      "states": {
+        "minecraft:connection_east": 0,
+        "minecraft:connection_north": 0,
+        "minecraft:connection_south": 1,
+        "minecraft:connection_west": 0
+      }
+    },
+    {
+      "name": "minecraft:oak_fence",
+      "states": {
+        "minecraft:connection_east": 0,
+        "minecraft:connection_north": 0,
+        "minecraft:connection_south": 0,
+        "minecraft:connection_west": 1
+      }
+    },
+    {
+      "name": "minecraft:oak_fence",
+      "states": {
+        "minecraft:connection_east": 0,
+        "minecraft:connection_north": 0,
+        "minecraft:connection_south": 1,
+        "minecraft:connection_west": 1
+      }
+    },
+    {
+      "name": "minecraft:oak_fence",
+      "states": {
+        "minecraft:connection_east": 1,
+        "minecraft:connection_north": 0,
+        "minecraft:connection_south": 0,
+        "minecraft:connection_west": 0
+      }
+    },
+    {
+      "name": "minecraft:oak_fence",
+      "states": {
+        "minecraft:connection_east": 1,
+        "minecraft:connection_north": 0,
+        "minecraft:connection_south": 1,
+        "minecraft:connection_west": 0
+      }
+    },
+    {
+      "name": "minecraft:stone",
+      "states": {}
+    },
+    {
+      "name": "minecraft:andesite",
+      "states": {}
+    },
+    {
+      "name": "minecraft:diorite",
+      "states": {}
+    },
+    {
+      "name": "minecraft:iron_ore",
+      "states": {}
+    },
+    {
+      "name": "minecraft:dirt",
+      "states": {}
+    },
+    {
+      "name": "minecraft:granite",
+      "states": {}
+    },
+    {
+      "name": "minecraft:deepslate_copper_ore",
+      "states": {}
+    },
+    {
+      "name": "minecraft:copper_ore",
+      "states": {}
+    },
+    {
+      "name": "minecraft:lapis_ore",
+      "states": {}
+    },
+    {
+      "name": "minecraft:coal_ore",
+      "states": {}
+    },
+    {
+      "name": "minecraft:water",
+      "states": {
+        "liquid_depth": 0
+      }
+    },
+    {
+      "name": "minecraft:seagrass",
+      "states": {
+        "sea_grass_type": "default"
+      }
+    },
+    {
+      "name": "minecraft:seagrass",
+      "states": {
+        "sea_grass_type": "double_bot"
+      }
+    },
+    {
+      "name": "minecraft:seagrass",
+      "states": {
+        "sea_grass_type": "double_top"
+      }
+    }
+  ],
+  "blocks": {
+    "file": "golden-1-c131_126.blocks.bin",
+    "sha256": "27da359a7d80b45d0362653f647efe4c10c7615dcc794e52318600cbf4be71cd",
+    "bytes": 196608,
+    "layers": 2,
+    "file1": "golden-1-c131_126.layer1.bin",
+    "sha256_1": "586eeca358765dcc281e35011fa8f328b5242aaf5c15c913a6a1f72433b00d56"
+  }
+}

@@ -1,0 +1,321 @@
+{
+  "schema": 1,
+  "label": "1-c130_126",
+  "seed": "1",
+  "dimension": "overworld",
+  "generator": "default",
+  "capture": {
+    "binarySha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
+    "generatedAt": "2026-10-23T02:09:33.999Z",
+    "source": "leveldb",
+    "database": "db-dump.json"
+  },
+  "origin": [
+    2080,
+    -64,
+    2016
+  ],
+  "size": [
+    16,
+    384,
+    16
+  ],
+  "ordering": "y,z,x row-major (x fastest)",
+  "palette": [
+    {
+      "name": "minecraft:air",
+      "states": {}
+    },
+    {
+      "name": "minecraft:bedrock",
+      "states": {
+        "infiniburn_bit": 0
+      }
+    },
+    {
+      "name": "minecraft:deepslate",
+      "states": {
+        "pillar_axis": "y"
+      }
+    },
+    {
+      "name": "minecraft:deepslate_gold_ore",
+      "states": {}
+    },
+    {
+      "name": "minecraft:deepslate_diamond_ore",
+      "states": {}
+    },
+    {
+      "name": "minecraft:gravel",
+      "states": {}
+    },
+    {
+      "name": "minecraft:tuff",
+      "states": {}
+    },
+    {
+      "name": "minecraft:deepslate_iron_ore",
+      "states": {}
+    },
+    {
+      "name": "minecraft:deepslate_redstone_ore",
+      "states": {}
+    },
+    {
+      "name": "minecraft:deepslate_lapis_ore",
+      "states": {}
+    },
+    {
+      "name": "minecraft:glow_lichen",
+      "states": {
+        "multi_face_direction_bits": 4
+      }
+    },
+    {
+      "name": "minecraft:lava",
+      "states": {
+        "liquid_depth": 0
+      }
+    },
+    {
+      "name": "minecraft:lava",
+      "states": {
+        "liquid_depth": 2
+      }
+    },
+    {
+      "name": "minecraft:lava",
+      "states": {
+        "liquid_depth": 4
+      }
+    },
+    {
+      "name": "minecraft:lava",
+      "states": {
+        "liquid_depth": 12
+      }
+    },
+    {
+      "name": "minecraft:lava",
+      "states": {
+        "liquid_depth": 1
+      }
+    },
+    {
+      "name": "minecraft:lava",
+      "states": {
+        "liquid_depth": 10
+      }
+    },
+    {
+      "name": "minecraft:oak_fence",
+      "states": {
+        "minecraft:connection_east": 0,
+        "minecraft:connection_north": 0,
+        "minecraft:connection_south": 0,
+        "minecraft:connection_west": 0
+      }
+    },
+    {
+      "name": "minecraft:oak_planks",
+      "states": {}
+    },
+    {
+      "name": "minecraft:rail",
+      "states": {
+        "rail_direction": 1
+      }
+    },
+    {
+      "name": "minecraft:web",
+      "states": {}
+    },
+    {
+      "name": "minecraft:oak_fence",
+      "states": {
+        "minecraft:connection_east": 0,
+        "minecraft:connection_north": 1,
+        "minecraft:connection_south": 0,
+        "minecraft:connection_west": 0
+      }
+    },
+    {
+      "name": "minecraft:oak_fence",
+      "states": {
+        "minecraft:connection_east": 0,
+        "minecraft:connection_north": 0,
+        "minecraft:connection_south": 1,
+        "minecraft:connection_west": 0
+      }
+    },
+    {
+      "name": "minecraft:oak_fence",
+      "states": {
+        "minecraft:connection_east": 0,
+        "minecraft:connection_north": 0,
+        "minecraft:connection_south": 0,
+        "minecraft:connection_west": 1
+      }
+    },
+    {
+      "name": "minecraft:oak_fence",
+      "states": {
+        "minecraft:connection_east": 1,
+        "minecraft:connection_north": 0,
+        "minecraft:connection_south": 0,
+        "minecraft:connection_west": 0
+      }
+    },
+    {
+      "name": "minecraft:cave_vines",
+      "states": {
+        "growing_plant_age": 0
+      }
+    },
+    {
+      "name": "minecraft:cave_vines_body_with_berries",
+      "states": {
+        "growing_plant_age": 0
+      }
+    },
+    {
+      "name": "minecraft:cave_vines",
+      "states": {
+        "growing_plant_age": 24
+      }
+    },
+    {
+      "name": "minecraft:water",
+      "states": {
+        "liquid_depth": 2
+      }
+    },
+    {
+      "name": "minecraft:water",
+      "states": {
+        "liquid_depth": 3
+      }
+    },
+    {
+      "name": "minecraft:water",
+      "states": {
+        "liquid_depth": 4
+      }
+    },
+    {
+      "name": "minecraft:water",
+      "states": {
+        "liquid_depth": 5
+      }
+    },
+    {
+      "name": "minecraft:water",
+      "states": {
+        "liquid_depth": 6
+      }
+    },
+    {
+      "name": "minecraft:water",
+      "states": {
+        "liquid_depth": 7
+      }
+    },
+    {
+      "name": "minecraft:water",
+      "states": {
+        "liquid_depth": 15
+      }
+    },
+    {
+      "name": "minecraft:water",
+      "states": {
+        "liquid_depth": 1
+      }
+    },
+    {
+      "name": "minecraft:stone",
+      "states": {}
+    },
+    {
+      "name": "minecraft:iron_ore",
+      "states": {}
+    },
+    {
+      "name": "minecraft:andesite",
+      "states": {}
+    },
+    {
+      "name": "minecraft:diorite",
+      "states": {}
+    },
+    {
+      "name": "minecraft:granite",
+      "states": {}
+    },
+    {
+      "name": "minecraft:dirt",
+      "states": {}
+    },
+    {
+      "name": "minecraft:redstone_ore",
+      "states": {}
+    },
+    {
+      "name": "minecraft:gold_ore",
+      "states": {}
+    },
+    {
+      "name": "minecraft:clay",
+      "states": {}
+    },
+    {
+      "name": "minecraft:copper_ore",
+      "states": {}
+    },
+    {
+      "name": "minecraft:deepslate_copper_ore",
+      "states": {}
+    },
+    {
+      "name": "minecraft:coal_ore",
+      "states": {}
+    },
+    {
+      "name": "minecraft:lapis_ore",
+      "states": {}
+    },
+    {
+      "name": "minecraft:water",
+      "states": {
+        "liquid_depth": 0
+      }
+    },
+    {
+      "name": "minecraft:seagrass",
+      "states": {
+        "sea_grass_type": "default"
+      }
+    },
+    {
+      "name": "minecraft:seagrass",
+      "states": {
+        "sea_grass_type": "double_bot"
+      }
+    },
+    {
+      "name": "minecraft:seagrass",
+      "states": {
+        "sea_grass_type": "double_top"
+      }
+    }
+  ],
+  "blocks": {
+    "file": "golden-1-c130_126.blocks.bin",
+    "sha256": "ea178e9cf7653031128c164edcd764bb75a0e1b54bbe353140c02509a9d47049",
+    "bytes": 196608,
+    "layers": 2,
+    "file1": "golden-1-c130_126.layer1.bin",
+    "sha256_1": "6c65bfe1de1d20589689a4bfb2d5e0347a317d2cbe8fd96bbcbe53ae468f8df4"
+  }
+}

@@ -1,0 +1,399 @@
+{
+  "schema": 1,
+  "label": "1-c129_128",
+  "seed": "1",
+  "dimension": "overworld",
+  "generator": "default",
+  "capture": {
+    "binarySha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
+    "generatedAt": "2026-10-23T02:09:33.999Z",
+    "source": "leveldb",
+    "database": "db-dump.json"
+  },
+  "origin": [
+    2064,
+    -64,
+    2048
+  ],
+  "size": [
+    16,
+    384,
+    16
+  ],
+  "ordering": "y,z,x row-major (x fastest)",
+  "palette": [
+    {
+      "name": "minecraft:air",
+      "states": {}
+    },
+    {
+      "name": "minecraft:bedrock",
+      "states": {
+        "infiniburn_bit": 0
+      }
+    },
+    {
+      "name": "minecraft:deepslate",
+      "states": {
+        "pillar_axis": "y"
+      }
+    },
+    {
+      "name": "minecraft:deepslate_redstone_ore",
+      "states": {}
+    },
+    {
+      "name": "minecraft:deepslate_iron_ore",
+      "states": {}
+    },
+    {
+      "name": "minecraft:gravel",
+      "states": {}
+    },
+    {
+      "name": "minecraft:tuff",
+      "states": {}
+    },
+    {
+      "name": "minecraft:deepslate_lapis_ore",
+      "states": {}
+    },
+    {
+      "name": "minecraft:deepslate_diamond_ore",
+      "states": {}
+    },
+    {
+      "name": "minecraft:clay",
+      "states": {}
+    },
+    {
+      "name": "minecraft:moss_block",
+      "states": {}
+    },
+    {
+      "name": "minecraft:short_grass",
+      "states": {}
+    },
+    {
+      "name": "minecraft:azalea",
+      "states": {}
+    },
+    {
+      "name": "minecraft:moss_carpet",
+      "states": {}
+    },
+    {
+      "name": "minecraft:tall_grass",
+      "states": {
+        "upper_block_bit": 1
+      }
+    },
+    {
+      "name": "minecraft:tall_grass",
+      "states": {
+        "upper_block_bit": 0
+      }
+    },
+    {
+      "name": "minecraft:flowering_azalea",
+      "states": {}
+    },
+    {
+      "name": "minecraft:deepslate_gold_ore",
+      "states": {}
+    },
+    {
+      "name": "minecraft:glow_lichen",
+      "states": {
+        "multi_face_direction_bits": 16
+      }
+    },
+    {
+      "name": "minecraft:glow_lichen",
+      "states": {
+        "multi_face_direction_bits": 24
+      }
+    },
+    {
+      "name": "minecraft:big_dripleaf",
+      "states": {
+        "big_dripleaf_head": 1,
+        "big_dripleaf_tilt": "none",
+        "minecraft:cardinal_direction": "south"
+      }
+    },
+    {
+      "name": "minecraft:big_dripleaf",
+      "states": {
+        "big_dripleaf_head": 0,
+        "big_dripleaf_tilt": "none",
+        "minecraft:cardinal_direction": "south"
+      }
+    },
+    {
+      "name": "minecraft:water",
+      "states": {
+        "liquid_depth": 0
+      }
+    },
+    {
+      "name": "minecraft:oak_planks",
+      "states": {}
+    },
+    {
+      "name": "minecraft:oak_fence",
+      "states": {
+        "minecraft:connection_east": 0,
+        "minecraft:connection_north": 0,
+        "minecraft:connection_south": 0,
+        "minecraft:connection_west": 0
+      }
+    },
+    {
+      "name": "minecraft:iron_chain",
+      "states": {
+        "pillar_axis": "y"
+      }
+    },
+    {
+      "name": "minecraft:glow_lichen",
+      "states": {
+        "multi_face_direction_bits": 2
+      }
+    },
+    {
+      "name": "minecraft:cave_vines",
+      "states": {
+        "growing_plant_age": 0
+      }
+    },
+    {
+      "name": "minecraft:cave_vines",
+      "states": {
+        "growing_plant_age": 17
+      }
+    },
+    {
+      "name": "minecraft:cave_vines",
+      "states": {
+        "growing_plant_age": 23
+      }
+    },
+    {
+      "name": "minecraft:cave_vines",
+      "states": {
+        "growing_plant_age": 19
+      }
+    },
+    {
+      "name": "minecraft:cave_vines_head_with_berries",
+      "states": {
+        "growing_plant_age": 21
+      }
+    },
+    {
+      "name": "minecraft:cave_vines",
+      "states": {
+        "growing_plant_age": 22
+      }
+    },
+    {
+      "name": "minecraft:stone",
+      "states": {}
+    },
+    {
+      "name": "minecraft:redstone_ore",
+      "states": {}
+    },
+    {
+      "name": "minecraft:andesite",
+      "states": {}
+    },
+    {
+      "name": "minecraft:lapis_ore",
+      "states": {}
+    },
+    {
+      "name": "minecraft:iron_ore",
+      "states": {}
+    },
+    {
+      "name": "minecraft:dirt",
+      "states": {}
+    },
+    {
+      "name": "minecraft:granite",
+      "states": {}
+    },
+    {
+      "name": "minecraft:diorite",
+      "states": {}
+    },
+    {
+      "name": "minecraft:coal_ore",
+      "states": {}
+    },
+    {
+      "name": "minecraft:copper_ore",
+      "states": {}
+    },
+    {
+      "name": "minecraft:seagrass",
+      "states": {
+        "sea_grass_type": "double_bot"
+      }
+    },
+    {
+      "name": "minecraft:seagrass",
+      "states": {
+        "sea_grass_type": "double_top"
+      }
+    },
+    {
+      "name": "minecraft:kelp",
+      "states": {
+        "kelp_age": 12
+      }
+    },
+    {
+      "name": "minecraft:kelp",
+      "states": {
+        "kelp_age": 13
+      }
+    },
+    {
+      "name": "minecraft:kelp",
+      "states": {
+        "kelp_age": 14
+      }
+    },
+    {
+      "name": "minecraft:kelp",
+      "states": {
+        "kelp_age": 15
+      }
+    },
+    {
+      "name": "minecraft:kelp",
+      "states": {
+        "kelp_age": 16
+      }
+    },
+    {
+      "name": "minecraft:kelp",
+      "states": {
+        "kelp_age": 17
+      }
+    },
+    {
+      "name": "minecraft:kelp",
+      "states": {
+        "kelp_age": 18
+      }
+    },
+    {
+      "name": "minecraft:kelp",
+      "states": {
+        "kelp_age": 19
+      }
+    },
+    {
+      "name": "minecraft:kelp",
+      "states": {
+        "kelp_age": 20
+      }
+    },
+    {
+      "name": "minecraft:kelp",
+      "states": {
+        "kelp_age": 21
+      }
+    },
+    {
+      "name": "minecraft:kelp",
+      "states": {
+        "kelp_age": 22
+      }
+    },
+    {
+      "name": "minecraft:kelp",
+      "states": {
+        "kelp_age": 23
+      }
+    },
+    {
+      "name": "minecraft:kelp",
+      "states": {
+        "kelp_age": 24
+      }
+    },
+    {
+      "name": "minecraft:kelp",
+      "states": {
+        "kelp_age": 9
+      }
+    },
+    {
+      "name": "minecraft:kelp",
+      "states": {
+        "kelp_age": 10
+      }
+    },
+    {
+      "name": "minecraft:kelp",
+      "states": {
+        "kelp_age": 11
+      }
+    },
+    {
+      "name": "minecraft:kelp",
+      "states": {
+        "kelp_age": 3
+      }
+    },
+    {
+      "name": "minecraft:kelp",
+      "states": {
+        "kelp_age": 4
+      }
+    },
+    {
+      "name": "minecraft:kelp",
+      "states": {
+        "kelp_age": 5
+      }
+    },
+    {
+      "name": "minecraft:kelp",
+      "states": {
+        "kelp_age": 6
+      }
+    },
+    {
+      "name": "minecraft:kelp",
+      "states": {
+        "kelp_age": 7
+      }
+    },
+    {
+      "name": "minecraft:kelp",
+      "states": {
+        "kelp_age": 8
+      }
+    },
+    {
+      "name": "minecraft:seagrass",
+      "states": {
+        "sea_grass_type": "default"
+      }
+    }
+  ],
+  "blocks": {
+    "file": "golden-1-c129_128.blocks.bin",
+    "sha256": "b67359322c4a6608bf62188b3df3c5d7f5c6e32ed101fd503029e222b86b8615",
+    "bytes": 196608,
+    "layers": 2,
+    "file1": "golden-1-c129_128.layer1.bin",
+    "sha256_1": "aa01e318e525151f7a3206d11d55ef938c1ad13e9c786e961d7e8ef4040f18e9"
+  }
+}

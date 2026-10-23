@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-23T01:53:24.203Z",
+  "generatedAt": "2026-10-23T02:09:33.999Z",
   "binary": {
     "path": "bedrock_server",
     "sha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
@@ -9,6 +9,57 @@
   "chunkBase": [
     128,
     128
+  ],
+  "buffer": 2,
+  "dirtied": [
+    {
+      "chunk": [
+        128,
+        128
+      ],
+      "at": [
+        2048,
+        319,
+        2048
+      ],
+      "block": "minecraft:bedrock"
+    },
+    {
+      "chunk": [
+        129,
+        128
+      ],
+      "at": [
+        2064,
+        319,
+        2048
+      ],
+      "block": "minecraft:bedrock"
+    },
+    {
+      "chunk": [
+        128,
+        129
+      ],
+      "at": [
+        2048,
+        319,
+        2064
+      ],
+      "block": "minecraft:bedrock"
+    },
+    {
+      "chunk": [
+        129,
+        129
+      ],
+      "at": [
+        2064,
+        319,
+        2064
+      ],
+      "block": "minecraft:bedrock"
+    }
   ],
   "assets": {
     "root": "/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3",

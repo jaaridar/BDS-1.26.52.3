@@ -16,7 +16,7 @@ worlds tree:
 /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/capture/seed-1/server/worlds/golden/level.dat
 
 on-disk search (c0_0_y0.mcstructure anywhere):
-<find failed: spawnSync /bin/sh ETIMEDOUT>
+
 
 any .mcstructure modified in the last 20 minutes:
 /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/behavior_packs/vanilla/structures/bastion/mobs/melee_piglin_always.mcstructure
