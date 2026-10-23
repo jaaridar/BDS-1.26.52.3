@@ -6,10 +6,10 @@
   "generator": "default",
   "capture": {
     "binarySha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
-    "generatedAt": "2026-10-23T03:47:24.685Z",
+    "generatedAt": "2026-10-23T04:03:05.664Z",
     "source": "leveldb",
     "database": "db-dump.json",
-    "comparedCaptures": 4
+    "comparedCaptures": 6
   },
   "origin": [
     2048,
@@ -64,14 +64,6 @@
       "states": {}
     },
     {
-      "name": "minecraft:moss_block",
-      "states": {}
-    },
-    {
-      "name": "minecraft:short_grass",
-      "states": {}
-    },
-    {
       "name": "minecraft:gravel",
       "states": {}
     },
@@ -94,7 +86,7 @@
       }
     },
     {
-      "name": "minecraft:deepslate_iron_ore",
+      "name": "minecraft:moss_block",
       "states": {}
     },
     {
@@ -108,6 +100,14 @@
       "states": {
         "upper_block_bit": 0
       }
+    },
+    {
+      "name": "minecraft:short_grass",
+      "states": {}
+    },
+    {
+      "name": "minecraft:deepslate_iron_ore",
+      "states": {}
     },
     {
       "name": "minecraft:cave_vines",
@@ -153,6 +153,12 @@
       "name": "minecraft:cave_vines_head_with_berries",
       "states": {
         "growing_plant_age": 22
+      }
+    },
+    {
+      "name": "minecraft:cave_vines",
+      "states": {
+        "growing_plant_age": 25
       }
     },
     {
@@ -380,15 +386,15 @@
   ],
   "blocks": {
     "file": "golden-1-c128_129.blocks.bin",
-    "sha256": "c1c16c2859507e95026b522d39bf2d7435a1ea619b446955873a02e47de7e6a5",
+    "sha256": "79591b3d885541840166b3c181cb2a52eb017629db8190450e2ede57af84902f",
     "bytes": 196608,
     "layers": 2,
     "file1": "golden-1-c128_129.layer1.bin",
-    "sha256_1": "3d1d3977a0cd7311aef4552af673a93fb96f400932b66f4deeebd39addd16ad9"
+    "sha256_1": "393343a6e0a90acddf8b5290049bc55d52be01864a6efe548bfabee78f160263"
   },
   "stability": {
-    "stableBlocks": 98218,
-    "unstableBlocks": 86,
+    "stableBlocks": 98234,
+    "unstableBlocks": 70,
     "file": "golden-1-c128_129.unstable.json",
     "note": "Blocks listed in `file` are not reproducible by BDS itself across captures of the same seed; a candidate must produce one of the listed variants there. Every other block must match exactly."
   }

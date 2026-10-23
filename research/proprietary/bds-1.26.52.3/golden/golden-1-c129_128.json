@@ -6,10 +6,10 @@
   "generator": "default",
   "capture": {
     "binarySha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
-    "generatedAt": "2026-10-23T03:47:24.685Z",
+    "generatedAt": "2026-10-23T04:03:05.664Z",
     "source": "leveldb",
     "database": "db-dump.json",
-    "comparedCaptures": 4
+    "comparedCaptures": 6
   },
   "origin": [
     2064,
@@ -107,12 +107,6 @@
       "name": "minecraft:glow_lichen",
       "states": {
         "multi_face_direction_bits": 16
-      }
-    },
-    {
-      "name": "minecraft:glow_lichen",
-      "states": {
-        "multi_face_direction_bits": 1
       }
     },
     {
@@ -391,15 +385,15 @@
   ],
   "blocks": {
     "file": "golden-1-c129_128.blocks.bin",
-    "sha256": "6dacb84c4eeea7abca1d76f7be556fbd5b4f0677b633cdd17137455195bdbd0d",
+    "sha256": "7e71f425f1ad264510f7f79ffdbc87ada398f0dc58140331c57ef126cfb92593",
     "bytes": 196608,
     "layers": 2,
     "file1": "golden-1-c129_128.layer1.bin",
-    "sha256_1": "aa01e318e525151f7a3206d11d55ef938c1ad13e9c786e961d7e8ef4040f18e9"
+    "sha256_1": "5b610323ad4465548591a8809c17b47fe5fb30af4eb14e860f7999d5964cde8f"
   },
   "stability": {
-    "stableBlocks": 98171,
-    "unstableBlocks": 133,
+    "stableBlocks": 98165,
+    "unstableBlocks": 139,
     "file": "golden-1-c129_128.unstable.json",
     "note": "Blocks listed in `file` are not reproducible by BDS itself across captures of the same seed; a candidate must produce one of the listed variants there. Every other block must match exactly."
   }
