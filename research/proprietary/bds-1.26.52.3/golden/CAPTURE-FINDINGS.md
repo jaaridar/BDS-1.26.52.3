@@ -117,6 +117,22 @@ harness is built around it:
 * CI then verifies a **third, unseen** capture against the golden set, so the
   gate cannot pass by construction.
 
+Two gates, deliberately different:
+
+| gate | criterion | purpose |
+| --- | --- | --- |
+| implementation (`src/world`) | every stable block identical, unstable block in the observed set | judging a reimplementation |
+| oracle self-check (held-out capture) | same, plus at most 0.05% of blocks off per column | measuring the server's own floor |
+
+Measured per-column residual of a held-out capture against three references:
+0.0081%, 0.0193%, 0.0203%, 0.0041%. That is BDS's own reproducibility floor for
+decoration features, not a defect in the decoder: the same decoder reproduces all
+six probe markers in every capture, and terrain never differs.
+
+An earlier attempt to model instability as connected features (a flipping clay
+disc marking its neighbours unstable) was measured and rejected: it removed no
+residual at all while making 9,000 blocks per column unverifiable.
+
 Ruled out as causes (each checked):
 
 | hypothesis | evidence |

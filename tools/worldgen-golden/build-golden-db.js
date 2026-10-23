@@ -98,21 +98,22 @@ function main() {
       return `${entry.name}|${JSON.stringify(entry.states || {})}|` +
         `${second.name}|${JSON.stringify(second.states || {})}`;
     };
-    const unstable = {};
-    let stableCount = 0;
     const total = primary.layer0.length;
-    for (let i = 0; i < total; i++) {
-      if (columns.length < 2) { stableCount++; continue; }
+    const variantsAt = (i) => {
       const seen = new Set(columns.map((c) => keyOf(c, i)));
-      if (seen.size === 1) {
-        stableCount++;
-      } else {
-        unstable[i] = [...seen].map((key) => {
-          const [l0, , l1] = key.split('|');
-          return { layer0: l0, layer1: l1 };
-        });
+      return [...seen].map((key) => {
+        const [l0, , l1] = key.split('|');
+        return { layer0: l0, layer1: l1 };
+      });
+    };
+    const unstable = {};
+    if (columns.length >= 2) {
+      for (let i = 0; i < total; i++) {
+        if (variantsAt(i).length > 1) unstable[i] = variantsAt(i);
       }
     }
+
+    const stableCount = total - Object.keys(unstable).length;
 
     const label = `${seed}-c${cx}_${cz}`;
     const { header, bytes, layer1Bytes } = encodeGolden(primary, {
