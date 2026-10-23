@@ -37,6 +37,7 @@ function parseArgs(argv) {
       case '--assets': args.assets = next(); break;
       case '--chunk-base': args.chunkBase = [Number(next()), Number(next())]; break;
       case '--buffer': args.buffer = Number(next()); break;
+      case '--settle': args.settleMs = Number(next()); break;
       case '--no-probe': args.probe = false; break;
       case '--verbose': args.verbose = true; break;
       case '--help':
@@ -205,7 +206,7 @@ async function capture(args) {
 
 async function captureInner({
   binary, seed, out, timeout, probe, verbose, assets,
-  chunkBase = [0, 0], buffer = 2,
+  chunkBase = [0, 0], buffer = 2, settleMs = 8000,
 }) {
   const absOut = path.resolve(out);
   fs.rmSync(absOut, { recursive: true, force: true });
@@ -301,20 +302,39 @@ async function captureInner({
     const from = [(bcx - buffer) * 16, 0, (bcz - buffer) * 16];
     const to = [(bcx + 1 + buffer) * 16 + 15, 0, (bcz + 1 + buffer) * 16 + 15];
     await server.command(`tickingarea add ${from.join(' ')} ${to.join(' ')} capture`);
-    const side = 2 + 2 * buffer;
-    await sleep(Math.max(30000, side * side * 900)); // ~1s per generated chunk
 
-    // The server only persists chunks it considers modified. Touch one block
-    // per captured chunk so generation output is actually written to the
-    // database, and record where those markers are so they are expected blocks.
-    for (const [cx, cz] of [
+    // Generation is asynchronous: the server announces "Server started" long
+    // before any chunk outside spawn exists, and a setblock into a chunk that
+    // does not exist yet is rejected. So poll instead of sleeping a guessed
+    // amount of time: `Block placed` is the server's own proof that the chunk is
+    // there. The placements double as the markers that make the server persist
+    // each chunk (it only writes chunks it considers modified).
+    const corners = [
       [bcx, bcz], [bcx + 1, bcz], [bcx, bcz + 1], [bcx + 1, bcz + 1],
-    ]) {
-      const at = [cx * 16, 319, cz * 16];
-      await server.command(`setblock ${at.join(' ')} bedrock`);
-      dirtied.push({ chunk: [cx, cz], at, block: 'minecraft:bedrock' });
+    ].map(([cx, cz]) => [cx * 16, 319, cz * 16]);
+    const generationStart = Date.now();
+    let generationMs = null;
+    for (let round = 0; round < 60 && generationMs === null; round++) {
+      const mark = server.lines.length;
+      for (const at of corners) await server.command(`setblock ${at.join(' ')} bedrock`);
+      await sleep(1500);
+      const fresh = server.lines.slice(mark).join('');
+      const placed = (fresh.match(/Block placed/g) || []).length;
+      if (placed >= corners.length) generationMs = Date.now() - generationStart;
     }
-    await sleep(1000);
+    if (generationMs === null) {
+      throw new Error(
+        `the capture area was still not generated after 90 s; the world must exist ` +
+        `before it can be captured. Server said: ${server.tail(600)}`
+      );
+    }
+    for (const [i, at] of corners.entries()) {
+      dirtied.push({ chunk: [[bcx, bcz], [bcx + 1, bcz], [bcx, bcz + 1], [bcx + 1, bcz + 1]][i], at });
+    }
+
+    // Features that reach across a chunk border are only final once the
+    // neighbours exist, so let the buffer finish before the probe and the save.
+    await sleep(settleMs);
 
     // --- probe: build a known marker pattern and save it -------------------
     // Used to pin down the block_indices ordering of `.mcstructure`.
@@ -356,6 +376,7 @@ async function captureInner({
     schema: 1,
     generatedAt: new Date().toISOString(),
     durationMs: Date.now() - started,
+    generationMs,
     binary: { path: path.basename(binaryPath), sha256: binarySha, bytes: fs.statSync(binaryPath).size },
     chunkBase: [bcx, bcz],
     buffer,

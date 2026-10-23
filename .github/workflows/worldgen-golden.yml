@@ -68,12 +68,26 @@ jobs:
 
       # The binary is a GitHub release asset (proprietary, not tracked in git).
       # The repository is private, so the download needs the Actions token.
-      - name: Fetch the official binary from the release
+      # Four jobs need the same 256 MB binary: cache it so only the first run
+      # downloads it. The sha256 is part of the key, so a different release can
+      # never be served from cache.
+      - name: Restore the official binary
+        id: binary-cache
+        uses: actions/cache@v4
+        with:
+          path: bedrock_server
+          key: bedrock-server-${{ env.BINARY_SHA256 }}
+
+      - name: Download the official binary
+        if: steps.binary-cache.outputs.cache-hit != 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh release download v1.26.52.3 --repo "${GITHUB_REPOSITORY}" \
             --pattern bedrock_server --clobber
+
+      - name: Verify the binary
+        run: |
           chmod +x bedrock_server
           test "$(stat --printf=%s bedrock_server)" = "${BINARY_BYTES}"
           echo "${BINARY_SHA256}  bedrock_server" | sha256sum --check --strict
@@ -237,6 +251,15 @@ jobs:
             echo
             echo 'capture files:'
             find capture -maxdepth 2 -type f -printf '%s %p\n' 2>/dev/null | sort -n | tail -30
+            echo
+            echo 'capture timing (per variant, from capture.json):'
+            for v in a b c check; do
+              f="capture/seed-${MODE}-${v}/capture.json"
+              [ -f "$f" ] && node -e "
+                const c=require('./$f');
+                console.log('  ${v}: total', c.generatedAt && c.durationMs, 'ms; generation', c.generationMs, 'ms');
+              "
+            done
             echo
             echo 'server log tail (reference capture):'
             tail -n 60 "capture/seed-${MODE}-a/server.log" 2>/dev/null || true
