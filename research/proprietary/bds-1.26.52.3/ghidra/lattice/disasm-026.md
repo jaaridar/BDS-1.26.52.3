@@ -1,0 +1,8 @@
+# FUN_0d345720 (disassembly)
+
+```
+0d345720  PUSH RAX
+0d345721  LEA RDI,[0x13f6512]
+0d345728  CALL 0x04882ef0
+0d34572d  INT3
+```
