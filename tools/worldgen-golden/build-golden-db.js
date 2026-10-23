@@ -15,7 +15,7 @@ const { parseDump, buildColumn, blockAt } = require('./lib/chunk-db');
 const { encodeGolden } = require('./lib/mcstructure');
 
 function parseArgs(argv) {
-  const args = { out: null, capture: null, chunks: null };
+  const args = { out: null, capture: null, chunks: null, probe: null };
   for (let i = 0; i < argv.length; i++) {
     const arg = argv[i];
     if (arg === '--out') args.out = argv[++i];
@@ -116,23 +116,40 @@ function main() {
     if (existing >= 0) manifest.columns[existing] = entry;
     else manifest.columns.push(entry);
   }
+  // Drop columns whose data is no longer on disk (e.g. captured from a different
+  // chunk base). A manifest entry without its blocks.bin would make verify.js
+  // demand a candidate it can never match.
+  const before = manifest.columns.length;
+  manifest.columns = manifest.columns.filter((c) =>
+    fs.existsSync(path.join(args.out, c.blocks.file)) &&
+    (!c.blocks.file1 || fs.existsSync(path.join(args.out, c.blocks.file1)))
+  );
+  if (manifest.columns.length !== before) {
+    console.log(`pruned ${before - manifest.columns.length} stale manifest column(s)`);
+  }
   if (skipped.length) manifest.missingChunks = skipped;
   fs.writeFileSync(manifestFile, `${JSON.stringify(manifest, null, 2)}\n`);
   console.log(`\nwrote ${written.length} column(s) to ${args.out}; skipped ${skipped.length}`);
 
   // The probe must survive into the golden data, otherwise the ordering claim is
   // unsupported. Only assert this when the probe chunk was built.
-  const probeChunk = [0, 0];
+  const probe = args.probe || [0, 100, 0];
+  const probeChunk = [Math.floor(probe[0] / 16), Math.floor(probe[2] / 16)];
   if (written.some((w) => w.label === `${seed}-c${probeChunk[0]}_${probeChunk[1]}`)) {
     const column = buildColumn(parsed, probeChunk[0], probeChunk[1]);
-    const gold = blockAt(column, 0, 100, 0);
+    const gold = blockAt(
+      column,
+      probe[0] - probeChunk[0] * 16,
+      probe[1],
+      probe[2] - probeChunk[1] * 16
+    );
     if (!gold || gold.name !== 'minecraft:gold_block') {
       throw new Error(
-        'the probe marker is missing from the built column, so the reported block ' +
+        `the probe marker is missing at ${probe.join(',')}, so the reported block ` +
         'ordering is not backed by this capture'
       );
     }
-    console.log('probe marker present: ordering claim is supported by this capture');
+    console.log(`probe marker present at ${probe.join(',')}: ordering claim is supported`);
   }
   return 0;
 }

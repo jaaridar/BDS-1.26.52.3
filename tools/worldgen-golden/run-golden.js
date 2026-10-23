@@ -34,6 +34,7 @@ function parseArgs(argv) {
       case '--out': args.out = next(); break;
       case '--timeout': args.timeout = Number(next()); break;
       case '--assets': args.assets = next(); break;
+      case '--chunk-base': args.chunkBase = [Number(next()), Number(next())]; break;
       case '--no-probe': args.probe = false; break;
       case '--verbose': args.verbose = true; break;
       case '--help':
@@ -200,7 +201,7 @@ async function capture(args) {
   }
 }
 
-async function captureInner({ binary, seed, out, timeout, probe, verbose, assets }) {
+async function captureInner({ binary, seed, out, timeout, probe, verbose, assets, chunkBase = [0, 0] }) {
   const absOut = path.resolve(out);
   fs.rmSync(absOut, { recursive: true, force: true });
   fs.mkdirSync(absOut, { recursive: true });
@@ -263,19 +264,40 @@ async function captureInner({ binary, seed, out, timeout, probe, verbose, assets
   // Declared outside the try/finally so the collection phase can check that
   // every requested save actually produced a file.
   const saved = [];
+  const [bcx, bcz] = chunkBase;
   try {
     await server.waitFor(/Server started\.?/i, 300000, 'server start');
 
     // --- force generation of the capture area -----------------------------
     // Done first: the world reports "Server started" before its spawn chunks
     // (and therefore any target coordinate) accept edits.
-    await server.command('tickingarea add 0 0 0 47 0 47 capture');
+    // Freeze everything that can change blocks after generation, BEFORE the
+    // capture area is loaded. Without this, glow lichen (and other features that
+    // spread on random ticks) makes two runs of the same seed disagree.
+    for (const rule of [
+      'randomTickSpeed 0',
+      'doMobSpawning false',
+      'doFireTick false',
+      'doWeatherCycle false',
+      'doDaylightCycle false',
+      'doInsomnia false',
+      'doTraderSpawning false',
+      'doPatrolSpawning false',
+      'doWanderingTraderSpawning false',
+      'mobGriefing false',
+      'tntExplodes false',
+    ]) {
+      await server.command(`gamerule ${rule}`);
+    }
+
+    const area = [bcx * 16, 0, bcz * 16, bcx * 16 + 47, 0, bcz * 16 + 47];
+    await server.command(`tickingarea add ${area.join(' ')} capture`);
     await sleep(25000); // let the generator finish the 3x3 chunk area
 
     // --- probe: build a known marker pattern and save it -------------------
     // Used to pin down the block_indices ordering of `.mcstructure`.
     if (probe) {
-      const base = { x: 0, y: 100, z: 0 };
+      const base = { x: bcx * 16, y: 100, z: bcz * 16 };
       await server.command('gamerule sendcommandfeedback false');
       await server.command(`fill ${base.x} ${base.y} ${base.z} ${base.x + 4} ${base.y + 4} ${base.z + 4} air`);
       const markers = [
@@ -303,7 +325,12 @@ async function captureInner({ binary, seed, out, timeout, probe, verbose, assets
     }
 
     // --- save each chunk column in 64-block vertical slices ---------------
-    const chunks = [[0, 0], [1, 0], [0, 1], [1, 1]];
+    const chunks = [
+      [bcx, bcz],
+      [bcx + 1, bcz],
+      [bcx, bcz + 1],
+      [bcx + 1, bcz + 1],
+    ];
     const slices = [[-64, -1], [0, 63], [64, 127], [128, 191], [192, 255], [256, 319]];
     for (const [cx, cz] of chunks) {
       for (let i = 0; i < slices.length; i++) {
@@ -461,6 +488,7 @@ async function captureInner({ binary, seed, out, timeout, probe, verbose, assets
     schema: 1,
     generatedAt: new Date().toISOString(),
     binary: { path: path.basename(binaryPath), sha256: binarySha, bytes: fs.statSync(binaryPath).size },
+    chunkBase: [bcx, bcz],
     assets: { root: assetRoot, linked },
     seed: String(seed),
     levelName,

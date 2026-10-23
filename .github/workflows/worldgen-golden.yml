@@ -36,6 +36,10 @@ concurrency:
 env:
   OUTPUT_DIR: research/proprietary/bds-1.26.52.3/golden
   MODE: ${{ github.event.inputs.seed || '1' }}
+  # Capture 2048 blocks away from spawn: the spawn area ticks from the moment the
+  # world loads, before any rule can be changed, and random ticks let blocks like
+  # glow lichen spread and break reproducibility.
+  PROBE: 2048,100,2048
   RECHECK: ${{ github.event.inputs.recheck || 'true' }}
 
 jobs:
@@ -77,6 +81,7 @@ jobs:
             --binary ./bedrock_server \
             --seed "${MODE}" \
             --out "capture/seed-${MODE}" \
+            --chunk-base 128 128 \
             --timeout 900 \
             --verbose
           status=$?
@@ -99,13 +104,19 @@ jobs:
       - name: Prove the decoder against the marker probe
         run: |
           node tools/worldgen-golden/check-db.js "capture/seed-${MODE}/db-dump.json" \
-            --probe 0,100,0
+            --probe "${PROBE}"
 
       - name: Build golden columns
         run: |
+          # Replace this seed's previous columns: the newly captured set is the
+          # one whose reproducibility has been checked.
+          rm -f "${OUTPUT_DIR}"/golden-${MODE}-*.blocks.bin \
+                "${OUTPUT_DIR}"/golden-${MODE}-*.layer1.bin \
+                "${OUTPUT_DIR}"/golden-${MODE}-*.json
           node tools/worldgen-golden/build-golden-db.js \
             "capture/seed-${MODE}/db-dump.json" \
             --capture "capture/seed-${MODE}" \
+            --probe "${PROBE}" \
             --out "${OUTPUT_DIR}"
 
       # Determinism check: the same seed must produce the same world twice. If
@@ -118,6 +129,7 @@ jobs:
             --binary ./bedrock_server \
             --seed "${MODE}" \
             --out "capture/seed-${MODE}-recheck" \
+            --chunk-base 128 128 \
             --timeout 900
           node tools/worldgen-golden/dump-db.js \
             --db "capture/seed-${MODE}-recheck/server/worlds/golden/db" \
@@ -125,6 +137,7 @@ jobs:
           node tools/worldgen-golden/build-golden-db.js \
             "capture/seed-${MODE}-recheck/db-dump.json" \
             --capture "capture/seed-${MODE}-recheck" \
+            --probe "${PROBE}" \
             --out "capture/golden-${MODE}-recheck"
           set +e
           node tools/worldgen-golden/verify.js \
