@@ -374,6 +374,47 @@ test('build-golden stacks slices into a full 384-block column', () => {
   fs.rmSync(dir, { recursive: true, force: true });
 });
 
+// The capture orchestration is the part with the most moving pieces (process
+// lifecycle, command round trips, waits, staging, manifest) and it cannot be
+// exercised against the real server here. A stand-in that speaks the same
+// protocol runs it end to end, so a scoping or lifecycle mistake fails in
+// seconds instead of after a full CI capture.
+test('capture orchestration runs end to end against a protocol stand-in', () => {
+  const { execFileSync } = require('node:child_process');
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'worldgen-capture-'));
+  const mock = path.join(__dirname, 'test', 'mock-server.sh');
+  let output;
+  try {
+    output = execFileSync(
+      process.execPath,
+      [
+        path.join(__dirname, 'run-golden.js'),
+        '--binary', mock,
+        '--no-assets',
+        '--settle', '0',
+        '--seed', '42',
+        '--out', dir,
+      ],
+      {
+        encoding: 'utf8',
+        timeout: 120000,
+        env: { ...process.env, MOCK_SKIP_ASSETS: '1' },
+      }
+    );
+  } catch (error) {
+    throw new Error(`capture failed against the stand-in: ${error.message}`);
+  }
+  const manifest = JSON.parse(fs.readFileSync(path.join(dir, 'capture.json'), 'utf8'));
+  assert.strictEqual(String(manifest.seed), '42');
+  // The stand-in refuses placements until it has "generated", so a completed
+  // capture proves the readiness polling actually waited instead of assuming.
+  assert.ok(manifest.generationMs >= 0, 'generation time was not recorded');
+  assert.strictEqual(manifest.dirtied.length, 4, 'every captured chunk must be marked modified');
+  assert.ok(fs.existsSync(path.join(dir, 'server.log')), 'the server log must be kept');
+  assert.match(output, /captured seed 42/);
+  fs.rmSync(dir, { recursive: true, force: true });
+});
+
 console.log(`\n${passed} passed`);
 if (process.exitCode) {
   console.error('\nself-test FAILED');

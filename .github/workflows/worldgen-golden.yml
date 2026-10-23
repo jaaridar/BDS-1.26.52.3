@@ -96,12 +96,19 @@ jobs:
         env:
           VARIANT: ${{ matrix.variant }}
         run: |
+          set +e
           node tools/worldgen-golden/run-golden.js \
             --binary ./bedrock_server \
             --seed "${MODE}" \
             --out "capture/seed-${MODE}-${VARIANT}" \
             --chunk-base 128 128 \
             --timeout 900
+          status=$?
+          # Print the reason into the run log and keep it for the build job: a
+          # failed capture job is otherwise invisible from outside.
+          cat "capture/seed-${MODE}-${VARIANT}/error.txt" 2>/dev/null || true
+          tail -n 40 "capture/seed-${MODE}-${VARIANT}/server.log" 2>/dev/null || true
+          exit $status
 
       - name: Dump the world database
         env:
