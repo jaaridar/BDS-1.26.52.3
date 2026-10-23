@@ -1,0 +1,146 @@
+name: Noise lattice recovery
+
+# Targeted Ghidra pass over the two things standing between us and a real
+# terrain generator (see research/proprietary/.../ANALYSIS.md section 8):
+#
+#   * FUN_0d341b00 - the lattice evaluation inside every noise layer
+#   * the .rodata float tables that hold the multinoise constants
+#
+# The general pass never reached these: they are not vtable entries and carry no
+# RTTI, so nothing names them. This job starts from the address, disassembles on
+# demand, and walks the call tree, dumping pseudocode, full instruction listings
+# and the contents of every constant region the code touches.
+#
+# Static only; bedrock_server is imported, never executed.
+
+on:
+  workflow_dispatch:
+    inputs:
+      seeds:
+        description: 'Comma-separated entry addresses to start from'
+        required: false
+        default: '0xd341b00,0xd342930,0xd3430a0,0xd3411f0,0x529bef0,0x529c330'
+      depth:
+        description: 'Call-graph depth to follow'
+        required: false
+        default: '3'
+  push:
+    paths:
+      - .github/workflows/noise-lattice.yml
+      - tools/binary-analysis/ghidra/DumpNoiseLattice.java
+
+permissions:
+  contents: write
+
+concurrency:
+  group: noise-lattice-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  GHIDRA_DIR: ${{ github.workspace }}/.ghidra-dist
+  GHIDRA_URL: https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_12.1.4_build/ghidra_12.1.4_PUBLIC_20260921.zip
+  GHIDRA_SHA256: ddac49f903da9d5bac833e5cc79395098b9c33cfd3279be5f31bd00387d2d4db
+  OUTPUT_DIR: research/proprietary/bds-1.26.52.3/ghidra
+  SEEDS: ${{ github.event.inputs.seeds || '0xd341b00,0xd342930,0xd3430a0,0xd3411f0,0x529bef0,0x529c330' }}
+  DEPTH: ${{ github.event.inputs.depth || '3' }}
+
+jobs:
+  lattice:
+    if: startsWith(github.ref, 'refs/heads/arena/')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Fetch the official binary from the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download v1.26.52.3 --repo "${GITHUB_REPOSITORY}" \
+            --pattern bedrock_server --clobber
+          chmod +x bedrock_server
+          test "$(stat --printf=%s bedrock_server)" = 256133808
+          echo "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207  bedrock_server" \
+            | sha256sum --check --strict
+
+      - name: Select JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Install verified Ghidra release
+        run: |
+          curl --fail --location --retry 3 --progress-bar "$GHIDRA_URL" -o "$RUNNER_TEMP/ghidra.zip"
+          echo "$GHIDRA_SHA256  $RUNNER_TEMP/ghidra.zip" | sha256sum --check --strict
+          unzip -q "$RUNNER_TEMP/ghidra.zip" -d "$RUNNER_TEMP"
+          mv "$RUNNER_TEMP/ghidra_12.1.4_PUBLIC" "$GHIDRA_DIR"
+          test -x "$GHIDRA_DIR/support/analyzeHeadless"
+
+      # Fast feedback: a script that does not compile fails here, before the
+      # multi-minute ELF import.
+      - name: Compile-check the Ghidra script
+        run: |
+          mkdir -p "$RUNNER_TEMP/scriptcheck"
+          CP="$(find "$GHIDRA_DIR/Ghidra" -name '*.jar' -printf '%p:')"
+          javac -nowarn -proc:none -d "$RUNNER_TEMP/scriptcheck" -cp "$CP" \
+            tools/binary-analysis/ghidra/DumpNoiseLattice.java
+          echo "script compiles"
+
+      - name: Run headless lattice dump
+        run: |
+          set -o pipefail
+          mkdir -p "$OUTPUT_DIR"
+          "$GHIDRA_DIR/support/analyzeHeadless" \
+            "$RUNNER_TEMP/projects" "bds-lattice" \
+            -import "$PWD/bedrock_server" \
+            -overwrite \
+            -noanalysis \
+            -scriptPath "$PWD/tools/binary-analysis/ghidra" \
+            -postScript DumpNoiseLattice.java "$OUTPUT_DIR" "$SEEDS" "$DEPTH" \
+            -max-cpu "$(nproc)" \
+            -log "$RUNNER_TEMP/lattice-application.log" \
+            -scriptlog "$RUNNER_TEMP/lattice-script.log" \
+            2>&1 | tee "$RUNNER_TEMP/lattice.txt"
+          status=${PIPESTATUS[0]}
+          echo "$status" > "$OUTPUT_DIR/lattice-exit-status.txt"
+          cp "$RUNNER_TEMP/lattice.txt" "$OUTPUT_DIR/lattice.txt"
+          cp "$RUNNER_TEMP/lattice-script.log" "$OUTPUT_DIR/lattice-script.log" 2>/dev/null || true
+          exit 0
+
+      - name: Report
+        if: always()
+        run: |
+          {
+            echo 'lattice files:'
+            ls -l "$OUTPUT_DIR/lattice" 2>/dev/null || echo '(no lattice directory)'
+            echo
+            echo 'summary:'
+            head -20 "$OUTPUT_DIR/lattice/summary.md" 2>/dev/null || echo '(none)'
+            echo
+            echo 'run log tail:'
+            tail -n 40 "$RUNNER_TEMP/lattice.txt" 2>/dev/null || true
+          } | tee "$OUTPUT_DIR/lattice-report.txt"
+
+      - name: Commit evidence
+        if: always()
+        run: |
+          git add -f "$OUTPUT_DIR/lattice" "$OUTPUT_DIR"/lattice-*.txt "$OUTPUT_DIR"/*-script.log
+          if git diff --cached --quiet; then
+            echo 'lattice evidence unchanged'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m "research: noise lattice evidence"
+          for attempt in 1 2 3 4 5; do
+            if git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}"; then
+              echo 'pushed'; exit 0
+            fi
+            sleep $((attempt * 5))
+          done
+          echo 'could not push' >&2
+          exit 1
