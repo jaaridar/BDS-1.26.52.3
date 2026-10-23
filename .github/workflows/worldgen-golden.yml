@@ -158,6 +158,7 @@ jobs:
             --out "capture/seed-${MODE}-check/db-dump.json"
           node tools/worldgen-golden/build-golden-db.js \
             "capture/seed-${MODE}-check/db-dump.json" \
+            --capture "capture/seed-${MODE}-check" \
             --probe "${PROBE}" \
             --chunks 128,128 129,128 128,129 129,129 \
             --out "capture/golden-${MODE}-check"

@@ -165,3 +165,21 @@ six marker blocks at their exact coordinates, otherwise the pipeline fails.
   packed u32 words followed by a little-endian NBT palette; `bpb = bits / 2`
 * block order inside a subchunk: `x*256 + z*16 + y`
 * subchunk index `i` covers world Y `i*16 .. i*16+15`; an absent subchunk is air
+
+## Verified everything, including what the server does not reproduce
+
+Comparing two independent captures of the same seed shows that BDS's terrain is
+deterministic but its decoration features are not: moss, cave vines, glow lichen,
+grass, clay discs and dripleaf move between runs. That was measured, so the
+golden set records it instead of pretending otherwise:
+
+* build the golden set from **two** captures (`--also <second dump>`); a block is
+  stable only when both agree on layer 0 and layer 1;
+* `golden-<label>.unstable.json` lists the positions that differ and every variant
+  the server produced there;
+* `verify.js --require-exact` demands an exact match on stable blocks and accepts
+  any observed variant on the unstable ones;
+* CI then checks a **third, unseen** capture, so the gate cannot pass by
+  construction.
+
+Measured on seed 1, chunk (128,128): 98,202 stable, 102 unstable of 98,304.
