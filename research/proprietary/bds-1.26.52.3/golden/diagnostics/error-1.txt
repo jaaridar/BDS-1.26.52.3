@@ -1,14 +1,14 @@
-Error: structure files were not collected (got 15, expected 25). The server reported saving them, so they were written somewhere outside /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/capture/seed-1/server; check where the active behaviour pack lives. Server: 1:760 INFO] Saved a structure with name mystructure:c1_1_y0
-[2026-10-23 00:13:12:110 INFO] Saved a structure with name mystructure:c1_1_y1
-[2026-10-23 00:13:12:509 INFO] Saved a structure with name mystructure:c1_1_y2
-[2026-10-23 00:13:12:865 INFO] Saved a structure with name mystructure:c1_1_y3
-[2026-10-23 00:13:13:265 INFO] Saved a structure with name mystructure:c1_1_y4
-[2026-10-23 00:13:13:615 INFO] Saved a structure with name mystructure:c1_1_y5
-[2026-10-23 00:13:16:968 INFO] Server stop requested.
-[2026-10-23 00:13:17:017 INFO] Stopping server...
+Error: structure files were not collected (got 15, expected 25). The server reported saving them, so they were written somewhere outside /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/capture/seed-1/server; check where the active behaviour pack lives. Server: 2:978 INFO] Saved a structure with name mystructure:c1_1_y0
+[2026-10-23 00:21:43:382 INFO] Saved a structure with name mystructure:c1_1_y1
+[2026-10-23 00:21:43:733 INFO] Saved a structure with name mystructure:c1_1_y2
+[2026-10-23 00:21:44:082 INFO] Saved a structure with name mystructure:c1_1_y3
+[2026-10-23 00:21:44:482 INFO] Saved a structure with name mystructure:c1_1_y4
+[2026-10-23 00:21:44:832 INFO] Saved a structure with name mystructure:c1_1_y5
+[2026-10-23 00:23:48:322 INFO] Server stop requested.
+[2026-10-23 00:23:48:368 INFO] Stopping server...
 Quit correctly
 [exit] code=0 signal=null
 
-    at captureInner (/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/worldgen-golden/run-golden.js:402:11)
+    at captureInner (/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/worldgen-golden/run-golden.js:427:11)
     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
     at async capture (/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/worldgen-golden/run-golden.js:194:12)
