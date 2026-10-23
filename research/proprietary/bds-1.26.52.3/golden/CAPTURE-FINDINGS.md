@@ -154,14 +154,28 @@ four:
 
 | change | effect |
 | --- | --- |
-| four captures as a matrix of jobs | 4 x 75 s in parallel instead of 300 s serially |
+| four captures as a matrix of jobs | 4 x 19 s in parallel instead of 4 x 74 s serially |
+| readiness polling on the server's own `Block placed` reply | generation wait 32 s -> 4 s, measured |
 | dropped the 24 `structure save` commands | proven never to write a file; ~10 s per capture |
 | dropped the `find /` sweeps that looked for their output | ~20 s per capture |
 | dropped the probe `structure save` | the markers themselves prove the ordering |
+| `bedrock_server` cached by sha256 across jobs | one 256 MB download per round instead of four |
 | content-addressed reference dumps | one file per distinct capture, no duplicates |
+| one retry per capture | a transient failure no longer costs the whole round |
 
-Wall clock for a full round including build and verification: **77 seconds**
-(was ~8 minutes).
+Measured capture: **19 s** total, of which 4 s is world generation.
+Wall clock for a full round including build and verification: **65 seconds**
+(from 8 minutes originally).
+
+Note on the readiness poll: it counts accepted placements cumulatively from a
+baseline taken when the ticking area is added. A per-round window silently missed
+replies that arrived just after the window closed, which made one job retry for
+90 s and fail; the cumulative count fixed it.
+
+Testing: `test/mock-server.sh` speaks the same protocol (including refusing
+placements before generation), so `self-test.js` exercises the whole capture
+orchestration offline in ~8 s. It exists because the same variable-scope mistake
+inside `try/finally` broke a real CI run three times.
 
 ## Next
 

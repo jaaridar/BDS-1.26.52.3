@@ -329,7 +329,9 @@ async function captureInner({
       await sleep(1000);
       placed = (server.lines.slice(baseline).join('').match(/Block placed/g) || []).length;
     }
-    const generationMs = placed >= corners.length ? Date.now() - generationStart : null;
+    // Assign the outer variable: a `const` here would shadow it and the manifest
+    // would silently report null.
+    generationMs = placed >= corners.length ? Date.now() - generationStart : null;
     if (generationMs === null) {
       throw new Error(
         `the capture area was still not generated after 90 s ` +

@@ -408,7 +408,11 @@ test('capture orchestration runs end to end against a protocol stand-in', () => 
   assert.strictEqual(String(manifest.seed), '42');
   // The stand-in refuses placements until it has "generated", so a completed
   // capture proves the readiness polling actually waited instead of assuming.
-  assert.ok(manifest.generationMs >= 0, 'generation time was not recorded');
+  // The stand-in refuses the first placements, so a real number here proves both
+  // that the readiness polling waited and that the value reaches the manifest.
+  assert.strictEqual(typeof manifest.generationMs, 'number',
+    'generation time was not recorded in the manifest');
+  assert.ok(manifest.generationMs > 0, 'generation time must be positive');
   assert.strictEqual(manifest.dirtied.length, 4, 'every captured chunk must be marked modified');
   assert.ok(fs.existsSync(path.join(dir, 'server.log')), 'the server log must be kept');
   assert.match(output, /captured seed 42/);
