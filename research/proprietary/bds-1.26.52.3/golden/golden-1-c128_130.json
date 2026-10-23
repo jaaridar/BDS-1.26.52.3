@@ -6,7 +6,7 @@
   "generator": "default",
   "capture": {
     "binarySha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
-    "generatedAt": "2026-10-23T01:36:38.458Z",
+    "generatedAt": "2026-10-23T01:53:24.203Z",
     "source": "leveldb",
     "database": "db-dump.json"
   },
@@ -243,7 +243,7 @@
     {
       "name": "minecraft:glow_lichen",
       "states": {
-        "multi_face_direction_bits": 8
+        "multi_face_direction_bits": 2
       }
     },
     {
@@ -321,12 +321,6 @@
     {
       "name": "minecraft:deepslate_gold_ore",
       "states": {}
-    },
-    {
-      "name": "minecraft:glow_lichen",
-      "states": {
-        "multi_face_direction_bits": 2
-      }
     },
     {
       "name": "minecraft:cave_vines_head_with_berries",
@@ -525,6 +519,18 @@
       }
     },
     {
+      "name": "minecraft:seagrass",
+      "states": {
+        "sea_grass_type": "double_bot"
+      }
+    },
+    {
+      "name": "minecraft:seagrass",
+      "states": {
+        "sea_grass_type": "double_top"
+      }
+    },
+    {
       "name": "minecraft:andesite",
       "states": {}
     },
@@ -541,21 +547,15 @@
       "states": {}
     },
     {
-      "name": "minecraft:seagrass",
-      "states": {
-        "sea_grass_type": "double_bot"
-      }
-    },
-    {
-      "name": "minecraft:seagrass",
-      "states": {
-        "sea_grass_type": "double_top"
-      }
-    },
-    {
       "name": "minecraft:flowing_water",
       "states": {
         "liquid_depth": 0
+      }
+    },
+    {
+      "name": "minecraft:glow_lichen",
+      "states": {
+        "multi_face_direction_bits": 8
       }
     },
     {
@@ -577,10 +577,10 @@
   ],
   "blocks": {
     "file": "golden-1-c128_130.blocks.bin",
-    "sha256": "b757f82dc6066ff99af61dffe1737721065492a411a102cb106529ef758ecfc7",
+    "sha256": "cad3c58195bee85175eda9e39faa5eca89318c3480afd3e159d6b9c0165b7bbb",
     "bytes": 196608,
     "layers": 2,
     "file1": "golden-1-c128_130.layer1.bin",
-    "sha256_1": "fe4c659abd91ec42ed4522728509d98082f726b8b99a47031981adcb65919aec"
+    "sha256_1": "959f3c7bb605bd6b3988fe4c751d2926f6ddd96c02142128f5eea8c71bba3444"
   }
 }
