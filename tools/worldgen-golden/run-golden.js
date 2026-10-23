@@ -352,7 +352,46 @@ async function captureInner({ binary, seed, out, timeout, probe, verbose, assets
     }
   };
   if (fs.existsSync(workDir)) walk(workDir);
-  console.log(`collected ${collected.length} structure file(s)`);
+  console.log(`collected ${collected.length} structure file(s) from the working directory`);
+
+  // `structure save` does not always write into the working directory (it
+  // depends on which pack is active), so if any requested name is still
+  // missing, sweep the rest of the checkout before giving up.
+  const requestNames = saved.map((item) => item.name);
+  if (probe) requestNames.push('wp_probe');
+  const have = new Set(collected.map((item) => item.file.replace(/\.mcstructure$/, '')));
+  const stillMissing = requestNames.filter((name) => !have.has(name));
+  if (stillMissing.length) {
+    const root = process.cwd();
+    const skip = new Set(['.git', 'node_modules', 'capture']);
+    const sweep = (dir) => {
+      let entries;
+      try { entries = fs.readdirSync(dir, { withFileTypes: true }); } catch { return; }
+      for (const entry of entries) {
+        if (skip.has(entry.name)) continue;
+        const full = path.join(dir, entry.name);
+        let isDirectory = entry.isDirectory();
+        if (entry.isSymbolicLink()) {
+          try { isDirectory = fs.statSync(full).isDirectory(); } catch { isDirectory = false; }
+        }
+        if (isDirectory) { sweep(full); continue; }
+        const base = entry.name.replace(/\.mcstructure$/, '');
+        if (!stillMissing.includes(base)) continue;
+        fs.mkdirSync(path.join(absOut, 'structures'), { recursive: true });
+        const to = path.join(absOut, 'structures', entry.name);
+        fs.copyFileSync(full, to);
+        collected.push({
+          file: entry.name,
+          bytes: fs.statSync(to).size,
+          source: path.relative(root, full),
+        });
+      }
+    };
+    sweep(root);
+    console.log(
+      `collected ${collected.length} structure file(s) after sweeping ${root}`
+    );
+  }
 
   // Fail loudly rather than silently shipping an incomplete golden set.
   const expected = saved.map((item) => item.name);
