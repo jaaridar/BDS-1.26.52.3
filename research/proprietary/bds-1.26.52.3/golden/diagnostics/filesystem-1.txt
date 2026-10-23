@@ -1,0 +1,41 @@
+workDir: /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/capture/seed-1/server
+cwd: /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3
+
+top level of workDir:
+Dedicated_Server.txt allowlist.json bedrock_server bedrock_server_how_to.html behavior_packs config data definitions development_behavior_packs development_resource_packs development_skin_packs minecraftpe packetlimitconfig.json permissions.json premium_cache profanity_filter.wlist release-notes.txt resource_packs server.properties treatments world_templates worlds
+
+worlds tree:
+/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/capture/seed-1/server/worlds
+/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/capture/seed-1/server/worlds/golden
+/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/capture/seed-1/server/worlds/golden/levelname.txt
+/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/capture/seed-1/server/worlds/golden/db
+/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/capture/seed-1/server/worlds/golden/db/CURRENT
+/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/capture/seed-1/server/worlds/golden/db/000003.log
+/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/capture/seed-1/server/worlds/golden/db/MANIFEST-000002
+/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/capture/seed-1/server/worlds/golden/level.dat_old
+/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/capture/seed-1/server/worlds/golden/level.dat
+
+on-disk search (c0_0_y0.mcstructure anywhere):
+
+
+any .mcstructure modified in the last 20 minutes:
+/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/behavior_packs/vanilla/structures/bastion/mobs/melee_piglin_always.mcstructure
+/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/behavior_packs/vanilla/structures/bastion/mobs/hoglin.mcstructure
+/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/behavior_packs/vanilla/structures/bastion/mobs/crossbow_piglin.mcstructure
+/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/behavior_packs/vanilla/structures/bastion/mobs/sword_piglin.mcstructure
+/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/behavior_packs/vanilla/structures/bastion/mobs/melee_piglin.mcstructure
+/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/behavior_packs/vanilla_1.26.30/structures/minecraft/sulfur_spring_large_2.mcstructure
+/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/behavior_packs/vanilla_1.26.30/structures/minecraft/sulfur_spring_small_1.mcstructure
+/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/behavior_packs/vanilla_1.26.30/structures/minecraft/sulfur_spring_medium_3.mcstructure
+/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/behavior_packs/vanilla_1.26.30/structures/minecraft/sulfur_spring_small_2.mcstructure
+/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/behavior_packs/vanilla_1.26.30/structures/minecraft/sulfur_spring_medium_2.mcstructure
+/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/behavior_packs/vanilla_1.26.30/structures/minecraft/sulfur_spring_extra_large_1.mcstructure
+/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/behavior_packs/vanilla_1.26.30/structures/minecraft/sulfur_spring_small_4.mcstructure
+/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/behavior_packs/vanilla_1.26.30/structures/minecraft/sulfur_spring_large_1.mcstructure
+/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/behavior_packs/vanilla_1.26.30/structures/minecraft/sulfur_spring_medium_1.mcstructure
+/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/behavior_packs/vanilla_1.26.30/structures/minecraft/sulfur_spring_small_3.mcstructure
+/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/capture/seed-1/server/behavior_packs/vanilla/structures/bastion/mobs/melee_piglin_always.mcstructure
+/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/capture/seed-1/server/behavior_packs/vanilla/structures/bastion/mobs/hoglin.mcstructure
+/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/capture/seed-1/server/behavior_packs/vanilla/structures/bastion/mobs/crossbow_piglin.mcstructure
+/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/capture/seed-1/server/behavior_packs/vanilla/structures/bastion/mobs/sword_piglin.mcstructure
+/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/capture/seed-1/server/behavior_packs/vanilla/structures/bastion/mobs/melee_piglin.mcstructure
