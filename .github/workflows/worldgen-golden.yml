@@ -131,10 +131,14 @@ jobs:
                 "${OUTPUT_DIR}"/golden-${MODE}-*.layer1.bin \
                 "${OUTPUT_DIR}"/golden-${MODE}-*.unstable.json \
                 "${OUTPUT_DIR}"/golden-${MODE}-*.json
+          # Accumulate every capture of this seed that has ever been committed,
+          # not just this run's: each one is more evidence about which blocks the
+          # server actually reproduces.
           args=""
-          for suffix in "-b" "-c"; do
-            [ -f "capture/seed-${MODE}${suffix}/db-dump.json" ] && \
-              args="$args --also capture/seed-${MODE}${suffix}/db-dump.json"
+          for f in "${OUTPUT_DIR}"/db/dump-seed-${MODE}*.json; do
+            [ -f "$f" ] || continue
+            case "$f" in */dump-seed-${MODE}.json) continue;; esac
+            args="$args --also $f"
           done
           set +e
           node tools/worldgen-golden/build-golden-db.js \
@@ -151,9 +155,9 @@ jobs:
       #   * an implementation must match every stable block exactly
       #     (`verify.js --require-exact`, used when judging src/world);
       #   * the server's own decoration features are not reproducible block for
-      #     block (measured: three references still leave ~0.02% of blocks
-      #     flipping in a held-out capture), so this step allows that measured
-      #     residual and reports it rather than pretending it is zero.
+      #     block, so a disagreement is tolerated only when at least one side is
+      #     a material the server was MEASURED to vary (`--tolerate-features`).
+      #     A disagreement between materials it always reproduces still fails.
       - name: Verify an unseen capture against the golden data
         if: ${{ env.RECHECK == 'true' }}
         run: |
@@ -176,7 +180,8 @@ jobs:
           node tools/worldgen-golden/verify.js \
             --golden "${OUTPUT_DIR}" \
             --candidate "capture/golden-${MODE}-check" \
-            --threshold 0.9995 \
+            --require-exact \
+            --tolerate-features \
             --write-report "capture/verify-${MODE}.md" 2>&1 | tee "capture/verify-${MODE}.log"
           status=${PIPESTATUS[0]}
           echo "VERIFY_EXIT=$status" >> "$GITHUB_ENV"

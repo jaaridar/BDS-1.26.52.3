@@ -8,7 +8,19 @@ function paletteName(grid, id) {
   return entry ? `${entry.name}${entry.states && Object.keys(entry.states).length ? JSON.stringify(entry.states) : ''}` : `<palette#${id}>`;
 }
 
-function compareGrids({ golden, candidate, ignoreAir = false, maxWorst = 25, unstable = null }) {
+// `learned` is the set of block names the server was measured to vary. With
+// `tolerateFeatures`, a disagreement that involves one of those names is
+// recorded as measured decoration variance instead of a mismatch; a disagreement
+// between blocks the server always reproduced stays a hard mismatch.
+function compareGrids({
+  golden,
+  candidate,
+  ignoreAir = false,
+  maxWorst = 25,
+  unstable = null,
+  learned = null,
+  tolerateFeatures = false,
+}) {
   const [gsx, gsy, gsz] = golden.size;
   const [csx, csy, csz] = candidate.size;
   if (gsx !== csx || gsy !== csy || gsz !== csz) {
@@ -22,6 +34,8 @@ function compareGrids({ golden, candidate, ignoreAir = false, maxWorst = 25, uns
   let skipped = 0;
   const confusion = new Map();
   let unstableAccepted = 0;
+  let featureVariation = 0;
+  const variations = new Map();
   const perY = new Map();
   const worst = [];
   const firstMismatches = [];
@@ -59,6 +73,13 @@ function compareGrids({ golden, candidate, ignoreAir = false, maxWorst = 25, uns
         if (goldenName === candidateName) {
           matched++;
           yMatched++;
+        } else if (tolerateFeatures && learned &&
+                   (learned.has(goldenName.split('{')[0]) || learned.has(candidateName.split('{')[0]))) {
+          // The server itself varies this material, so this position is not a
+          // statement about the implementation under test.
+          featureVariation++;
+          const key = `${goldenName} <- ${candidateName}`;
+          variations.set(key, (variations.get(key) || 0) + 1);
         } else {
           mismatched++;
           yMismatched++;
@@ -93,6 +114,8 @@ function compareGrids({ golden, candidate, ignoreAir = false, maxWorst = 25, uns
     worstRanked: ranked,
     firstMismatches,
     unstableAccepted,
+    featureVariation,
+    variations,
     maxWorst,
     size: golden.size,
   };
@@ -138,6 +161,11 @@ function formatReport(report, { title = 'worldgen comparison', limit = 20 } = {}
     lines.push('');
   }
 
+  if (report.featureVariation) {
+    lines.push(`- ${report.featureVariation} further block(s) disagreed only in materials the ` +
+      'server itself was measured to vary (see CAPTURE-FINDINGS.md)');
+    lines.push('');
+  }
   if (report.unstableAccepted) {
     lines.push(`- ${report.unstableAccepted} block(s) matched an accepted variant of a ` +
       'block the server itself does not reproduce');

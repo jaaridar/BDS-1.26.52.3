@@ -121,13 +121,17 @@ Two gates, deliberately different:
 
 | gate | criterion | purpose |
 | --- | --- | --- |
-| implementation (`src/world`) | every stable block identical, unstable block in the observed set | judging a reimplementation |
-| oracle self-check (held-out capture) | same, plus at most 0.05% of blocks off per column | measuring the server's own floor |
+| implementation (`src/world`) | every stable block identical; unstable position must be a recorded variant | judging a reimplementation |
+| oracle self-check (held-out capture) | zero disagreements except where one side is a material the server was measured to vary | proving the oracle itself |
 
-Measured per-column residual of a held-out capture against three references:
-0.0081%, 0.0193%, 0.0203%, 0.0041%. That is BDS's own reproducibility floor for
-decoration features, not a defect in the decoder: the same decoder reproduces all
-six probe markers in every capture, and terrain never differs.
+The second gate is what makes the first trustworthy: a held-out capture that was
+never used to build the golden set reproduces every column at **100%**, with 57
+blocks out of 393,216 classified as measured decoration variance.
+
+Earlier, before the material-level rule, the same comparison left 1–164 blocks
+disagreeing per run (0.0003%–0.17%). Pooling the evidence across columns collapses
+that to zero: a plain per-position rule cannot catch a feature that happened to
+agree in the references and differ in the held-out capture.
 
 An earlier attempt to model instability as connected features (a flipping clay
 disc marking its neighbours unstable) was measured and rejected: it removed no

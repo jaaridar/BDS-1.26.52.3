@@ -32,6 +32,7 @@ function parseArgs(argv) {
       case '--require-exact': args.requireExact = true; break;
       case '--threshold': args.threshold = Number(argv[++i]); break;
       case '--write-report': args.writeReport = argv[++i]; break;
+      case '--tolerate-features': args.tolerateFeatures = true; break;
       case '--label': args.labelFilter = new RegExp(argv[++i]); break;
       default: throw new Error(`unknown argument ${arg}`);
     }
@@ -105,6 +106,19 @@ function main() {
   }
 
   const goldens = loadGoldenSet(args.golden, args.labelFilter);
+
+  // Materials the server was measured to vary are a property of the world, not
+  // of one column, so the evidence is pooled across the whole golden set.
+  const learned = new Set();
+  for (const golden of goldens) {
+    for (const list of Object.values(golden.unstable || {})) {
+      for (const variant of list) {
+        if (variant.layer0) learned.add(variant.layer0);
+        if (variant.layer1) learned.add(variant.layer1);
+      }
+    }
+  }
+
   const reports = [];
   let failures = 0;
   for (const golden of goldens) {
@@ -119,6 +133,8 @@ function main() {
       candidate,
       ignoreAir: args.ignoreAir,
       unstable: golden.unstable,
+      learned,
+      tolerateFeatures: args.tolerateFeatures,
     });
     report.label = golden.label;
     reports.push(report);
@@ -126,6 +142,7 @@ function main() {
     if (!ok) failures++;
     console.log(
       `${golden.label}: ${report.matched}/${report.matched + report.mismatched} blocks ` +
+      (report.featureVariation ? `(+${report.featureVariation} measured decoration variance) ` : '') +
       `(${(report.accuracy * 100).toFixed(4)}%)` +
       (args.requireExact ? (ok ? ' exact' : ' NOT EXACT') : '')
     );

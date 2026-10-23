@@ -78,13 +78,16 @@ function main() {
     }
     const primary = buildColumn(parsed, cx, cz);
     const columns = [primary];
+    let compared = 0;
     for (const extra of extraDumps) {
       if (!extra.chunks.has(id)) {
-        console.warn(`chunk ${id}: absent from an extra capture; stability is not measured for it`);
-        columns.length = 0;
-        break;
+        // A capture from a different chunk base is not evidence about this
+        // chunk, so it is skipped rather than treated as disagreement.
+        console.warn(`chunk ${id}: absent from an extra capture, ignoring that capture`);
+        continue;
       }
       columns.push(buildColumn(extra, cx, cz));
+      compared++;
     }
 
     // Block-level stability measured across independent captures of the same
@@ -125,7 +128,7 @@ function main() {
         generatedAt: capture.generatedAt || null,
         source: 'leveldb',
         database: path.basename(args.dump),
-        comparedCaptures: 1 + extraDumps.length,
+        comparedCaptures: 1 + compared,
       },
     });
     header.stability = {
