@@ -3,124 +3,143 @@ recheck: true
 capture exit: 0
 
 capture files:
-3 capture/seed-1/server/allowlist.json
-3 capture/seed-1/server/permissions.json
-126 capture/seed-1/server/Dedicated_Server.txt
-252 capture/seed-1/server/packet-statistics.txt
-357 capture/seed-1/structures-missing.txt
-398 capture/seed-1/server/release-notes.txt
-487 capture/seed-1/server/server.properties
-905 capture/seed-1/server/packetlimitconfig.json
-2601 capture/seed-1/structures/hoglin.mcstructure
-2740 capture/seed-1/structures/melee_piglin.mcstructure
-2742 capture/seed-1/structures/melee_piglin_always.mcstructure
-2781 capture/build-golden-1.log
-3144 capture/seed-1/structures/crossbow_piglin.mcstructure
-3219 capture/seed-1/structures/sword_piglin.mcstructure
-3952 capture/seed-1/capture.json
-4118 capture/seed-1/filesystem.txt
+5437 capture/seed-1-recheck/server.log
 5437 capture/seed-1/server.log
+5463 capture/seed-1-recheck/server-transcript.txt
 5463 capture/seed-1/server-transcript.txt
+6442 capture/golden-1-recheck/golden-1-c0_1.json
+7349 capture/golden-1-recheck/golden-1-c0_0.json
+7431 capture/seed-1-recheck/structures/sulfur_spring_small_1.mcstructure
+7431 capture/seed-1-recheck/structures/sulfur_spring_small_2.mcstructure
 7431 capture/seed-1/structures/sulfur_spring_small_1.mcstructure
 7431 capture/seed-1/structures/sulfur_spring_small_2.mcstructure
+8223 capture/seed-1-recheck/structures/sulfur_spring_small_3.mcstructure
 8223 capture/seed-1/structures/sulfur_spring_small_3.mcstructure
+8224 capture/seed-1-recheck/structures/sulfur_spring_small_4.mcstructure
 8224 capture/seed-1/structures/sulfur_spring_small_4.mcstructure
+8548 capture/seed-1-recheck/server/profanity_filter.wlist
 8548 capture/seed-1/server/profanity_filter.wlist
+11794 capture/seed-1-recheck/structures/sulfur_spring_medium_1.mcstructure
 11794 capture/seed-1/structures/sulfur_spring_medium_1.mcstructure
+12693 capture/seed-1-recheck/structures/sulfur_spring_medium_2.mcstructure
 12693 capture/seed-1/structures/sulfur_spring_medium_2.mcstructure
+13749 capture/seed-1-recheck/structures/sulfur_spring_medium_3.mcstructure
 13749 capture/seed-1/structures/sulfur_spring_medium_3.mcstructure
+14787 capture/seed-1-recheck/structures/sulfur_spring_large_1.mcstructure
+14787 capture/seed-1-recheck/structures/sulfur_spring_large_2.mcstructure
 14787 capture/seed-1/structures/sulfur_spring_large_1.mcstructure
 14787 capture/seed-1/structures/sulfur_spring_large_2.mcstructure
+23737 capture/seed-1-recheck/structures/sulfur_spring_extra_large_1.mcstructure
 23737 capture/seed-1/structures/sulfur_spring_extra_large_1.mcstructure
+41237 capture/seed-1-recheck/server/bedrock_server_how_to.html
 41237 capture/seed-1/server/bedrock_server_how_to.html
+196608 capture/golden-1-recheck/golden-1-c0_0.blocks.bin
+196608 capture/golden-1-recheck/golden-1-c0_0.layer1.bin
+196608 capture/golden-1-recheck/golden-1-c0_1.blocks.bin
+196608 capture/golden-1-recheck/golden-1-c0_1.layer1.bin
+196608 capture/golden-1-recheck/golden-1-c1_1.blocks.bin
+196608 capture/golden-1-recheck/golden-1-c1_1.layer1.bin
+201500 capture/seed-1-recheck/db-dump.json
 203227 capture/seed-1/db-dump.json
+256133808 capture/seed-1-recheck/server/bedrock_server
 256133808 capture/seed-1/server/bedrock_server
 
 golden directory:
-total 8
-drwxr-xr-x 2 runner runner 4096 Oct 23 00:43 db
-drwxr-xr-x 2 runner runner 4096 Oct 23 00:38 diagnostics
+total 1196
+-rw-r--r-- 1 runner runner   4429 Oct 23 00:50 CAPTURE-FINDINGS.md
+-rw-r--r-- 1 runner runner   2133 Oct 23 00:53 MANIFEST.json
+drwxr-xr-x 2 runner runner   4096 Oct 23 00:50 db
+drwxr-xr-x 2 runner runner   4096 Oct 23 00:50 diagnostics
+-rw-r--r-- 1 runner runner 196608 Oct 23 00:53 golden-1-c0_0.blocks.bin
+-rw-r--r-- 1 runner runner   7320 Oct 23 00:53 golden-1-c0_0.json
+-rw-r--r-- 1 runner runner 196608 Oct 23 00:53 golden-1-c0_0.layer1.bin
+-rw-r--r-- 1 runner runner 196608 Oct 23 00:53 golden-1-c0_1.blocks.bin
+-rw-r--r-- 1 runner runner   6618 Oct 23 00:53 golden-1-c0_1.json
+-rw-r--r-- 1 runner runner 196608 Oct 23 00:53 golden-1-c0_1.layer1.bin
+-rw-r--r-- 1 runner runner 196608 Oct 23 00:53 golden-1-c1_1.blocks.bin
+-rw-r--r-- 1 runner runner   4658 Oct 23 00:53 golden-1-c1_1.json
+-rw-r--r-- 1 runner runner 196608 Oct 23 00:53 golden-1-c1_1.layer1.bin
 
 server log tail:
 NO LOG FILE! - setting up server logging...
-[2026-10-23 00:38:42:126 INFO] Starting Server
-[2026-10-23 00:38:42:126 INFO] Version: 1.26.52.3
-[2026-10-23 00:38:42:126 INFO] Session ID: d47ffc77-eeb1-4a25-be2d-a48868696202
-[2026-10-23 00:38:42:126 INFO] Build ID: 51798919
-[2026-10-23 00:38:42:126 INFO] Branch: r/26_u5
-[2026-10-23 00:38:42:126 INFO] Commit ID: 54116bb5ee0b7aee0b5591efbcc8bc3cf64f168a
-[2026-10-23 00:38:42:126 INFO] Configuration: Publish
-[2026-10-23 00:38:42:126 INFO] Contents of server.properties: {}
-[2026-10-23 00:38:42:126 INFO] Level Name: golden
-[2026-10-23 00:38:42:126 INFO] Profiler config ('bootstrap.json') load result: success=1, errorMessage=(null)
-[2026-10-23 00:38:42:129 INFO] No CDN config file found at: cdn_config.json for dedicated server
-[2026-10-23 00:38:42:129 INFO] Game mode: 1 Creative
-[2026-10-23 00:38:42:129 INFO] Difficulty: 0 PEACEFUL
-[2026-10-23 00:38:42:131 INFO] Content logging to console is enabled.
-[2026-10-23 00:38:42:132 INFO] 
+[2026-10-23 00:50:30:548 INFO] Starting Server
+[2026-10-23 00:50:30:548 INFO] Version: 1.26.52.3
+[2026-10-23 00:50:30:548 INFO] Session ID: e5013ab7-1f87-436d-bfbb-0b4671611daf
+[2026-10-23 00:50:30:548 INFO] Build ID: 51798919
+[2026-10-23 00:50:30:548 INFO] Branch: r/26_u5
+[2026-10-23 00:50:30:548 INFO] Commit ID: 54116bb5ee0b7aee0b5591efbcc8bc3cf64f168a
+[2026-10-23 00:50:30:548 INFO] Configuration: Publish
+[2026-10-23 00:50:30:548 INFO] Contents of server.properties: {}
+[2026-10-23 00:50:30:548 INFO] Level Name: golden
+[2026-10-23 00:50:30:549 INFO] Profiler config ('bootstrap.json') load result: success=1, errorMessage=(null)
+[2026-10-23 00:50:30:552 INFO] No CDN config file found at: cdn_config.json for dedicated server
+[2026-10-23 00:50:30:552 INFO] Game mode: 1 Creative
+[2026-10-23 00:50:30:552 INFO] Difficulty: 0 PEACEFUL
+[2026-10-23 00:50:30:554 INFO] Content logging to console is enabled.
+[2026-10-23 00:50:30:556 INFO] 
 
 #####################################################
 #                                                   #
 #              CREATING VANILLA WORLD               #
 #                                                   #
 #####################################################
-[2026-10-23 00:38:42:474 INFO] Opening level 'worlds/golden/db'
-[2026-10-23 00:38:42:505 INFO] Pack Stack - None
-[2026-10-23 00:38:42:652 INFO] Signed in to signaling service successfully
-[2026-10-23 00:38:43:197 INFO] IPv4 supported, port: 19132: Used for gameplay and LAN discovery
-[2026-10-23 00:38:43:197 INFO] IPv6 supported, port: 19133: Used for gameplay
-[2026-10-23 00:38:43:223 INFO] Server started.
-[2026-10-23 00:38:43:223 ERROR] ================ TRANSPORT TYPE ERROR  ===================
-[2026-10-23 00:38:43:223 ERROR] Your current connection type is not set to NetherNet. In this release, NetherNet is the only supported transport type.
-[2026-10-23 00:38:43:223 ERROR] Players will not be able to connect to your game without NetherNet.
-[2026-10-23 00:38:43:223 ERROR] 
-[2026-10-23 00:38:43:223 ERROR] To switch, set 'transport=nethernet' in server.properties.
-[2026-10-23 00:38:43:223 ERROR] 
-[2026-10-23 00:38:43:223 ERROR] For more information, please reference the included bedrock_server_how_to.html file.
-[2026-10-23 00:38:43:223 ERROR] =======================================================
-[2026-10-23 00:38:43:223 INFO] ================ TELEMETRY MESSAGE ===================
-[2026-10-23 00:38:43:223 INFO] Server Telemetry is currently not enabled. 
-[2026-10-23 00:38:43:223 INFO] Enabling this telemetry helps us improve the game.
-[2026-10-23 00:38:43:223 INFO] 
-[2026-10-23 00:38:43:223 INFO] To enable this feature, add the line 'emit-server-telemetry=true'
-[2026-10-23 00:38:43:223 INFO] to the server.properties file in the handheld/src-server directory
-[2026-10-23 00:38:43:223 INFO] ======================================================
-[2026-10-23 00:38:43:342 INFO] Added ticking area from 0, 0, 0 to 47, 0, 47.
+[2026-10-23 00:50:30:996 INFO] Opening level 'worlds/golden/db'
+[2026-10-23 00:50:31:033 INFO] Pack Stack - None
+[2026-10-23 00:50:31:223 INFO] Signed in to signaling service successfully
+[2026-10-23 00:50:31:899 INFO] IPv4 supported, port: 19132: Used for gameplay and LAN discovery
+[2026-10-23 00:50:31:899 INFO] IPv6 supported, port: 19133: Used for gameplay
+[2026-10-23 00:50:31:929 INFO] Server started.
+[2026-10-23 00:50:31:929 ERROR] ================ TRANSPORT TYPE ERROR  ===================
+[2026-10-23 00:50:31:929 ERROR] Your current connection type is not set to NetherNet. In this release, NetherNet is the only supported transport type.
+[2026-10-23 00:50:31:929 ERROR] Players will not be able to connect to your game without NetherNet.
+[2026-10-23 00:50:31:929 ERROR] 
+[2026-10-23 00:50:31:929 ERROR] To switch, set 'transport=nethernet' in server.properties.
+[2026-10-23 00:50:31:929 ERROR] 
+[2026-10-23 00:50:31:929 ERROR] For more information, please reference the included bedrock_server_how_to.html file.
+[2026-10-23 00:50:31:929 ERROR] =======================================================
+[2026-10-23 00:50:31:929 INFO] ================ TELEMETRY MESSAGE ===================
+[2026-10-23 00:50:31:929 INFO] Server Telemetry is currently not enabled. 
+[2026-10-23 00:50:31:929 INFO] Enabling this telemetry helps us improve the game.
+[2026-10-23 00:50:31:929 INFO] 
+[2026-10-23 00:50:31:929 INFO] To enable this feature, add the line 'emit-server-telemetry=true'
+[2026-10-23 00:50:31:929 INFO] to the server.properties file in the handheld/src-server directory
+[2026-10-23 00:50:31:929 INFO] ======================================================
+[2026-10-23 00:50:32:071 INFO] Added ticking area from 0, 0, 0 to 47, 0, 47.
 1/10 ticking areas in use.
-[2026-10-23 00:39:08:468 ERROR] 0 blocks filled
-[2026-10-23 00:39:08:618 INFO] Block placed
-[2026-10-23 00:39:08:718 INFO] Block placed
-[2026-10-23 00:39:08:868 INFO] Block placed
-[2026-10-23 00:39:08:968 INFO] Block placed
-[2026-10-23 00:39:09:118 INFO] Block placed
-[2026-10-23 00:39:09:218 INFO] Block placed
-[2026-10-23 00:39:09:823 INFO] Saved a structure with name mystructure:wp_probe
-[2026-10-23 00:39:11:474 INFO] Saved a structure with name mystructure:c0_0_y0
-[2026-10-23 00:39:11:825 INFO] Saved a structure with name mystructure:c0_0_y1
-[2026-10-23 00:39:12:224 INFO] Saved a structure with name mystructure:c0_0_y2
-[2026-10-23 00:39:12:574 INFO] Saved a structure with name mystructure:c0_0_y3
-[2026-10-23 00:39:12:928 INFO] Saved a structure with name mystructure:c0_0_y4
-[2026-10-23 00:39:13:328 INFO] Saved a structure with name mystructure:c0_0_y5
-[2026-10-23 00:39:13:679 INFO] Saved a structure with name mystructure:c1_0_y0
-[2026-10-23 00:39:14:079 INFO] Saved a structure with name mystructure:c1_0_y1
-[2026-10-23 00:39:14:428 INFO] Saved a structure with name mystructure:c1_0_y2
-[2026-10-23 00:39:14:778 INFO] Saved a structure with name mystructure:c1_0_y3
-[2026-10-23 00:39:15:178 INFO] Saved a structure with name mystructure:c1_0_y4
-[2026-10-23 00:39:15:533 INFO] Saved a structure with name mystructure:c1_0_y5
-[2026-10-23 00:39:15:934 INFO] Saved a structure with name mystructure:c0_1_y0
-[2026-10-23 00:39:16:284 INFO] Saved a structure with name mystructure:c0_1_y1
-[2026-10-23 00:39:16:633 INFO] Saved a structure with name mystructure:c0_1_y2
-[2026-10-23 00:39:17:033 INFO] Saved a structure with name mystructure:c0_1_y3
-[2026-10-23 00:39:17:383 INFO] Saved a structure with name mystructure:c0_1_y4
-[2026-10-23 00:39:17:783 INFO] Saved a structure with name mystructure:c0_1_y5
-[2026-10-23 00:39:18:133 INFO] Saved a structure with name mystructure:c1_1_y0
-[2026-10-23 00:39:18:539 INFO] Saved a structure with name mystructure:c1_1_y1
-[2026-10-23 00:39:18:888 INFO] Saved a structure with name mystructure:c1_1_y2
-[2026-10-23 00:39:19:238 INFO] Saved a structure with name mystructure:c1_1_y3
-[2026-10-23 00:39:19:638 INFO] Saved a structure with name mystructure:c1_1_y4
-[2026-10-23 00:39:19:988 INFO] Saved a structure with name mystructure:c1_1_y5
-[2026-10-23 00:43:46:038 INFO] Server stop requested.
-[2026-10-23 00:43:46:085 INFO] Stopping server...
+[2026-10-23 00:50:57:182 ERROR] 0 blocks filled
+[2026-10-23 00:50:57:332 INFO] Block placed
+[2026-10-23 00:50:57:432 INFO] Block placed
+[2026-10-23 00:50:57:582 INFO] Block placed
+[2026-10-23 00:50:57:682 INFO] Block placed
+[2026-10-23 00:50:57:782 INFO] Block placed
+[2026-10-23 00:50:57:932 INFO] Block placed
+[2026-10-23 00:50:58:532 INFO] Saved a structure with name mystructure:wp_probe
+[2026-10-23 00:51:00:189 INFO] Saved a structure with name mystructure:c0_0_y0
+[2026-10-23 00:51:00:539 INFO] Saved a structure with name mystructure:c0_0_y1
+[2026-10-23 00:51:00:888 INFO] Saved a structure with name mystructure:c0_0_y2
+[2026-10-23 00:51:01:288 INFO] Saved a structure with name mystructure:c0_0_y3
+[2026-10-23 00:51:01:638 INFO] Saved a structure with name mystructure:c0_0_y4
+[2026-10-23 00:51:02:038 INFO] Saved a structure with name mystructure:c0_0_y5
+[2026-10-23 00:51:02:393 INFO] Saved a structure with name mystructure:c1_0_y0
+[2026-10-23 00:51:02:743 INFO] Saved a structure with name mystructure:c1_0_y1
+[2026-10-23 00:51:03:143 INFO] Saved a structure with name mystructure:c1_0_y2
+[2026-10-23 00:51:03:493 INFO] Saved a structure with name mystructure:c1_0_y3
+[2026-10-23 00:51:03:893 INFO] Saved a structure with name mystructure:c1_0_y4
+[2026-10-23 00:51:04:243 INFO] Saved a structure with name mystructure:c1_0_y5
+[2026-10-23 00:51:04:648 INFO] Saved a structure with name mystructure:c0_1_y0
+[2026-10-23 00:51:04:998 INFO] Saved a structure with name mystructure:c0_1_y1
+[2026-10-23 00:51:05:348 INFO] Saved a structure with name mystructure:c0_1_y2
+[2026-10-23 00:51:05:748 INFO] Saved a structure with name mystructure:c0_1_y3
+[2026-10-23 00:51:06:097 INFO] Saved a structure with name mystructure:c0_1_y4
+[2026-10-23 00:51:06:498 INFO] Saved a structure with name mystructure:c0_1_y5
+[2026-10-23 00:51:06:853 INFO] Saved a structure with name mystructure:c1_1_y0
+[2026-10-23 00:51:07:203 INFO] Saved a structure with name mystructure:c1_1_y1
+[2026-10-23 00:51:07:603 INFO] Saved a structure with name mystructure:c1_1_y2
+[2026-10-23 00:51:07:953 INFO] Saved a structure with name mystructure:c1_1_y3
+[2026-10-23 00:51:08:353 INFO] Saved a structure with name mystructure:c1_1_y4
+[2026-10-23 00:51:08:703 INFO] Saved a structure with name mystructure:c1_1_y5
+[2026-10-23 00:53:16:552 INFO] Server stop requested.
+[2026-10-23 00:53:16:597 INFO] Stopping server...
 Quit correctly
 structure files found in the working tree:
 2742 server/behavior_packs/vanilla/structures/bastion/mobs/melee_piglin_always.mcstructure
@@ -162,35 +181,7 @@ capture/seed-1/server/behavior_packs/vanilla/structures/bastion/mobs/sword_pigli
 capture/seed-1/server/behavior_packs/vanilla/structures/bastion/mobs/melee_piglin.mcstructure
 
 db dump / decode log:
-npm warn EBADENGINE Unsupported engine {
-npm warn EBADENGINE   package: 'bedrock-protocol@3.60.1',
-npm warn EBADENGINE   required: { node: '>=24' },
-npm warn EBADENGINE   current: { node: 'v22.23.3', npm: '10.9.9' }
-npm warn EBADENGINE }
-npm warn EBADENGINE Unsupported engine {
-npm warn EBADENGINE   package: 'nethernet@1.1.2',
-npm warn EBADENGINE   required: { node: '>=24' },
-npm warn EBADENGINE   current: { node: 'v22.23.3', npm: '10.9.9' }
-npm warn EBADENGINE }
-npm warn EBADENGINE Unsupported engine {
-npm warn EBADENGINE   package: 'prismarine-xbox-services@0.1.0',
-npm warn EBADENGINE   required: { node: '>=24' },
-npm warn EBADENGINE   current: { node: 'v22.23.3', npm: '10.9.9' }
-npm warn EBADENGINE }
-npm warn skipping integrity check for git dependency ssh://git@github.com/PrismarineJS/prismarine-xbox-services.git
-npm warn deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported
-npm warn deprecated npmlog@1.2.1: This package is no longer supported.
-npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
-npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
-npm warn deprecated gauge@1.2.7: This package is no longer supported.
-npm warn deprecated are-we-there-yet@1.0.6: This package is no longer supported.
-npm warn deprecated tar@4.4.19: Old versions of tar are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
-npm warn deprecated fstream@1.0.12: This package is no longer supported.
-npm warn deprecated uuid@8.3.2: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
-
-added 302 packages in 5s
-dumped 56 entries (100128 B of key+value) to capture/seed-1/db-dump.json; skipped 0
-key kinds: {"other:........+":3,"other:........,":3,"other:......../.":25,"other:........1":1,"other:........6":3,"other:........?":3,"other:........@":3,"other:........A":3,"other:AutonomousEntities":1,"other:BiomeData":1,"other:LevelChunkMetaDataDictionary":1,"other:Overworld":1,"other:WorldClocks":1,"other:digp........":3,"other:mobevents":1,"other:schedulerWT":1,"other:scoreboard":1,"other:tickingarea_1f92b228-e5a0-48d4-9b93-be1450a07309":1}
+(none)
 
 structure save note:
 structure save produced no file for 25/25 names (the dedicated server keeps structures in memory); the world database is the ground truth for this capture.

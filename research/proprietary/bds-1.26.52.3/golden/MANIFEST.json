@@ -1,0 +1,83 @@
+{
+  "schema": 1,
+  "captures": [],
+  "blockOrdering": "x*256 + z*16 + y (y fastest), proven by the marker probe",
+  "updatedAt": "2026-10-23T00:53:24.801Z",
+  "columns": [
+    {
+      "label": "1-c0_0",
+      "seed": "1",
+      "size": [
+        16,
+        384,
+        16
+      ],
+      "origin": [
+        0,
+        -64,
+        0
+      ],
+      "palette": 74,
+      "blocks": {
+        "file": "golden-1-c0_0.blocks.bin",
+        "sha256": "f500ec2ae950ca81b1ffdec55fe360dc78cd0dea3b174422889eabec9bcb24d8",
+        "bytes": 196608,
+        "layers": 2,
+        "file1": "golden-1-c0_0.layer1.bin",
+        "sha256_1": "6c76753e34152748fa2b72f109bd5e22018d61019fe23e6ab685f1dd18c0ba85"
+      },
+      "binarySha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
+      "source": "leveldb"
+    },
+    {
+      "label": "1-c0_1",
+      "seed": "1",
+      "size": [
+        16,
+        384,
+        16
+      ],
+      "origin": [
+        0,
+        -64,
+        16
+      ],
+      "palette": 65,
+      "blocks": {
+        "file": "golden-1-c0_1.blocks.bin",
+        "sha256": "d3e4035a23efd44647de1c26bd422ea850502556e629e1bf438d0e22f31abe78",
+        "bytes": 196608,
+        "layers": 2,
+        "file1": "golden-1-c0_1.layer1.bin",
+        "sha256_1": "c4bbf69adf63311961ee5d488844d7bd1d0e400599a8347b1830e00373264580"
+      },
+      "binarySha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
+      "source": "leveldb"
+    },
+    {
+      "label": "1-c1_1",
+      "seed": "1",
+      "size": [
+        16,
+        384,
+        16
+      ],
+      "origin": [
+        16,
+        -64,
+        16
+      ],
+      "palette": 44,
+      "blocks": {
+        "file": "golden-1-c1_1.blocks.bin",
+        "sha256": "4878207a4a06953a04f2b8696ec1a58ac08b76a8f0cf0c71a70df0da09755dcb",
+        "bytes": 196608,
+        "layers": 2,
+        "file1": "golden-1-c1_1.layer1.bin",
+        "sha256_1": "4d091044c775f65d884c032ba6ca8c6bb330de6ab3e817bf50f6939d43e271c2"
+      },
+      "binarySha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
+      "source": "leveldb"
+    }
+  ]
+}
