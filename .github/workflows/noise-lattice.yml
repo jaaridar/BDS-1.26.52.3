@@ -82,13 +82,19 @@ jobs:
 
       # Fast feedback: a script that does not compile fails here, before the
       # multi-minute ELF import.
+      # Fast feedback: a script that does not compile fails here, before the
+      # multi-minute ELF import. The log is kept so a red run is self-explaining.
       - name: Compile-check the Ghidra script
         run: |
-          mkdir -p "$RUNNER_TEMP/scriptcheck"
+          set +e
+          mkdir -p "$RUNNER_TEMP/scriptcheck" "$OUTPUT_DIR/lattice"
           CP="$(find "$GHIDRA_DIR/Ghidra" -name '*.jar' -printf '%p:')"
           javac -nowarn -proc:none -d "$RUNNER_TEMP/scriptcheck" -cp "$CP" \
-            tools/binary-analysis/ghidra/DumpNoiseLattice.java
-          echo "script compiles"
+            tools/binary-analysis/ghidra/DumpNoiseLattice.java \
+            > "$OUTPUT_DIR/lattice/compile.log" 2>&1
+          echo "javac exit: $?" | tee -a "$OUTPUT_DIR/lattice/compile.log"
+          cat "$OUTPUT_DIR/lattice/compile.log"
+          test -f "$RUNNER_TEMP/scriptcheck/DumpNoiseLattice.class"
 
       - name: Run headless lattice dump
         run: |
@@ -128,7 +134,8 @@ jobs:
       - name: Commit evidence
         if: always()
         run: |
-          git add -f "$OUTPUT_DIR/lattice" "$OUTPUT_DIR"/lattice-*.txt "$OUTPUT_DIR"/*-script.log
+          mkdir -p "$OUTPUT_DIR/lattice"
+          git add -A "$OUTPUT_DIR" || true
           if git diff --cached --quiet; then
             echo 'lattice evidence unchanged'
             exit 0

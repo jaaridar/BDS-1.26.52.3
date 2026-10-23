@@ -279,7 +279,6 @@ public class DumpNoiseLattice extends GhidraScript {
         sb.append("# ").append(f.getName()).append("\n\n");
         sb.append("- entry: `0x").append(Long.toHexString(f.getEntryPoint().getOffset())).append("`\n");
         sb.append("- body size: ").append(f.getBody().getNumAddresses()).append(" bytes\n");
-        sb.append("- calling convention: ").append(f.getCallingConventionName()).append("\n");
         sb.append("- callers: ");
         Set<String> callers = new java.util.TreeSet<>();
         for (Function caller : f.getCallingFunctions(monitor)) {
