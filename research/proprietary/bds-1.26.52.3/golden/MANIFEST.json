@@ -2,7 +2,7 @@
   "schema": 1,
   "captures": [],
   "blockOrdering": "x*256 + z*16 + y (y fastest), proven by the marker probe",
-  "updatedAt": "2026-10-23T02:09:42.036Z",
+  "updatedAt": "2026-10-23T02:29:02.572Z",
   "columns": [
     {
       "label": "1-c128_128",
@@ -17,139 +17,14 @@
         -64,
         2048
       ],
-      "palette": 70,
+      "palette": 75,
       "blocks": {
         "file": "golden-1-c128_128.blocks.bin",
-        "sha256": "1c3c0918cbbb6ffe661b7130040cd812636650227bfadd2accc7365e759959d4",
+        "sha256": "73e5808e217c60976ab04aff0201cddd514c651ba69d4b026833f9139f113e08",
         "bytes": 196608,
         "layers": 2,
         "file1": "golden-1-c128_128.layer1.bin",
         "sha256_1": "a96dd75b5e30aad26f16c22c06573e9e1968db3968e6596ea9c22fa4ef65fb38"
-      },
-      "binarySha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
-      "source": "leveldb"
-    },
-    {
-      "label": "1-c128_130",
-      "seed": "1",
-      "size": [
-        16,
-        384,
-        16
-      ],
-      "origin": [
-        2048,
-        -64,
-        2080
-      ],
-      "palette": 96,
-      "blocks": {
-        "file": "golden-1-c128_130.blocks.bin",
-        "sha256": "644809745b45f4562567268ce9a10c078b02f482b38a57308615b0d92dbf128a",
-        "bytes": 196608,
-        "layers": 2,
-        "file1": "golden-1-c128_130.layer1.bin",
-        "sha256_1": "7778a0f85af4376c875e106bb9bc8f7b758cdebb1f67493c4f540926b9347c46"
-      },
-      "binarySha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
-      "source": "leveldb"
-    },
-    {
-      "label": "1-c126_127",
-      "seed": "1",
-      "size": [
-        16,
-        384,
-        16
-      ],
-      "origin": [
-        2016,
-        -64,
-        2032
-      ],
-      "palette": 40,
-      "blocks": {
-        "file": "golden-1-c126_127.blocks.bin",
-        "sha256": "a55927234edf3e2f313bb54a6ca62d2a4434879f48bbeb2b0024474ada54c337",
-        "bytes": 196608,
-        "layers": 2,
-        "file1": "golden-1-c126_127.layer1.bin",
-        "sha256_1": "bbb064583751b909120ec1b65f09fef60b43785cefdea0a19ad0fa5753d34588"
-      },
-      "binarySha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
-      "source": "leveldb"
-    },
-    {
-      "label": "1-c126_131",
-      "seed": "1",
-      "size": [
-        16,
-        384,
-        16
-      ],
-      "origin": [
-        2016,
-        -64,
-        2096
-      ],
-      "palette": 67,
-      "blocks": {
-        "file": "golden-1-c126_131.blocks.bin",
-        "sha256": "ad6bdcfed5d21fdb1666572aa9613f8e889de20e1258bf209b5519cdd65de3f1",
-        "bytes": 196608,
-        "layers": 2,
-        "file1": "golden-1-c126_131.layer1.bin",
-        "sha256_1": "1c72c9539f147471732d4dabaf57e02249707435d0eb6a1f6c26b1eb4e0de0a4"
-      },
-      "binarySha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
-      "source": "leveldb"
-    },
-    {
-      "label": "1-c126_132",
-      "seed": "1",
-      "size": [
-        16,
-        384,
-        16
-      ],
-      "origin": [
-        2016,
-        -64,
-        2112
-      ],
-      "palette": 60,
-      "blocks": {
-        "file": "golden-1-c126_132.blocks.bin",
-        "sha256": "33881212ca46722ed1c53d6f41ae6c995c6af67843270e2ee7fe585b6ef7353a",
-        "bytes": 196608,
-        "layers": 2,
-        "file1": "golden-1-c126_132.layer1.bin",
-        "sha256_1": "bf632436088bfbc92580f565cc0f249cfc65effbd07989243aae6786425e5ea9"
-      },
-      "binarySha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
-      "source": "leveldb"
-    },
-    {
-      "label": "1-c127_131",
-      "seed": "1",
-      "size": [
-        16,
-        384,
-        16
-      ],
-      "origin": [
-        2032,
-        -64,
-        2096
-      ],
-      "palette": 84,
-      "blocks": {
-        "file": "golden-1-c127_131.blocks.bin",
-        "sha256": "57d963c29ab620019e92ddcd131d0e736410223777789183017e86acbea3907a",
-        "bytes": 196608,
-        "layers": 2,
-        "file1": "golden-1-c127_131.layer1.bin",
-        "sha256_1": "66c82588d472a4ff5e70f49a26659b454d0f36022de9dafbddcddb45656b29fd"
       },
       "binarySha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
       "source": "leveldb"
@@ -170,36 +45,11 @@
       "palette": 67,
       "blocks": {
         "file": "golden-1-c128_129.blocks.bin",
-        "sha256": "613efb855b81078d0673d07e6b2374dfd03d701c688ddf4067740d7e54499ca8",
+        "sha256": "96768ddaeb4ed7029b6c468e1fc32c3078c5acc1a361eae969caac784faed093",
         "bytes": 196608,
         "layers": 2,
         "file1": "golden-1-c128_129.layer1.bin",
         "sha256_1": "393343a6e0a90acddf8b5290049bc55d52be01864a6efe548bfabee78f160263"
-      },
-      "binarySha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
-      "source": "leveldb"
-    },
-    {
-      "label": "1-c128_131",
-      "seed": "1",
-      "size": [
-        16,
-        384,
-        16
-      ],
-      "origin": [
-        2048,
-        -64,
-        2096
-      ],
-      "palette": 73,
-      "blocks": {
-        "file": "golden-1-c128_131.blocks.bin",
-        "sha256": "c51dcbfded518e3ed6695e22d54976c9249bbad0f64b13d5ac0dc43b375faf26",
-        "bytes": 196608,
-        "layers": 2,
-        "file1": "golden-1-c128_131.layer1.bin",
-        "sha256_1": "7936b7ea13dabf84a979f7a5697296520ca4099f2f785635a9ce6bd0f81a50b2"
       },
       "binarySha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
       "source": "leveldb"
@@ -217,10 +67,10 @@
         -64,
         2048
       ],
-      "palette": 68,
+      "palette": 69,
       "blocks": {
         "file": "golden-1-c129_128.blocks.bin",
-        "sha256": "b67359322c4a6608bf62188b3df3c5d7f5c6e32ed101fd503029e222b86b8615",
+        "sha256": "094dae94accc6bfdadbcaebe4b96df4d745517ac78a8d38fa882667f0c749f58",
         "bytes": 196608,
         "layers": 2,
         "file1": "golden-1-c129_128.layer1.bin",
@@ -242,114 +92,14 @@
         -64,
         2064
       ],
-      "palette": 77,
+      "palette": 76,
       "blocks": {
         "file": "golden-1-c129_129.blocks.bin",
-        "sha256": "78bc79257f6cffe2759bf96648f961cbef0dcb1443bff9ff53c5517bfb6939bd",
+        "sha256": "fb0a38e7f5f306ebf8a89848b610b3fc349e575fd09ae7c6f066fe73ec92ddc8",
         "bytes": 196608,
         "layers": 2,
         "file1": "golden-1-c129_129.layer1.bin",
         "sha256_1": "ee953c2aecfbf2471969203e84fb171c4974c8e8e4ff37de30a4a5d1343569ac"
-      },
-      "binarySha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
-      "source": "leveldb"
-    },
-    {
-      "label": "1-c130_126",
-      "seed": "1",
-      "size": [
-        16,
-        384,
-        16
-      ],
-      "origin": [
-        2080,
-        -64,
-        2016
-      ],
-      "palette": 53,
-      "blocks": {
-        "file": "golden-1-c130_126.blocks.bin",
-        "sha256": "ea178e9cf7653031128c164edcd764bb75a0e1b54bbe353140c02509a9d47049",
-        "bytes": 196608,
-        "layers": 2,
-        "file1": "golden-1-c130_126.layer1.bin",
-        "sha256_1": "6c65bfe1de1d20589689a4bfb2d5e0347a317d2cbe8fd96bbcbe53ae468f8df4"
-      },
-      "binarySha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
-      "source": "leveldb"
-    },
-    {
-      "label": "1-c130_128",
-      "seed": "1",
-      "size": [
-        16,
-        384,
-        16
-      ],
-      "origin": [
-        2080,
-        -64,
-        2048
-      ],
-      "palette": 61,
-      "blocks": {
-        "file": "golden-1-c130_128.blocks.bin",
-        "sha256": "a7ca8da202e65062b238d3c18c9813cb72fdd6fc34b25581515aeed1ad06fba7",
-        "bytes": 196608,
-        "layers": 2,
-        "file1": "golden-1-c130_128.layer1.bin",
-        "sha256_1": "2fac873e9401439a0d106ff13f2265f3d862da0cc96a1a4032453927b73926b2"
-      },
-      "binarySha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
-      "source": "leveldb"
-    },
-    {
-      "label": "1-c131_126",
-      "seed": "1",
-      "size": [
-        16,
-        384,
-        16
-      ],
-      "origin": [
-        2096,
-        -64,
-        2016
-      ],
-      "palette": 36,
-      "blocks": {
-        "file": "golden-1-c131_126.blocks.bin",
-        "sha256": "27da359a7d80b45d0362653f647efe4c10c7615dcc794e52318600cbf4be71cd",
-        "bytes": 196608,
-        "layers": 2,
-        "file1": "golden-1-c131_126.layer1.bin",
-        "sha256_1": "586eeca358765dcc281e35011fa8f328b5242aaf5c15c913a6a1f72433b00d56"
-      },
-      "binarySha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
-      "source": "leveldb"
-    },
-    {
-      "label": "1-c131_130",
-      "seed": "1",
-      "size": [
-        16,
-        384,
-        16
-      ],
-      "origin": [
-        2096,
-        -64,
-        2080
-      ],
-      "palette": 65,
-      "blocks": {
-        "file": "golden-1-c131_130.blocks.bin",
-        "sha256": "98ca4c886056689ca050c5f03499284ab8f5b0d6df373b57c03c862313ac5403",
-        "bytes": 196608,
-        "layers": 2,
-        "file1": "golden-1-c131_130.layer1.bin",
-        "sha256_1": "469e019412300700bab3becbc6517a0e951a40394451a0adcef4afbb120e1f09"
       },
       "binarySha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
       "source": "leveldb"

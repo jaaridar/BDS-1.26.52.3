@@ -6,9 +6,10 @@
   "generator": "default",
   "capture": {
     "binarySha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
-    "generatedAt": "2026-10-23T02:09:33.999Z",
+    "generatedAt": "2026-10-23T02:27:55.320Z",
     "source": "leveldb",
-    "database": "db-dump.json"
+    "database": "db-dump.json",
+    "comparedCaptures": 2
   },
   "origin": [
     2048,
@@ -61,7 +62,7 @@
     {
       "name": "minecraft:glow_lichen",
       "states": {
-        "multi_face_direction_bits": 17
+        "multi_face_direction_bits": 1
       }
     },
     {
@@ -161,9 +162,39 @@
       }
     },
     {
-      "name": "minecraft:cave_vines",
+      "name": "minecraft:cave_vines_head_with_berries",
       "states": {
         "growing_plant_age": 23
+      }
+    },
+    {
+      "name": "minecraft:cave_vines_head_with_berries",
+      "states": {
+        "growing_plant_age": 19
+      }
+    },
+    {
+      "name": "minecraft:cave_vines",
+      "states": {
+        "growing_plant_age": 24
+      }
+    },
+    {
+      "name": "minecraft:cave_vines_head_with_berries",
+      "states": {
+        "growing_plant_age": 20
+      }
+    },
+    {
+      "name": "minecraft:cave_vines",
+      "states": {
+        "growing_plant_age": 18
+      }
+    },
+    {
+      "name": "minecraft:cave_vines",
+      "states": {
+        "growing_plant_age": 17
       }
     },
     {
@@ -389,10 +420,16 @@
   ],
   "blocks": {
     "file": "golden-1-c128_128.blocks.bin",
-    "sha256": "1c3c0918cbbb6ffe661b7130040cd812636650227bfadd2accc7365e759959d4",
+    "sha256": "73e5808e217c60976ab04aff0201cddd514c651ba69d4b026833f9139f113e08",
     "bytes": 196608,
     "layers": 2,
     "file1": "golden-1-c128_128.layer1.bin",
     "sha256_1": "a96dd75b5e30aad26f16c22c06573e9e1968db3968e6596ea9c22fa4ef65fb38"
+  },
+  "stability": {
+    "stableBlocks": 98202,
+    "unstableBlocks": 102,
+    "file": "golden-1-c128_128.unstable.json",
+    "note": "Blocks listed in `file` are not reproducible by BDS itself across captures of the same seed; a candidate must produce one of the listed variants there. Every other block must match exactly."
   }
 }

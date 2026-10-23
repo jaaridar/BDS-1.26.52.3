@@ -6,9 +6,10 @@
   "generator": "default",
   "capture": {
     "binarySha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
-    "generatedAt": "2026-10-23T02:09:33.999Z",
+    "generatedAt": "2026-10-23T02:27:55.320Z",
     "source": "leveldb",
-    "database": "db-dump.json"
+    "database": "db-dump.json",
+    "comparedCaptures": 2
   },
   "origin": [
     2048,
@@ -63,6 +64,14 @@
       "states": {}
     },
     {
+      "name": "minecraft:moss_block",
+      "states": {}
+    },
+    {
+      "name": "minecraft:short_grass",
+      "states": {}
+    },
+    {
       "name": "minecraft:gravel",
       "states": {}
     },
@@ -85,14 +94,6 @@
       }
     },
     {
-      "name": "minecraft:deepslate_iron_ore",
-      "states": {}
-    },
-    {
-      "name": "minecraft:moss_block",
-      "states": {}
-    },
-    {
       "name": "minecraft:tall_grass",
       "states": {
         "upper_block_bit": 1
@@ -105,7 +106,7 @@
       }
     },
     {
-      "name": "minecraft:short_grass",
+      "name": "minecraft:deepslate_iron_ore",
       "states": {}
     },
     {
@@ -385,10 +386,16 @@
   ],
   "blocks": {
     "file": "golden-1-c128_129.blocks.bin",
-    "sha256": "613efb855b81078d0673d07e6b2374dfd03d701c688ddf4067740d7e54499ca8",
+    "sha256": "96768ddaeb4ed7029b6c468e1fc32c3078c5acc1a361eae969caac784faed093",
     "bytes": 196608,
     "layers": 2,
     "file1": "golden-1-c128_129.layer1.bin",
     "sha256_1": "393343a6e0a90acddf8b5290049bc55d52be01864a6efe548bfabee78f160263"
+  },
+  "stability": {
+    "stableBlocks": 98299,
+    "unstableBlocks": 5,
+    "file": "golden-1-c128_129.unstable.json",
+    "note": "Blocks listed in `file` are not reproducible by BDS itself across captures of the same seed; a candidate must produce one of the listed variants there. Every other block must match exactly."
   }
 }
