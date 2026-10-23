@@ -1,0 +1,48 @@
+lattice files:
+total 4
+-rw-r--r-- 1 runner runner 14 Oct 23 05:14 compile.log
+
+summary:
+(none)
+
+run log tail:
+INFO  Initializing Random Number Generator... (SecureRandomFactory)  
+INFO  Random Number Generator initialization complete: NativePRNGNonBlocking (SecureRandomFactory)  
+INFO  Trust manager disabled, cacerts have not been set (DefaultTrustManagerFactory)  
+INFO  Starting cache cleanup: /var/tmp/runner-ghidra/fscache2 (FileCacheMaintenanceDaemon)  
+INFO  Finished cache cleanup, estimated storage used: 0 (FileCacheMaintenanceDaemon)  
+INFO  Headless startup complete (4050 ms) (AnalyzeHeadless)  
+INFO  Class searcher loaded 59 extension points (20 false positives) (ClassSearcher)  
+INFO  HEADLESS Script Paths:
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/Base/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/SystemEmulation/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/PDB/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/BytePatterns/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/Atmel/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Debug/Debugger-rmi-trace/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/VersionTracking/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/DATA/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Debug/Debugger/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/PIC/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/GnuDemangler/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/FunctionID/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/8051/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/binary-analysis/ghidra
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/FileFormats/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/PyGhidra/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/BSim/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/MicrosoftCodeAnalyzer/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/DecompilerDependent/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/SwiftDemangler/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Processors/JVM/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/Decompiler/ghidra_scripts
+    /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/.ghidra-dist/Ghidra/Features/WildcardAssembler/ghidra_scripts (HeadlessAnalyzer)  
+INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
+INFO  Creating project: /home/runner/work/_temp/projects/bds-lattice (HeadlessAnalyzer)  
+ERROR Abort due to Headless analyzer error: Directory not found: /home/runner/work/_temp/projects (HeadlessAnalyzer) java.io.FileNotFoundException: Directory not found: /home/runner/work/_temp/projects
+	at ghidra.framework.project.DefaultProjectManager.createProject(DefaultProjectManager.java:100)
+	at ghidra.app.util.headless.HeadlessAnalyzer.processLocal(HeadlessAnalyzer.java:439)
+	at ghidra.app.util.headless.AnalyzeHeadless.launch(AnalyzeHeadless.java:199)
+	at ghidra.GhidraLauncher.launch(GhidraLauncher.java:81)
+	at ghidra.Ghidra.main(Ghidra.java:54)
+ 
