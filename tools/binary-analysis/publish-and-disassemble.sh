@@ -52,5 +52,26 @@ if [ "$windows" -eq 0 ]; then
   echo "FAIL: no disassembly windows were written" >&2
   status=1
 fi
+# Commit here rather than in a later step: the point of this script is that its
+# output reaches the repository, and a separate step that silently stages nothing
+# is exactly the failure this replaced.
+if [ "$status" -eq 0 ]; then
+  git config user.name 'github-actions[bot]'
+  git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+  git add -A "$SECTIONS" "$OUT" || true
+  if git diff --cached --quiet; then
+    echo "nothing new to commit"
+  else
+    git commit -m "research: publish the code slice and its disassembly"
+    for attempt in 1 2 3 4 5; do
+      if git pull --rebase origin "${GITHUB_REF_NAME:-$(git rev-parse --abbrev-ref HEAD)}" &&
+        git push origin "HEAD:${GITHUB_REF_NAME:-$(git rev-parse --abbrev-ref HEAD)}"; then
+        echo "pushed"; break
+      fi
+      sleep $((attempt * 5))
+    done
+  fi
+fi
+
 echo "overall status=$status"
 exit "$status"
