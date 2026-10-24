@@ -148,3 +148,42 @@ test('floorDiv matches Java for negative values', () => {
   assert.strictEqual(floorDiv(-35, 34), -2)
   assert.strictEqual(floorDiv(33, 34), 0)
 })
+
+test('the pack data and the shipped table agree, number for number', () => {
+  // The pack ships the placement for the few data-driven sets, so it is a
+  // second opinion on the table rather than a copy of it: if either drifts the
+  // test fails. Reading the archive exercises the brarchive reader too.
+  const fs = require('node:fs')
+  const { readArchive } = require('../../tools/worldgen-algo/brarchive')
+  const { PLACEMENTS } = require('../../src/world/structures-data')
+
+  const archive = 'behavior_packs/vanilla_1.19.80/__brarchive/worldgen/structure_sets.brarchive'
+  if (!fs.existsSync(archive)) {
+    // The packs are not part of every checkout; the test is skipped rather than
+    // turned into a false failure.
+    return
+  }
+  const entries = readArchive(fs.readFileSync(archive)).entries
+  assert.ok(entries.length > 0)
+  for (const entry of entries) {
+    const set = JSON.parse(entry.data.toString('utf8'))['minecraft:structure_set']
+    const placement = PLACEMENTS[set.description.identifier]
+    assert.ok(placement, `${set.description.identifier} is in the pack but not in the table`)
+    assert.strictEqual(placement.spacing, set.placement.spacing)
+    assert.strictEqual(placement.separation, set.placement.separation)
+    assert.strictEqual(placement.salt, set.placement.salt)
+    assert.strictEqual(placement.spreadType, set.placement.spread_type)
+  }
+})
+
+test('trail_ruins is the set whose fit is measured, so it stays marked confirmed', () => {
+  const { PLACEMENTS } = require('../../src/world/structures-data')
+  const placement = PLACEMENTS['minecraft:trail_ruins']
+  assert.strictEqual(placement.confirmed, true)
+  assert.strictEqual(placement.salt, 83469867)
+  assert.strictEqual(placement.spacing, 34)
+  assert.strictEqual(placement.separation, 8)
+  // The claim behind `confirmed` is a measurement; keep the number it was made
+  // with visible so it cannot quietly become folklore.
+  assert.match(placement.note, /23/)
+})

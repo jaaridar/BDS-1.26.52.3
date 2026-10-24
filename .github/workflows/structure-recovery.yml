@@ -16,7 +16,7 @@ on:
       seeds:
         description: 'Seeds to capture structure positions for (comma separated)'
         required: false
-        default: '0,1,4294967296,4294967297'
+        default: '1,2,3,4,5,6,7,8,9,10,11,12'
       ids:
         description: 'Structure identifiers to probe'
         required: false
@@ -39,7 +39,7 @@ env:
   GHIDRA_URL: https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_12.1.4_build/ghidra_12.1.4_PUBLIC_20260921.zip
   GHIDRA_SHA256: ddac49f903da9d5bac833e5cc79395098b9c33cfd3279be5f31bd00387d2d4db
   EVIDENCE: research/proprietary/bds-1.26.52.3
-  SEEDS: ${{ github.event.inputs.seeds || '0,1,4294967296,4294967297' }}
+  SEEDS: ${{ github.event.inputs.seeds || '1,2,3,4,5,6,7,8,9,10,11,12' }}
   IDS: ${{ github.event.inputs.ids || 'trail_ruins,abandoned_camp,village' }}
 
 jobs:
@@ -80,13 +80,16 @@ jobs:
         run: |
           set -o pipefail
           mkdir -p "$EVIDENCE/structures"
+          # The directory is keyed by the identifier set: a 17-structure probe
+          # must not overwrite the 2-structure one that an earlier fit used.
+          slug=$(echo "$IDS" | tr ',' '_' | cut -c1-80)
           for seed in $(echo "$SEEDS" | tr ',' ' '); do
             node tools/worldgen-algo/capture-structures.js \
               --binary ./bedrock_server --assets "$PWD" --seed "$seed" \
-              --ids "$IDS" --from "0,0;512,512" \
-              --out "$EVIDENCE/structures/seed-$seed" --verbose 2>&1 | tail -120
+              --ids "$IDS" --from "0,0;2048,2048" \
+              --out "$EVIDENCE/structures/captures/$slug/seed-$seed" --verbose 2>&1 | tail -120
             status=${PIPESTATUS[0]}
-            echo "$status" > "$EVIDENCE/structures/seed-$seed/exit-status.txt"
+            echo "$status" > "$EVIDENCE/structures/captures/$slug/seed-$seed/exit-status.txt"
           done
           exit 0
 

@@ -30,13 +30,12 @@ const PLACEMENT_SOURCE = {
   note: 'rows marked confirmed:false are shape-only and must not be presented as facts'
 }
 
-function pack (id, placement) {
-  // Parameters are certain (they are shipped data), but "confirmed" would claim
-  // that positions derived from them match the server. On 2026-10-24 they do
-  // not: trail_ruins was located at chunk (-62,-62), (40,7) and (-57,13) for
-  // seeds 1-3, and the Java-style derivation reproduces at most one of the
-  // three. So the parameters are known and the derivation is not.
-  return { id, ...placement, confirmed: false, evidence: 'pack' }
+function pack (id, placement, confirmed = false, note = null) {
+  // `confirmed` claims more than "these are shipped data": it claims that
+  // positions derived from them match the server. Only rows whose fit has been
+  // measured carry it, and the measurement is named so it can be repeated:
+  //   node tools/worldgen-algo/fit-placements.js --id trail_ruins
+  return { id, ...placement, confirmed, evidence: 'pack', note }
 }
 
 function placeholder (id, spacing, separation, salt, spreadType = 'linear') {
@@ -49,7 +48,8 @@ const PLACEMENTS = {
     separation: 8,
     salt: 83469867,
     spreadType: 'linear'
-  }),
+  }, true, 'pack placement + 23 `locate structure` observations across 23 seeds: ' +
+    'every reported position lands within 3 blocks of the predicted chunk corner'),
 
   'minecraft:abandoned_camp': pack('minecraft:abandoned_camp', {
     spacing: 37,

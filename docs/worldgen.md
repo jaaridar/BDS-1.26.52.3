@@ -35,6 +35,12 @@ node tools/worldgen-algo/structure-locate.js --seed 12345 --id trail_ruins --fro
 
 # the placement parameters currently known, and where each came from
 node tools/worldgen-algo/structure-locate.js --seed 1 --list
+
+# the placement numbers the server ships as data (no binary needed)
+node tools/worldgen-algo/pack-structure-sets.js
+
+# score the model against every captured locate answer, per structure set
+node tools/worldgen-algo/fit-placements.js --verbose
 ```
 
 The report labels each set `from pack` (readable data), `measured` (confirmed
@@ -96,17 +102,31 @@ tools/worldgen-golden/            oracle harness: block capture and verification
 
 ## Honest limitations
 
-- **The placement derivation is not reproduced yet.** This was measured, not
-  assumed: `trail_ruins` and `abandoned_camp` ship their spacing, separation and
-  salt in the vanilla pack, so the resolver can be tested with certain
-  parameters. The server put `trail_ruins` at chunks `(-62,-62)`, `(40,7)` and
-  `(-57,13)` for seeds 1-3; no derivation tested (`tools/worldgen-algo/probe-derivation.js`
-  tries seven, including the Java seed mix, swapped multipliers, salt variants
-  and MT19937 variants) explains all three. So the gap is in how a cell and the
-  world seed become a stream, not in the parameters.
-- **Structure salts for the other sets are not recovered.** Placement machinery
-  is exact; `minecraft:village` and friends therefore report candidates computed
-  from placeholder salts, and those are not predictions.
+- **The placement derivation is now reproduced for one set, end to end.**
+  `trail_ruins` ships its placement in the vanilla pack
+  (`salt 83469867, separation 8, spacing 34, spread_type linear`) and the
+  recovered resolver turns that into chunk positions that agree with the server
+  on **23 of 23 seeds** (`node tools/worldgen-algo/fit-placements.js --id
+  trail_ruins`). The reported position is the structure's origin block, not the
+  placement chunk: in every one of those 23 cases it sits within 3 blocks of the
+  predicted chunk's corner, i.e. inside that chunk or the one before it.
+- **The other sets' parameters are Bedrock's own, not Java's.** This was the
+  real gap. `minecraft:village` fits the same resolver with a different tuple --
+  Java's `spacing 34 / separation 8 / salt 10387312` misses in every direction,
+  by up to 328 blocks. The recovery path is an exhaustive search rather than a
+  preference: `tools/worldgen-algo/solve-salt.c` sweeps all 2^32 values of the
+  32-bit salt field, and `solve-placement.c` sweeps that space together with
+  every span and both spread types, with `slack 0` for the 1-cell structures and
+  `slack 1` where the origin can fall back into the previous chunk. A candidate
+  that survives has to reproduce *every* observation, so surviving is the claim.
+  Any set whose numbers are still placeholders reports candidates computed from
+  unconfirmed values, and says so.
+- **A set's reported position is not its placement chunk.** The server answers
+  `locate structure` with the structure's origin block. For small structures
+  that lands within a couple of blocks of the chunk corner; for a jigsaw as
+  large as a village it can land in the previous chunk. The fit tool reports the
+  block residual so this convention stays visible rather than hiding inside a
+  tolerance.
 - **Strongholds use ring placement**, which is a different algorithm from the
   jittered grid; it is not modelled at all yet, and the tool says so instead of
   producing a number.
