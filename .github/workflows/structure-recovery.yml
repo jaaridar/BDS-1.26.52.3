@@ -76,17 +76,6 @@ jobs:
           fi
           ls -l | head -30
 
-      - name: Dump the placement registry from the running server
-        run: |
-          # The salts are not in the code or in the read-only data as anything
-          # the static scans could recognise, but the process has already built
-          # the records. Read them out of its memory: anchor on the identifier
-          # strings and on the two salts the packs state, then dump the objects
-          # that point at them.
-          node tools/worldgen-algo/dump-memory.js \
-            --binary ./bedrock_server --assets "$PWD" --seed 1 \
-            --ids "$IDS" --out "$EVIDENCE/structures/memory" --verbose 2>&1 | tail -80
-
       - name: Capture structure positions
         run: |
           set -o pipefail
@@ -102,6 +91,14 @@ jobs:
             status=${PIPESTATUS[0]}
             echo "$status" > "$EVIDENCE/structures/captures/$slug/seed-$seed/exit-status.txt"
           done
+          # The registry dump reads the whole of the process's anonymous memory
+          # and then looks for pointers at each anchor, so it is bounded: a slow
+          # dump must not cost the captures above.
+          timeout 900 node tools/worldgen-algo/dump-memory.js \
+            --binary ./bedrock_server --assets "$PWD" --seed 1 \
+            --ids "$IDS" --out "$EVIDENCE/structures/memory" 2>&1 | tail -60 || \
+            echo 'registry dump did not finish inside the bound'
+
           # A seed that differs only above bit 31: if the generator saw all 64
           # bits the reported positions would differ, so this measures the width
           # of the seed the placement uses instead of assuming it.
