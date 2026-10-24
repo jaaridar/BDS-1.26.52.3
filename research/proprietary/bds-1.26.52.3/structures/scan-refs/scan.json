@@ -1,0 +1,244 @@
+{
+  "binary_bytes": 256133808,
+  "sections": [
+    {
+      "name": ".interp",
+      "offset": 736,
+      "size": 28,
+      "addr": 736,
+      "executable": false
+    },
+    {
+      "name": ".note.ABI-tag",
+      "offset": 764,
+      "size": 32,
+      "addr": 764,
+      "executable": false
+    },
+    {
+      "name": ".note.gnu.build-id",
+      "offset": 796,
+      "size": 36,
+      "addr": 796,
+      "executable": false
+    },
+    {
+      "name": ".dynsym",
+      "offset": 832,
+      "size": 9408,
+      "addr": 832,
+      "executable": false
+    },
+    {
+      "name": ".gnu.version",
+      "offset": 10240,
+      "size": 784,
+      "addr": 10240,
+      "executable": false
+    },
+    {
+      "name": ".gnu.version_r",
+      "offset": 11024,
+      "size": 464,
+      "addr": 11024,
+      "executable": false
+    },
+    {
+      "name": ".gnu.hash",
+      "offset": 11488,
+      "size": 28,
+      "addr": 11488,
+      "executable": false
+    },
+    {
+      "name": ".dynstr",
+      "offset": 11516,
+      "size": 4321,
+      "addr": 11516,
+      "executable": false
+    },
+    {
+      "name": ".rela.dyn",
+      "offset": 15840,
+      "size": 17376072,
+      "addr": 15840,
+      "executable": false
+    },
+    {
+      "name": ".rela.plt",
+      "offset": 17391912,
+      "size": 8712,
+      "addr": 17391912,
+      "executable": false
+    },
+    {
+      "name": ".rodata",
+      "offset": 17400640,
+      "size": 13534716,
+      "addr": 17400640,
+      "executable": false
+    },
+    {
+      "name": ".gcc_except_table",
+      "offset": 30935356,
+      "size": 8436872,
+      "addr": 30935356,
+      "executable": false
+    },
+    {
+      "name": ".eh_frame_hdr",
+      "offset": 39372228,
+      "size": 4409500,
+      "addr": 39372228,
+      "executable": false
+    },
+    {
+      "name": ".eh_frame",
+      "offset": 43781728,
+      "size": 23356380,
+      "addr": 43781728,
+      "executable": false
+    },
+    {
+      "name": ".text",
+      "offset": 67138112,
+      "size": 182298448,
+      "addr": 67142208,
+      "executable": true
+    },
+    {
+      "name": ".init",
+      "offset": 249436560,
+      "size": 23,
+      "addr": 249440656,
+      "executable": true
+    },
+    {
+      "name": ".fini",
+      "offset": 249436584,
+      "size": 9,
+      "addr": 249440680,
+      "executable": true
+    },
+    {
+      "name": "__lcxx_override",
+      "offset": 249436608,
+      "size": 277,
+      "addr": 249440704,
+      "executable": true
+    },
+    {
+      "name": "malloc_hook",
+      "offset": 249436886,
+      "size": 567,
+      "addr": 249440982,
+      "executable": true
+    },
+    {
+      "name": ".plt",
+      "offset": 249437456,
+      "size": 5824,
+      "addr": 249441552,
+      "executable": true
+    },
+    {
+      "name": ".tbss",
+      "offset": 249443280,
+      "size": 6065,
+      "addr": 249447376,
+      "executable": false
+    },
+    {
+      "name": ".fini_array",
+      "offset": 249443280,
+      "size": 8,
+      "addr": 249451472,
+      "executable": false
+    },
+    {
+      "name": ".init_array",
+      "offset": 249443288,
+      "size": 14800,
+      "addr": 249451480,
+      "executable": false
+    },
+    {
+      "name": ".data.rel.ro",
+      "offset": 249458096,
+      "size": 6633576,
+      "addr": 249466288,
+      "executable": false
+    },
+    {
+      "name": ".dynamic",
+      "offset": 256091672,
+      "size": 512,
+      "addr": 256099864,
+      "executable": false
+    },
+    {
+      "name": ".got",
+      "offset": 256092184,
+      "size": 664,
+      "addr": 256100376,
+      "executable": false
+    },
+    {
+      "name": ".relro_padding",
+      "offset": 256092848,
+      "size": 1360,
+      "addr": 256101040,
+      "executable": false
+    },
+    {
+      "name": ".data",
+      "offset": 256092848,
+      "size": 35168,
+      "addr": 256105136,
+      "executable": false
+    },
+    {
+      "name": ".got.plt",
+      "offset": 256128016,
+      "size": 2928,
+      "addr": 256140304,
+      "executable": false
+    },
+    {
+      "name": ".bss",
+      "offset": 256130944,
+      "size": 2568888,
+      "addr": 256143232,
+      "executable": false
+    },
+    {
+      "name": ".comment",
+      "offset": 256130944,
+      "size": 240,
+      "addr": 0,
+      "executable": false
+    },
+    {
+      "name": ".shstrtab",
+      "offset": 256131184,
+      "size": 354,
+      "addr": 0,
+      "executable": false
+    },
+    {
+      "name": ".gnu_debuglink",
+      "offset": 256131540,
+      "size": 28,
+      "addr": 0,
+      "executable": false
+    }
+  ],
+  "refs": {
+    "0x1271c21": [
+      {
+        "site": 239083647,
+        "section": ".text"
+      }
+    ]
+  }
+}
