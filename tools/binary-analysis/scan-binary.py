@@ -67,6 +67,18 @@ def read_sections(path):
         return sections
 
 
+def elf_vaddr(sections, offset):
+    """Map a file offset to the address the program actually uses.
+
+    For .rodata the two coincide; for .text the section is page aligned, so the
+    address is offset + 0x1000. Getting this wrong makes every reference lookup
+    miss, which is exactly what happened before."""
+    for section in sections:
+        if section["offset"] <= offset < section["offset"] + section["size"]:
+            return section["addr"] + (offset - section["offset"])
+    return offset
+
+
 def section_for(sections, offset):
     for section in sections:
         if section["offset"] <= offset < section["offset"] + section["size"]:
@@ -79,7 +91,7 @@ def executable_ranges(sections):
             if s["flags"] & 0x4 and s["size"] > 0]
 
 
-def scan_strings(path, literals):
+def scan_strings(path, literals, sections):
     data = open(path, "rb").read()
     hits = []
     for literal in literals:
@@ -92,7 +104,10 @@ def scan_strings(path, literals):
             hits.append({
                 "literal": needle.decode("utf-8", "replace"),
                 "offset": at,
-                "vaddr": at + IMAGE_BASE_NOTE,
+                "elf_vaddr": elf_vaddr(sections, at),
+                "ghidra": at + IMAGE_BASE_NOTE,
+                "elf_vaddr": elf_vaddr(sections, at),
+                "section": section_for(sections, at)[0],
                 "context": data[max(0, at - 24):at + 96].decode("latin-1"),
             })
             start = at + 1
@@ -117,6 +132,7 @@ def scan_values(path, values, sections, window=96):
                 "value": value,
                 "offset": at,
                 "ghidra": at + IMAGE_BASE_NOTE,
+                "elf_vaddr": elf_vaddr(sections, at),
                 "section": section_for(sections, at)[0],
                 "executable": section_for(sections, at)[1],
                 "before_hex": before.hex(),
@@ -241,7 +257,7 @@ def main():
 
     if args.strings_file:
         literals = [line.strip() for line in open(args.strings_file) if line.strip()]
-        report["strings"] = scan_strings(args.binary, literals)
+        report["strings"] = scan_strings(args.binary, literals, sections)
 
     if args.values:
         values = [int(part, 0) for part in args.values.split(",") if part.strip()]
@@ -278,7 +294,8 @@ def main():
     if "strings" in report:
         summary.append(f"string hits: {len(report['strings'])}")
         for hit in report["strings"][:40]:
-            summary.append(f"  {hit['literal']!r} at ghidra 0x{hit['ghidra']:x} ({hit['section']})")
+            summary.append(f"  {hit['literal']!r} at elf 0x{hit['elf_vaddr']:x} "
+                           f"(ghidra 0x{hit['ghidra']:x}, {hit['section']})")
     if "values" in report:
         summary.append(f"value hits: {len(report['values'])}")
         for hit in report["values"][:60]:

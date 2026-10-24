@@ -190,7 +190,9 @@ jobs:
           # registration code, so prefer the structure names over keywords.
           wanted = [h for h in report.get('strings', [])
                     if h['literal'].startswith('minecraft:')]
-          targets = sorted({h['vaddr'] for h in wanted})
+          # ELF addresses, not the Ghidra ones: the instruction stream computes
+          # the same address the loader uses, and .text is page aligned.
+          targets = sorted({h['elf_vaddr'] for h in wanted})
           print(f'{len(targets)} string addresses')
           if not targets:
               sys.exit(0)
