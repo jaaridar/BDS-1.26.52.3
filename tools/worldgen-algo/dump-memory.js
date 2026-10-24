@@ -48,6 +48,7 @@ function parseArgs (argv) {
     ids: DEFAULT_IDS.join(','),
     out: 'memory-dump',
     window: 192,
+    saltWindow: 4096,
     minAddress: 0,
     maxRegions: 400,
     verbose: false
@@ -66,6 +67,7 @@ function parseArgs (argv) {
       case '--ids': args.ids = next(); break
       case '--out': args.out = next(); break
       case '--window': args.window = Number(next()); break
+      case '--salt-window': args.saltWindow = Number(next()); break
       case '--max-regions': args.maxRegions = Number(next()); break
       case '--verbose': args.verbose = true; break
       default: throw new Error(`unknown argument ${arg}`)
@@ -331,7 +333,11 @@ async function main () {
           needle: needle.text,
           at: hit.at,
           region: hit.region,
-          window: decodeWindow(memFd, hit.at, args.window),
+          // A record found by its salt is the only anchor whose neighbours are
+          // known to be placement records, so read a wide window there: if the
+          // registry is a contiguous table, all of it is in one dump.
+          window: decodeWindow(memFd, hit.at,
+            needle.kind === 'salt' ? args.saltWindow : args.window),
           owners: []
         }
         for (const region of regions) {
