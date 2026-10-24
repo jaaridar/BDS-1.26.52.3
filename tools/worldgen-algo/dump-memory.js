@@ -268,7 +268,8 @@ function readCString (memFd, address, limit = 96) {
  * preceded) by a pointer into the string, that is the mapping from numbers to
  * name without having to match the numbers against captures first.
  */
-function nearbyStrings (memFd, address, window = 72) {
+function nearbyStrings (memFd, address, window = 152, before = 40) {
+  address -= before
   const buffer = Buffer.alloc(window)
   let read = 0
   try {
@@ -285,8 +286,9 @@ function nearbyStrings (memFd, address, window = 72) {
   return out
 }
 
-function scanRecords (memFd, regions, { chunk = 1 << 23, maxHits = 512 } = {}) {
+function scanRecords (memFd, regions, { chunk = 1 << 23, maxHits = 2000 } = {}) {
   const hits = []
+  const rejected = []
   const seen = new Set()
   for (const region of regions) {
     let address = region.start
@@ -303,9 +305,24 @@ function scanRecords (memFd, regions, { chunk = 1 << 23, maxHits = 512 } = {}) {
         for (const hit of recordsInBuffer(buffer.subarray(0, read), address)) {
           const key = `${hit.salt}:${hit.spacing}:${hit.separation}:${hit.type}`
           if (seen.has(key)) continue
+          const strings = nearbyStrings(memFd, hit.at)
+          // A record is an object in the registry, and the registry names every
+          // set it holds, so a real record has a pointer to a namespaced
+          // identifier within a few words of it. Nothing else in the heap is
+          // shaped like that, which is what keeps this scan out of the noise: a
+          // bare (spacing, separation) pair shows up thousands of times.
+          if (!strings.some((entry) => entry.text.includes(':'))) {
+            // Keep a sample of what was dropped, so "the filter found nothing"
+            // can be told apart from "the pattern is wrong" in one run.
+            if (rejected.length < 40) {
+              rejected.push({ salt: hit.salt, spacing: hit.spacing, separation: hit.separation,
+                type: hit.type })
+            }
+            continue
+          }
           seen.add(key)
           hit.window = decodeWindow(memFd, hit.at, 64)
-          hit.strings = nearbyStrings(memFd, hit.at)
+          hit.strings = strings
           hits.push(hit)
           if (hits.length >= maxHits) return hits
         }
@@ -313,7 +330,7 @@ function scanRecords (memFd, regions, { chunk = 1 << 23, maxHits = 512 } = {}) {
       address += size
     }
   }
-  return hits
+  return { hits, rejected }
 }
 
 function decodeWindow (memFd, address, window) {
@@ -474,9 +491,12 @@ async function main () {
     // Pass three: every placement record in the process, by shape. This is the
     // measurement that does not need to know any salt in advance, so it finds the
     // sets whose numbers the packs do not state.
-    const records = scanRecords(memFd, regions)
+    const recordScan = scanRecords(memFd, regions)
+    const records = recordScan.hits
     report.records = records
-    console.log(`placement-shaped records: ${records.length}`)
+    report.recordsRejected = recordScan.rejected
+    console.log(`placement-shaped records: ${records.length}` +
+      ` (${recordScan.rejected.length} shape hits dropped for having no identifier nearby)`)
     for (const record of records.slice(0, 60)) {
       const names = (record.strings || []).map((entry) => entry.text).join(' ')
       console.log(`  salt ${record.salt} spacing ${record.spacing} ` +
