@@ -1,0 +1,62 @@
+[
+  {
+    "id": "ancient_city",
+    "observations": 24,
+    "fits": []
+  },
+  {
+    "id": "buried_treasure",
+    "observations": 24,
+    "fits": []
+  },
+  {
+    "id": "mansion",
+    "observations": 13,
+    "fits": []
+  },
+  {
+    "id": "mineshaft",
+    "observations": 24,
+    "fits": []
+  },
+  {
+    "id": "monument",
+    "observations": 22,
+    "fits": []
+  },
+  {
+    "id": "pillager_outpost",
+    "observations": 19,
+    "fits": []
+  },
+  {
+    "id": "ruined_portal",
+    "observations": 24,
+    "fits": []
+  },
+  {
+    "id": "shipwreck",
+    "observations": 24,
+    "fits": []
+  },
+  {
+    "id": "stronghold",
+    "observations": 17,
+    "fits": []
+  },
+  {
+    "id": "trail_ruins",
+    "observations": 35,
+    "fits": []
+  },
+  {
+    "id": "trial_chambers",
+    "observations": 24,
+    "fits": []
+  },
+  {
+    "id": "village",
+    "observations": 35,
+    "fits": []
+  }
+]

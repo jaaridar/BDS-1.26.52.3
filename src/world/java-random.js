@@ -61,6 +61,17 @@ class JavaRandom {
     return value
   }
 
+  /**
+   * A full 64-bit draw, exactly as the reference does it:
+   * `((long) next(32) << 32) + next(32)` with *signed* halves, so the low word
+   * can borrow from the high one.
+   */
+  nextLong () {
+    const high = this.next(32) | 0
+    const low = this.next(32) | 0
+    return BigInt(high) * 4294967296n + BigInt(low)
+  }
+
   /** Uniform float in [0, 1). */
   nextFloat () {
     return this.next(24) / (1 << 24)
