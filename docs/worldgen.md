@@ -194,6 +194,39 @@ Every fit in this repository therefore accepts `predicted - observed in {0, 1}`
 rather than equality, and a fit that only works with a symmetric tolerance is
 not accepted.
 
+### Checked against Cubiomes, set by set (2026-10-24)
+
+Cubiomes' parameter table is now a reference in this repository
+(`docs/reference/cubiomes-placement.md`) and
+`tools/worldgen-algo/compare-cubiomes.js` runs it against every capture. Two of
+the nine types with captures land on Java's cells: `trail_ruins` (35/35 within
+one chunk -- the control, since the pack states its numbers) and
+`trial_chambers` (24/24, and its set exists only inside the binary). The other
+seven are at chance distance for their grid, so their parameters are Bedrock's
+own. That is a cleaner statement than "the sweeps all failed": the mix is proven
+correct by the two matches, and what is missing for the rest is exactly the
+triple `(spacing, separation, salt)`.
+
+A second measurement from the same pass: every `village` report is at a block
+position that is a multiple of 128, i.e. exactly 8 chunks, in both axes, across
+20 seeds. A jittered grid whose offsets are uniform over the span cannot produce
+that (per axis, one draw in eight would be 8-aligned by chance; forty-odd in a
+row is 8^-40). Whatever places villages on Bedrock is aligned to a coarser grid
+than one chunk, which also means the "band" estimator that assumes uniform
+offsets is the wrong estimator for that set.
+
+### Why the binary has to be read where it runs
+
+The release asset is on a host this working environment cannot reach
+(`www.minecraft.net` and `release-assets.githubusercontent.com` both fail at
+connect, and no npm or PyPI package ships the server), so the binary is only ever
+available inside CI. That is enough to run it (captures, memory dumps) and enough
+to read it (`objdump`/Capstone over published slices), but it makes every
+measurement that needs the file a round trip. The pipeline therefore publishes
+what it reads: `binary-sections/` holds `.rodata`, `.data.rel.ro`, `.data` and the
+2.4 MiB of `.text` that contains every structure-name reference, each with its
+virtual address, so the static side of this work can be repeated from a checkout.
+
 ## Honest limitations
 
 - **The placement derivation is now reproduced for one set, end to end.**

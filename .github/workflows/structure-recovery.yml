@@ -30,11 +30,11 @@ on:
 permissions:
   contents: write
 
-# Serialised per ref, but the group carries a version so that a run stuck in a
-# long measurement cannot hold every later run behind it for two hours.
-concurrency:
-  group: structure-recovery-${{ github.ref }}-v5
-  cancel-in-progress: false
+# One group per job, not per run: the capture sweep takes the better part of an
+# hour, and a workflow-level group would hold the fast static scans behind it for
+# that whole time. The version suffix is there because a stuck run cannot be
+# cancelled with the token this repository has, so a later run has to be able to
+# step around it.
 
 env:
   GHIDRA_DIR: ${{ github.workspace }}/.ghidra-dist
@@ -48,7 +48,10 @@ jobs:
   capture:
     if: startsWith(github.ref, 'refs/heads/arena/')
     runs-on: ubuntu-24.04
-    timeout-minutes: 120
+    timeout-minutes: 150
+    concurrency:
+      group: structure-recovery-capture-${{ github.ref }}-v5
+      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v4
         with:
@@ -86,7 +89,7 @@ jobs:
           # must not overwrite the 2-structure one that an earlier fit used.
           slug=$(echo "$IDS" | tr ',' '_' | cut -c1-80)
           for seed in $(echo "$SEEDS" | tr ',' ' '); do
-            node tools/worldgen-algo/capture-structures.js \
+            timeout 600 node tools/worldgen-algo/capture-structures.js \
               --binary ./bedrock_server --assets "$PWD" --seed "$seed" \
               --ids "$IDS" --from "0,0;2048,2048" \
               --out "$EVIDENCE/structures/captures/$slug/seed-$seed" --verbose 2>&1 | tail -120
@@ -124,6 +127,9 @@ jobs:
     if: startsWith(github.ref, 'refs/heads/arena/')
     runs-on: ubuntu-24.04
     timeout-minutes: 60
+    concurrency:
+      group: structure-recovery-memory-${{ github.ref }}-v5
+      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v4
         with:
@@ -177,6 +183,9 @@ jobs:
     if: startsWith(github.ref, 'refs/heads/arena/')
     runs-on: ubuntu-24.04
     timeout-minutes: 240
+    concurrency:
+      group: structure-recovery-scan-${{ github.ref }}-v5
+      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v4
         with:
@@ -340,23 +349,39 @@ jobs:
           # every reference site for a structure name sits inside 2.4 MiB of
           # code. Publishing those keeps every static scan reproducible from a
           # checkout, without the release asset.
+          #
+          # `set -o pipefail` and the tee are not decoration: piping a step into
+          # `tail` reports the tail's status, so a step that did nothing used to
+          # look like a step that succeeded, and the job log is not always
+          # reachable from where the analysis happens.
+          set -o pipefail
+          mkdir -p "$EVIDENCE/structures/ci-log"
           python3 tools/binary-analysis/extract-sections.py --binary bedrock_server \
             --out "$EVIDENCE/binary-sections" \
-            --ranges 0x4e20000:0x5060000 | tail -10
+            --ranges 0x4e20000:0x5060000 2>&1 \
+            | tee "$EVIDENCE/structures/ci-log/extract-sections.log" | tail -10
           du -sh "$EVIDENCE/binary-sections"
 
       - name: Disassemble the sites that reference a structure name
         run: |
           # The instruction stream answers "what numbers does this code store"
           # directly; the decompiler is the expensive fallback. Capstone is a
-          # pure-Python wheel, so this has no system dependency at all.
-          pip install --quiet capstone
+          # pure-Python wheel, so this has no system dependency except pip's.
+          # --break-system-packages: the runner's python is externally managed,
+          # and this is the same command that fails that way in a plain shell.
+          set -o pipefail
+          mkdir -p "$EVIDENCE/structures/ci-log"
+          pip install --quiet --break-system-packages capstone 2>&1 \
+            | tee "$EVIDENCE/structures/ci-log/pip.log" | tail -3
+          python3 -c 'import capstone; print("capstone", capstone.__version__)' \
+            | tee -a "$EVIDENCE/structures/ci-log/pip.log"
           python3 tools/binary-analysis/disassemble-refs.py \
             --manifest "$EVIDENCE/binary-sections/manifest.json" \
             --scan "$EVIDENCE/structures/scan-refs/scan.json" \
             --out "$EVIDENCE/structures/disasm-refs" \
-            --immediates 1000000:2147483648 | tail -20
-          du -sh "$EVIDENCE/structures/disasm-refs" || true
+            --immediates 1000000:2147483648 2>&1 \
+            | tee "$EVIDENCE/structures/ci-log/disassemble.log" | tail -20
+          du -sh "$EVIDENCE/structures/disasm-refs"
 
       - name: Map reference sites to function starts
         run: |
@@ -413,6 +438,7 @@ jobs:
             "$EVIDENCE/structures/scan-data" "$EVIDENCE/structures/scan-json" \
             "$EVIDENCE/structures/scan-tables" \
             "$EVIDENCE/structures/disasm-refs" "$EVIDENCE/binary-sections" \
+            "$EVIDENCE/structures/ci-log" \
             "$EVIDENCE/ghidra/lattice-structures" || true
           if git diff --cached --quiet; then echo 'no scan evidence'; exit 0; fi
           git config user.name 'github-actions[bot]'
