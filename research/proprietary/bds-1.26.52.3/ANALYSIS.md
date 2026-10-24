@@ -883,6 +883,48 @@ Notes that cost time and should not be re-derived:
 * Pack-driven sets report the jigsaw structure's origin block, which is the
   placement chunk or up to a few chunks away along the structure.
 
+### 6.0 Strongholds are a 200-chunk cell grid, not a ring
+
+Read from the binary at `0x4e9efc0` (the predicate), `0x4e9f720` (the collector)
+and `0x4e9f9d6` (the cell walk), all addresses 0x100000 below the ones the
+decompiler printed (`0x4f9efc0`, `0x4f9f720`).
+
+```
+cellX  = floorDiv(chunkX, 200);  u = cellX*200 + 100      // the cell CENTRE
+cellZ  = floorDiv(chunkZ, 200);  v = cellZ*200 + 100
+seed32 = u*0x9babeb51 + v*0xbe68aeb9 + seed + 0x5d534e7   // mod 2^32
+MT19937(seed32):
+  dx = next32() % 100 ; dz = next32() % 100 ; gate = next32() * 2^-32
+grid position = (cellX*200 + 50 + dx, cellZ*200 + 50 + dz)
+```
+
+* The mix folds the **cell centre**, not the cell index: that is a constant
+  `100*(0x9babeb51 + 0xbe68aeb9)` away from what every other set does, which is
+  why every earlier fit on cell indices missed.
+* `0x13e4220` = `0xbe68aeb9` and `0x13e8740` = `0x9babeb51` are **integers**
+  (`pmuludq`), even though the same bytes decode as `-0.2272f` and `-2.8e-22f`.
+  The multiplier applied to the x centre is `0x9babeb51`.
+* `0x13e3240` = `200f,200f`; `0x13e3c80` = int `200,200`; `0x13e9190` = int
+  `100,100`. The float divide is followed by `cvttps2dq` + `cmpltps` + `paddd`,
+  which is `floorDiv` for negative cells.
+* The third draw is `MOV EAX,EAX / CVTSI2SD / MULSD [0x13f0898] / CVTSD2SS /
+  UCOMISS [0x1098630]`, i.e. `uint32 * 2^-32 < 0.25f`. Note `0x13f0898` holds the
+  **double 2^-32** (the two floats printed at that address are the two halves of
+  it), which is what `Mt19937.nextUnit` already implements.
+* Tally over 114 captured strongholds: 74 are the predicted chunk and all 74 are
+  gated; 0 of the 32 ungated cells are; 8 gated cells are still relocated.
+  Held-out region `stronghold_enum3`: 22 of 23 exact.
+
+Relocation (why the other cells are off the 200-grid): at `0x4e9fca0` the
+collector loads `[[this+0x1a8]]`, calls **vtable slot 6** with `&position`, and
+the provider may (a) return true, which rejects the cell and advances the ring
+walk, or (b) rewrite the position in place. The rewritten position is what gets
+re-snapped to a cell and re-seeded, and the walk itself only ever emits
+`cell*200+50+nextInt(100)` — so what `/locate` reports for those cells is not any
+grid position at all (e.g. `(84, 9)` cannot be `cell*200+50+[0..100)` on either
+axis). That provider is a biome query; until it is modelled, those strongholds
+are cell-exact only.
+
 ### 6.1 The fitting harness, and the two sets it cannot place
 
 `tools/worldgen-algo/fit-placement.js` searches the model space (engine x seed

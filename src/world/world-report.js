@@ -64,9 +64,9 @@ function structuresNear (seed, { x = 0, z = 0, radiusChunks = 256, only = null }
       out.push({
         id: placement.id,
         status: 'measured',
-        note: '200-chunk cells, one stronghold each; the grid position is exact in every ' +
-          'cell whose gate draw is below 0.25 (30 of 32 measured), and the rest are ' +
-          'relocated by a biome query that is not modelled yet',
+        note: '200-chunk cells, one stronghold each; the grid position is exact in 90% ' +
+          'of the cells whose gate draw is below 0.25 and never in the others (74 of 114 ' +
+          'captures exact), the rest are relocated by a biome query that is not modelled yet',
         candidates: cells.map((cell) => ({
           block: [cell.blockX, cell.blockZ],
           chunk: [cell.chunkX, cell.chunkZ],
