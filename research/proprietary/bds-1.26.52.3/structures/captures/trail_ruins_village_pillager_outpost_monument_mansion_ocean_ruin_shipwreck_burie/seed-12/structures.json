@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-24T13:57:03.084Z",
-  "durationMs": 11796,
+  "generatedAt": "2026-10-24T14:29:12.786Z",
+  "durationMs": 11795,
   "binary": {
     "sha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
     "bytes": 256133808
@@ -12,7 +12,7 @@
   "results": [
     {
       "probe": "help",
-      "raw": "current connection type is not set to NetherNet. In this release, NetherNet is the only supported transport type.\n[2026-10-24 13:56:52:208 ERROR] Players will not be able to connect to your game without NetherNet.\n[2026-10-24 13:56:52:208 ERROR] \n[2026-10-24 13:56:52:208 ERROR] To switch, set 'transport=nethernet' in server.properties.\n[2026-10-24 13:56:52:208 ERROR] \n[2026-10-24 13:56:52:208 ERROR] For more information, please reference the included bedrock_server_how_to.html file.\n[2026-10-24 13:56:52:208 ERROR] =======================================================\n[2026-10-24 13:56:52:208 INFO] ================ TELEMETRY MESSAGE ===================\n[2026-10-24 13:56:52:208 INFO] Server Telemetry is currently not enabled. \n[2026-10-24 13:56:52:208 INFO] Enabling this telemetry helps us improve the game.\n[2026-10-24 13:56:52:208 INFO] \n[2026-10-24 13:56:52:208 INFO] To enable this feature, add the line 'emit-server-telemetry=true'\n[2026-10-24 13:56:52:208 INFO] to the server.properties file in the handheld/src-server directory\n[2026-10-24 13:56:52:208 INFO] ======================================================\n[2026-10-24 13:56:52:357 INFO] Game rule sendcommandfeedback has been updated to true\n[2026-10-24 13:56:52:810 INFO] §elocate:\n§eDisplays the coordinates for the closest structure or biome of a given type.\nUsage:\n- /locate <feature: string> [useNewChunksOnly: Boolean]\n- /locate biome <biome: Biome>\n- /locate structure <structure: string> [useNewChunksOnly: Boolean]\n"
+      "raw": "current connection type is not set to NetherNet. In this release, NetherNet is the only supported transport type.\n[2026-10-24 14:29:01:873 ERROR] Players will not be able to connect to your game without NetherNet.\n[2026-10-24 14:29:01:873 ERROR] \n[2026-10-24 14:29:01:873 ERROR] To switch, set 'transport=nethernet' in server.properties.\n[2026-10-24 14:29:01:873 ERROR] \n[2026-10-24 14:29:01:873 ERROR] For more information, please reference the included bedrock_server_how_to.html file.\n[2026-10-24 14:29:01:873 ERROR] =======================================================\n[2026-10-24 14:29:01:873 INFO] ================ TELEMETRY MESSAGE ===================\n[2026-10-24 14:29:01:873 INFO] Server Telemetry is currently not enabled. \n[2026-10-24 14:29:01:873 INFO] Enabling this telemetry helps us improve the game.\n[2026-10-24 14:29:01:873 INFO] \n[2026-10-24 14:29:01:873 INFO] To enable this feature, add the line 'emit-server-telemetry=true'\n[2026-10-24 14:29:01:873 INFO] to the server.properties file in the handheld/src-server directory\n[2026-10-24 14:29:01:873 INFO] ======================================================\n[2026-10-24 14:29:02:073 INFO] Game rule sendcommandfeedback has been updated to true\n[2026-10-24 14:29:02:525 INFO] §elocate:\n§eDisplays the coordinates for the closest structure or biome of a given type.\nUsage:\n- /locate <feature: string> [useNewChunksOnly: Boolean]\n- /locate biome <biome: Biome>\n- /locate structure <structure: string> [useNewChunksOnly: Boolean]\n"
     },
     {
       "command": "execute positioned 0 64 0 run locate structure trail_ruins",
@@ -29,7 +29,7 @@
         -397
       ],
       "chunksAway": null,
-      "raw": "[2026-10-24 13:56:54:332 INFO] The nearest minecraft:trail_ruins is at block 701, (y?), -397 (805 blocks away)"
+      "raw": "[2026-10-24 14:29:04:047 INFO] The nearest minecraft:trail_ruins is at block 701, (y?), -397 (805 blocks away)"
     },
     {
       "command": "execute positioned 0 64 0 run locate structure village",
@@ -46,7 +46,7 @@
         216
       ],
       "chunksAway": null,
-      "raw": "[2026-10-24 13:56:54:565 INFO] The nearest minecraft:village is at block 136, (y?), 216 (255 blocks away)"
+      "raw": "[2026-10-24 14:29:04:280 INFO] The nearest minecraft:village is at block 136, (y?), 216 (255 blocks away)"
     },
     {
       "command": "execute positioned 0 64 0 run locate structure pillager_outpost",
@@ -63,7 +63,7 @@
         -616
       ],
       "chunksAway": null,
-      "raw": "[2026-10-24 13:56:54:815 INFO] The nearest minecraft:pillager_outpost is at block -1032, (y?), -616 (1201 blocks away)"
+      "raw": "[2026-10-24 14:29:04:530 INFO] The nearest minecraft:pillager_outpost is at block -1032, (y?), -616 (1201 blocks away)"
     },
     {
       "command": "execute positioned 0 64 0 run locate structure monument",
@@ -80,7 +80,7 @@
         200
       ],
       "chunksAway": null,
-      "raw": "[2026-10-24 13:56:55:076 INFO] The nearest minecraft:monument is at block -1336, (y?), 200 (1350 blocks away)"
+      "raw": "[2026-10-24 14:29:04:790 INFO] The nearest minecraft:monument is at block -1336, (y?), 200 (1350 blocks away)"
     },
     {
       "command": "execute positioned 0 64 0 run locate structure mansion",
@@ -97,7 +97,7 @@
         -1032
       ],
       "chunksAway": null,
-      "raw": "[2026-10-24 13:56:55:323 INFO] The nearest minecraft:mansion is at block 600, (y?), -1032 (1193 blocks away)"
+      "raw": "[2026-10-24 14:29:05:037 INFO] The nearest minecraft:mansion is at block 600, (y?), -1032 (1193 blocks away)"
     },
     {
       "command": "execute positioned 0 64 0 run locate structure ocean_ruin",
@@ -127,7 +127,7 @@
         600
       ],
       "chunksAway": null,
-      "raw": "[2026-10-24 13:56:55:818 INFO] The nearest minecraft:shipwreck is at block 280, (y?), 600 (662 blocks away)"
+      "raw": "[2026-10-24 14:29:05:532 INFO] The nearest minecraft:shipwreck is at block 280, (y?), 600 (662 blocks away)"
     },
     {
       "command": "execute positioned 0 64 0 run locate structure buried_treasure",
@@ -144,7 +144,7 @@
         8
       ],
       "chunksAway": null,
-      "raw": "[2026-10-24 13:56:56:068 INFO] The nearest minecraft:buried_treasure is at block 344, (y?), 8 (344 blocks away)"
+      "raw": "[2026-10-24 14:29:05:782 INFO] The nearest minecraft:buried_treasure is at block 344, (y?), 8 (344 blocks away)"
     },
     {
       "command": "execute positioned 0 64 0 run locate structure mineshaft",
@@ -161,7 +161,7 @@
         16
       ],
       "chunksAway": null,
-      "raw": "[2026-10-24 13:56:56:316 INFO] The nearest minecraft:mineshaft is at block -160, (y?), 16 (160 blocks away)"
+      "raw": "[2026-10-24 14:29:06:030 INFO] The nearest minecraft:mineshaft is at block -160, (y?), 16 (160 blocks away)"
     },
     {
       "command": "execute positioned 0 64 0 run locate structure desert_pyramid",
@@ -230,7 +230,7 @@
         8
       ],
       "chunksAway": null,
-      "raw": "[2026-10-24 13:56:57:570 INFO] The nearest minecraft:ruined_portal is at block 72, (y?), 8 (72 blocks away)"
+      "raw": "[2026-10-24 14:29:07:285 INFO] The nearest minecraft:ruined_portal is at block 72, (y?), 8 (72 blocks away)"
     },
     {
       "command": "execute positioned 0 64 0 run locate structure ancient_city",
@@ -247,7 +247,7 @@
         1256
       ],
       "chunksAway": null,
-      "raw": "[2026-10-24 13:56:57:824 INFO] The nearest minecraft:ancient_city is at block -1048, (y?), 1256 (1635 blocks away)"
+      "raw": "[2026-10-24 14:29:07:539 INFO] The nearest minecraft:ancient_city is at block -1048, (y?), 1256 (1635 blocks away)"
     },
     {
       "command": "execute positioned 0 64 0 run locate structure trial_chambers",
@@ -264,7 +264,7 @@
         73
       ],
       "chunksAway": null,
-      "raw": "[2026-10-24 13:56:58:070 INFO] The nearest minecraft:trial_chambers is at block 281, (y?), 73 (290 blocks away)"
+      "raw": "[2026-10-24 14:29:07:785 INFO] The nearest minecraft:trial_chambers is at block 281, (y?), 73 (290 blocks away)"
     },
     {
       "command": "execute positioned 0 64 0 run locate structure stronghold",
@@ -281,7 +281,7 @@
         -3182
       ],
       "chunksAway": null,
-      "raw": "[2026-10-24 13:56:58:335 INFO] The nearest minecraft:stronghold is at block 658, (y?), -3182 (3249 blocks away)"
+      "raw": "[2026-10-24 14:29:08:049 INFO] The nearest minecraft:stronghold is at block 658, (y?), -3182 (3249 blocks away)"
     },
     {
       "command": "execute positioned 2048 64 2048 run locate structure trail_ruins",
@@ -298,7 +298,7 @@
         3549
       ],
       "chunksAway": null,
-      "raw": "[2026-10-24 13:56:58:658 INFO] The nearest minecraft:trail_ruins is at block 211, (y?), 3549 (2372 blocks away)"
+      "raw": "[2026-10-24 14:29:08:367 INFO] The nearest minecraft:trail_ruins is at block 211, (y?), 3549 (2372 blocks away)"
     },
     {
       "command": "execute positioned 2048 64 2048 run locate structure village",
@@ -315,7 +315,7 @@
         2408
       ],
       "chunksAway": null,
-      "raw": "[2026-10-24 13:56:58:821 INFO] The nearest minecraft:village is at block 1464, (y?), 2408 (686 blocks away)"
+      "raw": "[2026-10-24 14:29:08:535 INFO] The nearest minecraft:village is at block 1464, (y?), 2408 (686 blocks away)"
     },
     {
       "command": "execute positioned 2048 64 2048 run locate structure pillager_outpost",
@@ -332,7 +332,7 @@
         1592
       ],
       "chunksAway": null,
-      "raw": "[2026-10-24 13:56:59:070 INFO] The nearest minecraft:pillager_outpost is at block 1944, (y?), 1592 (467 blocks away)"
+      "raw": "[2026-10-24 14:29:08:785 INFO] The nearest minecraft:pillager_outpost is at block 1944, (y?), 1592 (467 blocks away)"
     },
     {
       "command": "execute positioned 2048 64 2048 run locate structure monument",
@@ -349,7 +349,7 @@
         2856
       ],
       "chunksAway": null,
-      "raw": "[2026-10-24 13:56:59:326 INFO] The nearest minecraft:monument is at block 2360, (y?), 2856 (866 blocks away)"
+      "raw": "[2026-10-24 14:29:09:041 INFO] The nearest minecraft:monument is at block 2360, (y?), 2856 (866 blocks away)"
     },
     {
       "command": "execute positioned 2048 64 2048 run locate structure mansion",
@@ -366,7 +366,7 @@
         -1032
       ],
       "chunksAway": null,
-      "raw": "[2026-10-24 13:56:59:586 INFO] The nearest minecraft:mansion is at block 600, (y?), -1032 (3403 blocks away)"
+      "raw": "[2026-10-24 14:29:09:295 INFO] The nearest minecraft:mansion is at block 600, (y?), -1032 (3403 blocks away)"
     },
     {
       "command": "execute positioned 2048 64 2048 run locate structure ocean_ruin",
@@ -396,7 +396,7 @@
         2360
       ],
       "chunksAway": null,
-      "raw": "[2026-10-24 13:57:00:078 INFO] The nearest minecraft:shipwreck is at block 2056, (y?), 2360 (312 blocks away)"
+      "raw": "[2026-10-24 14:29:09:792 INFO] The nearest minecraft:shipwreck is at block 2056, (y?), 2360 (312 blocks away)"
     },
     {
       "command": "execute positioned 2048 64 2048 run locate structure buried_treasure",
@@ -413,7 +413,7 @@
         2248
       ],
       "chunksAway": null,
-      "raw": "[2026-10-24 13:57:00:326 INFO] The nearest minecraft:buried_treasure is at block 1992, (y?), 2248 (207 blocks away)"
+      "raw": "[2026-10-24 14:29:10:041 INFO] The nearest minecraft:buried_treasure is at block 1992, (y?), 2248 (207 blocks away)"
     },
     {
       "command": "execute positioned 2048 64 2048 run locate structure mineshaft",
@@ -430,7 +430,7 @@
         2112
       ],
       "chunksAway": null,
-      "raw": "[2026-10-24 13:57:00:575 INFO] The nearest minecraft:mineshaft is at block 2016, (y?), 2112 (71 blocks away)"
+      "raw": "[2026-10-24 14:29:10:290 INFO] The nearest minecraft:mineshaft is at block 2016, (y?), 2112 (71 blocks away)"
     },
     {
       "command": "execute positioned 2048 64 2048 run locate structure desert_pyramid",
@@ -499,7 +499,7 @@
         1928
       ],
       "chunksAway": null,
-      "raw": "[2026-10-24 13:57:01:825 INFO] The nearest minecraft:ruined_portal is at block 1992, (y?), 1928 (132 blocks away)"
+      "raw": "[2026-10-24 14:29:11:540 INFO] The nearest minecraft:ruined_portal is at block 1992, (y?), 1928 (132 blocks away)"
     },
     {
       "command": "execute positioned 2048 64 2048 run locate structure ancient_city",
@@ -516,7 +516,7 @@
         1240
       ],
       "chunksAway": null,
-      "raw": "[2026-10-24 13:57:02:086 INFO] The nearest minecraft:ancient_city is at block 3624, (y?), 1240 (1771 blocks away)"
+      "raw": "[2026-10-24 14:29:11:800 INFO] The nearest minecraft:ancient_city is at block 3624, (y?), 1240 (1771 blocks away)"
     },
     {
       "command": "execute positioned 2048 64 2048 run locate structure trial_chambers",
@@ -533,7 +533,7 @@
         1815
       ],
       "chunksAway": null,
-      "raw": "[2026-10-24 13:57:02:325 INFO] The nearest minecraft:trial_chambers is at block 1641, (y?), 1815 (468 blocks away)"
+      "raw": "[2026-10-24 14:29:12:040 INFO] The nearest minecraft:trial_chambers is at block 1641, (y?), 1815 (468 blocks away)"
     },
     {
       "command": "execute positioned 2048 64 2048 run locate structure stronghold",
@@ -550,7 +550,7 @@
         -3182
       ],
       "chunksAway": null,
-      "raw": "[2026-10-24 13:57:02:580 INFO] The nearest minecraft:stronghold is at block 658, (y?), -3182 (5411 blocks away)"
+      "raw": "[2026-10-24 14:29:12:290 INFO] The nearest minecraft:stronghold is at block 658, (y?), -3182 (5411 blocks away)"
     }
   ]
 }
