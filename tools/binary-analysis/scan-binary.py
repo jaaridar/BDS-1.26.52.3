@@ -230,31 +230,44 @@ def cluster_stores(stores, max_gap=256):
     return clusters
 
 
-def function_start(path, sections, site, window=0x4000):
+def function_start(path, sections, site, window=0x8000):
     """Guess the start of the function containing `site`.
 
-    Ghidra is run without analysis, so it does not know function boundaries. A
-    reference site inside a function would otherwise be decompiled as a fragment
-    that does not include the code around it. Walking backwards to the nearest
-    `endbr64` (f3 0f 1e fa) gives the compiler's own idea of a function start,
-    which is good enough to hand to the decompiler as a seed.
+    Ghidra is run without analysis, so it does not know function boundaries and
+    would decompile a reference site as a fragment. This binary is not compiled
+    with CET, so the usual `endbr64` marker is absent; instead we use the layout
+    the linker leaves behind: a function ends with `ret` (or a near return)
+    followed by at least two bytes of padding (0xcc / 0x90), and the next
+    function starts right after the padding.
     """
-    offset = None
+    low = None
     for section in sections:
         if section["offset"] <= site < section["offset"] + section["size"]:
-            offset = site
+            low = max(section["offset"], site - window)
             break
-    if offset is None:
+    if low is None:
         return None
-    start = max(0, offset - window)
     with open(path, "rb") as handle:
-        handle.seek(start)
-        block = handle.read(offset - start + 4)
-    marker = b"\xf3\x0f\x1e\xfa"
-    found = block.rfind(marker)
-    if found < 0:
+        handle.seek(low)
+        block = handle.read(site - low)
+    if len(block) < 8:
         return None
-    return section_vaddr(sections, start + found)
+    # Walk backwards: find a return, then skip padding, and check that the byte
+    # after it looks like an instruction (not another byte of padding).
+    for i in range(len(block) - 1, 8, -1):
+        byte = block[i - 1]
+        ends_function = byte == 0xC3 or (byte == 0xC2)
+        if not ends_function:
+            continue
+        j = i
+        while j < len(block) and block[j] in (0xCC, 0x90):
+            j += 1
+        if j - i < 2:
+            continue
+        if j >= len(block):
+            return None
+        return section_vaddr(sections, low + j)
+    return None
 
 
 def section_vaddr(sections, offset):
