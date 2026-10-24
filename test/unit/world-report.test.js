@@ -29,11 +29,18 @@ test('sets read from the pack are labelled as such', () => {
   assert.deepStrictEqual(statuses, ['from pack', 'from pack'])
 })
 
-test('strongholds are reported as not modelled instead of being invented', () => {
-  const report = structuresNear(7, { only: ['stronghold'], radiusChunks: 16 })
-  assert.strictEqual(report.structures[0].status, 'not modelled')
-  assert.deepStrictEqual(report.structures[0].candidates, [])
-  assert.match(report.structures[0].note, /ring/i)
+test('strongholds are modelled, and the report says which ones are exact', () => {
+  const report = structuresNear(7, { only: ['stronghold'], radiusChunks: 512 })
+  const strongholds = report.structures[0]
+  assert.strictEqual(strongholds.status, 'measured')
+  assert.ok(strongholds.candidates.length > 0)
+  // Every candidate carries the flag that separates a grid position from one
+  // the generator relocated, so a caller is never told more than is known.
+  for (const candidate of strongholds.candidates) {
+    assert.strictEqual(typeof candidate.onGrid, 'boolean')
+    assert.ok(candidate.distance <= 512 * 16)
+  }
+  assert.match(strongholds.note, /200-chunk cells/)
 })
 
 test('candidates are inside the requested radius and ordered by distance', () => {
