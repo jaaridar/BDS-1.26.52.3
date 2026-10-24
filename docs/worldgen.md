@@ -307,18 +307,19 @@ seed32 = u * 0x9babeb51 + v * 0xbe68aeb9 + seed + 0x5d534e7      (mod 2^32)
 | --- | --- |
 | 1 | `nextInt(100)` — the x jitter |
 | 2 | `nextInt(100)` — the z jitter |
-| 3 | `nextUInt() / 2^32` — the odds that the cell keeps the grid position |
+| 3 | `nextUInt() / 2^32` — compared against 0.25; see the tally below |
 
-so the grid position is `cell * 200 + 50 + jitter` per axis, but only while draw
-3 is below 0.25. That is the `divps` by 200 at `0x4e9f094`, the `pmuludq` against
+so the grid position is `cell * 200 + 50 + jitter` per axis. That is the `divps` by 200 at `0x4e9f094`, the `pmuludq` against
 the two multipliers at `0x13e4220` / `0x13e8740`, the `add $0x5d534e7` at
 `0x4e9f12a`, the two virtual `nextInt(100)` calls at `0x4e9f234` / `0x4e9f249`
 and the `ucomiss` against the `0.25f` at `0x1098630`.
 
 The result is exact: **30 of the 42 captured strongholds are the predicted
-chunk, and all 30 of those are the gated quarter.** Of the 12 that are not, 10
-sit in cells whose gate draw is 0.75 or above. So the gate is not a guess about
-the data — it splits it cleanly.
+chunk, and all 30 of those are cells whose third draw is below 0.25.** Of the 12
+that are not on the grid, 10 are cells whose third draw is 0.25 or above. Of
+the 32 gated cells, 30 are exact, so the gate is a necessary condition that is
+right 94% of the time, with two known exceptions — it is reported as the gate it
+is, not as a placement rule that always holds.
 
 What happens to the other three quarters of the cells is now readable in the
 binary too. `0x4e9fca0` loads a provider out of the feature's own state
@@ -353,7 +354,7 @@ virtual address, so the static side of this work can be repeated from a checkout
 - **Placement is reproduced for eleven sets.** Eight are exact for every captured
   position; `trail_ruins` and `trial_chambers` are within a chunk and are limited
   by the jigsaw-origin convention described above, not by the grid. Strongholds
-  are exact for the quarter of cells that keep the grid position, and cell-exact
+  are exact for the cells whose gate draw is below 0.25 (30 of 32 measured), and cell-exact
   for the rest, whose position comes out of a biome query that is not modelled
   yet. Re-run `node tools/worldgen-algo/verify-placements.js` and
   `node tools/worldgen-algo/verify-strongholds.js` for the current tallies.
@@ -378,7 +379,7 @@ virtual address, so the static side of this work can be repeated from a checkout
 - **A quarter of the strongholds are exact, the rest are cell-exact.** The
   stronghold grid, mix and gate are modelled; what a cell's non-gated stronghold
   position is comes from the biome provider, so until biomes are modelled those
-  are reported as `onGrid: false` rather than given a made-up position.
+  are reported as `gated: false` rather than given a made-up position.
 - **Terrain blocks are not predicted.** The noise primitive is exact, but the
   router that decides which noises to sample, and the splines that turn climate
   into density, are not wired up.

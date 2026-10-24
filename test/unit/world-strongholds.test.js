@@ -32,12 +32,12 @@ test('a cell always places inside its own 200-chunk window', () => {
 })
 
 test('the gate runs at a quarter, which is what the captures show', () => {
-  let onGrid = 0
+  let gated = 0
   const total = 4000
   for (let i = 0; i < total; i++) {
-    if (strongholdInCell(i, Math.floor(i / 100) % 20 - 10, i % 20 - 10).onGrid) onGrid++
+    if (strongholdInCell(i, Math.floor(i / 100) % 20 - 10, i % 20 - 10).gated) gated++
   }
-  const rate = onGrid / total
+  const rate = gated / total
   assert.ok(rate > 0.22 && rate < 0.28, `gate rate ${rate}`)
 })
 
@@ -61,6 +61,6 @@ test('strongholdsNear returns cells nearest first and covers the radius', () => 
   // whose grid position would be that close are the ones the generator moves.
   const veryNear = strongholdsNear(4, 0, 0, 20)
   for (const stronghold of veryNear) {
-    assert.ok(Math.hypot(stronghold.chunkX, stronghold.chunkZ) > 10 || !stronghold.onGrid)
+    assert.ok(Math.hypot(stronghold.chunkX, stronghold.chunkZ) > 10 || !stronghold.gated)
   }
 })

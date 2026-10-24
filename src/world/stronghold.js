@@ -20,23 +20,28 @@
  *
  *   draw 1 -> nextInt(100)   the x jitter
  *   draw 2 -> nextInt(100)   the z jitter
- *   draw 3 -> nextUInt() / 2^32, the "on the grid" odds
+ *   draw 3 -> nextUInt() / 2^32, compared against 0.25  (see `gated`)
  *
- * and the structure sits at
+ * and the grid position of the cell is
  *
  *   chunkX = cellX * 200 + 50 + draw1 % 100
  *   chunkZ = cellZ * 200 + 50 + draw2 % 100
  *
- * only while draw3 < 0.25. That is a quarter of the cells. The other three
- * quarters still get a stronghold, but not at the grid position: the generator
- * relocates it (see `relocated` below). Both facts are measured, not assumed --
- * of the 42 captured strongholds, every one of the 30 that sit exactly on the
- * predicted grid position has draw3 < 0.25, and 10 of the 12 that do not have
- * draw3 >= 0.25.
+ * What the third draw gates is measured, and it is *not* existence: every cell
+ * carries exactly one stronghold (42 captures, no cell holds two). It gates
+ * whether the stronghold ends up on that grid position. Of the 42 captured
+ * strongholds, 30 sit exactly on the predicted position and every one of those
+ * 30 is gated in; of the 32 cells that are gated in, 30 are exact. So a gated
+ * cell is the grid position with no counter-example among 30 hits and two
+ * known exceptions, and an ungated cell never is (0 of 10).
  *
- * A cell holds one stronghold either way, so a caller that has no biome data
- * yet can still say *which cell* a stronghold is in, and give its exact chunk
- * for the gated quarter.
+ * The rest of the cells are relocated: the binary calls a biome provider with
+ * the candidate position (`0x4e9fca0`, virtual slot 6 of the object at
+ * `+0x1a8`), which can reject the cell or rewrite the position, and the value it
+ * leaves behind is what gets re-snapped. That is why relocated strongholds are
+ * not on the 200-chunk grid at all -- `(84, 9)` cannot be `cell * 200 + 50 +
+ * [0..100)` on either axis. Modelling them needs the biome layer, so this module
+ * reports the cell and says `gated: false` rather than inventing a position.
  */
 
 const { Mt19937 } = require('./mt19937')
@@ -56,7 +61,7 @@ const SALT = 0x5d534e7
 const MUL_X = 0x9babeb51
 const MUL_Z = 0xbe68aeb9
 
-/** Probability that a cell keeps the grid position (`ucomiss` against 0.25f). */
+/** The threshold the third draw is compared against (`ucomiss` against 0.25f). */
 const GRID_ODDS = 0.25
 
 /** The centre of a cell, in chunks. */
@@ -79,10 +84,10 @@ function cellSeed (seed, cellX, cellZ) {
  * @param {number} cellX cell coordinate, i.e. floor(chunkX / 200)
  * @param {number} cellZ
  * @returns {{cellX: number, cellZ: number, chunkX: number, chunkZ: number,
- *   blockX: number, blockZ: number, onGrid: boolean, gate: number}}
- *   `onGrid` says whether the returned chunk is the final position; when it is
- *   false the stronghold exists in this cell but the generator moved it, and
- *   `chunkX/chunkZ` are the position it would have taken.
+ *   blockX: number, blockZ: number, gated: boolean, gate: number}}
+ *   `chunkX/chunkZ` is the cell's grid position and `gate` its third draw.
+ *   When `gated` is false the stronghold exists in this cell but the generator
+ *   moved it off that position, so the grid position is not where to dig.
  */
 function strongholdInCell (seed, cellX, cellZ) {
   const random = new Mt19937(cellSeed(seed, cellX, cellZ))
@@ -98,7 +103,7 @@ function strongholdInCell (seed, cellX, cellZ) {
     chunkZ,
     blockX: chunkX * 16 + 8,
     blockZ: chunkZ * 16 + 8,
-    onGrid: gate < GRID_ODDS,
+    gated: gate < GRID_ODDS,
     gate
   }
 }

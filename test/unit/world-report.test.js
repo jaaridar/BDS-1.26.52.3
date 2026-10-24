@@ -37,7 +37,7 @@ test('strongholds are modelled, and the report says which ones are exact', () =>
   // Every candidate carries the flag that separates a grid position from one
   // the generator relocated, so a caller is never told more than is known.
   for (const candidate of strongholds.candidates) {
-    assert.strictEqual(typeof candidate.onGrid, 'boolean')
+    assert.strictEqual(typeof candidate.gated, 'boolean')
     assert.ok(candidate.distance <= 512 * 16)
   }
   assert.match(strongholds.note, /200-chunk cells/)

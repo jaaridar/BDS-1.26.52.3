@@ -9,8 +9,8 @@
  *
  * Two numbers matter, and both are printed:
  *
- *   exact   the captured chunk is the chunk the cell predicts, and the cell's
- *           third draw is below the quarter-gate;
+ *   exact   the captured chunk is the grid chunk the cell predicts, and the
+ *           cell's third draw is below the quarter threshold;
  *   cell    the captured chunk falls inside the cell the model assigns it to,
  *           which holds for every stronghold, gated or relocated.
  *
@@ -51,7 +51,7 @@ function score (slug) {
         predicted: [predicted.chunkX, predicted.chunkZ],
         cell: [cellX, cellZ],
         gate: predicted.gate,
-        onGrid: predicted.onGrid,
+        gated: predicted.gated,
         exact
       })
     }
@@ -64,9 +64,9 @@ function score (slug) {
     exact: exact.length,
     relocated: relocated.length,
     // The gate has to explain the split: every exact hit is gated in, and the
-    // relocated ones mostly are not.
-    exactGated: exact.filter((row) => row.onGrid).length,
-    relocatedGated: relocated.filter((row) => row.onGrid).length,
+    // relocated ones almost none of them are.
+    exactGated: exact.filter((row) => row.gated).length,
+    relocatedGated: relocated.filter((row) => row.gated).length,
     rows
   }
 }
