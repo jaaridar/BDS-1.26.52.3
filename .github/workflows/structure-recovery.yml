@@ -1,0 +1,233 @@
+name: Structure recovery
+
+# Two independent measurements of the same thing, so they can check each other.
+#
+#   scan      static: find the structure identifiers in .rodata, find the code
+#             that references them, and decompile that code, which is where the
+#             per-structure placement numbers (spacing, separation, salt) live.
+#   capture   dynamic: ask the server where its structures actually are, with
+#             `locate structure`, which is ground truth for any seed.
+#
+# Neither runs our generator; both run Mojang's, or read it.
+
+on:
+  workflow_dispatch:
+    inputs:
+      seeds:
+        description: 'Seeds to capture structure positions for'
+        required: false
+        default: '1'
+      ids:
+        description: 'Structure identifiers to probe'
+        required: false
+        default: 'village,stronghold,monument,mansion,pillageroutpost,oceanruin,shipwreck,ruins,buriedtreasure,mineshaft,temple'
+  push:
+    paths:
+      - .github/workflows/structure-recovery.yml
+      - tools/worldgen-algo/capture-structures.js
+      - tools/binary-analysis/scan-binary.py
+
+permissions:
+  contents: write
+
+concurrency:
+  group: structure-recovery-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  GHIDRA_DIR: ${{ github.workspace }}/.ghidra-dist
+  GHIDRA_URL: https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_12.1.4_build/ghidra_12.1.4_PUBLIC_20260921.zip
+  GHIDRA_SHA256: ddac49f903da9d5bac833e5cc79395098b9c33cfd3279be5f31bd00387d2d4db
+  EVIDENCE: research/proprietary/bds-1.26.52.3
+  SEEDS: ${{ github.event.inputs.seeds || '1' }}
+  IDS: ${{ github.event.inputs.ids || 'village,stronghold,monument,mansion,pillageroutpost,oceanruin,shipwreck,ruins,buriedtreasure,mineshaft,temple' }}
+
+jobs:
+  capture:
+    if: startsWith(github.ref, 'refs/heads/arena/')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Fetch the official binary from the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download v1.26.52.3 --repo "${GITHUB_REPOSITORY}" \
+            --pattern bedrock_server --clobber
+          chmod +x bedrock_server
+          echo "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207  bedrock_server" \
+            | sha256sum --check --strict
+
+      - name: Install the server's shared libraries
+        run: |
+          # The release asset is the bare binary; its .so dependencies come from
+          # the release zip. Try the asset first, and fall back to the binary's
+          # own RUNPATH if the asset is not published separately.
+          gh release download v1.26.52.3 --repo "${GITHUB_REPOSITORY}" \
+            --pattern '*linux*.zip' --clobber 2>/dev/null || true
+          if ls ./*.zip >/dev/null 2>&1; then
+            unzip -o -q ./*.zip -d release
+            cp -n release/*.so* . 2>/dev/null || true
+            cp -n release/bedrock_server . 2>/dev/null || true
+          fi
+          ls -l | head -30
+
+      - name: Capture structure positions
+        run: |
+          set -o pipefail
+          mkdir -p "$EVIDENCE/structures"
+          for seed in $SEEDS; do
+            node tools/worldgen-algo/capture-structures.js \
+              --binary ./bedrock_server --assets "$PWD" --seed "$seed" \
+              --ids "$IDS" --from "0,0;512,512" \
+              --out "$EVIDENCE/structures/seed-$seed" --verbose 2>&1 | tail -120
+            status=${PIPESTATUS[0]}
+            echo "$status" > "$EVIDENCE/structures/seed-$seed/exit-status.txt"
+          done
+          exit 0
+
+      - name: Commit capture
+        if: always()
+        run: |
+          git add -A "$EVIDENCE/structures" || true
+          if git diff --cached --quiet; then echo 'no structure evidence'; exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m "research: captured structure positions"
+          for attempt in 1 2 3 4 5; do
+            if git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}"; then
+              echo pushed; exit 0
+            fi
+            sleep $((attempt * 5))
+          done
+          exit 1
+
+  scan:
+    if: startsWith(github.ref, 'refs/heads/arena/')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Fetch the official binary from the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download v1.26.52.3 --repo "${GITHUB_REPOSITORY}" \
+            --pattern bedrock_server --clobber
+          chmod +x bedrock_server
+          echo "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207  bedrock_server" \
+            | sha256sum --check --strict
+
+      - name: Find the structure identifiers and their immediate neighbours
+        run: |
+          mkdir -p "$EVIDENCE/structures/scan"
+          cat > "$RUNNER_TEMP/names.txt" <<'NAMES'
+          minecraft:stronghold
+          minecraft:village
+          minecraft:monument
+          minecraft:mansion
+          minecraft:pillager_outpost
+          minecraft:ocean_ruin
+          minecraft:shipwreck
+          minecraft:buried_treasure
+          minecraft:mineshaft
+          minecraft:desert_pyramid
+          minecraft:jungle_temple
+          minecraft:witch_hut
+          minecraft:igloo
+          minecraft:ruined_portal
+          minecraft:ancient_city
+          minecraft:trail_ruins
+          minecraft:trial_chambers
+          minecraft:random_spread
+          minecraft:concentric_rings
+          structure_set
+          spread_type
+          NAMES
+          python3 tools/binary-analysis/scan-binary.py --binary bedrock_server \
+            --strings-file "$RUNNER_TEMP/names.txt" --ranges \
+            --out "$EVIDENCE/structures/scan" | tail -60
+
+      - name: Resolve which code references those strings
+        run: |
+          python3 - "$EVIDENCE/structures/scan/scan.json" <<'PY'
+          import json, subprocess, sys
+          report = json.load(open(sys.argv[1]))
+          # Only identifiers that actually resolved: the point is to find the
+          # registration code, so prefer the structure names over keywords.
+          wanted = [h for h in report.get('strings', [])
+                    if h['literal'].startswith('minecraft:')]
+          targets = sorted({h['vaddr'] for h in wanted})
+          print(f'{len(targets)} string addresses')
+          if not targets:
+              sys.exit(0)
+          with open('/tmp/targets.txt', 'w') as handle:
+              handle.write(','.join(hex(t) for t in targets))
+          subprocess.run([sys.executable, 'tools/binary-analysis/scan-binary.py',
+                          '--binary', 'bedrock_server',
+                          '--refs', open('/tmp/targets.txt').read(),
+                          '--out', sys.argv[1].rsplit('/', 1)[0]], check=True)
+          PY
+
+      - name: Select JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Install verified Ghidra release
+        run: |
+          curl --fail --location --retry 3 --progress-bar "$GHIDRA_URL" -o "$RUNNER_TEMP/ghidra.zip"
+          echo "$GHIDRA_SHA256  $RUNNER_TEMP/ghidra.zip" | sha256sum --check --strict
+          unzip -q "$RUNNER_TEMP/ghidra.zip" -d "$RUNNER_TEMP"
+          mv "$RUNNER_TEMP/ghidra_12.1.4_PUBLIC" "$GHIDRA_DIR"
+
+      - name: Decompile the referencing functions
+        env:
+          LATTICE_LABEL: structures
+        run: |
+          python3 - "$EVIDENCE/structures/scan/scan.json" <<'PY' > "$RUNNER_TEMP/seeds.txt"
+          import json, sys
+          report = json.load(open(sys.argv[1]))
+          sites = []
+          for target, entries in report.get('refs', {}).items():
+              for entry in entries:
+                  sites.append(entry['site'])
+          # Deduplicate and cap: each seed becomes a decompiled function.
+          sites = sorted(set(sites))[:24]
+          print(','.join(hex(s) for s in sites))
+          PY
+          SEED_LIST="$(cat "$RUNNER_TEMP/seeds.txt")"
+          echo "seeds: $SEED_LIST"
+          if [ -z "$SEED_LIST" ]; then echo 'no reference sites; nothing to decompile'; exit 0; fi
+          mkdir -p "$RUNNER_TEMP/projects" "$EVIDENCE/ghidra"
+          "$GHIDRA_DIR/support/analyzeHeadless" \
+            "$RUNNER_TEMP/projects" bds-structures \
+            -import "$PWD/bedrock_server" -overwrite -noanalysis \
+            -scriptPath "$PWD/tools/binary-analysis/ghidra" \
+            -postScript DumpNoiseLattice.java "$EVIDENCE/ghidra" "$SEED_LIST" 2 \
+            -max-cpu "$(nproc)" 2>&1 | tail -40 || true
+          ls -l "$EVIDENCE/ghidra/lattice-structures" 2>/dev/null | head
+
+      - name: Commit scan
+        if: always()
+        run: |
+          git add -A "$EVIDENCE/structures/scan" "$EVIDENCE/ghidra/lattice-structures" || true
+          if git diff --cached --quiet; then echo 'no scan evidence'; exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m "research: structure placement scan"
+          for attempt in 1 2 3 4 5; do
+            if git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}"; then
+              echo pushed; exit 0
+            fi
+            sleep $((attempt * 5))
+          done
+          exit 1
