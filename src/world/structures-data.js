@@ -38,8 +38,31 @@ function pack (id, placement, confirmed = false, note = null) {
   return { id, ...placement, confirmed, evidence: 'pack', note }
 }
 
-function placeholder (id, spacing, separation, salt, spreadType = 'linear') {
-  return { id, spacing, separation, salt, spreadType, confirmed: false, evidence: 'unknown' }
+function placeholder (id, spacing, separation, salt, spreadType = 'linear', note = null) {
+  return { id, spacing, separation, salt, spreadType, confirmed: false, evidence: 'unknown', note }
+}
+
+/**
+ * Sets that place one candidate per chunk behind a frequency gate.
+ *
+ * `spacing 1, separation 0` means the resolver's offset is always 0, so every
+ * chunk is a potential start and the only thing that decides is a per-chunk
+ * probability drawn from the same stream. Predicting these needs the frequency
+ * and the per-chunk seed, neither of which is recovered yet -- so they are
+ * marked as their own kind rather than left looking like a broken grid.
+ */
+function frequency (id, salt, note) {
+  return {
+    id,
+    spacing: 1,
+    separation: 0,
+    salt,
+    spreadType: 'linear',
+    kind: 'frequency',
+    confirmed: false,
+    evidence: 'unknown',
+    note: note || 'per-chunk frequency placement; the gate is not recovered yet'
+  }
 }
 
 const PLACEMENTS = {
@@ -66,8 +89,8 @@ const PLACEMENTS = {
   'minecraft:ocean_ruin': placeholder('minecraft:ocean_ruin', 20, 8, 14357621),
   'minecraft:shipwreck': placeholder('minecraft:shipwreck', 24, 4, 165745295),
   'minecraft:ruined_portal': placeholder('minecraft:ruined_portal', 40, 15, 34222645),
-  'minecraft:buried_treasure': placeholder('minecraft:buried_treasure', 1, 0, 16842397),
-  'minecraft:mineshaft': placeholder('minecraft:mineshaft', 1, 0, 0),
+  'minecraft:buried_treasure': frequency('minecraft:buried_treasure', 16842397),
+  'minecraft:mineshaft': frequency('minecraft:mineshaft', 0),
   'minecraft:desert_pyramid': placeholder('minecraft:desert_pyramid', 32, 8, 14357617),
   'minecraft:jungle_temple': placeholder('minecraft:jungle_temple', 32, 8, 14357619),
   'minecraft:witch_hut': placeholder('minecraft:witch_hut', 32, 8, 14357620),

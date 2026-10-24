@@ -212,6 +212,16 @@ jobs:
             --values 255774792,251253408,2570712328,1448859061 \
             --out "$EVIDENCE/structures/scan-vtables" | tail -40
 
+      - name: Scan the read-only data for placement records
+        run: |
+          # The salts are not store immediates in code -- a scan of every dword
+          # store found 33k clusters and the oracle rejected all of them -- so
+          # the tuples have to be in a static table. This reports every place in
+          # the read-only sections where two small integers and a large one sit
+          # within 64 bytes, and leaves the interpretation to the oracle fit.
+          python3 tools/binary-analysis/scan-binary.py --binary bedrock_server \
+            --data-records --out "$EVIDENCE/structures/scan-data" | tail -10
+
       - name: Recover the placement record layout from code
         run: |
           # Structure objects are filled in by a constructor, so the placement
@@ -272,6 +282,7 @@ jobs:
           git add -A "$EVIDENCE/structures/scan" "$EVIDENCE/structures/scan-refs" \
             "$EVIDENCE/structures/scan-salts" "$EVIDENCE/structures/scan-records" \
             "$EVIDENCE/structures/scan-vtables" "$EVIDENCE/worldgen-data" \
+            "$EVIDENCE/structures/scan-data" \
             "$EVIDENCE/ghidra/lattice-structures" || true
           if git diff --cached --quiet; then echo 'no scan evidence'; exit 0; fi
           git config user.name 'github-actions[bot]'

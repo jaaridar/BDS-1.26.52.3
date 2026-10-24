@@ -230,6 +230,78 @@ def cluster_stores(stores, max_gap=256):
     return clusters
 
 
+
+def scan_data_records(path, sections, window=64, max_records=50000):
+    """Find record-shaped dword runs in the read-only data sections.
+
+    A structure set's placement is three numbers next to each other: a spacing,
+    a separation and a salt. If the engine keeps them in a static table rather
+    than building them with stores, they are in `.rodata` or `.data.rel.ro` as
+    aligned dwords, not in code. The scanner therefore does not interpret: it
+    reports every place where two small integers sit within `window` bytes of a
+    large one, and lets the oracle decide which of those tuples is real.
+    """
+    def is_small(value):
+        return 1 <= value <= 128
+
+    def is_large(value):
+        return 1000 <= value <= 0x7FFFFFFF
+
+    records = []
+    wanted = {".rodata", ".data.rel.ro", ".data", ".text"}
+    seen = set()
+    with open(path, "rb") as handle:
+        for section in sections:
+            if section["name"] not in wanted or section["size"] < 64:
+                continue
+            handle.seek(section["offset"])
+            block = handle.read(section["size"])
+            limit = len(block) - window - 4
+            aligned = 0
+            while aligned <= limit:
+                value = struct.unpack_from("<i", block, aligned)[0]
+                if not is_small(value):
+                    aligned += 4
+                    continue
+                # a small integer starts a candidate: look ahead for a second
+                # small one and a large one, in either order
+                smalls = [(aligned, value)]
+                large = None
+                for ahead in range(aligned + 4, aligned + window + 1, 4):
+                    other = struct.unpack_from("<i", block, ahead)[0]
+                    if is_small(other) and len(smalls) < 3:
+                        smalls.append((ahead, other))
+                    elif is_large(other) and large is None:
+                        large = (ahead, other)
+                    if len(smalls) >= 2 and large is not None:
+                        break
+                if len(smalls) >= 2 and large is not None:
+                    for i in range(len(smalls)):
+                        for j in range(len(smalls)):
+                            if i == j:
+                                continue
+                            spacing = smalls[i][1]
+                            separation = smalls[j][1]
+                            if separation >= spacing:
+                                continue
+                            key = (spacing, separation, large[1])
+                            if key in seen:
+                                continue
+                            seen.add(key)
+                            records.append({
+                                "spacing": spacing,
+                                "separation": separation,
+                                "salt": large[1],
+                                "section": section["name"],
+                                "ghidra": section["offset"] + smalls[i][0] + IMAGE_BASE_NOTE,
+                                "offset": section["offset"] + smalls[i][0],
+                            })
+                            if len(records) >= max_records:
+                                return records
+                aligned += 4
+    return records
+
+
 def function_start(path, sections, site, window=0x8000):
     """Guess the start of the function containing `site`.
 
@@ -289,6 +361,8 @@ def main():
                         help="dump dword store immediates in .text (record layouts)")
     parser.add_argument("--function-starts", action="store_true",
                         help="map each ref site to a likely function start")
+    parser.add_argument("--data-records", action="store_true",
+                        help="scan read-only data for spacing/separation/salt tuples")
     parser.add_argument("--salty", type=int, default=1000000,
                         help="with --imm-stores, minimum immediate treated as a possible salt")
     args = parser.parse_args()
@@ -303,6 +377,11 @@ def main():
     }
     if args.ranges:
         report["executable_ranges"] = executable_ranges(sections)
+
+    if args.data_records:
+        records = scan_data_records(args.binary, sections)
+        report["data_records"] = records
+        print(f"data records: {len(records)}")
 
     if args.strings_file:
         literals = [line.strip() for line in open(args.strings_file) if line.strip()]

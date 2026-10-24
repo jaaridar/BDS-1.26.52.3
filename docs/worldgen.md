@@ -103,6 +103,28 @@ tools/binary-analysis/            static extraction: identifier scan, record sca
 tools/worldgen-golden/            oracle harness: block capture and verification
 ```
 
+## Measured state of structure placement (2026-10-24)
+
+Every number below is a measurement; the commands that produce them are in the
+repository, so each can be re-run.
+
+| question | answer | how it was measured |
+|---|---|---|
+| Is a structure position a jittered grid cell start? | **yes** | 20 seeds of `trail_ruins` and 20 of `village`: every reported chunk falls in the `spacing - separation` band, 2.2e-5 by chance for each set (`test-grid-hypothesis.js`) |
+| Is `trail_ruins` placement reproduced end to end? | **yes, 23/23 seeds** | pack tuple 34/8/83469867 linear, every report within 3 blocks of the predicted chunk corner (`fit-placements.js`) |
+| Is the generator seed truncated to 32 bits? | **no** | seeds `1` and `2^32+1` place `trail_ruins` at different chunks (`structures/seed-*`) |
+| Do Java's tuples work for the other sets? | **no** | `village` misses by up to 328 blocks, `monument` by 312, `pillager_outpost` by 408, `mansion` by 552; an exhaustive 2^32 sweep of the salt field with each set's Java span finds nothing |
+| Are the salts store immediates in code? | **no** | `scan-records` found 33 481 store clusters; none of the 1 049 plausible tuples fits even `trail_ruins`, whose tuple is known, so the numbers are not written by a constructor |
+| Where are the parameters then? | **data** | the two sets that ship a `structure_set` JSON in the pack are exactly the two whose tuples are known; the rest are not in any shipped JSON, so they are in a static table or built from one |
+| What about `mineshaft` and `buried_treasure`? | **not grids** | `spacing 1, separation 0` -- every chunk is a candidate and a per-chunk frequency decides; the gate is not recovered yet, so they are marked `kind: 'frequency'` |
+| Strongholds | **not a Java ring** | 12 captures: nearest stronghold 760-3249 blocks out (47-203 chunks), while Java's first ring is 1408-2688 blocks; the ring parameters are Bedrock's own |
+
+The next measurement is queued in the workflow as `scan-data`: it reports every
+place in the read-only sections where two small integers and a large one sit
+within 64 bytes of each other, and `search-records.js` tests each of those
+tuples against the captured answers. That is the mechanical way to find the
+table without reading a constructor that does not exist.
+
 ## Honest limitations
 
 - **The placement derivation is now reproduced for one set, end to end.**
