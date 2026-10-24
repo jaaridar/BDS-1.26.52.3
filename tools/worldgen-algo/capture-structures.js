@@ -31,7 +31,7 @@ function parseArgs (argv) {
     out: 'capture/structures',
     timeout: 900,
     verbose: false,
-    ids: 'village,stronghold,monument,mansion,pillageroutpost,oceanruin,shipwreck,ruins,buriedtreasure,mineshaft,temple',
+    ids: 'village,stronghold,monument,mansion,pillageroutpost,ruin,shipwreck,ruins,buriedtreasure,mineshaft,desert_pyramid',
     from: '0,0',
     assist: true
   }
@@ -147,28 +147,44 @@ function startServer (binary, cwd, logFile, verbose) {
  */
 function parseAnswer (text, id) {
   const lines = text.split(/\r?\n/).filter((line) => line.trim().length > 0)
+  // The dedicated server answers with
+  //   "The nearest minecraft:village is at block 152, (y?), 808 (83 chunks away ...)"
+  // -- note the unknown y and the trailing distance. Bracket form and bare
+  // "x, y, z" are also accepted, because the message shape is not ours to
+  // assume and a format change must not silently become "not found".
   for (const line of lines) {
-    const bracketed = line.match(/nearest\s+\S*\s*(\w+)\s+is\s+at\s+\[\s*(-?\d+)\s*,\s*(-?\d+)\s*,\s*(-?\d+)\s*\]/i)
-    if (bracketed) {
+    const block = line.match(/nearest\s+(\S+)\s+is\s+at\s+block\s+(-?\d+)\s*,\s*(?:\(y\?\)|(-?\d+))\s*,\s*(-?\d+)(?:\s*\((\d+)\s+chunks?)?/i)
+    if (block) {
       return {
         id,
+        resolvedId: block[1],
         found: true,
-        at: [Number(bracketed[2]), Number(bracketed[3]), Number(bracketed[4])],
+        at: [Number(block[2]), block[3] === undefined ? null : Number(block[3]), Number(block[4])],
+        chunksAway: block[5] === undefined ? null : Number(block[5]),
         raw: line.trim()
       }
     }
-    const plain = line.match(/nearest\s+(\w+)\s+is\s+at\s+(-?\d+)\s*,\s*(-?\d+)\s*,\s*(-?\d+)/i)
-    if (plain) {
+    const bracketed = line.match(/nearest\s+(\S+)\s+is\s+at\s+\[\s*(-?\d+)\s*,\s*(-?\d+)\s*,\s*(-?\d+)\s*\]/i)
+    if (bracketed) {
       return {
         id,
+        resolvedId: bracketed[1],
         found: true,
-        at: [Number(plain[2]), Number(plain[3]), Number(plain[4])],
+        at: [Number(bracketed[2]), Number(bracketed[3]), Number(bracketed[4])],
+        chunksAway: null,
         raw: line.trim()
       }
     }
   }
   const failure = lines.find((line) => /could not|no structure|invalid|unknown|failed|cannot/i.test(line))
-  return { id, found: false, at: null, raw: (failure || lines[lines.length - 1] || '').trim() }
+  return {
+    id,
+    found: false,
+    at: null,
+    resolvedId: null,
+    chunksAway: null,
+    raw: (failure || lines[lines.length - 1] || '').trim()
+  }
 }
 
 async function main () {
@@ -221,8 +237,8 @@ async function main () {
         server.child.stdin.write(command + '\n')
         // A locate can take a while: it samples biomes over a wide radius.
         let answer = { id, found: false, at: null, raw: '' }
-        for (let attempt = 0; attempt < 60; attempt++) {
-          await sleep(500)
+        for (let attempt = 0; attempt < 100; attempt++) {
+          await sleep(250)
           const chunk = server.text.slice(before)
           answer = parseAnswer(chunk, id)
           if (answer.found || /could not|no structure|invalid|unknown|failed|cannot/i.test(chunk)) break
@@ -249,7 +265,11 @@ async function main () {
   console.log(`wrote ${path.join(absOut, 'structures.json')} (${results.length} probes)`)
 }
 
-main().catch((error) => {
-  console.error(error && error.stack || error)
-  process.exit(1)
-})
+module.exports = { parseAnswer }
+
+if (require.main === module) {
+  main().catch((error) => {
+    console.error(error && error.stack || error)
+    process.exit(1)
+  })
+}

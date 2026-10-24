@@ -14,13 +14,13 @@ on:
   workflow_dispatch:
     inputs:
       seeds:
-        description: 'Seeds to capture structure positions for'
+        description: 'Seeds to capture structure positions for (comma separated)'
         required: false
-        default: '1'
+        default: '1,2,3,4,5,6,7,8'
       ids:
         description: 'Structure identifiers to probe'
         required: false
-        default: 'village,stronghold,monument,mansion,pillageroutpost,oceanruin,shipwreck,ruins,buriedtreasure,mineshaft,temple'
+        default: 'village,stronghold,monument,mansion,pillageroutpost,shipwreck,ruins,buriedtreasure,mineshaft,desert_pyramid,temple,ancient_city'
   push:
     paths:
       - .github/workflows/structure-recovery.yml
@@ -39,8 +39,8 @@ env:
   GHIDRA_URL: https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_12.1.4_build/ghidra_12.1.4_PUBLIC_20260921.zip
   GHIDRA_SHA256: ddac49f903da9d5bac833e5cc79395098b9c33cfd3279be5f31bd00387d2d4db
   EVIDENCE: research/proprietary/bds-1.26.52.3
-  SEEDS: ${{ github.event.inputs.seeds || '1' }}
-  IDS: ${{ github.event.inputs.ids || 'village,stronghold,monument,mansion,pillageroutpost,oceanruin,shipwreck,ruins,buriedtreasure,mineshaft,temple' }}
+  SEEDS: ${{ github.event.inputs.seeds || '1,2,3,4,5,6,7,8' }}
+  IDS: ${{ github.event.inputs.ids || 'village,stronghold,monument,mansion,pillageroutpost,shipwreck,ruins,buriedtreasure,mineshaft,desert_pyramid,temple,ancient_city' }}
 
 jobs:
   capture:
@@ -80,7 +80,7 @@ jobs:
         run: |
           set -o pipefail
           mkdir -p "$EVIDENCE/structures"
-          for seed in $SEEDS; do
+          for seed in $(echo "$SEEDS" | tr ',' ' '); do
             node tools/worldgen-algo/capture-structures.js \
               --binary ./bedrock_server --assets "$PWD" --seed "$seed" \
               --ids "$IDS" --from "0,0;512,512" \
@@ -150,10 +150,36 @@ jobs:
           minecraft:concentric_rings
           structure_set
           spread_type
+          stronghold
+          village
+          monument
+          mansion
+          pillager_outpost
+          ocean_ruin
+          shipwreck
+          buried_treasure
+          mineshaft
+          desert_pyramid
+          jungle_temple
+          witch_hut
+          igloo
+          ruined_portal
+          ancient_city
+          trail_ruins
+          trial_chambers
           NAMES
           python3 tools/binary-analysis/scan-binary.py --binary bedrock_server \
             --strings-file "$RUNNER_TEMP/names.txt" --ranges \
             --out "$EVIDENCE/structures/scan" | tail -60
+
+      - name: Look for the placement constants as immediates
+        run: |
+          # Hypotheses, not assertions: if a salt survives, it has to survive
+          # the oracle fit too. Scanning for them is the cheap way to find out
+          # whether the numbers are compiled in at all.
+          python3 tools/binary-analysis/scan-binary.py --binary bedrock_server \
+            --values 10387312,10387313,10387319,14357617,14357618,14357619,14357620,14357621,165745295,165745296,34222645,16842397,20083232,94251327,83469867,91231127 \
+            --out "$EVIDENCE/structures/scan-salts" | tail -40
 
       - name: Resolve which code references those strings
         run: |
@@ -219,7 +245,7 @@ jobs:
       - name: Commit scan
         if: always()
         run: |
-          git add -A "$EVIDENCE/structures/scan" "$EVIDENCE/ghidra/lattice-structures" || true
+          git add -A "$EVIDENCE/structures/scan" "$EVIDENCE/structures/scan-salts" "$EVIDENCE/ghidra/lattice-structures" || true
           if git diff --cached --quiet; then echo 'no scan evidence'; exit 0; fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
