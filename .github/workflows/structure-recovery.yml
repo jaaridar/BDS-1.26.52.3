@@ -30,8 +30,10 @@ on:
 permissions:
   contents: write
 
+# Serialised per ref, but the group carries a version so that a run stuck in a
+# long measurement cannot hold every later run behind it for two hours.
 concurrency:
-  group: structure-recovery-${{ github.ref }}
+  group: structure-recovery-${{ github.ref }}-v2
   cancel-in-progress: false
 
 env:
