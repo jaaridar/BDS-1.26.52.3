@@ -199,7 +199,7 @@ jobs:
           subprocess.run([sys.executable, 'tools/binary-analysis/scan-binary.py',
                           '--binary', 'bedrock_server',
                           '--refs', open('/tmp/targets.txt').read(),
-                          '--out', sys.argv[1].rsplit('/', 1)[0]], check=True)
+                          '--out', sys.argv[1].rsplit('/', 1)[0].replace('scan', 'scan-refs')], check=True)
           PY
 
       - name: Select JDK 21
@@ -219,7 +219,7 @@ jobs:
         env:
           LATTICE_LABEL: structures
         run: |
-          python3 - "$EVIDENCE/structures/scan/scan.json" <<'PY' > "$RUNNER_TEMP/seeds.txt"
+          python3 - "$EVIDENCE/structures/scan-refs/scan.json" <<'PY' > "$RUNNER_TEMP/seeds.txt"
           import json, sys
           report = json.load(open(sys.argv[1]))
           sites = []
@@ -245,8 +245,9 @@ jobs:
       - name: Commit scan
         if: always()
         run: |
-          git add -A "$EVIDENCE/structures/scan" "$EVIDENCE/structures/scan-salts" \
-            "$EVIDENCE/structures/scan-records" "$EVIDENCE/ghidra/lattice-structures" || true
+          git add -A "$EVIDENCE/structures/scan" "$EVIDENCE/structures/scan-refs" \
+            "$EVIDENCE/structures/scan-salts" "$EVIDENCE/structures/scan-records" \
+            "$EVIDENCE/ghidra/lattice-structures" || true
           if git diff --cached --quiet; then echo 'no scan evidence'; exit 0; fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
