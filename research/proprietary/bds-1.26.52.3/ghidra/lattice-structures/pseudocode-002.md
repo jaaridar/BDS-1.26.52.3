@@ -1,56 +1,43 @@
-# FUN_0e40207f
+# FUN_04863060
 
-- entry: `0xe40207f`
-- body size: 117 bytes
-- callers: (none in the analysed set)
+- entry: `0x4863060`
+- body size: 30 bytes
+- callers: `FUN_0e40207f`
 
 ```c
 
-/* WARNING: Instruction at (ram,0x0e402091) overlaps instruction at (ram,0x0e402089)
-    */
-
-void FUN_0e40207f(undefined8 param_1,undefined8 *param_2,undefined8 param_3,undefined8 param_4,
-                 char param_5)
+void FUN_04863060(undefined8 *param_1,undefined4 param_2)
 
 {
-  byte bVar1;
-  int iVar2;
-  byte *in_RAX;
-  long unaff_RBX;
-  byte in_CF;
-  bool in_SF;
-  undefined8 in_XMM0_Qb;
+  undefined8 *puVar1;
+  long *plVar2;
   
-  iVar2 = (int)in_RAX;
-  if (in_SF) {
-    bVar1 = (byte)in_RAX;
-    *in_RAX = *in_RAX + bVar1;
-    in_RAX[-0x48] = in_RAX[-0x48] + param_5;
-    *(int *)in_RAX = *(int *)in_RAX + iVar2;
-    *in_RAX = *in_RAX + bVar1;
-    *(int *)in_RAX = *(int *)in_RAX + iVar2;
-    in_CF = CARRY1(*in_RAX,bVar1);
-    *in_RAX = *in_RAX + bVar1;
+  *(char *)(param_1 + 1) = (char)param_2;
+  switch(param_2) {
+  case 1:
+  case 2:
+  case 3:
+  case 4:
+    *param_1 = 0;
+    return;
+  case 5:
+    *(undefined1 *)param_1 = 0;
+    break;
+  case 6:
+    puVar1 = (undefined8 *)func_0x0ee32660(0x18);
+    *puVar1 = 0;
+    puVar1[1] = 0;
+    puVar1[2] = 0;
+    *param_1 = puVar1;
+    return;
+  case 7:
+    plVar2 = (long *)func_0x0ee32660(0x18);
+    plVar2[1] = 0;
+    plVar2[2] = 0;
+    *plVar2 = (long)(plVar2 + 1);
+    *param_1 = plVar2;
+    return;
   }
-  *(uint *)(param_2 + 0xd) = *(int *)(param_2 + 0xd) + iVar2 + (uint)in_CF;
-  param_2[0xb] = param_1;
-  param_2[0xc] = in_XMM0_Qb;
-  param_2[0x23] = 0;
-  *param_2 = 0x100000001;
-  param_2[1] = param_1;
-  param_2[2] = in_XMM0_Qb;
-  param_2[3] = param_1;
-  param_2[4] = in_XMM0_Qb;
-  param_2[5] = param_1;
-  param_2[6] = in_XMM0_Qb;
-  param_2[7] = param_1;
-  param_2[8] = in_XMM0_Qb;
-  param_2[9] = param_1;
-  param_2[10] = in_XMM0_Qb;
-  *(undefined4 *)(param_2 + 0xb) = 0x3f800000;
-  *(undefined4 *)(param_2 + 0x1e) = 2;
-  func_0x04863060(param_2 + 0x20,0);
-  func_0x04863060(unaff_RBX + 0x110,0);
   return;
 }
 

@@ -1,6 +1,31 @@
-# FUN_040c0bcb (disassembly)
+# FUN_0e40207f (disassembly)
 
 ```
-040c0bcb  ADD byte ptr [RBX + RDX*0x8],AL
-040c0bce  MOV DS,word ptr [RCX + -0x2]
+0e40207f  JS 0x0e402091
+0e402082  ADC dword ptr [RDI + 0x68],EAX
+0e402085  MOVUPS xmmword ptr [RDI + 0x58],XMM0
+0e402089  MOV qword ptr [RDI + 0x118],0x0
+0e402094  MOV RAX,0x100000001
+0e40209e  MOV qword ptr [RDI],RAX
+0e4020a1  MOVUPS xmmword ptr [RDI + 0x8],XMM0
+0e4020a5  MOVUPS xmmword ptr [RDI + 0x18],XMM0
+0e4020a9  MOVUPS xmmword ptr [RDI + 0x28],XMM0
+0e4020ad  MOVUPS xmmword ptr [RDI + 0x38],XMM0
+0e4020b1  MOVUPS xmmword ptr [RDI + 0x48],XMM0
+0e4020b5  MOV dword ptr [RDI + 0x58],0x3f800000
+0e4020bc  MOV dword ptr [RDI + 0xf0],0x2
+0e4020c6  LEA R15,[RDI + 0x100]
+0e4020cd  MOV RDI,R15
+0e4020d0  XOR ESI,ESI
+0e4020d2  CALL 0x04863060
+0e4020d7  LEA RDI,[RBX + 0x110]
+0e4020de  XOR ESI,ESI
+0e4020e0  CALL 0x04863060
+0e4020e5  MOV RAX,RBX
+0e4020e8  ADD RSP,0x8
+0e4020ec  POP RBX
+0e4020ed  POP R12
+0e4020ef  POP R14
+0e4020f1  POP R15
+0e4020f3  RET
 ```

@@ -1,3 +1,2 @@
-referenced targets: 2
-  0x123d38a: ['0x40c0bcb']
+referenced targets: 1
   0x1271c21: ['0xe40207f']
