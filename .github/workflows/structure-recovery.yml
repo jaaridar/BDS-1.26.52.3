@@ -148,15 +148,6 @@ jobs:
             cp -n release/*.so* . 2>/dev/null || true
           fi
 
-      - name: Publish the data sections for local analysis
-        run: |
-          # .text is 182 MiB of the binary's 244; the data sections together are
-          # about 20. Writing those out makes every static scan here reproducible
-          # from a checkout, without the release asset.
-          python3 tools/binary-analysis/extract-sections.py --binary bedrock_server \
-            --out "$EVIDENCE/binary-sections" | tail -10
-          du -sh "$EVIDENCE/binary-sections"
-
       - name: Dump the placement registry from the running server
         run: |
           # Reading the process's own memory is the one measurement that cannot
@@ -343,15 +334,28 @@ jobs:
           python3 tools/binary-analysis/scan-binary.py --binary bedrock_server \
             --imm-stores --out "$EVIDENCE/structures/scan-records" | tail -60
 
+      - name: Publish the data sections and the code that names structures
+        run: |
+          # .text is 174 MiB of the binary's 244; the data sections are 20, and
+          # every reference site for a structure name sits inside 2.4 MiB of
+          # code. Publishing those keeps every static scan reproducible from a
+          # checkout, without the release asset.
+          python3 tools/binary-analysis/extract-sections.py --binary bedrock_server \
+            --out "$EVIDENCE/binary-sections" \
+            --ranges 0x4e20000:0x5060000 | tail -10
+          du -sh "$EVIDENCE/binary-sections"
+
       - name: Disassemble the sites that reference a structure name
         run: |
-          # objdump answers "what numbers does this code store" directly; the
-          # decompiler is the expensive fallback. The reference table already
-          # says where to look, so this needs no analysis pass.
+          # The instruction stream answers "what numbers does this code store"
+          # directly; the decompiler is the expensive fallback. Capstone is a
+          # pure-Python wheel, so this has no system dependency at all.
+          pip install --quiet capstone
           python3 tools/binary-analysis/disassemble-refs.py \
+            --manifest "$EVIDENCE/binary-sections/manifest.json" \
             --scan "$EVIDENCE/structures/scan-refs/scan.json" \
-            --binary bedrock_server \
-            --out "$EVIDENCE/structures/disasm-refs" | tail -40
+            --out "$EVIDENCE/structures/disasm-refs" \
+            --immediates 1000000:2147483648 | tail -20
           du -sh "$EVIDENCE/structures/disasm-refs" || true
 
       - name: Map reference sites to function starts
@@ -408,7 +412,7 @@ jobs:
             "$EVIDENCE/structures/scan-vtables" "$EVIDENCE/worldgen-data" \
             "$EVIDENCE/structures/scan-data" "$EVIDENCE/structures/scan-json" \
             "$EVIDENCE/structures/scan-tables" \
-            "$EVIDENCE/structures/disasm-refs" \
+            "$EVIDENCE/structures/disasm-refs" "$EVIDENCE/binary-sections" \
             "$EVIDENCE/ghidra/lattice-structures" || true
           if git diff --cached --quiet; then echo 'no scan evidence'; exit 0; fi
           git config user.name 'github-actions[bot]'

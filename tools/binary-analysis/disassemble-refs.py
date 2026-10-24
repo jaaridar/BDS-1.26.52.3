@@ -1,130 +1,245 @@
-#!/usr/bin/env python3
 """Disassemble the code around every site that references a structure name.
 
-The decompiler is not the fastest way to answer "what numbers does this code
-put in the record?" -- the answer is in the instruction stream, and `objdump`
-reads that in milliseconds. This walks the reference table produced by
-scan-binary.py, groups the sites into spans, and disassembles each span with
-enough padding to cover the enclosing function's prologue.
+The decompiler is not the fastest way to answer "what numbers does this code put
+in the record?" -- the answer is in the instruction stream. This reads the raw
+slices published by extract-sections.py (no binary, no objdump: Capstone is a
+pure Python wheel, so the same code runs anywhere) and:
 
-Output is one text file per span plus a summary. Each file starts with the
-strings whose references fall inside it, so a reader does not have to hold the
-reference table in their head while reading assembly.
+  * prints a window of instructions around every reference site, with
+    RIP-relative targets resolved to the string they point at;
+  * optionally lists every instruction that loads a constant in a given range,
+    which is how a compiled-in salt is found without guessing at one.
 
-    python3 tools/binary-analysis/disassemble-refs.py \
-        --scan research/proprietary/bds-1.26.52.3/structures/scan-refs/scan.json \
-        --binary bedrock_server \
+    pip install capstone
+    python3 tools/binary-analysis/extract-sections.py --binary bedrock_server \\
+        --out research/proprietary/bds-1.26.52.3/binary-sections \\
+        --ranges 0x4e20000:0x5060000
+    python3 tools/binary-analysis/disassemble-refs.py \\
+        --manifest research/proprietary/bds-1.26.52.3/binary-sections/manifest.json \\
+        --scan research/proprietary/bds-1.26.52.3/structures/scan-refs/scan.json \\
         --out research/proprietary/bds-1.26.52.3/structures/disasm-refs
 """
 
 import argparse
 import json
 import os
-import subprocess
+import re
 import sys
 
-DEFAULT_GAP = 0x4000
-DEFAULT_PAD = 0x800
-DEFAULT_MAX_SPAN = 0x40000
+try:
+    import capstone
+except ImportError:  # pragma: no cover - the message is the point
+    sys.exit('capstone is required: pip install capstone')
+
+
+class Slices:
+    """Address lookup over the published section files."""
+
+    def __init__(self, manifest_path):
+        with open(manifest_path, 'r', encoding='utf-8') as handle:
+            manifest = json.load(handle)
+        root = os.path.dirname(os.path.abspath(manifest_path))
+        self.parts = []
+        for section in manifest['sections']:
+            size = section['size']
+            self.parts.append({
+                'name': section['name'],
+                'base': section['addr'],
+                'size': size,
+                'path': os.path.join(root, section['file']),
+                'executable': bool(section.get('executable')),
+            })
+        self.parts.sort(key=lambda part: part['base'])
+        self.cache = {}
+
+    def part_for(self, address):
+        for part in self.parts:
+            if part['base'] <= address < part['base'] + part['size']:
+                return part
+        return None
+
+    def data(self, part):
+        if part['path'] not in self.cache:
+            with open(part['path'], 'rb') as handle:
+                self.cache[part['path']] = handle.read()
+        return self.cache[part['path']]
+
+    def read(self, address, length):
+        part = self.part_for(address)
+        if part is None:
+            return None
+        offset = address - part['base']
+        if offset + length > part['size']:
+            return None
+        return self.data(part)[offset:offset + length]
+
+    def cstring(self, address, limit=160):
+        raw = self.read(address, limit)
+        if raw is None:
+            return None
+        end = raw.find(b'\x00')
+        if end >= 0:
+            raw = raw[:end]
+        try:
+            text = raw.decode('utf-8')
+        except UnicodeDecodeError:
+            return None
+        if not text or any(ord(ch) < 0x20 and ch != '\t' for ch in text):
+            return None
+        return text
+
+    def executable_parts(self):
+        return [part for part in self.parts if part['executable']]
+
+
+def sweep(slices, part, engine):
+    """Linear sweep of one executable slice -> list of (address, text, insn)."""
+    blob = slices.data(part)
+    out = []
+    for insn in engine.disasm(blob, part['base']):
+        out.append(insn)
+    return out
+
+
+NUMBER = re.compile(r'0x[0-9a-f]+')
+
+
+def annotate(slices, insn):
+    """Resolve a RIP-relative operand to the string it addresses."""
+    notes = []
+    op = insn.op_str
+    if 'rip' in op:
+        for token in NUMBER.findall(op):
+            displacement = int(token, 16)
+            target = insn.address + insn.size + displacement
+            label = slices.cstring(target)
+            if label:
+                notes.append(f'{target:#x} {label!r}')
+    return notes
+
+
+def fmt(slices, insn, mark=False):
+    notes = annotate(slices, insn)
+    prefix = '>>' if mark else '  '
+    line = f'{prefix} {insn.address:#010x}  {insn.mnemonic:<8} {insn.op_str}'
+    if notes:
+        line += '   ; ' + ' | '.join(notes)
+    return line
 
 
 def parse_args(argv):
     args = argparse.ArgumentParser(description=__doc__)
-    args.add_argument('--scan', required=True, help='scan-binary.py --ranges output')
-    args.add_argument('--binary', required=True)
+    args.add_argument('--manifest', required=True)
+    args.add_argument('--scan', default=None,
+                      help='scan-binary.py --ranges output (reference sites)')
     args.add_argument('--out', required=True)
-    args.add_argument('--gap', type=lambda s: int(s, 0), default=DEFAULT_GAP,
-                      help='merge sites closer than this (default 0x4000)')
-    args.add_argument('--pad', type=lambda s: int(s, 0), default=DEFAULT_PAD,
-                      help='bytes of context on each side (default 0x800)')
-    args.add_argument('--max-span', type=lambda s: int(s, 0), default=DEFAULT_MAX_SPAN)
-    args.add_argument('--objdump', default='objdump')
+    args.add_argument('--window', type=int, default=40, help='instructions either side')
+    args.add_argument('--group', type=lambda s: int(s, 0), default=0x2000,
+                      help='sites closer than this share one file')
+    args.add_argument('--immediates', default=None,
+                      help='also list instructions with an immediate in LO:HI, e.g. 1000000:2147483648')
+    args.add_argument('--immediate-limit', type=int, default=400)
     return args.parse_args(argv)
-
-
-def load_sites(scan):
-    """(site, [strings that reference it]) for every executable reference."""
-    table = {}
-    for target, refs in scan['refs'].items():
-        for ref in refs:
-            if ref.get('section') not in ('.text', '.init', '.plt'):
-                continue
-            table.setdefault(ref['site'], set()).add(target)
-    return table
-
-
-def cluster(sites, gap):
-    out = []
-    for site in sorted(sites):
-        if out and site - out[-1][-1] <= gap:
-            out[-1].append(site)
-        else:
-            out.append([site])
-    return out
 
 
 def main(argv):
     args = parse_args(argv)
-    with open(args.scan, 'r', encoding='utf-8') as handle:
-        scan = json.load(handle)
-    table = load_sites(scan)
-    if not table:
-        print('no executable references in the scan', file=sys.stderr)
-        return 1
+    slices = Slices(args.manifest)
+    engine = capstone.Cs(capstone.CS_ARCH_X86, capstone.CS_MODE_64)
+    engine.detail = False
+
+    listing = {}
+    for part in slices.executable_parts():
+        insns = sweep(slices, part, engine)
+        print(f'swept {part["name"]} {part["base"]:#x}..{part["base"] + part["size"]:#x}: '
+              f'{len(insns)} instructions')
+        for index, insn in enumerate(insns):
+            listing[insn.address] = index
+        part['insns'] = insns
+
     os.makedirs(args.out, exist_ok=True)
+    log = [f'# manifest {args.manifest}', f'# executable parts {len(slices.executable_parts())}']
 
-    # The strings themselves, so a dump can say what it is looking at.
-    names = {}
-    try:
-        binary = open(args.binary, 'rb')
-    except OSError as error:
-        print(f'cannot read {args.binary}: {error}', file=sys.stderr)
-        return 1
+    def part_with(address):
+        for part in slices.executable_parts():
+            if part['base'] <= address < part['base'] + part['size']:
+                return part
+        return None
 
-    def read_cstring(address, limit=120):
-        binary.seek(address)
-        raw = binary.read(limit)
-        end = raw.find(b'\x00')
-        if end >= 0:
-            raw = raw[:end]
-        return raw.decode('utf-8', 'replace')
+    if args.scan:
+        with open(args.scan, 'r', encoding='utf-8') as handle:
+            scan = json.load(handle)
+        sites = {}
+        for target, refs in scan['refs'].items():
+            for ref in refs:
+                if ref.get('section') == '.text':
+                    sites.setdefault(ref['site'], set()).add(target)
+        ordered = sorted(sites)
+        log.append(f'# reference sites {len(ordered)}')
+        groups = []
+        for site in ordered:
+            if groups and site - groups[-1][-1] <= args.group:
+                groups[-1].append(site)
+            else:
+                groups.append([site])
+        summary = ['# Disassembly around structure-name references', '']
+        written = 0
+        for group in groups:
+            part = part_with(group[0])
+            if part is None:
+                log.append(f'# site {group[0]:#x} is outside the published slices')
+                continue
+            insns = part['insns']
+            first = listing.get(group[0])
+            if first is None:
+                # The site is not an instruction boundary in a linear sweep; use
+                # the nearest instruction that starts before it.
+                first = 0
+                for index, insn in enumerate(insns):
+                    if insn.address <= group[0]:
+                        first = index
+                    else:
+                        break
+            start = max(0, first - args.window)
+            stop = min(len(insns), first + args.window)
+            lines = [f'# {part["name"]} sites {len(group)} window {insns[start].address:#x}..'
+                     f'{insns[stop - 1].address:#x}', '']
+            for site in group:
+                for target in sorted(sites[site]):
+                    address = int(target, 16)
+                    label = slices.cstring(address)
+                    lines.append(f'#   {site:#x} references {address:#x} {label!r}')
+            lines.append('')
+            lines.extend(fmt(slices, insn) for insn in insns[start:stop])
+            name = f'disasm-{insns[start].address:x}.txt'
+            with open(os.path.join(args.out, name), 'w', encoding='utf-8') as handle:
+                handle.write('\n'.join(lines) + '\n')
+            summary.append(f'- `{name}` {insns[start].address:#x}..{insns[stop - 1].address:#x} '
+                           f'({len(group)} sites)')
+            written += 1
+        with open(os.path.join(args.out, 'summary.md'), 'w', encoding='utf-8') as handle:
+            handle.write('\n'.join(summary + [''] + log) + '\n')
+        print(f'windows written: {written}')
 
-    summary = ['# Disassembly around structure-name references', '',
-               f'sites: {len(table)}', '']
-    written = 0
-    for group in cluster(table, args.gap):
-        start = max(0, group[0] - args.pad)
-        stop = min(group[-1] + args.pad, group[0] + args.max_span)
-        if stop <= start:
-            continue
-        try:
-            dump = subprocess.run(
-                [args.objdump, '-d', '--no-show-raw-insn',
-                 f'--start-address=0x{start:x}', f'--stop-address=0x{stop:x}',
-                 args.binary],
-                check=True, capture_output=True, text=True).stdout
-        except (OSError, subprocess.CalledProcessError) as error:
-            print(f'objdump failed for 0x{start:x}: {error}', file=sys.stderr)
-            continue
-        lines = [f'# span 0x{start:x}..0x{stop:x}  sites {len(group)}', '']
-        for site in group:
-            for target in sorted(table[site]):
-                address = int(target, 16)
-                label = read_cstring(address) if address < os.path.getsize(args.binary) else ''
-                lines.append(f'#   0x{site:x} references 0x{address:x} {label!r}')
-        lines.append('')
-        body = '\n'.join(lines) + dump
-        path = os.path.join(args.out, f'disasm-{start:x}.txt')
-        with open(path, 'w', encoding='utf-8') as handle:
-            handle.write(body)
-        written += 1
-        summary.append(f'- `disasm-{start:x}.txt` 0x{start:x}..0x{stop:x} '
-                       f'({stop - start} bytes, {len(group)} sites)')
-        print(f'wrote {path} ({stop - start} bytes, {len(group)} sites)')
-
-    with open(os.path.join(args.out, 'summary.md'), 'w', encoding='utf-8') as handle:
-        handle.write('\n'.join(summary) + '\n')
-    print(f'spans written: {written}')
+    if args.immediates:
+        low, high = (int(value, 0) for value in args.immediates.split(':'))
+        found = []
+        for part in slices.executable_parts():
+            for insn in part['insns']:
+                tokens = NUMBER.findall(insn.op_str)
+                if 'rip' in insn.op_str:
+                    # The displacement of a RIP-relative operand is not a
+                    # constant in the sense meant here.
+                    tokens = tokens[1:]
+                if any(low <= int(token, 16) < high for token in tokens):
+                    found.append(fmt(slices, insn))
+                if len(found) >= args.immediate_limit:
+                    break
+            if len(found) >= args.immediate_limit:
+                break
+        with open(os.path.join(args.out, 'immediates.txt'), 'w', encoding='utf-8') as handle:
+            handle.write('\n'.join(found) + '\n')
+        print(f'immediate hits: {len(found)}')
     return 0
 
 

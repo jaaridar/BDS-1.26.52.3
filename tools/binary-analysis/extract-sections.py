@@ -60,6 +60,10 @@ def main():
     parser.add_argument("--binary", required=True)
     parser.add_argument("--out", required=True)
     parser.add_argument("--sections", default=".rodata,.data.rel.ro,.data")
+    parser.add_argument("--ranges", default="",
+                        help="extra virtual ranges to publish, as start:stop pairs "
+                             "(hex). A range keeps its address, so code found in it "
+                             "can be disassembled without the whole 174 MiB .text.")
     args = parser.parse_args()
 
     wanted = [name.strip() for name in args.sections.split(",") if name.strip()]
@@ -88,6 +92,34 @@ def main():
                 "sha256": hashlib.sha256(data).hexdigest(),
             })
             print(f"{section['name']}: {section['size']} bytes -> {file_name} @ {section['addr']:#x}")
+
+        # Ranges are cut out of whatever section they fall in, so a caller can
+        # publish the megabyte of code that matters instead of all of .text.
+        index = {section["name"]: section for section in sections(args.binary)}
+        for pair in [item for item in args.ranges.split(",") if item.strip()]:
+            start_text, stop_text = pair.split(":")
+            start, stop = int(start_text, 0), int(stop_text, 0)
+            holder = None
+            for section in index.values():
+                if section["addr"] <= start and stop <= section["addr"] + section["size"]:
+                    holder = section
+                    break
+            if holder is None:
+                raise SystemExit(f"range {pair} does not fit inside one section")
+            handle.seek(holder["offset"] + (start - holder["addr"]))
+            data = handle.read(stop - start)
+            file_name = f"range-{start:x}-{stop:x}.bin"
+            with open(os.path.join(args.out, file_name), "wb") as out:
+                out.write(data)
+            manifest["sections"].append({
+                "name": f"{holder['name']}[{start:#x}:{stop:#x}]",
+                "file": file_name,
+                "addr": start,
+                "size": len(data),
+                "sha256": hashlib.sha256(data).hexdigest(),
+                "executable": bool(holder["flags"] & 0x4),
+            })
+            print(f"range {start:#x}:{stop:#x}: {len(data)} bytes -> {file_name}")
     with open(os.path.join(args.out, "manifest.json"), "w") as handle:
         json.dump(manifest, handle, indent=1)
     print(f"wrote {os.path.join(args.out, 'manifest.json')}")
