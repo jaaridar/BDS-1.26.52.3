@@ -70,6 +70,17 @@ typedef struct {
 static int slack = 0;
 static int fixed_slack = 0;
 
+/*
+ * Where the swept value goes.
+ *
+ *   0  it is the record's 32-bit salt, added to the mix -- what the resolver
+ *      does with `*(int *)(param_2 + 4)`.
+ *   1  it is combined with the seed first (`seed ^ value`). A per-set seed
+ *      transform that is not an addition is invisible to an additive search,
+ *      so it gets its own exhaustive sweep.
+ */
+static int xorSeed = 0;
+
 static inline uint32_t draw(uint64_t *state, uint32_t span) {
   *state = (*state * MUL + ADD) & MASK48;
   return (uint32_t)(*state >> 17) % span;
@@ -78,8 +89,11 @@ static inline uint32_t draw(uint64_t *state, uint32_t span) {
 /* Predicted offsets for one observation at a candidate salt. */
 static void predict(const obs_t *o, uint64_t salt, uint32_t span,
                     uint32_t *offX, uint32_t *offZ) {
+  int64_t seedPart = xorSeed
+    ? (o->seed ^ (int64_t)(int32_t)salt)
+    : (o->seed + (int64_t)(int32_t)salt);
   uint64_t sum = (uint64_t)((int64_t)o->cellZ * MUL_Z + (int64_t)o->cellX * MUL_X +
-                            o->seed + (int64_t)(int32_t)salt);
+                            seedPart);
   uint64_t state = (sum ^ XOR) & MASK48;
   uint32_t a = draw(&state, span);
   if (o->mode == 0) {
@@ -149,6 +163,7 @@ int main(int argc, char **argv) {
   int threads = argc > 2 ? atoi(argv[2]) : 2;
   for (int i = 1; i < argc - 1; i++) {
     if (strcmp(argv[i], "--slack") == 0) slack = atoi(argv[i + 1]);
+    if (strcmp(argv[i], "--xor-seed") == 0) xorSeed = 1;
     if (strcmp(argv[i], "--fixed-slack") == 0) { slack = atoi(argv[i + 1]); fixed_slack = 1; }
   }
   if (threads < 1) threads = 1;
@@ -200,7 +215,8 @@ int main(int argc, char **argv) {
     }
   }
 
-  printf("# %d observations in %d groups\n", total, group_count);
+  printf("# %d observations in %d groups, unknown %s\n", total, group_count,
+         xorSeed ? "xor-ed with the seed" : "added as a salt");
 
   for (int g = 0; g < group_count; g++) {
     work_t work[64];
