@@ -111,19 +111,53 @@ repository, so each can be re-run.
 | question | answer | how it was measured |
 |---|---|---|
 | Is a structure position a jittered grid cell start? | **yes** | 20 seeds of `trail_ruins` and 20 of `village`: every reported chunk falls in the `spacing - separation` band, 2.2e-5 by chance for each set (`test-grid-hypothesis.js`) |
-| Is `trail_ruins` placement reproduced end to end? | **yes, 23/23 seeds** | pack tuple 34/8/83469867 linear, every report within 3 blocks of the predicted chunk corner (`fit-placements.js`) |
+| Is `trail_ruins` placement reproduced end to end? | **yes, 34 of 35 captures over 20 seeds** | pack tuple 34/8/83469867 linear, every report within 3 blocks of the predicted chunk corner (`fit-placements.js`); the one outlier is a second `trail_ruins` found from a far origin, 350 blocks out |
+| Was the outlier a second structure or a model failure? | **unknown, and quarantined** | it is reported rather than dropped: if the model ever misses on a structure the server placed, that is a fact about the model, not noise |
 | Is the generator seed truncated to 32 bits? | **no** | seeds `1` and `2^32+1` place `trail_ruins` at different chunks (`structures/seed-*`) |
 | Do Java's tuples work for the other sets? | **no** | `village` misses by up to 328 blocks, `monument` by 312, `pillager_outpost` by 408, `mansion` by 552; an exhaustive 2^32 sweep of the salt field with each set's Java span finds nothing |
 | Are the salts store immediates in code? | **no** | `scan-records` found 33 481 store clusters; none of the 1 049 plausible tuples fits even `trail_ruins`, whose tuple is known, so the numbers are not written by a constructor |
-| Where are the parameters then? | **data** | the two sets that ship a `structure_set` JSON in the pack are exactly the two whose tuples are known; the rest are not in any shipped JSON, so they are in a static table or built from one |
+| Where are the parameters then? | **data, and only partly on disk** | the two sets that ship a `structure_set` JSON in the pack are exactly the two whose tuples are known; no other pack ships placement for them (all 597 `*.brarchive` files were searched) |
+| Is the placement JSON inside the binary as text? | **no** | scanning for `"salt":`, `"spacing":`, `"separation":`, `"spread_type":` finds nothing; the only `random_spread` hits are the cereal factory type name and an unrelated feature |
+| Are the compiled-in salts dword runs in the data sections? | **no** | 25 349 records from `.rodata`/`.data.rel.ro`/`.data`, 21 567 after dropping self-referential small spacings, and no tuple fits any set -- including the one whose tuple is known |
 | What about `mineshaft` and `buried_treasure`? | **not grids** | `spacing 1, separation 0` -- every chunk is a candidate and a per-chunk frequency decides; the gate is not recovered yet, so they are marked `kind: 'frequency'` |
 | Strongholds | **not a Java ring** | 12 captures: nearest stronghold 760-3249 blocks out (47-203 chunks), while Java's first ring is 1408-2688 blocks; the ring parameters are Bedrock's own |
 
-The next measurement is queued in the workflow as `scan-data`: it reports every
-place in the read-only sections where two small integers and a large one sit
-within 64 bytes of each other, and `search-records.js` tests each of those
-tuples against the captured answers. That is the mechanical way to find the
-table without reading a constructor that does not exist.
+Every static route is now closed: not immediates, not `.rodata` dwords, not JSON
+text, not a shipped pack. The numbers exist, though -- the server uses them -- so
+the measurement moves to the one place they are certain to be: the running
+process. `tools/worldgen-algo/dump-memory.js` starts the server, forces the
+structure registry to be built by answering a `locate`, and then reads the
+process's own anonymous memory, anchored on the identifier strings and on the two
+salts the packs state. It records the raw bytes of every object that points at
+them, so the record layout is read off a dump instead of assumed.
+
+That dump is the measurement the rest of this work waits on. What the resolver
+already tells us the record looks like, from `d2d2570` and its caller:
+
+| field | where | value |
+|---|---|---|
+| separation | placement record `+0` | small, chunks |
+| spacing | placement record `+4` | small, chunks |
+| spread type | placement record `+8` | `1` selects triangular, `0` linear |
+| salt | set record `+4` | 32-bit, added to the mix |
+| seed | pointer argument | added to the mix, full 64 bits |
+| potential chunk | return | `(cell * spacing + draw, ...)`, packed |
+
+and the band fit over the enlarged captures puts the compiled-in candidates
+somewhere else entirely from Java's:
+
+| set | Java (spacing/separation) | best band candidate | log10 chance |
+|---|---|---|---|
+| `ancient_city` | 24/8 | **24/9** | -9.8 |
+| `monument` | 32/5 | **33/11** | -7.7 |
+| `pillager_outpost` | 32/8 | **86/32** | -7.7 |
+| `ruined_portal` | 40/15 | **60/35** | -18.3 |
+| `mansion` | 80/20 | **80/32** | -5.8 |
+| `shipwreck` | 24/4 | **24/4** | -3.8 |
+
+These are candidates, not conclusions: the band test only says the observed
+offsets are consistent with that grid. The conclusion is a salt that reproduces
+every capture, which is what `fit-parameters.js --sweep` looks for.
 
 ## Honest limitations
 

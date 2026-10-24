@@ -76,6 +76,17 @@ jobs:
           fi
           ls -l | head -30
 
+      - name: Dump the placement registry from the running server
+        run: |
+          # The salts are not in the code or in the read-only data as anything
+          # the static scans could recognise, but the process has already built
+          # the records. Read them out of its memory: anchor on the identifier
+          # strings and on the two salts the packs state, then dump the objects
+          # that point at them.
+          node tools/worldgen-algo/dump-memory.js \
+            --binary ./bedrock_server --assets "$PWD" --seed 1 \
+            --ids "$IDS" --out "$EVIDENCE/structures/memory" --verbose 2>&1 | tail -80
+
       - name: Capture structure positions
         run: |
           set -o pipefail
@@ -197,6 +208,17 @@ jobs:
           find "$EVIDENCE/worldgen-data" -name '*.json' | wc -l
           find "$EVIDENCE/worldgen-data" -path '*structure_set*' -name '*.json' | head -20
           grep -rl 'RandomSpreadPlacement\|"salt"\|spacing' "$EVIDENCE/worldgen-data" 2>/dev/null | head -20
+
+      - name: Look for an embedded pack container
+        run: |
+          # If the engine carries the vanilla worldgen data inside itself, it
+          # carries it as a brarchive (the packs use magic 7d2725b1a0527026) or
+          # as a zip. Counting the magic first is cheaper than another theory.
+          for magic in '\x7d\x27\x25\xb1\xa0\x52\x70\x26' 'PK\x03\x04'; do
+            count=$(grep -abo -- "$magic" bedrock_server | wc -l || true)
+            echo "magic $(printf '%s' "$magic" | xxd -p): $count"
+            grep -abo -- "$magic" bedrock_server | head -5 || true
+          done
 
       - name: Look for the placement records as text
         run: |
