@@ -411,6 +411,12 @@ grep: write error: Broken pipe
  4e9fc2c:	call   402d6b0 <__cxa_finalize@plt-0xadb5670>
  4e9fc31:	imul   $0xc8,%r13d,%eax
 
+# references to the float sine table the ring walk indexes (0xf778a04)
+
+# callers of the 200/100 placement predicate (identifies which set owns it)
+3952315: 4e9f016:	call   4e9f2d0 <__cxa_finalize@plt-0x9f43a50>
+3952767: 4e9f79c:	call   4e9f2d0 <__cxa_finalize@plt-0x9f43a50>
+
 # .rodata looks like a trig table at its start; print the first 256 floats
 rodata vaddr 0x1098340 offset 0xce85fc size 0x0
   +0x000 0 1.70163998e-31 0 8.41480321e-30
