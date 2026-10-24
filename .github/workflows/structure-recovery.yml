@@ -25,7 +25,9 @@ on:
     paths:
       - .github/workflows/structure-recovery.yml
       - tools/worldgen-algo/capture-structures.js
-      - tools/binary-analysis/scan-binary.py
+      - tools/worldgen-algo/dump-memory.js
+      - tools/worldgen-algo/brarchive.js
+      - tools/binary-analysis/**
 
 permissions:
   contents: write
