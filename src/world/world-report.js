@@ -26,6 +26,7 @@ const { candidateStarts } = require('./structure-placement')
 
 const STATUS = {
   confirmed: 'confirmed',
+  measured: 'measured',
   pack: 'from pack',
   unknown: 'unconfirmed'
 }
@@ -55,9 +56,9 @@ function structuresNear (seed, { x = 0, z = 0, radiusChunks = 256, only = null }
     out.push({
       id: placement.id,
       status: STATUS[placement.evidence] || 'unconfirmed',
-      note: placement.evidence === 'unknown'
+      note: placement.evidence === 'unknown' && !placement.note
         ? 'placement parameters are placeholders; use the oracle fit to confirm'
-        : null,
+        : (placement.note || null),
       candidates: starts.map((start) => ({
         block: [start.blockX, start.blockZ],
         chunk: [start.chunkX, start.chunkZ],

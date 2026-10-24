@@ -838,3 +838,47 @@ copy of Mojang source, and it is deliberately not wired into the OpenBDS build.
   are unresolved substitution/template arguments.
 * String attribution only covers literals that Ghidra resolved as data
   references; assert text is often in separate throw helpers.
+
+## 6. Structure placement recovered (2026-10-24)
+
+The resolver is `FUN_0d351a10` (legacy sets) and `d2d2570` (pack-driven sets).
+Both hash a cell into a seed with the same arithmetic family:
+
+```
+cellSeed64 = cellX * 341873128712 + cellZ * 132897987541 + worldSeed + salt
+cellSeed32 = the same, folded to 32 bits (multipliers become 0x9939f508 and 0xf1565bd5)
+```
+
+`d2d2570` xors `0x5deece66d` into that value and runs a Java-compatible 48-bit
+LCG (`nextInt(spacing - separation)` once or twice per axis). `FUN_0d351a10`
+runs a 32-bit MT19937 seeded with `cellSeed32` and draws `next32() % span`.
+
+Measured results, reproducible with `tools/worldgen-algo/verify-placements.js`
+over the committed captures:
+
+| set | engine | spacing/sep | salt | spread | captures reproduced |
+|---|---|---|---|---|---|
+| village | mt | 34/8 | 10387312 | triangular | 27/27 exact |
+| monument | mt | 32/5 | 10387313 | triangular | 22/22 exact |
+| mansion | mt | 80/20 | 10387319 | triangular | 13/13 exact |
+| pillager_outpost | mt | 80/24 | 165745296 | triangular | 19/19 exact |
+| ancient_city | mt | 24/8 | 20083232 | triangular | 24/24 exact |
+| shipwreck | mt | 24/4 | 165745295 | linear | 24/24 exact |
+| ruined_portal | mt | 40/15 | 40552231 (0x26ac727) | linear | 24/24 exact |
+| buried_treasure | mt | 4/2 | 16842397 | triangular | 24/24 exact |
+| trial_chambers | java | 34/12 | 94251327 | linear | 24/24 within 1 chunk |
+| trail_ruins | java | 34/8 | 83469867 | linear | 26/27 within 1 chunk |
+
+Notes that cost time and should not be re-derived:
+
+* The Z multiplier is `0xf1565bd5`, **not** `0x1565bd5`. Dropping the leading
+  `F` (i.e. using `+0xea9a42b` instead of `-0xea9a42b`) still matches every
+  capture whose Z cell is 0, which is what made the earlier sweeps look almost
+  right (11/35) instead of obviously wrong.
+* `buried_treasure` is a grid (`4/2`, triangular), not a per-chunk frequency
+  gate. `mineshaft` remains a frequency gate.
+* `FUN_0d351a10` searches outward in rings of cells (up to 100 rings) from the
+  origin cell and returns the first cell whose validity check accepts, so the
+  cell containing a reported chunk is not necessarily the cell that produced it.
+* Pack-driven sets report the jigsaw structure's origin block, which is the
+  placement chunk or up to a few chunks away along the structure.

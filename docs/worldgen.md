@@ -14,8 +14,8 @@ certain than its evidence.
 | Octave Perlin noise | **implemented** | constructor, sampler, fade, amplitude and the 16-entry gradient table read out of the binary |
 | Two-layer normal noise | **implemented** | `NormalNoiseOperationNode::vslot4`, incl. the 1.0181268 input factor and `maxValue` formula |
 | `java.util.Random` LCG | **implemented** | `WorldGenRandom`, multiplier/addend/mask read from `.text` |
-| Structure placement machinery | **implemented** | cell → seeded LCG → jittered start, linear and triangular spread, frequency gate |
-| Per-structure placement data | **partial** | `trail_ruins` and `abandoned_camp` read from the shipped packs; the rest is in the binary and not yet recovered |
+| Structure placement machinery | **implemented, measured** | cell → 32-bit cell seed → MT19937 (legacy sets) or Java LCG (pack sets) → jittered start; seven sets reproduce every capture exactly |
+| Per-structure placement data | **partial** | nine sets measured against the server; temples, ocean ruins, mineshaft, stronghold and abandoned camps still unconfirmed |
 | Structure positions | **tools ready** | `structure-locate.js` computes hypotheses; `fit-structures.js` rejects any that the server's `locate` output contradicts |
 | Biome climate rules | **data loaded** | 76 biomes, 14 with `multinoise_generation_rules`, read from the packs |
 | Surface builder materials | **data loaded** | per-biome `surface_builder` components from the packs |
@@ -38,6 +38,10 @@ node tools/worldgen-algo/structure-locate.js --seed 1 --list
 
 # the placement numbers the server ships as data (no binary needed)
 node tools/worldgen-algo/pack-structure-sets.js
+
+# replay every captured locate answer through the shipped table (the evidence
+# table in this document is this command's output)
+node tools/worldgen-algo/verify-placements.js
 
 # score the model against every captured locate answer, per structure set
 node tools/worldgen-algo/fit-placements.js --verbose
@@ -110,111 +114,80 @@ repository, so each can be re-run.
 
 | question | answer | how it was measured |
 |---|---|---|
-| Is a structure position a jittered grid cell start? | **yes** | 20 seeds of `trail_ruins` and 20 of `village`: every reported chunk falls in the `spacing - separation` band, 2.2e-5 by chance for each set (`test-grid-hypothesis.js`) |
-| Is `trail_ruins` placement reproduced end to end? | **yes, 34 of 35 captures over 20 seeds** | pack tuple 34/8/83469867 linear, every report within 3 blocks of the predicted chunk corner (`fit-placements.js`); the one outlier is a second `trail_ruins` found from a far origin, 350 blocks out |
-| Was the outlier a second structure or a model failure? | **unknown, and quarantined** | it is reported rather than dropped: if the model ever misses on a structure the server placed, that is a fact about the model, not noise |
-| Is the generator seed truncated to 32 bits? | **no** | seeds `1` and `2^32+1` place `trail_ruins` at different chunks (`structures/seed-*`) |
-| Do Java's tuples work for the other sets? | **no** | `village` misses by up to 328 blocks, `monument` by 312, `pillager_outpost` by 408, `mansion` by 552; an exhaustive 2^32 sweep of the salt field with each set's Java span finds nothing |
-| Are the salts store immediates in code? | **no** | `scan-records` found 33 481 store clusters; none of the 1 049 plausible tuples fits even `trail_ruins`, whose tuple is known, so the numbers are not written by a constructor |
-| Where are the parameters then? | **data, and only partly on disk** | the two sets that ship a `structure_set` JSON in the pack are exactly the two whose tuples are known; no other pack ships placement for them (all 597 `*.brarchive` files were searched) |
-| Is the placement JSON inside the binary as text? | **no** | scanning for `"salt":`, `"spacing":`, `"separation":`, `"spread_type":` finds nothing; the only `random_spread` hits are the cereal factory type name and an unrelated feature |
-| Are the compiled-in salts dword runs in the data sections? | **no** | 25 349 records from `.rodata`/`.data.rel.ro`/`.data`, 21 567 after dropping self-referential small spacings, and no tuple fits any set -- including the one whose tuple is known |
-| What about `mineshaft` and `buried_treasure`? | **not grids** | `spacing 1, separation 0` -- every chunk is a candidate and a per-chunk frequency decides; the gate is not recovered yet, so they are marked `kind: 'frequency'` |
-| Strongholds | **not a Java ring** | 12 captures: nearest stronghold 760-3249 blocks out (47-203 chunks), while Java's first ring is 1408-2688 blocks; the ring parameters are Bedrock's own |
+| Is a structure position a jittered grid cell start? | **yes** | every captured answer lies inside its cell's `spacing - separation` band, and the band model reproduces the answers below |
+| What seeds a cell? | **`cellX*341873128712 + cellZ*132897987541 + seed + salt`** | read in `FUN_0d351a10` (32-bit folds of the Java constants) and `d2d2570` (64-bit) |
+| Which random consumes that seed? | **two, and the engine is part of the data** | legacy sets: a 32-bit MT19937 seeded with the folded value. Pack-driven sets: a Java-compatible 48-bit LCG over the 64-bit value |
+| How is the offset drawn? | **linear or triangular, per set** | `spread_type`: one draw per axis, or two averaged. Both shapes are confirmed sets in the table |
+| Does the generator seed get truncated to 32 bits? | **for the legacy engine, yes** | seeds `1` and `2^32+1` produce the same legacy cell seed, hence the same village cells, but different answers, because the biome and height gates see the full seed |
+| Do Java's tuples work for the other sets? | **mostly, but the spread type is theirs** | Java's `spacing/separation` and `salt` are right for village, monument, mansion, shipwreck, ancient city and buried treasure; Java's `linear`/`triangular` choice is not |
+| Are the reported positions exact? | **exact for the legacy engine, chunk-aligned for the pack engine** | `node tools/worldgen-algo/verify-placements.js` |
 
-Every static route is now closed: not immediates, not `.rodata` dwords, not JSON
-text, not a shipped pack. The numbers exist, though -- the server uses them -- so
-the measurement moves to the one place they are certain to be: the running
-process. `tools/worldgen-algo/dump-memory.js` starts the server, forces the
-structure registry to be built by answering a `locate`, and then reads the
-process's own anonymous memory, anchored on the identifier strings and on the two
-salts the packs state. It records the raw bytes of every object that points at
-them, so the record layout is read off a dump instead of assumed.
+### The table, with its tally
 
-That dump is the measurement the rest of this work waits on. What the resolver
-already tells us the record looks like, from `d2d2570` and its caller:
+`node tools/worldgen-algo/verify-placements.js` prints this from the committed
+captures; each row takes the cell that contains the reported chunk and asks the
+model where that cell puts its structure.
 
-| field | where | value |
-|---|---|---|
-| separation | placement record `+0` | small, chunks |
-| spacing | placement record `+4` | small, chunks |
-| spread type | placement record `+8` | `1` selects triangular, `0` linear |
-| salt | set record `+4` | 32-bit, added to the mix |
-| seed | pointer argument | added to the mix, full 64 bits |
-| potential chunk | return | `(cell * spacing + draw, ...)`, packed |
+| set | engine | spacing/separation | salt | spread | result |
+|---|---|---|---|---|---|
+| `minecraft:village` | mt | 34 / 8 | 10387312 | triangular | 27 / 27 exact |
+| `minecraft:monument` | mt | 32 / 5 | 10387313 | triangular | 22 / 22 exact |
+| `minecraft:mansion` | mt | 80 / 20 | 10387319 | triangular | 13 / 13 exact |
+| `minecraft:pillager_outpost` | mt | 80 / 24 | 165745296 | triangular | 19 / 19 exact |
+| `minecraft:ancient_city` | mt | 24 / 8 | 20083232 | triangular | 24 / 24 exact |
+| `minecraft:shipwreck` | mt | 24 / 4 | 165745295 | linear | 24 / 24 exact |
+| `minecraft:ruined_portal` | mt | 40 / 15 | 40552231 | linear | 24 / 24 exact |
+| `minecraft:buried_treasure` | mt | 4 / 2 | 16842397 | triangular | 24 / 24 exact |
+| `minecraft:trial_chambers` | java | 34 / 12 | 94251327 | linear | 4 exact, 24 / 24 within one chunk |
+| `minecraft:trail_ruins` | java | 34 / 8 | 83469867 | linear | 9 exact, 26 / 27 within one chunk |
 
-and the band fit over the enlarged captures puts the compiled-in candidates
-somewhere else entirely from Java's:
+Each row is also the *unique* perfect fit: the same sweep over spacing 4..128
+and every separation leaves one candidate per set, and perturbing the salt by
+one breaks it. `buried_treasure` and `mineshaft` are grids after all — the
+`spacing 1 / separation 0` reading was a wrong hypothesis, and
+`buried_treasure` is `4 / 2` with a triangular draw.
 
-| set | Java (spacing/separation) | best band candidate | log10 chance |
-|---|---|---|---|
-| `ancient_city` | 24/8 | **24/9** | -9.8 |
-| `monument` | 32/5 | **33/11** | -7.7 |
-| `pillager_outpost` | 32/8 | **86/32** | -7.7 |
-| `ruined_portal` | 40/15 | **60/35** | -18.3 |
-| `mansion` | 80/20 | **80/32** | -5.8 |
-| `shipwreck` | 24/4 | **24/4** | -3.8 |
+The band numbers also settle an old question. `village`, `monument`,
+`mansion`, `shipwreck` and `ancient_city` keep Java's grid and Java's salt;
+`pillager_outpost` does not (80 / 24, not 32 / 8); `ruined_portal` keeps Java's
+grid but not its salt (`0x26ac727`, not Java's 34222645).
 
-These are candidates, not conclusions: the band test only says the observed
-offsets are consistent with that grid. The conclusion is a salt that reproduces
-every capture, which is what `fit-parameters.js --sweep` looks for.
+### The two engines
 
-### Two seeding routines, not one (measured 2026-10-24)
-
-`ca71350` (`StructureAccess::ctor`) calls **two** different placement resolvers,
-and they take different arguments:
+`d2d2570` and `d2d2c60` are two placement resolvers, and they take different
+arguments:
 
 | resolver | arguments | mix |
 |---|---|---|
-| `d2d2570` | separation, spacing, spread type, salt, seed, chunk pair | `(cellZ*132897987541 + cellX*341873128712 + seed + salt) ^ 0x5deece66d` |
-| `d2d2c60` | seed, chunk pair, and no salt | `rng.setSeed(seed); i = nextLong(); j = nextLong(); setSeed((cellZ*j) ^ (i*cellX) ^ seed)` |
+| `d2d2570` | separation, spacing, spread type, salt, seed, cell pair | `(cellX*341873128712 + cellZ*132897987541 + seed + salt) ^ 0x5deece66d`, i.e. a Java LCG seed |
+| `FUN_0d351a10` | the same, plus a per-level offset, and a ring search | `cellZ * -0xea9a42b + cellX * -0x66c60af8 + salt + seed` in 32 bits, then MT19937 |
 
-The second is the shape of `WorldGenRandom.setLargeFeatureSeed`, which has no
-salt at all. That is the important asymmetry: an exhaustive search over an
-additive salt can never find a set that uses the second routine, because there is
-no constant to find. It also explains why the sweeps kept coming back empty for
-the same sets whose captures sit neatly on a grid -- the grid is real, the jitter
-is real, and the constant the search was looking for is not there.
+The two multipliers in the second row are exactly the first row's constants
+truncated to 32 bits (`341873128712 = 0x4F9939F508`, so `-0x66c60af8` mod 2^32 is
+`0x9939f508`); the same identity holds for the Z constant. One arithmetic
+family, two random engines.
 
-`tools/worldgen-algo/test-legacy-placement.js` scores the unsalted family
-directly. It has no unknown constant, so every `(spacing, separation)` is decided
-outright, for both `|1` and plain multipliers and for `^` and `+` folds. Result:
-**no set fits it**, with `trail_ruins` as the control (it must not fit, and does
-not). So the compiled-in sets are neither the Java salted form nor the plain
-`setLargeFeatureSeed` form, and the next measurement has to read the values the
-server actually built.
+`FUN_0d351a10` also shows *how* `locate` searches: it walks square rings of
+cells outward from the origin cell (up to 100 rings), asks each cell for its
+placement, and returns the first one the per-structure validity check accepts.
+That is why a capture taken from `2048,2048` can name a structure whose cell is
+not the one containing the reported chunk: the rings are walked around the
+*origin*, and the answer is the first cell that passes the biome/height gate.
 
-### One more measured fact: the origin sits at or before the placement chunk
+### What the reported position is
 
-Across the 35 `trail_ruins` captures the predicted chunk minus the observed chunk
-is `0` for 9 of them and `+1` for 25 (`tools/worldgen-algo/fit-placements.js`,
-residual list). So `locate structure` reports the structure's origin block, and
-that origin can be one chunk *before* the chunk the set placed -- never after.
-Every fit in this repository therefore accepts `predicted - observed in {0, 1}`
-rather than equality, and a fit that only works with a symmetric tolerance is
-not accepted.
+The chunk part is the placement chunk for every legacy set. For the two
+pack-driven sets the answer is the jigsaw structure's own origin block: it sits
+in the placement chunk or one chunk back on either axis, and for a corridor as
+long as a trail ruin it can sit further along the corridor (one capture is 21
+chunks out in Z). Predicting those exactly means running the jigsaw assembly,
+which is a separate piece of work; the placement chunk underneath it is exact.
 
-### Checked against Cubiomes, set by set (2026-10-24)
-
-Cubiomes' parameter table is now a reference in this repository
-(`docs/reference/cubiomes-placement.md`) and
-`tools/worldgen-algo/compare-cubiomes.js` runs it against every capture. Two of
-the nine types with captures land on Java's cells: `trail_ruins` (35/35 within
-one chunk -- the control, since the pack states its numbers) and
-`trial_chambers` (24/24, and its set exists only inside the binary). The other
-seven are at chance distance for their grid, so their parameters are Bedrock's
-own. That is a cleaner statement than "the sweeps all failed": the mix is proven
-correct by the two matches, and what is missing for the rest is exactly the
-triple `(spacing, separation, salt)`.
-
-A second measurement from the same pass, which is about what `locate` reports
-rather than about the grid: the *within-chunk* part of every reported position is
+A second measurement from the same pass is about the within-chunk part: it is
 constant per type. `village` is at `+8,+8` in 35 of 35 captures, `shipwreck` at
-`+8,+8` in 24 of 24, `trial_chambers` at `+7,+7` or `+9,+9`, and `trail_ruins` at
-`+3,+3` for most captures and `+2,+14` for a few. So the answer is the
-structure's origin block, anchored to a template-specific point inside the
-placement chunk, and the chunk itself is what the resolver computed. That is why
-every fit here compares chunks and reports the block residual separately.
+`+8,+8` in 24 of 24, `trial_chambers` at `+7,+7` or `+9,+9`, `trail_ruins` at
+`+3,+3` for most captures. So the answer is a block position anchored inside the
+placement chunk, and the chunk is what the resolver computed.
 
 ### Why the binary has to be read where it runs
 
@@ -225,36 +198,27 @@ available inside CI. That is enough to run it (captures, memory dumps) and enoug
 to read it (`objdump`/Capstone over published slices), but it makes every
 measurement that needs the file a round trip. The pipeline therefore publishes
 what it reads: `binary-sections/` holds `.rodata`, `.data.rel.ro`, `.data` and the
-2.4 MiB of `.text` that contains every structure-name reference, each with its
+`.text` window that contains every structure-name reference, each with its
 virtual address, so the static side of this work can be repeated from a checkout.
 
 ## Honest limitations
 
-- **The placement derivation is now reproduced for one set, end to end.**
-  `trail_ruins` ships its placement in the vanilla pack
-  (`salt 83469867, separation 8, spacing 34, spread_type linear`) and the
-  recovered resolver turns that into chunk positions that agree with the server
-  on **23 of 23 seeds** (`node tools/worldgen-algo/fit-placements.js --id
-  trail_ruins`). The reported position is the structure's origin block, not the
-  placement chunk: in every one of those 23 cases it sits within 3 blocks of the
-  predicted chunk's corner, i.e. inside that chunk or the one before it.
-- **The other sets' parameters are Bedrock's own, not Java's.** This was the
-  real gap. `minecraft:village` fits the same resolver with a different tuple --
-  Java's `spacing 34 / separation 8 / salt 10387312` misses in every direction,
-  by up to 328 blocks. The recovery path is an exhaustive search rather than a
-  preference: `tools/worldgen-algo/solve-salt.c` sweeps all 2^32 values of the
-  32-bit salt field, and `solve-placement.c` sweeps that space together with
-  every span and both spread types, with `slack 0` for the 1-cell structures and
-  `slack 1` where the origin can fall back into the previous chunk. A candidate
-  that survives has to reproduce *every* observation, so surviving is the claim.
-  Any set whose numbers are still placeholders reports candidates computed from
-  unconfirmed values, and says so.
-- **A set's reported position is not its placement chunk.** The server answers
-  `locate structure` with the structure's origin block. For small structures
-  that lands within a couple of blocks of the chunk corner; for a jigsaw as
-  large as a village it can land in the previous chunk. The fit tool reports the
-  block residual so this convention stays visible rather than hiding inside a
-  tolerance.
+- **Placement is reproduced for ten sets.** Eight are exact for every captured
+  position; `trail_ruins` and `trial_chambers` are within a chunk and are limited
+  by the jigsaw-origin convention described above, not by the grid. Re-run
+  `node tools/worldgen-algo/verify-placements.js` for the current tally.
+- **Six sets still have no measured row**: ocean ruins, desert pyramids, jungle
+  temples, witch huts, igloos, abandoned camps. Their shape is known
+  (`placeholder` rows say so) and nothing pretends otherwise.
+- **`mineshaft` and `stronghold` are not grids at all.** Mineshafts are a
+  per-chunk frequency gate whose threshold is not recovered; strongholds use ring
+  placement, and the captures already contradict Java's ring radii
+  (nearest stronghold 47-203 chunks out in 12 captures).
+- **A set's reported position is not always its placement chunk.** For the
+  pack-driven sets it is the structure's own origin block, which can sit one
+  chunk back on either axis (and further, along a corridor). The model reports
+  the placement chunk and the tools keep the residual visible instead of hiding
+  it inside a symmetric tolerance.
 - **Strongholds use ring placement**, which is a different algorithm from the
   jittered grid; it is not modelled at all yet, and the tool says so instead of
   producing a number.

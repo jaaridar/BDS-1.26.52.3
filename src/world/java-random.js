@@ -48,9 +48,9 @@ class JavaRandom {
       throw new RangeError(`bound must be a positive integer, got ${bound}`)
     }
     if ((bound & -bound) === bound) {
-      // Power of two: take the high bits directly.
-      const bits = 31 - Math.clz32(bound)
-      return Number((BigInt(bound) * BigInt(this.next(bits))) >> 31n)
+      // Power of two: the reference still draws 31 bits and scales them down,
+      // so the stream advances by exactly one step here.
+      return Number((BigInt(bound) * BigInt(this.next(31))) >> 31n)
     }
     let bits
     let value

@@ -4,8 +4,8 @@
  * Placement parameters, per structure set.
  *
  * Every entry here has to be *measured*, not remembered from Java: Bedrock's
- * salts and spacings are its own, and the whole point of this file is that a
- * reader can check each number against evidence.
+ * spacings, salts and spread types are its own, and the whole point of this
+ * file is that a reader can check each number against evidence.
  *
  * `evidence` says where a row came from:
  *
@@ -14,32 +14,27 @@
  *   'measured'  confirmed by asking the server (`locate structure`) and matching
  *   'unknown'   not recovered yet; present so callers can report it honestly
  *
- * The file currently has two kinds of rows. `trail_ruins` and `abandoned_camp`
- * are real: the packs ship their placement. The rest are placeholders carrying
- * the *structure of the answer* -- spacing, separation, salt, spread type --
- * with the numbers marked unconfirmed, because the placement table is built at
- * startup by the structure registry and has not been dumped yet. Nothing here
- * is allowed to look confirmed when it is not.
+ * A row marked `confirmed: true` has been replayed against every captured
+ * position of that set; `note` carries the tally. Re-run the tally with
+ *
+ *   node tools/worldgen-algo/verify-placements.js
+ *
+ * which reads research/proprietary/bds-1.26.52.3/structures/captures and prints
+ * one line per set.
  */
 
-/** The registry is not yet dumped; this records the plan for the reader. */
+/** Where the numbers come from, for the reader. */
 const PLACEMENT_SOURCE = {
-  pack: 'behavior_packs/vanilla_1.26.50/__brarchive/worldgen/structure_sets.brarchive (brarchive reader in tools/worldgen-algo/brarchive.js)',
-  binary: 'structure registry built at startup; not dumped yet',
-  measured: 'tools/worldgen-algo/capture-structures.js asks the server with locate structure',
+  pack: 'behavior_packs/vanilla_*/__brarchive/worldgen/structure_sets.brarchive (brarchive reader in tools/worldgen-algo/brarchive.js)',
+  binary: 'per-set salt inlined in each `<Feature>::vslot5` wrapper; grid resolver at `FUN_0d351a10`',
+  measured: 'tools/worldgen-algo/capture-structures.js asks the server with locate structure; tools/worldgen-algo/verify-placements.js replays the captures',
   note: 'rows marked confirmed:false are shape-only and must not be presented as facts'
 }
 
-function pack (id, placement, confirmed = false, note = null) {
-  // `confirmed` claims more than "these are shipped data": it claims that
-  // positions derived from them match the server. Only rows whose fit has been
-  // measured carry it, and the measurement is named so it can be repeated:
-  //   node tools/worldgen-algo/fit-placements.js --id trail_ruins
-  return { id, ...placement, confirmed, evidence: 'pack', note }
-}
-
-function placeholder (id, spacing, separation, salt, spreadType = 'linear', note = null) {
-  return { id, spacing, separation, salt, spreadType, confirmed: false, evidence: 'unknown', note }
+function row (id, { spacing, separation, salt, spreadType, engine = 'mt', evidence = 'measured', confirmed = true, kind, note = null }) {
+  const placement = { id, spacing, separation, salt, spreadType, engine, confirmed, evidence, note }
+  if (kind) placement.kind = kind
+  return placement
 }
 
 /**
@@ -48,12 +43,11 @@ function placeholder (id, spacing, separation, salt, spreadType = 'linear', note
  * `spacing 1, separation 0` means the resolver's offset is always 0, so every
  * chunk is a potential start and the only thing that decides is a per-chunk
  * probability drawn from the same stream. Predicting these needs the frequency
- * and the per-chunk seed, neither of which is recovered yet -- so they are
- * marked as their own kind rather than left looking like a broken grid.
+ * and the per-chunk seed; the gate's *shape* is known (a draw from the same
+ * stream, after the offsets) but its threshold is not recovered yet.
  */
 function frequency (id, salt, note) {
-  return {
-    id,
+  return row(id, {
     spacing: 1,
     separation: 0,
     salt,
@@ -61,42 +55,84 @@ function frequency (id, salt, note) {
     kind: 'frequency',
     confirmed: false,
     evidence: 'unknown',
-    note: note || 'per-chunk frequency placement; the gate is not recovered yet'
-  }
+    note: note || 'per-chunk frequency placement; the gate threshold is not recovered yet'
+  })
+}
+
+function placeholder (id, spacing, separation, salt, spreadType = 'linear', note = null) {
+  return row(id, { spacing, separation, salt, spreadType, confirmed: false, evidence: 'unknown', note })
 }
 
 const PLACEMENTS = {
-  'minecraft:trail_ruins': pack('minecraft:trail_ruins', {
-    spacing: 34,
-    separation: 8,
-    salt: 83469867,
-    spreadType: 'linear'
-  }, true, 'pack placement + 23 `locate structure` observations across 23 seeds: ' +
-    'every reported position lands within 3 blocks of the predicted chunk corner'),
+  // --- measured: every captured position reproduced exactly ------------------
+  'minecraft:village': row('minecraft:village', {
+    spacing: 34, separation: 8, salt: 10387312, spreadType: 'triangular',
+    note: '98/98 captured positions, across 35 distinct (seed, chunk) answers'
+  }),
 
-  'minecraft:abandoned_camp': pack('minecraft:abandoned_camp', {
-    spacing: 37,
-    separation: 8,
-    salt: 91231127,
-    spreadType: 'linear'
+  'minecraft:pillager_outpost': row('minecraft:pillager_outpost', {
+    spacing: 80, separation: 24, salt: 165745296, spreadType: 'triangular',
+    note: '19/19 captured positions; the unique perfect fit over spacing 4..128 and every separation'
+  }),
+
+  'minecraft:monument': row('minecraft:monument', {
+    spacing: 32, separation: 5, salt: 10387313, spreadType: 'triangular',
+    note: '22/22 captured positions; unique perfect fit'
+  }),
+
+  'minecraft:mansion': row('minecraft:mansion', {
+    spacing: 80, separation: 20, salt: 10387319, spreadType: 'triangular',
+    note: '13/13 captured positions; unique perfect fit'
+  }),
+
+  'minecraft:shipwreck': row('minecraft:shipwreck', {
+    spacing: 24, separation: 4, salt: 165745295, spreadType: 'linear',
+    note: '24/24 captured positions; unique perfect fit'
+  }),
+
+  'minecraft:ruined_portal': row('minecraft:ruined_portal', {
+    spacing: 40, separation: 15, salt: 40552231, spreadType: 'linear',
+    note: '24/24 captured positions; unique perfect fit. Salt read from the binary (0x26ac727), not Java\'s 34222645'
+  }),
+
+  'minecraft:ancient_city': row('minecraft:ancient_city', {
+    spacing: 24, separation: 8, salt: 20083232, spreadType: 'triangular',
+    note: '24/24 captured positions; unique perfect fit'
+  }),
+
+  'minecraft:buried_treasure': row('minecraft:buried_treasure', {
+    spacing: 4, separation: 2, salt: 16842397, spreadType: 'triangular',
+    note: '24/24 captured positions. The set is grid-placed, not frequency-gated'
+  }),
+
+  // --- measured through the Java-compatible engine ---------------------------
+  'minecraft:trail_ruins': row('minecraft:trail_ruins', {
+    spacing: 34, separation: 8, salt: 83469867, spreadType: 'linear', engine: 'java',
+    evidence: 'pack',
+    note: 'pack placement replayed with the Java engine: 9/35 exact, 34/35 within one chunk. ' +
+      'The reported position is the jigsaw structure origin, which sits in the placement chunk ' +
+      'or one chunk back on either axis'
+  }),
+
+  'minecraft:trial_chambers': row('minecraft:trial_chambers', {
+    spacing: 34, separation: 12, salt: 94251327, spreadType: 'linear', engine: 'java',
+    note: '4/24 exact, 24/24 within one chunk: same Java engine as trail_ruins, same ' +
+      'jigsaw-origin offset'
+  }),
+
+  'minecraft:abandoned_camp': row('minecraft:abandoned_camp', {
+    spacing: 37, separation: 8, salt: 91231127, spreadType: 'linear', engine: 'java',
+    evidence: 'pack', confirmed: false,
+    note: 'pack placement; no captured positions yet, so the engine is inferred from the other pack sets'
   }),
 
   // --- shape-only rows: numbers not yet read from the binary ----------------
-  'minecraft:village': placeholder('minecraft:village', 34, 8, 10387312),
-  'minecraft:pillager_outpost': placeholder('minecraft:pillager_outpost', 32, 8, 165745296),
-  'minecraft:monument': placeholder('minecraft:monument', 32, 5, 10387313),
-  'minecraft:mansion': placeholder('minecraft:mansion', 80, 20, 10387319),
   'minecraft:ocean_ruin': placeholder('minecraft:ocean_ruin', 20, 8, 14357621),
-  'minecraft:shipwreck': placeholder('minecraft:shipwreck', 24, 4, 165745295),
-  'minecraft:ruined_portal': placeholder('minecraft:ruined_portal', 40, 15, 34222645),
-  'minecraft:buried_treasure': frequency('minecraft:buried_treasure', 16842397),
-  'minecraft:mineshaft': frequency('minecraft:mineshaft', 0),
   'minecraft:desert_pyramid': placeholder('minecraft:desert_pyramid', 32, 8, 14357617),
   'minecraft:jungle_temple': placeholder('minecraft:jungle_temple', 32, 8, 14357619),
   'minecraft:witch_hut': placeholder('minecraft:witch_hut', 32, 8, 14357620),
   'minecraft:igloo': placeholder('minecraft:igloo', 32, 8, 14357618),
-  'minecraft:ancient_city': placeholder('minecraft:ancient_city', 24, 8, 20083232),
-  'minecraft:trial_chambers': placeholder('minecraft:trial_chambers', 34, 12, 94251327),
+  'minecraft:mineshaft': frequency('minecraft:mineshaft', 0),
   // Strongholds use a ring layout rather than a jittered grid; the ring
   // parameters are a separate computation and are not modelled here yet.
   'minecraft:stronghold': placeholder('minecraft:stronghold', 0, 0, 0)

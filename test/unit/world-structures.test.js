@@ -8,8 +8,12 @@ const {
   structureInCell,
   candidateStarts,
   nearestStart,
-  floorDiv
+  floorDiv,
+  cellSeed,
+  javaCellSeed
 } = require('../../src/world/structure-placement')
+
+const PLACEMENTS_NS = require('../../src/world/structures-data')
 
 const PLACEMENT = {
   id: 'minecraft:test_set',
@@ -149,6 +153,27 @@ test('floorDiv matches Java for negative values', () => {
   assert.strictEqual(floorDiv(33, 34), 0)
 })
 
+test('the cell seed is the Java constants folded into 32 bits', () => {
+  // The binary multiplies by -0x66c60af8 on X and -0xea9a42b on Z, which are
+  // exactly Java's 341873128712 and 132897987541 truncated to 32 bits.
+  assert.strictEqual(cellSeed(0, 1, 0, 0), 0x9939f508)
+  assert.strictEqual(cellSeed(0, 0, 1, 0), 0xf1565bd5)
+  assert.strictEqual(cellSeed(0, 1, 0, 10387312), (0x9939f508 + 10387312) >>> 0)
+  // Only the low 32 bits of the world seed take part.
+  assert.strictEqual(cellSeed(1, 3, -2, 7), cellSeed(4294967297, 3, -2, 7))
+  // The 64-bit form is what the Java engine sees.
+  assert.strictEqual(javaCellSeed(0, 1, 0, 0), 341873128712n)
+  assert.strictEqual(javaCellSeed(0, 0, 1, 0), 132897987541n)
+  assert.strictEqual(javaCellSeed(123, 0, 0, 456), 579n)
+})
+
+test('the two engines disagree, and each one is wired to its own sets', () => {
+  const base = { id: 'minecraft:x', spacing: 34, separation: 8, salt: 10387312, spreadType: 'linear' }
+  const mt = structureInCell({ ...base, engine: 'mt' }, 42, 1, -2)
+  const java = structureInCell({ ...base, engine: 'java' }, 42, 1, -2)
+  assert.notDeepStrictEqual([mt.chunkX, mt.chunkZ], [java.chunkX, java.chunkZ])
+})
+
 test('the pack data and the shipped table agree, number for number', () => {
   // The pack ships the placement for the few data-driven sets, so it is a
   // second opinion on the table rather than a copy of it: if either drifts the
@@ -176,14 +201,43 @@ test('the pack data and the shipped table agree, number for number', () => {
   }
 })
 
-test('trail_ruins is the set whose fit is measured, so it stays marked confirmed', () => {
-  const { PLACEMENTS } = require('../../src/world/structures-data')
-  const placement = PLACEMENTS['minecraft:trail_ruins']
-  assert.strictEqual(placement.confirmed, true)
-  assert.strictEqual(placement.salt, 83469867)
-  assert.strictEqual(placement.spacing, 34)
-  assert.strictEqual(placement.separation, 8)
-  // The claim behind `confirmed` is a measurement; keep the number it was made
-  // with visible so it cannot quietly become folklore.
-  assert.match(placement.note, /23/)
+test('every captured position is reproduced from the table alone', () => {
+  // The captures are the server's own answers, committed next to the tooling.
+  // The `mt` engine has to reproduce the answer chunk exactly; the `java`
+  // engine reproduces the placement chunk, and the reported block is the jigsaw
+  // origin, which sits in that chunk or one chunk back (and for a long corridor
+  // such as trail_ruins, further along the corridor).
+  const { loadObservations, scoreSet } = require('../../tools/worldgen-algo/verify-placements')
+  const observations = loadObservations()
+  assert.ok(observations.length > 100, 'capture tree looks empty')
+
+  const byId = new Map()
+  for (const row of observations) {
+    if (!byId.has(row.id)) byId.set(row.id, [])
+    byId.get(row.id).push(row)
+  }
+
+  let checked = 0
+  for (const [id, rows] of byId) {
+    const placement = PLACEMENTS_NS.PLACEMENTS[id]
+    if (!placement || !placement.spacing) continue
+    if (placement.spacing - placement.separation < 2) continue
+    const scored = scoreSet(placement, rows)
+    checked++
+    if ((placement.engine || 'mt') === 'mt') {
+      assert.strictEqual(
+        scored.exact, scored.total,
+        `${id}: ${scored.exact}/${scored.total} exact; misses ${JSON.stringify(scored.misses.map((m) => [m.seed, m.chunkX, m.chunkZ, m.dx, m.dz]))}`
+      )
+      // A wrong salt must not score. If it does, the test is not testing much.
+      const wrong = scoreSet({ ...placement, salt: (placement.salt + 1) >>> 0 }, rows)
+      assert.ok(wrong.exact < scored.total, `${id}: salt + 1 still scores`)
+    } else {
+      assert.ok(
+        scored.withinOne >= scored.total - 1,
+        `${id}: only ${scored.withinOne}/${scored.total} within one chunk`
+      )
+    }
+  }
+  assert.ok(checked >= 9, `only ${checked} sets were checked`)
 })
