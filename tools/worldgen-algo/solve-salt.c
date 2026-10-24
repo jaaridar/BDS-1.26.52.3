@@ -207,6 +207,9 @@ static void *workerFast(void *arg) {
   const uint64_t magic = m.magic;
   const int offX0 = first->offX;
   const int offZ0 = first->offZ;
+  /* With --min-match this counts instead of rejecting, so a set with one odd
+   * capture still shows up; without it, every observation has to agree. */
+  const int threshold = minMatch > 0 ? minMatch : w->count;
   for (uint64_t salt = w->from; salt < w->to; salt++) {
     uint64_t state = ((base + (uint64_t)(int32_t)salt) & MASK48) ^ XOR;
     uint64_t next = (state * MUL + ADD) & MASK48;
@@ -219,18 +222,26 @@ static void *workerFast(void *arg) {
     r = v - (uint32_t)(((__uint128_t)v * magic) >> 52) * span;
     d = (int)r - offZ0;
     if (d < -slack || d > slack) continue;
-    int dx0 = 0, dz0 = 0;
-    if (!match_obs(first, salt, &m, &dx0, &dz0)) continue;
+    int hits = 1;
     int ok = 1;
-    for (int i = 0; i < w->count && ok; i++) {
+    /* Once too many observations have disagreed, no later one can rescue the
+     * candidate, so the count stops there. Without this the counting path costs
+     * a full pass over the set for every 0.15% that survive the anchor. */
+    int remaining = w->count - 1;
+    for (int i = 0; i < w->count; i++) {
       if (i == a) continue;
       int dx = 0, dz = 0;
-      if (!match_obs(&w->obs[i], salt, &m, &dx, &dz)) { ok = 0; break; }
-      if (fixed_slack && (dx != dx0 || dz != dz0)) ok = 0;
+      if (match_obs(&w->obs[i], salt, &m, &dx, &dz)) {
+        hits++;
+      } else {
+        ok = 0;
+      }
+      remaining--;
+      if (hits + remaining < threshold) break;
     }
-    if (ok) {
-      printf("%s\t%llu\t%lld\tdelta=%d,%d\t%d\n", w->obs[0].id,
-             (unsigned long long)salt, (long long)(int32_t)salt, dx0, dz0, w->count);
+    if (minMatch == 0 ? ok : (hits >= threshold)) {
+      printf("%s\t%llu\t%lld\t%d/%d\n", w->obs[0].id, (unsigned long long)salt,
+             (long long)(int32_t)salt, hits, w->count);
       fflush(stdout);
     }
   }
@@ -397,7 +408,7 @@ int main(int argc, char **argv) {
       work[t].count = groups[g].count;
       work[t].from = saltFrom + (uint64_t)t * chunk;
       work[t].to = (t == threads - 1) ? saltTo : saltFrom + (uint64_t)(t + 1) * chunk;
-      const int fast = !cellSearch && !minMatch && !xorSeed;
+      const int fast = !cellSearch && !xorSeed;
       pthread_create(&tid[t], NULL, fast ? workerFast : worker, &work[t]);
     }
     for (int t = 0; t < threads; t++) pthread_join(tid[t], NULL);

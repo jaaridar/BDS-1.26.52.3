@@ -13,6 +13,7 @@
  * thing the solver varies is the additive constant in the seed mix.
  *
  *   node tools/worldgen-algo/export-observations.js --id trail_ruins --mode 0
+ *   node tools/worldgen-algo/export-observations.js --id village --chunks
  */
 
 const fs = require('node:fs')
@@ -26,7 +27,8 @@ function parseArgs (argv) {
     mode: 0,
     ids: null,
     spacing: null,
-    separation: null
+    separation: null,
+    chunks: false
   }
   for (let i = 2; i < argv.length; i++) {
     const arg = argv[i]
@@ -41,31 +43,29 @@ function parseArgs (argv) {
       case '--id': args.ids = [next()]; break
       case '--spacing': args.spacing = Number(next()); break
       case '--separation': args.separation = Number(next()); break
+      case '--chunks': args.chunks = true; break
       default: throw new Error(`unknown argument ${arg}`)
     }
   }
   return args
 }
 
+// One loader for every capture in the tree. There used to be a second one here
+// that only read top-level `seed-*` directories, so a fit silently ran on 23 of
+// the 35 village captures -- fewer constraints, and a "no fit" answer that meant
+// less than it looked like.
+const { loadObservations } = require('./observations')
+
 function loadAll (dir) {
-  const byId = new Map()
-  for (const entry of fs.readdirSync(dir)) {
-    if (!entry.startsWith('seed-')) continue
-    const file = path.join(dir, entry, 'structures.json')
-    if (!fs.existsSync(file)) continue
-    const capture = JSON.parse(fs.readFileSync(file, 'utf8'))
-    for (const result of capture.results || []) {
-      if (!result.found || !result.at) continue
-      const id = (result.resolvedId || '').replace(/^minecraft:/, '')
-      if (!id) continue
-      if (!byId.has(id)) byId.set(id, [])
-      const list = byId.get(id)
-      const seed = Number(capture.seed)
-      if (list.some((observation) => observation.seed === seed)) continue
-      list.push({ seed, chunk: [Math.floor(result.at[0] / 16), Math.floor(result.at[2] / 16)] })
-    }
+  const byIdOut = new Map()
+  for (const row of loadObservations(dir)) {
+    if (!byIdOut.has(row.id)) byIdOut.set(row.id, [])
+    byIdOut.get(row.id).push({
+      seed: row.seed,
+      chunk: [Math.floor(row.block[0] / 16), Math.floor(row.block[1] / 16)]
+    })
   }
-  return byId
+  return byIdOut
 }
 
 const floorDiv = (a, b) => Math.floor(a / b)
@@ -76,6 +76,14 @@ function main () {
   const lines = []
   for (const [id, observations] of byId) {
     if (args.ids && !args.ids.map((value) => value.replace(/^minecraft:/, '')).includes(id)) continue
+    if (args.chunks) {
+      // Band-independent form: the solver derives the cell and the offset for
+      // each (spacing, separation) it tries, so it needs the chunk itself.
+      for (const observation of observations) {
+        lines.push([id, observation.seed, observation.chunk[0], observation.chunk[1]].join('\t'))
+      }
+      continue
+    }
     const placement = PLACEMENTS[`minecraft:${id}`] || {}
     const spacing = args.spacing ?? placement.spacing
     const separation = args.separation ?? placement.separation
