@@ -285,7 +285,7 @@ function nearbyStrings (memFd, address, window = 152, before = 40) {
 }
 
 function scanRecords (memFd, regions, { chunk = 1 << 23, maxHits = 200000,
-  annotate = 400 } = {}) {
+  annotate = 40 } = {}) {
   const hits = []
   const seen = new Set()
   for (const region of regions) {
@@ -522,7 +522,17 @@ async function main () {
   // The windows and the raw candidate list are diagnostics, not findings: keep
   // them in the run's artefacts and commit only what the run concluded.
   fs.writeFileSync(path.join(absOut, 'memory-full.json'), JSON.stringify(report, null, 1))
-  report.records = (report.records || []).slice(0, 200)
+  // Every candidate triple is committed, not a sample: they are cheap once the
+  // annotation is limited, and having them in the tree means the identification
+  // can be re-run and re-argued without another server run.
+  report.records = (report.records || []).map((record) => ({
+    salt: record.salt,
+    before: record.before,
+    spacing: record.spacing,
+    separation: record.separation,
+    type: record.type,
+    at: record.at
+  }))
   fs.writeFileSync(file, JSON.stringify(report, null, 1))
   console.log(`wrote ${file}: ${report.names.length} name hits, ${report.salts.length} salt hits`)
 }
