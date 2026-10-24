@@ -225,15 +225,19 @@ function pointerPattern (address) {
  */
 function recordsInBuffer (buffer, base, out = []) {
   for (let offset = 0; offset + 12 <= buffer.length; offset += 4) {
-    const packed = buffer.readInt32LE(offset + 4)
+    const packed = buffer.readInt32LE(offset + 4) >>> 0
     const spacing = packed >>> 16
     const separation = packed & 0xffff
-    if (spacing < 2 || spacing > 128 || separation >= spacing) continue
+    if (spacing < 2 || spacing > 256 || separation >= spacing) continue
     const type = buffer.readInt32LE(offset + 8)
     if (type !== 0 && type !== 1) continue
     out.push({
       at: base + offset,
       salt: buffer.readInt32LE(offset),
+      // If the salt is one dword wide, as Java's is, the word before it belongs
+      // to whatever precedes the record. If it is two dwords wide, the low half
+      // lands here instead, so keep it: the pair of them is the other candidate.
+      before: offset >= 4 ? buffer.readInt32LE(offset - 4) : 0,
       spacing,
       separation,
       type
@@ -261,13 +265,7 @@ function readCString (memFd, address, limit = 96) {
   return text.toString('latin1')
 }
 
-/**
- * Pointers that sit next to a record, resolved to the strings they address.
- *
- * A structure set knows its own identifier, so if the record is followed (or
- * preceded) by a pointer into the string, that is the mapping from numbers to
- * name without having to match the numbers against captures first.
- */
+/** Pointers that sit next to a record, resolved to the strings they address. */
 function nearbyStrings (memFd, address, window = 152, before = 40) {
   address -= before
   const buffer = Buffer.alloc(window)
@@ -286,9 +284,9 @@ function nearbyStrings (memFd, address, window = 152, before = 40) {
   return out
 }
 
-function scanRecords (memFd, regions, { chunk = 1 << 23, maxHits = 2000 } = {}) {
+function scanRecords (memFd, regions, { chunk = 1 << 23, maxHits = 200000,
+  annotate = 400 } = {}) {
   const hits = []
-  const rejected = []
   const seen = new Set()
   for (const region of regions) {
     let address = region.start
@@ -303,26 +301,22 @@ function scanRecords (memFd, regions, { chunk = 1 << 23, maxHits = 2000 } = {}) 
       }
       if (read >= 12) {
         for (const hit of recordsInBuffer(buffer.subarray(0, read), address)) {
-          const key = `${hit.salt}:${hit.spacing}:${hit.separation}:${hit.type}`
+          const key = `${hit.salt}:${hit.before}:${hit.spacing}:${hit.separation}:${hit.type}`
           if (seen.has(key)) continue
-          const strings = nearbyStrings(memFd, hit.at)
-          // A record is an object in the registry, and the registry names every
-          // set it holds, so a real record has a pointer to a namespaced
-          // identifier within a few words of it. Nothing else in the heap is
-          // shaped like that, which is what keeps this scan out of the noise: a
-          // bare (spacing, separation) pair shows up thousands of times.
-          if (!strings.some((entry) => entry.text.includes(':'))) {
-            // Keep a sample of what was dropped, so "the filter found nothing"
-            // can be told apart from "the pattern is wrong" in one run.
-            if (rejected.length < 40) {
-              rejected.push({ salt: hit.salt, spacing: hit.spacing, separation: hit.separation,
-                type: hit.type })
-            }
-            continue
-          }
+          // The names are not next to the numbers, and looking for them there
+          // only throws away real records: the strings that do turn up beside a
+          // shape hit are localized text, not identifiers. So every shape hit is
+          // kept and the name is settled later, by asking which set's `locate`
+          // answers the triple reproduces (tools/worldgen-algo/match-records.js).
           seen.add(key)
-          hit.window = decodeWindow(memFd, hit.at, 64)
-          hit.strings = strings
+          // Reading around a hit costs a syscall per word, so only the first few
+          // hundred carry the context: enough to inspect if the shape turns out
+          // to be pointing at the registry, cheap enough not to matter when it is
+          // not.
+          if (hits.length < annotate) {
+            hit.window = decodeWindow(memFd, hit.at, 64)
+            hit.strings = nearbyStrings(memFd, hit.at)
+          }
           hits.push(hit)
           if (hits.length >= maxHits) return hits
         }
@@ -330,7 +324,7 @@ function scanRecords (memFd, regions, { chunk = 1 << 23, maxHits = 2000 } = {}) 
       address += size
     }
   }
-  return { hits, rejected }
+  return hits
 }
 
 function decodeWindow (memFd, address, window) {
@@ -491,13 +485,25 @@ async function main () {
     // Pass three: every placement record in the process, by shape. This is the
     // measurement that does not need to know any salt in advance, so it finds the
     // sets whose numbers the packs do not state.
-    const recordScan = scanRecords(memFd, regions)
-    const records = recordScan.hits
+    const records = scanRecords(memFd, regions)
     report.records = records
-    report.recordsRejected = recordScan.rejected
-    console.log(`placement-shaped records: ${records.length}` +
-      ` (${recordScan.rejected.length} shape hits dropped for having no identifier nearby)`)
-    for (const record of records.slice(0, 60)) {
+    console.log(`placement-shaped records: ${records.length}`)
+    // Identify on the spot: the matching needs the captures, which are in the
+    // repository, and it keeps the committed artefact to the handful of triples
+    // that actually reproduce a set instead of tens of thousands of heap words
+    // that merely have the right shape.
+    const { identify } = require('./match-records')
+    const identified = identify(records)
+    report.matches = identified.matches
+    report.candidates = identified.candidates.length
+    report.narrowed = identified.narrowed
+    console.log(`${identified.candidates.length} records survive the spacing invariant ` +
+      `(${identified.narrowed.join(' ')}); ${identified.matches.length} reproduce a set`)
+    for (const match of identified.matches) {
+      console.log(`  MATCH ${match.id}: salt ${match.salt} ${match.spacing}/${match.separation} ` +
+        `${match.spreadType} -- ${match.hits}/${match.total} placed, ${match.exact} exact`)
+    }
+    for (const record of records.slice(0, 20)) {
       const names = (record.strings || []).map((entry) => entry.text).join(' ')
       console.log(`  salt ${record.salt} spacing ${record.spacing} ` +
         `separation ${record.separation} type ${record.type} @${record.at.toString(16)}` +
@@ -513,6 +519,10 @@ async function main () {
   }
 
   const file = path.join(absOut, 'memory.json')
+  // The windows and the raw candidate list are diagnostics, not findings: keep
+  // them in the run's artefacts and commit only what the run concluded.
+  fs.writeFileSync(path.join(absOut, 'memory-full.json'), JSON.stringify(report, null, 1))
+  report.records = (report.records || []).slice(0, 200)
   fs.writeFileSync(file, JSON.stringify(report, null, 1))
   console.log(`wrote ${file}: ${report.names.length} name hits, ${report.salts.length} salt hits`)
 }
