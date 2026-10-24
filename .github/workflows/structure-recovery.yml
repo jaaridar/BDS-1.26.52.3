@@ -33,7 +33,7 @@ permissions:
 # Serialised per ref, but the group carries a version so that a run stuck in a
 # long measurement cannot hold every later run behind it for two hours.
 concurrency:
-  group: structure-recovery-${{ github.ref }}-v2
+  group: structure-recovery-${{ github.ref }}-v3
   cancel-in-progress: false
 
 env:
@@ -239,6 +239,15 @@ jobs:
           python3 tools/binary-analysis/print-string-hits.py \
             "$EVIDENCE/structures/scan-json/scan.json" | tail -40
 
+      - name: Look for a table of placement records by its shape
+        run: |
+          # Half the resolvers take no salt, so a scan that requires a large
+          # number in the record cannot see their records at all. This one looks
+          # for the table instead: a run of records at a constant stride whose
+          # spacing, separation and spread type keep the same shape.
+          python3 tools/binary-analysis/scan-placement-tables.py --binary bedrock_server \
+            --out "$EVIDENCE/structures/scan-tables" | tail -30
+
       - name: Look for the placement constants as immediates
         run: |
           # Hypotheses, not assertions: if a salt survives, it has to survive
@@ -333,6 +342,7 @@ jobs:
             "$EVIDENCE/structures/scan-salts" "$EVIDENCE/structures/scan-records" \
             "$EVIDENCE/structures/scan-vtables" "$EVIDENCE/worldgen-data" \
             "$EVIDENCE/structures/scan-data" "$EVIDENCE/structures/scan-json" \
+            "$EVIDENCE/structures/scan-tables" \
             "$EVIDENCE/ghidra/lattice-structures" || true
           if git diff --cached --quiet; then echo 'no scan evidence'; exit 0; fi
           git config user.name 'github-actions[bot]'
