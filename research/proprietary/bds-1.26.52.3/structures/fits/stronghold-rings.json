@@ -1,0 +1,182 @@
+[
+  {
+    "engine": "java",
+    "distance": 8,
+    "spread": 0,
+    "base": 4,
+    "tolerance": 64,
+    "hits": 6,
+    "total": 12
+  },
+  {
+    "engine": "java",
+    "distance": 8,
+    "spread": 0,
+    "base": 6,
+    "tolerance": 64,
+    "hits": 6,
+    "total": 12
+  },
+  {
+    "engine": "java",
+    "distance": 8,
+    "spread": 1,
+    "base": 4,
+    "tolerance": 64,
+    "hits": 6,
+    "total": 12
+  },
+  {
+    "engine": "java",
+    "distance": 8,
+    "spread": 1,
+    "base": 6,
+    "tolerance": 64,
+    "hits": 6,
+    "total": 12
+  },
+  {
+    "engine": "java",
+    "distance": 8,
+    "spread": 1.5,
+    "base": 4,
+    "tolerance": 64,
+    "hits": 6,
+    "total": 12
+  },
+  {
+    "engine": "java",
+    "distance": 8,
+    "spread": 1.5,
+    "base": 6,
+    "tolerance": 64,
+    "hits": 6,
+    "total": 12
+  },
+  {
+    "engine": "java",
+    "distance": 8,
+    "spread": 2,
+    "base": 4,
+    "tolerance": 64,
+    "hits": 6,
+    "total": 12
+  },
+  {
+    "engine": "java",
+    "distance": 8,
+    "spread": 2,
+    "base": 6,
+    "tolerance": 64,
+    "hits": 6,
+    "total": 12
+  },
+  {
+    "engine": "java",
+    "distance": 8,
+    "spread": 2.5,
+    "base": 4,
+    "tolerance": 64,
+    "hits": 6,
+    "total": 12
+  },
+  {
+    "engine": "java",
+    "distance": 8,
+    "spread": 2.5,
+    "base": 6,
+    "tolerance": 64,
+    "hits": 6,
+    "total": 12
+  },
+  {
+    "engine": "java",
+    "distance": 8,
+    "spread": 3,
+    "base": 4,
+    "tolerance": 64,
+    "hits": 6,
+    "total": 12
+  },
+  {
+    "engine": "java",
+    "distance": 8,
+    "spread": 3,
+    "base": 6,
+    "tolerance": 64,
+    "hits": 6,
+    "total": 12
+  },
+  {
+    "engine": "java",
+    "distance": 12,
+    "spread": 0,
+    "base": 4,
+    "tolerance": 64,
+    "hits": 6,
+    "total": 12
+  },
+  {
+    "engine": "java",
+    "distance": 12,
+    "spread": 1,
+    "base": 4,
+    "tolerance": 64,
+    "hits": 6,
+    "total": 12
+  },
+  {
+    "engine": "java",
+    "distance": 12,
+    "spread": 1.5,
+    "base": 4,
+    "tolerance": 64,
+    "hits": 6,
+    "total": 12
+  },
+  {
+    "engine": "java",
+    "distance": 12,
+    "spread": 2,
+    "base": 4,
+    "tolerance": 64,
+    "hits": 6,
+    "total": 12
+  },
+  {
+    "engine": "java",
+    "distance": 12,
+    "spread": 2.5,
+    "base": 4,
+    "tolerance": 64,
+    "hits": 6,
+    "total": 12
+  },
+  {
+    "engine": "java",
+    "distance": 12,
+    "spread": 3,
+    "base": 4,
+    "tolerance": 64,
+    "hits": 6,
+    "total": 12
+  },
+  {
+    "engine": "mt",
+    "distance": 12,
+    "spread": 3,
+    "base": 4,
+    "tolerance": 64,
+    "hits": 5,
+    "total": 12
+  },
+  {
+    "engine": "java",
+    "distance": 16,
+    "spread": 0,
+    "base": 4,
+    "tolerance": 64,
+    "hits": 4,
+    "total": 12
+  }
+]

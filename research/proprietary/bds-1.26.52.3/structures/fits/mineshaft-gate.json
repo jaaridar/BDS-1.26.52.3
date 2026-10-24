@@ -1,0 +1,84 @@
+{
+  "minecraft:mineshaft": {
+    "model": "gate",
+    "captures": 24,
+    "separators": 0,
+    "best": [
+      {
+        "engine": "mt",
+        "formula": "add",
+        "salt": 0,
+        "draw": 2,
+        "mode": "unit",
+        "captures": 24,
+        "lowSeparates": false,
+        "highSeparates": false,
+        "acceptedMin": 0.19258614163845778,
+        "acceptedMax": 0.9854129855521023,
+        "rejectedMin": 0.000015702098608016968,
+        "rejectedMax": 0.9999953794758767,
+        "gap": -0.8074092378374189
+      },
+      {
+        "engine": "mt",
+        "formula": "large",
+        "salt": 0,
+        "draw": 1,
+        "mode": "unit",
+        "captures": 24,
+        "lowSeparates": false,
+        "highSeparates": false,
+        "acceptedMin": 0.11791838868521154,
+        "acceptedMax": 0.9887032653205097,
+        "rejectedMin": 0.0001103370450437069,
+        "rejectedMax": 0.9999342225492001,
+        "gap": -0.8820158338639885
+      },
+      {
+        "engine": "java",
+        "formula": "large",
+        "salt": 0,
+        "draw": 1,
+        "mode": "unit",
+        "captures": 24,
+        "lowSeparates": false,
+        "highSeparates": false,
+        "acceptedMin": 0.11791838868521154,
+        "acceptedMax": 0.9887032653205097,
+        "rejectedMin": 0.0001103370450437069,
+        "rejectedMax": 0.9999342225492001,
+        "gap": -0.8820158338639885
+      },
+      {
+        "engine": "mt",
+        "formula": "large",
+        "salt": 0,
+        "draw": 4,
+        "mode": "unit",
+        "captures": 24,
+        "lowSeparates": false,
+        "highSeparates": false,
+        "acceptedMin": 0.01501192431896925,
+        "acceptedMax": 0.8891838605049998,
+        "rejectedMin": 0.000005175592377781868,
+        "rejectedMax": 0.9999615049455315,
+        "gap": -0.889178684912622
+      },
+      {
+        "engine": "java",
+        "formula": "large",
+        "salt": 0,
+        "draw": 4,
+        "mode": "unit",
+        "captures": 24,
+        "lowSeparates": false,
+        "highSeparates": false,
+        "acceptedMin": 0.01501192431896925,
+        "acceptedMax": 0.8891838605049998,
+        "rejectedMin": 0.000005175592377781868,
+        "rejectedMax": 0.9999615049455315,
+        "gap": -0.889178684912622
+      }
+    ]
+  }
+}

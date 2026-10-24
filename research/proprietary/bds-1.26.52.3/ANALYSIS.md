@@ -882,3 +882,31 @@ Notes that cost time and should not be re-derived:
   cell containing a reported chunk is not necessarily the cell that produced it.
 * Pack-driven sets report the jigsaw structure's origin block, which is the
   placement chunk or up to a few chunks away along the structure.
+
+### 6.1 The fitting harness, and the two sets it cannot place
+
+`tools/worldgen-algo/fit-placement.js` searches the model space (engine x seed
+formula x spread x band x salt) and reports *every* combination that reproduces
+all captures. All eight `mt` sets come back with exactly one perfect
+combination, so the table is identified rather than fitted: no other band, salt,
+engine or spread reproduces them.
+
+`--model gate` and `--model modzero` attack `mineshaft`, which is a per-chunk
+set. Both fail, and the failures are informative:
+
+* threshold gate: zero separating thresholds over draw indices 0-4, three seed
+  families (`add`, `xor`, `setLargeFeatureSeed`), both engines, walking the
+  resolver's ring order from each capture's origin and collecting every rejected
+  chunk. A sparse gate cannot be separated by a cut when thousands of rejected
+  values cover the unit interval.
+* modulo gate (`raw % k == 0`, k up to 512): no k accepts all 24 answers.
+
+So the mineshaft decision is not a draw from the chunk's own placement stream;
+it is the biome/height check, which is not modelled yet.
+
+`tools/worldgen-algo/fit-strongholds.js` does the same job for the ring
+algorithm: it prints the observed radius/angle of every nearest stronghold and
+scores a parameterized concentric-ring model over engine, ring base, distance,
+spread and relocation tolerance. The best model explains 6 of 12 captures at a
+tolerance of 64 chunks, which is chance; the ring enumeration in
+`StrongholdFeature::vslot5`/`vslot6` is what is still needed.

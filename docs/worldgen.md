@@ -43,6 +43,15 @@ node tools/worldgen-algo/pack-structure-sets.js
 # table in this document is this command's output)
 node tools/worldgen-algo/verify-placements.js
 
+# fit the placement model itself: engine x seed formula x spread x band x salt,
+# reporting every band that reproduces *all* captures (uniqueness, not a guess)
+node tools/worldgen-algo/fit-placement.js --all
+
+# the two models that are not grids: per-chunk gates and stronghold rings
+node tools/worldgen-algo/fit-placement.js --id mineshaft --model gate
+node tools/worldgen-algo/fit-placement.js --id mineshaft --model modzero
+node tools/worldgen-algo/fit-strongholds.js
+
 # score the model against every captured locate answer, per structure set
 node tools/worldgen-algo/fit-placements.js --verbose
 
@@ -152,6 +161,88 @@ The band numbers also settle an old question. `village`, `monument`,
 `pillager_outpost` does not (80 / 24, not 32 / 8); `ruined_portal` keeps Java's
 grid but not its salt (`0x26ac727`, not Java's 34222645).
 
+### The fitting harness
+
+`tools/worldgen-algo/fit-placement.js` is the tool that produced the table, and
+its shape is the point: it searches the *model space*, not just the numbers.
+
+| axis | values searched | why |
+|---|---|---|
+| engine | `mt` (MT19937), `java` (48-bit LCG) | the binary has both resolvers |
+| seed formula | additive, xor, `setLargeFeatureSeed` | three mixes appear in different resolvers |
+| spread | linear, triangular | `spread_type` is per set |
+| band | spacing 4..128 x every separation | not trusted from Java |
+| salt | the binary's value, plus any `--salt` list | the one number read statically |
+
+For a set with captures it prints `unique perfect band` when exactly one
+combination reproduces every capture, or lists all of them when it is ambiguous.
+All eight `mt` sets come back unique; the tool would say so if they did not. The
+same search is what refuted the earlier hypotheses, so it is also the regression
+test for them:
+
+```
+node tools/worldgen-algo/fit-placement.js --all
+minecraft:village            unique perfect band  mt/add 34/8 salt 10387312 triangular
+minecraft:pillager_outpost   unique perfect band  mt/add 80/24 salt 165745296 triangular
+minecraft:monument           unique perfect band  mt/add 32/5 salt 10387313 triangular
+minecraft:mansion            unique perfect band  mt/add 80/20 salt 10387319 triangular
+minecraft:shipwreck          unique perfect band  mt/add 24/4 salt 165745295 linear
+minecraft:buried_treasure    unique perfect band  mt/add 4/2 salt 16842397 triangular
+minecraft:ruined_portal      unique perfect band  mt/add 40/15 salt 40552231 linear
+minecraft:ancient_city       unique perfect band  mt/add 24/8 salt 20083232 triangular
+minecraft:trail_ruins        no perfect band   (9/27: the jigsaw-origin convention)
+minecraft:trial_chambers     no perfect band   (24/27 within one chunk)
+minecraft:mineshaft          no perfect band   (not a grid: see below)
+minecraft:stronghold         no perfect band   (not a grid: see below)
+```
+
+The JSON of each run is kept under
+`research/proprietary/bds-1.26.52.3/structures/fits/`, so the numbers in this
+document can be checked without re-running the search.
+
+### The two sets that are not on the grid
+
+Both are open, and both are open *for a measured reason* rather than for want of
+trying.
+
+**`mineshaft`** is a per-chunk set (`spacing 1, separation 0`): every chunk is a
+candidate and something decides. The harness tests both shapes such a decision
+can take:
+
+* a threshold on a draw -- `accept if draw < t` (or `> t`), for draw indices 0-4,
+  three seed families, both engines. It walks the resolver's ring order from each
+  capture's origin and collects the values of every chunk the search had to
+  reject. Result: **zero separating thresholds**. The reason is arithmetic: with
+  thousands of rejected chunks the rejected values cover the whole unit
+  interval, so no cut can separate them from 24 accepted values unless the gate
+  is much sparser than a uniform draw allows -- which is itself the answer.
+* a `raw % k == 0` gate for every k up to 512, same families and draws. Result:
+  **no k accepts all 24 answers**, so the gate is not a modulo test either.
+
+What is left is a condition that is not a function of the chunk's own placement
+stream, i.e. the biome/height check, which is the same reason the grid sets are
+only exact at the chunk level. `mineshaft` therefore waits on the biome layer.
+
+**`stronghold`** uses the concentric-ring algorithm, not a grid, so the grid
+harness is silent about it. `tools/worldgen-algo/fit-strongholds.js` measures the
+shape of the data instead:
+
+```
+seed  chunk     blocks        radius(chunks)  angle(deg)
+1     66,76     1058,1218     100.7            49.0
+2     -20,-55   -318,-878      58.5          -110.0
+7     -20,43    -318,690       47.4           114.9
+12    41,-199    658,-3182    203.2           -78.4
+```
+
+The nearest stronghold to the origin is 47-203 chunks out, which already
+contradicts Java's first ring (128 chunks +/- 20). A parameterized ring model
+(java/MT engine, base 4 or 6 rings, distance 8-64, spread 0-3, tolerance 7-64
+chunks) explains at best 6 of 12 captures, i.e. chance. The harness prints the
+tolerance it needed, so "fits with a huge tolerance" cannot be mistaken for a
+fit. Cracking this needs the ring enumeration itself (`StrongholdFeature::vslot5`
+/ `vslot6`), which is next.
+
 ### The two engines
 
 `d2d2570` and `d2d2c60` are two placement resolvers, and they take different
@@ -210,10 +301,14 @@ virtual address, so the static side of this work can be repeated from a checkout
 - **Six sets still have no measured row**: ocean ruins, desert pyramids, jungle
   temples, witch huts, igloos, abandoned camps. Their shape is known
   (`placeholder` rows say so) and nothing pretends otherwise.
-- **`mineshaft` and `stronghold` are not grids at all.** Mineshafts are a
-  per-chunk frequency gate whose threshold is not recovered; strongholds use ring
-  placement, and the captures already contradict Java's ring radii
-  (nearest stronghold 47-203 chunks out in 12 captures).
+- **`mineshaft` and `stronghold` are not grids at all, and both are still open.**
+  Mineshafts are a per-chunk decision, and the harness has refuted every
+  draw-based shape of it (threshold and modulo, three seed families, both
+  engines), which points at the biome/height check rather than a new random.
+  Strongholds use concentric rings; the captures contradict Java's ring radii
+  (nearest stronghold 47-203 chunks out) and no parameterized ring model in the
+  family the harness searches explains them. Both need work that this repository
+  cannot fake: biomes for one, the ring enumeration for the other.
 - **A set's reported position is not always its placement chunk.** For the
   pack-driven sets it is the structure's own origin block, which can sit one
   chunk back on either axis (and further, along a corridor). The model reports
