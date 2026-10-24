@@ -75,12 +75,23 @@ function explain (placement, observations) {
   return { hits, exact }
 }
 
-/** Every chunk of every capture sits inside the cell's laid-out offsets. */
+/**
+ * Could this pair have produced every capture?
+ *
+ * A start chunk is `cell * spacing + offset`, `offset < span`, so the residue
+ * `chunk mod spacing` must be below the span -- except that the reported origin
+ * can sit one chunk *before* the placement chunk, which is the `spacing - 1`
+ * residue. That one-chunk slack is measured, not assumed: with the known
+ * trail_ruins numbers (34/8) the residuals are 0 or 1 in each axis, and without
+ * the slack the true pair fails this test.
+ */
 function possible (spacing, separation, observations) {
   const span = spacing - separation
   for (const row of observations) {
-    if (mod(floorDiv(row.block[0], 16), spacing) >= span) return false
-    if (mod(floorDiv(row.block[1], 16), spacing) >= span) return false
+    const rx = mod(floorDiv(row.block[0], 16), spacing)
+    const rz = mod(floorDiv(row.block[1], 16), spacing)
+    if (rx >= span && rx !== spacing - 1) return false
+    if (rz >= span && rz !== spacing - 1) return false
   }
   return true
 }

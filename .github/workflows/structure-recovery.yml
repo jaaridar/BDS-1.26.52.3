@@ -347,11 +347,11 @@ jobs:
 
       - name: Publish the slices and disassemble the reference sites
         run: |
-          # Kept in a script so it can be run by hand against a local binary too,
-          # and so its own log lands in the repository: job logs are not reachable
-          # from every environment that does this analysis, and a step that pipes
-          # into tail used to report tail's status.
-          bash tools/binary-analysis/publish-and-disassemble.sh ./bedrock_server
+          # Only the slices are published here -- no disassembler runs in CI.
+          # Capstone is available where the analysis is done, so the disassembly
+          # can happen against the committed slices, and the step that has to work
+          # on every run keeps no external dependency at all.
+          bash tools/binary-analysis/publish-slices.sh ./bedrock_server
 
       - name: Map reference sites to function starts
         run: |
