@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-24T13:24:11.850Z",
-  "durationMs": 4042,
+  "generatedAt": "2026-10-24T13:27:27.857Z",
+  "durationMs": 4265,
   "binary": {
     "sha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
     "bytes": 256133808
@@ -12,7 +12,7 @@
   "results": [
     {
       "probe": "help",
-      "raw": "current connection type is not set to NetherNet. In this release, NetherNet is the only supported transport type.\n[2026-10-24 13:24:09:015 ERROR] Players will not be able to connect to your game without NetherNet.\n[2026-10-24 13:24:09:015 ERROR] \n[2026-10-24 13:24:09:015 ERROR] To switch, set 'transport=nethernet' in server.properties.\n[2026-10-24 13:24:09:015 ERROR] \n[2026-10-24 13:24:09:015 ERROR] For more information, please reference the included bedrock_server_how_to.html file.\n[2026-10-24 13:24:09:015 ERROR] =======================================================\n[2026-10-24 13:24:09:015 INFO] ================ TELEMETRY MESSAGE ===================\n[2026-10-24 13:24:09:015 INFO] Server Telemetry is currently not enabled. \n[2026-10-24 13:24:09:015 INFO] Enabling this telemetry helps us improve the game.\n[2026-10-24 13:24:09:015 INFO] \n[2026-10-24 13:24:09:015 INFO] To enable this feature, add the line 'emit-server-telemetry=true'\n[2026-10-24 13:24:09:015 INFO] to the server.properties file in the handheld/src-server directory\n[2026-10-24 13:24:09:015 INFO] ======================================================\n[2026-10-24 13:24:09:135 INFO] Game rule sendcommandfeedback has been updated to true\n[2026-10-24 13:24:09:567 INFO] §elocate:\n§eDisplays the coordinates for the closest structure or biome of a given type.\nUsage:\n- /locate <feature: string> [useNewChunksOnly: Boolean]\n- /locate biome <biome: Biome>\n- /locate structure <structure: string> [useNewChunksOnly: Boolean]\n"
+      "raw": "current connection type is not set to NetherNet. In this release, NetherNet is the only supported transport type.\n[2026-10-24 13:27:24:948 ERROR] Players will not be able to connect to your game without NetherNet.\n[2026-10-24 13:27:24:948 ERROR] \n[2026-10-24 13:27:24:948 ERROR] To switch, set 'transport=nethernet' in server.properties.\n[2026-10-24 13:27:24:948 ERROR] \n[2026-10-24 13:27:24:948 ERROR] For more information, please reference the included bedrock_server_how_to.html file.\n[2026-10-24 13:27:24:948 ERROR] =======================================================\n[2026-10-24 13:27:24:948 INFO] ================ TELEMETRY MESSAGE ===================\n[2026-10-24 13:27:24:948 INFO] Server Telemetry is currently not enabled. \n[2026-10-24 13:27:24:948 INFO] Enabling this telemetry helps us improve the game.\n[2026-10-24 13:27:24:948 INFO] \n[2026-10-24 13:27:24:948 INFO] To enable this feature, add the line 'emit-server-telemetry=true'\n[2026-10-24 13:27:24:948 INFO] to the server.properties file in the handheld/src-server directory\n[2026-10-24 13:27:24:948 INFO] ======================================================\n[2026-10-24 13:27:25:192 INFO] Game rule sendcommandfeedback has been updated to true\n[2026-10-24 13:27:25:599 INFO] §elocate:\n§eDisplays the coordinates for the closest structure or biome of a given type.\nUsage:\n- /locate <feature: string> [useNewChunksOnly: Boolean]\n- /locate biome <biome: Biome>\n- /locate structure <structure: string> [useNewChunksOnly: Boolean]\n"
     },
     {
       "command": "execute positioned 0 64 0 run locate structure trail_ruins",
@@ -29,7 +29,7 @@
         -989
       ],
       "chunksAway": null,
-      "raw": "[2026-10-24 13:24:11:127 INFO] The nearest minecraft:trail_ruins is at block -989, (y?), -989 (1398 blocks away)"
+      "raw": "[2026-10-24 13:27:27:172 INFO] The nearest minecraft:trail_ruins is at block -989, (y?), -989 (1398 blocks away)"
     },
     {
       "command": "execute positioned 0 64 0 run locate structure village",
@@ -46,7 +46,7 @@
         808
       ],
       "chunksAway": null,
-      "raw": "[2026-10-24 13:24:11:323 INFO] The nearest minecraft:village is at block 152, (y?), 808 (822 blocks away)"
+      "raw": "[2026-10-24 13:27:27:356 INFO] The nearest minecraft:village is at block 152, (y?), 808 (822 blocks away)"
     }
   ]
 }
