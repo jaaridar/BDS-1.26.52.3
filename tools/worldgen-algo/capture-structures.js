@@ -260,6 +260,11 @@ async function main () {
     durationMs: Date.now() - started,
     binary: { sha256: binarySha, bytes: fs.statSync(binaryPath).size },
     seed: args.seed,
+    // The capture has to describe itself: which identifiers were asked for, and
+    // from where. A fit against a capture whose identifier set is only in the
+    // directory name cannot be replayed from the file alone.
+    ids: args.ids,
+    origins: args.from,
     results
   }, null, 2))
   console.log(`wrote ${path.join(absOut, 'structures.json')} (${results.length} probes)`)
