@@ -23,6 +23,7 @@
 
 const { PLACEMENTS, PLACEMENT_SOURCE } = require('./structures-data')
 const { candidateStarts } = require('./structure-placement')
+const { strongholdInCell, CELL: STRONGHOLD_CELL } = require('./stronghold')
 
 const STATUS = {
   confirmed: 'confirmed',
@@ -44,11 +45,35 @@ function structuresNear (seed, { x = 0, z = 0, radiusChunks = 256, only = null }
   for (const placement of Object.values(PLACEMENTS)) {
     if (only && !only.includes(placement.id) && !only.includes(placement.id.replace('minecraft:', ''))) continue
     if (!placement.spacing) {
+      // Strongholds are the one set with its own placement code: a 200-chunk
+      // cell grid whose cells carry one stronghold each, at the grid position
+      // for a gated quarter of them and relocated otherwise.
+      const cells = []
+      const reach = Math.ceil(radiusChunks / STRONGHOLD_CELL) + 1
+      const baseCellX = Math.floor(chunkX / STRONGHOLD_CELL)
+      const baseCellZ = Math.floor(chunkZ / STRONGHOLD_CELL)
+      for (let dz = -reach; dz <= reach; dz++) {
+        for (let dx = -reach; dx <= reach; dx++) {
+          const stronghold = strongholdInCell(seed, baseCellX + dx, baseCellZ + dz)
+          const distance = Math.hypot(stronghold.blockX - x, stronghold.blockZ - z)
+          if (distance > radiusChunks * 16) continue
+          cells.push({ ...stronghold, distance })
+        }
+      }
+      cells.sort((a, b) => a.distance - b.distance)
       out.push({
         id: placement.id,
-        status: 'not modelled',
-        note: 'ring placement (strongholds) has not been recovered yet',
-        candidates: []
+        status: 'measured',
+        note: '200-chunk cells, one stronghold each; the grid position is exact for the ' +
+          'quarter of cells whose gate draw is below 0.25, the rest are relocated by the ' +
+          'generator and need the biome layer',
+        candidates: cells.map((cell) => ({
+          block: [cell.blockX, cell.blockZ],
+          chunk: [cell.chunkX, cell.chunkZ],
+          cell: [cell.cellX, cell.cellZ],
+          distance: Math.round(cell.distance),
+          onGrid: cell.onGrid
+        }))
       })
       continue
     }
@@ -93,8 +118,9 @@ function formatReport (report) {
   }
   lines.push('')
   lines.push('not modelled yet: terrain height and blocks, biome assignment, surface rules,')
-  lines.push('stronghold rings, and the per-structure biome/height checks that decide whether')
-  lines.push('a candidate start actually becomes a structure.')
+  lines.push('the relocation of strongholds whose cell is not on the grid, and the')
+  lines.push('per-structure biome/height checks that decide whether a candidate start')
+  lines.push('actually becomes a structure.')
   lines.push('')
   lines.push(`placement data: ${PLACEMENT_SOURCE.measured}`)
   return lines.join('\n')

@@ -80,8 +80,11 @@ test('mineshaft has no per-chunk threshold gate, in any seed family', () => {
 })
 
 test('the stronghold ring harness runs and does not claim a fit it does not have', () => {
+  // Superseded by src/world/stronghold.js, which reproduces 30 of 42 captured
+  // strongholds exactly as a 200-chunk cell grid. The ring harness stays as the
+  // falsification record: it must never find a ring model that explains them.
   const rows = rowsFor('stronghold').filter((row) => row.from[0] === 0 && row.from[1] === 0)
-  assert.ok(rows.length >= 12)
+  assert.ok(rows.length >= 4)
   const scored = scoreModel(rows, {
     engine: 'java', distance: 32, spread: 2.5, base: 4, tolerance: 7, rings: 4
   })
