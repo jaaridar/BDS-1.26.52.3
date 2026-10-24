@@ -1,5 +1,5 @@
-# _Unwind_Resume (disassembly)
+# FUN_04862b40 (disassembly)
 
 ```
-0eee2d70  JMP qword ptr [0x0f546450]
+04862b40  RET
 ```

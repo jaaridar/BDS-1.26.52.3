@@ -1,21 +1,27 @@
-# FUN_04fd3a62
+# FUN_0d228c00
 
-- entry: `0x4fd3a62`
-- body size: 42 bytes
+- entry: `0xd228c00`
+- body size: 9 bytes
 - callers: (none in the analysed set)
 
 ```c
 
-void FUN_04fd3a62(void)
+void FUN_0d228c00(void)
 
 {
-  ulong in_stack_00000020;
-  undefined8 in_stack_00000030;
+  char *pcVar1;
+  char in_AL;
+  char cVar2;
+  undefined7 in_register_00000001;
+  char unaff_BL;
+  undefined7 unaff_00000019;
+  char in_CF;
   
-  func_0x0412a280();
-  if ((in_stack_00000020 & 1) != 0) {
-    func_0x0412a280(in_stack_00000030,in_stack_00000020 & 0xfffffffffffffffe);
-  }
+  cVar2 = in_AL + in_CF;
+  *(char *)CONCAT71(in_register_00000001,cVar2) =
+       *(char *)CONCAT71(in_register_00000001,cVar2) + cVar2;
+  pcVar1 = (char *)(CONCAT71(unaff_00000019,unaff_BL) + 0x41);
+  *pcVar1 = *pcVar1 + unaff_BL;
   return;
 }
 

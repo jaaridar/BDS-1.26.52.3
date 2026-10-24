@@ -1,100 +1,47 @@
-# FUN_04fcf220
+# FUN_04fc0b90
 
-- entry: `0x4fcf220`
-- body size: 328 bytes
-- callers: `FUN_04fd3c93`, `FUN_04fd3eb0`, `FUN_04fd4060`
+- entry: `0x4fc0b90`
+- body size: 100 bytes
+- callers: `FUN_04fbffb0`
 
 ```c
 
-/* WARNING: Possible PIC construction at 0x04fcf349: Changing call to branch */
-/* WARNING: Possible PIC construction at 0x04fcf2ac: Changing call to branch */
-/* WARNING: Removing unreachable block (ram,0x04fcf34e) */
-/* WARNING: Removing unreachable block (ram,0x04fcf35c) */
-/* WARNING: Removing unreachable block (ram,0x04fcf2b1) */
-/* WARNING: Removing unreachable block (ram,0x04fcf2b9) */
+/* WARNING: Possible PIC construction at 0x04fc0be2: Changing call to branch */
+/* WARNING: Removing unreachable block (ram,0x04fc0be7) */
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void FUN_04fcf220(long param_1)
+long FUN_04fc0b90(long *param_1)
 
 {
-  long *plVar1;
+  code *pcVar1;
   long lVar2;
-  long *plVar3;
-  long lVar4;
-  long lVar5;
+  long lVar3;
+  undefined8 auStack_20 [2];
   
-  lVar2 = *(long *)(param_1 + 0x88);
-  if (lVar2 != 0) {
-    lVar5 = *(long *)(param_1 + 0x90);
-    lVar4 = lVar2;
-    if (lVar2 != lVar5) {
-      do {
-        plVar3 = *(long **)(lVar5 + -8);
-        if (plVar3 != (long *)0x0) {
-          LOCK();
-          plVar1 = plVar3 + 1;
-          lVar4 = *plVar1;
-          *plVar1 = *plVar1 + -1;
-          UNLOCK();
-          if (lVar4 == 0) {
-            (**(code **)(*plVar3 + 0x10))(plVar3);
-            goto SUB_0412c2d0;
-          }
-        }
-        if ((*(byte *)(lVar5 + -0x30) & 1) != 0) {
-          func_0x0412a280(*(undefined8 *)(lVar5 + -0x20),
-                          *(ulong *)(lVar5 + -0x30) & 0xfffffffffffffffe);
-        }
-        lVar5 = lVar5 + -0x38;
-      } while (lVar5 != lVar2);
-      lVar4 = *(long *)(param_1 + 0x88);
-    }
-    *(long *)(param_1 + 0x90) = lVar2;
-    func_0x0412a280(lVar4,*(long *)(param_1 + 0x98) - lVar4);
-  }
-  plVar3 = *(long **)(param_1 + 0x68);
-  if (plVar3 != (long *)0x0) {
-    LOCK();
-    plVar1 = plVar3 + 1;
-    lVar2 = *plVar1;
-    *plVar1 = *plVar1 + -1;
-    UNLOCK();
-    if (lVar2 == 0) {
-      (**(code **)(*plVar3 + 0x10))(plVar3);
-      goto SUB_0412c2d0;
-    }
-  }
-  FUN_04167a40(param_1 + 0x38);
-  if ((*(byte *)(param_1 + 0x18) & 1) != 0) {
-    func_0x0412a280(*(undefined8 *)(param_1 + 0x28),*(ulong *)(param_1 + 0x18) & 0xfffffffffffffffe)
-    ;
-  }
-  plVar3 = *(long **)(param_1 + 8);
-  if (plVar3 != (long *)0x0) {
-    LOCK();
-    plVar1 = plVar3 + 1;
-    lVar2 = *plVar1;
-    *plVar1 = *plVar1 + -1;
-    UNLOCK();
-    if (lVar2 == 0) {
-      (**(code **)(*plVar3 + 0x10))(plVar3);
-SUB_0412c2d0:
-      if (plVar3[2] != 0) {
-        LOCK();
-        plVar1 = plVar3 + 2;
-        lVar2 = *plVar1;
-        *plVar1 = *plVar1 + -1;
-        UNLOCK();
-        if (lVar2 != 0) {
-          return;
-        }
+  lVar3 = param_1[2];
+  do {
+    lVar2 = lVar3;
+    if (param_1[1] == lVar2) {
+      lVar3 = *param_1;
+      if (lVar3 == 0) {
+        return lVar2;
       }
-                    /* WARNING: Could not recover jumptable at 0x0412c2ef. Too many branches */
-                    /* WARNING: Treating indirect jump as call */
-      (**(code **)(*plVar3 + 0x20))();
-      return;
+      goto SUB_0412a280;
     }
+    param_1[2] = lVar2 + -0x28;
+    lVar3 = lVar2 + -0x28;
+  } while ((*(byte *)(lVar2 + -0x20) & 1) == 0);
+  lVar3 = *(long *)(lVar2 + -0x10);
+  register0x00000020 = (BADSPACEBASE *)auStack_20;
+  auStack_20[0] = 0x4fc0be7;
+SUB_0412a280:
+  *(long *)((long)register0x00000020 + -8) = lVar2;
+  if (lVar3 != 0) {
+    pcVar1 = *(code **)(_DAT_0f5463b0 + 0x18);
+    *(undefined8 *)((long)register0x00000020 + -0x10) = 0xee326ba;
+    (*pcVar1)(&DAT_0f5463b0,lVar3);
   }
-  return;
+  return *(long *)((long)register0x00000020 + -8);
 }
 
 

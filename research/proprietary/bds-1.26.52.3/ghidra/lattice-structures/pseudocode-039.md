@@ -1,30 +1,27 @@
-# FUN_048655b0
+# FUN_0412d680
 
-- entry: `0x48655b0`
-- body size: 117 bytes
-- callers: `FUN_04e84570`, `FUN_04fbbda0`
+- entry: `0x412d680`
+- body size: 27 bytes
+- callers: `FUN_0412d450`, `FUN_0412d520`, `FUN_0412d550`, `FUN_0412d610`, `FUN_04e5fb80`, `FUN_04fbc500`, `FUN_0eeb79f0`, `FUN_0eec09c0`, `FUN_0eee07b0`
 
 ```c
 
-undefined8 FUN_048655b0(undefined8 param_1,long *param_2)
+undefined8 FUN_0412d680(void)
 
 {
-  long lStack_10;
+  code *pcVar1;
+  int iVar2;
+  undefined8 in_RAX;
+  undefined8 uVar3;
   
-  if ((char)param_2[1] == '\a') {
-    if (*param_2 != 0) {
-      lStack_10 = *param_2 + 8;
-      func_0x04862ce0(param_1,&lStack_10);
-      return param_1;
-    }
+  iVar2 = func_0x0eee2d30();
+  if (iVar2 == 0) {
+    return in_RAX;
   }
-  else if (((char)param_2[1] == '\x06') && (*param_2 != 0)) {
-    lStack_10 = *(long *)(*param_2 + 8);
-    func_0x04862cf0(param_1,&lStack_10);
-    return param_1;
-  }
-  func_0x04862cd0(param_1);
-  return param_1;
+  func_0x0412e520(iVar2,&UNK_0133d1cb);
+  pcVar1 = (code *)swi(3);
+  uVar3 = (*pcVar1)();
+  return uVar3;
 }
 
 

@@ -1,16 +1,15 @@
-# pthread_mutex_unlock
+# FUN_04865420
 
-- entry: `0x412d6b0`
-- body size: 5 bytes
-- callers: `FUN_0412d450`, `FUN_0412d520`, `FUN_0412d550`, `FUN_0412d610`, `FUN_04fbffa0`, `FUN_0b63cba0`, `FUN_0eeb79f0`, `FUN_0eec09c0`
+- entry: `0x4865420`
+- body size: 8 bytes
+- callers: `FUN_04e7ecf0`
 
 ```c
 
-void pthread_mutex_unlock(void)
+bool FUN_04865420(long param_1)
 
 {
-  (*(code *)PTR_pthread_mutex_unlock_0f546448)();
-  return;
+  return *(char *)(param_1 + 8) == '\x01';
 }
 
 

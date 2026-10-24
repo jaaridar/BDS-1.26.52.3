@@ -1,11 +1,5 @@
-# FUN_04864290 (disassembly)
+# memmove (disassembly)
 
 ```
-04864290  MOVZX EAX,byte ptr [RDI + 0x8]
-04864294  TEST AL,AL
-04864296  SETZ CL
-04864299  CMP AL,0x7
-0486429b  SETZ AL
-0486429e  OR AL,CL
-048642a0  RET
+0eee2ee0  JMP qword ptr [0x0f546508]
 ```

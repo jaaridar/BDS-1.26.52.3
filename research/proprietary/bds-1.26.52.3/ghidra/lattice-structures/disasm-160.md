@@ -1,0 +1,43 @@
+# FUN_0c455d80 (disassembly)
+
+```
+0c455d80  PUSH RBX
+0c455d81  SUB RSP,0x20
+0c455d85  XOR EAX,EAX
+0c455d87  TEST EDX,EDX
+0c455d89  CMOVLE EDX,EAX
+0c455d8c  MOV RBX,RDI
+0c455d8f  MOV byte ptr [RDI + 0x22],DL
+0c455d92  CMP qword ptr [RDI + 0x18],0x0
+0c455d97  JNZ 0x0c455da3
+0c455d99  TEST CX,CX
+0c455d9c  CMOVG EAX,ECX
+0c455d9f  MOV word ptr [RBX + 0x20],AX
+0c455da3  MOVZX EDX,R8B
+0c455da7  MOV RDI,RBX
+0c455daa  CALL 0x0c456010
+0c455daf  CALL 0x0417cc60
+0c455db4  MOV qword ptr [RBX + 0x28],RAX
+0c455db8  CMP byte ptr [RBX + 0x22],0x0
+0c455dbc  JZ 0x0c455dc4
+0c455dbe  ADD RSP,0x20
+0c455dc2  POP RBX
+0c455dc3  RET
+0c455dc4  MOV byte ptr [RSP],0x0
+0c455dc8  MOV byte ptr [RSP + 0x18],0x0
+0c455dcd  MOV RAX,qword ptr [RBX]
+0c455dd0  MOV RSI,RSP
+0c455dd3  MOV RDI,RBX
+0c455dd6  CALL qword ptr [RAX + 0x28]
+0c455dd9  CMP byte ptr [RSP + 0x18],0x1
+0c455dde  JNZ 0x0c455dbe
+0c455de0  TEST byte ptr [RSP],0x1
+0c455de4  JZ 0x0c455dbe
+0c455de6  MOV RSI,qword ptr [RSP]
+0c455dea  MOV RDI,qword ptr [RSP + 0x10]
+0c455def  AND RSI,-0x2
+0c455df3  CALL 0x0412a280
+0c455df8  ADD RSP,0x20
+0c455dfc  POP RBX
+0c455dfd  RET
+```

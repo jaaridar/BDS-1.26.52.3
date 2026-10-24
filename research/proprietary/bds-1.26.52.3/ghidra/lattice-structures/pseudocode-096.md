@@ -1,27 +1,23 @@
-# FUN_0412d680
+# FUN_04931450
 
-- entry: `0x412d680`
-- body size: 27 bytes
-- callers: `FUN_0412d450`, `FUN_0412d520`, `FUN_0412d550`, `FUN_0412d610`, `FUN_0b63cba0`, `FUN_0eeb79f0`, `FUN_0eec09c0`
+- entry: `0x4931450`
+- body size: 48 bytes
+- callers: `FUN_09cba670`, `FUN_0c450a10`, `FUN_0c8fa2a0`, `FUN_0d6bd5f0`
 
 ```c
 
-undefined8 FUN_0412d680(void)
+void FUN_04931450(void)
 
 {
   code *pcVar1;
-  int iVar2;
-  undefined8 in_RAX;
-  undefined8 uVar3;
+  undefined8 *puVar2;
   
-  iVar2 = func_0x0eee2d30();
-  if (iVar2 == 0) {
-    return in_RAX;
-  }
-  func_0x0412e520(iVar2,&UNK_0133d1cb);
+  puVar2 = (undefined8 *)FUN_041086b0(8);
+  *puVar2 = &UNK_0eef04d0;
+  FUN_041088a0(puVar2,&UNK_0eef04e8,&UNK_0412a380);
   pcVar1 = (code *)swi(3);
-  uVar3 = (*pcVar1)();
-  return uVar3;
+  (*pcVar1)();
+  return;
 }
 
 

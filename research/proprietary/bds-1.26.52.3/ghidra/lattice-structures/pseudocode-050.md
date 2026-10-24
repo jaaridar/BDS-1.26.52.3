@@ -1,40 +1,52 @@
-# FUN_0412e5e0
+# FUN_04e61210
 
-- entry: `0x412e5e0`
-- body size: 119 bytes
-- callers: `FUN_04909a40`, `FUN_04e84570`, `FUN_04fbbda0`
+- entry: `0x4e61210`
+- body size: 95 bytes
+- callers: `FUN_04e5fb80`
 
 ```c
 
-void FUN_0412e5e0(long *param_1,undefined8 param_2,ulong param_3)
+/* WARNING: Possible PIC construction at 0x04e6124c: Changing call to branch */
+/* WARNING: Removing unreachable block (ram,0x04e61251) */
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined8 FUN_04e61210(long *param_1)
 
 {
-  code *pcVar1;
-  long lVar2;
-  char *pcVar3;
+  long lVar1;
+  code *pcVar2;
+  undefined8 in_RAX;
+  long lVar3;
+  long lVar4;
+  undefined8 uStack_20;
   
-  if (param_3 < 0x17) {
-    *(char *)param_1 = (char)param_3 * '\x02';
-    pcVar3 = (char *)((long)param_1 + 1);
+  lVar1 = *param_1;
+  if (lVar1 == 0) {
+    return in_RAX;
   }
-  else {
-    if (0xfffffffffffffff7 < param_3) {
-      FUN_04882e30();
-      pcVar1 = (code *)swi(3);
-      (*pcVar1)();
-      return;
-    }
-    lVar2 = 0x1a;
-    if ((param_3 | 7) != 0x17) {
-      lVar2 = (param_3 | 7) + 1;
-    }
-    pcVar3 = (char *)FUN_0ee32660(lVar2);
-    param_1[2] = (long)pcVar3;
-    *param_1 = lVar2 + 1;
-    param_1[1] = param_3;
+  lVar4 = param_1[1];
+  lVar3 = lVar1;
+  if (lVar1 != lVar4) {
+    do {
+      if ((*(byte *)(lVar4 + -0x20) & 1) != 0) {
+        lVar3 = *(long *)(lVar4 + -0x10);
+        register0x00000020 = (BADSPACEBASE *)&uStack_20;
+        uStack_20 = 0x4e61251;
+        goto SUB_0412a280;
+      }
+      lVar4 = lVar4 + -0x28;
+    } while (lVar4 != lVar1);
+    lVar3 = *param_1;
   }
-  (*(code *)PTR_memmove_0f546508)(pcVar3,param_2,param_3 + 1);
-  return;
+  param_1[1] = lVar1;
+SUB_0412a280:
+  *(undefined8 *)((long)register0x00000020 + -8) = in_RAX;
+  if (lVar3 != 0) {
+    pcVar2 = *(code **)(_DAT_0f5463b0 + 0x18);
+    *(undefined8 *)((long)register0x00000020 + -0x10) = 0xee326ba;
+    (*pcVar2)(&DAT_0f5463b0,lVar3);
+  }
+  return *(undefined8 *)((long)register0x00000020 + -8);
 }
 
 

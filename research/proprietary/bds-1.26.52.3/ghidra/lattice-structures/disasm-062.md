@@ -1,5 +1,7 @@
-# pthread_mutex_unlock (disassembly)
+# FUN_04865420 (disassembly)
 
 ```
-0412d6b0  JMP 0x0eee2d60
+04865420  CMP byte ptr [RDI + 0x8],0x1
+04865424  SETZ AL
+04865427  RET
 ```

@@ -1,30 +1,4 @@
-# FUN_04fd30c4 (disassembly)
+# FUN_04fd2800 (disassembly)
 
 ```
-04fd30c4  JL 0x04fd30ea
-04fd30c6  SBB AL,CH
-04fd30c8  ADC AL,0x0
-04fd30ca  ADD byte ptr [RAX],AL
-04fd30cc  MOV RDI,RBX
-04fd30cf  CALL 0x0eee2d70
-04fd30d4  INT3
-04fd30ea  MOV RAX,qword ptr [RDI + 0x8]
-04fd30ee  MOV RCX,qword ptr [RDI + 0x10]
-04fd30f2  MOV RBX,qword ptr [RCX]
-04fd30f5  MOV R14,qword ptr [RAX]
-04fd30f8  JMP 0x04fd3104
-04fd3100  ADD RBX,-0x28
-04fd3104  CMP RBX,R14
-04fd3107  JZ 0x04fd3122
-04fd3109  TEST byte ptr [RBX + -0x20],0x1
-04fd310d  JZ 0x04fd3100
-04fd310f  MOV RSI,qword ptr [RBX + -0x20]
-04fd3113  MOV RDI,qword ptr [RBX + -0x10]
-04fd3117  AND RSI,-0x2
-04fd311b  CALL 0x0412a280
-04fd3120  JMP 0x04fd3100
-04fd3122  ADD RSP,0x8
-04fd3126  POP RBX
-04fd3127  POP R14
-04fd3129  RET
 ```

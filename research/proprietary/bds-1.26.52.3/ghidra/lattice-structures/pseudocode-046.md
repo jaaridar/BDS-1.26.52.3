@@ -1,18 +1,20 @@
-# FUN_04862b80
+# FUN_04e61280
 
-- entry: `0x4862b80`
-- body size: 18 bytes
-- callers: `FUN_04e84570`, `FUN_04fbbda0`
+- entry: `0x4e61280`
+- body size: 14 bytes
+- callers: `FUN_04e5fb80`
 
 ```c
 
-undefined8 * FUN_04862b80(long *param_1)
+void FUN_04e61280(void)
 
 {
-  if ((char)param_1[1] == '\x01') {
-    return *(undefined8 **)*param_1;
-  }
-  return (undefined8 *)*param_1 + 5;
+  code *pcVar1;
+  
+  FUN_04882e40(&UNK_013f6512);
+  pcVar1 = (code *)swi(3);
+  (*pcVar1)();
+  return;
 }
 
 

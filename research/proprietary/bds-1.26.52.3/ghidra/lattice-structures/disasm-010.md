@@ -1,10 +1,6 @@
-# FUN_04fbffa0 (disassembly)
+# FUN_04fbffb0 (disassembly)
 
 ```
-04fbffa0  CALL 0x0412d6b0
-04fbffa5  MOV RDI,RBX
-04fbffa8  CALL 0x04882e20
-04fbffad  MOV RDI,RAX
 04fbffb0  CALL 0x04882e20
 04fbffb5  MOV RBX,RAX
 04fbffb8  LEA RDI,[RSP + 0x68]

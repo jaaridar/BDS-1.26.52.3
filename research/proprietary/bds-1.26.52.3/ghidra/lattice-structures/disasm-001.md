@@ -1,29 +1,10 @@
-# FUN_04e3e760 (disassembly)
+# FUN_04e3f4a0 (disassembly)
 
 ```
-04e3e760  ADC DH,DH
-04e3e762  ADD byte ptr [RCX],AL
-04e3e764  JNZ 0x04e3e79f
-04e3e766  MOV RDI,R15
-04e3e769  CALL 0x0eee2d70
-04e3e76e  MOV RSI,qword ptr [RBX + 0x58]
-04e3e772  MOV RDI,qword ptr [RBX + 0x68]
-04e3e776  AND RSI,-0x2
-04e3e77a  CALL 0x0412a280
-04e3e77f  MOV RDI,qword ptr [RBX + 0x40]
-04e3e783  TEST RDI,RDI
-04e3e786  JZ 0x04e3e75c
-04e3e788  MOV RSI,qword ptr [RBX + 0x50]
-04e3e78c  SHL RSI,0x3
-04e3e790  CALL 0x0412a280
-04e3e795  MOV RAX,qword ptr [RSP + 0x10]
-04e3e79a  TEST byte ptr [RAX],0x1
-04e3e79d  JZ 0x04e3e766
-04e3e79f  MOV RSI,qword ptr [RBX + 0x18]
-04e3e7a3  MOV RDI,qword ptr [RBX + 0x28]
-04e3e7a7  AND RSI,-0x2
-04e3e7ab  CALL 0x0412a280
-04e3e7b0  MOV RDI,R15
-04e3e7b3  CALL 0x0eee2d70
-04e3e7b8  INT3
+0412a280  JMP 0x0ee326a0
+04e3f4a0  INT 0x2e
+04e3f4a2  INC dword ptr [RSI + 0x1b0]
+04e3f4a8  MOV RDI,RBX
+04e3f4ab  POP RBX
+04e3f4ac  JMP 0x0412a280
 ```

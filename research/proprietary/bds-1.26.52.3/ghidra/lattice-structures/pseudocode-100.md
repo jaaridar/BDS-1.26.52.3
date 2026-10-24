@@ -1,34 +1,44 @@
-# FUN_0412c300
+# FUN_05ab3aa0
 
-- entry: `0x412c300`
-- body size: 44 bytes
-- callers: `FUN_0eeb81b0`
+- entry: `0x5ab3aa0`
+- body size: 48 bytes
+- callers: `FUN_09cba670`
 
 ```c
 
-long FUN_0412c300(long param_1)
+void FUN_05ab3aa0(long param_1)
 
 {
-  long lVar1;
+  long *plVar1;
   long lVar2;
-  bool bVar3;
+  long *plVar3;
   
-  lVar1 = *(long *)(param_1 + 8);
-  do {
-    if (lVar1 == -1) {
-      return 0;
-    }
+  plVar3 = *(long **)(param_1 + 8);
+  if (plVar3 != (long *)0x0) {
     LOCK();
-    lVar2 = *(long *)(param_1 + 8);
-    bVar3 = lVar1 == lVar2;
-    if (bVar3) {
-      *(long *)(param_1 + 8) = lVar1 + 1;
-      lVar2 = lVar1;
-    }
+    plVar1 = plVar3 + 1;
+    lVar2 = *plVar1;
+    *plVar1 = *plVar1 + -1;
     UNLOCK();
-    lVar1 = lVar2;
-  } while (!bVar3);
-  return param_1;
+    if (lVar2 == 0) {
+      (**(code **)(*plVar3 + 0x10))(plVar3);
+      if (plVar3[2] != 0) {
+        LOCK();
+        plVar1 = plVar3 + 2;
+        lVar2 = *plVar1;
+        *plVar1 = *plVar1 + -1;
+        UNLOCK();
+        if (lVar2 != 0) {
+          return;
+        }
+      }
+                    /* WARNING: Could not recover jumptable at 0x0412c2ef. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+      (**(code **)(*plVar3 + 0x20))();
+      return;
+    }
+  }
+  return;
 }
 
 

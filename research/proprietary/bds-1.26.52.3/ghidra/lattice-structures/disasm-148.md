@@ -1,0 +1,46 @@
+# FUN_0470de60 (disassembly)
+
+```
+0470de60  SUB RSP,0x68
+0470de64  CMP RDX,0x2
+0470de68  JNZ 0x0470de71
+0470de6a  CMP word ptr [RSI],0x7d7b
+0470de6f  JZ 0x0470deaf
+0470de71  MOV qword ptr [RSP + 0x18],RSI
+0470de76  MOV qword ptr [RSP + 0x20],RDX
+0470de7b  MOV dword ptr [RSP + 0x28],0x0
+0470de83  MOV qword ptr [RSP + 0x30],RDI
+0470de88  MOV qword ptr [RSP + 0x38],RCX
+0470de8d  MOV qword ptr [RSP + 0x40],R8
+0470de92  MOV qword ptr [RSP + 0x48],R9
+0470de97  LEA RAX,[RSP + 0x18]
+0470de9c  MOV RDI,RSI
+0470de9f  MOV RSI,RDX
+0470dea2  MOV RDX,RAX
+0470dea5  CALL 0x0eedb8d0
+0470deaa  ADD RSP,0x68
+0470deae  RET
+0470deaf  TEST RCX,RCX
+0470deb2  JS 0x0470debe
+0470deb4  AND ECX,0xf
+0470deb7  JNZ 0x0470deca
+0470deb9  JMP 0x0470e020
+0470debe  TEST ECX,ECX
+0470dec0  JLE 0x0470e020
+0470dec6  MOV ECX,dword ptr [R8 + 0x10]
+0470deca  MOV RSI,qword ptr [R8]
+0470decd  MOV RAX,qword ptr [R8 + 0x8]
+0470ded1  MOV qword ptr [RSP + 0x10],RDI
+0470ded6  DEC ECX
+0470ded8  CMP ECX,0xe
+0470dedb  JA 0x0470e020
+0470dee1  LEA RDX,[0x1537400]
+0470dee8  MOVSXD RCX,dword ptr [RDX + RCX*0x4]
+0470deec  ADD RCX,RDX
+0470deef  JMP RCX
+0470e020  LEA RDI,[0x123b496]
+0470e027  CALL 0x0470d660
+0470e02c  NOP dword ptr [RAX]
+0470e030  XOR EAX,EAX
+0470e032  RET
+```

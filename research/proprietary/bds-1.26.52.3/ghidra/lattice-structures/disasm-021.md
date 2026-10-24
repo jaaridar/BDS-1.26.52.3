@@ -1,71 +1,23 @@
-# FUN_04fd3c93 (disassembly)
+# FUN_04862ba0 (disassembly)
 
 ```
-04fd3c93  LEA ECX,[RSI + RSI*0x1]
-04fd3c96  CMP RCX,R12
-04fd3c99  CMOVA R12,RCX
-04fd3c9d  MOV RCX,0xc30c30c30c30c3
-04fd3ca7  CMP RSI,RCX
-04fd3caa  CMOVNC R12,RAX
-04fd3cae  MOV qword ptr [RSP + 0x20],RDI
-04fd3cb3  TEST R12,R12
-04fd3cb6  JZ 0x04fd3ceb
-04fd3cb8  CMP R12,RAX
-04fd3cbb  JA 0x04fd3d85
-04fd3cc1  IMUL R15,R12,0xa8
-04fd3cc8  MOV RAX,qword ptr [0x0f5463b0]
-04fd3ccf  LEA RDI,[0xf5463b0]
-04fd3cd6  MOV RSI,R15
-04fd3cd9  CALL qword ptr [RAX + 0x10]
-04fd3cdc  TEST RAX,RAX
-04fd3cdf  JNZ 0x04fd3ced
-04fd3ce1  MOV RDI,R15
-04fd3ce4  XOR ESI,ESI
-04fd3ce6  CALL 0x0eec74c0
-04fd3ceb  XOR EAX,EAX
-04fd3ced  MOV qword ptr [RSP],RAX
-04fd3cf1  ADD R14,RAX
-04fd3cf4  MOV qword ptr [RSP + 0x10],R14
-04fd3cf9  MOV qword ptr [RSP + 0x8],R14
-04fd3cfe  IMUL RCX,R12,0xa8
-04fd3d05  ADD RCX,RAX
-04fd3d08  MOV qword ptr [RSP + 0x18],RCX
-04fd3d0d  MOV RDI,R14
-04fd3d10  CALL 0x04fd3da0
-04fd3d15  ADD qword ptr [RSP + 0x10],0xa8
-04fd3d1e  MOV RSI,RSP
-04fd3d21  MOV RDI,RBX
-04fd3d24  CALL 0x04fd3eb0
-04fd3d29  MOV RBX,qword ptr [RBX + 0x8]
-04fd3d2d  MOV R14,qword ptr [RSP + 0x8]
-04fd3d32  MOV RDI,qword ptr [RSP + 0x10]
-04fd3d37  CMP R14,RDI
-04fd3d3a  JZ 0x04fd3d5b
-04fd3d3c  NOP dword ptr [RAX]
-04fd3d40  ADD RDI,-0xa8
-04fd3d47  MOV qword ptr [RSP + 0x10],RDI
-04fd3d4c  CALL 0x04fcf220
-04fd3d51  MOV RDI,qword ptr [RSP + 0x10]
-04fd3d56  CMP R14,RDI
-04fd3d59  JNZ 0x04fd3d40
-04fd3d5b  MOV RDI,qword ptr [RSP]
-04fd3d5f  TEST RDI,RDI
-04fd3d62  JZ 0x04fd3d71
-04fd3d64  MOV RSI,qword ptr [RSP + 0x18]
-04fd3d69  SUB RSI,RDI
-04fd3d6c  CALL 0x0412a280
-04fd3d71  MOV RAX,RBX
-04fd3d74  ADD RSP,0x28
-04fd3d78  POP RBX
-04fd3d79  POP R12
-04fd3d7b  POP R14
-04fd3d7d  POP R15
-04fd3d7f  RET
-04fd3d85  CALL 0x04882eb0
-04fd3d8a  MOV RBX,RAX
-04fd3d8d  MOV RDI,RSP
-04fd3d90  CALL 0x04fd4060
-04fd3d95  MOV RDI,RBX
-04fd3d98  CALL 0x0eee2d70
-04fd3d9d  INT3
+04862ba0  MOV RCX,qword ptr [RDI]
+04862ba3  LEA RAX,[RCX + 0x8]
+04862ba7  CMP byte ptr [RDI + 0x8],0x0
+04862bab  JNZ 0x04862bdc
+04862bad  MOV RDX,qword ptr [RAX]
+04862bb0  TEST RDX,RDX
+04862bb3  JZ 0x04862bd0
+04862bb5  NOP dword ptr CS:[RAX + RAX*0x1]
+04862bc0  MOV RAX,RDX
+04862bc3  MOV RDX,qword ptr [RDX]
+04862bc6  TEST RDX,RDX
+04862bc9  JNZ 0x04862bc0
+04862bcb  JMP 0x04862bdc
+04862bd0  MOV RAX,qword ptr [RCX + 0x10]
+04862bd4  CMP RCX,qword ptr [RAX]
+04862bd7  MOV RCX,RAX
+04862bda  JNZ 0x04862bd0
+04862bdc  MOV qword ptr [RDI],RAX
+04862bdf  RET
 ```

@@ -1,8 +1,8 @@
-# FUN_0412a430 (disassembly)
+# FUN_0eebe8b0 (disassembly)
 
 ```
-0412a430  LEA RAX,[0xeeebb20]
-0412a437  ADD RAX,0x10
-0412a43b  MOV qword ptr [RDI],RAX
-0412a43e  RET
+0eebe8b0  PUSH RAX
+0eebe8b1  LEA RDI,[0x13f6512]
+0eebe8b8  CALL 0x04882e40
+0eebe8bd  INT3
 ```

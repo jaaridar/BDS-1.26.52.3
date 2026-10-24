@@ -1,16 +1,20 @@
-# FUN_0412c300 (disassembly)
+# FUN_05ab3aa0 (disassembly)
 
 ```
-0412c300  MOV RAX,qword ptr [RDI + 0x8]
-0412c304  NOP word ptr CS:[RAX + RAX*0x1]
-0412c310  CMP RAX,-0x1
-0412c314  JZ 0x0412c326
-0412c316  LEA RCX,[RAX + 0x1]
-0412c31a  CMPXCHG.LOCK qword ptr [RDI + 0x8],RCX
-0412c320  JNZ 0x0412c310
-0412c322  MOV RAX,RDI
-0412c325  RET
-0412c326  XOR EDI,EDI
-0412c328  MOV RAX,RDI
-0412c32b  RET
+05ab3aa0  PUSH RBX
+05ab3aa1  MOV RBX,qword ptr [RDI + 0x8]
+05ab3aa5  TEST RBX,RBX
+05ab3aa8  JZ 0x05ab3abc
+05ab3aaa  MOV RAX,-0x1
+05ab3ab1  XADD.LOCK qword ptr [RBX + 0x8],RAX
+05ab3ab7  TEST RAX,RAX
+05ab3aba  JZ 0x05ab3abe
+05ab3abc  POP RBX
+05ab3abd  RET
+05ab3abe  MOV RAX,qword ptr [RBX]
+05ab3ac1  MOV RDI,RBX
+05ab3ac4  CALL qword ptr [RAX + 0x10]
+05ab3ac7  MOV RDI,RBX
+05ab3aca  POP RBX
+05ab3acb  JMP 0x0412c2d0
 ```

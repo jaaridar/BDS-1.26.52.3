@@ -1,14 +1,63 @@
-# FUN_04862b40
+# FUN_0eee1580
 
-- entry: `0x4862b40`
-- body size: 1 bytes
-- callers: `FUN_04e84570`, `FUN_04fbbda0`
+- entry: `0xeee1580`
+- body size: 283 bytes
+- callers: `FUN_04e5fb80`, `FUN_04fbc500`, `FUN_0eec09c0`
 
 ```c
 
-void FUN_04862b40(void)
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_0eee1580(undefined4 *param_1,undefined8 param_2)
 
 {
+  int iVar1;
+  undefined8 *puVar2;
+  
+  if (DAT_0f7ba228 == '\0') {
+    iVar1 = FUN_04108328(&DAT_0f7ba228);
+    if (iVar1 != 0) {
+      _DAT_0f7ba200 = (undefined8 *)0x0;
+      _DAT_0f7ba208 = (undefined8 *)0x0;
+      _DAT_0f7ba1f0 = 0;
+      _DAT_0f7ba1f8 = (undefined8 *)0x0;
+      _DAT_0f7ba1e0 = 0;
+      uRam000000000f7ba1e8 = 0;
+      _DAT_0f7ba1d0 = 0;
+      uRam000000000f7ba1d8 = 0;
+      puVar2 = (undefined8 *)(**(code **)(_DAT_0f5463b0 + 0x10))(&DAT_0f5463b0,0x80);
+      if (puVar2 == (undefined8 *)0x0) {
+        FUN_0eec74c0(0x80,0);
+      }
+      _DAT_0f7ba200 = puVar2 + 0x10;
+      _DAT_0f7ba1f8 = puVar2;
+      _DAT_0f7ba208 = _DAT_0f7ba200;
+      puVar2[0xe] = 0;
+      puVar2[0xf] = 0;
+      puVar2[0xc] = 0;
+      puVar2[0xd] = 0;
+      puVar2[10] = 0;
+      puVar2[0xb] = 0;
+      puVar2[8] = 0;
+      puVar2[9] = 0;
+      puVar2[6] = 0;
+      puVar2[7] = 0;
+      puVar2[4] = 0;
+      puVar2[5] = 0;
+      puVar2[2] = 0;
+      puVar2[3] = 0;
+      *puVar2 = 0;
+      puVar2[1] = 0;
+      _DAT_0f7ba210 = 0;
+      uRam000000000f7ba218 = 0;
+      _DAT_0f7ba220 = 0;
+      _DAT_0f7ba230 = &DAT_0f7ba1d0;
+      __cxa_atexit(&UNK_0eee1c80,&DAT_0f7ba1d0,0xf53dab8);
+      func_0x0410844d(&DAT_0f7ba228);
+    }
+  }
+  puVar2 = (undefined8 *)func_0x0eee14b0(*param_1);
+  *puVar2 = param_2;
   return;
 }
 

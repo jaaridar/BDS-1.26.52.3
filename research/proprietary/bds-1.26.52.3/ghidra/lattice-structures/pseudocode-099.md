@@ -1,35 +1,34 @@
-# FUN_0b63c650
+# FUN_09c70160
 
-- entry: `0xb63c650`
-- body size: 151 bytes
-- callers: `FUN_04e85ae0`, `FUN_04fbd340`
+- entry: `0x9c70160`
+- body size: 53 bytes
+- callers: `FUN_09cba670`
 
 ```c
 
-void FUN_0b63c650(byte *param_1,undefined4 param_2,undefined8 param_3)
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined8 FUN_09c70160(undefined8 *param_1)
 
 {
-  undefined8 uStack_30;
-  long lStack_20;
-  long lStack_18;
+  long *plVar1;
+  long *plVar2;
+  undefined8 in_RAX;
   
-  func_0x048654e0(&uStack_30,param_3);
-  lStack_18 = lStack_20;
-  if (((ulong)uStack_30 & 1) == 0) {
-    lStack_18 = (long)&uStack_30 + 1;
+  plVar1 = (long *)*param_1;
+  *param_1 = 0;
+  if (plVar1 != (long *)0x0) {
+    plVar2 = (long *)*plVar1;
+    *plVar1 = 0;
+    if (plVar2 != (long *)0x0) {
+      in_RAX = (**(code **)(*plVar2 + 8))();
+    }
+    if (plVar1 != (long *)0x0) {
+      (**(code **)(_DAT_0f5463b0 + 0x18))(&DAT_0f5463b0,plVar1);
+    }
+    return in_RAX;
   }
-  func_0x09adffe0(0,1,param_2,&lStack_18);
-  if (((ulong)uStack_30 & 1) != 0) {
-    func_0x0412a280(lStack_20,(ulong)uStack_30 & 0xfffffffffffffffe);
-  }
-  if ((*param_1 & 1) == 0) {
-    uStack_30 = param_1 + 1;
-  }
-  else {
-    uStack_30 = *(byte **)(param_1 + 0x10);
-  }
-  func_0x0b63c710(1,3,param_2,&UNK_014a31a5,&uStack_30);
-  return;
+  return in_RAX;
 }
 
 

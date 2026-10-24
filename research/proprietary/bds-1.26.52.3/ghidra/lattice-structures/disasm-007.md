@@ -1,12 +1,8 @@
-# FUN_04e9d840 (disassembly)
+# FUN_04e9d850 (disassembly)
 
 ```
-04e9d840  JNZ 0x04e9d85e
-04e9d842  MOV RDI,qword ptr [RSP + 0x98]
-04e9d84a  TEST RDI,RDI
-04e9d84d  JNZ 0x04e9d884
-04e9d84f  TEST byte ptr [RSP + 0x70],0x1
-04e9d854  JNZ 0x04e9d89c
+04e9d850  AND AL,0x70
+04e9d853  ADD dword ptr [RBP + 0x46],ESI
 04e9d856  MOV RDI,RBX
 04e9d859  CALL 0x0eee2d70
 04e9d85e  MOV RSI,qword ptr [RSP + 0xb0]

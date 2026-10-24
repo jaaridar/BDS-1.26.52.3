@@ -1,26 +1,15 @@
-# FUN_048641f0
+# FUN_04864290
 
-- entry: `0x48641f0`
-- body size: 38 bytes
-- callers: `FUN_04e84570`, `FUN_04fbbda0`
+- entry: `0x4864290`
+- body size: 17 bytes
+- callers: `FUN_04e7ecf0`
 
 ```c
 
-ulong FUN_048641f0(long *param_1)
+bool FUN_04864290(long param_1)
 
 {
-  ulong uVar1;
-  
-  if ((char)param_1[1] == '\a') {
-    uVar1 = (ulong)*(uint *)(*param_1 + 0x10);
-  }
-  else {
-    uVar1 = 0;
-    if ((char)param_1[1] == '\x06') {
-      return (ulong)(((long *)*param_1)[1] - *(long *)*param_1) >> 3;
-    }
-  }
-  return uVar1;
+  return *(char *)(param_1 + 8) == '\a' || *(char *)(param_1 + 8) == '\0';
 }
 
 

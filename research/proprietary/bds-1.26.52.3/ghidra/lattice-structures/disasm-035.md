@@ -1,7 +1,5 @@
-# FUN_04865490 (disassembly)
+# memcpy (disassembly)
 
 ```
-04865490  CMP byte ptr [RDI + 0x8],0x4
-04865494  SETZ AL
-04865497  RET
+0eee2f00  JMP qword ptr [0x0f546518]
 ```

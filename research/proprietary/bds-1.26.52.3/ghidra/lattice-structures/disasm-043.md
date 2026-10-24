@@ -1,5 +1,5 @@
-# strlen (disassembly)
+# __cxa_atexit (disassembly)
 
 ```
-0eee2e90  JMP qword ptr [0x0f5464e0]
+0eee2f40  JMP qword ptr [0x0f546538]
 ```

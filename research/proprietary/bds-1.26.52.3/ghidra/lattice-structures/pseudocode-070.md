@@ -1,23 +1,52 @@
-# FUN_04882eb0
+# FUN_04fc0b10
 
-- entry: `0x4882eb0`
-- body size: 45 bytes
-- callers: `FUN_04909a40`, `FUN_04fd3c93`, `FUN_057d8ed0`, `FUN_0eeb79f0`
+- entry: `0x4fc0b10`
+- body size: 95 bytes
+- callers: `FUN_04fbffb0`
 
 ```c
 
-void FUN_04882eb0(void)
+/* WARNING: Possible PIC construction at 0x04fc0b4c: Changing call to branch */
+/* WARNING: Removing unreachable block (ram,0x04fc0b51) */
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined8 FUN_04fc0b10(long *param_1)
 
 {
-  code *pcVar1;
-  undefined8 uVar2;
+  long lVar1;
+  code *pcVar2;
+  undefined8 in_RAX;
+  long lVar3;
+  long lVar4;
+  undefined8 uStack_20;
   
-  uVar2 = func_0x041086b0(8);
-  func_0x0412a430(uVar2);
-  func_0x041088a0(uVar2,&UNK_0eeebbc0,&UNK_0412a380);
-  pcVar1 = (code *)swi(3);
-  (*pcVar1)();
-  return;
+  lVar1 = *param_1;
+  if (lVar1 == 0) {
+    return in_RAX;
+  }
+  lVar4 = param_1[1];
+  lVar3 = lVar1;
+  if (lVar1 != lVar4) {
+    do {
+      if ((*(byte *)(lVar4 + -0x20) & 1) != 0) {
+        lVar3 = *(long *)(lVar4 + -0x10);
+        register0x00000020 = (BADSPACEBASE *)&uStack_20;
+        uStack_20 = 0x4fc0b51;
+        goto SUB_0412a280;
+      }
+      lVar4 = lVar4 + -0x28;
+    } while (lVar4 != lVar1);
+    lVar3 = *param_1;
+  }
+  param_1[1] = lVar1;
+SUB_0412a280:
+  *(undefined8 *)((long)register0x00000020 + -8) = in_RAX;
+  if (lVar3 != 0) {
+    pcVar2 = *(code **)(_DAT_0f5463b0 + 0x18);
+    *(undefined8 *)((long)register0x00000020 + -0x10) = 0xee326ba;
+    (*pcVar2)(&DAT_0f5463b0,lVar3);
+  }
+  return *(undefined8 *)((long)register0x00000020 + -8);
 }
 
 

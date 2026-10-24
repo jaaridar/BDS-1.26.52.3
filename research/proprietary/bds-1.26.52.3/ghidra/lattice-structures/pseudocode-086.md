@@ -1,35 +1,49 @@
-# FUN_0412d550
+# FUN_0c450a10
 
-- entry: `0x412d550`
-- body size: 119 bytes
-- callers: `FUN_04b0a9a0`, `FUN_04b0ab40`, `FUN_04b0ace0`, `FUN_0eeb79f0`
+- entry: `0xc450a10`
+- body size: 184 bytes
+- callers: `FUN_09cba670`
 
 ```c
 
-void FUN_0412d550(long param_1)
+bool FUN_0c450a10(long param_1)
 
 {
-  long lStack_28;
-  byte bStack_20;
+  long lVar1;
+  code *pcVar2;
+  undefined1 uVar3;
+  long lVar4;
+  undefined1 uStack_31;
+  undefined *puStack_30;
+  undefined8 uStack_28;
+  undefined1 *puStack_20;
   
-  bStack_20 = 1;
-  lStack_28 = param_1;
-  FUN_0412d680();
-  if (*(uint *)(param_1 + 0x88) < 0x7fffffff) {
-    *(uint *)(param_1 + 0x88) = *(uint *)(param_1 + 0x88) + 1;
-  }
-  else {
-    do {
-      func_0x04136a30(param_1 + 0x28,&lStack_28);
-    } while (0x7ffffffe < *(uint *)(param_1 + 0x88));
-    *(uint *)(param_1 + 0x88) = *(uint *)(param_1 + 0x88) + 1;
-    param_1 = lStack_28;
-    if ((bStack_20 & 1) == 0) {
-      return;
+  lVar1 = *(long *)(param_1 + 0x10);
+  if (lVar1 != 0) {
+    puStack_30 = &UNK_01ce47e0;
+    uStack_28 = 0x17;
+    lVar4 = FUN_0d6c97a0(lVar1 + 8,&puStack_30);
+    if (lVar4 != lVar1 + 0x10) {
+      if ((ulong)*(uint *)(lVar4 + 0x60) == 0xffffffff) {
+        FUN_04931450();
+        pcVar2 = (code *)swi(3);
+        uVar3 = (*pcVar2)();
+        return (bool)uVar3;
+      }
+      puStack_20 = &uStack_31;
+      lVar4 = (**(code **)(&UNK_0f47e980 + (ulong)*(uint *)(lVar4 + 0x60) * 8))
+                        (&puStack_20,lVar4 + 0x38);
+      if (lVar4 != 0) {
+        puStack_30 = &UNK_01ce47e0;
+        uStack_28 = 0x17;
+        lVar4 = FUN_0d6c97a0(lVar1 + 8,&puStack_30);
+        if ((lVar4 != lVar1 + 0x10) && (*(int *)(lVar4 + 0x60) == 1)) {
+          return *(char *)(lVar4 + 0x40) != '\0';
+        }
+      }
     }
   }
-  pthread_mutex_unlock(param_1);
-  return;
+  return false;
 }
 
 

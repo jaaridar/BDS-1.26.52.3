@@ -1,15 +1,22 @@
-# memmove
+# FUN_04891200
 
-- entry: `0xeee2ee0`
-- body size: 6 bytes
-- callers: `FUN_0412f8c0`, `FUN_04865230`, `FUN_04e84570`, `FUN_04fbbda0`
+- entry: `0x4891200`
+- body size: 48 bytes
+- callers: `FUN_04e5fb80`, `FUN_04fbc500`, `FUN_0eec09c0`, `FUN_0eeddcf0`
 
 ```c
 
-void memmove(void)
+void FUN_04891200(void)
 
 {
-  (*(code *)PTR_memmove_0f546508)();
+  code *pcVar1;
+  undefined8 *puVar2;
+  
+  puVar2 = (undefined8 *)func_0x041086b0(8);
+  *puVar2 = &UNK_0eef0410;
+  func_0x041088a0(puVar2,&UNK_0eef0428,&UNK_0417ccb0);
+  pcVar1 = (code *)swi(3);
+  (*pcVar1)();
   return;
 }
 

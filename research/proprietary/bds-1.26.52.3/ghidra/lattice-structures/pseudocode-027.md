@@ -1,15 +1,16 @@
-# FUN_04864290
+# memmove
 
-- entry: `0x4864290`
-- body size: 17 bytes
-- callers: `FUN_04e3fa40`
+- entry: `0xeee2ee0`
+- body size: 6 bytes
+- callers: `FUN_04130630`, `FUN_0470d9a0`, `FUN_04865230`, `FUN_04885070`, `FUN_04885120`, `FUN_04b0a270`, `FUN_04e5fb80`, `FUN_04fbc500`, `FUN_09cbbc90`, `FUN_09e20de0`, `FUN_09e22e10`, `FUN_0eee07b0`
 
 ```c
 
-bool FUN_04864290(long param_1)
+void memmove(void)
 
 {
-  return *(char *)(param_1 + 8) == '\a' || *(char *)(param_1 + 8) == '\0';
+  (*(code *)PTR_memmove_0f546508)();
+  return;
 }
 
 

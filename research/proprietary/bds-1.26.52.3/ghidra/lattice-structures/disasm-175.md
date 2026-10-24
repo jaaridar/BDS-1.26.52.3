@@ -1,0 +1,28 @@
+# FUN_04913fa0 (disassembly)
+
+```
+04913fa0  CMP byte ptr [RDI + 0x18],0x0
+04913fa4  JNZ 0x04913fe9
+04913fa6  PUSH R14
+04913fa8  PUSH RBX
+04913fa9  PUSH RAX
+04913faa  MOV RAX,qword ptr [RDI + 0x8]
+04913fae  MOV RCX,qword ptr [RDI + 0x10]
+04913fb2  MOV RBX,qword ptr [RCX]
+04913fb5  MOV R14,qword ptr [RAX]
+04913fb8  JMP 0x04913fc4
+04913fc0  ADD RBX,-0x20
+04913fc4  CMP RBX,R14
+04913fc7  JZ 0x04913fe2
+04913fc9  TEST byte ptr [RBX + -0x20],0x1
+04913fcd  JZ 0x04913fc0
+04913fcf  MOV RSI,qword ptr [RBX + -0x20]
+04913fd3  MOV RDI,qword ptr [RBX + -0x10]
+04913fd7  AND RSI,-0x2
+04913fdb  CALL 0x0412a280
+04913fe0  JMP 0x04913fc0
+04913fe2  ADD RSP,0x8
+04913fe6  POP RBX
+04913fe7  POP R14
+04913fe9  RET
+```

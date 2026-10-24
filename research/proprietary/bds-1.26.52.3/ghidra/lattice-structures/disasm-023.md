@@ -1,10 +1,8 @@
-# FUN_04fd3e96 (disassembly)
+# FUN_04862c80 (disassembly)
 
 ```
-04fd3e96  FUCOMIP ST0,ST0
-04fd3e98  ADD AL,0x39
-04fd3e9a  LODSD RSI
-04fd3e9b  DEC dword ptr [RCX + RCX*0x4 + -0x1]
-04fd3e9f  CALL 0x0eee2d70
-04fd3ea4  INT3
+04862c80  MOV RAX,qword ptr [RDI]
+04862c83  CMP RAX,qword ptr [RSI]
+04862c86  SETZ AL
+04862c89  RET
 ```

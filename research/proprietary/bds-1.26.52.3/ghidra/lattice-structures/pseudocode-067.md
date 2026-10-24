@@ -1,63 +1,47 @@
-# FUN_04fd3da0
+# FUN_04fbd840
 
-- entry: `0x4fd3da0`
-- body size: 160 bytes
-- callers: `FUN_04fd3c93`
+- entry: `0x4fbd840`
+- body size: 100 bytes
+- callers: `FUN_04fbc500`
 
 ```c
 
-undefined8 * FUN_04fd3da0(undefined8 *param_1)
+/* WARNING: Possible PIC construction at 0x04fbd892: Changing call to branch */
+/* WARNING: Removing unreachable block (ram,0x04fbd897) */
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+long FUN_04fbd840(long *param_1)
 
 {
-  undefined8 *puVar1;
-  undefined8 uVar2;
-  undefined1 uStack_19;
+  code *pcVar1;
+  long lVar2;
+  long lVar3;
+  undefined8 auStack_20 [2];
   
-  param_1[0x12] = 0;
-  param_1[0x13] = 0;
-  param_1[0x10] = 0;
-  param_1[0x11] = 0;
-  param_1[0xe] = 0;
-  param_1[0xf] = 0;
-  param_1[0xc] = 0;
-  param_1[0xd] = 0;
-  param_1[10] = 0;
-  param_1[0xb] = 0;
-  param_1[8] = 0;
-  param_1[9] = 0;
-  param_1[6] = 0;
-  param_1[7] = 0;
-  param_1[4] = 0;
-  param_1[5] = 0;
-  param_1[2] = 0;
-  param_1[3] = 0;
-  *param_1 = 0;
-  param_1[1] = 0;
-  param_1[0x14] = 0;
-  func_0x04aa75f0(param_1,&uStack_19,&UNK_01254d89);
-  param_1[4] = 0;
-  param_1[5] = 0;
-  param_1[2] = 0;
-  param_1[3] = 0;
-  param_1[6] = 0;
-  puVar1 = param_1 + 7;
-  func_0x041679a0(puVar1);
-  uVar2 = func_0x041681f0(puVar1,0xf547a30);
-  param_1[8] = uVar2;
-  uVar2 = func_0x041681f0(puVar1,0xf547770);
-  param_1[9] = uVar2;
-  param_1[10] = 0;
-  param_1[0xb] = 0;
-  param_1[0xc] = 0;
-  param_1[0xd] = 0;
-  param_1[0xe] = 0;
-  param_1[0xf] = 0;
-  param_1[0x10] = 0xffffffffffffffff;
-  param_1[0x11] = 0;
-  param_1[0x12] = 0;
-  *(undefined8 *)((long)param_1 + 0x92) = 0;
-  *(undefined8 *)((long)param_1 + 0x9a) = 0;
-  return param_1;
+  lVar3 = param_1[2];
+  do {
+    lVar2 = lVar3;
+    if (param_1[1] == lVar2) {
+      lVar3 = *param_1;
+      if (lVar3 == 0) {
+        return lVar2;
+      }
+      goto SUB_0412a280;
+    }
+    param_1[2] = lVar2 + -0x28;
+    lVar3 = lVar2 + -0x28;
+  } while ((*(byte *)(lVar2 + -0x20) & 1) == 0);
+  lVar3 = *(long *)(lVar2 + -0x10);
+  register0x00000020 = (BADSPACEBASE *)auStack_20;
+  auStack_20[0] = 0x4fbd897;
+SUB_0412a280:
+  *(long *)((long)register0x00000020 + -8) = lVar2;
+  if (lVar3 != 0) {
+    pcVar1 = *(code **)(_DAT_0f5463b0 + 0x18);
+    *(undefined8 *)((long)register0x00000020 + -0x10) = 0xee326ba;
+    (*pcVar1)(&DAT_0f5463b0,lVar3);
+  }
+  return *(long *)((long)register0x00000020 + -8);
 }
 
 

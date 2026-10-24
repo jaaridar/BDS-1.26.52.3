@@ -1,47 +1,74 @@
-# FUN_048abaf0
+# FUN_04885120
 
-- entry: `0x48abaf0`
-- body size: 100 bytes
-- callers: `FUN_04909a40`
+- entry: `0x4885120`
+- body size: 314 bytes
+- callers: `FUN_09db9c20`, `FUN_0c8fa2a0`
 
 ```c
 
-/* WARNING: Possible PIC construction at 0x048abb42: Changing call to branch */
-/* WARNING: Removing unreachable block (ram,0x048abb47) */
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-long FUN_048abaf0(long *param_1)
+ulong * FUN_04885120(ulong *param_1,undefined8 param_2,ulong param_3)
 
 {
   code *pcVar1;
-  long lVar2;
-  long lVar3;
-  undefined8 auStack_20 [2];
+  ulong uVar2;
+  ulong *puVar3;
+  ulong uVar4;
+  ulong uVar5;
+  ulong uVar6;
+  ulong uVar7;
   
-  lVar3 = param_1[2];
-  do {
-    lVar2 = lVar3;
-    if (param_1[1] == lVar2) {
-      lVar3 = *param_1;
-      if (lVar3 == 0) {
-        return lVar2;
-      }
-      goto SUB_0412a280;
+  uVar7 = *param_1 & 0xfffffffffffffffe;
+  if (param_3 < uVar7) {
+    uVar2 = param_1[2];
+    param_1[1] = param_3;
+    if (param_3 != 0) {
+      memmove(uVar2,param_2,param_3);
     }
-    param_1[2] = lVar2 + -0x18;
-    lVar3 = lVar2 + -0x18;
-  } while ((*(byte *)(lVar2 + -0x18) & 1) == 0);
-  lVar3 = *(long *)(lVar2 + -8);
-  register0x00000020 = (BADSPACEBASE *)auStack_20;
-  auStack_20[0] = 0x48abb47;
-SUB_0412a280:
-  *(long *)((long)register0x00000020 + -8) = lVar2;
-  if (lVar3 != 0) {
-    pcVar1 = *(code **)(_DAT_0f5463b0 + 0x18);
-    *(undefined8 *)((long)register0x00000020 + -0x10) = 0xee326ba;
-    (*pcVar1)(&DAT_0f5463b0,lVar3);
   }
-  return *(long *)((long)register0x00000020 + -8);
+  else {
+    if (-uVar7 - 9 < (param_3 - uVar7) + 1) {
+      FUN_04882e30();
+      pcVar1 = (code *)swi(3);
+      puVar3 = (ulong *)(*pcVar1)();
+      return puVar3;
+    }
+    if ((*param_1 & 1) == 0) {
+      uVar5 = (long)param_1 + 1;
+    }
+    else {
+      uVar5 = param_1[2];
+    }
+    uVar6 = 0xfffffffffffffff7;
+    if (uVar7 - 1 < 0x7ffffffffffffff3) {
+      uVar2 = (uVar7 - 1) * 2;
+      if (uVar2 < param_3) {
+        uVar2 = param_3;
+      }
+      uVar4 = 0x1a;
+      if ((uVar2 | 7) != 0x17) {
+        uVar4 = (uVar2 | 7) + 1;
+      }
+      uVar6 = 0x17;
+      if (0x16 < uVar2) {
+        uVar6 = uVar4;
+      }
+    }
+    uVar2 = (**(code **)(_DAT_0f5463b0 + 0x10))(&DAT_0f5463b0,uVar6);
+    if (uVar6 != 0 && uVar2 == 0) {
+      FUN_0eec74c0(uVar6,0);
+    }
+    if (param_3 != 0) {
+      memcpy(uVar2,param_2,param_3);
+    }
+    func_0x0412a280(uVar5,uVar7);
+    param_1[2] = uVar2;
+    *param_1 = uVar6 | 1;
+    param_1[1] = param_3;
+  }
+  *(undefined1 *)(uVar2 + param_3) = 0;
+  return param_1;
 }
 
 

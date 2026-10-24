@@ -1,22 +1,21 @@
-# FUN_048650e0
+# FUN_0ee386e0
 
-- entry: `0x48650e0`
-- body size: 31 bytes
-- callers: `FUN_04e84570`, `FUN_04fbbda0`
+- entry: `0xee386e0`
+- body size: 57 bytes
+- callers: `FUN_04e5fb80`, `FUN_04fbc500`, `FUN_04fbffb0`
 
 ```c
 
-undefined8 FUN_048650e0(undefined8 param_1,undefined8 param_2,byte *param_3)
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_0ee386e0(ulong *param_1)
 
 {
-  if ((*param_3 & 1) == 0) {
-    param_3 = param_3 + 1;
+  if ((*param_1 >> 0x37 & 1) != 0) {
+    (**(code **)(_DAT_0f5463b0 + 0x28))(&DAT_0f5463b0,(*param_1 & 0xff00ffffffffffff) - 8);
   }
-  else {
-    param_3 = *(byte **)(param_3 + 0x10);
-  }
-  func_0x04864f30(param_1,param_2,param_3);
-  return param_1;
+  *param_1 = 0;
+  return;
 }
 
 

@@ -1,18 +1,15 @@
-# FUN_04862fd0
+# bcmp
 
-- entry: `0x4862fd0`
-- body size: 19 bytes
-- callers: `FUN_04863610`, `FUN_04864f30`, `FUN_04866db0`
+- entry: `0xeee3000`
+- body size: 6 bytes
+- callers: `FUN_09cba670`, `FUN_0d22fb60`
 
 ```c
 
-void FUN_04862fd0(long *param_1)
+void bcmp(void)
 
 {
-  if (*param_1 == 0) {
-    return;
-  }
-  (*(code *)PTR_free_0f5464a8)();
+  (*(code *)PTR_bcmp_0f546598)();
   return;
 }
 

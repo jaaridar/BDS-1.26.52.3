@@ -1,37 +1,19 @@
-# FUN_0412d450
+# FUN_05ab4620
 
-- entry: `0x412d450`
-- body size: 145 bytes
-- callers: `FUN_0eeb79f0`
+- entry: `0x5ab4620`
+- body size: 14 bytes
+- callers: `FUN_09cba670`
 
 ```c
 
-void FUN_0412d450(long param_1)
+void FUN_05ab4620(void)
 
 {
-  uint uVar1;
-  long lStack_28;
-  char cStack_20;
+  code *pcVar1;
   
-  cStack_20 = '\x01';
-  lStack_28 = param_1;
-  FUN_0412d680();
-  uVar1 = *(uint *)(param_1 + 0x88);
-  if ((int)uVar1 < 0) {
-    do {
-      func_0x04136a30(param_1 + 0x28,&lStack_28);
-      uVar1 = *(uint *)(param_1 + 0x88);
-    } while ((int)uVar1 < 0);
-  }
-  *(uint *)(param_1 + 0x88) = uVar1 | 0x80000000;
-  if (uVar1 != 0) {
-    do {
-      func_0x04136a30(param_1 + 0x58,&lStack_28);
-    } while ((*(uint *)(param_1 + 0x88) & 0x7fffffff) != 0);
-  }
-  if (cStack_20 == '\x01') {
-    pthread_mutex_unlock(lStack_28);
-  }
+  FUN_04882e40(&UNK_013f6512);
+  pcVar1 = (code *)swi(3);
+  (*pcVar1)();
   return;
 }
 
