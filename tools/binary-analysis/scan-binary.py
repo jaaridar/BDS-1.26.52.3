@@ -230,6 +230,40 @@ def cluster_stores(stores, max_gap=256):
     return clusters
 
 
+def function_start(path, sections, site, window=0x4000):
+    """Guess the start of the function containing `site`.
+
+    Ghidra is run without analysis, so it does not know function boundaries. A
+    reference site inside a function would otherwise be decompiled as a fragment
+    that does not include the code around it. Walking backwards to the nearest
+    `endbr64` (f3 0f 1e fa) gives the compiler's own idea of a function start,
+    which is good enough to hand to the decompiler as a seed.
+    """
+    offset = None
+    for section in sections:
+        if section["offset"] <= site < section["offset"] + section["size"]:
+            offset = site
+            break
+    if offset is None:
+        return None
+    start = max(0, offset - window)
+    with open(path, "rb") as handle:
+        handle.seek(start)
+        block = handle.read(offset - start + 4)
+    marker = b"\xf3\x0f\x1e\xfa"
+    found = block.rfind(marker)
+    if found < 0:
+        return None
+    return section_vaddr(sections, start + found)
+
+
+def section_vaddr(sections, offset):
+    for section in sections:
+        if section["offset"] <= offset < section["offset"] + section["size"]:
+            return section["addr"] + (offset - section["offset"])
+    return offset
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--binary", required=True)
@@ -240,6 +274,8 @@ def main():
     parser.add_argument("--ranges", action="store_true", help="also report the ELF layout")
     parser.add_argument("--imm-stores", action="store_true",
                         help="dump dword store immediates in .text (record layouts)")
+    parser.add_argument("--function-starts", action="store_true",
+                        help="map each ref site to a likely function start")
     parser.add_argument("--salty", type=int, default=1000000,
                         help="with --imm-stores, minimum immediate treated as a possible salt")
     args = parser.parse_args()
@@ -266,6 +302,19 @@ def main():
     if args.refs:
         targets = [int(part, 0) for part in args.refs.split(",") if part.strip()]
         report["refs"] = scan_refs(args.binary, targets, executable_ranges(sections))
+
+    if args.function_starts:
+        sites = set()
+        for entries in report.get("refs", {}).values():
+            for entry in entries:
+                sites.add(entry["site"])
+        starts = {}
+        for site in sorted(sites):
+            start = function_start(args.binary, sections, site)
+            starts[hex(site)] = None if start is None else hex(start)
+        report["function_starts"] = starts
+        resolved = sum(1 for value in starts.values() if value)
+        print(f"reference sites: {len(starts)}, mapped to a function start: {resolved}")
 
     if args.imm_stores:
         stores = scan_imm_stores(args.binary, sections)

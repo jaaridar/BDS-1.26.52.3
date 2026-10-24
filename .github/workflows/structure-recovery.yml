@@ -181,6 +181,22 @@ jobs:
           python3 tools/binary-analysis/scan-binary.py --binary bedrock_server \
             --imm-stores --out "$EVIDENCE/structures/scan-records" | tail -60
 
+      - name: Map reference sites to function starts
+        run: |
+          # Each site alone would be decompiled as a fragment; the containing
+          # function is what shows the placement record being built.
+          python3 - "$EVIDENCE/structures/scan-refs/scan.json" <<'PY'
+          import json, subprocess, sys
+          report = json.load(open(sys.argv[1]))
+          sites = sorted({e['site'] for entries in report.get('refs', {}).values() for e in entries})
+          if not sites:
+              print('no reference sites')
+              sys.exit(0)
+          subprocess.run([sys.executable, 'tools/binary-analysis/scan-binary.py',
+                          '--binary', 'bedrock_server', '--refs', ','.join(hex(s) for s in sites),
+                          '--function-starts', '--out', sys.argv[1].rsplit('/', 1)[0]], check=True)
+          PY
+
       - name: Resolve which code references those strings
         run: |
           python3 - "$EVIDENCE/structures/scan/scan.json" <<'PY'
@@ -224,12 +240,14 @@ jobs:
           python3 - "$EVIDENCE/structures/scan-refs/scan.json" <<'PY' > "$RUNNER_TEMP/seeds.txt"
           import json, sys
           report = json.load(open(sys.argv[1]))
-          sites = []
-          for target, entries in report.get('refs', {}).items():
-              for entry in entries:
-                  sites.append(entry['site'])
-          # Deduplicate and cap: each seed becomes a decompiled function.
-          sites = sorted(set(sites))[:24]
+          # Prefer the containing function over the raw site, so the
+          # decompilation covers the whole constructor rather than a fragment.
+          starts = {k: v for k, v in report.get('function_starts', {}).items() if v}
+          if starts:
+              sites = sorted({int(v, 16) for v in starts.values()})
+          else:
+              sites = sorted({e['site'] for entries in report.get('refs', {}).values() for e in entries})
+          sites = sites[:24]
           print(','.join(hex(s) for s in sites))
           PY
           SEED_LIST="$(cat "$RUNNER_TEMP/seeds.txt")"
