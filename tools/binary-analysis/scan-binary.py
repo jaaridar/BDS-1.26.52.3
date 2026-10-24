@@ -30,6 +30,9 @@ import os
 import struct
 import sys
 
+# The Ghidra project images the ELF at base 0x100000, so evidence addresses are
+# file offset + this constant. Both are reported: `offset` for slicing the file,
+# `ghidra` for cross-referencing the decompilation evidence.
 IMAGE_BASE_NOTE = 0x100000
 
 
@@ -64,6 +67,13 @@ def read_sections(path):
         return sections
 
 
+def section_for(sections, offset):
+    for section in sections:
+        if section["offset"] <= offset < section["offset"] + section["size"]:
+            return section["name"], bool(section["flags"] & 0x4)
+    return "?", False
+
+
 def executable_ranges(sections):
     return [(s["offset"], s["size"], s["addr"], s["name"]) for s in sections
             if s["flags"] & 0x4 and s["size"] > 0]
@@ -91,7 +101,7 @@ def scan_strings(path, literals):
     return hits
 
 
-def scan_values(path, values, window=96):
+def scan_values(path, values, sections, window=96):
     data = open(path, "rb").read()
     hits = []
     for value in values:
@@ -106,7 +116,9 @@ def scan_values(path, values, window=96):
             hits.append({
                 "value": value,
                 "offset": at,
-                "vaddr": at + IMAGE_BASE_NOTE,
+                "ghidra": at + IMAGE_BASE_NOTE,
+                "section": section_for(sections, at)[0],
+                "executable": section_for(sections, at)[1],
                 "before_hex": before.hex(),
                 "after_hex": after.hex(),
                 # Interpret both sides as little-endian int32s: a placement
@@ -156,6 +168,52 @@ def scan_refs(path, targets, ranges, limit=200):
     return {hex(k): v for k, v in found.items()}
 
 
+def scan_imm_stores(path, sections):
+    """Collect `mov dword ptr [reg+disp32], imm32` stores in executable code.
+
+    Placement parameters are written into a structure object by its constructor,
+    so the numbers appear as store immediates with a small field offset. Reading
+    them out by hand is what turns "the salt is somewhere in .text" into an
+    ordered record layout.
+    """
+    stores = []
+    with open(path, "rb") as handle:
+        for offset, size, addr, name in executable_ranges(sections):
+            handle.seek(offset)
+            block = handle.read(size)
+            for i in range(len(block) - 10):
+                if block[i] != 0xC7:
+                    continue
+                modrm = block[i + 1]
+                # mod=10 (disp32), reg=000 (/0 -> a plain dword store)
+                if (modrm & 0xC0) != 0x80 or (modrm & 0x38) != 0x00:
+                    continue
+                disp = struct.unpack_from("<i", block, i + 2)[0]
+                imm = struct.unpack_from("<I", block, i + 6)[0]
+                stores.append({
+                    "offset": i + offset,
+                    "ghidra": i + offset + IMAGE_BASE_NOTE,
+                    "disp": disp,
+                    "imm": imm,
+                    "imm_signed": struct.unpack("<i", struct.pack("<I", imm))[0],
+                })
+    return stores
+
+
+def cluster_stores(stores, max_gap=256):
+    """Group stores that are close together: one constructor writes one record."""
+    clusters = []
+    current = []
+    for store in stores:
+        if current and store["offset"] - current[-1]["offset"] > max_gap:
+            clusters.append(current)
+            current = []
+        current.append(store)
+    if current:
+        clusters.append(current)
+    return clusters
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--binary", required=True)
@@ -164,6 +222,10 @@ def main():
     parser.add_argument("--values", help="comma separated integers")
     parser.add_argument("--refs", help="comma separated virtual addresses")
     parser.add_argument("--ranges", action="store_true", help="also report the ELF layout")
+    parser.add_argument("--imm-stores", action="store_true",
+                        help="dump dword store immediates in .text (record layouts)")
+    parser.add_argument("--salty", type=int, default=1000000,
+                        help="with --imm-stores, minimum immediate treated as a possible salt")
     args = parser.parse_args()
 
     os.makedirs(args.out, exist_ok=True)
@@ -183,11 +245,28 @@ def main():
 
     if args.values:
         values = [int(part, 0) for part in args.values.split(",") if part.strip()]
-        report["values"] = scan_values(args.binary, values)
+        report["values"] = scan_values(args.binary, values, sections)
 
     if args.refs:
         targets = [int(part, 0) for part in args.refs.split(",") if part.strip()]
         report["refs"] = scan_refs(args.binary, targets, executable_ranges(sections))
+
+    if args.imm_stores:
+        stores = scan_imm_stores(args.binary, sections)
+        report["imm_stores"] = len(stores)
+        # A placement constructor writes small field offsets; keep the clusters
+        # that contain at least one salt-sized immediate.
+        interesting = []
+        for cluster in cluster_stores(stores):
+            salty = [s for s in cluster if s["imm"] >= args.salty]
+            if not salty:
+                continue
+            interesting.append({
+                "start": cluster[0]["ghidra"],
+                "end": cluster[-1]["ghidra"],
+                "stores": cluster,
+            })
+        report["imm_clusters"] = interesting
 
     out_path = os.path.join(args.out, "scan.json")
     with open(out_path, "w") as handle:
@@ -199,14 +278,23 @@ def main():
     if "strings" in report:
         summary.append(f"string hits: {len(report['strings'])}")
         for hit in report["strings"][:40]:
-            summary.append(f"  {hit['literal']!r} at vaddr 0x{hit['vaddr']:x}")
+            summary.append(f"  {hit['literal']!r} at ghidra 0x{hit['ghidra']:x} ({hit['section']})")
     if "values" in report:
         summary.append(f"value hits: {len(report['values'])}")
         for hit in report["values"][:60]:
             summary.append(
-                f"  0x{hit['value']:08x} at vaddr 0x{hit['vaddr']:x} "
+                f"  0x{hit['value']:08x} at ghidra 0x{hit['ghidra']:x} "
+                f"({hit['section']}{', code' if hit['executable'] else ''}) "
                 f"after={hit['after_i32'][:6]}"
             )
+    if "imm_clusters" in report:
+        summary.append(f"dword stores in code: {report['imm_stores']}, "
+                       f"clusters containing a salt-sized immediate: {len(report['imm_clusters'])}")
+        for cluster in report["imm_clusters"][:20]:
+            rendered = " ".join(
+                f"[{s['disp']:#x}]={s['imm_signed']}" for s in cluster["stores"]
+            )
+            summary.append(f"  cluster 0x{cluster['start']:x}..0x{cluster['end']:x}: {rendered}")
     if "refs" in report:
         summary.append(f"referenced targets: {len(report['refs'])}")
         for target, sites in list(report["refs"].items())[:40]:

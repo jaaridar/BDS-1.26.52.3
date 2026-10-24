@@ -181,6 +181,14 @@ jobs:
             --values 10387312,10387313,10387319,14357617,14357618,14357619,14357620,14357621,165745295,165745296,34222645,16842397,20083232,94251327,83469867,91231127 \
             --out "$EVIDENCE/structures/scan-salts" | tail -40
 
+      - name: Recover the placement record layout from code
+        run: |
+          # Structure objects are filled in by a constructor, so the placement
+          # numbers show up as dword store immediates with small field offsets.
+          # Clustering those stores recovers the record without guessing.
+          python3 tools/binary-analysis/scan-binary.py --binary bedrock_server \
+            --imm-stores --out "$EVIDENCE/structures/scan-records" | tail -60
+
       - name: Resolve which code references those strings
         run: |
           python3 - "$EVIDENCE/structures/scan/scan.json" <<'PY'
@@ -245,7 +253,8 @@ jobs:
       - name: Commit scan
         if: always()
         run: |
-          git add -A "$EVIDENCE/structures/scan" "$EVIDENCE/structures/scan-salts" "$EVIDENCE/ghidra/lattice-structures" || true
+          git add -A "$EVIDENCE/structures/scan" "$EVIDENCE/structures/scan-salts" \
+            "$EVIDENCE/structures/scan-records" "$EVIDENCE/ghidra/lattice-structures" || true
           if git diff --cached --quiet; then echo 'no scan evidence'; exit 0; fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
