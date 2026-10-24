@@ -115,6 +115,7 @@ static uint64_t saltFrom = 0;
 static uint64_t saltTo = 1ULL << 32;
 static long long oneSalt = 0;
 static int haveOneSalt = 0;
+static int explain = 0;
 
 /*
  * `v % span` with a runtime span is a hardware divide, and a full 2^32 sweep is
@@ -298,13 +299,14 @@ int main(int argc, char **argv) {
     return 2;
   }
   int threads = argc > 2 ? atoi(argv[2]) : 2;
-  for (int i = 1; i < argc - 1; i++) {
+  for (int i = 1; i < argc; i++) {
     if (strcmp(argv[i], "--slack") == 0) slack = atoi(argv[i + 1]);
     if (strcmp(argv[i], "--xor-seed") == 0) xorSeed = 1;
     if (strcmp(argv[i], "--cell-search") == 0) cellSearch = atoi(argv[i + 1]);
     if (strcmp(argv[i], "--fixed-slack") == 0) { slack = atoi(argv[i + 1]); fixed_slack = 1; }
     if (strcmp(argv[i], "--min-match") == 0) minMatch = atoi(argv[i + 1]);
     if (strcmp(argv[i], "--anchor") == 0) anchor = atoi(argv[i + 1]);
+    if (strcmp(argv[i], "--explain") == 0) explain = 1;
     if (strcmp(argv[i], "--salt-range") == 0) {
       saltFrom = strtoull(argv[i + 1], NULL, 10);
       saltTo = strtoull(argv[i + 2], NULL, 10);
@@ -374,7 +376,17 @@ int main(int argc, char **argv) {
       int hits = 0;
       for (int i = 0; i < groups[g].count; i++) {
         int dx = 0, dz = 0;
-        if (match_obs(&groups[g].member[i], (uint64_t)oneSalt, &m, &dx, &dz)) hits++;
+        int ok = match_obs(&groups[g].member[i], (uint64_t)oneSalt, &m, &dx, &dz);
+        if (ok) hits++;
+        if (explain) {
+          uint32_t px = 0, pz = 0;
+          predict(&groups[g].member[i], (uint64_t)oneSalt, &m, groups[g].member[i].cellX,
+                  groups[g].member[i].cellZ, &px, &pz);
+          fprintf(stderr, "# %s seed %lld cell %d,%d observed off %d,%d predicted off %u,%u delta %d,%d %s\n",
+                  groups[g].id, (long long)groups[g].member[i].seed, groups[g].member[i].cellX,
+                  groups[g].member[i].cellZ, groups[g].member[i].offX, groups[g].member[i].offZ,
+                  px, pz, dx, dz, ok ? "match" : "MISS");
+        }
       }
       printf("%s\t%lld\t%d/%d\n", groups[g].id, oneSalt, hits, groups[g].count);
       continue;

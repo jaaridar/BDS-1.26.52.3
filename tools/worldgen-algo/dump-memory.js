@@ -313,7 +313,12 @@ async function main () {
     }
     for (const needle of found) {
       if (!needle.at.length) continue
-      console.log(`${needle.kind} ${needle.text}: ${needle.at.length} occurrences`)
+      // Every anchor costs a full pass over the process to look for pointers at
+      // it, so keep the first few of each: a record is reachable from any one of
+      // its occurrences, and the salts are rare enough that a handful is plenty.
+      const cap = needle.kind === 'salt' ? 8 : 3
+      if (needle.at.length > cap) needle.at = needle.at.slice(0, cap)
+      console.log(`${needle.kind} ${needle.text}: ${needle.at.length} occurrences kept`)
     }
 
     // Pass two: what points at them? A structure set has to know its own name,
