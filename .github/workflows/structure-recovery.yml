@@ -16,7 +16,7 @@ on:
       seeds:
         description: 'Seeds to capture structure positions for (comma separated)'
         required: false
-        default: '1,2,3,4,5,6,7,8'
+        default: '1'
       ids:
         description: 'Structure identifiers to probe'
         required: false
@@ -39,7 +39,7 @@ env:
   GHIDRA_URL: https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_12.1.4_build/ghidra_12.1.4_PUBLIC_20260921.zip
   GHIDRA_SHA256: ddac49f903da9d5bac833e5cc79395098b9c33cfd3279be5f31bd00387d2d4db
   EVIDENCE: research/proprietary/bds-1.26.52.3
-  SEEDS: ${{ github.event.inputs.seeds || '1,2,3,4,5,6,7,8' }}
+  SEEDS: ${{ github.event.inputs.seeds || '1' }}
   IDS: ${{ github.event.inputs.ids || 'village,stronghold,monument,mansion,pillageroutpost,shipwreck,ruins,buriedtreasure,mineshaft,desert_pyramid,temple,ancient_city' }}
 
 jobs:
@@ -128,49 +128,41 @@ jobs:
       - name: Find the structure identifiers and their immediate neighbours
         run: |
           mkdir -p "$EVIDENCE/structures/scan"
-          cat > "$RUNNER_TEMP/names.txt" <<'NAMES'
-          minecraft:stronghold
-          minecraft:village
-          minecraft:monument
-          minecraft:mansion
-          minecraft:pillager_outpost
-          minecraft:ocean_ruin
-          minecraft:shipwreck
-          minecraft:buried_treasure
-          minecraft:mineshaft
-          minecraft:desert_pyramid
-          minecraft:jungle_temple
-          minecraft:witch_hut
-          minecraft:igloo
-          minecraft:ruined_portal
-          minecraft:ancient_city
-          minecraft:trail_ruins
-          minecraft:trial_chambers
-          minecraft:random_spread
-          minecraft:concentric_rings
-          structure_set
-          spread_type
-          stronghold
-          village
-          monument
-          mansion
-          pillager_outpost
-          ocean_ruin
-          shipwreck
-          buried_treasure
-          mineshaft
-          desert_pyramid
-          jungle_temple
-          witch_hut
-          igloo
-          ruined_portal
-          ancient_city
-          trail_ruins
-          trial_chambers
-          NAMES
+          # Written with printf, not a heredoc: the YAML indentation would stop
+          # the heredoc terminator from matching and silently swallow the rest
+          # of the step, which is exactly how the last attempt produced nothing.
+          # The first two names are controls -- they are known to be in .rodata,
+          # so a zero hit count means the scanner is broken, not the binary.
+          names=(
+            minecraft:continentalness
+            minecraft:erosion
+            minecraft:stronghold
+            minecraft:village
+            minecraft:monument
+            minecraft:mansion
+            minecraft:pillager_outpost
+            minecraft:ocean_ruin
+            minecraft:shipwreck
+            minecraft:buried_treasure
+            minecraft:mineshaft
+            minecraft:desert_pyramid
+            minecraft:jungle_temple
+            minecraft:ancient_city
+            minecraft:trail_ruins
+            minecraft:random_spread
+            random_spread
+            spread_type
+            structure_set
+            concentric_rings
+          )
+          printf '%s\n' "${names[@]}" > "$RUNNER_TEMP/names.txt"
+          wc -l "$RUNNER_TEMP/names.txt"
           python3 tools/binary-analysis/scan-binary.py --binary bedrock_server \
             --strings-file "$RUNNER_TEMP/names.txt" --ranges \
             --out "$EVIDENCE/structures/scan" | tail -60
+          hits=$(python3 -c "import json;print(len(json.load(open('$EVIDENCE/structures/scan/scan.json'))['strings']))")
+          echo "string hits: $hits"
+          if [ "$hits" = "0" ]; then echo 'the scanner found none of the control strings: the scan itself is wrong' >&2; exit 1; fi
 
       - name: Look for the placement constants as immediates
         run: |
