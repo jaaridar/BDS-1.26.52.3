@@ -1,0 +1,38 @@
+# FUN_04fc0b10 (disassembly)
+
+```
+04fc0b10  PUSH R15
+04fc0b12  PUSH R14
+04fc0b14  PUSH RBX
+04fc0b15  MOV R14,qword ptr [RDI]
+04fc0b18  TEST R14,R14
+04fc0b1b  JZ 0x04fc0b6b
+04fc0b1d  MOV RBX,RDI
+04fc0b20  MOV R15,qword ptr [RDI + 0x8]
+04fc0b24  MOV RDI,R14
+04fc0b27  CMP R14,R15
+04fc0b2a  JNZ 0x04fc0b39
+04fc0b2c  JMP 0x04fc0b56
+04fc0b30  ADD R15,-0x28
+04fc0b34  CMP R15,R14
+04fc0b37  JZ 0x04fc0b53
+04fc0b39  TEST byte ptr [R15 + -0x20],0x1
+04fc0b3e  JZ 0x04fc0b30
+04fc0b40  MOV RSI,qword ptr [R15 + -0x20]
+04fc0b44  MOV RDI,qword ptr [R15 + -0x10]
+04fc0b48  AND RSI,-0x2
+04fc0b4c  CALL 0x0412a280
+04fc0b51  JMP 0x04fc0b30
+04fc0b53  MOV RDI,qword ptr [RBX]
+04fc0b56  MOV qword ptr [RBX + 0x8],R14
+04fc0b5a  MOV RSI,qword ptr [RBX + 0x10]
+04fc0b5e  SUB RSI,RDI
+04fc0b61  POP RBX
+04fc0b62  POP R14
+04fc0b64  POP R15
+04fc0b66  JMP 0x0412a280
+04fc0b6b  POP RBX
+04fc0b6c  POP R14
+04fc0b6e  POP R15
+04fc0b70  RET
+```

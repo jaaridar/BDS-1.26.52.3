@@ -275,601 +275,801 @@
     {
       "literal": "minecraft:continentalness",
       "offset": 20312985,
-      "vaddr": 21361561,
+      "elf_vaddr": 20312985,
+      "ghidra": 21361561,
+      "section": ".rodata",
       "context": "raft:taiga_decoration_1\u0000minecraft:continentalness\u0000trial_chambers/corridor/second_plate\u0000trial_chambers/chamber/addon/shor"
     },
     {
       "literal": "minecraft:erosion",
       "offset": 20748245,
-      "vaddr": 21796821,
+      "elf_vaddr": 20748245,
+      "ghidra": 21796821,
+      "section": ".rodata",
       "context": "lage/snowy/town_centers\u0000minecraft:erosion\u0000trial_chambers/intersection/intersection_2\u0000trial_chambers/chamber/assembly/pla"
     },
     {
       "literal": "minecraft:stronghold",
       "offset": 18915516,
-      "vaddr": 19964092,
+      "elf_vaddr": 18915516,
+      "ghidra": 19964092,
+      "section": ".rodata",
       "context": "/shipwrecktreasure.json\u0000minecraft:stronghold\u0000minecraft:ancient_city_start_degradation\u0000minecraft:ancient_city_city_center"
     },
     {
       "literal": "minecraft:village",
       "offset": 17420049,
-      "vaddr": 18468625,
+      "elf_vaddr": 17420049,
+      "ghidra": 18468625,
+      "section": ".rodata",
       "context": "aiga/taiga_decoration_4\u0000minecraft:village/savanna/town_centers\u0000minecraft:village/taiga/town_centers\u0000minecraft:village/ab"
     },
     {
       "literal": "minecraft:village",
       "offset": 17420088,
-      "vaddr": 18468664,
+      "elf_vaddr": 17420088,
+      "ghidra": 18468664,
+      "section": ".rodata",
       "context": "ge/savanna/town_centers\u0000minecraft:village/taiga/town_centers\u0000minecraft:village/abandoned/savanna/town_centers\u0000trial_cham"
     },
     {
       "literal": "minecraft:village",
       "offset": 17420125,
-      "vaddr": 18468701,
+      "elf_vaddr": 17420125,
+      "ghidra": 18468701,
+      "section": ".rodata",
       "context": "lage/taiga/town_centers\u0000minecraft:village/abandoned/savanna/town_centers\u0000trial_chambers/chamber/addon/grate_bridge\u0000trial"
     },
     {
       "literal": "minecraft:village",
       "offset": 17533390,
-      "vaddr": 18581966,
+      "elf_vaddr": 17533390,
+      "ghidra": 18581966,
+      "section": ".rodata",
       "context": "ecraft:potato_beet_farm\u0000minecraft:village/abandoned/plains/decor\u0000minecraft:village/taiga/decor\u0000minecraft:village/abandon"
     },
     {
       "literal": "minecraft:village",
       "offset": 17533431,
-      "vaddr": 18582007,
+      "elf_vaddr": 17533431,
+      "ghidra": 18582007,
+      "section": ".rodata",
       "context": "/abandoned/plains/decor\u0000minecraft:village/taiga/decor\u0000minecraft:village/abandoned/taiga/decor\u0000minecraft:village/desert/s"
     },
     {
       "literal": "minecraft:village",
       "offset": 17533461,
-      "vaddr": 18582037,
+      "elf_vaddr": 17533461,
+      "ghidra": 18582037,
+      "section": ".rodata",
       "context": "aft:village/taiga/decor\u0000minecraft:village/abandoned/taiga/decor\u0000minecraft:village/desert/streets\u0000minecraft:snowy_meeting"
     },
     {
       "literal": "minecraft:village",
       "offset": 17533501,
-      "vaddr": 18582077,
+      "elf_vaddr": 17533501,
+      "ghidra": 18582077,
+      "section": ".rodata",
       "context": "e/abandoned/taiga/decor\u0000minecraft:village/desert/streets\u0000minecraft:snowy_meeting_point_1\u0000minecraft:abandoned_plains_meet"
     },
     {
       "literal": "minecraft:village",
       "offset": 17646613,
-      "vaddr": 18695189,
+      "elf_vaddr": 17646613,
+      "ghidra": 18695189,
+      "section": ".rodata",
       "context": "raft:taiga_decoration_4\u0000minecraft:village/common/animals\u0000trial_chambers/chamber/assembly/left_staircase_3\u0000trial_chambers"
     },
     {
       "literal": "minecraft:village",
       "offset": 17747806,
-      "vaddr": 18796382,
+      "elf_vaddr": 17747806,
+      "ghidra": 18796382,
+      "section": ".rodata",
       "context": "common/animals/horses_2\u0000minecraft:village/common/well_bottom\u0000trial_chambers/corridor/first_plate\u0000trial_chambers/chamber/"
     },
     {
       "literal": "minecraft:village",
       "offset": 17748281,
-      "vaddr": 18796857,
+      "elf_vaddr": 17748281,
+      "ghidra": 18796857,
+      "section": ".rodata",
       "context": "set\u0000crack_point_offset\u0000+minecraft:villager_v2\u0000minecraft:knockback_resistance\u0000{}:{}\u0000top_material\u0000components\u0000minecraft:beh"
     },
     {
       "literal": "minecraft:village",
       "offset": 17793096,
-      "vaddr": 18841672,
+      "elf_vaddr": 17793096,
+      "ghidra": 18841672,
+      "section": ".rodata",
       "context": "nvalidAgentType\u0000\u00e2\u0080\u009c\u0000\u00e2\u0080\u0093\u0000minecraft:villager\u0000kickPlayerDueToFlooding\u0000y-rot\u0000commands.generic.disabled.editorLocked\u0000Relative"
     },
     {
       "literal": "minecraft:village",
       "offset": 17822344,
-      "vaddr": 18870920,
+      "elf_vaddr": 17822344,
+      "ghidra": 18870920,
+      "section": ".rodata",
       "context": "tor]\u0000DisplayEntityWidth\u0000minecraft:village_savanna\u0000Item '{}' (format_version: {}) cannot be registered because no 1.16.10"
     },
     {
       "literal": "minecraft:village",
       "offset": 17966410,
-      "vaddr": 19014986,
+      "elf_vaddr": 17966410,
+      "ghidra": 19014986,
+      "section": ".rodata",
       "context": "craft:desert_path_decay\u0000minecraft:village/plains/streets\u0000minecraft:abandoned_savanna_meeting_point_1\u0000village/savanna/str"
     },
     {
       "literal": "minecraft:village",
       "offset": 18075462,
-      "vaddr": 19124038,
+      "elf_vaddr": 18075462,
+      "ghidra": 19124038,
+      "section": ".rodata",
       "context": ":minecraft:from_village\u0000minecraft:village/savanna/streets\u0000minecraft:village/abandoned/taiga/streets\u0000village/plains/town_"
     },
     {
       "literal": "minecraft:village",
       "offset": 18075496,
-      "vaddr": 19124072,
+      "elf_vaddr": 18075496,
+      "ghidra": 19124072,
+      "section": ".rodata",
       "context": "village/savanna/streets\u0000minecraft:village/abandoned/taiga/streets\u0000village/plains/town_centers/plains_meeting_point_3\u0000vil"
     },
     {
       "literal": "minecraft:village",
       "offset": 18185736,
-      "vaddr": 19234312,
+      "elf_vaddr": 18185736,
+      "ghidra": 19234312,
+      "section": ".rodata",
       "context": "_stable/starting_pieces\u0000minecraft:village/abandoned/desert/streets\u0000minecraft:desert_meeting_point_2\u0000minecraft:abandoned_"
     },
     {
       "literal": "minecraft:village",
       "offset": 18186890,
-      "vaddr": 19235466,
+      "elf_vaddr": 18186890,
+      "ghidra": 19235466,
+      "section": ".rodata",
       "context": "on_2\u0000minecraft:hay_pile\u0000minecraft:village/plains/town_centers\u0000trial_chambers/corridor/atrium_1\u0000trial_chambers/chamber/as"
     },
     {
       "literal": "minecraft:village",
       "offset": 18293654,
-      "vaddr": 19342230,
+      "elf_vaddr": 18293654,
+      "ghidra": 19342230,
+      "section": ".rodata",
       "context": "e/common/animals/cows_1\u0000minecraft:village/desert/town_centers\u0000minecraft:village/abandoned/plains/town_centers\u0000trial_cham"
     },
     {
       "literal": "minecraft:village",
       "offset": 18293692,
-      "vaddr": 19342268,
+      "elf_vaddr": 18293692,
+      "ghidra": 19342268,
+      "section": ".rodata",
       "context": "age/desert/town_centers\u0000minecraft:village/abandoned/plains/town_centers\u0000trial_chambers/chamber/slanted/ramp_4\u0000trial_cham"
     },
     {
       "literal": "minecraft:village",
       "offset": 18395511,
-      "vaddr": 19444087,
+      "elf_vaddr": 18395511,
+      "ghidra": 19444087,
+      "section": ".rodata",
       "context": "craft:plains_path_decay\u0000minecraft:village/plains/houses\u0000minecraft:taiga_abandoned_targets\u0000village/snowy/streets/straight"
     },
     {
       "literal": "minecraft:village",
       "offset": 18396175,
-      "vaddr": 19444751,
+      "elf_vaddr": 18396175,
+      "ghidra": 19444751,
+      "section": ".rodata",
       "context": "mp_3\u0000minecraft:ice_pile\u0000minecraft:villagers\u0000trial_chambers/chamber/assembly/cover_3\u0000trial_chambers/chamber/assembly/spaw"
     },
     {
       "literal": "minecraft:village",
       "offset": 18498355,
-      "vaddr": 19546931,
+      "elf_vaddr": 18498355,
+      "ghidra": 19546931,
+      "section": ".rodata",
       "context": "one_building_high_decay\u0000minecraft:village/snowy/houses\u0000minecraft:savanna_meeting_point_4\u0000minecraft:abandoned_savanna_mee"
     },
     {
       "literal": "minecraft:village",
       "offset": 18601725,
-      "vaddr": 19650301,
+      "elf_vaddr": 18601725,
+      "ghidra": 19650301,
+      "section": ".rodata",
       "context": "\u0000treasureChest\u0000Straight\u0000minecraft:village\u0000minecraft:ancient_city/sculk\u0000bastion/treasure/bases/centers__center_3\u0000minecraf"
     },
     {
       "literal": "minecraft:village",
       "offset": 18603250,
-      "vaddr": 19651826,
+      "elf_vaddr": 18603250,
+      "ghidra": 19651826,
+      "section": ".rodata",
       "context": "t_01\u0000minecraft:oak_tree\u0000minecraft:village/snowy/trees\u0000minecraft:village/common/cats\u0000trial_chambers/chamber/pedestal/quad"
     },
     {
       "literal": "minecraft:village",
       "offset": 18603280,
-      "vaddr": 19651856,
+      "elf_vaddr": 18603280,
+      "ghidra": 19651856,
+      "section": ".rodata",
       "context": "aft:village/snowy/trees\u0000minecraft:village/common/cats\u0000trial_chambers/chamber/pedestal/quadrant_2\u0000trial_chambers/hallway/"
     },
     {
       "literal": "minecraft:village",
       "offset": 18706499,
-      "vaddr": 19755075,
+      "elf_vaddr": 18706499,
+      "ghidra": 19755075,
+      "section": ".rodata",
       "context": "bandoned_beet_beet_farm\u0000minecraft:village/savanna/decor\u0000minecraft:village/desert/houses\u0000minecraft:village/abandoned/dese"
     },
     {
       "literal": "minecraft:village",
       "offset": 18706531,
-      "vaddr": 19755107,
+      "elf_vaddr": 18706531,
+      "ghidra": 19755107,
+      "section": ".rodata",
       "context": "t:village/savanna/decor\u0000minecraft:village/desert/houses\u0000minecraft:village/abandoned/desert/decor\u0000minecraft:plains_meetin"
     },
     {
       "literal": "minecraft:village",
       "offset": 18706563,
-      "vaddr": 19755139,
+      "elf_vaddr": 18706563,
+      "ghidra": 19755139,
+      "section": ".rodata",
       "context": "t:village/desert/houses\u0000minecraft:village/abandoned/desert/decor\u0000minecraft:plains_meeting_point_2\u0000village/taiga/town_cen"
     },
     {
       "literal": "minecraft:village",
       "offset": 18707393,
-      "vaddr": 19755969,
+      "elf_vaddr": 18707393,
+      "ghidra": 19755969,
+      "section": ".rodata",
       "context": "rry_bush\u0000minecraft:well\u0000minecraft:village/common/butcher_animals\u0000!mChunkSource\u0000trial_chambers/chamber/slanted\u0000trial_cham"
     },
     {
       "literal": "minecraft:village",
       "offset": 18815082,
-      "vaddr": 19863658,
+      "elf_vaddr": 18815082,
+      "ghidra": 19863658,
+      "section": ".rodata",
       "context": ":bastion/units/ramparts\u0000minecraft:villager_v2:minecraft:spawn_from_village\u0000village/savanna/town_centers/savanna_meeting_"
     },
     {
       "literal": "minecraft:village",
       "offset": 18916346,
-      "vaddr": 19964922,
+      "elf_vaddr": 18916346,
+      "ghidra": 19964922,
+      "section": ".rodata",
       "context": "raft:potato_carrot_farm\u0000minecraft:village/taiga/streets\u0000minecraft:abandoned_desert_meeting_point_3\u0000village/snowy/streets"
     },
     {
       "literal": "minecraft:village",
       "offset": 18917255,
-      "vaddr": 19965831,
+      "elf_vaddr": 18917255,
+      "ghidra": 19965831,
+      "section": ".rodata",
       "context": "aft:plains_terminator_4\u0000minecraft:village/common/sheep\u0000minecraft:village/abandoned/snowy/town_centers\u0000ChunkSource is rep"
     },
     {
       "literal": "minecraft:village",
       "offset": 18917286,
-      "vaddr": 19965862,
+      "elf_vaddr": 18917286,
+      "ghidra": 19965862,
+      "section": ".rodata",
       "context": "ft:village/common/sheep\u0000minecraft:village/abandoned/snowy/town_centers\u0000ChunkSource is replaced\u0000trial_chambers/chamber/as"
     },
     {
       "literal": "minecraft:village",
       "offset": 19210867,
-      "vaddr": 20259443,
+      "elf_vaddr": 19210867,
+      "ghidra": 20259443,
+      "section": ".rodata",
       "context": "ob in a peaceful world.\u0000minecraft:village_taiga\u0000Item '%s' cannot be registered because it's using the \"minecraft\" namesp"
     },
     {
       "literal": "minecraft:village",
       "offset": 19250738,
-      "vaddr": 20299314,
+      "elf_vaddr": 19250738,
+      "ghidra": 20299314,
+      "section": ".rodata",
       "context": "ble/large_stables/outer\u0000minecraft:village/abandoned/taiga/houses\u0000minecraft:plains_meeting_point_1\u0000village/plains/streets"
     },
     {
       "literal": "minecraft:village",
       "offset": 19360472,
-      "vaddr": 20409048,
+      "elf_vaddr": 19360472,
+      "ghidra": 20409048,
+      "section": ".rodata",
       "context": ":abandoned_savanna_lamp\u0000minecraft:village/desert/terminators\u0000void ChunkBlenderFactory::setChunkSource(ChunkSource *)\u0000tri"
     },
     {
       "literal": "minecraft:village",
       "offset": 19466455,
-      "vaddr": 20515031,
+      "elf_vaddr": 19466455,
+      "ghidra": 20515031,
+      "section": ".rodata",
       "context": "inecraft:beet_beet_farm\u0000minecraft:village/abandoned/plains/streets\u0000village/savanna/town_centers/savanna_meeting_point_2\u0000"
     },
     {
       "literal": "minecraft:village",
       "offset": 19467499,
-      "vaddr": 20516075,
+      "elf_vaddr": 19467499,
+      "ghidra": 20516075,
+      "section": ".rodata",
       "context": "rminators/terminator_05\u0000minecraft:village/plains/terminators\u0000minecraft:village/savanna/trees\u0000minecraft:village/abandoned"
     },
     {
       "literal": "minecraft:village",
       "offset": 19467536,
-      "vaddr": 20516112,
+      "elf_vaddr": 19467536,
+      "ghidra": 20516112,
+      "section": ".rodata",
       "context": "lage/plains/terminators\u0000minecraft:village/savanna/trees\u0000minecraft:village/abandoned/taiga/town_centers\u0000trial_chambers/ch"
     },
     {
       "literal": "minecraft:village",
       "offset": 19467568,
-      "vaddr": 20516144,
+      "elf_vaddr": 19467568,
+      "ghidra": 20516144,
+      "section": ".rodata",
       "context": "t:village/savanna/trees\u0000minecraft:village/abandoned/taiga/town_centers\u0000trial_chambers/chamber/eruption\u0000trial_chambers/ch"
     },
     {
       "literal": "minecraft:monument",
       "offset": 17417979,
-      "vaddr": 18466555,
+      "elf_vaddr": 17417979,
+      "ghidra": 18466555,
+      "section": ".rodata",
       "context": "bandoned_mineshaft.json\u0000minecraft:monument\u0000ruin/big_ruin2_brick\u0000loot_tables/chests/pillager_outpost.json\u0000shipwreck/swsid"
     },
     {
       "literal": "minecraft:mansion",
       "offset": 18497472,
-      "vaddr": 19546048,
+      "elf_vaddr": 18497472,
+      "ghidra": 19546048,
+      "section": ".rodata",
       "context": "ded\u0000minecraft:shipwreck\u0000minecraft:mansion\u0000Mage\u0000indoors_door_2\u00001x2_c_stairs\u0000minecraft:ancient_city_structures_tall_ruin_2"
     },
     {
       "literal": "minecraft:pillager_outpost",
       "offset": 19358391,
-      "vaddr": 20406967,
+      "elf_vaddr": 19358391,
+      "ghidra": 20406967,
+      "section": ".rodata",
       "context": "ed\u0000ruin/big_ruin3_mossy\u0000minecraft:pillager_outpost\u0000ruined_portal/portal_6\u0000identifier\u0000minecraft:ancient_city_city_center_"
     },
     {
       "literal": "minecraft:ocean_ruin",
       "offset": 17745556,
-      "vaddr": 18794132,
+      "elf_vaddr": 17745556,
+      "ghidra": 18794132,
+      "section": ".rodata",
       "context": "idgeCrossing\u0000StairsRoom\u0000minecraft:ocean_ruin\u0000ruin/ruin4_cracked\u0000captain\u0000minecraft:ancient_city_city_center_city_center_1"
     },
     {
       "literal": "minecraft:shipwreck",
       "offset": 18497452,
-      "vaddr": 19546028,
+      "elf_vaddr": 18497452,
+      "ghidra": 19546028,
+      "section": ".rodata",
       "context": "rightsideupfulldegraded\u0000minecraft:shipwreck\u0000minecraft:mansion\u0000Mage\u0000indoors_door_2\u00001x2_c_stairs\u0000minecraft:ancient_city_st"
     },
     {
       "literal": "minecraft:buried_treasure",
       "offset": 19895621,
-      "vaddr": 20944197,
+      "elf_vaddr": 19895621,
+      "ghidra": 20944197,
+      "section": ".rodata",
       "context": "ee_from_sapling_feature\u0000minecraft:buried_treasure\u0000CastleSmallCorridorLeftTurnPiece\u0000pillageroutpost/feature_tent1\u0000supplyC"
     },
     {
       "literal": "minecraft:mineshaft",
       "offset": 17745510,
-      "vaddr": 18794086,
+      "elf_vaddr": 17745510,
+      "ghidra": 18794086,
+      "section": ".rodata",
       "context": "ower_feature\u0000base_floor\u0000minecraft:mineshaft\u0000BridgeCrossing\u0000StairsRoom\u0000minecraft:ocean_ruin\u0000ruin/ruin4_cracked\u0000captain\u0000mi"
     },
     {
       "literal": "minecraft:desert_pyramid",
       "offset": 20103793,
-      "vaddr": 21152369,
+      "elf_vaddr": 20103793,
+      "ghidra": 21152369,
+      "section": ".rodata",
       "context": "eroutpost/feature_cage2\u0000minecraft:desert_pyramid\u0000loot_tables/chests/dispenser_trap.json\u0000PrisonHall\u0000wall_window\u00001x1_a\u00001x2"
     },
     {
       "literal": "minecraft:jungle_temple",
       "offset": 18669336,
-      "vaddr": 19717912,
+      "elf_vaddr": 18669336,
+      "ghidra": 19717912,
+      "section": ".rodata",
       "context": "meIdTable]\u0000FileArchiver\u0000minecraft:jungle_temple\u0000minecraft:trial_chambers\u0000json parse errors:\n{}\u0000POI Registry should alway"
     },
     {
       "literal": "minecraft:ancient_city",
       "offset": 17532395,
-      "vaddr": 18580971,
+      "elf_vaddr": 17532395,
+      "ghidra": 18580971,
+      "section": ".rodata",
       "context": "llays\u0000roof_inner_corner\u0000minecraft:ancient_city_structures_chamber_1\u0000ancient_city/structures/tall_ruin_3\u0000minecraft:ancien"
     },
     {
       "literal": "minecraft:ancient_city",
       "offset": 17532475,
-      "vaddr": 18581051,
+      "elf_vaddr": 17532475,
+      "ghidra": 18581051,
+      "section": ".rodata",
       "context": "/structures/tall_ruin_3\u0000minecraft:ancient_city_structures_small_ruin_1\u0000ancient_city/structures/medium_pillar_1\u0000minecraft"
     },
     {
       "literal": "minecraft:ancient_city",
       "offset": 17532562,
-      "vaddr": 18581138,
+      "elf_vaddr": 17532562,
+      "ghidra": 18581138,
+      "section": ".rodata",
       "context": "uctures/medium_pillar_1\u0000minecraft:ancient_city_walls_ruined_horizontal_wall_stairs_1\u0000minecraft:ancient_city_walls_ruined"
     },
     {
       "literal": "minecraft:ancient_city",
       "offset": 17532623,
-      "vaddr": 18581199,
+      "elf_vaddr": 17532623,
+      "ghidra": 18581199,
+      "section": ".rodata",
       "context": "orizontal_wall_stairs_1\u0000minecraft:ancient_city_walls_ruined_horizontal_wall_stairs_2\u0000ancient_city/city_center/walls/bott"
     },
     {
       "literal": "minecraft:ancient_city",
       "offset": 17644770,
-      "vaddr": 18693346,
+      "elf_vaddr": 17644770,
+      "ghidra": 18693346,
+      "section": ".rodata",
       "context": "/structures/tall_ruin_4\u0000minecraft:ancient_city_walls_intact_horizontal_wall_2\u0000ancient_city/walls/intact_horizontal_wall_"
     },
     {
       "literal": "minecraft:ancient_city",
       "offset": 17745604,
-      "vaddr": 18794180,
+      "elf_vaddr": 17745604,
+      "ghidra": 18794180,
+      "section": ".rodata",
       "context": "n/ruin4_cracked\u0000captain\u0000minecraft:ancient_city_city_center_city_center_1\u0000minecraft:ancient_city_structures_small_statue\u0000"
     },
     {
       "literal": "minecraft:ancient_city",
       "offset": 17745653,
-      "vaddr": 18794229,
+      "elf_vaddr": 17745653,
+      "ghidra": 18794229,
+      "section": ".rodata",
       "context": "ty_center_city_center_1\u0000minecraft:ancient_city_structures_small_statue\u0000minecraft:ancient_city_structures_camp_3\u0000minecraf"
     },
     {
       "literal": "minecraft:ancient_city",
       "offset": 17745700,
-      "vaddr": 18794276,
+      "elf_vaddr": 17745700,
+      "ghidra": 18794276,
+      "section": ".rodata",
       "context": "structures_small_statue\u0000minecraft:ancient_city_structures_camp_3\u0000minecraft:ancient_city_walls_intact_horizontal_wall_pas"
     },
     {
       "literal": "minecraft:ancient_city",
       "offset": 17745741,
-      "vaddr": 18794317,
+      "elf_vaddr": 17745741,
+      "ghidra": 18794317,
+      "section": ".rodata",
       "context": "_city_structures_camp_3\u0000minecraft:ancient_city_walls_intact_horizontal_wall_passage_1\u0000ancient_city/city/entrance/entranc"
     },
     {
       "literal": "minecraft:ancient_city",
       "offset": 17858247,
-      "vaddr": 18906823,
+      "elf_vaddr": 17858247,
+      "ghidra": 18906823,
+      "section": ".rodata",
       "context": "structures/small_ruin_1\u0000minecraft:ancient_city_city_center_walls_top\u0000minecraft:ancient_city/city_center/walls\u0000minecraft:"
     },
     {
       "literal": "minecraft:ancient_city",
       "offset": 17858292,
-      "vaddr": 18906868,
+      "elf_vaddr": 17858292,
+      "ghidra": 18906868,
+      "section": ".rodata",
       "context": "y_city_center_walls_top\u0000minecraft:ancient_city/city_center/walls\u0000minecraft:bastion_treasure_room_highrampart\u0000minecraft:b"
     },
     {
       "literal": "minecraft:ancient_city",
       "offset": 17965440,
-      "vaddr": 19014016,
+      "elf_vaddr": 17965440,
+      "ghidra": 19014016,
+      "section": ".rodata",
       "context": "ructures/large_pillar_1\u0000minecraft:ancient_city_structures_camp_2\u0000ancient_city/walls/intact_horizontal_wall_passage_1\u0000anc"
     },
     {
       "literal": "minecraft:ancient_city",
       "offset": 17965627,
-      "vaddr": 19014203,
+      "elf_vaddr": 17965627,
+      "ghidra": 19014203,
+      "section": ".rodata",
       "context": "ntrance/entrance_path_1\u0000minecraft:ancient_city/walls/no_corners\u0000bastion/bridge/connectors/back_bridge_top\u0000minecraft:bast"
     },
     {
       "literal": "minecraft:ancient_city",
       "offset": 18074649,
-      "vaddr": 19123225,
+      "elf_vaddr": 18074649,
+      "ghidra": 19123225,
+      "section": ".rodata",
       "context": "tructures/medium_ruin_1\u0000minecraft:ancient_city_walls_intact_horizontal_wall_bridge\u0000minecraft:bridge_legs_leg_1\u0000minecraft"
     },
     {
       "literal": "minecraft:ancient_city",
       "offset": 18185192,
-      "vaddr": 19233768,
+      "elf_vaddr": 18185192,
+      "ghidra": 19233768,
+      "section": ".rodata",
       "context": "city_center/walls/right\u0000minecraft:ancient_city_city_entrance_entrance_path_2\u0000minecraft:ancient_city_city_entrance_entran"
     },
     {
       "literal": "minecraft:ancient_city",
       "offset": 18185245,
-      "vaddr": 19233821,
+      "elf_vaddr": 18185245,
+      "ghidra": 19233821,
+      "section": ".rodata",
       "context": "ntrance_entrance_path_2\u0000minecraft:ancient_city_city_entrance_entrance_path_5\u0000minecraft:ancient_city/structures\u0000bastion/t"
     },
     {
       "literal": "minecraft:ancient_city",
       "offset": 18185298,
-      "vaddr": 19233874,
+      "elf_vaddr": 18185298,
+      "ghidra": 19233874,
+      "section": ".rodata",
       "context": "ntrance_entrance_path_5\u0000minecraft:ancient_city/structures\u0000bastion/treasure/walls/outer__top_corner\u0000minecraft:bastion_tre"
     },
     {
       "literal": "minecraft:ancient_city",
       "offset": 18291500,
-      "vaddr": 19340076,
+      "elf_vaddr": 18291500,
+      "ghidra": 19340076,
+      "section": ".rodata",
       "context": "t:pale_oak_tree_feature\u0000minecraft:ancient_city\u0000third_floor\u0000CastleSmallCorridorRightTurnPiece\u0000ruin/big_ruin1_mossy\u0000ruined"
     },
     {
       "literal": "minecraft:ancient_city",
       "offset": 18291637,
-      "vaddr": 19340213,
+      "elf_vaddr": 18291637,
+      "ghidra": 19340213,
+      "section": ".rodata",
       "context": "roof_corner\u0000wall_corner\u0000minecraft:ancient_city_structures_small_ruin_2\u0000minecraft:ancient_city_walls_ruined_horizontal_wa"
     },
     {
       "literal": "minecraft:ancient_city",
       "offset": 18291684,
-      "vaddr": 19340260,
+      "elf_vaddr": 18291684,
+      "ghidra": 19340260,
+      "section": ".rodata",
       "context": "structures_small_ruin_2\u0000minecraft:ancient_city_walls_ruined_horizontal_wall_stairs_4\u0000minecraft:ancient_city/city_center\u0000"
     },
     {
       "literal": "minecraft:ancient_city",
       "offset": 18291745,
-      "vaddr": 19340321,
+      "elf_vaddr": 18291745,
+      "ghidra": 19340321,
+      "section": ".rodata",
       "context": "orizontal_wall_stairs_4\u0000minecraft:ancient_city/city_center\u0000minecraft:bastion_treasure_walls_lava_wall\u0000minecraft:bastion_"
     },
     {
       "literal": "minecraft:ancient_city",
       "offset": 18497523,
-      "vaddr": 19546099,
+      "elf_vaddr": 18497523,
+      "ghidra": 19546099,
+      "section": ".rodata",
       "context": "ors_door_2\u00001x2_c_stairs\u0000minecraft:ancient_city_structures_tall_ruin_2\u0000minecraft:ancient_city_city_center_walls_bottom_ri"
     },
     {
       "literal": "minecraft:ancient_city",
       "offset": 18497569,
-      "vaddr": 19546145,
+      "elf_vaddr": 18497569,
+      "ghidra": 19546145,
+      "section": ".rodata",
       "context": "_structures_tall_ruin_2\u0000minecraft:ancient_city_city_center_walls_bottom_right_corner_2\u0000ancient_city/city/entrance/entran"
     },
     {
       "literal": "minecraft:ancient_city",
       "offset": 18497675,
-      "vaddr": 19546251,
+      "elf_vaddr": 18497675,
+      "ghidra": 19546251,
+      "section": ".rodata",
       "context": "ntrance/entrance_path_4\u0000minecraft:ancient_city/city/entrance\u0000minecraft:bastion_bridge_rampart\u0000minecraft:bridge_walls_wal"
     },
     {
       "literal": "minecraft:ancient_city",
       "offset": 18601743,
-      "vaddr": 19650319,
+      "elf_vaddr": 18601743,
+      "ghidra": 19650319,
+      "section": ".rodata",
       "context": "aight\u0000minecraft:village\u0000minecraft:ancient_city/sculk\u0000bastion/treasure/bases/centers__center_3\u0000minecraft:bastion_treasure"
     },
     {
       "literal": "minecraft:ancient_city",
       "offset": 18705933,
-      "vaddr": 19754509,
+      "elf_vaddr": 18705933,
+      "ghidra": 19754509,
+      "section": ".rodata",
       "context": "\u0000ChestWest\u00002x2_s1\u00001x2_c\u0000minecraft:ancient_city_generic_degradation\u0000minecraft:ancient_city_structures_chamber_2\u0000ancient_c"
     },
     {
       "literal": "minecraft:ancient_city",
       "offset": 18705976,
-      "vaddr": 19754552,
+      "elf_vaddr": 18705976,
+      "ghidra": 19754552,
+      "section": ".rodata",
       "context": "ity_generic_degradation\u0000minecraft:ancient_city_structures_chamber_2\u0000ancient_city/structures/small_statue\u0000minecraft:ancie"
     },
     {
       "literal": "minecraft:ancient_city",
       "offset": 18706057,
-      "vaddr": 19754633,
+      "elf_vaddr": 18706057,
+      "ghidra": 19754633,
+      "section": ".rodata",
       "context": "structures/small_statue\u0000minecraft:ancient_city_structures_medium_ruin_1\u0000ancient_city/walls/intact_intersection_wall_1\u0000mi"
     },
     {
       "literal": "minecraft:ancient_city",
       "offset": 18706151,
-      "vaddr": 19754727,
+      "elf_vaddr": 18706151,
+      "ghidra": 19754727,
+      "section": ".rodata",
       "context": "act_intersection_wall_1\u0000minecraft:ancient_city/walls\u0000minecraft:bastion_treasure_room_bottomrampart\u0000bastion/treasure/wall"
     },
     {
       "literal": "minecraft:ancient_city",
       "offset": 18814549,
-      "vaddr": 19863125,
+      "elf_vaddr": 18814549,
+      "ghidra": 19863125,
+      "section": ".rodata",
       "context": "_south_2\u0000corridor_floor\u0000minecraft:ancient_city_walls_degradation\u0000minecraft:ancient_city_city_center_walls_right\u0000minecraf"
     },
     {
       "literal": "minecraft:ancient_city",
       "offset": 18814590,
-      "vaddr": 19863166,
+      "elf_vaddr": 18814590,
+      "ghidra": 19863166,
+      "section": ".rodata",
       "context": "_city_walls_degradation\u0000minecraft:ancient_city_city_center_walls_right\u0000minecraft:ancient_city_city_center_walls_top_righ"
     },
     {
       "literal": "minecraft:ancient_city",
       "offset": 18814637,
-      "vaddr": 19863213,
+      "elf_vaddr": 18814637,
+      "ghidra": 19863213,
+      "section": ".rodata",
       "context": "city_center_walls_right\u0000minecraft:ancient_city_city_center_walls_top_right_corner\u0000bastion/bridge/walls/wall_base_0\u0000minec"
     },
     {
       "literal": "minecraft:ancient_city",
       "offset": 18915537,
-      "vaddr": 19964113,
+      "elf_vaddr": 18915537,
+      "ghidra": 19964113,
+      "section": ".rodata",
       "context": "on\u0000minecraft:stronghold\u0000minecraft:ancient_city_start_degradation\u0000minecraft:ancient_city_city_center_city_center_2\u0000minecr"
     },
     {
       "literal": "minecraft:ancient_city",
       "offset": 18915578,
-      "vaddr": 19964154,
+      "elf_vaddr": 18915578,
+      "ghidra": 19964154,
+      "section": ".rodata",
       "context": "_city_start_degradation\u0000minecraft:ancient_city_city_center_city_center_2\u0000minecraft:ancient_city_structures_large_ruin_1\u0000"
     },
     {
       "literal": "minecraft:ancient_city",
       "offset": 18915627,
-      "vaddr": 19964203,
+      "elf_vaddr": 18915627,
+      "ghidra": 19964203,
+      "section": ".rodata",
       "context": "ty_center_city_center_2\u0000minecraft:ancient_city_structures_large_ruin_1\u0000minecraft:ancient_city_walls_intact_intersection_"
     },
     {
       "literal": "minecraft:ancient_city",
       "offset": 18915674,
-      "vaddr": 19964250,
+      "elf_vaddr": 18915674,
+      "ghidra": 19964250,
+      "section": ".rodata",
       "context": "structures_large_ruin_1\u0000minecraft:ancient_city_walls_intact_intersection_wall_1\u0000minecraft:ancient_city_city_center_walls"
     },
     {
       "literal": "minecraft:ancient_city",
       "offset": 18915730,
-      "vaddr": 19964306,
+      "elf_vaddr": 18915730,
+      "ghidra": 19964306,
+      "section": ".rodata",
       "context": "act_intersection_wall_1\u0000minecraft:ancient_city_city_center_walls_top_left_corner\u0000minecraft:ancient_city_city_entrance_en"
     },
     {
       "literal": "minecraft:ancient_city",
       "offset": 18915787,
-      "vaddr": 19964363,
+      "elf_vaddr": 18915787,
+      "ghidra": 19964363,
+      "section": ".rodata",
       "context": "r_walls_top_left_corner\u0000minecraft:ancient_city_city_entrance_entrance_path_4\u0000minecraft:bridge_starting_pieces_entrance_f"
     },
     {
       "literal": "minecraft:ancient_city",
       "offset": 19026766,
-      "vaddr": 20075342,
+      "elf_vaddr": 19026766,
+      "ghidra": 20075342,
+      "section": ".rodata",
       "context": "ty/structures/chamber_1\u0000minecraft:ancient_city_structures_sauna_1\u0000ancient_city/structures/small_ruin_2\u0000minecraft:ancient"
     },
     {
       "literal": "minecraft:ancient_city",
       "offset": 19026845,
-      "vaddr": 20075421,
+      "elf_vaddr": 19026845,
+      "ghidra": 20075421,
+      "section": ".rodata",
       "context": "structures/small_ruin_2\u0000minecraft:ancient_city_walls_intact_horizontal_wall_1\u0000ancient_city/walls/intact_horizontal_wall_"
     },
     {
       "literal": "minecraft:trail_ruins",
       "offset": 18041834,
-      "vaddr": 19090410,
+      "elf_vaddr": 18041834,
+      "ghidra": 19090410,
+      "section": ".rodata",
       "context": "ta.mJigsawBlocks.size()\u0000minecraft:trail_ruins\u0000Failed to map jigsaw structure final block: '%s'. There is no block regist"
     },
     {
       "literal": "minecraft:random_spread",
       "offset": 19444653,
-      "vaddr": 20493229,
+      "elf_vaddr": 19444653,
+      "ghidra": 20493229,
+      "section": ".rodata",
       "context": "gsawStructureMetadata>]\u0000minecraft:random_spread\u0000RandomSpreadPlacement\u0000Factory<Type> cereal::BasicFactory<SharedTypes::v1"
     },
     {
       "literal": "random_spread",
       "offset": 19444663,
-      "vaddr": 20493239,
+      "elf_vaddr": 19444663,
+      "ghidra": 20493239,
+      "section": ".rodata",
       "context": "ureMetadata>]\u0000minecraft:random_spread\u0000RandomSpreadPlacement\u0000Factory<Type> cereal::BasicFactory<SharedTypes::v1_21_20::Ji"
     },
     {
       "literal": "random_spread",
       "offset": 19578787,
-      "vaddr": 20627363,
+      "elf_vaddr": 19578787,
+      "ghidra": 20627363,
+      "section": ".rodata",
       "context": "ether_fossils/fossil_11\u0000random_spread_canopy\u0000Cannot have more than one canopy type\u0000lower_offset\u0000branch_altitude_factor\u0000m"
     },
     {
       "literal": "spread_type",
       "offset": 20511091,
-      "vaddr": 21559667,
+      "elf_vaddr": 20511091,
+      "ghidra": 21559667,
+      "section": ".rodata",
       "context": "pe::Item>>]\u0000ocean_floor\u0000spread_type\u0000Template Pool\u0000fallback\u0000minecraft:single_pool_element\u0000minecraft:block_match\u0000min_dist\u0000"
     },
     {
       "literal": "structure_set",
       "offset": 17724069,
-      "vaddr": 18772645,
+      "elf_vaddr": 17724069,
+      "ghidra": 18772645,
+      "section": ".rodata",
       "context": "ory]\u0000UniformIntProvider\u0000structure_sets\u0000const char *entt::internal::pretty_function() [Type = SharedTypes::v1_21_20::Jigs"
     },
     {
       "literal": "structure_set",
       "offset": 19473340,
-      "vaddr": 20521916,
+      "elf_vaddr": 19473340,
+      "ghidra": 20521916,
+      "section": ".rodata",
       "context": "mitToSelection\u0000worldgen/structure_sets\u0000EditorPackManagerService IO\u0000Pack not found for the given name\u0000{}:{}:{}\u0000scope\u0000Edit"
     },
     {
       "literal": "structure_set",
       "offset": 19652649,
-      "vaddr": 20701225,
+      "elf_vaddr": 19652649,
+      "ghidra": 20701225,
+      "section": ".rodata",
       "context": "ckstate_match\u0000minecraft:structure_set\u0000bool cereal::BasicLoader::load(SchemaReader &, Type &, const LoadContext &) [Type "
     }
   ]

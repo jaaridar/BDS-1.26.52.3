@@ -1,0 +1,33 @@
+# FUN_04167a40
+
+- entry: `0x4167a40`
+- body size: 40 bytes
+- callers: `FUN_04e60890`, `FUN_04fcf220`
+
+```c
+
+void FUN_04167a40(long *param_1)
+
+{
+  long *plVar1;
+  long lVar2;
+  
+  param_1 = (long *)*param_1;
+  if (param_1 != (long *)0xf5478c0) {
+    LOCK();
+    plVar1 = param_1 + 1;
+    lVar2 = *plVar1;
+    *plVar1 = *plVar1 + -1;
+    UNLOCK();
+    if (lVar2 == 0) {
+                    /* WARNING: Could not recover jumptable at 0x04167a65. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+      (**(code **)(*param_1 + 0x10))();
+      return;
+    }
+  }
+  return;
+}
+
+
+```

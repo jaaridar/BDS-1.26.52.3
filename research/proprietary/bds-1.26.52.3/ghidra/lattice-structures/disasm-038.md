@@ -1,0 +1,23 @@
+# FUN_04862ba0 (disassembly)
+
+```
+04862ba0  MOV RCX,qword ptr [RDI]
+04862ba3  LEA RAX,[RCX + 0x8]
+04862ba7  CMP byte ptr [RDI + 0x8],0x0
+04862bab  JNZ 0x04862bdc
+04862bad  MOV RDX,qword ptr [RAX]
+04862bb0  TEST RDX,RDX
+04862bb3  JZ 0x04862bd0
+04862bb5  NOP dword ptr CS:[RAX + RAX*0x1]
+04862bc0  MOV RAX,RDX
+04862bc3  MOV RDX,qword ptr [RDX]
+04862bc6  TEST RDX,RDX
+04862bc9  JNZ 0x04862bc0
+04862bcb  JMP 0x04862bdc
+04862bd0  MOV RAX,qword ptr [RCX + 0x10]
+04862bd4  CMP RCX,qword ptr [RAX]
+04862bd7  MOV RCX,RAX
+04862bda  JNZ 0x04862bd0
+04862bdc  MOV qword ptr [RDI],RAX
+04862bdf  RET
+```
