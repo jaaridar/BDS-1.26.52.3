@@ -364,6 +364,8 @@ int main(int argc, char **argv) {
          xorSeed ? "xor-ed with the seed" : "added as a salt");
 
   for (int g = 0; g < group_count; g++) {
+    fprintf(stderr, "# group %d/%d %s spacing %d separation %d mode %d\n", g + 1, group_count,
+            groups[g].id, groups[g].spacing, groups[g].separation, groups[g].mode);
     work_t work[64];
     pthread_t tid[64];
     if (threads > 64) threads = 64;

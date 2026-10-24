@@ -46,7 +46,11 @@ function loadObservations (root = DEFAULT_ROOT) {
       if (!result.found || !Array.isArray(result.at)) continue
       const id = (result.resolvedId || '').replace(/^minecraft:/, '')
       if (!id) continue
-      const key = `${seed}\u0000${id}`
+      // Keyed by position, not by seed: asking from several origins finds
+      // several *different* structures in the same world, and each one is a
+      // separate observation. The same structure reached from two origins is
+      // the one thing that has to collapse.
+      const key = `${seed}\u0000${id}\u0000${result.at[0]}\u0000${result.at[2]}`
       if (seen.has(key)) continue
       seen.add(key)
       out.push({ seed, id, block: [result.at[0], result.at[2]], file })
