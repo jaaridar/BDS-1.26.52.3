@@ -91,6 +91,15 @@ jobs:
             status=${PIPESTATUS[0]}
             echo "$status" > "$EVIDENCE/structures/captures/$slug/seed-$seed/exit-status.txt"
           done
+          # A seed that differs only above bit 31: if the generator saw all 64
+          # bits the reported positions would differ, so this measures the width
+          # of the seed the placement uses instead of assuming it.
+          for seed in 0 1 4294967296 4294967297; do
+            node tools/worldgen-algo/capture-structures.js \
+              --binary ./bedrock_server --assets "$PWD" --seed "$seed" \
+              --ids 'trail_ruins,village' --from "0,0" \
+              --out "$EVIDENCE/structures/captures/seedwidth/seed-$seed" --verbose 2>&1 | tail -5
+          done
           exit 0
 
       - name: Commit capture
@@ -189,6 +198,26 @@ jobs:
           find "$EVIDENCE/worldgen-data" -path '*structure_set*' -name '*.json' | head -20
           grep -rl 'RandomSpreadPlacement\|"salt"\|spacing' "$EVIDENCE/worldgen-data" 2>/dev/null | head -20
 
+      - name: Look for the placement records as text
+        run: |
+          # Every placement, data driven or not, goes through the cereal
+          # reader: the binary contains `minecraft:random_spread` and compares
+          # it against the parsed type. That means the numbers arrive as JSON,
+          # and JSON numbers are decimal text -- which is why the dword scans of
+          # .rodata could never find them. This dumps the neighbourhood of each
+          # occurrence so the record can be read off directly.
+          mkdir -p "$EVIDENCE/structures/scan-json"
+          # The needle carries the quoted key and its colon: a bare `salt` also
+          # matches prose in unrelated strings, and the scan stops after 40 hits.
+          printf '%s\n' '"salt":' '"spacing":' '"separation":' '"spread_type":' \
+            '"placement":' '"salt" :' 'random_spread' '83469867' '91231127' \
+            > "$RUNNER_TEMP/json-names.txt"
+          python3 tools/binary-analysis/scan-binary.py --binary bedrock_server \
+            --strings-file "$RUNNER_TEMP/json-names.txt" \
+            --out "$EVIDENCE/structures/scan-json" | tail -40
+          python3 tools/binary-analysis/print-string-hits.py \
+            "$EVIDENCE/structures/scan-json/scan.json" | tail -40
+
       - name: Look for the placement constants as immediates
         run: |
           # Hypotheses, not assertions: if a salt survives, it has to survive
@@ -282,7 +311,7 @@ jobs:
           git add -A "$EVIDENCE/structures/scan" "$EVIDENCE/structures/scan-refs" \
             "$EVIDENCE/structures/scan-salts" "$EVIDENCE/structures/scan-records" \
             "$EVIDENCE/structures/scan-vtables" "$EVIDENCE/worldgen-data" \
-            "$EVIDENCE/structures/scan-data" \
+            "$EVIDENCE/structures/scan-data" "$EVIDENCE/structures/scan-json" \
             "$EVIDENCE/ghidra/lattice-structures" || true
           if git diff --cached --quiet; then echo 'no scan evidence'; exit 0; fi
           git config user.name 'github-actions[bot]'
