@@ -159,6 +159,41 @@ These are candidates, not conclusions: the band test only says the observed
 offsets are consistent with that grid. The conclusion is a salt that reproduces
 every capture, which is what `fit-parameters.js --sweep` looks for.
 
+### Two seeding routines, not one (measured 2026-10-24)
+
+`ca71350` (`StructureAccess::ctor`) calls **two** different placement resolvers,
+and they take different arguments:
+
+| resolver | arguments | mix |
+|---|---|---|
+| `d2d2570` | separation, spacing, spread type, salt, seed, chunk pair | `(cellZ*132897987541 + cellX*341873128712 + seed + salt) ^ 0x5deece66d` |
+| `d2d2c60` | seed, chunk pair, and no salt | `rng.setSeed(seed); i = nextLong(); j = nextLong(); setSeed((cellZ*j) ^ (i*cellX) ^ seed)` |
+
+The second is the shape of `WorldGenRandom.setLargeFeatureSeed`, which has no
+salt at all. That is the important asymmetry: an exhaustive search over an
+additive salt can never find a set that uses the second routine, because there is
+no constant to find. It also explains why the sweeps kept coming back empty for
+the same sets whose captures sit neatly on a grid -- the grid is real, the jitter
+is real, and the constant the search was looking for is not there.
+
+`tools/worldgen-algo/test-legacy-placement.js` scores the unsalted family
+directly. It has no unknown constant, so every `(spacing, separation)` is decided
+outright, for both `|1` and plain multipliers and for `^` and `+` folds. Result:
+**no set fits it**, with `trail_ruins` as the control (it must not fit, and does
+not). So the compiled-in sets are neither the Java salted form nor the plain
+`setLargeFeatureSeed` form, and the next measurement has to read the values the
+server actually built.
+
+### One more measured fact: the origin sits at or before the placement chunk
+
+Across the 35 `trail_ruins` captures the predicted chunk minus the observed chunk
+is `0` for 9 of them and `+1` for 25 (`tools/worldgen-algo/fit-placements.js`,
+residual list). So `locate structure` reports the structure's origin block, and
+that origin can be one chunk *before* the chunk the set placed -- never after.
+Every fit in this repository therefore accepts `predicted - observed in {0, 1}`
+rather than equality, and a fit that only works with a symmetric tolerance is
+not accepted.
+
 ## Honest limitations
 
 - **The placement derivation is now reproduced for one set, end to end.**
