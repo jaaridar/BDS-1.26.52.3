@@ -41,6 +41,9 @@ node tools/worldgen-algo/pack-structure-sets.js
 
 # score the model against every captured locate answer, per structure set
 node tools/worldgen-algo/fit-placements.js --verbose
+
+# recover the tuple for every set that has captures (compiles the C solvers)
+node tools/worldgen-algo/derive-placements.js
 ```
 
 The report labels each set `from pack` (readable data), `measured` (confirmed

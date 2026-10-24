@@ -19,9 +19,10 @@ const fs = require('node:fs')
 const path = require('node:path')
 
 const { PLACEMENTS } = require('../../src/world/structures-data')
+const { DEFAULT_ROOT, loadObservations } = require('./observations')
 const { structureInCell } = require('../../src/world/structure-placement')
 
-const ROOT = 'research/proprietary/bds-1.26.52.3/structures'
+const ROOT = DEFAULT_ROOT
 
 function parseArgs (argv) {
   const args = { root: ROOT, id: null, json: false, blocks: 3, verbose: false }
@@ -44,46 +45,11 @@ function parseArgs (argv) {
   return args
 }
 
-/** Every structures.json under the capture root, however deeply nested. */
-function findCaptures (directory, out = []) {
-  if (!fs.existsSync(directory)) return out
-  for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
-    const full = path.join(directory, entry.name)
-    if (entry.isDirectory()) findCaptures(full, out)
-    else if (entry.name === 'structures.json') out.push(full)
-  }
-  return out
-}
-
-/** One observation per (seed, identifier): the first probe that found it. */
-function observations (root) {
-  const seen = new Set()
-  const out = []
-  for (const file of findCaptures(root).sort()) {
-    let capture
-    try {
-      capture = JSON.parse(fs.readFileSync(file, 'utf8'))
-    } catch {
-      continue
-    }
-    for (const result of capture.results || []) {
-      if (!result.found || !Array.isArray(result.at)) continue
-      const id = (result.resolvedId || '').replace(/^minecraft:/, '')
-      if (!id) continue
-      const key = `${capture.seed}\u0000${id}`
-      if (seen.has(key)) continue
-      seen.add(key)
-      out.push({ seed: Number(capture.seed), id, block: [result.at[0], result.at[2]] })
-    }
-  }
-  return out
-}
-
 function floorDiv (a, b) { return Math.floor(a / b) }
 
 function main () {
   const args = parseArgs(process.argv)
-  const rows = observations(args.root)
+  const rows = loadObservations(args.root)
   if (!rows.length) {
     console.error(`no catches under ${args.root}`)
     process.exit(1)
