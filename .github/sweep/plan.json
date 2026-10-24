@@ -1,0 +1,15 @@
+{
+  "note": "Sweep plans. Each entry probes `ids` from a grid of origins, which enumerates the structures near a seed instead of only the nearest one. Edit and commit to run.",
+  "sweeps": [
+    {
+      "slug": "stronghold_enum",
+      "ids": ["stronghold"],
+      "seeds": [1, 2, 3, 4, 5, 6],
+      "minX": -3072,
+      "maxX": 3072,
+      "minZ": -3072,
+      "maxZ": 3072,
+      "step": 768
+    }
+  ]
+}
