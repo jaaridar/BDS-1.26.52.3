@@ -96,10 +96,17 @@ tools/worldgen-golden/            oracle harness: block capture and verification
 
 ## Honest limitations
 
-- **Structure salts for the main sets are not recovered yet.** Placement
-  *machinery* is exact; the per-set numbers are not. `minecraft:village` and
-  friends will report candidates, and those candidates are computed from
-  placeholder salts, so they are not yet predictions.
+- **The placement derivation is not reproduced yet.** This was measured, not
+  assumed: `trail_ruins` and `abandoned_camp` ship their spacing, separation and
+  salt in the vanilla pack, so the resolver can be tested with certain
+  parameters. The server put `trail_ruins` at chunks `(-62,-62)`, `(40,7)` and
+  `(-57,13)` for seeds 1-3; no derivation tested (`tools/worldgen-algo/probe-derivation.js`
+  tries seven, including the Java seed mix, swapped multipliers, salt variants
+  and MT19937 variants) explains all three. So the gap is in how a cell and the
+  world seed become a stream, not in the parameters.
+- **Structure salts for the other sets are not recovered.** Placement machinery
+  is exact; `minecraft:village` and friends therefore report candidates computed
+  from placeholder salts, and those are not predictions.
 - **Strongholds use ring placement**, which is a different algorithm from the
   jittered grid; it is not modelled at all yet, and the tool says so instead of
   producing a number.

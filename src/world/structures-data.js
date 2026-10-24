@@ -31,7 +31,12 @@ const PLACEMENT_SOURCE = {
 }
 
 function pack (id, placement) {
-  return { id, ...placement, confirmed: true, evidence: 'pack' }
+  // Parameters are certain (they are shipped data), but "confirmed" would claim
+  // that positions derived from them match the server. On 2026-10-24 they do
+  // not: trail_ruins was located at chunk (-62,-62), (40,7) and (-57,13) for
+  // seeds 1-3, and the Java-style derivation reproduces at most one of the
+  // three. So the parameters are known and the derivation is not.
+  return { id, ...placement, confirmed: false, evidence: 'pack' }
 }
 
 function placeholder (id, spacing, separation, salt, spreadType = 'linear') {
