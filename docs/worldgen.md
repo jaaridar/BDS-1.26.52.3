@@ -15,14 +15,14 @@ certain than its evidence.
 | Two-layer normal noise | **implemented** | `NormalNoiseOperationNode::vslot4`, incl. the 1.0181268 input factor and `maxValue` formula |
 | `java.util.Random` LCG | **implemented** | `WorldGenRandom`, multiplier/addend/mask read from `.text` |
 | Structure placement machinery | **implemented, measured** | cell → 32-bit cell seed → MT19937 (legacy sets) or Java LCG (pack sets) → jittered start; seven sets reproduce every capture exactly |
-| Per-structure placement data | **partial** | nine sets measured against the server; temples, ocean ruins, mineshaft, stronghold and abandoned camps still unconfirmed |
+| Per-structure placement data | **partial** | ten sets measured against the server; temples, ocean ruins, mineshaft and abandoned camps still unconfirmed |
 | Structure positions | **tools ready** | `structure-locate.js` computes hypotheses; `fit-structures.js` rejects any that the server's `locate` output contradicts |
 | Biome climate rules | **data loaded** | 76 biomes, 14 with `multinoise_generation_rules`, read from the packs |
 | Surface builder materials | **data loaded** | per-biome `surface_builder` components from the packs |
 | Climate noise router | **not implemented** | the descriptor table is built at startup inside the binary |
 | Density / terrain height | **not implemented** | depends on the router |
 | Block prediction | **not implemented** | depends on density, surface rules and feature order |
-| Strongholds | **not implemented** | ring placement, not a jittered grid |
+| Strongholds | **mostly exact** | 200-chunk cell grid, one stronghold per cell; the grid position is exact for the gated quarter, the rest need the biome layer (below) |
 
 ## What you can run now
 
@@ -280,6 +280,62 @@ constant per type. `village` is at `+8,+8` in 35 of 35 captures, `shipwreck` at
 `+3,+3` for most captures. So the answer is a block position anchored inside the
 placement chunk, and the chunk is what the resolver computed.
 
+### Strongholds are a cell grid with a twist (2026-10-24)
+
+Strongholds are not a ring walk in this build. The ring harness in
+`tools/worldgen-algo/fit-strongholds.js` cannot explain them (it tops out at
+3 of 6 from the origin at any tolerance up to 64 chunks), and the Java ring
+radii are refuted outright by the captured sets: the strongholds of one seed sit
+at 58, 179, 277, 338, 355, 503 chunks, which is no ring Java produces.
+
+The real placement is a 200-chunk cell grid like every other set, with two
+differences that make it look like a ring if you only look at positions:
+
+1. the cell is 200 chunks wide, four times the widest legacy spacing; and
+2. the seed mix folds the *cell centre*, `cell * 200 + 100`, not the cell index.
+
+```
+cellX  = floor(chunkX / 200)                       chunks, floored
+u      = cellX * 200 + 100                         the cell centre
+v      = cellZ * 200 + 100
+seed32 = u * 0x9babeb51 + v * 0xbe68aeb9 + seed + 0x5d534e7      (mod 2^32)
+```
+
+`seed32` seeds a 32-bit Mersenne Twister and three draws come out of it:
+
+| draw | use |
+| --- | --- |
+| 1 | `nextInt(100)` — the x jitter |
+| 2 | `nextInt(100)` — the z jitter |
+| 3 | `nextUInt() / 2^32` — the odds that the cell keeps the grid position |
+
+so the grid position is `cell * 200 + 50 + jitter` per axis, but only while draw
+3 is below 0.25. That is the `divps` by 200 at `0x4e9f094`, the `pmuludq` against
+the two multipliers at `0x13e4220` / `0x13e8740`, the `add $0x5d534e7` at
+`0x4e9f12a`, the two virtual `nextInt(100)` calls at `0x4e9f234` / `0x4e9f249`
+and the `ucomiss` against the `0.25f` at `0x1098630`.
+
+The result is exact: **30 of the 42 captured strongholds are the predicted
+chunk, and all 30 of those are the gated quarter.** Of the 12 that are not, 10
+sit in cells whose gate draw is 0.75 or above. So the gate is not a guess about
+the data — it splits it cleanly.
+
+What happens to the other three quarters of the cells is now readable in the
+binary too. `0x4e9fca0` loads a provider out of the feature's own state
+(`+0x1a8`), calls slot 6 of its vtable with the candidate position, and the
+provider both decides *whether to reject* the cell and *rewrites the position*:
+the value it leaves in that slot is what gets re-snapped to a cell and re-seeded.
+That is a biome query, and it is why the relocated strongholds are not on the
+200-chunk grid at all: `(84, 9)` cannot be `cell * 200 + 50 + [0..100)` for any
+cell, on either axis, so no amount of jitter explains it. Predicting those
+positions needs the biome layer, which is the next milestone; what is known today
+is that each cell carries exactly one stronghold (42 captures, no cell holds two)
+and a quarter of them are pinned exactly.
+
+`src/world/stronghold.js` implements the grid, the mix and the gate, and
+`tools/worldgen-algo/verify-strongholds.js` replays the captures and prints both
+numbers separately, so a relocated stronghold is never counted as a hit.
+
 ### Why the binary has to be read where it runs
 
 The release asset is on a host this working environment cannot reach
@@ -294,10 +350,13 @@ virtual address, so the static side of this work can be repeated from a checkout
 
 ## Honest limitations
 
-- **Placement is reproduced for ten sets.** Eight are exact for every captured
+- **Placement is reproduced for eleven sets.** Eight are exact for every captured
   position; `trail_ruins` and `trial_chambers` are within a chunk and are limited
-  by the jigsaw-origin convention described above, not by the grid. Re-run
-  `node tools/worldgen-algo/verify-placements.js` for the current tally.
+  by the jigsaw-origin convention described above, not by the grid. Strongholds
+  are exact for the quarter of cells that keep the grid position, and cell-exact
+  for the rest, whose position comes out of a biome query that is not modelled
+  yet. Re-run `node tools/worldgen-algo/verify-placements.js` and
+  `node tools/worldgen-algo/verify-strongholds.js` for the current tallies.
 - **Six sets still have no measured row**: ocean ruins, desert pyramids, jungle
   temples, witch huts, igloos, abandoned camps. Their shape is known
   (`placeholder` rows say so) and nothing pretends otherwise.
@@ -307,16 +366,19 @@ virtual address, so the static side of this work can be repeated from a checkout
   engines), which points at the biome/height check rather than a new random.
   Strongholds use concentric rings; the captures contradict Java's ring radii
   (nearest stronghold 47-203 chunks out) and no parameterized ring model in the
-  family the harness searches explains them. Both need work that this repository
-  cannot fake: biomes for one, the ring enumeration for the other.
+  family the harness searches explains them. Strongholds turned out not to be
+  rings at all -- they are a 200-chunk cell grid with a gate (see above) -- so
+  what is left open for them is the biome query, and for mineshaft the
+  biome/height test. Both need the biome layer this repository does not have yet.
 - **A set's reported position is not always its placement chunk.** For the
   pack-driven sets it is the structure's own origin block, which can sit one
   chunk back on either axis (and further, along a corridor). The model reports
   the placement chunk and the tools keep the residual visible instead of hiding
   it inside a symmetric tolerance.
-- **Strongholds use ring placement**, which is a different algorithm from the
-  jittered grid; it is not modelled at all yet, and the tool says so instead of
-  producing a number.
+- **A quarter of the strongholds are exact, the rest are cell-exact.** The
+  stronghold grid, mix and gate are modelled; what a cell's non-gated stronghold
+  position is comes from the biome provider, so until biomes are modelled those
+  are reported as `onGrid: false` rather than given a made-up position.
 - **Terrain blocks are not predicted.** The noise primitive is exact, but the
   router that decides which noises to sample, and the splines that turn climate
   into density, are not wired up.
