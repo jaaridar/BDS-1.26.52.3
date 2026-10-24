@@ -38,6 +38,22 @@ echo "disassembled $(wc -l < "$WORK/text.asm") lines" >&2
     echo
   done
 
+  echo "# references to the float sine table the ring walk indexes (0xf778a04)"
+  grep -n "f778a04" "$WORK/text.asm" | head -20 || true
+  echo
+
+  for line in $(grep -n "f778a04" "$WORK/text.asm" | cut -d: -f1 | head -3); do
+    start=$((line - 120))
+    [ "$start" -lt 1 ] && start=1
+    echo "===== sine-table window around line $line"
+    sed -n "${start},$((line + 220))p" "$WORK/text.asm"
+    echo
+  done
+
+  echo "# callers of the 200/100 placement predicate (identifies which set owns it)"
+  grep -nE "call +4e9f[0-9a-f]{3}" "$WORK/text.asm" | head -20 || true
+  echo
+
   echo "# .rodata looks like a trig table at its start; print the first 256 floats"
   python3 - "$BINARY" <<'PY'
 import struct, subprocess, sys
