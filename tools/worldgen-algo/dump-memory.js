@@ -206,6 +206,116 @@ function pointerPattern (address) {
   return buffer
 }
 
+/**
+ * Placement records, found by shape instead of by value.
+ *
+ * The record layout was measured, not guessed: `trail_ruins` ships its numbers in
+ * the vanilla pack (spacing 34, separation 8, salt 83469867), and the object the
+ * server builds for it holds
+ *
+ *   +0  int32  salt
+ *   +4  int32  spacing << 16 | separation
+ *   +8  int32  spread type (0 linear, 1 triangular)
+ *
+ * The packing is what makes a scan possible at all. Requiring one dword to be a
+ * valid (spacing, separation) pair and the next to be 0 or 1 leaves roughly one
+ * chance in 1e15 per address, so the hits are records rather than coincidences --
+ * and unlike a scan for a particular salt, this one does not need to know the
+ * number it is looking for.
+ */
+function recordsInBuffer (buffer, base, out = []) {
+  for (let offset = 0; offset + 12 <= buffer.length; offset += 4) {
+    const packed = buffer.readInt32LE(offset + 4)
+    const spacing = packed >>> 16
+    const separation = packed & 0xffff
+    if (spacing < 2 || spacing > 128 || separation >= spacing) continue
+    const type = buffer.readInt32LE(offset + 8)
+    if (type !== 0 && type !== 1) continue
+    out.push({
+      at: base + offset,
+      salt: buffer.readInt32LE(offset),
+      spacing,
+      separation,
+      type
+    })
+  }
+  return out
+}
+
+/** The C string at `address`, if there is one. */
+function readCString (memFd, address, limit = 96) {
+  if (!Number.isFinite(address) || address < 0x1000 || address >= 2 ** 47) return null
+  const buffer = Buffer.alloc(limit)
+  let read = 0
+  try {
+    read = fs.readSync(memFd, buffer, 0, limit, address)
+  } catch {
+    return null
+  }
+  const end = buffer.subarray(0, read).indexOf(0)
+  if (end < 4) return null
+  const text = buffer.subarray(0, end)
+  for (const byte of text) {
+    if (byte < 0x20 || byte > 0x7e) return null
+  }
+  return text.toString('latin1')
+}
+
+/**
+ * Pointers that sit next to a record, resolved to the strings they address.
+ *
+ * A structure set knows its own identifier, so if the record is followed (or
+ * preceded) by a pointer into the string, that is the mapping from numbers to
+ * name without having to match the numbers against captures first.
+ */
+function nearbyStrings (memFd, address, window = 72) {
+  const buffer = Buffer.alloc(window)
+  let read = 0
+  try {
+    read = fs.readSync(memFd, buffer, 0, window, address)
+  } catch {
+    return []
+  }
+  const out = []
+  for (let offset = 0; offset + 8 <= read; offset += 8) {
+    const value = Number(buffer.readBigUInt64LE(offset))
+    const text = readCString(memFd, value)
+    if (text) out.push({ at: address + offset, target: value, text })
+  }
+  return out
+}
+
+function scanRecords (memFd, regions, { chunk = 1 << 23, maxHits = 512 } = {}) {
+  const hits = []
+  const seen = new Set()
+  for (const region of regions) {
+    let address = region.start
+    while (address < region.end) {
+      const size = Math.min(chunk, region.end - address)
+      const buffer = Buffer.alloc(size)
+      let read = 0
+      try {
+        read = fs.readSync(memFd, buffer, 0, size, address)
+      } catch {
+        break
+      }
+      if (read >= 12) {
+        for (const hit of recordsInBuffer(buffer.subarray(0, read), address)) {
+          const key = `${hit.salt}:${hit.spacing}:${hit.separation}:${hit.type}`
+          if (seen.has(key)) continue
+          seen.add(key)
+          hit.window = decodeWindow(memFd, hit.at, 64)
+          hit.strings = nearbyStrings(memFd, hit.at)
+          hits.push(hit)
+          if (hits.length >= maxHits) return hits
+        }
+      }
+      address += size
+    }
+  }
+  return hits
+}
+
 function decodeWindow (memFd, address, window) {
   const start = Math.max(0, address - Math.floor(window / 2))
   const buffer = Buffer.alloc(window)
@@ -361,6 +471,19 @@ async function main () {
           (owners ? ` first @${entry.owners[0].at.toString(16)}` : ''))
       }
     }
+    // Pass three: every placement record in the process, by shape. This is the
+    // measurement that does not need to know any salt in advance, so it finds the
+    // sets whose numbers the packs do not state.
+    const records = scanRecords(memFd, regions)
+    report.records = records
+    console.log(`placement-shaped records: ${records.length}`)
+    for (const record of records.slice(0, 60)) {
+      const names = (record.strings || []).map((entry) => entry.text).join(' ')
+      console.log(`  salt ${record.salt} spacing ${record.spacing} ` +
+        `separation ${record.separation} type ${record.type} @${record.at.toString(16)}` +
+        (names ? `  [${names}]` : ''))
+    }
+
     fs.closeSync(memFd)
   } catch (error) {
     fs.writeFileSync(path.join(absOut, 'error.txt'), `${error && error.stack || error}\n`)
@@ -374,7 +497,8 @@ async function main () {
   console.log(`wrote ${file}: ${report.names.length} name hits, ${report.salts.length} salt hits`)
 }
 
-module.exports = { parseArgs, propertiesFor, readRegions, findAll, pointerPattern }
+module.exports = { parseArgs, propertiesFor, readRegions, findAll, pointerPattern,
+  recordsInBuffer, scanRecords, readCString, nearbyStrings }
 
 if (require.main === module) {
   main().catch((error) => {
