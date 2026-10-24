@@ -21,6 +21,14 @@ on:
         description: 'Structure identifiers to probe'
         required: false
         default: 'trail_ruins,village,pillager_outpost,monument,mansion,ocean_ruin,shipwreck,buried_treasure,mineshaft,desert_pyramid,jungle_temple,swamp_hut,igloo,ruined_portal,ancient_city,trial_chambers,stronghold'
+      origins:
+        description: 'Origins to probe from, as x,z pairs separated by semicolons. Sweeping many origins enumerates the structures of one seed: each answer is the nearest one to that origin.'
+        required: false
+        default: '0,0;2048,2048'
+      slug:
+        description: 'Directory name for the capture (defaults to the identifier list)'
+        required: false
+        default: ''
   push:
     paths:
       - .github/workflows/structure-recovery.yml
@@ -44,6 +52,8 @@ env:
   GHIDRA_SHA256: ddac49f903da9d5bac833e5cc79395098b9c33cfd3279be5f31bd00387d2d4db
   EVIDENCE: research/proprietary/bds-1.26.52.3
   SEEDS: ${{ github.event.inputs.seeds || '1,2,3,4,5,6,7,8,9,10,11,12' }}
+  ORIGINS: ${{ github.event.inputs.origins || '0,0;2048,2048' }}
+  SLUG: ${{ github.event.inputs.slug || '' }}
   IDS: ${{ github.event.inputs.ids || 'trail_ruins,village,pillager_outpost,monument,mansion,ocean_ruin,shipwreck,buried_treasure,mineshaft,desert_pyramid,jungle_temple,swamp_hut,igloo,ruined_portal,ancient_city,trial_chambers,stronghold' }}
 
 jobs:
@@ -89,11 +99,11 @@ jobs:
           mkdir -p "$EVIDENCE/structures"
           # The directory is keyed by the identifier set: a 17-structure probe
           # must not overwrite the 2-structure one that an earlier fit used.
-          slug=$(echo "$IDS" | tr ',' '_' | cut -c1-80)
+          if [ -n "$SLUG" ]; then slug="$SLUG"; else slug=$(echo "$IDS" | tr ',' '_' | cut -c1-80); fi
           for seed in $(echo "$SEEDS" | tr ',' ' '); do
             timeout 600 node tools/worldgen-algo/capture-structures.js \
               --binary ./bedrock_server --assets "$PWD" --seed "$seed" \
-              --ids "$IDS" --from "0,0;2048,2048" \
+              --ids "$IDS" --from "$ORIGINS" \
               --out "$EVIDENCE/structures/captures/$slug/seed-$seed" --verbose 2>&1 | tail -120
             status=${PIPESTATUS[0]}
             echo "$status" > "$EVIDENCE/structures/captures/$slug/seed-$seed/exit-status.txt"
