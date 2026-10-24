@@ -54,6 +54,25 @@ echo "disassembled $(wc -l < "$WORK/text.asm") lines" >&2
   grep -nE "call +4e9f[0-9a-f]{3}" "$WORK/text.asm" | head -20 || true
   echo
 
+  echo "# full disassembly of the stronghold placement/relocation routine (4e9efc0..4ea0200)"
+  python3 - "$WORK/text.asm" <<'PYADDR'
+import re, sys
+lo, hi = 0x4e9ef00, 0x4ea0200
+pat = re.compile(r'^\s*([0-9a-f]+):')
+for line in open(sys.argv[1], errors='replace'):
+    m = pat.match(line)
+    if not m:
+        continue
+    v = int(m.group(1), 16)
+    if lo <= v <= hi:
+        sys.stdout.write(line)
+PYADDR
+  echo
+
+  echo "# callers of the relocation routine (who asks for strongholds)"
+  grep -nE "call +(4e9efc0|4e9f[a-f][0-9a-f]{2})" "$WORK/text.asm" | head -30 || true
+  echo
+
   echo "# .rodata looks like a trig table at its start; print the first 256 floats"
   python3 - "$BINARY" <<'PY'
 import struct, subprocess, sys
