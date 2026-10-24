@@ -33,7 +33,7 @@ permissions:
 # Serialised per ref, but the group carries a version so that a run stuck in a
 # long measurement cannot hold every later run behind it for two hours.
 concurrency:
-  group: structure-recovery-${{ github.ref }}-v3
+  group: structure-recovery-${{ github.ref }}-v5
   cancel-in-progress: false
 
 env:
@@ -93,14 +93,6 @@ jobs:
             status=${PIPESTATUS[0]}
             echo "$status" > "$EVIDENCE/structures/captures/$slug/seed-$seed/exit-status.txt"
           done
-          # The registry dump reads the whole of the process's anonymous memory
-          # and then looks for pointers at each anchor, so it is bounded: a slow
-          # dump must not cost the captures above.
-          timeout 900 node tools/worldgen-algo/dump-memory.js \
-            --binary ./bedrock_server --assets "$PWD" --seed 1 \
-            --ids "$IDS" --out "$EVIDENCE/structures/memory" 2>&1 | tail -60 || \
-            echo 'registry dump did not finish inside the bound'
-
           # A seed that differs only above bit 31: if the generator saw all 64
           # bits the reported positions would differ, so this measures the width
           # of the seed the placement uses instead of assuming it.
@@ -120,6 +112,68 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git commit -m "research: captured structure positions"
+          for attempt in 1 2 3 4 5; do
+            if git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}"; then
+              echo pushed; exit 0
+            fi
+            sleep $((attempt * 5))
+          done
+          exit 1
+
+  memory:
+    if: startsWith(github.ref, 'refs/heads/arena/')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Fetch the official binary from the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download v1.26.52.3 --repo "${GITHUB_REPOSITORY}" \
+            --pattern bedrock_server --clobber
+          chmod +x bedrock_server
+          echo "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207  bedrock_server" \
+            | sha256sum --check --strict
+
+      - name: Install the server's shared libraries
+        run: |
+          gh release download v1.26.52.3 --repo "${GITHUB_REPOSITORY}" \
+            --pattern '*linux*.zip' --clobber 2>/dev/null || true
+          if ls ./*.zip >/dev/null 2>&1; then
+            unzip -o -q ./*.zip -d release
+            cp -n release/*.so* . 2>/dev/null || true
+          fi
+
+      - name: Publish the data sections for local analysis
+        run: |
+          # .text is 182 MiB of the binary's 244; the data sections together are
+          # about 20. Writing those out makes every static scan here reproducible
+          # from a checkout, without the release asset.
+          python3 tools/binary-analysis/extract-sections.py --binary bedrock_server \
+            --out "$EVIDENCE/binary-sections" | tail -10
+          du -sh "$EVIDENCE/binary-sections"
+
+      - name: Dump the placement registry from the running server
+        run: |
+          # Reading the process's own memory is the one measurement that cannot
+          # be replaced by a static scan: the records are built at startup and
+          # nothing on disk holds them.
+          timeout 1800 node tools/worldgen-algo/dump-memory.js \
+            --binary ./bedrock_server --assets "$PWD" --seed 1 \
+            --ids "$IDS" --out "$EVIDENCE/structures/memory" --verbose 2>&1 | tail -120
+
+      - name: Commit the dump
+        if: always()
+        run: |
+          git add -A "$EVIDENCE/structures/memory" "$EVIDENCE/binary-sections" || true
+          if git diff --cached --quiet; then echo 'no memory evidence'; exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m "research: structure registry memory dump"
           for attempt in 1 2 3 4 5; do
             if git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}"; then
               echo pushed; exit 0
