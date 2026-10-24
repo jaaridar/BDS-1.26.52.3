@@ -48,7 +48,12 @@ function parseArgs (argv) {
     ids: DEFAULT_IDS.join(','),
     out: 'memory-dump',
     window: 192,
-    saltWindow: 4096,
+    // A salt is a field in a record, and the other fields of that record
+    // (spacing, separation, spread type) are what the fit still lacks, so the
+    // window around a salt has to be wide enough to hold a whole table. 64 KiB
+    // of hex is ~128 KiB on disk per hit, which is cheap next to another CI
+    // round trip.
+    saltWindow: 65536,
     minAddress: 0,
     maxRegions: 400,
     verbose: false

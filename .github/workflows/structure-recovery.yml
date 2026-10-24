@@ -343,6 +343,17 @@ jobs:
           python3 tools/binary-analysis/scan-binary.py --binary bedrock_server \
             --imm-stores --out "$EVIDENCE/structures/scan-records" | tail -60
 
+      - name: Disassemble the sites that reference a structure name
+        run: |
+          # objdump answers "what numbers does this code store" directly; the
+          # decompiler is the expensive fallback. The reference table already
+          # says where to look, so this needs no analysis pass.
+          python3 tools/binary-analysis/disassemble-refs.py \
+            --scan "$EVIDENCE/structures/scan-refs/scan.json" \
+            --binary bedrock_server \
+            --out "$EVIDENCE/structures/disasm-refs" | tail -40
+          du -sh "$EVIDENCE/structures/disasm-refs" || true
+
       - name: Map reference sites to function starts
         run: |
           # A site on its own decompiles as a fragment; the containing function
@@ -397,6 +408,7 @@ jobs:
             "$EVIDENCE/structures/scan-vtables" "$EVIDENCE/worldgen-data" \
             "$EVIDENCE/structures/scan-data" "$EVIDENCE/structures/scan-json" \
             "$EVIDENCE/structures/scan-tables" \
+            "$EVIDENCE/structures/disasm-refs" \
             "$EVIDENCE/ghidra/lattice-structures" || true
           if git diff --cached --quiet; then echo 'no scan evidence'; exit 0; fi
           git config user.name 'github-actions[bot]'
