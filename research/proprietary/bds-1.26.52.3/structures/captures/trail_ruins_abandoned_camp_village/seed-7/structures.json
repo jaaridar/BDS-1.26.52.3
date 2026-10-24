@@ -1,16 +1,18 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-24T12:16:43.231Z",
-  "durationMs": 5055,
+  "generatedAt": "2026-10-24T12:18:54.147Z",
+  "durationMs": 5282,
   "binary": {
     "sha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
     "bytes": 256133808
   },
   "seed": "7",
+  "ids": "trail_ruins,abandoned_camp,village",
+  "origins": "0,0;2048,2048",
   "results": [
     {
       "probe": "help",
-      "raw": "current connection type is not set to NetherNet. In this release, NetherNet is the only supported transport type.\n[2026-10-24 12:16:39:414 ERROR] Players will not be able to connect to your game without NetherNet.\n[2026-10-24 12:16:39:414 ERROR] \n[2026-10-24 12:16:39:414 ERROR] To switch, set 'transport=nethernet' in server.properties.\n[2026-10-24 12:16:39:414 ERROR] \n[2026-10-24 12:16:39:414 ERROR] For more information, please reference the included bedrock_server_how_to.html file.\n[2026-10-24 12:16:39:414 ERROR] =======================================================\n[2026-10-24 12:16:39:414 INFO] ================ TELEMETRY MESSAGE ===================\n[2026-10-24 12:16:39:414 INFO] Server Telemetry is currently not enabled. \n[2026-10-24 12:16:39:414 INFO] Enabling this telemetry helps us improve the game.\n[2026-10-24 12:16:39:414 INFO] \n[2026-10-24 12:16:39:414 INFO] To enable this feature, add the line 'emit-server-telemetry=true'\n[2026-10-24 12:16:39:414 INFO] to the server.properties file in the handheld/src-server directory\n[2026-10-24 12:16:39:414 INFO] ======================================================\n[2026-10-24 12:16:39:570 INFO] Game rule sendcommandfeedback has been updated to true\n[2026-10-24 12:16:39:965 INFO] §elocate:\n§eDisplays the coordinates for the closest structure or biome of a given type.\nUsage:\n- /locate <feature: string> [useNewChunksOnly: Boolean]\n- /locate biome <biome: Biome>\n- /locate structure <structure: string> [useNewChunksOnly: Boolean]\n"
+      "raw": "current connection type is not set to NetherNet. In this release, NetherNet is the only supported transport type.\n[2026-10-24 12:18:50:323 ERROR] Players will not be able to connect to your game without NetherNet.\n[2026-10-24 12:18:50:323 ERROR] \n[2026-10-24 12:18:50:323 ERROR] To switch, set 'transport=nethernet' in server.properties.\n[2026-10-24 12:18:50:323 ERROR] \n[2026-10-24 12:18:50:323 ERROR] For more information, please reference the included bedrock_server_how_to.html file.\n[2026-10-24 12:18:50:323 ERROR] =======================================================\n[2026-10-24 12:18:50:323 INFO] ================ TELEMETRY MESSAGE ===================\n[2026-10-24 12:18:50:323 INFO] Server Telemetry is currently not enabled. \n[2026-10-24 12:18:50:323 INFO] Enabling this telemetry helps us improve the game.\n[2026-10-24 12:18:50:323 INFO] \n[2026-10-24 12:18:50:323 INFO] To enable this feature, add the line 'emit-server-telemetry=true'\n[2026-10-24 12:18:50:323 INFO] to the server.properties file in the handheld/src-server directory\n[2026-10-24 12:18:50:323 INFO] ======================================================\n[2026-10-24 12:18:50:465 INFO] Game rule sendcommandfeedback has been updated to true\n[2026-10-24 12:18:50:875 INFO] §elocate:\n§eDisplays the coordinates for the closest structure or biome of a given type.\nUsage:\n- /locate <feature: string> [useNewChunksOnly: Boolean]\n- /locate biome <biome: Biome>\n- /locate structure <structure: string> [useNewChunksOnly: Boolean]\n"
     },
     {
       "command": "execute positioned 0 64 0 run locate structure trail_ruins",
@@ -27,7 +29,7 @@
         1346
       ],
       "chunksAway": null,
-      "raw": "[2026-10-24 12:16:41:525 INFO] The nearest minecraft:trail_ruins is at block -702, (y?), 1346 (1518 blocks away)"
+      "raw": "[2026-10-24 12:18:52:436 INFO] The nearest minecraft:trail_ruins is at block -702, (y?), 1346 (1518 blocks away)"
     },
     {
       "command": "execute positioned 0 64 0 run locate structure abandoned_camp",
@@ -57,7 +59,7 @@
         376
       ],
       "chunksAway": null,
-      "raw": "[2026-10-24 12:16:41:971 INFO] The nearest minecraft:village is at block -376, (y?), 376 (531 blocks away)"
+      "raw": "[2026-10-24 12:18:52:881 INFO] The nearest minecraft:village is at block -376, (y?), 376 (531 blocks away)"
     },
     {
       "command": "execute positioned 2048 64 2048 run locate structure trail_ruins",
@@ -74,7 +76,7 @@
         1678
       ],
       "chunksAway": null,
-      "raw": "[2026-10-24 12:16:42:226 INFO] The nearest minecraft:trail_ruins is at block 1970, (y?), 1678 (378 blocks away)"
+      "raw": "[2026-10-24 12:18:53:135 INFO] The nearest minecraft:trail_ruins is at block 1970, (y?), 1678 (378 blocks away)"
     },
     {
       "command": "execute positioned 2048 64 2048 run locate structure abandoned_camp",
@@ -104,7 +106,7 @@
         2376
       ],
       "chunksAway": null,
-      "raw": "[2026-10-24 12:16:42:727 INFO] The nearest minecraft:village is at block 1272, (y?), 2376 (842 blocks away)"
+      "raw": "[2026-10-24 12:18:53:631 INFO] The nearest minecraft:village is at block 1272, (y?), 2376 (842 blocks away)"
     }
   ]
 }
