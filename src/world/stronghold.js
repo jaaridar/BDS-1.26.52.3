@@ -28,12 +28,12 @@
  *   chunkZ = cellZ * 200 + 50 + draw2 % 100
  *
  * What the third draw gates is measured, and it is *not* existence: every cell
- * carries exactly one stronghold (42 captures, no cell holds two). It gates
- * whether the stronghold ends up on that grid position. Of the 42 captured
- * strongholds, 30 sit exactly on the predicted position and every one of those
- * 30 is gated in; of the 32 cells that are gated in, 30 are exact. So a gated
- * cell is the grid position with no counter-example among 30 hits and two
- * known exceptions, and an ungated cell never is (0 of 10).
+ * carries exactly one stronghold (114 captures, no cell holds two). It gates
+ * whether the stronghold ends up on that grid position. Across 114 captured
+ * strongholds, 74 sit exactly on the predicted position and every one of those
+ * 74 is a gated cell, while 0 of the 32 ungated ones are. Of the 82 gated
+ * cells, 74 are exact -- so the gate is necessary with no counter-example and
+ * sufficient 90% of the time.
  *
  * The rest of the cells are relocated: the binary calls a biome provider with
  * the candidate position (`0x4e9fca0`, virtual slot 6 of the object at

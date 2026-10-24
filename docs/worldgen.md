@@ -314,12 +314,23 @@ the two multipliers at `0x13e4220` / `0x13e8740`, the `add $0x5d534e7` at
 `0x4e9f12a`, the two virtual `nextInt(100)` calls at `0x4e9f234` / `0x4e9f249`
 and the `ucomiss` against the `0.25f` at `0x1098630`.
 
-The result is exact: **30 of the 42 captured strongholds are the predicted
-chunk, and all 30 of those are cells whose third draw is below 0.25.** Of the 12
-that are not on the grid, 10 are cells whose third draw is 0.25 or above. Of
-the 32 gated cells, 30 are exact, so the gate is a necessary condition that is
-right 94% of the time, with two known exceptions — it is reported as the gate it
-is, not as a placement rule that always holds.
+Three captured sets, one fitted on and two held out, give this tally
+(`node tools/worldgen-algo/verify-strongholds.js`, no `--slug` means the whole
+corpus):
+
+| capture set | strongholds | on the predicted chunk | gated cells | of those, exact | ungated, exact |
+| --- | --- | --- | --- | --- | --- |
+| `stronghold_enum` (fit) | 32 | 17 | 20 | 17 | **0** |
+| `stronghold_enum2` (fit, origin region) | 42 | 30 | 32 | 30 | **0** |
+| `stronghold_enum3` (held out, untouched region) | 23 | 22 | 23 | 22 | **0** |
+| all | 114 | 74 | 82 | 74 (90%) | **0** |
+
+So the gate is a *necessary* condition, with no counter-example in 114 captures,
+and a *sufficient* one 90% of the time. The 8 exceptions are strongholds whose
+cell was gated in but whose position the generator still moved, so they are
+reported as `gated: true` with a note rather than claimed as exact. The held-out
+region is where the model does best, which is what a terrain-dependent relocation
+should look like: the origin region is the one that has oceans in it.
 
 What happens to the other three quarters of the cells is now readable in the
 binary too. `0x4e9fca0` loads a provider out of the feature's own state
