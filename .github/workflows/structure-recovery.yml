@@ -343,45 +343,13 @@ jobs:
           python3 tools/binary-analysis/scan-binary.py --binary bedrock_server \
             --imm-stores --out "$EVIDENCE/structures/scan-records" | tail -60
 
-      - name: Publish the data sections and the code that names structures
+      - name: Publish the slices and disassemble the reference sites
         run: |
-          # .text is 174 MiB of the binary's 244; the data sections are 20, and
-          # every reference site for a structure name sits inside 2.4 MiB of
-          # code. Publishing those keeps every static scan reproducible from a
-          # checkout, without the release asset.
-          #
-          # `set -o pipefail` and the tee are not decoration: piping a step into
-          # `tail` reports the tail's status, so a step that did nothing used to
-          # look like a step that succeeded, and the job log is not always
-          # reachable from where the analysis happens.
-          set -o pipefail
-          mkdir -p "$EVIDENCE/structures/ci-log"
-          python3 tools/binary-analysis/extract-sections.py --binary bedrock_server \
-            --out "$EVIDENCE/binary-sections" \
-            --ranges 0x4e20000:0x5060000 2>&1 \
-            | tee "$EVIDENCE/structures/ci-log/extract-sections.log" | tail -10
-          du -sh "$EVIDENCE/binary-sections"
-
-      - name: Disassemble the sites that reference a structure name
-        run: |
-          # The instruction stream answers "what numbers does this code store"
-          # directly; the decompiler is the expensive fallback. Capstone is a
-          # pure-Python wheel, so this has no system dependency except pip's.
-          # --break-system-packages: the runner's python is externally managed,
-          # and this is the same command that fails that way in a plain shell.
-          set -o pipefail
-          mkdir -p "$EVIDENCE/structures/ci-log"
-          pip install --quiet --break-system-packages capstone 2>&1 \
-            | tee "$EVIDENCE/structures/ci-log/pip.log" | tail -3
-          python3 -c 'import capstone; print("capstone", capstone.__version__)' \
-            | tee -a "$EVIDENCE/structures/ci-log/pip.log"
-          python3 tools/binary-analysis/disassemble-refs.py \
-            --manifest "$EVIDENCE/binary-sections/manifest.json" \
-            --scan "$EVIDENCE/structures/scan-refs/scan.json" \
-            --out "$EVIDENCE/structures/disasm-refs" \
-            --immediates 1000000:2147483648 2>&1 \
-            | tee "$EVIDENCE/structures/ci-log/disassemble.log" | tail -20
-          du -sh "$EVIDENCE/structures/disasm-refs"
+          # Kept in a script so it can be run by hand against a local binary too,
+          # and so its own log lands in the repository: job logs are not reachable
+          # from every environment that does this analysis, and a step that pipes
+          # into tail used to report tail's status.
+          bash tools/binary-analysis/publish-and-disassemble.sh ./bedrock_server
 
       - name: Map reference sites to function starts
         run: |

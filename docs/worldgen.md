@@ -207,13 +207,14 @@ own. That is a cleaner statement than "the sweeps all failed": the mix is proven
 correct by the two matches, and what is missing for the rest is exactly the
 triple `(spacing, separation, salt)`.
 
-A second measurement from the same pass: every `village` report is at a block
-position that is a multiple of 128, i.e. exactly 8 chunks, in both axes, across
-20 seeds. A jittered grid whose offsets are uniform over the span cannot produce
-that (per axis, one draw in eight would be 8-aligned by chance; forty-odd in a
-row is 8^-40). Whatever places villages on Bedrock is aligned to a coarser grid
-than one chunk, which also means the "band" estimator that assumes uniform
-offsets is the wrong estimator for that set.
+A second measurement from the same pass, which is about what `locate` reports
+rather than about the grid: the *within-chunk* part of every reported position is
+constant per type. `village` is at `+8,+8` in 35 of 35 captures, `shipwreck` at
+`+8,+8` in 24 of 24, `trial_chambers` at `+7,+7` or `+9,+9`, and `trail_ruins` at
+`+3,+3` for most captures and `+2,+14` for a few. So the answer is the
+structure's origin block, anchored to a template-specific point inside the
+placement chunk, and the chunk itself is what the resolver computed. That is why
+every fit here compares chunks and reports the block residual separately.
 
 ### Why the binary has to be read where it runs
 
