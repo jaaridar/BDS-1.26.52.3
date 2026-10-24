@@ -1,0 +1,416 @@
+{
+  "schema": 1,
+  "generatedAt": "2026-10-24T11:28:52.751Z",
+  "durationMs": 9523,
+  "binary": {
+    "sha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
+    "bytes": 256133808
+  },
+  "seed": "5",
+  "results": [
+    {
+      "probe": "help",
+      "raw": "current connection type is not set to NetherNet. In this release, NetherNet is the only supported transport type.\n[2026-10-24 11:28:44:337 ERROR] Players will not be able to connect to your game without NetherNet.\n[2026-10-24 11:28:44:337 ERROR] \n[2026-10-24 11:28:44:337 ERROR] To switch, set 'transport=nethernet' in server.properties.\n[2026-10-24 11:28:44:337 ERROR] \n[2026-10-24 11:28:44:337 ERROR] For more information, please reference the included bedrock_server_how_to.html file.\n[2026-10-24 11:28:44:337 ERROR] =======================================================\n[2026-10-24 11:28:44:337 INFO] ================ TELEMETRY MESSAGE ===================\n[2026-10-24 11:28:44:337 INFO] Server Telemetry is currently not enabled. \n[2026-10-24 11:28:44:337 INFO] Enabling this telemetry helps us improve the game.\n[2026-10-24 11:28:44:337 INFO] \n[2026-10-24 11:28:44:337 INFO] To enable this feature, add the line 'emit-server-telemetry=true'\n[2026-10-24 11:28:44:337 INFO] to the server.properties file in the handheld/src-server directory\n[2026-10-24 11:28:44:337 INFO] ======================================================\n[2026-10-24 11:28:44:552 INFO] Game rule sendcommandfeedback has been updated to true\n[2026-10-24 11:28:44:988 INFO] §elocate:\n§eDisplays the coordinates for the closest structure or biome of a given type.\nUsage:\n- /locate <feature: string> [useNewChunksOnly: Boolean]\n- /locate biome <biome: Biome>\n- /locate structure <structure: string> [useNewChunksOnly: Boolean]\n"
+    },
+    {
+      "command": "execute positioned 0 64 0 run locate structure village",
+      "from": [
+        0,
+        0
+      ],
+      "id": "village",
+      "resolvedId": "minecraft:village",
+      "found": true,
+      "at": [
+        232,
+        null,
+        680
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-24 11:28:46:495 INFO] The nearest minecraft:village is at block 232, (y?), 680 (718 blocks away)"
+    },
+    {
+      "command": "execute positioned 0 64 0 run locate structure stronghold",
+      "from": [
+        0,
+        0
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        1810,
+        null,
+        1282
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-24 11:28:46:757 INFO] The nearest minecraft:stronghold is at block 1810, (y?), 1282 (2218 blocks away)"
+    },
+    {
+      "command": "execute positioned 0 64 0 run locate structure monument",
+      "from": [
+        0,
+        0
+      ],
+      "id": "monument",
+      "resolvedId": "minecraft:monument",
+      "found": true,
+      "at": [
+        -248,
+        null,
+        1192
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-24 11:28:47:005 INFO] The nearest minecraft:monument is at block -248, (y?), 1192 (1217 blocks away)"
+    },
+    {
+      "command": "execute positioned 0 64 0 run locate structure mansion",
+      "from": [
+        0,
+        0
+      ],
+      "id": "mansion",
+      "resolvedId": "minecraft:mansion",
+      "found": true,
+      "at": [
+        760,
+        null,
+        12888
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-24 11:28:47:338 INFO] The nearest minecraft:mansion is at block 760, (y?), 12888 (12910 blocks away)"
+    },
+    {
+      "command": "execute positioned 0 64 0 run locate structure pillageroutpost",
+      "from": [
+        0,
+        0
+      ],
+      "id": "pillageroutpost",
+      "resolvedId": "minecraft:pillager_outpost",
+      "found": true,
+      "at": [
+        472,
+        null,
+        696
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-24 11:28:47:494 INFO] The nearest minecraft:pillager_outpost is at block 472, (y?), 696 (840 blocks away)"
+    },
+    {
+      "command": "execute positioned 0 64 0 run locate structure shipwreck",
+      "from": [
+        0,
+        0
+      ],
+      "id": "shipwreck",
+      "resolvedId": "minecraft:shipwreck",
+      "found": true,
+      "at": [
+        -328,
+        null,
+        488
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-24 11:28:47:748 INFO] The nearest minecraft:shipwreck is at block -328, (y?), 488 (587 blocks away)"
+    },
+    {
+      "command": "execute positioned 0 64 0 run locate structure ruins",
+      "from": [
+        0,
+        0
+      ],
+      "id": "ruins",
+      "resolvedId": "minecraft:ruins",
+      "found": true,
+      "at": [
+        -232,
+        null,
+        488
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-24 11:28:47:994 INFO] The nearest minecraft:ruins is at block -232, (y?), 488 (540 blocks away)"
+    },
+    {
+      "command": "execute positioned 0 64 0 run locate structure buriedtreasure",
+      "from": [
+        0,
+        0
+      ],
+      "id": "buriedtreasure",
+      "resolvedId": "minecraft:buried_treasure",
+      "found": true,
+      "at": [
+        -56,
+        null,
+        72
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-24 11:28:48:244 INFO] The nearest minecraft:buried_treasure is at block -56, (y?), 72 (91 blocks away)"
+    },
+    {
+      "command": "execute positioned 0 64 0 run locate structure mineshaft",
+      "from": [
+        0,
+        0
+      ],
+      "id": "mineshaft",
+      "resolvedId": "minecraft:mineshaft",
+      "found": true,
+      "at": [
+        -96,
+        null,
+        -208
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-24 11:28:48:499 INFO] The nearest minecraft:mineshaft is at block -96, (y?), -208 (229 blocks away)"
+    },
+    {
+      "command": "execute positioned 0 64 0 run locate structure desert_pyramid",
+      "from": [
+        0,
+        0
+      ],
+      "id": "desert_pyramid",
+      "found": false,
+      "at": null,
+      "resolvedId": null,
+      "chunksAway": null,
+      "raw": "Failed to execute 'locate' as [Null]"
+    },
+    {
+      "command": "execute positioned 0 64 0 run locate structure temple",
+      "from": [
+        0,
+        0
+      ],
+      "id": "temple",
+      "resolvedId": "minecraft:temple",
+      "found": true,
+      "at": [
+        -1016,
+        null,
+        -984
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-24 11:28:49:004 INFO] The nearest minecraft:temple is at block -1016, (y?), -984 (1414 blocks away)"
+    },
+    {
+      "command": "execute positioned 0 64 0 run locate structure ancient_city",
+      "from": [
+        0,
+        0
+      ],
+      "id": "ancient_city",
+      "resolvedId": "minecraft:ancient_city",
+      "found": true,
+      "at": [
+        936,
+        null,
+        -1400
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-24 11:28:49:259 INFO] The nearest minecraft:ancient_city is at block 936, (y?), -1400 (1684 blocks away)"
+    },
+    {
+      "command": "execute positioned 512 64 512 run locate structure village",
+      "from": [
+        512,
+        512
+      ],
+      "id": "village",
+      "resolvedId": "minecraft:village",
+      "found": true,
+      "at": [
+        232,
+        null,
+        680
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-24 11:28:49:498 INFO] The nearest minecraft:village is at block 232, (y?), 680 (326 blocks away)"
+    },
+    {
+      "command": "execute positioned 512 64 512 run locate structure stronghold",
+      "from": [
+        512,
+        512
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        1810,
+        null,
+        1282
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-24 11:28:49:748 INFO] The nearest minecraft:stronghold is at block 1810, (y?), 1282 (1509 blocks away)"
+    },
+    {
+      "command": "execute positioned 512 64 512 run locate structure monument",
+      "from": [
+        512,
+        512
+      ],
+      "id": "monument",
+      "resolvedId": "minecraft:monument",
+      "found": true,
+      "at": [
+        1224,
+        null,
+        344
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-24 11:28:50:008 INFO] The nearest minecraft:monument is at block 1224, (y?), 344 (731 blocks away)"
+    },
+    {
+      "command": "execute positioned 512 64 512 run locate structure mansion",
+      "from": [
+        512,
+        512
+      ],
+      "id": "mansion",
+      "resolvedId": "minecraft:mansion",
+      "found": true,
+      "at": [
+        760,
+        null,
+        12888
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-24 11:28:50:268 INFO] The nearest minecraft:mansion is at block 760, (y?), 12888 (12378 blocks away)"
+    },
+    {
+      "command": "execute positioned 512 64 512 run locate structure pillageroutpost",
+      "from": [
+        512,
+        512
+      ],
+      "id": "pillageroutpost",
+      "resolvedId": "minecraft:pillager_outpost",
+      "found": true,
+      "at": [
+        472,
+        null,
+        696
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-24 11:28:50:498 INFO] The nearest minecraft:pillager_outpost is at block 472, (y?), 696 (188 blocks away)"
+    },
+    {
+      "command": "execute positioned 512 64 512 run locate structure shipwreck",
+      "from": [
+        512,
+        512
+      ],
+      "id": "shipwreck",
+      "resolvedId": "minecraft:shipwreck",
+      "found": true,
+      "at": [
+        616,
+        null,
+        504
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-24 11:28:50:751 INFO] The nearest minecraft:shipwreck is at block 616, (y?), 504 (104 blocks away)"
+    },
+    {
+      "command": "execute positioned 512 64 512 run locate structure ruins",
+      "from": [
+        512,
+        512
+      ],
+      "id": "ruins",
+      "resolvedId": "minecraft:ruins",
+      "found": true,
+      "at": [
+        648,
+        null,
+        360
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-24 11:28:51:005 INFO] The nearest minecraft:ruins is at block 648, (y?), 360 (203 blocks away)"
+    },
+    {
+      "command": "execute positioned 512 64 512 run locate structure buriedtreasure",
+      "from": [
+        512,
+        512
+      ],
+      "id": "buriedtreasure",
+      "resolvedId": "minecraft:buried_treasure",
+      "found": true,
+      "at": [
+        536,
+        null,
+        648
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-24 11:28:51:254 INFO] The nearest minecraft:buried_treasure is at block 536, (y?), 648 (138 blocks away)"
+    },
+    {
+      "command": "execute positioned 512 64 512 run locate structure mineshaft",
+      "from": [
+        512,
+        512
+      ],
+      "id": "mineshaft",
+      "resolvedId": "minecraft:mineshaft",
+      "found": true,
+      "at": [
+        624,
+        null,
+        672
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-24 11:28:51:504 INFO] The nearest minecraft:mineshaft is at block 624, (y?), 672 (195 blocks away)"
+    },
+    {
+      "command": "execute positioned 512 64 512 run locate structure desert_pyramid",
+      "from": [
+        512,
+        512
+      ],
+      "id": "desert_pyramid",
+      "found": false,
+      "at": null,
+      "resolvedId": null,
+      "chunksAway": null,
+      "raw": "Failed to execute 'locate' as [Null]"
+    },
+    {
+      "command": "execute positioned 512 64 512 run locate structure temple",
+      "from": [
+        512,
+        512
+      ],
+      "id": "temple",
+      "resolvedId": "minecraft:temple",
+      "found": true,
+      "at": [
+        -1016,
+        null,
+        -984
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-24 11:28:52:010 INFO] The nearest minecraft:temple is at block -1016, (y?), -984 (2138 blocks away)"
+    },
+    {
+      "command": "execute positioned 512 64 512 run locate structure ancient_city",
+      "from": [
+        512,
+        512
+      ],
+      "id": "ancient_city",
+      "resolvedId": "minecraft:ancient_city",
+      "found": true,
+      "at": [
+        936,
+        null,
+        -1400
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-24 11:28:52:259 INFO] The nearest minecraft:ancient_city is at block 936, (y?), -1400 (1958 blocks away)"
+    }
+  ]
+}
