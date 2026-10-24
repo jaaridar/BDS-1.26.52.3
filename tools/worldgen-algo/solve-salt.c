@@ -81,19 +81,30 @@ static int fixed_slack = 0;
  */
 static int xorSeed = 0;
 
+/*
+ * How many cells either side of the reported chunk to consider.
+ *
+ * The server reports a structure's origin block, and for a structure wider than
+ * a chunk that origin can sit in a neighbouring cell -- in which case taking the
+ * cell from the report puts the prediction a whole grid step away. Allowing the
+ * solver to pick a neighbouring cell makes the test honest about that, and it
+ * stays a strong test because every observation still has to match: with radius
+ * 1 the chance of a candidate surviving on luck is ~12% per observation.
+ */
+static int cellSearch = 0;
+
 static inline uint32_t draw(uint64_t *state, uint32_t span) {
   *state = (*state * MUL + ADD) & MASK48;
   return (uint32_t)(*state >> 17) % span;
 }
 
 /* Predicted offsets for one observation at a candidate salt. */
-static void predict(const obs_t *o, uint64_t salt, uint32_t span,
+static void predict(const obs_t *o, uint64_t salt, uint32_t span, int32_t cellX, int32_t cellZ,
                     uint32_t *offX, uint32_t *offZ) {
   int64_t seedPart = xorSeed
     ? (o->seed ^ (int64_t)(int32_t)salt)
     : (o->seed + (int64_t)(int32_t)salt);
-  uint64_t sum = (uint64_t)((int64_t)o->cellZ * MUL_Z + (int64_t)o->cellX * MUL_X +
-                            seedPart);
+  uint64_t sum = (uint64_t)((int64_t)cellZ * MUL_Z + (int64_t)cellX * MUL_X + seedPart);
   uint64_t state = (sum ^ XOR) & MASK48;
   uint32_t a = draw(&state, span);
   if (o->mode == 0) {
@@ -108,31 +119,51 @@ static void predict(const obs_t *o, uint64_t salt, uint32_t span,
   }
 }
 
+/* Best match for one observation over the cell neighbourhood. */
+static int match_obs(const obs_t *o, uint64_t salt, uint32_t span, int *dxOut, int *dzOut) {
+  int best = 0;
+  int bestDx = 0, bestDz = 0;
+  int bestScore = 0x7fffffff;
+  for (int i = -cellSearch; i <= cellSearch; i++) {
+    for (int j = -cellSearch; j <= cellSearch; j++) {
+      uint32_t offX, offZ;
+      predict(o, salt, span, o->cellX + i, o->cellZ + j, &offX, &offZ);
+      int dx = (int32_t)offX - o->offX;
+      int dz = (int32_t)offZ - o->offZ;
+      int score = (dx < 0 ? -dx : dx) + (dz < 0 ? -dz : dz);
+      if (score < bestScore) {
+        bestScore = score;
+        bestDx = dx;
+        bestDz = dz;
+        best = 1;
+      }
+    }
+  }
+  if (!best) return 0;
+  *dxOut = bestDx;
+  *dzOut = bestDz;
+  return (bestDx >= -slack && bestDx <= slack && bestDz >= -slack && bestDz <= slack);
+}
+
 static void *worker(void *arg) {
   work_t *w = (work_t *)arg;
   uint32_t span = (uint32_t)(w->obs[0].spacing - w->obs[0].separation);
   for (uint64_t salt = w->from; salt < w->to; salt++) {
-    uint32_t offX, offZ;
     int dx0 = 0, dz0 = 0;
-    predict(&w->obs[0], salt, span, &offX, &offZ);
-    dx0 = (int32_t)offX - w->obs[0].offX;
-    dz0 = (int32_t)offZ - w->obs[0].offZ;
-    if (dx0 < -slack || dx0 > slack || dz0 < -slack || dz0 > slack) continue;
+    if (!match_obs(&w->obs[0], salt, span, &dx0, &dz0)) continue;
     int ok = 1;
     for (int i = 1; i < w->count && ok; i++) {
-      predict(&w->obs[i], salt, span, &offX, &offZ);
-      int dx = (int32_t)offX - w->obs[i].offX;
-      int dz = (int32_t)offZ - w->obs[i].offZ;
-      if (fixed_slack) {
-        if (dx != dx0 || dz != dz0) ok = 0;
-      } else if (dx < -slack || dx > slack || dz < -slack || dz > slack) {
+      int dx = 0, dz = 0;
+      if (!match_obs(&w->obs[i], salt, span, &dx, &dz)) {
         ok = 0;
+        break;
       }
+      if (fixed_slack && (dx != dx0 || dz != dz0)) ok = 0;
     }
     if (ok) {
       printf("%s\t%llu\t%lld\tdelta=%d,%d\t%d\n", w->obs[0].id,
-             (unsigned long long)salt, (long long)(int32_t)salt,
-             fixed_slack ? dx0 : 0, fixed_slack ? dz0 : 0, w->count);
+             (unsigned long long)salt, (long long)(int32_t)salt, dx0, dz0, w->count);
+      fflush(stdout);
     }
   }
   return NULL;
@@ -164,6 +195,7 @@ int main(int argc, char **argv) {
   for (int i = 1; i < argc - 1; i++) {
     if (strcmp(argv[i], "--slack") == 0) slack = atoi(argv[i + 1]);
     if (strcmp(argv[i], "--xor-seed") == 0) xorSeed = 1;
+    if (strcmp(argv[i], "--cell-search") == 0) cellSearch = atoi(argv[i + 1]);
     if (strcmp(argv[i], "--fixed-slack") == 0) { slack = atoi(argv[i + 1]); fixed_slack = 1; }
   }
   if (threads < 1) threads = 1;

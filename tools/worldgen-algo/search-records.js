@@ -30,7 +30,15 @@ const SCAN = 'research/proprietary/bds-1.26.52.3/structures/scan-records/scan.js
 const DATA_SCAN = 'research/proprietary/bds-1.26.52.3/structures/scan-data/scan.json'
 
 function parseArgs (argv) {
-  const args = { scan: null, dataScan: DATA_SCAN, minObservations: 6, blocks: 8, limit: 400000, spread: null }
+  const args = {
+    scan: null,
+    dataScan: DATA_SCAN,
+    minObservations: 6,
+    blocks: 8,
+    limit: 400000,
+    spread: null,
+    minSpacing: 8
+  }
   for (let i = 2; i < argv.length; i++) {
     const arg = argv[i]
     const next = () => {
@@ -45,6 +53,7 @@ function parseArgs (argv) {
       case '--blocks': args.blocks = Number(next()); break
       case '--limit': args.limit = Number(next()); break
       case '--spread': args.spread = next(); break
+      case '--min-spacing': args.minSpacing = Number(next()); break
       default: throw new Error(`unknown argument ${arg}`)
     }
   }
@@ -160,11 +169,16 @@ function main () {
 
   const groups = byId(loadObservations())
   const spreadTypes = args.spread ? [args.spread] : ['linear', 'triangular']
+  // A spacing of a couple of chunks makes the test self-referential -- the cell
+  // is derived from the reported chunk, so the prediction lands on top of it by
+  // construction -- and no Bedrock set spaces structures that closely.
+  const usable = tuples.filter((tuple) => tuple.spacing >= args.minSpacing)
+  console.log(`# ${usable.length} tuples with spacing >= ${args.minSpacing}`)
 
   for (const [id, observations] of [...groups].sort()) {
     if (observations.length < args.minObservations) continue
     const hits = []
-    for (const tuple of tuples) {
+    for (const tuple of usable) {
       for (const spreadType of spreadTypes) {
         const result = scoreTuple(tuple, observations, spreadType, args.blocks)
         if (result) {
