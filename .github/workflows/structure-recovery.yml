@@ -16,7 +16,7 @@ on:
       seeds:
         description: 'Seeds to capture structure positions for (comma separated)'
         required: false
-        default: '1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20'
+        default: '0,1,4294967296,4294967297'
       ids:
         description: 'Structure identifiers to probe'
         required: false
@@ -39,7 +39,7 @@ env:
   GHIDRA_URL: https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_12.1.4_build/ghidra_12.1.4_PUBLIC_20260921.zip
   GHIDRA_SHA256: ddac49f903da9d5bac833e5cc79395098b9c33cfd3279be5f31bd00387d2d4db
   EVIDENCE: research/proprietary/bds-1.26.52.3
-  SEEDS: ${{ github.event.inputs.seeds || '1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20' }}
+  SEEDS: ${{ github.event.inputs.seeds || '0,1,4294967296,4294967297' }}
   IDS: ${{ github.event.inputs.ids || 'trail_ruins,abandoned_camp,village' }}
 
 jobs:
@@ -164,6 +164,28 @@ jobs:
           echo "string hits: $hits"
           if [ "$hits" = "0" ]; then echo 'the scanner found none of the control strings: the scan itself is wrong' >&2; exit 1; fi
 
+      - name: Extract the worldgen data the server ships
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # Bedrock's structure sets are data-driven: the strings
+          # `worldgen/structure_sets` and `RandomSpreadPlacement` are in the
+          # binary, so the spacing, separation, salt and spread type come from
+          # JSON, not from code. Reading that JSON is a measurement of the
+          # parameters, not a guess at them.
+          gh release download v1.26.52.3 --repo "${GITHUB_REPOSITORY}" \
+            --pattern '*linux*.zip' --clobber || true
+          mkdir -p "$EVIDENCE/worldgen-data"
+          if ls ./*.zip >/dev/null 2>&1; then
+            unzip -o -q ./*.zip -d release
+            (cd release && find . -path '*worldgen*' -name '*.json' -print0 \
+              | tar --null -cf - -T -) 2>/dev/null \
+              | (cd "$EVIDENCE/worldgen-data" && tar xf -) 2>/dev/null || true
+          fi
+          find "$EVIDENCE/worldgen-data" -name '*.json' | wc -l
+          find "$EVIDENCE/worldgen-data" -path '*structure_set*' -name '*.json' | head -20
+          grep -rl 'RandomSpreadPlacement\|"salt"\|spacing' "$EVIDENCE/worldgen-data" 2>/dev/null | head -20
+
       - name: Look for the placement constants as immediates
         run: |
           # Hypotheses, not assertions: if a salt survives, it has to survive
@@ -172,6 +194,20 @@ jobs:
           python3 tools/binary-analysis/scan-binary.py --binary bedrock_server \
             --values 10387312,10387313,10387319,14357617,14357618,14357619,14357620,14357621,165745295,165745296,34222645,16842397,20083232,94251327,83469867,91231127 \
             --out "$EVIDENCE/structures/scan-salts" | tail -40
+
+      - name: Find the code that builds a world generator
+        run: |
+          # A constructor stores the vtable address of the object it builds, so
+          # scanning for the WorldGenerator vtable finds its constructor. That
+          # constructor is where the world seed is stored, which is the one
+          # quantity the placement fit still cannot explain.
+          #
+          # The two placement multipliers are 34 and 37 bits, so they are
+          # `movabs` immediates: scan for their low dwords and let the
+          # decompiler show the full constant.
+          python3 tools/binary-analysis/scan-binary.py --binary bedrock_server \
+            --values 255774792,251253408,2570712328,1448859061 \
+            --out "$EVIDENCE/structures/scan-vtables" | tail -40
 
       - name: Recover the placement record layout from code
         run: |
@@ -210,6 +246,11 @@ jobs:
           SEED_LIST=$(python3 tools/binary-analysis/link-refs.py \
             --scan "$EVIDENCE/structures/scan-refs/scan.json" \
             --binary bedrock_server --limit 24)
+          EXTRA=$(python3 tools/binary-analysis/link-refs.py \
+            --scan "$EVIDENCE/structures/scan-vtables/scan.json" \
+            --binary bedrock_server --rewrite --limit 16 2>/dev/null || true)
+          echo "vtable/caller sites: $EXTRA"
+          if [ -n "$EXTRA" ]; then SEED_LIST="$SEED_LIST,$EXTRA"; fi
           echo "seeds: $SEED_LIST"
           if [ -z "$SEED_LIST" ]; then echo 'no reference sites; nothing to decompile'; exit 0; fi
           mkdir -p "$RUNNER_TEMP/projects" "$EVIDENCE/ghidra"
@@ -227,6 +268,7 @@ jobs:
         run: |
           git add -A "$EVIDENCE/structures/scan" "$EVIDENCE/structures/scan-refs" \
             "$EVIDENCE/structures/scan-salts" "$EVIDENCE/structures/scan-records" \
+            "$EVIDENCE/structures/scan-vtables" "$EVIDENCE/worldgen-data" \
             "$EVIDENCE/ghidra/lattice-structures" || true
           if git diff --cached --quiet; then echo 'no scan evidence'; exit 0; fi
           git config user.name 'github-actions[bot]'
