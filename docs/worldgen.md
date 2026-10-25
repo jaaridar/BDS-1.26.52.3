@@ -369,11 +369,20 @@ its grid position. The one gated miss is reported rather than smoothed away.
 
 Two further measurements fell out of the same captures:
 
-* **Only the low 32 bits of the seed reach the grid.** Seeds `1` and `2^32+1`
-  produce the same four grid positions (three identical, one differing), while
-  `2^32` produces a different world entirely. That is what `seed32` in
-  `stronghold.js` implements, and why it is done in BigInt — a `Number() >>> 0`
-  is wrong above 2^53, which is where the int64 seeds live.
+* **Only the low 32 bits of the seed reach the grid**, and the seed is carried
+  exactly. Measured on captured worlds:
+
+  | seed | shares its grid positions with | why |
+  | --- | --- | --- |
+  | `1` | `4294967297` (2^32+1) | same low 32 bits |
+  | `9223372036854775807` | `-1` | 2^63-1 is 0xFFFFFFFF in the low word |
+  | `0` | `4294967296` (2^32) | both are 0 in the low word |
+
+  That is what `seed32` in `stronghold.js` implements, and why it is done in
+  BigInt with a decimal-string entry point: a `Number() >>> 0` is wrong above
+  2^53, which is exactly where the int64 seeds live, and the earlier capture
+  run had already rounded `9223372036854775807` to `...76000` before the world
+  was created.
 * **A second, near-spawn population exists.** Of the strongholds `/locate`
   answers with, some are not any cell's grid position. Grouping every captured
   answer by distance from the origin shows they are not scattered:
@@ -391,8 +400,15 @@ Two further measurements fell out of the same captures:
   position, so no jitter explains them, and they change when only the high half
   of the seed changes (`1` vs `2^32+1` differ exactly there) — so that placement
   reads the full 64-bit seed, i.e. it is driven by the biome/climate data. The
-  grid does not. Modelling them is part of the biome milestone, and until then
-  they are reported as `relocated` rather than guessed at.
+  grid does not.
+
+  `node tools/worldgen-algo/near-spawn-strongholds.js` counts them per seed and
+  finds **exactly three** for every seed probed, at radii of 58-662 chunks and
+  arbitrary angles — so it is a fixed small set near spawn, not a second grid.
+  A sweep with `village` and `stronghold` together shows part of the rule: of
+  five such strongholds, **two sit exactly on a village**, which is far above
+  chance (a village occupies about 1 chunk in 3855 of that area). Bedrock puts
+  some strongholds under villages, and the rest of the set is still open.
 
 `node tools/worldgen-algo/verify-locate.js` is the acceptance harness for this:
 it replays every captured `/locate` question and classifies the answer as
