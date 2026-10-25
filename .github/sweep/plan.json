@@ -2,22 +2,24 @@
   "note": "Sweep plans. Each entry probes `ids` from a grid of origins, which enumerates the structures near a seed instead of only the nearest one. Origins spaced closer than the structures are apart make the enumeration complete inside the swept area. Edit and commit to run.",
   "sweeps": [
     {
-      "slug": "stronghold_enum3",
+      "slug": "stronghold_seeds",
       "ids": [
         "stronghold"
       ],
       "seeds": [
         1,
-        2,
-        3,
-        4
+        4294967296,
+        4294967297,
+        -1,
+        9223372036854776000,
+        -9223372036854776000
       ],
-      "minX": 5120,
-      "maxX": 14336,
-      "minZ": 5120,
-      "maxZ": 14336,
+      "minX": -3072,
+      "maxX": 3072,
+      "minZ": -3072,
+      "maxZ": 3072,
       "step": 512,
-      "note": "fresh cells only, away from the origin region the model was fitted on"
+      "note": "seed widths: 1 and 2^32+1 must differ only if the full 64-bit seed is used; negative and int64 extremes check the seed handling"
     }
   ]
 }
