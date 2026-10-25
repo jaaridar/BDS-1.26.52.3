@@ -1543,6 +1543,12 @@ grep: write error: Broken pipe
 
 # callers of the relocation routine (who asks for strongholds)
 
+# who places strongholds: callers of the feature and of the start constructor
+
+# village-side code that mentions a stronghold constant
+3952380: 4e9f12a:	add    $0x5d534e7,%edx
+3952903: 4e9fa18:	addl   $0x5d534e7,0xc(%rsp)
+
 # .rodata looks like a trig table at its start; print the first 256 floats
 rodata vaddr 0x1098340 offset 0xce85fc size 0x0
   +0x000 0 1.70163998e-31 0 8.41480321e-30
