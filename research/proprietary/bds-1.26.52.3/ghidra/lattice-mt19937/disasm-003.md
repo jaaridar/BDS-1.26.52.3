@@ -1,0 +1,14 @@
+# FUN_08b5aa40 (disassembly)
+
+```
+08b5aa40  PUSH RAX
+08b5aa41  MOV RDI,qword ptr [RDI + 0x9f8]
+08b5aa48  XOR ESI,ESI
+08b5aa4a  CALL 0x0ee4a030
+08b5aa4f  MOV EAX,EAX
+08b5aa51  CVTSI2SD XMM0,RAX
+08b5aa56  MULSD XMM0,qword ptr [0x014f0898]
+08b5aa5e  CVTSD2SS XMM0,XMM0
+08b5aa62  POP RAX
+08b5aa63  RET
+```

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "ancient_city",
+    "captures": 24,
+    "survivors": 260,
+    "fits": []
+  },
+  {
+    "id": "buried_treasure",
+    "captures": 24,
+    "survivors": 240,
+    "fits": []
+  },
+  {
+    "id": "mansion",
+    "captures": 13,
+    "survivors": 367,
+    "fits": []
+  },
+  {
+    "id": "mineshaft",
+    "captures": 24,
+    "survivors": 204,
+    "fits": []
+  },
+  {
+    "id": "monument",
+    "captures": 22,
+    "survivors": 282,
+    "fits": []
+  },
+  {
+    "id": "pillager_outpost",
+    "captures": 19,
+    "survivors": 500,
+    "fits": []
+  },
+  {
+    "id": "ruined_portal",
+    "captures": 24,
+    "survivors": 985,
+    "fits": []
+  },
+  {
+    "id": "shipwreck",
+    "captures": 24,
+    "survivors": 197,
+    "fits": []
+  },
+  {
+    "id": "stronghold",
+    "captures": 17,
+    "survivors": 193,
+    "fits": []
+  },
+  {
+    "id": "trail_ruins",
+    "captures": 35,
+    "survivors": 162,
+    "fits": []
+  },
+  {
+    "id": "trial_chambers",
+    "captures": 24,
+    "survivors": 1522,
+    "fits": []
+  },
+  {
+    "id": "village",
+    "captures": 35,
+    "survivors": 249,
+    "fits": []
+  }
+]

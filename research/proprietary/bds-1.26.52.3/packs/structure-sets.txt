@@ -1,0 +1,50 @@
+# every structure set the shipped packs declare
+identifier	type	salt	separation	spacing	spread_type	structures	pack	format
+minecraft:abandoned_camp	random_spread	91231127	8	37	linear	18	vanilla_1.26.50	1.26.50
+minecraft:trail_ruins	random_spread	83469867	8	34	linear	1	vanilla_1.19.80	1.21.20
+
+# any pack file whose path or contents mention a stronghold
+behavior_packs/vanilla_1.21.110/loot_tables/chests/stronghold_corridor.json
+behavior_packs/vanilla/loot_tables/chests/stronghold_library.json
+behavior_packs/vanilla/loot_tables/chests/stronghold_corridor.json
+behavior_packs/vanilla/loot_tables/chests/stronghold_crossing.json
+behavior_packs/vanilla_1.20.0/loot_tables/chests/stronghold_library.json
+behavior_packs/vanilla_1.20.0/loot_tables/chests/stronghold_corridor.json
+behavior_packs/vanilla_1.18.0/loot_tables/chests/stronghold_corridor.json
+behavior_packs/vanilla_1.21.90/loot_tables/chests/stronghold_corridor.json
+
+behavior_packs/vanilla_1.21.110/__brarchive/loot_tables/chests.brarchive
+behavior_packs/vanilla/__brarchive/loot_tables/chests.brarchive
+behavior_packs/vanilla_1.20.0/__brarchive/loot_tables/chests.brarchive
+behavior_packs/vanilla_1.18.0/__brarchive/loot_tables/chests.brarchive
+behavior_packs/editor/__brarchive/scripts.brarchive
+behavior_packs/vanilla_1.21.90/__brarchive/loot_tables/chests.brarchive
+resource_packs/vanilla/texts/el_GR.lang
+resource_packs/vanilla/texts/es_MX.lang
+resource_packs/vanilla/texts/da_DK.lang
+resource_packs/vanilla/texts/nl_NL.lang
+resource_packs/vanilla/texts/ja_JP.lang
+resource_packs/vanilla/texts/ko_KR.lang
+resource_packs/vanilla/texts/sv_SE.lang
+resource_packs/vanilla/texts/uk_UA.lang
+resource_packs/vanilla/texts/ru_RU.lang
+resource_packs/vanilla/texts/en_US.lang
+resource_packs/vanilla/texts/it_IT.lang
+resource_packs/vanilla/texts/fr_CA.lang
+resource_packs/vanilla/texts/zh_CN.lang
+resource_packs/vanilla/texts/hu_HU.lang
+resource_packs/vanilla/texts/pl_PL.lang
+resource_packs/vanilla/texts/nb_NO.lang
+resource_packs/vanilla/texts/cs_CZ.lang
+resource_packs/vanilla/texts/sk_SK.lang
+resource_packs/vanilla/texts/pt_BR.lang
+resource_packs/vanilla/texts/en_GB.lang
+resource_packs/vanilla/texts/bg_BG.lang
+resource_packs/vanilla/texts/id_ID.lang
+resource_packs/vanilla/texts/pt_PT.lang
+resource_packs/vanilla/texts/zh_TW.lang
+resource_packs/vanilla/texts/fr_FR.lang
+resource_packs/vanilla/texts/tr_TR.lang
+resource_packs/vanilla/texts/fi_FI.lang
+resource_packs/vanilla/texts/de_DE.lang
+resource_packs/vanilla/texts/es_ES.lang

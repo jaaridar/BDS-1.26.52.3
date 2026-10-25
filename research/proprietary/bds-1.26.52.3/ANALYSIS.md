@@ -592,10 +592,88 @@ which is the "expected deviation scaled by octave count" formula, with the three
 `.rodata` doubles interpreted through `constants.tsv`.
 
 So the noise stack is: **data-driven `NoiseDescriptor` → operation node →
-xoroshiro-seeded/Mersenne-seeded layers → `FUN_0d341b00` (lattice evaluation)**.
-`FUN_0d341b00` is itself 551 instructions; it is the one function anybody
-reimplementing BDS terrain must read next, and it is included in the pseudocode
-set.
+Mersenne-seeded layers → a legacy octave Perlin stack**.
+
+#### Correction (2026-10-23)
+
+An earlier revision of this report called `FUN_0d341b00` "the lattice
+evaluation". It is not. Read in full, it is the *constructor* of the octave
+stack: 551 instructions of which about 500 are the compiler unrolling a
+256-entry copy of the identity permutation. The sampler is a different
+function. The two are separated below, and both are measured rather than
+inferred; the evidence is `ghidra/lattice-noise/` and `ghidra/lattice-mt19937/`.
+
+`0xd341b00` -- octave-stack constructor. Arguments are
+`(this, Random&, qword, byte)`. For `this.layers` iterations it allocates a
+0x818-byte layer and fills it:
+
+| offset | contents |
+|---|---|
+| `+0x00` | `xo` = `nextUnit() * 256` |
+| `+0x04` | `yo` = `nextUnit() * 256` |
+| `+0x08` | `zo` = `nextUnit() * 256` |
+| `+0x0c` | 512-word permutation: `0..255` shuffled, then mirrored |
+| `+0x80c` | 8-byte argument passed through (both callers pass 0) |
+| `+0x814` | 1-byte argument passed through (0) |
+
+The shuffle is a descending Fisher-Yates: for `i` in `0..255`,
+`j = nextInt(256 - i) + i`, swap `perm[i]`/`perm[j]`, then
+`perm[256 + i] = perm[i]`. `nextInt` is `Random::vslot3` (`8b5a9c0`), a plain
+**`raw32 % bound`** with no rejection loop -- which matters, because a modulo
+over a non-power-of-two bound is not what a standard-library
+`uniform_int_distribution` would do.
+
+The unit draw (`+0x30`, `Random::vslot6` = `8b5aa40`) is likewise explicit: one
+MT word, zero-extended to 64 bits, converted to double, multiplied by 2^-32
+(`0x014f0898`), then narrowed to float -- `MOV EAX,EAX / CVTSI2SD / MULSD /
+CVTSD2SS` in the instruction stream. So offsets are
+`(float)((double)raw * 2^-32) * 256`, carrying full 32-bit granularity before
+the float rounding. A port that assumes a 24-bit or 53-bit canonical draw will
+diverge.
+
+Finally the constructor stores `this.amplitude = 1 / sum(2^-i for i in
+0..layers-1)` at `+0x20`, computed as an unrolled reciprocal sum.
+
+`0xd342930` -- the sampler, `float getValue(float* xyz)`. Per layer it adds the
+layer offset, splits each axis into integer and fraction, applies the quintic
+fade `t^3 (t (6t - 15) + 10)`, forms the permutation indices
+`A = perm[X] + Y`, `B = perm[X+1] + Y`, `AA = perm[A] + Z`, `AB = perm[A+1] + Z`,
+`BA = perm[B] + Z`, `BB = perm[B+1] + Z`, fetches eight gradients from
+`perm[{AA,BA,AB,BB}] & 15` and `perm[{AA,BA,AB,BB} + 1] & 15`, blends them
+trilinearly, divides by the octave factor (1, 2, 4, ...) and accumulates. The
+caller multiplies by `this.amplitude`.
+
+The gradient table is a real measured table, not an arithmetic `grad(hash)`
+function: 16 entries of three floats at `0x01d9f3c0`, 12 bytes apart. Entries
+12-15 are `(1,1,0) (0,-1,1) (-1,1,0) (0,-1,-1)` -- not the
+`(1,1,0) (-1,1,0) (0,-1,1) (0,-1,-1)` padding a naive port would assume.
+
+`0xd3430a0` is a second constructor with the same body plus a byte flag, used
+by callers that already hold a prepared random; `0xd3411f0` and `0xd342fa0` are
+the small wrappers that forward to the two constructors.
+
+The two-layer wrapper -- BDS's `NormalNoise` -- is
+`NormalNoiseOperationNode::vslot4` (`529c330`), which fills a 2-D column with
+
+```
+out[i] = (second.getValue(p * 1.0181268 * s) * second.amplitude
+        + first.getValue(p * s)             * first.amplitude) * maxValue
+```
+
+where `p = (x, 0, z)`, `s` is the descriptor's coordinate scale (`0.015625` =
+1/64 in the constant pool) and `maxValue` is what the builder stores at `+0x30`:
+
+```
+maxValue = 0.16666667 / ((1.0 / (layers + 1) + 1.0) * 0.1)
+```
+
+both literals read from `.rodata` (`0x014f0478` = 1.0 as a double,
+`0x014f0518` = 0.1 as a double). The second layer carries no separate value
+weight: each layer's own amplitude normalises it.
+
+So the multinoise router in BDS samples *legacy octave Perlin noise*, not the
+Java `NormalNoise` construction; the Java `INPUT_FACTOR` survives only as the
+1.0181268 coordinate multiplier.
 
 `OverworldGeneratorMultinoise::vslot2` (`5288760`) is the terrain-density entry
 point — the float pipeline:
@@ -611,7 +689,7 @@ allocates the 0x4180-byte per-chunk noise cache, fills 16³ volumes from a
 `.rodata` descriptor table (`_DAT_014ea7c0` … `_UNK_014ea7cc`) and calls
 `FUN_05286c70`.
 
-### 5.1 What the strings say about the noise stack
+### 5.3 What the strings say about the noise stack
 
 Several doc-comments and assert messages survived in `.rodata` and pin the
 design down without any guessing:
@@ -691,14 +769,16 @@ evidence is required. Each one is tracked by a concrete next step.
    `imul`/`sar` vs `imul`/`shr` pair is unambiguous.
    `tools/binary-analysis/reference_rng.py` implements both and defaults to the
    Java-compatible one (`get_seed_2d(..., sign_extend_x=True)`).
-2. **`FUN_0d341b00` (551 instructions).** The lattice evaluation behind every
-   noise layer. Its inner loop has not been read yet; it is the single most
-   important remaining function for bit-exact terrain.
-3. **`.rodata` float tables.** `_DAT_014f0a50` (a sign-indexed pair),
-   `_DAT_01198698`, `_DAT_0119880c`, `_DAT_014f0478`, `_DAT_014f0518` are the
-   actual multinoise constants. `constants.tsv` lists them with their `f32` and
-   `f64` interpretations; the table *contents* (not just the first word) still
-   need dumping.
+2. **~~`FUN_0d341b00`~~ -- resolved.** It is the octave-stack constructor, and
+   the sampler `0xd342930` is decoded; see the correction in §5. The gradient
+   table, the shuffle, the fade polynomial and the amplitude are all measured.
+3. **`.rodata` float tables** -- partially resolved. `0x014f0478` = 1.0 (f64),
+   `0x014f0518` = 0.1 (f64), `0x011988fc` = 1.0181268 (f32, input factor),
+   `0x01198af8` = 0.015625 (f32, 1/64), `0x0118698` = -0.0078125,
+   `0x011880c` = -90.0, `0x011988b0` = 1/6. The 16-entry gradient table at
+   `0x01d9f3c0` is dumped in full (`ghidra/lattice/tables.md`). Still
+   unresolved: the descriptor tables that give each climate noise its seed,
+   octave count and scale, and the spline control points.
 4. **`std::mt19937` output path in feature placement.** Which slot of
    `*Feature` consumes the MT19937 and how the per-feature seed is derived
    (`chunk seed ^ feature index` or a fresh `getSeed`) is not yet confirmed.
@@ -741,6 +821,7 @@ copy of Mojang source, and it is deliberately not wired into the OpenBDS build.
 | `disassembly/disasm-<addr>.md` | raw x86-64 for the functions a signedness question hinges on |
 | `SUMMARY.md` | one-page roll-up produced by `summarize_evidence.py` |
 | `constants.tsv` | referenced `.rodata` constants with `u32`/`f32`/`f64` interpretations |
+| `lattice-noise/`, `lattice-mt19937/` | targeted dumps (noise cluster; MT19937 draw conventions): `summary.md` (call tree), `tables.md` (constant regions as floats, incl. the 16-entry gradient table), `disasm-*.md`, `pseudocode-*.md`, `constants.tsv` |
 | `pseudocode/pseudocode-*.md` | Ghidra C output, index in `pseudocode-index.md` |
 | `seed-diagnostics.txt` | trace from a known mangled type name to its `type_info` and vtable |
 | `memory-blocks.txt` | Ghidra memory layout (image base, block permissions) |
@@ -757,3 +838,141 @@ copy of Mojang source, and it is deliberately not wired into the OpenBDS build.
   are unresolved substitution/template arguments.
 * String attribution only covers literals that Ghidra resolved as data
   references; assert text is often in separate throw helpers.
+
+## 6. Structure placement recovered (2026-10-24)
+
+The resolver is `FUN_0d351a10` (legacy sets) and `d2d2570` (pack-driven sets).
+Both hash a cell into a seed with the same arithmetic family:
+
+```
+cellSeed64 = cellX * 341873128712 + cellZ * 132897987541 + worldSeed + salt
+cellSeed32 = the same, folded to 32 bits (multipliers become 0x9939f508 and 0xf1565bd5)
+```
+
+`d2d2570` xors `0x5deece66d` into that value and runs a Java-compatible 48-bit
+LCG (`nextInt(spacing - separation)` once or twice per axis). `FUN_0d351a10`
+runs a 32-bit MT19937 seeded with `cellSeed32` and draws `next32() % span`.
+
+Measured results, reproducible with `tools/worldgen-algo/verify-placements.js`
+over the committed captures:
+
+| set | engine | spacing/sep | salt | spread | captures reproduced |
+|---|---|---|---|---|---|
+| village | mt | 34/8 | 10387312 | triangular | 27/27 exact |
+| monument | mt | 32/5 | 10387313 | triangular | 22/22 exact |
+| mansion | mt | 80/20 | 10387319 | triangular | 13/13 exact |
+| pillager_outpost | mt | 80/24 | 165745296 | triangular | 19/19 exact |
+| ancient_city | mt | 24/8 | 20083232 | triangular | 24/24 exact |
+| shipwreck | mt | 24/4 | 165745295 | linear | 24/24 exact |
+| ruined_portal | mt | 40/15 | 40552231 (0x26ac727) | linear | 24/24 exact |
+| buried_treasure | mt | 4/2 | 16842397 | triangular | 24/24 exact |
+| trial_chambers | java | 34/12 | 94251327 | linear | 24/24 within 1 chunk |
+| trail_ruins | java | 34/8 | 83469867 | linear | 26/27 within 1 chunk |
+
+Notes that cost time and should not be re-derived:
+
+* The Z multiplier is `0xf1565bd5`, **not** `0x1565bd5`. Dropping the leading
+  `F` (i.e. using `+0xea9a42b` instead of `-0xea9a42b`) still matches every
+  capture whose Z cell is 0, which is what made the earlier sweeps look almost
+  right (11/35) instead of obviously wrong.
+* `buried_treasure` is a grid (`4/2`, triangular), not a per-chunk frequency
+  gate. `mineshaft` remains a frequency gate.
+* `FUN_0d351a10` searches outward in rings of cells (up to 100 rings) from the
+  origin cell and returns the first cell whose validity check accepts, so the
+  cell containing a reported chunk is not necessarily the cell that produced it.
+* Pack-driven sets report the jigsaw structure's origin block, which is the
+  placement chunk or up to a few chunks away along the structure.
+
+### 6.0 Strongholds are a 200-chunk cell grid, not a ring
+
+Read from the binary at `0x4e9efc0` (the predicate), `0x4e9f720` (the collector)
+and `0x4e9f9d6` (the cell walk), all addresses 0x100000 below the ones the
+decompiler printed (`0x4f9efc0`, `0x4f9f720`).
+
+```
+cellX  = floorDiv(chunkX, 200);  u = cellX*200 + 100      // the cell CENTRE
+cellZ  = floorDiv(chunkZ, 200);  v = cellZ*200 + 100
+seed32 = u*0x9babeb51 + v*0xbe68aeb9 + seed + 0x5d534e7   // mod 2^32
+MT19937(seed32):
+  dx = next32() % 100 ; dz = next32() % 100 ; gate = next32() * 2^-32
+grid position = (cellX*200 + 50 + dx, cellZ*200 + 50 + dz)
+```
+
+* The mix folds the **cell centre**, not the cell index: that is a constant
+  `100*(0x9babeb51 + 0xbe68aeb9)` away from what every other set does, which is
+  why every earlier fit on cell indices missed.
+* `0x13e4220` = `0xbe68aeb9` and `0x13e8740` = `0x9babeb51` are **integers**
+  (`pmuludq`), even though the same bytes decode as `-0.2272f` and `-2.8e-22f`.
+  The multiplier applied to the x centre is `0x9babeb51`.
+* `0x13e3240` = `200f,200f`; `0x13e3c80` = int `200,200`; `0x13e9190` = int
+  `100,100`. The float divide is followed by `cvttps2dq` + `cmpltps` + `paddd`,
+  which is `floorDiv` for negative cells.
+* The third draw is `MOV EAX,EAX / CVTSI2SD / MULSD [0x13f0898] / CVTSD2SS /
+  UCOMISS [0x1098630]`, i.e. `uint32 * 2^-32 < 0.25f`. Note `0x13f0898` holds the
+  **double 2^-32** (the two floats printed at that address are the two halves of
+  it), which is what `Mt19937.nextUnit` already implements.
+* Tally over 114 captured strongholds: 74 are the predicted chunk and all 74 are
+  gated; 0 of the 32 ungated cells are; 8 gated cells are still relocated.
+  Held-out region `stronghold_enum3`: 22 of 23 exact.
+
+Measurements that pin the model down (all reproducible from the repository):
+
+* **The gate decides existence.** A capture whose origins are the model's own
+  predictions (`stronghold_probe_*`, 320 probes over 4 seeds) answers with the
+  origin chunk itself for **159/160 gated cells and 0/160 ungated cells**. The
+  gate threshold is exactly 0.25: the 69 exact grid hits in the corpus have gate
+  draws spanning `0.003 .. 0.2488`, so no smaller threshold fits.
+* **Only the low 32 bits reach the grid.** Seed `1` and seed `2^32+1` produce
+  the same grid positions (three of four identical, the fourth relocated), while
+  `2^32` is a different world. The reduction therefore has to be exact: a
+  `Number(seed) >>> 0` is wrong above 2^53, so `src/world/stronghold.js` reduces
+  in BigInt and accepts a decimal string.
+* **A second population sits near spawn and is not on the grid.** Of every
+  captured `/locate` answer, the fraction that is no cell's grid position is
+  100% inside 100 chunks of spawn, 69-75% at 100-300, 16% at 300-450, 13% at
+  450-600 and 0% past 900 chunks. Those positions lie inside a 200-chunk cell
+  but 50-350 chunks from its grid position, and they change when only the high
+  32 bits of the seed change, so that placement reads the full 64-bit seed --
+  i.e. it is biome-driven. It is *not* producible by the code below: both the
+  collector and the predicate emit `cell*200 + 50 + nextInt(100)` and nothing
+  else, so whatever places these is a different code path, still unidentified.
+  `verify-locate.js` reports them as `relocated` (1883 of 4708 queries) rather
+  than pretending they are misses of the grid.
+
+Relocation (why the other cells are off the 200-grid): at `0x4e9fca0` the
+collector loads `[[this+0x1a8]]`, calls **vtable slot 6** with `&position`, and
+the provider may (a) return true, which rejects the cell and advances the ring
+walk, or (b) rewrite the position in place. The rewritten position is what gets
+re-snapped to a cell and re-seeded, and the walk itself only ever emits
+`cell*200+50+nextInt(100)` — so what `/locate` reports for those cells is not any
+grid position at all (e.g. `(84, 9)` cannot be `cell*200+50+[0..100)` on either
+axis). That provider is a biome query; until it is modelled, those strongholds
+are cell-exact only.
+
+### 6.1 The fitting harness, and the two sets it cannot place
+
+`tools/worldgen-algo/fit-placement.js` searches the model space (engine x seed
+formula x spread x band x salt) and reports *every* combination that reproduces
+all captures. All eight `mt` sets come back with exactly one perfect
+combination, so the table is identified rather than fitted: no other band, salt,
+engine or spread reproduces them.
+
+`--model gate` and `--model modzero` attack `mineshaft`, which is a per-chunk
+set. Both fail, and the failures are informative:
+
+* threshold gate: zero separating thresholds over draw indices 0-4, three seed
+  families (`add`, `xor`, `setLargeFeatureSeed`), both engines, walking the
+  resolver's ring order from each capture's origin and collecting every rejected
+  chunk. A sparse gate cannot be separated by a cut when thousands of rejected
+  values cover the unit interval.
+* modulo gate (`raw % k == 0`, k up to 512): no k accepts all 24 answers.
+
+So the mineshaft decision is not a draw from the chunk's own placement stream;
+it is the biome/height check, which is not modelled yet.
+
+`tools/worldgen-algo/fit-strongholds.js` does the same job for the ring
+algorithm: it prints the observed radius/angle of every nearest stronghold and
+scores a parameterized concentric-ring model over engine, ring base, distance,
+spread and relocation tolerance. The best model explains 6 of 12 captures at a
+tolerance of 64 chunks, which is chance; the ring enumeration in
+`StrongholdFeature::vslot5`/`vslot6` is what is still needed.

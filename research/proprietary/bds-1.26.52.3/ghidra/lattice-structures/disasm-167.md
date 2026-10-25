@@ -1,0 +1,61 @@
+# FUN_04a3b850 (disassembly)
+
+```
+04a3b850  PUSH RBP
+04a3b851  PUSH R15
+04a3b853  PUSH R14
+04a3b855  PUSH R13
+04a3b857  PUSH R12
+04a3b859  PUSH RBX
+04a3b85a  PUSH RAX
+04a3b85b  MOV RBX,RDI
+04a3b85e  MOV qword ptr [RDI + 0xa0],0x0
+04a3b869  LEA RBP,[0xeeed658]
+04a3b870  LEA R13,[RBP + 0x40]
+04a3b874  MOV qword ptr [RDI + 0x70],R13
+04a3b878  LEA R15,[RDI + 0x8]
+04a3b87c  LEA R14,[0xeeed6a8]
+04a3b883  MOV RAX,qword ptr [R14 + 0x8]
+04a3b887  MOV RCX,qword ptr [R14 + 0x10]
+04a3b88b  MOV qword ptr [RDI],RAX
+04a3b88e  MOV RAX,qword ptr [RAX + -0x18]
+04a3b892  MOV qword ptr [RDI + RAX*0x1],RCX
+04a3b896  MOV RAX,qword ptr [RDI]
+04a3b899  MOV R12,qword ptr [RAX + -0x18]
+04a3b89d  ADD R12,RDI
+04a3b8a0  MOV RDI,R12
+04a3b8a3  MOV RSI,R15
+04a3b8a6  CALL 0x04144780
+04a3b8ab  MOV qword ptr [R12 + 0x88],0x0
+04a3b8b7  MOV dword ptr [R12 + 0x90],0xffffffff
+04a3b8c3  ADD RBP,0x18
+04a3b8c7  MOV qword ptr [RBX],RBP
+04a3b8ca  MOV qword ptr [RBX + 0x70],R13
+04a3b8ce  LEA R13,[0xeeece10]
+04a3b8d5  ADD R13,0x10
+04a3b8d9  MOV qword ptr [RBX + 0x8],R13
+04a3b8dd  LEA R12,[RBX + 0x10]
+04a3b8e1  MOV RDI,R12
+04a3b8e4  CALL 0x041679a0
+04a3b8e9  XORPS XMM0,XMM0
+04a3b8ec  MOVUPS xmmword ptr [RBX + 0x38],XMM0
+04a3b8f0  MOVUPS xmmword ptr [RBX + 0x28],XMM0
+04a3b8f4  MOVUPS xmmword ptr [RBX + 0x18],XMM0
+04a3b8f8  LEA RAX,[0xeeed140]
+04a3b8ff  ADD RAX,0x10
+04a3b903  MOV qword ptr [RBX + 0x8],RAX
+04a3b907  LEA RBP,[RBX + 0x48]
+04a3b90b  MOVUPS xmmword ptr [RBX + 0x48],XMM0
+04a3b90f  MOVUPS xmmword ptr [RBX + 0x58],XMM0
+04a3b913  MOV dword ptr [RBX + 0x68],0x10
+04a3b91a  MOV RDI,R15
+04a3b91d  CALL 0x04141a10
+04a3b922  ADD RSP,0x8
+04a3b926  POP RBX
+04a3b927  POP R12
+04a3b929  POP R13
+04a3b92b  POP R14
+04a3b92d  POP R15
+04a3b92f  POP RBP
+04a3b930  RET
+```

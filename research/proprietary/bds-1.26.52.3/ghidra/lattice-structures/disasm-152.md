@@ -1,0 +1,8 @@
+# FUN_07ca0550 (disassembly)
+
+```
+07ca0550  PUSH RAX
+07ca0551  LEA RDI,[0x13f6512]
+07ca0558  CALL 0x04882e40
+07ca055d  INT3
+```

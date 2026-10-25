@@ -1,0 +1,8 @@
+# FUN_05ab4620 (disassembly)
+
+```
+05ab4620  PUSH RAX
+05ab4621  LEA RDI,[0x13f6512]
+05ab4628  CALL 0x04882e40
+05ab462d  INT3
+```

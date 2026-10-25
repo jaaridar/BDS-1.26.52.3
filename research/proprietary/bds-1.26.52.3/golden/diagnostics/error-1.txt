@@ -1,0 +1,14 @@
+Error: structure files were not collected (got 15, expected 25). The server reported saving them, so they were written somewhere outside /home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/capture/seed-1/server; check where the active behaviour pack lives. Server: 0:163 INFO] Saved a structure with name mystructure:c1_1_y0
+[2026-10-23 00:30:20:513 INFO] Saved a structure with name mystructure:c1_1_y1
+[2026-10-23 00:30:20:913 INFO] Saved a structure with name mystructure:c1_1_y2
+[2026-10-23 00:30:21:263 INFO] Saved a structure with name mystructure:c1_1_y3
+[2026-10-23 00:30:21:613 INFO] Saved a structure with name mystructure:c1_1_y4
+[2026-10-23 00:30:22:013 INFO] Saved a structure with name mystructure:c1_1_y5
+[2026-10-23 00:32:25:852 INFO] Server stop requested.
+[2026-10-23 00:32:25:898 INFO] Stopping server...
+Quit correctly
+[exit] code=0 signal=null
+
+    at captureInner (/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/worldgen-golden/run-golden.js:450:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async capture (/home/runner/work/BDS-1.26.52.3/BDS-1.26.52.3/tools/worldgen-golden/run-golden.js:194:12)

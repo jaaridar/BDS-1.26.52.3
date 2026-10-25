@@ -1,0 +1,433 @@
+name: Structure recovery
+
+# Two independent measurements of the same thing, so they can check each other.
+#
+#   scan      static: find the structure identifiers in .rodata, find the code
+#             that references them, and decompile that code, which is where the
+#             per-structure placement numbers (spacing, separation, salt) live.
+#   capture   dynamic: ask the server where its structures actually are, with
+#             `locate structure`, which is ground truth for any seed.
+#
+# Neither runs our generator; both run Mojang's, or read it.
+
+on:
+  workflow_dispatch:
+    inputs:
+      seeds:
+        description: 'Seeds to capture structure positions for (comma separated)'
+        required: false
+        default: '1,2,3,4,5,6,7,8,9,10,11,12'
+      ids:
+        description: 'Structure identifiers to probe'
+        required: false
+        default: 'trail_ruins,village,pillager_outpost,monument,mansion,ocean_ruin,shipwreck,buried_treasure,mineshaft,desert_pyramid,jungle_temple,swamp_hut,igloo,ruined_portal,ancient_city,trial_chambers,stronghold'
+      origins:
+        description: 'Origins to probe from, as x,z pairs separated by semicolons. Sweeping many origins enumerates the structures of one seed: each answer is the nearest one to that origin.'
+        required: false
+        default: '0,0;2048,2048'
+      slug:
+        description: 'Directory name for the capture (defaults to the identifier list)'
+        required: false
+        default: ''
+  push:
+    paths:
+      - .github/workflows/structure-recovery.yml
+      - tools/worldgen-algo/capture-structures.js
+      - tools/worldgen-algo/dump-memory.js
+      - tools/worldgen-algo/brarchive.js
+      - tools/binary-analysis/**
+
+permissions:
+  contents: write
+
+# One group per job, not per run: the capture sweep takes the better part of an
+# hour, and a workflow-level group would hold the fast static scans behind it for
+# that whole time. The version suffix is there because a stuck run cannot be
+# cancelled with the token this repository has, so a later run has to be able to
+# step around it.
+
+env:
+  GHIDRA_DIR: ${{ github.workspace }}/.ghidra-dist
+  GHIDRA_URL: https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_12.1.4_build/ghidra_12.1.4_PUBLIC_20260921.zip
+  GHIDRA_SHA256: ddac49f903da9d5bac833e5cc79395098b9c33cfd3279be5f31bd00387d2d4db
+  EVIDENCE: research/proprietary/bds-1.26.52.3
+  SEEDS: ${{ github.event.inputs.seeds || '1,2,3,4,5,6,7,8,9,10,11,12' }}
+  ORIGINS: ${{ github.event.inputs.origins || '0,0;2048,2048' }}
+  SLUG: ${{ github.event.inputs.slug || '' }}
+  IDS: ${{ github.event.inputs.ids || 'trail_ruins,village,pillager_outpost,monument,mansion,ocean_ruin,shipwreck,buried_treasure,mineshaft,desert_pyramid,jungle_temple,swamp_hut,igloo,ruined_portal,ancient_city,trial_chambers,stronghold' }}
+
+jobs:
+  capture:
+    if: startsWith(github.ref, 'refs/heads/arena/')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 150
+    concurrency:
+      group: structure-recovery-capture-${{ github.ref }}-v5
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Fetch the official binary from the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download v1.26.52.3 --repo "${GITHUB_REPOSITORY}" \
+            --pattern bedrock_server --clobber
+          chmod +x bedrock_server
+          echo "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207  bedrock_server" \
+            | sha256sum --check --strict
+
+      - name: Install the server's shared libraries
+        run: |
+          # The release asset is the bare binary; its .so dependencies come from
+          # the release zip. Try the asset first, and fall back to the binary's
+          # own RUNPATH if the asset is not published separately.
+          gh release download v1.26.52.3 --repo "${GITHUB_REPOSITORY}" \
+            --pattern '*linux*.zip' --clobber 2>/dev/null || true
+          if ls ./*.zip >/dev/null 2>&1; then
+            unzip -o -q ./*.zip -d release
+            cp -n release/*.so* . 2>/dev/null || true
+            cp -n release/bedrock_server . 2>/dev/null || true
+          fi
+          ls -l | head -30
+
+      - name: Capture structure positions
+        run: |
+          set -o pipefail
+          mkdir -p "$EVIDENCE/structures"
+          # The directory is keyed by the identifier set: a 17-structure probe
+          # must not overwrite the 2-structure one that an earlier fit used.
+          if [ -n "$SLUG" ]; then slug="$SLUG"; else slug=$(echo "$IDS" | tr ',' '_' | cut -c1-80); fi
+          for seed in $(echo "$SEEDS" | tr ',' ' '); do
+            timeout 600 node tools/worldgen-algo/capture-structures.js \
+              --binary ./bedrock_server --assets "$PWD" --seed "$seed" \
+              --ids "$IDS" --from "$ORIGINS" \
+              --out "$EVIDENCE/structures/captures/$slug/seed-$seed" --verbose 2>&1 | tail -120
+            status=${PIPESTATUS[0]}
+            echo "$status" > "$EVIDENCE/structures/captures/$slug/seed-$seed/exit-status.txt"
+          done
+          # A seed that differs only above bit 31: if the generator saw all 64
+          # bits the reported positions would differ, so this measures the width
+          # of the seed the placement uses instead of assuming it.
+          for seed in 0 1 4294967296 4294967297; do
+            node tools/worldgen-algo/capture-structures.js \
+              --binary ./bedrock_server --assets "$PWD" --seed "$seed" \
+              --ids 'trail_ruins,village' --from "0,0" \
+              --out "$EVIDENCE/structures/captures/seedwidth/seed-$seed" --verbose 2>&1 | tail -5
+          done
+          exit 0
+
+      - name: Commit capture
+        if: always()
+        run: |
+          git add -A "$EVIDENCE/structures" || true
+          if git diff --cached --quiet; then echo 'no structure evidence'; exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m "research: captured structure positions"
+          for attempt in 1 2 3 4 5; do
+            if git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}"; then
+              echo pushed; exit 0
+            fi
+            sleep $((attempt * 5))
+          done
+          exit 1
+
+  memory:
+    if: startsWith(github.ref, 'refs/heads/arena/')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    concurrency:
+      group: structure-recovery-memory-${{ github.ref }}-v5
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Fetch the official binary from the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download v1.26.52.3 --repo "${GITHUB_REPOSITORY}" \
+            --pattern bedrock_server --clobber
+          chmod +x bedrock_server
+          echo "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207  bedrock_server" \
+            | sha256sum --check --strict
+
+      - name: Install the server's shared libraries
+        run: |
+          gh release download v1.26.52.3 --repo "${GITHUB_REPOSITORY}" \
+            --pattern '*linux*.zip' --clobber 2>/dev/null || true
+          if ls ./*.zip >/dev/null 2>&1; then
+            unzip -o -q ./*.zip -d release
+            cp -n release/*.so* . 2>/dev/null || true
+          fi
+
+      - name: Dump the placement registry from the running server
+        run: |
+          # Reading the process's own memory is the one measurement that cannot
+          # be replaced by a static scan: the records are built at startup and
+          # nothing on disk holds them.
+          timeout 1800 node tools/worldgen-algo/dump-memory.js \
+            --binary ./bedrock_server --assets "$PWD" --seed 1 \
+            --ids "$IDS" --out "$EVIDENCE/structures/memory" --verbose 2>&1 | tail -120
+
+      - name: Commit the dump
+        if: always()
+        run: |
+          git add -A "$EVIDENCE/structures/memory" "$EVIDENCE/binary-sections" || true
+          if git diff --cached --quiet; then echo 'no memory evidence'; exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m "research: structure registry memory dump"
+          for attempt in 1 2 3 4 5; do
+            if git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}"; then
+              echo pushed; exit 0
+            fi
+            sleep $((attempt * 5))
+          done
+          exit 1
+
+  scan:
+    if: startsWith(github.ref, 'refs/heads/arena/')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 240
+    concurrency:
+      group: structure-recovery-scan-${{ github.ref }}-v5
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Fetch the official binary from the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download v1.26.52.3 --repo "${GITHUB_REPOSITORY}" \
+            --pattern bedrock_server --clobber
+          chmod +x bedrock_server
+          echo "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207  bedrock_server" \
+            | sha256sum --check --strict
+
+      - name: Find the structure identifiers and their immediate neighbours
+        run: |
+          mkdir -p "$EVIDENCE/structures/scan"
+          # Written with printf, not a heredoc: the YAML indentation would stop
+          # the heredoc terminator from matching and silently swallow the rest
+          # of the step, which is exactly how the last attempt produced nothing.
+          # The first two names are controls -- they are known to be in .rodata,
+          # so a zero hit count means the scanner is broken, not the binary.
+          names=(
+            minecraft:continentalness
+            minecraft:erosion
+            minecraft:stronghold
+            minecraft:village
+            minecraft:monument
+            minecraft:mansion
+            minecraft:pillager_outpost
+            minecraft:ocean_ruin
+            minecraft:shipwreck
+            minecraft:buried_treasure
+            minecraft:mineshaft
+            minecraft:desert_pyramid
+            minecraft:jungle_temple
+            minecraft:ancient_city
+            minecraft:trail_ruins
+            minecraft:random_spread
+            random_spread
+            spread_type
+            structure_set
+            concentric_rings
+          )
+          printf '%s\n' "${names[@]}" > "$RUNNER_TEMP/names.txt"
+          wc -l "$RUNNER_TEMP/names.txt"
+          python3 tools/binary-analysis/scan-binary.py --binary bedrock_server \
+            --strings-file "$RUNNER_TEMP/names.txt" --ranges \
+            --out "$EVIDENCE/structures/scan" | tail -60
+          hits=$(python3 -c "import json;print(len(json.load(open('$EVIDENCE/structures/scan/scan.json'))['strings']))")
+          echo "string hits: $hits"
+          if [ "$hits" = "0" ]; then echo 'the scanner found none of the control strings: the scan itself is wrong' >&2; exit 1; fi
+
+      - name: Extract the worldgen data the server ships
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # Bedrock's structure sets are data-driven: the strings
+          # `worldgen/structure_sets` and `RandomSpreadPlacement` are in the
+          # binary, so the spacing, separation, salt and spread type come from
+          # JSON, not from code. Reading that JSON is a measurement of the
+          # parameters, not a guess at them.
+          gh release download v1.26.52.3 --repo "${GITHUB_REPOSITORY}" \
+            --pattern '*linux*.zip' --clobber || true
+          mkdir -p "$EVIDENCE/worldgen-data"
+          if ls ./*.zip >/dev/null 2>&1; then
+            unzip -o -q ./*.zip -d release
+            (cd release && find . -path '*worldgen*' -name '*.json' -print0 \
+              | tar --null -cf - -T -) 2>/dev/null \
+              | (cd "$EVIDENCE/worldgen-data" && tar xf -) 2>/dev/null || true
+          fi
+          find "$EVIDENCE/worldgen-data" -name '*.json' | wc -l
+          find "$EVIDENCE/worldgen-data" -path '*structure_set*' -name '*.json' | head -20
+          grep -rl 'RandomSpreadPlacement\|"salt"\|spacing' "$EVIDENCE/worldgen-data" 2>/dev/null | head -20
+
+      - name: Look for an embedded pack container
+        run: |
+          # If the engine carries the vanilla worldgen data inside itself, it
+          # carries it as a brarchive (the packs use magic 7d2725b1a0527026) or
+          # as a zip. Counting the magic first is cheaper than another theory.
+          for magic in '\x7d\x27\x25\xb1\xa0\x52\x70\x26' 'PK\x03\x04'; do
+            count=$(grep -abo -- "$magic" bedrock_server | wc -l || true)
+            echo "magic $(printf '%s' "$magic" | xxd -p): $count"
+            grep -abo -- "$magic" bedrock_server | head -5 || true
+          done
+
+      - name: Look for the placement records as text
+        run: |
+          # Every placement, data driven or not, goes through the cereal
+          # reader: the binary contains `minecraft:random_spread` and compares
+          # it against the parsed type. That means the numbers arrive as JSON,
+          # and JSON numbers are decimal text -- which is why the dword scans of
+          # .rodata could never find them. This dumps the neighbourhood of each
+          # occurrence so the record can be read off directly.
+          mkdir -p "$EVIDENCE/structures/scan-json"
+          # The needle carries the quoted key and its colon: a bare `salt` also
+          # matches prose in unrelated strings, and the scan stops after 40 hits.
+          printf '%s\n' '"salt":' '"spacing":' '"separation":' '"spread_type":' \
+            '"placement":' '"salt" :' 'random_spread' '83469867' '91231127' \
+            > "$RUNNER_TEMP/json-names.txt"
+          python3 tools/binary-analysis/scan-binary.py --binary bedrock_server \
+            --strings-file "$RUNNER_TEMP/json-names.txt" \
+            --out "$EVIDENCE/structures/scan-json" | tail -40
+          python3 tools/binary-analysis/print-string-hits.py \
+            "$EVIDENCE/structures/scan-json/scan.json" | tail -40
+
+      - name: Look for a table of placement records by its shape
+        run: |
+          # Half the resolvers take no salt, so a scan that requires a large
+          # number in the record cannot see their records at all. This one looks
+          # for the table instead: a run of records at a constant stride whose
+          # spacing, separation and spread type keep the same shape.
+          python3 tools/binary-analysis/scan-placement-tables.py --binary bedrock_server \
+            --out "$EVIDENCE/structures/scan-tables" | tail -30
+
+      - name: Look for the placement constants as immediates
+        run: |
+          # Hypotheses, not assertions: if a salt survives, it has to survive
+          # the oracle fit too. Scanning for them is the cheap way to find out
+          # whether the numbers are compiled in at all.
+          python3 tools/binary-analysis/scan-binary.py --binary bedrock_server \
+            --values 10387312,10387313,10387319,14357617,14357618,14357619,14357620,14357621,165745295,165745296,34222645,16842397,20083232,94251327,83469867,91231127 \
+            --out "$EVIDENCE/structures/scan-salts" | tail -40
+
+      - name: Find the code that builds a world generator
+        run: |
+          # A constructor stores the vtable address of the object it builds, so
+          # scanning for the WorldGenerator vtable finds its constructor. That
+          # constructor is where the world seed is stored, which is the one
+          # quantity the placement fit still cannot explain.
+          #
+          # The two placement multipliers are 34 and 37 bits, so they are
+          # `movabs` immediates: scan for their low dwords and let the
+          # decompiler show the full constant.
+          python3 tools/binary-analysis/scan-binary.py --binary bedrock_server \
+            --values 255774792,251253408,2570712328,1448859061 \
+            --out "$EVIDENCE/structures/scan-vtables" | tail -40
+
+      - name: Scan the read-only data for placement records
+        run: |
+          # The salts are not store immediates in code -- a scan of every dword
+          # store found 33k clusters and the oracle rejected all of them -- so
+          # the tuples have to be in a static table. This reports every place in
+          # the read-only sections where two small integers and a large one sit
+          # within 64 bytes, and leaves the interpretation to the oracle fit.
+          python3 tools/binary-analysis/scan-binary.py --binary bedrock_server \
+            --data-records --out "$EVIDENCE/structures/scan-data" | tail -10
+
+      - name: Recover the placement record layout from code
+        run: |
+          # Structure objects are filled in by a constructor, so the placement
+          # numbers show up as dword store immediates with small field offsets.
+          # Clustering those stores recovers the record without guessing.
+          python3 tools/binary-analysis/scan-binary.py --binary bedrock_server \
+            --imm-stores --out "$EVIDENCE/structures/scan-records" | tail -60
+
+      - name: Publish the slices and disassemble the reference sites
+        run: |
+          # Only the slices are published here -- no disassembler runs in CI.
+          # Capstone is available where the analysis is done, so the disassembly
+          # can happen against the committed slices, and the step that has to work
+          # on every run keeps no external dependency at all.
+          bash tools/binary-analysis/publish-slices.sh ./bedrock_server
+
+      - name: Map reference sites to function starts
+        run: |
+          # A site on its own decompiles as a fragment; the containing function
+          # is what shows the placement record being built. The script also
+          # writes the mapping back so the next step and the evidence agree.
+          python3 tools/binary-analysis/link-refs.py \
+            --scan "$EVIDENCE/structures/scan-refs/scan.json" \
+            --binary bedrock_server --rewrite --limit 0 > /dev/null || true
+
+      - name: Select JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Install verified Ghidra release
+        run: |
+          curl --fail --location --retry 3 --progress-bar "$GHIDRA_URL" -o "$RUNNER_TEMP/ghidra.zip"
+          echo "$GHIDRA_SHA256  $RUNNER_TEMP/ghidra.zip" | sha256sum --check --strict
+          unzip -q "$RUNNER_TEMP/ghidra.zip" -d "$RUNNER_TEMP"
+          mv "$RUNNER_TEMP/ghidra_12.1.4_PUBLIC" "$GHIDRA_DIR"
+
+      - name: Decompile the referencing functions
+        env:
+          LATTICE_LABEL: structures
+        run: |
+          SEED_LIST=$(python3 tools/binary-analysis/link-refs.py \
+            --scan "$EVIDENCE/structures/scan-refs/scan.json" \
+            --binary bedrock_server --limit 24)
+          EXTRA=$(python3 tools/binary-analysis/link-refs.py \
+            --scan "$EVIDENCE/structures/scan-vtables/scan.json" \
+            --binary bedrock_server --rewrite --limit 16 2>/dev/null || true)
+          echo "vtable/caller sites: $EXTRA"
+          if [ -n "$EXTRA" ]; then SEED_LIST="$SEED_LIST,$EXTRA"; fi
+          echo "seeds: $SEED_LIST"
+          if [ -z "$SEED_LIST" ]; then echo 'no reference sites; nothing to decompile'; exit 0; fi
+          mkdir -p "$RUNNER_TEMP/projects" "$EVIDENCE/ghidra"
+          rm -rf "$EVIDENCE/ghidra/lattice-structures"
+          "$GHIDRA_DIR/support/analyzeHeadless" \
+            "$RUNNER_TEMP/projects" bds-structures \
+            -import "$PWD/bedrock_server" -overwrite -noanalysis \
+            -scriptPath "$PWD/tools/binary-analysis/ghidra" \
+            -postScript DumpNoiseLattice.java "$EVIDENCE/ghidra" "$SEED_LIST" 2 \
+            -max-cpu "$(nproc)" 2>&1 | tail -40 || true
+          ls -l "$EVIDENCE/ghidra/lattice-structures" 2>/dev/null | head
+
+      - name: Commit scan
+        if: always()
+        run: |
+          git add -A "$EVIDENCE/structures/scan" "$EVIDENCE/structures/scan-refs" \
+            "$EVIDENCE/structures/scan-salts" "$EVIDENCE/structures/scan-records" \
+            "$EVIDENCE/structures/scan-vtables" "$EVIDENCE/worldgen-data" \
+            "$EVIDENCE/structures/scan-data" "$EVIDENCE/structures/scan-json" \
+            "$EVIDENCE/structures/scan-tables" \
+            "$EVIDENCE/structures/disasm-refs" "$EVIDENCE/binary-sections" \
+            "$EVIDENCE/structures/ci-log" \
+            "$EVIDENCE/ghidra/lattice-structures" || true
+          if git diff --cached --quiet; then echo 'no scan evidence'; exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m "research: structure placement scan"
+          for attempt in 1 2 3 4 5; do
+            if git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}"; then
+              echo pushed; exit 0
+            fi
+            sleep $((attempt * 5))
+          done
+          exit 1

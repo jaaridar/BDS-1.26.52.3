@@ -1,0 +1,318 @@
+name: Worldgen golden capture
+
+# Produces server-authored ground truth for world generation by running the
+# official bedrock_server with a fixed seed and reading the world database it
+# writes. The result is committed under research/proprietary/ as verification
+# data (not MIT source). See
+# research/proprietary/bds-1.26.52.3/golden/CAPTURE-FINDINGS.md for the format,
+# how it was proven, and what the server does not reproduce.
+#
+# Layout: four captures of the same seed run as parallel jobs (~2 min each
+# instead of ~8 min serially), then one job builds the golden set and verifies a
+# held-out capture against it.
+
+on:
+  workflow_dispatch:
+    inputs:
+      seed:
+        description: 'World seed to capture'
+        required: false
+        default: '1'
+      recheck:
+        description: 'Capture the same seed several times and verify a held-out capture'
+        required: false
+        default: 'true'
+  push:
+    paths:
+      - .github/workflows/worldgen-golden.yml
+      - tools/worldgen-golden/**
+
+permissions:
+  contents: write
+
+concurrency:
+  group: worldgen-golden-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  OUTPUT_DIR: research/proprietary/bds-1.26.52.3/golden
+  MODE: ${{ github.event.inputs.seed || '1' }}
+  # Capture 2048 blocks away from spawn: the spawn area ticks from the moment the
+  # world loads, before any rule can be changed, and random ticks let blocks like
+  # glow lichen spread and break reproducibility.
+  PROBE: 2048,100,2048
+  BINARY_SHA256: 0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207
+  BINARY_BYTES: '256133808'
+
+jobs:
+  # One job per capture. "a" is the reference, "b" and "c" measure which blocks
+  # the server reproduces, "check" is held out to test the oracle itself.
+  capture:
+    if: startsWith(github.ref, 'refs/heads/arena/')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        variant: [a, b, c, check]
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # The binary is a GitHub release asset (proprietary, not tracked in git).
+      # The repository is private, so the download needs the Actions token.
+      # Four jobs need the same 256 MB binary: cache it so only the first run
+      # downloads it. The sha256 is part of the key, so a different release can
+      # never be served from cache.
+      - name: Restore the official binary
+        id: binary-cache
+        uses: actions/cache@v4
+        with:
+          path: bedrock_server
+          key: bedrock-server-${{ env.BINARY_SHA256 }}
+
+      - name: Download the official binary
+        if: steps.binary-cache.outputs.cache-hit != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download v1.26.52.3 --repo "${GITHUB_REPOSITORY}" \
+            --pattern bedrock_server --clobber
+
+      - name: Verify the binary
+        run: |
+          chmod +x bedrock_server
+          test "$(stat --printf=%s bedrock_server)" = "${BINARY_BYTES}"
+          echo "${BINARY_SHA256}  bedrock_server" | sha256sum --check --strict
+
+      - name: Capture the world from the official server
+        env:
+          VARIANT: ${{ matrix.variant }}
+        run: |
+          set +e
+          # A capture is cheap now (~19 s), so absorb a transient failure rather
+          # than failing the whole round.
+          for attempt in 1 2 3; do
+            node tools/worldgen-golden/run-golden.js \
+              --binary ./bedrock_server \
+              --seed "${MODE}" \
+              --out "capture/seed-${MODE}-${VARIANT}" \
+              --chunk-base 128 128 \
+              --timeout 900
+            status=$?
+            [ $status -eq 0 ] && break
+            echo "capture attempt ${attempt} failed with ${status}; retrying"
+            rm -rf "capture/seed-${MODE}-${VARIANT}"
+            sleep 3
+          done
+          # Print the reason into the run log and keep it for the build job: a
+          # failed capture job is otherwise invisible from outside.
+          cat "capture/seed-${MODE}-${VARIANT}/error.txt" 2>/dev/null || true
+          tail -n 40 "capture/seed-${MODE}-${VARIANT}/server.log" 2>/dev/null || true
+          exit $status
+
+      - name: Stage diagnostics
+        if: always()
+        env:
+          VARIANT: ${{ matrix.variant }}
+        run: |
+          stage="stage/seed-${MODE}-${VARIANT}"
+          mkdir -p "$stage"
+          dir="capture/seed-${MODE}-${VARIANT}"
+          for f in capture.json db-dump.json server.log server-transcript.txt error.txt; do
+            cp "$dir/$f" "$stage/" 2>/dev/null || true
+          done
+          ls -l "$stage"
+
+      - name: Dump the world database
+        env:
+          VARIANT: ${{ matrix.variant }}
+        run: |
+          npm install --no-save --no-audit --no-fund classic-level
+          dir="capture/seed-${MODE}-${VARIANT}"
+          node tools/worldgen-golden/dump-db.js \
+            --db "$dir/server/worlds/golden/db" \
+            --out "$dir/db-dump.json"
+          cp "$dir/db-dump.json" "stage/seed-${MODE}-${VARIANT}/"
+
+      - name: Publish this capture
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: capture-${{ matrix.variant }}
+          path: stage/
+          retention-days: 30
+          if-no-files-found: warn
+
+  build:
+    # Runs even when a capture job failed: the diagnostics of the failure are
+    # worth committing, and a partial set of captures still yields evidence.
+    if: always() && startsWith(github.ref, 'refs/heads/arena/')
+    needs: capture
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Collect the captures
+        uses: actions/download-artifact@v4
+        with:
+          pattern: capture-*
+          merge-multiple: true
+          path: capture
+
+      - name: Self-test the golden tooling
+        run: node tools/worldgen-golden/self-test.js
+
+      # The decoder must reproduce every marker the capture placed with in-game
+      # commands, at the exact coordinates. This is the gate on the format: a
+      # misread layout cannot pass it.
+      - name: Prove the decoder against the marker probe
+        run: |
+          node tools/worldgen-golden/check-db.js "capture/seed-${MODE}-a/db-dump.json" \
+            --probe "${PROBE}"
+
+      - name: Build golden columns
+        run: |
+          # Replace this seed's previous columns: the new set is the one whose
+          # reproducibility has been measured.
+          rm -f "${OUTPUT_DIR}"/golden-${MODE}-*.blocks.bin \
+                "${OUTPUT_DIR}"/golden-${MODE}-*.layer1.bin \
+                "${OUTPUT_DIR}"/golden-${MODE}-*.unstable.json \
+                "${OUTPUT_DIR}"/golden-${MODE}-*.json
+
+          # Every capture of this seed is evidence about what the server
+          # reproduces: this run's extra captures plus every stored reference.
+          args=""
+          for f in "capture/seed-${MODE}-b/db-dump.json" \
+                   "capture/seed-${MODE}-c/db-dump.json" \
+                   "${OUTPUT_DIR}/db/seed-${MODE}"/ref-*.json; do
+            [ -f "$f" ] || continue
+            args="$args --also $f"
+          done
+          echo "reference captures:${args}"
+
+          node tools/worldgen-golden/build-golden-db.js \
+            "capture/seed-${MODE}-a/db-dump.json" \
+            $args \
+            --capture "capture/seed-${MODE}-a" \
+            --probe "${PROBE}" \
+            --chunks 128,128 129,128 128,129 129,129 \
+            --out "${OUTPUT_DIR}"
+
+          # Store this run's captures for future runs. Names are content
+          # addressed, so a re-capture that changed nothing in the decoration
+          # features collapses instead of piling up duplicates.
+          mkdir -p "${OUTPUT_DIR}/db/seed-${MODE}"
+          cp "capture/seed-${MODE}-a/db-dump.json" "${OUTPUT_DIR}/db/seed-${MODE}/dump.json"
+          for f in "capture/seed-${MODE}-b/db-dump.json" \
+                   "capture/seed-${MODE}-c/db-dump.json"; do
+            [ -f "$f" ] || continue
+            hash="$(sha256sum "$f" | cut -c1-16)"
+            cp "$f" "${OUTPUT_DIR}/db/seed-${MODE}/ref-${hash}.json"
+          done
+          ls -l "${OUTPUT_DIR}/db/seed-${MODE}/"
+
+      # Acceptance test for the ORACLE: a capture that was NOT used to build the
+      # golden data must reproduce it. Two different gates exist:
+      #   * an implementation must match every stable block exactly
+      #     (`verify.js --require-exact`, used when judging src/world);
+      #   * the server's own decoration features are not reproducible block for
+      #     block, so here a disagreement is tolerated only when at least one
+      #     side is a material the server was MEASURED to vary.
+      #     A disagreement between materials it always reproduces still fails.
+      - name: Verify a held-out capture against the golden data
+        run: |
+          node tools/worldgen-golden/build-golden-db.js \
+            "capture/seed-${MODE}-check/db-dump.json" \
+            --capture "capture/seed-${MODE}-check" \
+            --probe "${PROBE}" \
+            --chunks 128,128 129,128 128,129 129,129 \
+            --out "capture/golden-${MODE}-check"
+          set +e
+          node tools/worldgen-golden/verify.js \
+            --golden "${OUTPUT_DIR}" \
+            --candidate "capture/golden-${MODE}-check" \
+            --label "^${MODE}-" \
+            --require-exact \
+            --tolerate-features \
+            --write-report "capture/verify-${MODE}.md" 2>&1 | tee "capture/verify-${MODE}.log"
+          status=${PIPESTATUS[0]}
+          echo "VERIFY_EXIT=$status" >> "$GITHUB_ENV"
+          exit $status
+
+      # Artifacts are not reachable from every environment, so the diagnostics
+      # that explain a failure are committed next to the evidence as well.
+      - name: Record capture diagnostics
+        if: always()
+        run: |
+          mkdir -p "${OUTPUT_DIR}/diagnostics"
+          {
+            echo "seed: ${MODE}"
+            echo "verify exit: ${VERIFY_EXIT:-unknown}"
+            echo
+            echo 'capture files:'
+            find capture -maxdepth 2 -type f -printf '%s %p\n' 2>/dev/null | sort -n | tail -30
+            echo
+            echo 'capture timing (per variant, from capture.json):'
+            for v in a b c check; do
+              f="capture/seed-${MODE}-${v}/capture.json"
+              [ -f "$f" ] && node -e "
+                const c=require('./$f');
+                console.log('  ${v}: total', c.generatedAt && c.durationMs, 'ms; generation', c.generationMs, 'ms');
+              "
+            done
+            echo
+            echo 'server log tail (reference capture):'
+            tail -n 60 "capture/seed-${MODE}-a/server.log" 2>/dev/null || true
+            echo
+            echo 'held-out capture verification:'
+            cat "capture/verify-${MODE}.log" 2>/dev/null || echo '(not run)'
+          } > "${OUTPUT_DIR}/diagnostics/report-${MODE}.txt"
+          for v in a b c check; do
+            cp "capture/seed-${MODE}-${v}/server.log" \
+               "${OUTPUT_DIR}/diagnostics/server-${MODE}-${v}.log" 2>/dev/null || true
+            cp "capture/seed-${MODE}-${v}/error.txt" \
+               "${OUTPUT_DIR}/diagnostics/error-${MODE}-${v}.txt" 2>/dev/null || true
+          done
+          cp "capture/verify-${MODE}.md" "${OUTPUT_DIR}/diagnostics/verify-${MODE}.md" 2>/dev/null || true
+          cp "capture/verify-${MODE}.log" "${OUTPUT_DIR}/diagnostics/verify-${MODE}.log" 2>/dev/null || true
+          cat "${OUTPUT_DIR}/diagnostics/report-${MODE}.txt"
+
+      - name: Commit golden data to the analysis branch
+        if: always()
+        run: |
+          if [ ! -d "${OUTPUT_DIR}" ]; then
+            echo 'no golden output produced'; exit 0
+          fi
+          git add -f "${OUTPUT_DIR}"
+          if git diff --cached --quiet -- "${OUTPUT_DIR}"; then
+            echo 'golden data unchanged'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m "research: golden worldgen capture for seed ${MODE}"
+          for attempt in 1 2 3 4 5; do
+            if git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}"; then
+              echo 'pushed'; exit 0
+            fi
+            sleep $((attempt * 5))
+          done
+          echo 'could not push golden data' >&2
+          exit 1

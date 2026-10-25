@@ -1,0 +1,66 @@
+# FUN_04e9d850 (disassembly)
+
+```
+04e9d850  AND AL,0x70
+04e9d853  ADD dword ptr [RBP + 0x46],ESI
+04e9d856  MOV RDI,RBX
+04e9d859  CALL 0x0eee2d70
+04e9d85e  MOV RSI,qword ptr [RSP + 0xb0]
+04e9d866  MOV RDI,qword ptr [RSP + 0xc0]
+04e9d86e  AND RSI,-0x2
+04e9d872  CALL 0x0412a280
+04e9d877  MOV RDI,qword ptr [RSP + 0x98]
+04e9d87f  TEST RDI,RDI
+04e9d882  JZ 0x04e9d84f
+04e9d884  MOV RSI,qword ptr [RSP + 0xa8]
+04e9d88c  SHL RSI,0x3
+04e9d890  CALL 0x0412a280
+04e9d895  TEST byte ptr [RSP + 0x70],0x1
+04e9d89a  JZ 0x04e9d856
+04e9d89c  MOV RSI,qword ptr [RSP + 0x70]
+04e9d8a1  MOV RDI,qword ptr [RSP + 0x80]
+04e9d8a9  AND RSI,-0x2
+04e9d8ad  CALL 0x0412a280
+04e9d8b2  MOV RDI,RBX
+04e9d8b5  CALL 0x0eee2d70
+04e9d8ba  MOV RBX,RAX
+04e9d8bd  LEA RDI,[RSP + 0x58]
+04e9d8c2  CALL 0x04e9c980
+04e9d8c7  MOV RDI,RBX
+04e9d8ca  CALL 0x0eee2d70
+04e9d8cf  MOV RBX,RAX
+04e9d8d2  TEST byte ptr [RSP + 0x20],0x1
+04e9d8d7  JZ 0x04e9d929
+04e9d8d9  MOV RSI,qword ptr [RSP + 0x20]
+04e9d8de  MOV RDI,qword ptr [RSP + 0x30]
+04e9d8e3  AND RSI,-0x2
+04e9d8e7  CALL 0x0412a280
+04e9d8ec  TEST byte ptr [RSP + 0x40],0x1
+04e9d8f1  JZ 0x04e9d930
+04e9d8f3  MOV RSI,qword ptr [RSP + 0x40]
+04e9d8f8  MOV RDI,qword ptr [RSP + 0x50]
+04e9d8fd  AND RSI,-0x2
+04e9d901  CALL 0x0412a280
+04e9d906  LEA RDI,[RSP + 0x58]
+04e9d90b  CALL 0x04e9c980
+04e9d910  MOV RDI,RBX
+04e9d913  CALL 0x0eee2d70
+04e9d918  MOV RBX,RAX
+04e9d91b  TEST byte ptr [RSP + 0x8],0x1
+04e9d920  JNZ 0x04e9d942
+04e9d922  TEST byte ptr [RSP + 0x20],0x1
+04e9d927  JNZ 0x04e9d8d9
+04e9d929  TEST byte ptr [RSP + 0x40],0x1
+04e9d92e  JNZ 0x04e9d8f3
+04e9d930  LEA RDI,[RSP + 0x58]
+04e9d935  CALL 0x04e9c980
+04e9d93a  MOV RDI,RBX
+04e9d93d  CALL 0x0eee2d70
+04e9d942  MOV RSI,qword ptr [RSP + 0x8]
+04e9d947  MOV RDI,qword ptr [RSP + 0x18]
+04e9d94c  AND RSI,-0x2
+04e9d950  CALL 0x0412a280
+04e9d955  TEST byte ptr [RSP + 0x20],0x1
+04e9d95a  JZ 0x04e9d929
+04e9d95c  JMP 0x04e9d8d9
+```

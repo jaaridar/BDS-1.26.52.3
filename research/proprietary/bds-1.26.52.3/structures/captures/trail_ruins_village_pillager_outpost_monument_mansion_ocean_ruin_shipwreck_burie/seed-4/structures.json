@@ -1,0 +1,557 @@
+{
+  "schema": 1,
+  "generatedAt": "2026-10-25T05:47:09.152Z",
+  "durationMs": 12299,
+  "binary": {
+    "sha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
+    "bytes": 256133808
+  },
+  "seed": "4",
+  "kind": "structure",
+  "ids": "trail_ruins,village,pillager_outpost,monument,mansion,ocean_ruin,shipwreck,buried_treasure,mineshaft,desert_pyramid,jungle_temple,swamp_hut,igloo,ruined_portal,ancient_city,trial_chambers,stronghold",
+  "origins": "0,0;2048,2048",
+  "results": [
+    {
+      "probe": "help",
+      "raw": "current connection type is not set to NetherNet. In this release, NetherNet is the only supported transport type.\n[2026-10-25 05:46:58:218 ERROR] Players will not be able to connect to your game without NetherNet.\n[2026-10-25 05:46:58:218 ERROR] \n[2026-10-25 05:46:58:218 ERROR] To switch, set 'transport=nethernet' in server.properties.\n[2026-10-25 05:46:58:218 ERROR] \n[2026-10-25 05:46:58:218 ERROR] For more information, please reference the included bedrock_server_how_to.html file.\n[2026-10-25 05:46:58:218 ERROR] =======================================================\n[2026-10-25 05:46:58:218 INFO] ================ TELEMETRY MESSAGE ===================\n[2026-10-25 05:46:58:218 INFO] Server Telemetry is currently not enabled. \n[2026-10-25 05:46:58:218 INFO] Enabling this telemetry helps us improve the game.\n[2026-10-25 05:46:58:218 INFO] \n[2026-10-25 05:46:58:218 INFO] To enable this feature, add the line 'emit-server-telemetry=true'\n[2026-10-25 05:46:58:218 INFO] to the server.properties file in the handheld/src-server directory\n[2026-10-25 05:46:58:218 INFO] ======================================================\n[2026-10-25 05:46:58:460 INFO] Game rule sendcommandfeedback has been updated to true\n[2026-10-25 05:46:58:869 INFO] §elocate:\n§eDisplays the coordinates for the closest structure or biome of a given type.\nUsage:\n- /locate <feature: string> [useNewChunksOnly: Boolean]\n- /locate biome <biome: Biome>\n- /locate structure <structure: string> [useNewChunksOnly: Boolean]\n"
+    },
+    {
+      "command": "execute positioned 0 64 0 run locate structure trail_ruins",
+      "from": [
+        0,
+        0
+      ],
+      "id": "trail_ruins",
+      "resolvedId": "minecraft:trail_ruins",
+      "found": true,
+      "at": [
+        626,
+        null,
+        1470
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 05:47:00:416 INFO] The nearest minecraft:trail_ruins is at block 626, (y?), 1470 (1597 blocks away)"
+    },
+    {
+      "command": "execute positioned 0 64 0 run locate structure village",
+      "from": [
+        0,
+        0
+      ],
+      "id": "village",
+      "resolvedId": "minecraft:village",
+      "found": true,
+      "at": [
+        -360,
+        null,
+        -312
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 05:47:00:625 INFO] The nearest minecraft:village is at block -360, (y?), -312 (476 blocks away)"
+    },
+    {
+      "command": "execute positioned 0 64 0 run locate structure pillager_outpost",
+      "from": [
+        0,
+        0
+      ],
+      "id": "pillager_outpost",
+      "resolvedId": "minecraft:pillager_outpost",
+      "found": true,
+      "at": [
+        -760,
+        null,
+        -648
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 05:47:00:875 INFO] The nearest minecraft:pillager_outpost is at block -760, (y?), -648 (998 blocks away)"
+    },
+    {
+      "command": "execute positioned 0 64 0 run locate structure monument",
+      "from": [
+        0,
+        0
+      ],
+      "id": "monument",
+      "resolvedId": "minecraft:monument",
+      "found": true,
+      "at": [
+        744,
+        null,
+        -344
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 05:47:01:133 INFO] The nearest minecraft:monument is at block 744, (y?), -344 (819 blocks away)"
+    },
+    {
+      "command": "execute positioned 0 64 0 run locate structure mansion",
+      "from": [
+        0,
+        0
+      ],
+      "id": "mansion",
+      "resolvedId": "minecraft:mansion",
+      "found": true,
+      "at": [
+        6552,
+        null,
+        -5720
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 05:47:01:416 INFO] The nearest minecraft:mansion is at block 6552, (y?), -5720 (8697 blocks away)"
+    },
+    {
+      "command": "execute positioned 0 64 0 run locate structure ocean_ruin",
+      "from": [
+        0,
+        0
+      ],
+      "id": "ocean_ruin",
+      "found": false,
+      "at": null,
+      "resolvedId": null,
+      "chunksAway": null,
+      "raw": "Failed to execute 'locate' as [Null]"
+    },
+    {
+      "command": "execute positioned 0 64 0 run locate structure shipwreck",
+      "from": [
+        0,
+        0
+      ],
+      "id": "shipwreck",
+      "resolvedId": "minecraft:shipwreck",
+      "found": true,
+      "at": [
+        -232,
+        null,
+        520
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 05:47:01:884 INFO] The nearest minecraft:shipwreck is at block -232, (y?), 520 (569 blocks away)"
+    },
+    {
+      "command": "execute positioned 0 64 0 run locate structure buried_treasure",
+      "from": [
+        0,
+        0
+      ],
+      "id": "buried_treasure",
+      "resolvedId": "minecraft:buried_treasure",
+      "found": true,
+      "at": [
+        -120,
+        null,
+        -248
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 05:47:02:132 INFO] The nearest minecraft:buried_treasure is at block -120, (y?), -248 (275 blocks away)"
+    },
+    {
+      "command": "execute positioned 0 64 0 run locate structure mineshaft",
+      "from": [
+        0,
+        0
+      ],
+      "id": "mineshaft",
+      "resolvedId": "minecraft:mineshaft",
+      "found": true,
+      "at": [
+        128,
+        null,
+        -48
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 05:47:02:380 INFO] The nearest minecraft:mineshaft is at block 128, (y?), -48 (136 blocks away)"
+    },
+    {
+      "command": "execute positioned 0 64 0 run locate structure desert_pyramid",
+      "from": [
+        0,
+        0
+      ],
+      "id": "desert_pyramid",
+      "found": false,
+      "at": null,
+      "resolvedId": null,
+      "chunksAway": null,
+      "raw": "Failed to execute 'locate' as [Null]"
+    },
+    {
+      "command": "execute positioned 0 64 0 run locate structure jungle_temple",
+      "from": [
+        0,
+        0
+      ],
+      "id": "jungle_temple",
+      "found": false,
+      "at": null,
+      "resolvedId": null,
+      "chunksAway": null,
+      "raw": "Failed to execute 'locate' as [Null]"
+    },
+    {
+      "command": "execute positioned 0 64 0 run locate structure swamp_hut",
+      "from": [
+        0,
+        0
+      ],
+      "id": "swamp_hut",
+      "found": false,
+      "at": null,
+      "resolvedId": null,
+      "chunksAway": null,
+      "raw": "Failed to execute 'locate' as [Null]"
+    },
+    {
+      "command": "execute positioned 0 64 0 run locate structure igloo",
+      "from": [
+        0,
+        0
+      ],
+      "id": "igloo",
+      "found": false,
+      "at": null,
+      "resolvedId": null,
+      "chunksAway": null,
+      "raw": "Failed to execute 'locate' as [Null]"
+    },
+    {
+      "command": "execute positioned 0 64 0 run locate structure ruined_portal",
+      "from": [
+        0,
+        0
+      ],
+      "id": "ruined_portal",
+      "resolvedId": "minecraft:ruined_portal",
+      "found": true,
+      "at": [
+        24,
+        null,
+        200
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 05:47:03:630 INFO] The nearest minecraft:ruined_portal is at block 24, (y?), 200 (201 blocks away)"
+    },
+    {
+      "command": "execute positioned 0 64 0 run locate structure ancient_city",
+      "from": [
+        0,
+        0
+      ],
+      "id": "ancient_city",
+      "resolvedId": "minecraft:ancient_city",
+      "found": true,
+      "at": [
+        -2680,
+        null,
+        568
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 05:47:03:914 INFO] The nearest minecraft:ancient_city is at block -2680, (y?), 568 (2739 blocks away)"
+    },
+    {
+      "command": "execute positioned 0 64 0 run locate structure trial_chambers",
+      "from": [
+        0,
+        0
+      ],
+      "id": "trial_chambers",
+      "resolvedId": "minecraft:trial_chambers",
+      "found": true,
+      "at": [
+        41,
+        null,
+        233
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 05:47:04:135 INFO] The nearest minecraft:trial_chambers is at block 41, (y?), 233 (236 blocks away)"
+    },
+    {
+      "command": "execute positioned 0 64 0 run locate structure stronghold",
+      "from": [
+        0,
+        0
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        1346,
+        null,
+        146
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 05:47:04:388 INFO] The nearest minecraft:stronghold is at block 1346, (y?), 146 (1353 blocks away)"
+    },
+    {
+      "command": "execute positioned 2048 64 2048 run locate structure trail_ruins",
+      "from": [
+        2048,
+        2048
+      ],
+      "id": "trail_ruins",
+      "resolvedId": "minecraft:trail_ruins",
+      "found": true,
+      "at": [
+        2014,
+        null,
+        1778
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 05:47:04:639 INFO] The nearest minecraft:trail_ruins is at block 2014, (y?), 1778 (272 blocks away)"
+    },
+    {
+      "command": "execute positioned 2048 64 2048 run locate structure village",
+      "from": [
+        2048,
+        2048
+      ],
+      "id": "village",
+      "resolvedId": "minecraft:village",
+      "found": true,
+      "at": [
+        1208,
+        null,
+        2328
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 05:47:04:885 INFO] The nearest minecraft:village is at block 1208, (y?), 2328 (885 blocks away)"
+    },
+    {
+      "command": "execute positioned 2048 64 2048 run locate structure pillager_outpost",
+      "from": [
+        2048,
+        2048
+      ],
+      "id": "pillager_outpost",
+      "resolvedId": "minecraft:pillager_outpost",
+      "found": true,
+      "at": [
+        1864,
+        null,
+        600
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 05:47:05:135 INFO] The nearest minecraft:pillager_outpost is at block 1864, (y?), 600 (1459 blocks away)"
+    },
+    {
+      "command": "execute positioned 2048 64 2048 run locate structure monument",
+      "from": [
+        2048,
+        2048
+      ],
+      "id": "monument",
+      "resolvedId": "minecraft:monument",
+      "found": true,
+      "at": [
+        680,
+        null,
+        680
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 05:47:05:398 INFO] The nearest minecraft:monument is at block 680, (y?), 680 (1934 blocks away)"
+    },
+    {
+      "command": "execute positioned 2048 64 2048 run locate structure mansion",
+      "from": [
+        2048,
+        2048
+      ],
+      "id": "mansion",
+      "resolvedId": "minecraft:mansion",
+      "found": true,
+      "at": [
+        6552,
+        null,
+        -5720
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 05:47:05:661 INFO] The nearest minecraft:mansion is at block 6552, (y?), -5720 (8979 blocks away)"
+    },
+    {
+      "command": "execute positioned 2048 64 2048 run locate structure ocean_ruin",
+      "from": [
+        2048,
+        2048
+      ],
+      "id": "ocean_ruin",
+      "found": false,
+      "at": null,
+      "resolvedId": null,
+      "chunksAway": null,
+      "raw": "Failed to execute 'locate' as [Null]"
+    },
+    {
+      "command": "execute positioned 2048 64 2048 run locate structure shipwreck",
+      "from": [
+        2048,
+        2048
+      ],
+      "id": "shipwreck",
+      "resolvedId": "minecraft:shipwreck",
+      "found": true,
+      "at": [
+        888,
+        null,
+        936
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 05:47:06:143 INFO] The nearest minecraft:shipwreck is at block 888, (y?), 936 (1606 blocks away)"
+    },
+    {
+      "command": "execute positioned 2048 64 2048 run locate structure buried_treasure",
+      "from": [
+        2048,
+        2048
+      ],
+      "id": "buried_treasure",
+      "resolvedId": "minecraft:buried_treasure",
+      "found": true,
+      "at": [
+        2056,
+        null,
+        2120
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 05:47:06:385 INFO] The nearest minecraft:buried_treasure is at block 2056, (y?), 2120 (72 blocks away)"
+    },
+    {
+      "command": "execute positioned 2048 64 2048 run locate structure mineshaft",
+      "from": [
+        2048,
+        2048
+      ],
+      "id": "mineshaft",
+      "resolvedId": "minecraft:mineshaft",
+      "found": true,
+      "at": [
+        1952,
+        null,
+        2016
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 05:47:06:640 INFO] The nearest minecraft:mineshaft is at block 1952, (y?), 2016 (101 blocks away)"
+    },
+    {
+      "command": "execute positioned 2048 64 2048 run locate structure desert_pyramid",
+      "from": [
+        2048,
+        2048
+      ],
+      "id": "desert_pyramid",
+      "found": false,
+      "at": null,
+      "resolvedId": null,
+      "chunksAway": null,
+      "raw": "Failed to execute 'locate' as [Null]"
+    },
+    {
+      "command": "execute positioned 2048 64 2048 run locate structure jungle_temple",
+      "from": [
+        2048,
+        2048
+      ],
+      "id": "jungle_temple",
+      "found": false,
+      "at": null,
+      "resolvedId": null,
+      "chunksAway": null,
+      "raw": "Failed to execute 'locate' as [Null]"
+    },
+    {
+      "command": "execute positioned 2048 64 2048 run locate structure swamp_hut",
+      "from": [
+        2048,
+        2048
+      ],
+      "id": "swamp_hut",
+      "found": false,
+      "at": null,
+      "resolvedId": null,
+      "chunksAway": null,
+      "raw": "Failed to execute 'locate' as [Null]"
+    },
+    {
+      "command": "execute positioned 2048 64 2048 run locate structure igloo",
+      "from": [
+        2048,
+        2048
+      ],
+      "id": "igloo",
+      "found": false,
+      "at": null,
+      "resolvedId": null,
+      "chunksAway": null,
+      "raw": "Failed to execute 'locate' as [Null]"
+    },
+    {
+      "command": "execute positioned 2048 64 2048 run locate structure ruined_portal",
+      "from": [
+        2048,
+        2048
+      ],
+      "id": "ruined_portal",
+      "resolvedId": "minecraft:ruined_portal",
+      "found": true,
+      "at": [
+        2184,
+        null,
+        1928
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 05:47:07:890 INFO] The nearest minecraft:ruined_portal is at block 2184, (y?), 1928 (181 blocks away)"
+    },
+    {
+      "command": "execute positioned 2048 64 2048 run locate structure ancient_city",
+      "from": [
+        2048,
+        2048
+      ],
+      "id": "ancient_city",
+      "resolvedId": "minecraft:ancient_city",
+      "found": true,
+      "at": [
+        3576,
+        null,
+        520
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 05:47:08:148 INFO] The nearest minecraft:ancient_city is at block 3576, (y?), 520 (2160 blocks away)"
+    },
+    {
+      "command": "execute positioned 2048 64 2048 run locate structure trial_chambers",
+      "from": [
+        2048,
+        2048
+      ],
+      "id": "trial_chambers",
+      "resolvedId": "minecraft:trial_chambers",
+      "found": true,
+      "at": [
+        1879,
+        null,
+        1959
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 05:47:08:390 INFO] The nearest minecraft:trial_chambers is at block 1879, (y?), 1959 (191 blocks away)"
+    },
+    {
+      "command": "execute positioned 2048 64 2048 run locate structure stronghold",
+      "from": [
+        2048,
+        2048
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        1346,
+        null,
+        146
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 05:47:08:639 INFO] The nearest minecraft:stronghold is at block 1346, (y?), 146 (2027 blocks away)"
+    }
+  ]
+}

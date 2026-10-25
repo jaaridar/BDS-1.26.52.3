@@ -1,0 +1,8 @@
+# FUN_09ce3840 (disassembly)
+
+```
+09ce3840  PUSH RAX
+09ce3841  LEA RDI,[0x13f6512]
+09ce3848  CALL 0x04882e40
+09ce384d  INT3
+```

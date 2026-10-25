@@ -1,0 +1,840 @@
+{
+  "binary_bytes": 256133808,
+  "sections": [
+    {
+      "name": ".interp",
+      "offset": 736,
+      "size": 28,
+      "addr": 736,
+      "executable": false
+    },
+    {
+      "name": ".note.ABI-tag",
+      "offset": 764,
+      "size": 32,
+      "addr": 764,
+      "executable": false
+    },
+    {
+      "name": ".note.gnu.build-id",
+      "offset": 796,
+      "size": 36,
+      "addr": 796,
+      "executable": false
+    },
+    {
+      "name": ".dynsym",
+      "offset": 832,
+      "size": 9408,
+      "addr": 832,
+      "executable": false
+    },
+    {
+      "name": ".gnu.version",
+      "offset": 10240,
+      "size": 784,
+      "addr": 10240,
+      "executable": false
+    },
+    {
+      "name": ".gnu.version_r",
+      "offset": 11024,
+      "size": 464,
+      "addr": 11024,
+      "executable": false
+    },
+    {
+      "name": ".gnu.hash",
+      "offset": 11488,
+      "size": 28,
+      "addr": 11488,
+      "executable": false
+    },
+    {
+      "name": ".dynstr",
+      "offset": 11516,
+      "size": 4321,
+      "addr": 11516,
+      "executable": false
+    },
+    {
+      "name": ".rela.dyn",
+      "offset": 15840,
+      "size": 17376072,
+      "addr": 15840,
+      "executable": false
+    },
+    {
+      "name": ".rela.plt",
+      "offset": 17391912,
+      "size": 8712,
+      "addr": 17391912,
+      "executable": false
+    },
+    {
+      "name": ".rodata",
+      "offset": 17400640,
+      "size": 13534716,
+      "addr": 17400640,
+      "executable": false
+    },
+    {
+      "name": ".gcc_except_table",
+      "offset": 30935356,
+      "size": 8436872,
+      "addr": 30935356,
+      "executable": false
+    },
+    {
+      "name": ".eh_frame_hdr",
+      "offset": 39372228,
+      "size": 4409500,
+      "addr": 39372228,
+      "executable": false
+    },
+    {
+      "name": ".eh_frame",
+      "offset": 43781728,
+      "size": 23356380,
+      "addr": 43781728,
+      "executable": false
+    },
+    {
+      "name": ".text",
+      "offset": 67138112,
+      "size": 182298448,
+      "addr": 67142208,
+      "executable": true
+    },
+    {
+      "name": ".init",
+      "offset": 249436560,
+      "size": 23,
+      "addr": 249440656,
+      "executable": true
+    },
+    {
+      "name": ".fini",
+      "offset": 249436584,
+      "size": 9,
+      "addr": 249440680,
+      "executable": true
+    },
+    {
+      "name": "__lcxx_override",
+      "offset": 249436608,
+      "size": 277,
+      "addr": 249440704,
+      "executable": true
+    },
+    {
+      "name": "malloc_hook",
+      "offset": 249436886,
+      "size": 567,
+      "addr": 249440982,
+      "executable": true
+    },
+    {
+      "name": ".plt",
+      "offset": 249437456,
+      "size": 5824,
+      "addr": 249441552,
+      "executable": true
+    },
+    {
+      "name": ".tbss",
+      "offset": 249443280,
+      "size": 6065,
+      "addr": 249447376,
+      "executable": false
+    },
+    {
+      "name": ".fini_array",
+      "offset": 249443280,
+      "size": 8,
+      "addr": 249451472,
+      "executable": false
+    },
+    {
+      "name": ".init_array",
+      "offset": 249443288,
+      "size": 14800,
+      "addr": 249451480,
+      "executable": false
+    },
+    {
+      "name": ".data.rel.ro",
+      "offset": 249458096,
+      "size": 6633576,
+      "addr": 249466288,
+      "executable": false
+    },
+    {
+      "name": ".dynamic",
+      "offset": 256091672,
+      "size": 512,
+      "addr": 256099864,
+      "executable": false
+    },
+    {
+      "name": ".got",
+      "offset": 256092184,
+      "size": 664,
+      "addr": 256100376,
+      "executable": false
+    },
+    {
+      "name": ".relro_padding",
+      "offset": 256092848,
+      "size": 1360,
+      "addr": 256101040,
+      "executable": false
+    },
+    {
+      "name": ".data",
+      "offset": 256092848,
+      "size": 35168,
+      "addr": 256105136,
+      "executable": false
+    },
+    {
+      "name": ".got.plt",
+      "offset": 256128016,
+      "size": 2928,
+      "addr": 256140304,
+      "executable": false
+    },
+    {
+      "name": ".bss",
+      "offset": 256130944,
+      "size": 2568888,
+      "addr": 256143232,
+      "executable": false
+    },
+    {
+      "name": ".comment",
+      "offset": 256130944,
+      "size": 240,
+      "addr": 0,
+      "executable": false
+    },
+    {
+      "name": ".shstrtab",
+      "offset": 256131184,
+      "size": 354,
+      "addr": 0,
+      "executable": false
+    },
+    {
+      "name": ".gnu_debuglink",
+      "offset": 256131540,
+      "size": 28,
+      "addr": 0,
+      "executable": false
+    }
+  ],
+  "refs": {
+    "0x1171b2c": [
+      {
+        "site": 82044768,
+        "section": ".text"
+      },
+      {
+        "site": 220372952,
+        "section": ".text"
+      }
+    ],
+    "0x12f9545": [
+      {
+        "site": 82049600,
+        "section": ".text"
+      },
+      {
+        "site": 210741249,
+        "section": ".text"
+      },
+      {
+        "site": 220373250,
+        "section": ".text"
+      },
+      {
+        "site": 220807853,
+        "section": ".text"
+      }
+    ],
+    "0x10ec666": [
+      {
+        "site": 82092400,
+        "section": ".text"
+      },
+      {
+        "site": 220373526,
+        "section": ".text"
+      }
+    ],
+    "0x109c6fb": [
+      {
+        "site": 82178240,
+        "section": ".text"
+      },
+      {
+        "site": 210741019,
+        "section": ".text"
+      },
+      {
+        "site": 211753318,
+        "section": ".text"
+      },
+      {
+        "site": 220378598,
+        "section": ".text"
+      }
+    ],
+    "0x10ec694": [
+      {
+        "site": 82308320,
+        "section": ".text"
+      },
+      {
+        "site": 220382446,
+        "section": ".text"
+      }
+    ],
+    "0x12762b7": [
+      {
+        "site": 82330992,
+        "section": ".text"
+      },
+      {
+        "site": 211753381,
+        "section": ".text"
+      },
+      {
+        "site": 220384925,
+        "section": ".text"
+      },
+      {
+        "site": 220808029,
+        "section": ".text"
+      }
+    ],
+    "0x11a3fac": [
+      {
+        "site": 82434112,
+        "section": ".text"
+      },
+      {
+        "site": 220392374,
+        "section": ".text"
+      }
+    ],
+    "0x120a0bc": [
+      {
+        "site": 82449872,
+        "section": ".text"
+      },
+      {
+        "site": 220392512,
+        "section": ".text"
+      }
+    ],
+    "0x11bd6fd": [
+      {
+        "site": 83606944,
+        "section": ".text"
+      },
+      {
+        "site": 211753301,
+        "section": ".text"
+      },
+      {
+        "site": 220392650,
+        "section": ".text"
+      }
+    ],
+    "0x11a3fc0": [
+      {
+        "site": 83623840,
+        "section": ".text"
+      },
+      {
+        "site": 210741134,
+        "section": ".text"
+      },
+      {
+        "site": 220392788,
+        "section": ".text"
+      }
+    ],
+    "0x112254a": [
+      {
+        "site": 83701956,
+        "section": ".text"
+      },
+      {
+        "site": 83723856,
+        "section": ".text"
+      }
+    ],
+    "0x12908d7": [
+      {
+        "site": 83701979,
+        "section": ".text"
+      },
+      {
+        "site": 83872453,
+        "section": ".text"
+      }
+    ],
+    "0x118b177": [
+      {
+        "site": 83702064,
+        "section": ".text"
+      },
+      {
+        "site": 83772439,
+        "section": ".text"
+      }
+    ],
+    "0x10b89ce": [
+      {
+        "site": 83702190,
+        "section": ".text"
+      },
+      {
+        "site": 84008871,
+        "section": ".text"
+      }
+    ],
+    "0x11d7043": [
+      {
+        "site": 83703984,
+        "section": ".text"
+      },
+      {
+        "site": 83852482,
+        "section": ".text"
+      }
+    ],
+    "0x11a4333": [
+      {
+        "site": 83704418,
+        "section": ".text"
+      },
+      {
+        "site": 83808052,
+        "section": ".text"
+      }
+    ],
+    "0x120a3fa": [
+      {
+        "site": 83704847,
+        "section": ".text"
+      },
+      {
+        "site": 83745916,
+        "section": ".text"
+      }
+    ],
+    "0x113cf68": [
+      {
+        "site": 83704870,
+        "section": ".text"
+      },
+      {
+        "site": 83883778,
+        "section": ".text"
+      }
+    ],
+    "0x125be32": [
+      {
+        "site": 83704979,
+        "section": ".text"
+      },
+      {
+        "site": 83921637,
+        "section": ".text"
+      }
+    ],
+    "0x10b89f7": [
+      {
+        "site": 83705065,
+        "section": ".text"
+      },
+      {
+        "site": 83860230,
+        "section": ".text"
+      }
+    ],
+    "0x10b8a15": [
+      {
+        "site": 83705088,
+        "section": ".text"
+      },
+      {
+        "site": 84018050,
+        "section": ".text"
+      }
+    ],
+    "0x10b8a3d": [
+      {
+        "site": 83705385,
+        "section": ".text"
+      },
+      {
+        "site": 83750779,
+        "section": ".text"
+      }
+    ],
+    "0x1157e08": [
+      {
+        "site": 83705408,
+        "section": ".text"
+      },
+      {
+        "site": 83886266,
+        "section": ".text"
+      }
+    ],
+    "0x11d7063": [
+      {
+        "site": 83705494,
+        "section": ".text"
+      },
+      {
+        "site": 83838232,
+        "section": ".text"
+      }
+    ],
+    "0x11d7083": [
+      {
+        "site": 83705626,
+        "section": ".text"
+      },
+      {
+        "site": 84019764,
+        "section": ".text"
+      }
+    ],
+    "0x115828a": [
+      {
+        "site": 83711082,
+        "section": ".text"
+      }
+    ],
+    "0x109cf11": [
+      {
+        "site": 83712961,
+        "section": ".text"
+      }
+    ],
+    "0x109cf38": [
+      {
+        "site": 83715425,
+        "section": ".text"
+      }
+    ],
+    "0x1172396": [
+      {
+        "site": 83716870,
+        "section": ".text"
+      }
+    ],
+    "0x1290ceb": [
+      {
+        "site": 83723863,
+        "section": ".text"
+      },
+      {
+        "site": 83772446,
+        "section": ".text"
+      },
+      {
+        "site": 83840110,
+        "section": ".text"
+      },
+      {
+        "site": 83872460,
+        "section": ".text"
+      },
+      {
+        "site": 83896877,
+        "section": ".text"
+      }
+    ],
+    "0x1276ad8": [
+      {
+        "site": 83750786,
+        "section": ".text"
+      },
+      {
+        "site": 83838239,
+        "section": ".text"
+      },
+      {
+        "site": 83847168,
+        "section": ".text"
+      },
+      {
+        "site": 83886273,
+        "section": ".text"
+      },
+      {
+        "site": 83929614,
+        "section": ".text"
+      }
+    ],
+    "0x1290d10": [
+      {
+        "site": 83848262,
+        "section": ".text"
+      }
+    ],
+    "0x11bdcf2": [
+      {
+        "site": 83848813,
+        "section": ".text"
+      }
+    ],
+    "0x10ecf5e": [
+      {
+        "site": 83862223,
+        "section": ".text"
+      }
+    ],
+    "0x10d4415": [
+      {
+        "site": 83863306,
+        "section": ".text"
+      }
+    ],
+    "0x120a787": [
+      {
+        "site": 83863673,
+        "section": ".text"
+      }
+    ],
+    "0x11d73c1": [
+      {
+        "site": 83864356,
+        "section": ".text"
+      }
+    ],
+    "0x11bdd10": [
+      {
+        "site": 83864681,
+        "section": ".text"
+      }
+    ],
+    "0x11723bc": [
+      {
+        "site": 83865695,
+        "section": ".text"
+      }
+    ],
+    "0x109cf5d": [
+      {
+        "site": 83866706,
+        "section": ".text"
+      }
+    ],
+    "0x120a7a6": [
+      {
+        "site": 83867506,
+        "section": ".text"
+      }
+    ],
+    "0x1290d30": [
+      {
+        "site": 83868095,
+        "section": ".text"
+      }
+    ],
+    "0x1171c21": [
+      {
+        "site": 84209190,
+        "section": ".text"
+      }
+    ],
+    "0x1157c52": [
+      {
+        "site": 84219188,
+        "section": ".text"
+      }
+    ],
+    "0x11bd70f": [
+      {
+        "site": 84220084,
+        "section": ".text"
+      }
+    ],
+    "0x11d6ee7": [
+      {
+        "site": 84223636,
+        "section": ".text"
+      }
+    ],
+    "0x112223b": [
+      {
+        "site": 84225372,
+        "section": ".text"
+      }
+    ],
+    "0x1107ef4": [
+      {
+        "site": 84227615,
+        "section": ".text"
+      }
+    ],
+    "0x11a408b": [
+      {
+        "site": 84238755,
+        "section": ".text"
+      }
+    ],
+    "0x10f8048": [
+      {
+        "site": 164337428,
+        "section": ".text"
+      },
+      {
+        "site": 205746309,
+        "section": ".text"
+      }
+    ],
+    "0x1252273": [
+      {
+        "site": 210741483,
+        "section": ".text"
+      }
+    ],
+    "0x10ff288": [
+      {
+        "site": 210741721,
+        "section": ".text"
+      }
+    ],
+    "0x11cdf18": [
+      {
+        "site": 210741959,
+        "section": ".text"
+      }
+    ],
+    "0x132c271": [
+      {
+        "site": 210743388,
+        "section": ".text"
+      },
+      {
+        "site": 220391960,
+        "section": ".text"
+      }
+    ],
+    "0x128b3ad": [
+      {
+        "site": 239022979,
+        "section": ".text"
+      }
+    ]
+  },
+  "function_starts": {
+    "0x4e3e760": "0x4e3f4a0",
+    "0x4e3fa40": "0x4e402f0",
+    "0x4e4a170": "0x4e4ad40",
+    "0x4e5f0c0": "0x4e5fb80",
+    "0x4e7ece0": "0x4e7ecf0",
+    "0x4e84570": "0x4e84580",
+    "0x4e9d840": "0x4e9d850",
+    "0x4ea15d0": "0x4ea25b0",
+    "0x4fbbda0": "0x4fbc500",
+    "0x4fbffa0": "0x4fbffb0",
+    "0x4fd30c4": "0x4fd2800",
+    "0x4fd30db": "0x4fd2800",
+    "0x4fd3130": "0x4fd2800",
+    "0x4fd31ae": "0x4fd2800",
+    "0x4fd38b0": "0x4fd2800",
+    "0x4fd3a62": "0x4fd2800",
+    "0x4fd3c0f": "0x4fd2800",
+    "0x4fd3c26": "0x4fd2800",
+    "0x4fd3c93": "0x4fd2800",
+    "0x4fd3ce9": "0x4fd2800",
+    "0x4fd3d00": "0x4fd2800",
+    "0x4fd3e29": "0x4fd2800",
+    "0x4fd3e40": "0x4fd2800",
+    "0x4fd3e96": "0x4fd2800",
+    "0x4fd3f1a": "0x4fd2800",
+    "0x4fd546a": "0x4fd2800",
+    "0x4fd5bc1": "0x4fd2800",
+    "0x4fd6561": "0x4fd2800",
+    "0x4fd6b06": "0x4fd2800",
+    "0x4fd8650": "0x4fd2800",
+    "0x4fd8657": "0x4fd2800",
+    "0x4fddc7c": null,
+    "0x4fdef7b": null,
+    "0x4fdef82": null,
+    "0x4fe4417": null,
+    "0x4fe441e": null,
+    "0x4fecf34": null,
+    "0x4ff4518": null,
+    "0x4ff451f": null,
+    "0x4ff4c6e": null,
+    "0x4ff6800": null,
+    "0x4ff6c46": null,
+    "0x4ff6e6d": null,
+    "0x4ff7cc2": null,
+    "0x4ff9b06": null,
+    "0x4ffa2cf": null,
+    "0x4ffa70a": null,
+    "0x4ffa879": null,
+    "0x4ffab24": null,
+    "0x4ffac69": null,
+    "0x4ffb05f": null,
+    "0x4ffb452": null,
+    "0x4ffb772": null,
+    "0x4ffb9bf": null,
+    "0x4ffcac5": null,
+    "0x4ffcacc": null,
+    "0x4fff702": null,
+    "0x50000ba": null,
+    "0x50000c1": null,
+    "0x5002a2d": null,
+    "0x5008ae5": null,
+    "0x500aa0e": null,
+    "0x501dfa7": null,
+    "0x5020382": null,
+    "0x5020a34": null,
+    "0x504ee26": null,
+    "0x5051534": null,
+    "0x50518b4": null,
+    "0x5052694": null,
+    "0x5052d5c": null,
+    "0x505361f": null,
+    "0x50561a3": null,
+    "0x9cb9714": "0x9cba670",
+    "0xc437085": "0xc437fa0",
+    "0xc8fa71b": "0xc8fa2a0",
+    "0xc8fa78e": "0xc8fa2a0",
+    "0xc8fa801": "0xc8fa2a0",
+    "0xc8fa8eb": "0xc8fa2a0",
+    "0xc8fa9d9": "0xc8fa2a0",
+    "0xc8faac7": "0xc8fa2a0",
+    "0xc8fb05c": "0xc8fa2a0",
+    "0xc9f1955": "0xc9f03b0",
+    "0xc9f1966": "0xc9f03b0",
+    "0xc9f19a5": "0xc9f03b0",
+    "0xd229fd8": "0xd228c00",
+    "0xd22a102": "0xd228c00",
+    "0xd22a216": "0xd228c00",
+    "0xd22b5e6": "0xd228c00",
+    "0xd22c4ee": "0xd228c00",
+    "0xd22ce9d": "0xd228c00",
+    "0xd22ea18": "0xd228c00",
+    "0xd22ebb6": "0xd22fb60",
+    "0xd22ec40": "0xd22fb60",
+    "0xd22ecca": "0xd22fb60",
+    "0xd22ed54": "0xd22fb60",
+    "0xd2942ad": "0xd293a40",
+    "0xd29435d": "0xd293a40",
+    "0xe3f3383": null
+  }
+}

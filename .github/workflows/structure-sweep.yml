@@ -1,0 +1,112 @@
+name: Structure sweep
+
+# `locate structure` answers "which one is nearest to you", so one origin only
+# ever reveals the nearest structure of each type. A grid of origins reveals the
+# whole local set: sweeping origins around a seed enumerates its structures, and
+# that is what a ring algorithm (strongholds) needs before it can be fitted.
+#
+# The plan lives in the repository so a sweep is a commit, which is also what
+# triggers it. Nothing here guesses: the plan is data, and the answers are the
+# server's.
+
+on:
+  push:
+    paths:
+      - .github/sweep/plan.json
+      - tools/worldgen-algo/capture-structures.js
+
+permissions:
+  contents: write
+
+env:
+  EVIDENCE: research/proprietary/bds-1.26.52.3
+
+jobs:
+  sweep:
+    if: startsWith(github.ref, 'refs/heads/arena/')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 300
+    concurrency:
+      group: structure-sweep-${{ github.ref }}
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Fetch the official binary from the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download v1.26.52.3 --repo "${GITHUB_REPOSITORY}" \
+            --pattern bedrock_server --clobber
+          chmod +x bedrock_server
+          echo "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207  bedrock_server" \
+            | sha256sum --check --strict
+
+      - name: Install the server's shared libraries and packs
+        run: |
+          gh release download v1.26.52.3 --repo "${GITHUB_REPOSITORY}" \
+            --pattern '*linux*.zip' --clobber 2>/dev/null || true
+          if ls ./*.zip >/dev/null 2>&1; then
+            unzip -o -q ./*.zip -d release
+            cp -n release/*.so* . 2>/dev/null || true
+            cp -rn release/resource_packs release/behavior_packs release/definitions release/config . 2>/dev/null || true
+          fi
+          ls -l | head -20
+
+      - name: Run the plan
+        run: |
+          set -o pipefail
+          node -e '
+            const plan = require("./.github/sweep/plan.json");
+            const fs = require("node:fs");
+            const lines = [];
+            for (const sweep of plan.sweeps) {
+              // A sweep either walks a rectangle or names its origins exactly,
+              // which is what probing one predicted position per origin needs.
+              const origins = [];
+              if (Array.isArray(sweep.origins)) {
+                origins.push(...sweep.origins);
+              } else {
+                for (let x = sweep.minX; x <= sweep.maxX; x += sweep.step) {
+                  for (let z = sweep.minZ; z <= sweep.maxZ; z += sweep.step) {
+                    origins.push(`${x},${z}`);
+                  }
+                }
+              }
+              lines.push([sweep.slug, sweep.seeds.join(","), sweep.ids.join(","), origins.join(";"), sweep.kind || "structure"].join("\t"));
+            }
+            fs.writeFileSync("/tmp/plan.tsv", lines.join("\n") + "\n");
+            for (const line of lines) {
+              const [slug, seeds, ids, origins, kind] = line.split("\t");
+              console.log(`${slug}: seeds ${seeds}, ${kind} ids ${ids}, ${origins.split(";").length} origins`);
+            }
+          '
+          while IFS=$'\t' read -r slug seeds ids origins kind; do
+            for seed in $(echo "$seeds" | tr ',' ' '); do
+              echo "=== $slug seed $seed ==="
+              timeout 2400 node tools/worldgen-algo/capture-structures.js \
+                --binary ./bedrock_server --assets "$PWD" --seed "$seed" \
+                --ids "$ids" --from "$origins" --kind "$kind" \
+                --out "$EVIDENCE/structures/captures/$slug/seed-$seed" --verbose 2>&1 | tail -40
+              echo "$?" > "$EVIDENCE/structures/captures/$slug/seed-$seed/exit-status.txt"
+            done
+          done < /tmp/plan.tsv
+          exit 0
+
+      - name: Commit the sweep
+        if: always()
+        run: |
+          git add -A "$EVIDENCE/structures/captures" || true
+          if git diff --cached --quiet; then echo 'no new captures'; exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m "research: swept structure positions"
+          for attempt in 1 2 3 4 5; do
+            if git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}"; then
+              echo pushed; exit 0
+            fi
+            sleep $((attempt * 5))
+          done
+          exit 1

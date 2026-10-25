@@ -1,0 +1,28 @@
+{
+ "binary": "bedrock_server",
+ "sha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
+ "bytes": 256133808,
+ "sections": [
+  {
+   "name": ".rodata",
+   "file": "rodata.bin",
+   "addr": 17400640,
+   "size": 13534716,
+   "sha256": "73c90e04cb895c1d5c206a665fbc126e4ff5a2f8ed29ce33a5ed4bcdd6ddeae6"
+  },
+  {
+   "name": ".data.rel.ro",
+   "file": "data-rel-ro.bin",
+   "addr": 249466288,
+   "size": 6633576,
+   "sha256": "29d5c1ffb9a9c7367858b6b31a72d4bd6f124f08e98b8717608558e5a3f9dbf5"
+  },
+  {
+   "name": ".data",
+   "file": "data.bin",
+   "addr": 256105136,
+   "size": 35168,
+   "sha256": "e407e4ce2adb876d29d58be2d1421693ab0a126852e75b2fc63b6fa305a6671d"
+  }
+ ]
+}

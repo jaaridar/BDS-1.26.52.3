@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Minecraft Bedrock 1.26.52.3 — the structure generation algorithm, in one file</title>
+<meta name="description" content="A single self-contained file: the recovered Bedrock structure generation algorithm as runnable code, the measurements behind every constant, the hypotheses that were falsified, and the gaps that remain.">
+<meta name="color-scheme" content="light dark">
+<style>
+{{STYLE}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the algorithm</a>
+
+<header class="banner">
+  <p class="eyebrow">OpenBDS · Minecraft: Bedrock 1.26.52.3 · world generation</p>
+  <h1>The structure generation algorithm, in one file</h1>
+  <p class="lede">
+    This file is the whole thing: the recovered algorithm as runnable code, the measurement
+    behind every constant, the hypotheses that were tested and thrown away, the tallies that
+    say how well it does, and the gaps that are still open. It runs offline — save it
+    anywhere, open it, and the calculators below work with no server, no network and no
+    Minecraft installation.
+  </p>
+  <p class="hint">
+    Everything here is derived from the proprietary Bedrock dedicated server by
+    measurement: disassembly for the constants, and <code>locate</code> answers from a real
+    server for the confirmation. No decompiled code is reproduced in this file; the code
+    below is an independent implementation of behaviour that was measured, which is what
+    makes it distributable under the MIT licence at the bottom of the page.
+  </p>
+{{META}}
+</header>
+
+<main id="main">
+  <nav class="contents" aria-labelledby="contents-heading">
+    <h2 id="contents-heading">Contents</h2>
+    <ol>
+      <li><a href="#algorithm">The algorithm, completely</a></li>
+      <li><a href="#data">Placement data for every set</a></li>
+      <li><a href="#calculator">Calculator: one seed</a></li>
+      <li><a href="#finder">Finder: a seed range</a></li>
+      <li><a href="#checks">Self-checks you can run here</a></li>
+      <li><a href="#forensics">Forensic record: how each number was pinned</a></li>
+      <li><a href="#falsified">Hypotheses that were falsified</a></li>
+      <li><a href="#gaps">What is still open</a></li>
+      <li><a href="#reproduce">Reproducing every number</a></li>
+      <li><a href="#seals">Seals: hashes of the inputs</a></li>
+      <li><a href="#code">Appendix A — the code, verbatim</a></li>
+      <li><a href="#record">Appendix B — the living record</a></li>
+    </ol>
+  </nav>
+
+  <!-- =================================================================== -->
+  <section id="algorithm" class="panel" aria-labelledby="algorithm-heading">
+    <h2 id="algorithm-heading">1. The algorithm, completely</h2>
+
+    <p>
+      Bedrock's structure placement answers one question: given a 64-bit world seed, which
+      chunks contain the start of structure set <var>S</var>? It does it in two stages — a
+      <em>candidate grid</em>, which is pure arithmetic, and a <em>per-structure gate</em>,
+      which asks the world's biome and height data whether the candidate is allowed. The
+      grid is fully recovered. The gate is recovered only for strongholds, and for the rest
+      the model reproduces every captured answer anyway, because the gate rejects candidates
+      rather than moving them.
+    </p>
+
+    <h3>1.1 Coordinates and the seed reduction</h3>
+    <p>
+      Two coordinate systems are in play and they are never mixed: <em>chunks</em> (16 blocks)
+      and <em>blocks</em>. A structure start is computed in chunks and reported as the block
+      at the chunk's centre, <code>chunk × 16 + 8</code>. Cell indices are
+      <code>floor(chunk ÷ spacing)</code>, with Java's floor (towards negative infinity), not
+      truncation.
+    </p>
+    <p>
+      A world seed is 64 bits, and the two placement engines read different parts of it:
+    </p>
+    <div class="formula">seed32 = low 32 bits of the seed    (mod 2^32, two's complement)
+seed48 = low 48 bits of the seed    (mod 2^48)
+
+The Mersenne engine folds its cell seed into 32 bits, so it sees only seed32.
+The Java engine masks its LCG state to 48 bits, so it sees only seed48.</div>
+    <p class="hint">
+      Consequence, measured: seeds <var>s</var> and <var>s</var> + 2<sup>32</sup> place
+      every Mersenne-engine set identically, and seeds <var>s</var> and <var>s</var> +
+      2<sup>48</sup> place every Java-engine set identically. The self-checks below
+      re-derive this on your machine rather than asking you to believe it.
+    </p>
+
+    <h3>1.2 The Mersenne stream</h3>
+    <p>
+      Both engines start from a Mersenne Twister seeded with <code>init_genrand</code>: 624
+      words of state, multiplier 1812433253, tempering masks <code>0x9d2c5680</code> and
+      <code>0xefc60000</code>. The two draw conventions are not part of the published
+      algorithm, so they were measured rather than assumed:
+    </p>
+    <div class="formula">next32()        = one tempered 32-bit word
+nextInt(bound)  = next32() mod bound            (unsigned divide, no rejection)
+nextUnit()      = f32( next32() × 2^-32 )       (integer → double → float)</div>
+    <p class="hint">
+      The <code>f32</code> narrowing matters: the gate compares against
+      <code>0.25f</code>, and a value a whisker above 0.25 can round down onto it. That case
+      is implemented exactly, not approximately.
+    </p>
+
+    <h3>1.3 The candidate grid</h3>
+    <p>
+      Every set except strongholds uses the same resolver, with per-set numbers. A cell is
+      <code>spacing</code> chunks wide and its candidate sits at least
+      <code>separation</code> chunks inside it, so <code>span = spacing − separation</code>.
+    </p>
+    <div class="formula">cellX = floor(chunkX ÷ spacing)      cellZ = floor(chunkZ ÷ spacing)
+span  = spacing − separation
+
+Mersenne engine:
+  cellSeed = (cellX × 0x9939f508 + cellZ × 0xf1565bd5 + seed32 + salt) mod 2^32
+  state    = MT19937(cellSeed)
+  linear      ox = next32() mod span
+              oz = next32() mod span
+  triangular  ox = floor( (next32() mod span + next32() mod span) ÷ 2 )
+              oz = floor( (next32() mod span + next32() mod span) ÷ 2 )
+
+Java engine:
+  cellSeed = (cellX × 341873128712 + cellZ × 132897987541 + seed48 + salt) mod 2^64
+  state    = (cellSeed XOR 0x5deece66d) mod 2^48
+  next(b)  = state = (state × 0x5deece66d + 0xb) mod 2^48;  return state ≫ (48 − b)
+  linear      ox = nextInt(span)      oz = nextInt(span)
+  triangular  ox = floor( (nextInt(span) + nextInt(span)) ÷ 2 )   (same for z)
+
+start chunk = (cellX × spacing + ox, cellZ × spacing + oz)
+start block = (startChunkX × 16 + 8, startChunkZ × 16 + 8)</div>
+    <p class="hint">
+      The two 32-bit multipliers are the low halves of the Java constants
+      (<code>341873128712 mod 2^32 = 0x9939f508</code>,
+      <code>132897987541 mod 2^32 = 0xf1565bd5</code>): the binary multiplies in 32 bits,
+      which is exactly a fold of the 64-bit mix.
+    </p>
+
+    <h3>1.4 Strongholds</h3>
+    <p>
+      Strongholds are not a ring walk in this build, and they are not jittered inside a cell.
+      They sit on a 200-chunk grid, each cell carrying one stronghold, and the mix runs over
+      the cell's <em>centre</em> rather than its index:
+    </p>
+    <div class="formula">u = cellX × 200 + 100        v = cellZ × 200 + 100
+cellSeed = (u × 0x9babeb51 + v × 0xbe68aeb9 + seed32 + 0x5d534e7) mod 2^32
+state    = MT19937(cellSeed)
+dx       = next32() mod 100
+dz       = next32() mod 100
+gate     = f32( next32() × 2^-32 )
+gridChunk = (cellX × 200 + 50 + dx, cellZ × 200 + 50 + dz)</div>
+    <p>
+      The third draw is a <em>gate</em>, compared against 0.25, and what it decides is
+      measured rather than assumed: it decides whether the stronghold ends up on that grid
+      position. Every cell carries exactly one stronghold — no capture has ever shown two in
+      one cell — but when the gate fails, the generator moves the stronghold, and the moved
+      position comes out of a biome query that is not modelled here.
+    </p>
+{{STRONGHOLD_EVIDENCE}}
+    <p>
+      There is a second population of strongholds that this grid cannot express: every world
+      also contains <strong>exactly three</strong> strongholds at villages, at radii of 47 to
+      662 chunks from the origin. Their positions are exact, because they are village chunks
+      and the village grid is exact — but <em>which</em> villages are chosen is not
+      recovered, so they are listed as open below and are not reported by the calculator.
+    </p>
+
+    <h3>1.5 What a <code>locate</code> answer is</h3>
+    <p>
+      <code>/locate structure</code> walks cells outward from your position and returns the
+      first candidate whose biome and height checks pass, with its distance. It does not
+      enumerate and it does not sort globally, which is why two different origins can return
+      two different "nearest" answers for the same structure. The model here reports the
+      candidate grid, so it reproduces <code>locate</code> exactly when the accepted
+      candidate is the grid candidate — which is the case for every captured answer of every
+      set offered as a filter.
+    </p>
+  </section>
+
+  <!-- =================================================================== -->
+  <section id="data" class="panel" aria-labelledby="data-heading">
+    <h2 id="data-heading">2. Placement data for every set</h2>
+    <p>
+      The numbers below are not remembered from Java. Bedrock's spacings and salts are its
+      own (ruined portals, for example, mix <code>0x26ac727</code> where Java uses
+      <code>34222645</code>). Each row was fitted against captured answers, and the tally
+      shown is the number of captured positions replayed exactly by this table — regenerated
+      when this file was built, by running the verifier, not copied from a comment.
+    </p>
+{{SPEC_TABLE}}
+    <p class="hint">
+      "Within one chunk" is not a shrug: for the two pack-driven sets the reported position
+      is the jigsaw structure's own origin block, which can sit a chunk back from the
+      placement chunk. The model reports the placement chunk, and the residual is kept
+      visible instead of being hidden in a tolerance.
+    </p>
+{{WITHDRAWN}}
+    <p class="hint">
+      Nothing in the withdrawn list is guessed at anywhere in this file. A placeholder
+      spacing would produce confident-looking worlds that do not exist, which is worse than
+      an empty column.
+    </p>
+  </section>
+
+  <!-- =================================================================== -->
+  <section id="calculator" class="panel" aria-labelledby="calculator-heading">
+    <h2 id="calculator-heading">3. Calculator: one seed</h2>
+    <p class="hint">
+      Runs the code in Appendix A on this page — no request leaves it. Distances are in
+      blocks from the origin; counts include every candidate inside the radius.
+    </p>
+    <form id="calc-form" novalidate>
+      <div class="field-row">
+        <p class="field">
+          <label for="calc-seed">Seed</label>
+          <input id="calc-seed" name="calc-seed" type="text" inputmode="numeric" value="1"
+                 autocomplete="off" spellcheck="false" aria-describedby="calc-seed-hint">
+          <span class="hint" id="calc-seed-hint">Any 64-bit whole number, negative allowed.</span>
+        </p>
+        <p class="field">
+          <label for="calc-radius">Radius (chunks)</label>
+          <input id="calc-radius" name="calc-radius" type="number" min="16" max="1024" step="16" value="256">
+        </p>
+        <p class="field field-button">
+          <button type="submit" class="primary">Calculate</button>
+        </p>
+      </div>
+      <p class="error-summary" id="calc-error" role="alert" hidden></p>
+    </form>
+    <p class="status" id="calc-status" role="status" aria-live="polite">
+      Ready. The village row should show 77/77-style agreement with the corpus; the stronghold
+      row shows both the cells and which of them stay on the grid.
+    </p>
+    <div class="table-scroll" role="region" aria-labelledby="calculator-heading" tabindex="0">
+      <table id="calc-table" hidden>
+        <caption id="calc-caption">Structures near the seed</caption>
+        <thead>
+          <tr>
+            <th scope="col">Structure</th>
+            <th scope="col">Count</th>
+            <th scope="col">Nearest block</th>
+            <th scope="col">Chunk</th>
+            <th scope="col">Distance</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody id="calc-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- =================================================================== -->
+  <section id="finder" class="panel" aria-labelledby="finder-heading">
+    <h2 id="finder-heading">4. Finder: a seed range</h2>
+    <p class="hint">
+      Says what a world must contain and tests seeds in order. The WebAssembly core compiled
+      from the same code is inlined in this file and used when the browser allows it; the
+      JavaScript reference is used when it does not. Filters are checked in order and the
+      first failure stops a seed, so put the rarest requirement first.
+    </p>
+    <form id="find-form" novalidate>
+      <fieldset class="group">
+        <legend>Seeds to test</legend>
+        <div class="field-row">
+          <p class="field">
+            <label for="find-start">First seed</label>
+            <input id="find-start" name="find-start" type="text" inputmode="numeric" value="0"
+                   autocomplete="off" spellcheck="false" aria-describedby="find-start-hint">
+            <span class="hint" id="find-start-hint">Tested as whole 64-bit values, low 32 bits varying fastest.</span>
+          </p>
+          <p class="field">
+            <label for="find-count">How many seeds</label>
+            <input id="find-count" name="find-count" type="number" min="1" max="1000000" step="1" value="5000">
+          </p>
+          <p class="field">
+            <label for="find-step">Step</label>
+            <input id="find-step" name="find-step" type="number" min="1" max="4294967295" step="1" value="1">
+          </p>
+        </div>
+      </fieldset>
+
+      <fieldset class="group">
+        <legend>What the world must contain</legend>
+        <p class="hint" id="find-filters-hint">
+          Tick a set to require it. Every filter counts candidates inside its own radius, from
+          block 0,0.
+        </p>
+{{FILTER_CONTROLS}}
+      </fieldset>
+
+      <div class="actions">
+        <button id="find-button" type="submit" class="primary">Search</button>
+        <button id="find-stop" type="button" disabled>Stop</button>
+      </div>
+      <p class="error-summary" id="find-error" role="alert" hidden></p>
+    </form>
+    <p class="status" id="find-status" role="status" aria-live="polite">Ready.</p>
+    <p class="engine hint" id="find-engine">engine: not started</p>
+    <dl class="stats">
+      <div><dt>Tested</dt><dd id="find-tested">0</dd></div>
+      <div><dt>Matches</dt><dd id="find-matches">0</dd></div>
+      <div><dt>Rate</dt><dd id="find-rate">—</dd></div>
+    </dl>
+    <div class="table-scroll" role="region" aria-labelledby="finder-heading" tabindex="0">
+      <table id="find-table" hidden>
+        <caption id="find-caption">Matching seeds</caption>
+        <thead><tr id="find-head"></tr></thead>
+        <tbody id="find-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- =================================================================== -->
+  <section id="checks" class="panel" aria-labelledby="checks-heading">
+    <h2 id="checks-heading">5. Self-checks you can run here</h2>
+    <p>
+      These are not a replay of recorded answers. Each one recomputes both sides in your
+      browser now: the WebAssembly core against the JavaScript reference over every set and
+      every seed class, the documented seed-width rules, the gate's rate, and the published
+      worked examples — including the one that proves the model <em>cannot</em> reach the
+      strongholds that sit at villages.
+    </p>
+    <div class="actions">
+      <button id="checks-button" type="button">Run the checks</button>
+    </div>
+    <p class="status" id="checks-status" role="status" aria-live="polite">Not run yet.</p>
+    <div class="table-scroll" role="region" aria-labelledby="checks-heading" tabindex="0">
+      <table id="checks-table" hidden>
+        <caption id="checks-caption">Self-check results</caption>
+        <thead>
+          <tr>
+            <th scope="col">Check</th>
+            <th scope="col">Cases</th>
+            <th scope="col">Result</th>
+            <th scope="col">What it shows</th>
+          </tr>
+        </thead>
+        <tbody id="checks-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- =================================================================== -->
+  <section id="forensics" class="panel" aria-labelledby="forensics-heading">
+    <h2 id="forensics-heading">6. Forensic record: how each number was pinned</h2>
+
+    <h3>6.1 Method</h3>
+    <p>
+      Two independent sources were used, and a constant was only accepted when both agreed:
+    </p>
+    <ol>
+      <li>
+        <strong>Static:</strong> the shipped <code>bedrock_server</code> (Linux x86-64,
+        version 1.26.52.3) was disassembled. Constants were read out of the instruction
+        stream and the read-only section, and the call graph around the structure feature was
+        mapped. Addresses are cited below so any reader can check them with
+        <code>objdump</code> — nothing else here depends on trusting this paragraph.
+      </li>
+      <li>
+        <strong>Dynamic:</strong> a real server, started once per seed, was asked
+        <code>/locate structure</code> from a scripted set of origins. The answers are
+        recorded with the seed they came from
+        (<code>research/proprietary/bds-1.26.52.3/structures/captures/</code>, 1411 files) and
+        replayed by the verifiers. A parameter set was accepted only when it reproduced
+        <em>every</em> captured position of that set; a fit that needed a tolerance to reach a
+        neighbouring chunk is reported as exactly that.
+      </li>
+    </ol>
+
+    <h3>6.2 The derivation chain</h3>
+    <p>
+      Each row is one thing that had to be known, where it came from, and what confirmed it.
+    </p>
+    <div class="table-scroll" role="region" aria-labelledby="forensics-heading" tabindex="0">
+      <table>
+        <caption>Constants and where they were pinned</caption>
+        <thead>
+          <tr>
+            <th scope="col">What</th>
+            <th scope="col">Value</th>
+            <th scope="col">Static evidence</th>
+            <th scope="col">Dynamic confirmation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Stronghold salt</th>
+            <td class="mono">0x5d534e7</td>
+            <td><code>add $0x5d534e7,%edx</code> at <code>0x4e9f12a</code> and
+                <code>addl $0x5d534e7,0xc(%rsp)</code> at <code>0x4e9fa18</code></td>
+            <td>grid positions of 491 captured strongholds</td>
+          </tr>
+          <tr>
+            <th scope="row">Stronghold multipliers</th>
+            <td class="mono">0x9babeb51 · 0xbe68aeb9</td>
+            <td><code>pmuludq</code> against the cell centre; the same four bytes also decode
+                as tiny floats, which is a red herring — the instruction is integer</td>
+            <td>unique fit over the whole capture corpus</td>
+          </tr>
+          <tr>
+            <th scope="row">Gate threshold</th>
+            <td class="mono">0.25f</td>
+            <td><code>ucomiss</code> against <code>0.25f</code> on the third draw, after
+                <code>CVTSI2SD</code> · 2<sup>-32</sup> · <code>CVTSD2SS</code></td>
+            <td>gated cells 491/510 exact; ungated 0/82</td>
+          </tr>
+          <tr>
+            <th scope="row">Grid cell seed</th>
+            <td class="mono">x·341873128712 + z·132897987541 + seed + salt</td>
+            <td>resolver at <code>0xd2d2570</code>; the 32-bit fold at
+                <code>0x9939f508</code> / <code>0xf1565bd5</code></td>
+            <td>every captured position of eight sets, exactly</td>
+          </tr>
+          <tr>
+            <th scope="row">Java LCG</th>
+            <td class="mono">0x5deece66d · 0xb · mask 48</td>
+            <td><code>WorldGenRandom</code> at <code>0xd2d59a0</code>; seed
+                <code>(seed XOR 0x5deece66d) mod 2^48</code></td>
+            <td>the two pack-driven sets at chunk level</td>
+          </tr>
+          <tr>
+            <th scope="row">Stronghold entry point</th>
+            <td class="mono">vtable 0xee8ec60</td>
+            <td><code>0x4ea3dc0, 0x4ea3e00, 0xd351350, 0xd351360, 0xd351780,
+                0x4e9f720 (find), 0x4e9efc0, 0x4ea01a0, 0xd3515c0</code>; no direct callers,
+                so placement is virtual and xrefs alone cannot find it</td>
+            <td>the positions the ring-style search would predict match 0 of them</td>
+          </tr>
+          <tr>
+            <th scope="row">The relocation call</th>
+            <td class="mono">0x4e9fca0</td>
+            <td>loads a provider from the feature state at <code>+0x1a8</code>, calls vtable
+                slot 6 with the candidate; the returned value is what gets re-snapped</td>
+            <td>relocated strongholds are never on the grid, on either axis</td>
+          </tr>
+          <tr>
+            <th scope="row">Placement schema strings</th>
+            <td class="mono">RandomSpreadPlacement</td>
+            <td><code>minecraft:random_spread</code> @<code>0x138f973</code> area,
+                <code>minecraft:stronghold</code> @<code>0x120a0bc</code>,
+                <code>strongholds</code> @<code>0x13a9533</code> — a schema key, not a table;
+                there is no coordinate table in <code>.rodata</code></td>
+            <td>consistent with the data-driven sets behaving like the pack JSON</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>6.3 The tallies, as of this build</h3>
+{{EVIDENCE_TABLE}}
+
+    <h3>6.4 Published worked examples, and the one the grid cannot reach</h3>
+    <p>
+      <code>docs/worldgen.md</code> publishes the nearest stronghold to the origin for four
+      seeds, measured on a real server:
+    </p>
+    <div class="table-scroll" role="region" aria-labelledby="forensics-heading" tabindex="0">
+      <table>
+        <caption>Nearest stronghold to the origin, as published</caption>
+        <thead>
+          <tr>
+            <th scope="col">Seed</th>
+            <th scope="col">Chunk</th>
+            <th scope="col">Radius (chunks)</th>
+            <th scope="col">The grid model's nearest cell</th>
+            <th scope="col">Verdict</th>
+          </tr>
+        </thead>
+        <tbody id="examples-body">
+          <tr><td colspan="5" class="muted">Run the checks below to fill this table from this page's own code.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="hint">
+      Three of those four are village-attached strongholds: they are not on the 200-chunk grid
+      at all and no choice of constants can produce them, which is the cleanest demonstration
+      of the second population. The check in §5 recomputes all four.
+    </p>
+  </section>
+
+  <!-- =================================================================== -->
+  <section id="falsified" class="panel" aria-labelledby="falsified-heading">
+    <h2 id="falsified-heading">7. Hypotheses that were falsified</h2>
+    <p>
+      This is the part that keeps the rest honest. Each row is a model that looked plausible,
+      the measurement that killed it, and what replaced it. All of them can be re-run from the
+      repository.
+    </p>
+    <div class="table-scroll" role="region" aria-labelledby="falsified-heading" tabindex="0">
+      <table>
+        <caption>Dead ends, with the number that ended them</caption>
+        <thead>
+          <tr>
+            <th scope="col">Hypothesis</th>
+            <th scope="col">Result</th>
+            <th scope="col">What the data said instead</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Strongholds walk Java's concentric rings (128 + 6·ring·32)</th>
+            <td class="num">6 / 12 captures at best</td>
+            <td>Chance. The nearest stronghold is 47–203 chunks out, which contradicts the
+                first Java ring outright. Replaced by the 200-chunk cell grid.</td>
+          </tr>
+          <tr>
+            <th scope="row">The off-grid strongholds are a second 200-<em>block</em> grid</th>
+            <td class="num">0 / 41</td>
+            <td>No second grid. The off-grid set is exactly three per world and every one sits
+                on a modelled village chunk.</td>
+          </tr>
+          <tr>
+            <th scope="row">Strongholds are placed in block space, not chunk space</th>
+            <td class="num">0 / 41</td>
+            <td>Chunk space. The grid formula reproduces positions to the block.</td>
+          </tr>
+          <tr>
+            <th scope="row">"The answer lies inside the origin's own 200-chunk cell" is a
+                meaningful test</th>
+            <td class="num">2 / 160</td>
+            <td>It is not: cells are large and the test passes about as often as the geometry
+                predicts. It was dropped rather than quoted.</td>
+          </tr>
+          <tr>
+            <th scope="row">A cell's stronghold is the stronghold nearest a point hidden in
+                that cell's Mersenne stream</th>
+            <td class="num">5 / 52</td>
+            <td>Chance. 10×10 draw pairs × 3 target maps, all at chance level.</td>
+          </tr>
+          <tr>
+            <th scope="row">A cell's stronghold is the village nearest its grid position</th>
+            <td class="num">0 / 52</td>
+            <td>The chosen village is a median of 78 chunks from the grid position (range
+                19–157), which rules out any snap-to-nearest geometry.</td>
+          </tr>
+          <tr>
+            <th scope="row">Villages carry a stronghold when a per-village random draw passes</th>
+            <td class="num">separation 0.0000</td>
+            <td>2400 labelled villages, 15 salts × 8 cell sizes × 12 draws, both the village
+                cell stream and a per-chunk stream: no threshold separates the 7 positives
+                from the 2393 negatives. Not a per-village gate.</td>
+          </tr>
+          <tr>
+            <th scope="row">The three village strongholds are simply the N nearest villages to
+                spawn</th>
+            <td class="num">ranks 5 … 1188</td>
+            <td>No rank cut exists: the positives include the 1188th village and exclude the
+                first. The count is fixed at exactly three per world, so it is also not a rate
+                over villages.</td>
+          </tr>
+          <tr>
+            <th scope="row">Mineshafts are a spaced grid set with an unknown spacing</th>
+            <td class="num">no <var>k</var></td>
+            <td>No modulus accepts all 24 answers; this set is gated per chunk by the
+                biome/height test, which is not modelled yet.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- =================================================================== -->
+  <section id="gaps" class="panel" aria-labelledby="gaps-heading">
+    <h2 id="gaps-heading">8. What is still open</h2>
+    <ul>
+      <li>
+        <strong>Which villages carry the three strongholds.</strong> The positions are known
+        (they are village chunks) and the count is known (exactly three per world), but the
+        selection is not recovered: it is not a per-village random draw, not a nearest-village
+        snap, not a rank cut, and not tied to the gated cells. It reads more of the seed than
+        the grid does, which points at the biome layer — the same query that relocates the
+        ungated cells. Everything ruled out is in §7 with its number.
+      </li>
+      <li>
+        <strong>19 of the 510 gated strongholds.</strong> The gate is necessary and 96.3%
+        sufficient; the remainder are cells the generator moved for a non-gate reason. They
+        are reported as gated with a flag, never as exact.
+      </li>
+      <li>
+        <strong>Biomes and terrain.</strong> The climate noise router has not been recovered,
+        so no surface biome, height or block can be predicted from a seed. The biome
+        <em>data</em> — 76 biomes with their climate targets — is read from the packs, but
+        data is not a sampler, which is why there is no biome filter in §4.
+      </li>
+      <li>
+        <strong>Seven sets with unmeasured placement:</strong> ocean ruins, desert pyramids,
+        jungle temples, witch huts, igloos, mineshafts and abandoned camps. Their parameters
+        are placeholders or their gate is a per-chunk probability whose threshold is unknown.
+      </li>
+      <li>
+        <strong>Obsidian and the rest of the structure itself.</strong> This file covers where
+        a structure <em>starts</em>. Piece layout, jigsaw assembly, loot tables and block
+        placement are separate systems and are not modelled.
+      </li>
+    </ul>
+  </section>
+
+  <!-- =================================================================== -->
+  <section id="reproduce" class="panel" aria-labelledby="reproduce-heading">
+    <h2 id="reproduce-heading">9. Reproducing every number</h2>
+    <p>
+      Every claim in this file is produced by a command in the repository
+      <a href="https://github.com/jaaridar/BDS-1.26.52.3">jaaridar/BDS-1.26.52.3</a>. Node 22
+      or newer, no build step, no server needed for replay.
+    </p>
+    <pre tabindex="0"><code># per-set tallies: captured positions replayed exactly / within one chunk
+node tools/worldgen-algo/verify-placements.js
+
+# strongholds: gated against ungated, exact against relocated, per capture set
+node tools/worldgen-algo/verify-strongholds.js
+
+# the probe sweep that asks the server about the model's own predictions
+node tools/worldgen-algo/verify-probe.js
+
+# one seed, every structure, with the evidence for each row
+node tools/worldgen-algo/world.js --seed 12345
+
+# the browser seed finder and its tests
+node web/server.js                       # http://localhost:8787
+node --test test/unit/seedfinder-wasm.test.js
+node tools/web/a11y-check.js
+node tools/web/smoke-web.js
+
+# regenerate this file (needs the AssemblyScript compiler for the wasm core)
+ASC=/path/to/asc.js node tools/web/build-dossier.js</code></pre>
+    <p class="hint">
+      To regrow the evidence rather than replay it, the capture harness asks a real server:
+      <code>tools/worldgen-algo/capture-structures.js</code> starts the official binary, sends
+      <code>/locate</code> commands from a plan of origins, and writes one JSON per capture
+      set. Every plan used here is in <code>.github/sweep/</code>, and the sweeps run in CI on
+      a fresh world so a stale world can never answer.
+    </p>
+    <p class="hint">
+      The capture corpora and the official binary itself are <em>not</em> in this file: they
+      are derived from Mojang's software and are treated as proprietary in that repository
+      (<code>docs/licensing.md</code>). What is in this file is the algorithm, the tallies it
+      produces, and the code that recomputes them.
+    </p>
+  </section>
+
+  <!-- =================================================================== -->
+  <section id="seals" class="panel" aria-labelledby="seals-heading">
+    <h2 id="seals-heading">10. Seals: hashes of the inputs</h2>
+    <p>
+      This file is generated. The hashes below identify exactly what went into it, so an
+      embedded copy cannot silently differ from the repository it claims to describe.
+      Recompute any of them with <code>sha256sum</code> or
+      <code>node -e "…"</code> against the same revision.
+    </p>
+{{SEALS}}
+  </section>
+
+  <!-- =================================================================== -->
+  <section id="code" class="panel" aria-labelledby="code-heading">
+    <h2 id="code-heading">Appendix A — the code, verbatim</h2>
+    <p class="hint">
+      This is the implementation the calculators above actually run — inlined unmodified from
+      the repository (the <code>sha256</code> of each file is in §10). The JavaScript below is
+      the reference implementation; the WebAssembly core is a transcription of it, and §5
+      compares the two.
+    </p>
+{{SOURCES}}
+  </section>
+
+  <!-- =================================================================== -->
+  <section id="record" class="panel" aria-labelledby="record-heading">
+    <h2 id="record-heading">Appendix B — the living record</h2>
+    <p class="hint">
+      <code>docs/worldgen.md</code> as it stood when this file was built: the narrative
+      version of this page, including the subsystems that are <em>not</em> structures. It is
+      reproduced as plain text so nothing is lost in translation.
+    </p>
+    <details>
+      <summary>docs/worldgen.md — {{RECORD_LINES}} lines</summary>
+      <pre tabindex="0"><code>{{RECORD}}</code></pre>
+    </details>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>
+    MIT licensed, apart from the marks of their owners: “Minecraft” and “Bedrock” are
+    trademarks of Mojang Studios / Microsoft, and this file is not affiliated with or endorsed
+    by them. The algorithm described here was recovered by measurement from a legally obtained
+    copy of the dedicated server; no decompiled text is reproduced.
+  </p>
+  <p>Generated by <code>tools/web/build-dossier.js</code>. {{META_FOOTER}}</p>
+</footer>
+
+<noscript>
+  <p class="panel">
+    The prose and the code in the appendices work without JavaScript; the calculator, the
+    finder and the self-checks need it, because they compute in your browser rather than
+    sending anything anywhere.
+  </p>
+</noscript>
+
+<script>
+{{FOUNDATION}}
+</script>
+<script>
+{{RUNTIME}}
+</script>
+</body>
+</html>

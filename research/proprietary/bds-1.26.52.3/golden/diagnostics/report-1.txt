@@ -1,0 +1,109 @@
+seed: 1
+verify exit: 0
+
+capture files:
+975 capture/verify-1.md
+1802 capture/seed-1-a/capture.json
+1802 capture/seed-1-b/capture.json
+1802 capture/seed-1-c/capture.json
+1802 capture/seed-1-check/capture.json
+2853 capture/golden-1-check/MANIFEST.json
+4975 capture/seed-1-a/server-transcript.txt
+4975 capture/seed-1-a/server.log
+4975 capture/seed-1-check/server-transcript.txt
+4975 capture/seed-1-check/server.log
+5241 capture/seed-1-b/server-transcript.txt
+5241 capture/seed-1-b/server.log
+5241 capture/seed-1-c/server-transcript.txt
+5241 capture/seed-1-c/server.log
+7362 capture/golden-1-check/golden-1-c128_129.json
+7372 capture/golden-1-check/golden-1-c128_128.json
+7566 capture/golden-1-check/golden-1-c129_128.json
+8673 capture/golden-1-check/golden-1-c129_129.json
+196608 capture/golden-1-check/golden-1-c128_128.blocks.bin
+196608 capture/golden-1-check/golden-1-c128_128.layer1.bin
+196608 capture/golden-1-check/golden-1-c128_129.blocks.bin
+196608 capture/golden-1-check/golden-1-c128_129.layer1.bin
+196608 capture/golden-1-check/golden-1-c129_128.blocks.bin
+196608 capture/golden-1-check/golden-1-c129_128.layer1.bin
+196608 capture/golden-1-check/golden-1-c129_129.blocks.bin
+196608 capture/golden-1-check/golden-1-c129_129.layer1.bin
+959879 capture/seed-1-b/db-dump.json
+966127 capture/seed-1-check/db-dump.json
+975024 capture/seed-1-a/db-dump.json
+986378 capture/seed-1-c/db-dump.json
+
+capture timing (per variant, from capture.json):
+  a: total 17036 ms; generation 2964 ms
+  b: total 19171 ms; generation 4445 ms
+  c: total 19095 ms; generation 4452 ms
+  check: total 16958 ms; generation 2967 ms
+
+server log tail (reference capture):
+[2026-10-23 04:58:41:496 INFO] 
+
+#####################################################
+#                                                   #
+#              CREATING VANILLA WORLD               #
+#                                                   #
+#####################################################
+[2026-10-23 04:58:41:748 INFO] Opening level 'worlds/golden/db'
+[2026-10-23 04:58:41:776 INFO] Pack Stack - None
+[2026-10-23 04:58:41:898 INFO] Signed in to signaling service successfully
+[2026-10-23 04:58:42:319 INFO] IPv4 supported, port: 19132: Used for gameplay and LAN discovery
+[2026-10-23 04:58:42:319 INFO] IPv6 supported, port: 19133: Used for gameplay
+[2026-10-23 04:58:42:338 INFO] Server started.
+[2026-10-23 04:58:42:338 ERROR] ================ TRANSPORT TYPE ERROR  ===================
+[2026-10-23 04:58:42:338 ERROR] Your current connection type is not set to NetherNet. In this release, NetherNet is the only supported transport type.
+[2026-10-23 04:58:42:338 ERROR] Players will not be able to connect to your game without NetherNet.
+[2026-10-23 04:58:42:338 ERROR] 
+[2026-10-23 04:58:42:338 ERROR] To switch, set 'transport=nethernet' in server.properties.
+[2026-10-23 04:58:42:338 ERROR] 
+[2026-10-23 04:58:42:338 ERROR] For more information, please reference the included bedrock_server_how_to.html file.
+[2026-10-23 04:58:42:338 ERROR] =======================================================
+[2026-10-23 04:58:42:338 INFO] ================ TELEMETRY MESSAGE ===================
+[2026-10-23 04:58:42:338 INFO] Server Telemetry is currently not enabled. 
+[2026-10-23 04:58:42:338 INFO] Enabling this telemetry helps us improve the game.
+[2026-10-23 04:58:42:338 INFO] 
+[2026-10-23 04:58:42:338 INFO] To enable this feature, add the line 'emit-server-telemetry=true'
+[2026-10-23 04:58:42:338 INFO] to the server.properties file in the handheld/src-server directory
+[2026-10-23 04:58:42:338 INFO] ======================================================
+[2026-10-23 04:58:42:435 INFO] Game rule randomTickSpeed has been updated to 0
+[2026-10-23 04:58:42:489 INFO] Game rule doMobSpawning has been updated to false
+[2026-10-23 04:58:42:589 INFO] Game rule doFireTick has been updated to false
+[2026-10-23 04:58:42:739 INFO] Game rule doWeatherCycle has been updated to false
+[2026-10-23 04:58:42:839 INFO] Game rule doDaylightCycle has been updated to false
+[2026-10-23 04:58:42:989 INFO] Game rule doInsomnia has been updated to false
+[2026-10-23 04:58:43:089 ERROR] Syntax error: Unexpected "doTraderSpawning": at "/gamerule >>doTraderSpawning<< false"
+[2026-10-23 04:58:43:194 ERROR] Syntax error: Unexpected "doPatrolSpawning": at "/gamerule >>doPatrolSpawning<< false"
+[2026-10-23 04:58:43:344 ERROR] Syntax error: Unexpected "doWanderingTraderSpawning": at "/gamerule >>doWanderingTraderSpawning<< false"
+[2026-10-23 04:58:43:445 INFO] Game rule mobGriefing has been updated to false
+[2026-10-23 04:58:43:544 INFO] Game rule tntExplodes has been updated to false
+[2026-10-23 04:58:43:695 INFO] Added ticking area from 2016, 0, 2016 to 2111, 0, 2111.
+1/10 ticking areas in use.
+[2026-10-23 04:58:43:795 ERROR] Cannot place block outside of the world
+[2026-10-23 04:58:43:945 ERROR] Cannot place block outside of the world
+[2026-10-23 04:58:44:045 ERROR] Cannot place block outside of the world
+[2026-10-23 04:58:44:145 ERROR] Cannot place block outside of the world
+[2026-10-23 04:58:45:295 INFO] Block placed
+[2026-10-23 04:58:45:395 INFO] Block placed
+[2026-10-23 04:58:45:545 INFO] Block placed
+[2026-10-23 04:58:45:645 INFO] Block placed
+[2026-10-23 04:58:54:910 ERROR] 0 blocks filled
+[2026-10-23 04:58:55:009 INFO] Block placed
+[2026-10-23 04:58:55:159 INFO] Block placed
+[2026-10-23 04:58:55:259 INFO] Block placed
+[2026-10-23 04:58:55:359 INFO] Block placed
+[2026-10-23 04:58:55:509 INFO] Block placed
+[2026-10-23 04:58:55:609 INFO] Block placed
+[2026-10-23 04:58:58:264 INFO] Server stop requested.
+[2026-10-23 04:58:58:312 INFO] Stopping server...
+Quit correctly
+[exit] code=0 signal=null
+
+held-out capture verification:
+1-c128_128: 98303/98303 blocks (+1 measured decoration variance) (100.0000%) exact
+1-c128_129: 98283/98283 blocks (+21 measured decoration variance) (100.0000%) exact
+1-c129_128: 98285/98285 blocks (+19 measured decoration variance) (100.0000%) exact
+1-c129_129: 98299/98299 blocks (+5 measured decoration variance) (100.0000%) exact
+wrote capture/verify-1.md

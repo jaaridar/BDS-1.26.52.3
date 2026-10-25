@@ -1,0 +1,85 @@
+# FUN_0d6bd5f0 (disassembly)
+
+```
+0d6bd5f0  PUSH RBP
+0d6bd5f1  PUSH R15
+0d6bd5f3  PUSH R14
+0d6bd5f5  PUSH R13
+0d6bd5f7  PUSH R12
+0d6bd5f9  PUSH RBX
+0d6bd5fa  SUB RSP,0x48
+0d6bd5fe  MOV RBX,RSI
+0d6bd601  MOV R15,RDI
+0d6bd604  LEA R14,[RDI + 0x8]
+0d6bd608  LEA R12,[RDI + 0x10]
+0d6bd60c  MOV RSI,qword ptr [RDI + 0x10]
+0d6bd610  MOV RDI,R14
+0d6bd613  CALL 0x0d6c9500
+0d6bd618  MOV qword ptr [R15 + 0x8],R12
+0d6bd61c  XORPS XMM0,XMM0
+0d6bd61f  MOVUPS xmmword ptr [R15 + 0x10],XMM0
+0d6bd624  MOV R12,qword ptr [RBX + 0x8]
+0d6bd628  ADD RBX,0x10
+0d6bd62c  CMP R12,RBX
+0d6bd62f  JZ 0x0d6bd6f2
+0d6bd635  MOV EBP,0xffffffff
+0d6bd63a  LEA R15,[RSP + 0x18]
+0d6bd63f  JMP 0x0d6bd65c
+0d6bd650  MOV R12,RAX
+0d6bd653  CMP RAX,RBX
+0d6bd656  JZ 0x0d6bd6f2
+0d6bd65c  MOV EAX,dword ptr [R12 + 0x60]
+0d6bd661  CMP RAX,RBP
+0d6bd664  JZ 0x0d6bd701
+0d6bd66a  LEA RDX,[R12 + 0x38]
+0d6bd66f  LEA R13,[R12 + 0x20]
+0d6bd674  LEA RCX,[RSP + 0xf]
+0d6bd679  MOV qword ptr [RSP + 0x10],RCX
+0d6bd67e  MOV RDI,R15
+0d6bd681  LEA RSI,[RSP + 0x10]
+0d6bd686  LEA RCX,[0xf47e860]
+0d6bd68d  CALL qword ptr [RCX + RAX*0x8]
+0d6bd690  MOV RDI,R14
+0d6bd693  MOV RSI,R13
+0d6bd696  MOV RDX,R13
+0d6bd699  MOV RCX,R15
+0d6bd69c  CALL 0x0d6c9960
+0d6bd6a1  MOV EAX,dword ptr [RSP + 0x40]
+0d6bd6a5  CMP RAX,RBP
+0d6bd6a8  JZ 0x0d6bd6bc
+0d6bd6aa  LEA RDI,[RSP + 0x10]
+0d6bd6af  MOV RSI,R15
+0d6bd6b2  LEA RCX,[0xf47e8c0]
+0d6bd6b9  CALL qword ptr [RCX + RAX*0x8]
+0d6bd6bc  MOV RCX,qword ptr [R12 + 0x8]
+0d6bd6c1  TEST RCX,RCX
+0d6bd6c4  JZ 0x0d6bd6e0
+0d6bd6c6  NOP word ptr CS:[RAX + RAX*0x1]
+0d6bd6d0  MOV RAX,RCX
+0d6bd6d3  MOV RCX,qword ptr [RCX]
+0d6bd6d6  TEST RCX,RCX
+0d6bd6d9  JNZ 0x0d6bd6d0
+0d6bd6db  JMP 0x0d6bd650
+0d6bd6e0  MOV RAX,qword ptr [R12 + 0x10]
+0d6bd6e5  CMP R12,qword ptr [RAX]
+0d6bd6e8  MOV R12,RAX
+0d6bd6eb  JNZ 0x0d6bd6e0
+0d6bd6ed  JMP 0x0d6bd650
+0d6bd6f2  ADD RSP,0x48
+0d6bd6f6  POP RBX
+0d6bd6f7  POP R12
+0d6bd6f9  POP R13
+0d6bd6fb  POP R14
+0d6bd6fd  POP R15
+0d6bd6ff  POP RBP
+0d6bd700  RET
+0d6bd701  CALL 0x04931450
+0d6bd706  MOV RDI,RAX
+0d6bd709  CALL 0x04882e20
+0d6bd70e  MOV RBX,RAX
+0d6bd711  LEA RDI,[RSP + 0x18]
+0d6bd716  CALL 0x0d6bc330
+0d6bd71b  MOV RDI,RBX
+0d6bd71e  CALL 0x0eee2d70
+0d6bd723  INT3
+```

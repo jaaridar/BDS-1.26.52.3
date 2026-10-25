@@ -1,0 +1,8 @@
+# FUN_0417d010 (disassembly)
+
+```
+0417d010  PUSH RAX
+0417d011  CALL 0x0eee39b0
+0417d016  POP RCX
+0417d017  RET
+```

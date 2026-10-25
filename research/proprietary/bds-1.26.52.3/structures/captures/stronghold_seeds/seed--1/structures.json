@@ -1,0 +1,2891 @@
+{
+  "schema": 1,
+  "generatedAt": "2026-10-25T02:05:04.004Z",
+  "durationMs": 45545,
+  "binary": {
+    "sha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
+    "bytes": 256133808
+  },
+  "seed": "-1",
+  "ids": "stronghold",
+  "origins": "-3072,-3072;-3072,-2560;-3072,-2048;-3072,-1536;-3072,-1024;-3072,-512;-3072,0;-3072,512;-3072,1024;-3072,1536;-3072,2048;-3072,2560;-3072,3072;-2560,-3072;-2560,-2560;-2560,-2048;-2560,-1536;-2560,-1024;-2560,-512;-2560,0;-2560,512;-2560,1024;-2560,1536;-2560,2048;-2560,2560;-2560,3072;-2048,-3072;-2048,-2560;-2048,-2048;-2048,-1536;-2048,-1024;-2048,-512;-2048,0;-2048,512;-2048,1024;-2048,1536;-2048,2048;-2048,2560;-2048,3072;-1536,-3072;-1536,-2560;-1536,-2048;-1536,-1536;-1536,-1024;-1536,-512;-1536,0;-1536,512;-1536,1024;-1536,1536;-1536,2048;-1536,2560;-1536,3072;-1024,-3072;-1024,-2560;-1024,-2048;-1024,-1536;-1024,-1024;-1024,-512;-1024,0;-1024,512;-1024,1024;-1024,1536;-1024,2048;-1024,2560;-1024,3072;-512,-3072;-512,-2560;-512,-2048;-512,-1536;-512,-1024;-512,-512;-512,0;-512,512;-512,1024;-512,1536;-512,2048;-512,2560;-512,3072;0,-3072;0,-2560;0,-2048;0,-1536;0,-1024;0,-512;0,0;0,512;0,1024;0,1536;0,2048;0,2560;0,3072;512,-3072;512,-2560;512,-2048;512,-1536;512,-1024;512,-512;512,0;512,512;512,1024;512,1536;512,2048;512,2560;512,3072;1024,-3072;1024,-2560;1024,-2048;1024,-1536;1024,-1024;1024,-512;1024,0;1024,512;1024,1024;1024,1536;1024,2048;1024,2560;1024,3072;1536,-3072;1536,-2560;1536,-2048;1536,-1536;1536,-1024;1536,-512;1536,0;1536,512;1536,1024;1536,1536;1536,2048;1536,2560;1536,3072;2048,-3072;2048,-2560;2048,-2048;2048,-1536;2048,-1024;2048,-512;2048,0;2048,512;2048,1024;2048,1536;2048,2048;2048,2560;2048,3072;2560,-3072;2560,-2560;2560,-2048;2560,-1536;2560,-1024;2560,-512;2560,0;2560,512;2560,1024;2560,1536;2560,2048;2560,2560;2560,3072;3072,-3072;3072,-2560;3072,-2048;3072,-1536;3072,-1024;3072,-512;3072,0;3072,512;3072,1024;3072,1536;3072,2048;3072,2560;3072,3072",
+  "results": [
+    {
+      "probe": "help",
+      "raw": "current connection type is not set to NetherNet. In this release, NetherNet is the only supported transport type.\n[2026-10-25 02:04:19:259 ERROR] Players will not be able to connect to your game without NetherNet.\n[2026-10-25 02:04:19:259 ERROR] \n[2026-10-25 02:04:19:259 ERROR] To switch, set 'transport=nethernet' in server.properties.\n[2026-10-25 02:04:19:259 ERROR] \n[2026-10-25 02:04:19:259 ERROR] For more information, please reference the included bedrock_server_how_to.html file.\n[2026-10-25 02:04:19:259 ERROR] =======================================================\n[2026-10-25 02:04:19:259 INFO] ================ TELEMETRY MESSAGE ===================\n[2026-10-25 02:04:19:259 INFO] Server Telemetry is currently not enabled. \n[2026-10-25 02:04:19:259 INFO] Enabling this telemetry helps us improve the game.\n[2026-10-25 02:04:19:259 INFO] \n[2026-10-25 02:04:19:259 INFO] To enable this feature, add the line 'emit-server-telemetry=true'\n[2026-10-25 02:04:19:259 INFO] to the server.properties file in the handheld/src-server directory\n[2026-10-25 02:04:19:259 INFO] ======================================================\n[2026-10-25 02:04:19:503 INFO] Game rule sendcommandfeedback has been updated to true\n[2026-10-25 02:04:19:965 INFO] §elocate:\n§eDisplays the coordinates for the closest structure or biome of a given type.\nUsage:\n- /locate <feature: string> [useNewChunksOnly: Boolean]\n- /locate biome <biome: Biome>\n- /locate structure <structure: string> [useNewChunksOnly: Boolean]\n"
+    },
+    {
+      "command": "execute positioned -3072 64 -3072 run locate structure stronghold",
+      "from": [
+        -3072,
+        -3072
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:21:487 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (4113 blocks away)"
+    },
+    {
+      "command": "execute positioned -3072 64 -2560 run locate structure stronghold",
+      "from": [
+        -3072,
+        -2560
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:21:715 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (3623 blocks away)"
+    },
+    {
+      "command": "execute positioned -3072 64 -2048 run locate structure stronghold",
+      "from": [
+        -3072,
+        -2048
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:21:965 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (3141 blocks away)"
+    },
+    {
+      "command": "execute positioned -3072 64 -1536 run locate structure stronghold",
+      "from": [
+        -3072,
+        -1536
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:22:265 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (2670 blocks away)"
+    },
+    {
+      "command": "execute positioned -3072 64 -1024 run locate structure stronghold",
+      "from": [
+        -3072,
+        -1024
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:22:515 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (2217 blocks away)"
+    },
+    {
+      "command": "execute positioned -3072 64 -512 run locate structure stronghold",
+      "from": [
+        -3072,
+        -512
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:22:765 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (1796 blocks away)"
+    },
+    {
+      "command": "execute positioned -3072 64 0 run locate structure stronghold",
+      "from": [
+        -3072,
+        0
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:23:015 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (1436 blocks away)"
+    },
+    {
+      "command": "execute positioned -3072 64 512 run locate structure stronghold",
+      "from": [
+        -3072,
+        512
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:23:265 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (1192 blocks away)"
+    },
+    {
+      "command": "execute positioned -3072 64 1024 run locate structure stronghold",
+      "from": [
+        -3072,
+        1024
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:23:520 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (1142 blocks away)"
+    },
+    {
+      "command": "execute positioned -3072 64 1536 run locate structure stronghold",
+      "from": [
+        -3072,
+        1536
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:23:770 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (1309 blocks away)"
+    },
+    {
+      "command": "execute positioned -3072 64 2048 run locate structure stronghold",
+      "from": [
+        -3072,
+        2048
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:24:020 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (1626 blocks away)"
+    },
+    {
+      "command": "execute positioned -3072 64 2560 run locate structure stronghold",
+      "from": [
+        -3072,
+        2560
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:24:270 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (2025 blocks away)"
+    },
+    {
+      "command": "execute positioned -3072 64 3072 run locate structure stronghold",
+      "from": [
+        -3072,
+        3072
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:24:470 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (2466 blocks away)"
+    },
+    {
+      "command": "execute positioned -2560 64 -3072 run locate structure stronghold",
+      "from": [
+        -2560,
+        -3072
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:24:770 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (4282 blocks away)"
+    },
+    {
+      "command": "execute positioned -2560 64 -2560 run locate structure stronghold",
+      "from": [
+        -2560,
+        -2560
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:25:020 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (3815 blocks away)"
+    },
+    {
+      "command": "execute positioned -2560 64 -2048 run locate structure stronghold",
+      "from": [
+        -2560,
+        -2048
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:25:270 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (3360 blocks away)"
+    },
+    {
+      "command": "execute positioned -2560 64 -1536 run locate structure stronghold",
+      "from": [
+        -2560,
+        -1536
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:25:520 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (2925 blocks away)"
+    },
+    {
+      "command": "execute positioned -2560 64 -1024 run locate structure stronghold",
+      "from": [
+        -2560,
+        -1024
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:25:720 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (2518 blocks away)"
+    },
+    {
+      "command": "execute positioned -2560 64 -512 run locate structure stronghold",
+      "from": [
+        -2560,
+        -512
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:26:020 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (2156 blocks away)"
+    },
+    {
+      "command": "execute positioned -2560 64 0 run locate structure stronghold",
+      "from": [
+        -2560,
+        0
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:26:270 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (1867 blocks away)"
+    },
+    {
+      "command": "execute positioned -2560 64 512 run locate structure stronghold",
+      "from": [
+        -2560,
+        512
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:26:470 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (1687 blocks away)"
+    },
+    {
+      "command": "execute positioned -2560 64 1024 run locate structure stronghold",
+      "from": [
+        -2560,
+        1024
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:26:770 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (1652 blocks away)"
+    },
+    {
+      "command": "execute positioned -2560 64 1536 run locate structure stronghold",
+      "from": [
+        -2560,
+        1536
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:27:025 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (1771 blocks away)"
+    },
+    {
+      "command": "execute positioned -2560 64 2048 run locate structure stronghold",
+      "from": [
+        -2560,
+        2048
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:27:225 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (2017 blocks away)"
+    },
+    {
+      "command": "execute positioned -2560 64 2560 run locate structure stronghold",
+      "from": [
+        -2560,
+        2560
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:27:475 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (2350 blocks away)"
+    },
+    {
+      "command": "execute positioned -2560 64 3072 run locate structure stronghold",
+      "from": [
+        -2560,
+        3072
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -1006,
+        null,
+        4434
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:27:725 INFO] The nearest minecraft:stronghold is at block -1006, (y?), 4434 (2066 blocks away)"
+    },
+    {
+      "command": "execute positioned -2048 64 -3072 run locate structure stronghold",
+      "from": [
+        -2048,
+        -3072
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:27:975 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (4504 blocks away)"
+    },
+    {
+      "command": "execute positioned -2048 64 -2560 run locate structure stronghold",
+      "from": [
+        -2048,
+        -2560
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:28:225 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (4062 blocks away)"
+    },
+    {
+      "command": "execute positioned -2048 64 -2048 run locate structure stronghold",
+      "from": [
+        -2048,
+        -2048
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:28:475 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (3638 blocks away)"
+    },
+    {
+      "command": "execute positioned -2048 64 -1536 run locate structure stronghold",
+      "from": [
+        -2048,
+        -1536
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:28:725 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (3240 blocks away)"
+    },
+    {
+      "command": "execute positioned -2048 64 -1024 run locate structure stronghold",
+      "from": [
+        -2048,
+        -1024
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:28:975 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (2879 blocks away)"
+    },
+    {
+      "command": "execute positioned -2048 64 -512 run locate structure stronghold",
+      "from": [
+        -2048,
+        -512
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:29:225 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (2569 blocks away)"
+    },
+    {
+      "command": "execute positioned -2048 64 0 run locate structure stronghold",
+      "from": [
+        -2048,
+        0
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:29:475 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (2331 blocks away)"
+    },
+    {
+      "command": "execute positioned -2048 64 512 run locate structure stronghold",
+      "from": [
+        -2048,
+        512
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:29:725 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (2189 blocks away)"
+    },
+    {
+      "command": "execute positioned -2048 64 1024 run locate structure stronghold",
+      "from": [
+        -2048,
+        1024
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:29:975 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (2162 blocks away)"
+    },
+    {
+      "command": "execute positioned -2048 64 1536 run locate structure stronghold",
+      "from": [
+        -2048,
+        1536
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:30:225 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (2254 blocks away)"
+    },
+    {
+      "command": "execute positioned -2048 64 2048 run locate structure stronghold",
+      "from": [
+        -2048,
+        2048
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:30:480 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (2452 blocks away)"
+    },
+    {
+      "command": "execute positioned -2048 64 2560 run locate structure stronghold",
+      "from": [
+        -2048,
+        2560
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -1006,
+        null,
+        4434
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:30:730 INFO] The nearest minecraft:stronghold is at block -1006, (y?), 4434 (2144 blocks away)"
+    },
+    {
+      "command": "execute positioned -2048 64 3072 run locate structure stronghold",
+      "from": [
+        -2048,
+        3072
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -1006,
+        null,
+        4434
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:30:980 INFO] The nearest minecraft:stronghold is at block -1006, (y?), 4434 (1714 blocks away)"
+    },
+    {
+      "command": "execute positioned -1536 64 -3072 run locate structure stronghold",
+      "from": [
+        -1536,
+        -3072
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:31:230 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (4771 blocks away)"
+    },
+    {
+      "command": "execute positioned -1536 64 -2560 run locate structure stronghold",
+      "from": [
+        -1536,
+        -2560
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:31:480 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (4356 blocks away)"
+    },
+    {
+      "command": "execute positioned -1536 64 -2048 run locate structure stronghold",
+      "from": [
+        -1536,
+        -2048
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:31:730 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (3964 blocks away)"
+    },
+    {
+      "command": "execute positioned -1536 64 -1536 run locate structure stronghold",
+      "from": [
+        -1536,
+        -1536
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:31:980 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (3602 blocks away)"
+    },
+    {
+      "command": "execute positioned -1536 64 -1024 run locate structure stronghold",
+      "from": [
+        -1536,
+        -1024
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:32:230 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (3280 blocks away)"
+    },
+    {
+      "command": "execute positioned -1536 64 -512 run locate structure stronghold",
+      "from": [
+        -1536,
+        -512
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:32:480 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (3011 blocks away)"
+    },
+    {
+      "command": "execute positioned -1536 64 0 run locate structure stronghold",
+      "from": [
+        -1536,
+        0
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:32:730 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (2811 blocks away)"
+    },
+    {
+      "command": "execute positioned -1536 64 512 run locate structure stronghold",
+      "from": [
+        -1536,
+        512
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:32:980 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (2695 blocks away)"
+    },
+    {
+      "command": "execute positioned -1536 64 1024 run locate structure stronghold",
+      "from": [
+        -1536,
+        1024
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:33:230 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (2673 blocks away)"
+    },
+    {
+      "command": "execute positioned -1536 64 1536 run locate structure stronghold",
+      "from": [
+        -1536,
+        1536
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:33:480 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (2748 blocks away)"
+    },
+    {
+      "command": "execute positioned -1536 64 2048 run locate structure stronghold",
+      "from": [
+        -1536,
+        2048
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -1006,
+        null,
+        4434
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:33:730 INFO] The nearest minecraft:stronghold is at block -1006, (y?), 4434 (2444 blocks away)"
+    },
+    {
+      "command": "execute positioned -1536 64 2560 run locate structure stronghold",
+      "from": [
+        -1536,
+        2560
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -1006,
+        null,
+        4434
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:33:985 INFO] The nearest minecraft:stronghold is at block -1006, (y?), 4434 (1947 blocks away)"
+    },
+    {
+      "command": "execute positioned -1536 64 3072 run locate structure stronghold",
+      "from": [
+        -1536,
+        3072
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -1006,
+        null,
+        4434
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:34:235 INFO] The nearest minecraft:stronghold is at block -1006, (y?), 4434 (1461 blocks away)"
+    },
+    {
+      "command": "execute positioned -1024 64 -3072 run locate structure stronghold",
+      "from": [
+        -1024,
+        -3072
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:34:485 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (5075 blocks away)"
+    },
+    {
+      "command": "execute positioned -1024 64 -2560 run locate structure stronghold",
+      "from": [
+        -1024,
+        -2560
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:34:735 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (4687 blocks away)"
+    },
+    {
+      "command": "execute positioned -1024 64 -2048 run locate structure stronghold",
+      "from": [
+        -1024,
+        -2048
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:34:985 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (4325 blocks away)"
+    },
+    {
+      "command": "execute positioned -1024 64 -1536 run locate structure stronghold",
+      "from": [
+        -1024,
+        -1536
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:35:235 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (3996 blocks away)"
+    },
+    {
+      "command": "execute positioned -1024 64 -1024 run locate structure stronghold",
+      "from": [
+        -1024,
+        -1024
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:35:485 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (3709 blocks away)"
+    },
+    {
+      "command": "execute positioned -1024 64 -512 run locate structure stronghold",
+      "from": [
+        -1024,
+        -512
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:35:735 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (3473 blocks away)"
+    },
+    {
+      "command": "execute positioned -1024 64 0 run locate structure stronghold",
+      "from": [
+        -1024,
+        0
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:35:985 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (3301 blocks away)"
+    },
+    {
+      "command": "execute positioned -1024 64 512 run locate structure stronghold",
+      "from": [
+        -1024,
+        512
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:36:235 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (3203 blocks away)"
+    },
+    {
+      "command": "execute positioned -1024 64 1024 run locate structure stronghold",
+      "from": [
+        -1024,
+        1024
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:36:485 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (3185 blocks away)"
+    },
+    {
+      "command": "execute positioned -1024 64 1536 run locate structure stronghold",
+      "from": [
+        -1024,
+        1536
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -1006,
+        null,
+        4434
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:36:735 INFO] The nearest minecraft:stronghold is at block -1006, (y?), 4434 (2898 blocks away)"
+    },
+    {
+      "command": "execute positioned -1024 64 2048 run locate structure stronghold",
+      "from": [
+        -1024,
+        2048
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -1006,
+        null,
+        4434
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:36:985 INFO] The nearest minecraft:stronghold is at block -1006, (y?), 4434 (2386 blocks away)"
+    },
+    {
+      "command": "execute positioned -1024 64 2560 run locate structure stronghold",
+      "from": [
+        -1024,
+        2560
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -1006,
+        null,
+        4434
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:37:235 INFO] The nearest minecraft:stronghold is at block -1006, (y?), 4434 (1874 blocks away)"
+    },
+    {
+      "command": "execute positioned -1024 64 3072 run locate structure stronghold",
+      "from": [
+        -1024,
+        3072
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -1006,
+        null,
+        4434
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:37:490 INFO] The nearest minecraft:stronghold is at block -1006, (y?), 4434 (1362 blocks away)"
+    },
+    {
+      "command": "execute positioned -512 64 -3072 run locate structure stronghold",
+      "from": [
+        -512,
+        -3072
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:37:740 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (5111 blocks away)"
+    },
+    {
+      "command": "execute positioned -512 64 -2560 run locate structure stronghold",
+      "from": [
+        -512,
+        -2560
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:37:990 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (4908 blocks away)"
+    },
+    {
+      "command": "execute positioned -512 64 -2048 run locate structure stronghold",
+      "from": [
+        -512,
+        -2048
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:38:240 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (4714 blocks away)"
+    },
+    {
+      "command": "execute positioned -512 64 -1536 run locate structure stronghold",
+      "from": [
+        -512,
+        -1536
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:38:490 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (4415 blocks away)"
+    },
+    {
+      "command": "execute positioned -512 64 -1024 run locate structure stronghold",
+      "from": [
+        -512,
+        -1024
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:38:740 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (4156 blocks away)"
+    },
+    {
+      "command": "execute positioned -512 64 -512 run locate structure stronghold",
+      "from": [
+        -512,
+        -512
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:38:990 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (3948 blocks away)"
+    },
+    {
+      "command": "execute positioned -512 64 0 run locate structure stronghold",
+      "from": [
+        -512,
+        0
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:39:240 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (3797 blocks away)"
+    },
+    {
+      "command": "execute positioned -512 64 512 run locate structure stronghold",
+      "from": [
+        -512,
+        512
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -4206,
+        null,
+        882
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:39:490 INFO] The nearest minecraft:stronghold is at block -4206, (y?), 882 (3712 blocks away)"
+    },
+    {
+      "command": "execute positioned -512 64 1024 run locate structure stronghold",
+      "from": [
+        -512,
+        1024
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -1006,
+        null,
+        4434
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:39:740 INFO] The nearest minecraft:stronghold is at block -1006, (y?), 4434 (3445 blocks away)"
+    },
+    {
+      "command": "execute positioned -512 64 1536 run locate structure stronghold",
+      "from": [
+        -512,
+        1536
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -1006,
+        null,
+        4434
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:39:990 INFO] The nearest minecraft:stronghold is at block -1006, (y?), 4434 (2939 blocks away)"
+    },
+    {
+      "command": "execute positioned -512 64 2048 run locate structure stronghold",
+      "from": [
+        -512,
+        2048
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -1006,
+        null,
+        4434
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:40:240 INFO] The nearest minecraft:stronghold is at block -1006, (y?), 4434 (2436 blocks away)"
+    },
+    {
+      "command": "execute positioned -512 64 2560 run locate structure stronghold",
+      "from": [
+        -512,
+        2560
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -1006,
+        null,
+        4434
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:40:490 INFO] The nearest minecraft:stronghold is at block -1006, (y?), 4434 (1938 blocks away)"
+    },
+    {
+      "command": "execute positioned -512 64 3072 run locate structure stronghold",
+      "from": [
+        -512,
+        3072
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -1006,
+        null,
+        4434
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:40:740 INFO] The nearest minecraft:stronghold is at block -1006, (y?), 4434 (1448 blocks away)"
+    },
+    {
+      "command": "execute positioned 0 64 -3072 run locate structure stronghold",
+      "from": [
+        0,
+        -3072
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:40:990 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (4657 blocks away)"
+    },
+    {
+      "command": "execute positioned 0 64 -2560 run locate structure stronghold",
+      "from": [
+        0,
+        -2560
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:41:245 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (4433 blocks away)"
+    },
+    {
+      "command": "execute positioned 0 64 -2048 run locate structure stronghold",
+      "from": [
+        0,
+        -2048
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:41:495 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (4259 blocks away)"
+    },
+    {
+      "command": "execute positioned 0 64 -1536 run locate structure stronghold",
+      "from": [
+        0,
+        -1536
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:41:745 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (4142 blocks away)"
+    },
+    {
+      "command": "execute positioned 0 64 -1024 run locate structure stronghold",
+      "from": [
+        0,
+        -1024
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:41:995 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (4086 blocks away)"
+    },
+    {
+      "command": "execute positioned 0 64 -512 run locate structure stronghold",
+      "from": [
+        0,
+        -512
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:42:245 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (4094 blocks away)"
+    },
+    {
+      "command": "execute positioned 0 64 0 run locate structure stronghold",
+      "from": [
+        0,
+        0
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:42:495 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (4165 blocks away)"
+    },
+    {
+      "command": "execute positioned 0 64 512 run locate structure stronghold",
+      "from": [
+        0,
+        512
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -1006,
+        null,
+        4434
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:42:745 INFO] The nearest minecraft:stronghold is at block -1006, (y?), 4434 (4048 blocks away)"
+    },
+    {
+      "command": "execute positioned 0 64 1024 run locate structure stronghold",
+      "from": [
+        0,
+        1024
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -1006,
+        null,
+        4434
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:42:995 INFO] The nearest minecraft:stronghold is at block -1006, (y?), 4434 (3555 blocks away)"
+    },
+    {
+      "command": "execute positioned 0 64 1536 run locate structure stronghold",
+      "from": [
+        0,
+        1536
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -1006,
+        null,
+        4434
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:43:245 INFO] The nearest minecraft:stronghold is at block -1006, (y?), 4434 (3067 blocks away)"
+    },
+    {
+      "command": "execute positioned 0 64 2048 run locate structure stronghold",
+      "from": [
+        0,
+        2048
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -1006,
+        null,
+        4434
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:43:495 INFO] The nearest minecraft:stronghold is at block -1006, (y?), 4434 (2589 blocks away)"
+    },
+    {
+      "command": "execute positioned 0 64 2560 run locate structure stronghold",
+      "from": [
+        0,
+        2560
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -1006,
+        null,
+        4434
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:43:745 INFO] The nearest minecraft:stronghold is at block -1006, (y?), 4434 (2126 blocks away)"
+    },
+    {
+      "command": "execute positioned 0 64 3072 run locate structure stronghold",
+      "from": [
+        0,
+        3072
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -1006,
+        null,
+        4434
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:43:995 INFO] The nearest minecraft:stronghold is at block -1006, (y?), 4434 (1693 blocks away)"
+    },
+    {
+      "command": "execute positioned 512 64 -3072 run locate structure stronghold",
+      "from": [
+        512,
+        -3072
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:44:245 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (4215 blocks away)"
+    },
+    {
+      "command": "execute positioned 512 64 -2560 run locate structure stronghold",
+      "from": [
+        512,
+        -2560
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:44:495 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (3967 blocks away)"
+    },
+    {
+      "command": "execute positioned 512 64 -2048 run locate structure stronghold",
+      "from": [
+        512,
+        -2048
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:44:750 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (3772 blocks away)"
+    },
+    {
+      "command": "execute positioned 512 64 -1536 run locate structure stronghold",
+      "from": [
+        512,
+        -1536
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:45:000 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (3639 blocks away)"
+    },
+    {
+      "command": "execute positioned 512 64 -1024 run locate structure stronghold",
+      "from": [
+        512,
+        -1024
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:45:250 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (3575 blocks away)"
+    },
+    {
+      "command": "execute positioned 512 64 -512 run locate structure stronghold",
+      "from": [
+        512,
+        -512
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:45:500 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (3584 blocks away)"
+    },
+    {
+      "command": "execute positioned 512 64 0 run locate structure stronghold",
+      "from": [
+        512,
+        0
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:45:750 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (3665 blocks away)"
+    },
+    {
+      "command": "execute positioned 512 64 512 run locate structure stronghold",
+      "from": [
+        512,
+        512
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:46:000 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (3813 blocks away)"
+    },
+    {
+      "command": "execute positioned 512 64 1024 run locate structure stronghold",
+      "from": [
+        512,
+        1024
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -1006,
+        null,
+        4434
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:46:250 INFO] The nearest minecraft:stronghold is at block -1006, (y?), 4434 (3732 blocks away)"
+    },
+    {
+      "command": "execute positioned 512 64 1536 run locate structure stronghold",
+      "from": [
+        512,
+        1536
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -1006,
+        null,
+        4434
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:46:500 INFO] The nearest minecraft:stronghold is at block -1006, (y?), 4434 (3271 blocks away)"
+    },
+    {
+      "command": "execute positioned 512 64 2048 run locate structure stronghold",
+      "from": [
+        512,
+        2048
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -1006,
+        null,
+        4434
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:46:750 INFO] The nearest minecraft:stronghold is at block -1006, (y?), 4434 (2827 blocks away)"
+    },
+    {
+      "command": "execute positioned 512 64 2560 run locate structure stronghold",
+      "from": [
+        512,
+        2560
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -1006,
+        null,
+        4434
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:47:000 INFO] The nearest minecraft:stronghold is at block -1006, (y?), 4434 (2411 blocks away)"
+    },
+    {
+      "command": "execute positioned 512 64 3072 run locate structure stronghold",
+      "from": [
+        512,
+        3072
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -1006,
+        null,
+        4434
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:47:250 INFO] The nearest minecraft:stronghold is at block -1006, (y?), 4434 (2039 blocks away)"
+    },
+    {
+      "command": "execute positioned 1024 64 -3072 run locate structure stronghold",
+      "from": [
+        1024,
+        -3072
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:47:500 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (3791 blocks away)"
+    },
+    {
+      "command": "execute positioned 1024 64 -2560 run locate structure stronghold",
+      "from": [
+        1024,
+        -2560
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:47:750 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (3513 blocks away)"
+    },
+    {
+      "command": "execute positioned 1024 64 -2048 run locate structure stronghold",
+      "from": [
+        1024,
+        -2048
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:48:000 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (3291 blocks away)"
+    },
+    {
+      "command": "execute positioned 1024 64 -1536 run locate structure stronghold",
+      "from": [
+        1024,
+        -1536
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:48:255 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (3138 blocks away)"
+    },
+    {
+      "command": "execute positioned 1024 64 -1024 run locate structure stronghold",
+      "from": [
+        1024,
+        -1024
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:48:505 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (3064 blocks away)"
+    },
+    {
+      "command": "execute positioned 1024 64 -512 run locate structure stronghold",
+      "from": [
+        1024,
+        -512
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:48:755 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (3074 blocks away)"
+    },
+    {
+      "command": "execute positioned 1024 64 0 run locate structure stronghold",
+      "from": [
+        1024,
+        0
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:49:005 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (3168 blocks away)"
+    },
+    {
+      "command": "execute positioned 1024 64 512 run locate structure stronghold",
+      "from": [
+        1024,
+        512
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:49:255 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (3339 blocks away)"
+    },
+    {
+      "command": "execute positioned 1024 64 1024 run locate structure stronghold",
+      "from": [
+        1024,
+        1024
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:49:505 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (3576 blocks away)"
+    },
+    {
+      "command": "execute positioned 1024 64 1536 run locate structure stronghold",
+      "from": [
+        1024,
+        1536
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -1006,
+        null,
+        4434
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:49:755 INFO] The nearest minecraft:stronghold is at block -1006, (y?), 4434 (3538 blocks away)"
+    },
+    {
+      "command": "execute positioned 1024 64 2048 run locate structure stronghold",
+      "from": [
+        1024,
+        2048
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -1006,
+        null,
+        4434
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:50:005 INFO] The nearest minecraft:stronghold is at block -1006, (y?), 4434 (3132 blocks away)"
+    },
+    {
+      "command": "execute positioned 1024 64 2560 run locate structure stronghold",
+      "from": [
+        1024,
+        2560
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -1006,
+        null,
+        4434
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:50:255 INFO] The nearest minecraft:stronghold is at block -1006, (y?), 4434 (2762 blocks away)"
+    },
+    {
+      "command": "execute positioned 1024 64 3072 run locate structure stronghold",
+      "from": [
+        1024,
+        3072
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -1006,
+        null,
+        4434
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:50:505 INFO] The nearest minecraft:stronghold is at block -1006, (y?), 4434 (2444 blocks away)"
+    },
+    {
+      "command": "execute positioned 1536 64 -3072 run locate structure stronghold",
+      "from": [
+        1536,
+        -3072
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:50:755 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (3392 blocks away)"
+    },
+    {
+      "command": "execute positioned 1536 64 -2560 run locate structure stronghold",
+      "from": [
+        1536,
+        -2560
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:51:005 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (3078 blocks away)"
+    },
+    {
+      "command": "execute positioned 1536 64 -2048 run locate structure stronghold",
+      "from": [
+        1536,
+        -2048
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:51:255 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (2822 blocks away)"
+    },
+    {
+      "command": "execute positioned 1536 64 -1536 run locate structure stronghold",
+      "from": [
+        1536,
+        -1536
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:51:510 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (2642 blocks away)"
+    },
+    {
+      "command": "execute positioned 1536 64 -1024 run locate structure stronghold",
+      "from": [
+        1536,
+        -1024
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:51:760 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (2553 blocks away)"
+    },
+    {
+      "command": "execute positioned 1536 64 -512 run locate structure stronghold",
+      "from": [
+        1536,
+        -512
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:52:010 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (2565 blocks away)"
+    },
+    {
+      "command": "execute positioned 1536 64 0 run locate structure stronghold",
+      "from": [
+        1536,
+        0
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:52:260 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (2677 blocks away)"
+    },
+    {
+      "command": "execute positioned 1536 64 512 run locate structure stronghold",
+      "from": [
+        1536,
+        512
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:52:510 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (2878 blocks away)"
+    },
+    {
+      "command": "execute positioned 1536 64 1024 run locate structure stronghold",
+      "from": [
+        1536,
+        1024
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:52:760 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (3149 blocks away)"
+    },
+    {
+      "command": "execute positioned 1536 64 1536 run locate structure stronghold",
+      "from": [
+        1536,
+        1536
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:53:010 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (3475 blocks away)"
+    },
+    {
+      "command": "execute positioned 1536 64 2048 run locate structure stronghold",
+      "from": [
+        1536,
+        2048
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -1006,
+        null,
+        4434
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:53:260 INFO] The nearest minecraft:stronghold is at block -1006, (y?), 4434 (3486 blocks away)"
+    },
+    {
+      "command": "execute positioned 1536 64 2560 run locate structure stronghold",
+      "from": [
+        1536,
+        2560
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -1006,
+        null,
+        4434
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:53:510 INFO] The nearest minecraft:stronghold is at block -1006, (y?), 4434 (3158 blocks away)"
+    },
+    {
+      "command": "execute positioned 1536 64 3072 run locate structure stronghold",
+      "from": [
+        1536,
+        3072
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -1006,
+        null,
+        4434
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:53:760 INFO] The nearest minecraft:stronghold is at block -1006, (y?), 4434 (2883 blocks away)"
+    },
+    {
+      "command": "execute positioned 2048 64 -3072 run locate structure stronghold",
+      "from": [
+        2048,
+        -3072
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:54:010 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (3027 blocks away)"
+    },
+    {
+      "command": "execute positioned 2048 64 -2560 run locate structure stronghold",
+      "from": [
+        2048,
+        -2560
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:54:260 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (2670 blocks away)"
+    },
+    {
+      "command": "execute positioned 2048 64 -2048 run locate structure stronghold",
+      "from": [
+        2048,
+        -2048
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:54:510 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (2370 blocks away)"
+    },
+    {
+      "command": "execute positioned 2048 64 -1536 run locate structure stronghold",
+      "from": [
+        2048,
+        -1536
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:54:760 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (2153 blocks away)"
+    },
+    {
+      "command": "execute positioned 2048 64 -1024 run locate structure stronghold",
+      "from": [
+        2048,
+        -1024
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:55:010 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (2043 blocks away)"
+    },
+    {
+      "command": "execute positioned 2048 64 -512 run locate structure stronghold",
+      "from": [
+        2048,
+        -512
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:55:265 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (2058 blocks away)"
+    },
+    {
+      "command": "execute positioned 2048 64 0 run locate structure stronghold",
+      "from": [
+        2048,
+        0
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:55:515 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (2196 blocks away)"
+    },
+    {
+      "command": "execute positioned 2048 64 512 run locate structure stronghold",
+      "from": [
+        2048,
+        512
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:55:765 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (2436 blocks away)"
+    },
+    {
+      "command": "execute positioned 2048 64 1024 run locate structure stronghold",
+      "from": [
+        2048,
+        1024
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:56:015 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (2752 blocks away)"
+    },
+    {
+      "command": "execute positioned 2048 64 1536 run locate structure stronghold",
+      "from": [
+        2048,
+        1536
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:56:265 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (3120 blocks away)"
+    },
+    {
+      "command": "execute positioned 2048 64 2048 run locate structure stronghold",
+      "from": [
+        2048,
+        2048
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:56:515 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (3524 blocks away)"
+    },
+    {
+      "command": "execute positioned 2048 64 2560 run locate structure stronghold",
+      "from": [
+        2048,
+        2560
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -1006,
+        null,
+        4434
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:56:765 INFO] The nearest minecraft:stronghold is at block -1006, (y?), 4434 (3583 blocks away)"
+    },
+    {
+      "command": "execute positioned 2048 64 3072 run locate structure stronghold",
+      "from": [
+        2048,
+        3072
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -1006,
+        null,
+        4434
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:57:015 INFO] The nearest minecraft:stronghold is at block -1006, (y?), 4434 (3343 blocks away)"
+    },
+    {
+      "command": "execute positioned 2560 64 -3072 run locate structure stronghold",
+      "from": [
+        2560,
+        -3072
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:57:265 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (2709 blocks away)"
+    },
+    {
+      "command": "execute positioned 2560 64 -2560 run locate structure stronghold",
+      "from": [
+        2560,
+        -2560
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:57:515 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (2304 blocks away)"
+    },
+    {
+      "command": "execute positioned 2560 64 -2048 run locate structure stronghold",
+      "from": [
+        2560,
+        -2048
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:57:765 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (1949 blocks away)"
+    },
+    {
+      "command": "execute positioned 2560 64 -1536 run locate structure stronghold",
+      "from": [
+        2560,
+        -1536
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:58:015 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (1677 blocks away)"
+    },
+    {
+      "command": "execute positioned 2560 64 -1024 run locate structure stronghold",
+      "from": [
+        2560,
+        -1024
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:58:265 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (1534 blocks away)"
+    },
+    {
+      "command": "execute positioned 2560 64 -512 run locate structure stronghold",
+      "from": [
+        2560,
+        -512
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:58:520 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (1554 blocks away)"
+    },
+    {
+      "command": "execute positioned 2560 64 0 run locate structure stronghold",
+      "from": [
+        2560,
+        0
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:58:770 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (1733 blocks away)"
+    },
+    {
+      "command": "execute positioned 2560 64 512 run locate structure stronghold",
+      "from": [
+        2560,
+        512
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:59:020 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (2029 blocks away)"
+    },
+    {
+      "command": "execute positioned 2560 64 1024 run locate structure stronghold",
+      "from": [
+        2560,
+        1024
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:59:270 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (2398 blocks away)"
+    },
+    {
+      "command": "execute positioned 2560 64 1536 run locate structure stronghold",
+      "from": [
+        2560,
+        1536
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:59:520 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (2813 blocks away)"
+    },
+    {
+      "command": "execute positioned 2560 64 2048 run locate structure stronghold",
+      "from": [
+        2560,
+        2048
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:04:59:770 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (3255 blocks away)"
+    },
+    {
+      "command": "execute positioned 2560 64 2560 run locate structure stronghold",
+      "from": [
+        2560,
+        2560
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:05:00:020 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (3715 blocks away)"
+    },
+    {
+      "command": "execute positioned 2560 64 3072 run locate structure stronghold",
+      "from": [
+        2560,
+        3072
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        -1006,
+        null,
+        4434
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:05:00:270 INFO] The nearest minecraft:stronghold is at block -1006, (y?), 4434 (3817 blocks away)"
+    },
+    {
+      "command": "execute positioned 3072 64 -3072 run locate structure stronghold",
+      "from": [
+        3072,
+        -3072
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:05:00:520 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (2458 blocks away)"
+    },
+    {
+      "command": "execute positioned 3072 64 -2560 run locate structure stronghold",
+      "from": [
+        3072,
+        -2560
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:05:00:770 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (2003 blocks away)"
+    },
+    {
+      "command": "execute positioned 3072 64 -2048 run locate structure stronghold",
+      "from": [
+        3072,
+        -2048
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:05:01:020 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (1582 blocks away)"
+    },
+    {
+      "command": "execute positioned 3072 64 -1536 run locate structure stronghold",
+      "from": [
+        3072,
+        -1536
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:05:01:270 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (1232 blocks away)"
+    },
+    {
+      "command": "execute positioned 3072 64 -1024 run locate structure stronghold",
+      "from": [
+        3072,
+        -1024
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:05:01:520 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (1028 blocks away)"
+    },
+    {
+      "command": "execute positioned 3072 64 -512 run locate structure stronghold",
+      "from": [
+        3072,
+        -512
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:05:01:770 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (1058 blocks away)"
+    },
+    {
+      "command": "execute positioned 3072 64 0 run locate structure stronghold",
+      "from": [
+        3072,
+        0
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:05:02:025 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (1307 blocks away)"
+    },
+    {
+      "command": "execute positioned 3072 64 512 run locate structure stronghold",
+      "from": [
+        3072,
+        512
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:05:02:275 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (1679 blocks away)"
+    },
+    {
+      "command": "execute positioned 3072 64 1024 run locate structure stronghold",
+      "from": [
+        3072,
+        1024
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:05:02:525 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (2111 blocks away)"
+    },
+    {
+      "command": "execute positioned 3072 64 1536 run locate structure stronghold",
+      "from": [
+        3072,
+        1536
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:05:02:775 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (2572 blocks away)"
+    },
+    {
+      "command": "execute positioned 3072 64 2048 run locate structure stronghold",
+      "from": [
+        3072,
+        2048
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:05:03:025 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (3050 blocks away)"
+    },
+    {
+      "command": "execute positioned 3072 64 2560 run locate structure stronghold",
+      "from": [
+        3072,
+        2560
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:05:03:275 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (3537 blocks away)"
+    },
+    {
+      "command": "execute positioned 3072 64 3072 run locate structure stronghold",
+      "from": [
+        3072,
+        3072
+      ],
+      "id": "stronghold",
+      "resolvedId": "minecraft:stronghold",
+      "found": true,
+      "at": [
+        4082,
+        null,
+        -830
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-25 02:05:03:525 INFO] The nearest minecraft:stronghold is at block 4082, (y?), -830 (4030 blocks away)"
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+string hits: 2
+  'random_spread' at elf 0x128b3b7 (ghidra 0x138b3b7, .rodata)
+  'random_spread' at elf 0x12abfa3 (ghidra 0x13abfa3, .rodata)

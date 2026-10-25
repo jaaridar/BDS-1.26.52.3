@@ -4,6 +4,22 @@ OpenBDS today is a working, tested, headless Bedrock server core. The path
 to full vanilla parity is deliberately staged - each milestone keeps the
 codebase clean-room and MIT.
 
+## World generation (in progress)
+
+The algorithm is being recovered, not approximated; see `docs/worldgen.md` for
+the per-subsystem state and the evidence behind each claim.
+
+- [x] MT19937, octave Perlin noise and two-layer normal noise, with the draw
+      conventions read from the binary's instruction stream
+- [x] `java.util.Random` LCG and the `Mth`-style seed mix
+- [x] Spaced-structure placement resolver (linear and triangular spread)
+- [x] Biome climate points and surface materials, read from the packs
+- [ ] Placement derivation that matches the server (measured gap: 1 of 3 seeds)
+- [ ] Structure salts for village, monument, outpost, shipwreck and the rest
+- [ ] Stronghold ring placement
+- [ ] Climate noise router, density function and surface rules
+- [ ] Block-level prediction for any seed
+
 ## Shipped (v0.1)
 
 - [x] RakNet transport (pure-JS default, optional native backend)

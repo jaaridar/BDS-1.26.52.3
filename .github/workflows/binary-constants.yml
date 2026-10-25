@@ -1,0 +1,88 @@
+name: Binary constants
+
+# The decompiler names constants by address; this publishes what is actually at
+# those addresses, read from the ELF with the program headers (so a virtual
+# address is not assumed to equal a file offset). It also disassembles the
+# stronghold functions, where the ring formula's immediates live.
+
+on:
+  push:
+    paths:
+      - .github/workflows/binary-constants.yml
+      - tools/binary-analysis/dump-constants.sh
+
+permissions:
+  contents: write
+
+jobs:
+  dump:
+    if: startsWith(github.ref, 'refs/heads/arena/')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    concurrency:
+      group: binary-constants-${{ github.ref }}
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Fetch the official binary
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download v1.26.52.3 --repo "${GITHUB_REPOSITORY}" \
+            --pattern bedrock_server --clobber
+          chmod +x bedrock_server
+          echo "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207  bedrock_server" \
+            | sha256sum --check --strict
+
+      - name: Fetch the packs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download v1.26.52.3 --repo "${GITHUB_REPOSITORY}" \
+            --pattern '*linux*.zip' --clobber 2>/dev/null || true
+          if ls ./*.zip >/dev/null 2>&1; then
+            unzip -o -q ./*.zip -d release
+            cp -rn release/behavior_packs release/resource_packs . 2>/dev/null || true
+          fi
+          ls -d behavior_packs resource_packs 2>/dev/null || echo "no packs in the release"
+
+      - name: Dump the constants
+        run: |
+          mkdir -p research/proprietary/bds-1.26.52.3/binary-constants
+          bash tools/binary-analysis/dump-constants.sh bedrock_server \
+            research/proprietary/bds-1.26.52.3/binary-constants/stronghold-constants.txt
+          wc -l research/proprietary/bds-1.26.52.3/binary-constants/stronghold-constants.txt
+
+      - name: Scan the packs for a stronghold structure set
+        run: |
+          mkdir -p research/proprietary/bds-1.26.52.3/packs
+          out=research/proprietary/bds-1.26.52.3/packs/structure-sets.txt
+          {
+            echo "# every structure set the shipped packs declare"
+            node tools/worldgen-algo/pack-structure-sets.js --packs behavior_packs || true
+            echo
+            echo "# any pack file whose path or contents mention a stronghold"
+            find behavior_packs resource_packs -type f 2>/dev/null | grep -i stronghold || echo "  (no file named stronghold)"
+            echo
+            grep -rl -i stronghold behavior_packs resource_packs 2>/dev/null | head -40 || true
+          } > "$out" 2>&1 || true
+          cat "$out"
+
+      - name: Commit
+        if: always()
+        run: |
+          git add -A research/proprietary/bds-1.26.52.3/binary-constants research/proprietary/bds-1.26.52.3/packs || true
+          if git diff --cached --quiet; then echo 'no change'; exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m "research: constants, disassembly and the packs' structure sets"
+          for attempt in 1 2 3 4 5; do
+            if git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}"; then
+              echo pushed; exit 0
+            fi
+            sleep $((attempt * 5))
+          done
+          exit 1

@@ -1,0 +1,112 @@
+{
+  "schema": 1,
+  "generatedAt": "2026-10-24T12:18:36.506Z",
+  "durationMs": 5304,
+  "binary": {
+    "sha256": "0a490c711d4a2ce075debcd979e8862b7eaba008373f9970f0edbb67f98f9207",
+    "bytes": 256133808
+  },
+  "seed": "4",
+  "ids": "trail_ruins,abandoned_camp,village",
+  "origins": "0,0;2048,2048",
+  "results": [
+    {
+      "probe": "help",
+      "raw": "current connection type is not set to NetherNet. In this release, NetherNet is the only supported transport type.\n[2026-10-24 12:18:32:582 ERROR] Players will not be able to connect to your game without NetherNet.\n[2026-10-24 12:18:32:582 ERROR] \n[2026-10-24 12:18:32:582 ERROR] To switch, set 'transport=nethernet' in server.properties.\n[2026-10-24 12:18:32:582 ERROR] \n[2026-10-24 12:18:32:582 ERROR] For more information, please reference the included bedrock_server_how_to.html file.\n[2026-10-24 12:18:32:582 ERROR] =======================================================\n[2026-10-24 12:18:32:582 INFO] ================ TELEMETRY MESSAGE ===================\n[2026-10-24 12:18:32:582 INFO] Server Telemetry is currently not enabled. \n[2026-10-24 12:18:32:582 INFO] Enabling this telemetry helps us improve the game.\n[2026-10-24 12:18:32:582 INFO] \n[2026-10-24 12:18:32:582 INFO] To enable this feature, add the line 'emit-server-telemetry=true'\n[2026-10-24 12:18:32:582 INFO] to the server.properties file in the handheld/src-server directory\n[2026-10-24 12:18:32:582 INFO] ======================================================\n[2026-10-24 12:18:32:825 INFO] Game rule sendcommandfeedback has been updated to true\n[2026-10-24 12:18:33:234 INFO] §elocate:\n§eDisplays the coordinates for the closest structure or biome of a given type.\nUsage:\n- /locate <feature: string> [useNewChunksOnly: Boolean]\n- /locate biome <biome: Biome>\n- /locate structure <structure: string> [useNewChunksOnly: Boolean]\n"
+    },
+    {
+      "command": "execute positioned 0 64 0 run locate structure trail_ruins",
+      "from": [
+        0,
+        0
+      ],
+      "id": "trail_ruins",
+      "resolvedId": "minecraft:trail_ruins",
+      "found": true,
+      "at": [
+        626,
+        null,
+        1470
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-24 12:18:34:785 INFO] The nearest minecraft:trail_ruins is at block 626, (y?), 1470 (1597 blocks away)"
+    },
+    {
+      "command": "execute positioned 0 64 0 run locate structure abandoned_camp",
+      "from": [
+        0,
+        0
+      ],
+      "id": "abandoned_camp",
+      "found": false,
+      "at": null,
+      "resolvedId": null,
+      "chunksAway": null,
+      "raw": "Failed to execute 'locate' as [Null]"
+    },
+    {
+      "command": "execute positioned 0 64 0 run locate structure village",
+      "from": [
+        0,
+        0
+      ],
+      "id": "village",
+      "resolvedId": "minecraft:village",
+      "found": true,
+      "at": [
+        -360,
+        null,
+        -312
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-24 12:18:35:240 INFO] The nearest minecraft:village is at block -360, (y?), -312 (476 blocks away)"
+    },
+    {
+      "command": "execute positioned 2048 64 2048 run locate structure trail_ruins",
+      "from": [
+        2048,
+        2048
+      ],
+      "id": "trail_ruins",
+      "resolvedId": "minecraft:trail_ruins",
+      "found": true,
+      "at": [
+        2014,
+        null,
+        1778
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-24 12:18:35:494 INFO] The nearest minecraft:trail_ruins is at block 2014, (y?), 1778 (272 blocks away)"
+    },
+    {
+      "command": "execute positioned 2048 64 2048 run locate structure abandoned_camp",
+      "from": [
+        2048,
+        2048
+      ],
+      "id": "abandoned_camp",
+      "found": false,
+      "at": null,
+      "resolvedId": null,
+      "chunksAway": null,
+      "raw": "Failed to execute 'locate' as [Null]"
+    },
+    {
+      "command": "execute positioned 2048 64 2048 run locate structure village",
+      "from": [
+        2048,
+        2048
+      ],
+      "id": "village",
+      "resolvedId": "minecraft:village",
+      "found": true,
+      "at": [
+        1208,
+        null,
+        2328
+      ],
+      "chunksAway": null,
+      "raw": "[2026-10-24 12:18:35:990 INFO] The nearest minecraft:village is at block 1208, (y?), 2328 (885 blocks away)"
+    }
+  ]
+}

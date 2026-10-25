@@ -1,0 +1,342 @@
+{
+  "minecraft:trail_ruins": {
+    "model": "grid",
+    "captures": 27,
+    "status": "no perfect band",
+    "perfect": [],
+    "best": [
+      {
+        "hit": 9,
+        "engine": "java",
+        "formula": "add",
+        "salt": 83469867,
+        "spread": "linear",
+        "spacing": 34,
+        "separation": 8
+      },
+      {
+        "hit": 9,
+        "engine": "java",
+        "formula": "xor",
+        "salt": 83469867,
+        "spread": "linear",
+        "spacing": 34,
+        "separation": 8
+      },
+      {
+        "hit": 4,
+        "engine": "mt",
+        "formula": "add",
+        "salt": 83469867,
+        "spread": "triangular",
+        "spacing": 4,
+        "separation": 1
+      },
+      {
+        "hit": 4,
+        "engine": "mt",
+        "formula": "add",
+        "salt": 83469867,
+        "spread": "triangular",
+        "spacing": 4,
+        "separation": 2
+      },
+      {
+        "hit": 4,
+        "engine": "java",
+        "formula": "add",
+        "salt": 83469867,
+        "spread": "linear",
+        "spacing": 5,
+        "separation": 0
+      }
+    ]
+  },
+  "minecraft:village": {
+    "model": "grid",
+    "captures": 27,
+    "status": "unique perfect band",
+    "perfect": [
+      {
+        "engine": "mt",
+        "formula": "add",
+        "salt": 10387312,
+        "spread": "triangular",
+        "spacing": 34,
+        "separation": 8
+      }
+    ],
+    "best": []
+  },
+  "minecraft:pillager_outpost": {
+    "model": "grid",
+    "captures": 19,
+    "status": "unique perfect band",
+    "perfect": [
+      {
+        "engine": "mt",
+        "formula": "add",
+        "salt": 165745296,
+        "spread": "triangular",
+        "spacing": 80,
+        "separation": 24
+      }
+    ],
+    "best": []
+  },
+  "minecraft:monument": {
+    "model": "grid",
+    "captures": 22,
+    "status": "unique perfect band",
+    "perfect": [
+      {
+        "engine": "mt",
+        "formula": "add",
+        "salt": 10387313,
+        "spread": "triangular",
+        "spacing": 32,
+        "separation": 5
+      }
+    ],
+    "best": []
+  },
+  "minecraft:mansion": {
+    "model": "grid",
+    "captures": 13,
+    "status": "unique perfect band",
+    "perfect": [
+      {
+        "engine": "mt",
+        "formula": "add",
+        "salt": 10387319,
+        "spread": "triangular",
+        "spacing": 80,
+        "separation": 20
+      }
+    ],
+    "best": []
+  },
+  "minecraft:shipwreck": {
+    "model": "grid",
+    "captures": 24,
+    "status": "unique perfect band",
+    "perfect": [
+      {
+        "engine": "mt",
+        "formula": "add",
+        "salt": 165745295,
+        "spread": "linear",
+        "spacing": 24,
+        "separation": 4
+      }
+    ],
+    "best": []
+  },
+  "minecraft:buried_treasure": {
+    "model": "grid",
+    "captures": 24,
+    "status": "unique perfect band",
+    "perfect": [
+      {
+        "engine": "mt",
+        "formula": "add",
+        "salt": 16842397,
+        "spread": "triangular",
+        "spacing": 4,
+        "separation": 2
+      }
+    ],
+    "best": []
+  },
+  "minecraft:mineshaft": {
+    "model": "grid",
+    "captures": 24,
+    "status": "no perfect band",
+    "perfect": [],
+    "best": [
+      {
+        "hit": 4,
+        "engine": "mt",
+        "formula": "xor",
+        "salt": 0,
+        "spread": "linear",
+        "spacing": 4,
+        "separation": 1
+      },
+      {
+        "hit": 3,
+        "engine": "mt",
+        "formula": "xor",
+        "salt": 0,
+        "spread": "linear",
+        "spacing": 4,
+        "separation": 0
+      },
+      {
+        "hit": 3,
+        "engine": "mt",
+        "formula": "add",
+        "salt": 0,
+        "spread": "triangular",
+        "spacing": 4,
+        "separation": 1
+      },
+      {
+        "hit": 3,
+        "engine": "mt",
+        "formula": "xor",
+        "salt": 0,
+        "spread": "triangular",
+        "spacing": 4,
+        "separation": 1
+      },
+      {
+        "hit": 3,
+        "engine": "java",
+        "formula": "add",
+        "salt": 0,
+        "spread": "linear",
+        "spacing": 4,
+        "separation": 1
+      }
+    ]
+  },
+  "minecraft:ruined_portal": {
+    "model": "grid",
+    "captures": 24,
+    "status": "unique perfect band",
+    "perfect": [
+      {
+        "engine": "mt",
+        "formula": "add",
+        "salt": 40552231,
+        "spread": "linear",
+        "spacing": 40,
+        "separation": 15
+      }
+    ],
+    "best": []
+  },
+  "minecraft:ancient_city": {
+    "model": "grid",
+    "captures": 24,
+    "status": "unique perfect band",
+    "perfect": [
+      {
+        "engine": "mt",
+        "formula": "add",
+        "salt": 20083232,
+        "spread": "triangular",
+        "spacing": 24,
+        "separation": 8
+      }
+    ],
+    "best": []
+  },
+  "minecraft:trial_chambers": {
+    "model": "grid",
+    "captures": 24,
+    "status": "no perfect band",
+    "perfect": [],
+    "best": [
+      {
+        "hit": 4,
+        "engine": "mt",
+        "formula": "add",
+        "salt": 94251327,
+        "spread": "triangular",
+        "spacing": 5,
+        "separation": 0
+      },
+      {
+        "hit": 4,
+        "engine": "java",
+        "formula": "add",
+        "salt": 94251327,
+        "spread": "linear",
+        "spacing": 34,
+        "separation": 12
+      },
+      {
+        "hit": 4,
+        "engine": "java",
+        "formula": "xor",
+        "salt": 94251327,
+        "spread": "linear",
+        "spacing": 34,
+        "separation": 12
+      },
+      {
+        "hit": 3,
+        "engine": "mt",
+        "formula": "xor",
+        "salt": 94251327,
+        "spread": "triangular",
+        "spacing": 4,
+        "separation": 1
+      },
+      {
+        "hit": 3,
+        "engine": "mt",
+        "formula": "add",
+        "salt": 94251327,
+        "spread": "linear",
+        "spacing": 4,
+        "separation": 2
+      }
+    ]
+  },
+  "minecraft:stronghold": {
+    "model": "grid",
+    "captures": 17,
+    "status": "no perfect band",
+    "perfect": [],
+    "best": [
+      {
+        "hit": 3,
+        "engine": "mt",
+        "formula": "xor",
+        "salt": 0,
+        "spread": "triangular",
+        "spacing": 4,
+        "separation": 1
+      },
+      {
+        "hit": 3,
+        "engine": "java",
+        "formula": "large",
+        "salt": 0,
+        "spread": "linear",
+        "spacing": 4,
+        "separation": 1
+      },
+      {
+        "hit": 3,
+        "engine": "mt",
+        "formula": "xor",
+        "salt": 0,
+        "spread": "triangular",
+        "spacing": 5,
+        "separation": 2
+      },
+      {
+        "hit": 2,
+        "engine": "mt",
+        "formula": "add",
+        "salt": 0,
+        "spread": "triangular",
+        "spacing": 4,
+        "separation": 0
+      },
+      {
+        "hit": 2,
+        "engine": "java",
+        "formula": "add",
+        "salt": 0,
+        "spread": "triangular",
+        "spacing": 4,
+        "separation": 1
+      }
+    ]
+  }
+}

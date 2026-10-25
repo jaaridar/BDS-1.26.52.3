@@ -1,0 +1,18 @@
+# FUN_08b5a9c0 (disassembly)
+
+```
+08b5a9c0  TEST ESI,ESI
+08b5a9c2  JZ 0x08b5a9dd
+08b5a9c4  PUSH RBX
+08b5a9c5  MOV EBX,ESI
+08b5a9c7  MOV RDI,qword ptr [RDI + 0x9f8]
+08b5a9ce  XOR ESI,ESI
+08b5a9d0  CALL 0x0ee4a030
+08b5a9d5  XOR EDX,EDX
+08b5a9d7  DIV EBX
+08b5a9d9  MOV EAX,EDX
+08b5a9db  POP RBX
+08b5a9dc  RET
+08b5a9dd  XOR EAX,EAX
+08b5a9df  RET
+```
