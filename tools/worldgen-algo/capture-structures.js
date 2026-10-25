@@ -33,7 +33,8 @@ function parseArgs (argv) {
     verbose: false,
     ids: 'village,stronghold,monument,mansion,pillageroutpost,ruin,shipwreck,ruins,buriedtreasure,mineshaft,desert_pyramid',
     from: '0,0',
-    assist: true
+    assist: true,
+    kind: 'structure'
   }
   for (let i = 2; i < argv.length; i++) {
     const arg = argv[i]
@@ -48,6 +49,7 @@ function parseArgs (argv) {
       case '--out': args.out = next(); break
       case '--assets': args.assets = next(); break
       case '--ids': args.ids = next(); break
+      case '--kind': args.kind = next(); break
       case '--from': args.from = next(); break
       case '--timeout': args.timeout = Number(next()); break
       case '--no-assist': args.assist = false; break
@@ -232,7 +234,10 @@ async function main () {
 
     for (const origin of origins) {
       for (const id of ids) {
-        const command = `execute positioned ${origin[0]} 64 ${origin[1]} run locate structure ${id}`
+        // `--kind biome` asks `locate biome` instead. Asked from a structure's
+        // own chunk, a distance-0 answer names the biome that chunk is in,
+        // which is otherwise not observable from the console.
+        const command = `execute positioned ${origin[0]} 64 ${origin[1]} run locate ${args.kind} ${id}`
         const before = server.text.length
         server.child.stdin.write(command + '\n')
         // A locate can take a while: it samples biomes over a wide radius.
@@ -260,6 +265,7 @@ async function main () {
     durationMs: Date.now() - started,
     binary: { sha256: binarySha, bytes: fs.statSync(binaryPath).size },
     seed: args.seed,
+    kind: args.kind,
     // The capture has to describe itself: which identifiers were asked for, and
     // from where. A fit against a capture whose identifier set is only in the
     // directory name cannot be replayed from the file alone.

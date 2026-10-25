@@ -75,20 +75,20 @@ jobs:
                   }
                 }
               }
-              lines.push([sweep.slug, sweep.seeds.join(","), sweep.ids.join(","), origins.join(";")].join("\t"));
+              lines.push([sweep.slug, sweep.seeds.join(","), sweep.ids.join(","), origins.join(";"), sweep.kind || "structure"].join("\t"));
             }
             fs.writeFileSync("/tmp/plan.tsv", lines.join("\n") + "\n");
             for (const line of lines) {
-              const [slug, seeds, ids, origins] = line.split("\t");
-              console.log(`${slug}: seeds ${seeds}, ids ${ids}, ${origins.split(";").length} origins`);
+              const [slug, seeds, ids, origins, kind] = line.split("\t");
+              console.log(`${slug}: seeds ${seeds}, ${kind} ids ${ids}, ${origins.split(";").length} origins`);
             }
           '
-          while IFS=$'\t' read -r slug seeds ids origins; do
+          while IFS=$'\t' read -r slug seeds ids origins kind; do
             for seed in $(echo "$seeds" | tr ',' ' '); do
               echo "=== $slug seed $seed ==="
               timeout 2400 node tools/worldgen-algo/capture-structures.js \
                 --binary ./bedrock_server --assets "$PWD" --seed "$seed" \
-                --ids "$ids" --from "$origins" \
+                --ids "$ids" --from "$origins" --kind "$kind" \
                 --out "$EVIDENCE/structures/captures/$slug/seed-$seed" --verbose 2>&1 | tail -40
               echo "$?" > "$EVIDENCE/structures/captures/$slug/seed-$seed/exit-status.txt"
             done
