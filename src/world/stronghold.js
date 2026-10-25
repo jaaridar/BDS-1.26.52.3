@@ -64,6 +64,21 @@ const MUL_Z = 0xbe68aeb9
 /** The threshold the third draw is compared against (`ucomiss` against 0.25f). */
 const GRID_ODDS = 0.25
 
+/**
+ * A world seed reduced to the 32 bits the placement mix uses.
+ *
+ * Seeds go beyond 2^53 in practice (`-9223372036854775808` is a legal world
+ * seed), so a `Number(seed) >>> 0` would reduce the wrong value for them. The
+ * reduction is therefore done in BigInt whenever the seed is not a safe
+ * integer.
+ */
+function seed32 (seed) {
+  if (typeof seed === 'bigint') return Number(BigInt.asUintN(32, seed))
+  if (typeof seed === 'string') return Number(BigInt.asUintN(32, BigInt(seed.trim())))
+  if (Number.isSafeInteger(seed)) return Number(BigInt.asUintN(32, BigInt(seed)))
+  return Number(BigInt.asUintN(32, BigInt(Math.trunc(seed))))
+}
+
 /** The centre of a cell, in chunks. */
 function cellCentre (cell) {
   return cell * CELL + CELL / 2
@@ -73,14 +88,15 @@ function cellCentre (cell) {
 function cellSeed (seed, cellX, cellZ) {
   return (Math.imul(cellCentre(cellX), MUL_X) +
     Math.imul(cellCentre(cellZ), MUL_Z) +
-    (Number(seed) >>> 0) +
+    seed32(seed) +
     SALT) >>> 0
 }
 
 /**
  * The stronghold a cell carries.
  *
- * @param {number} seed world seed (only the low 32 bits are used)
+ * @param {number|bigint|string} seed world seed; only its low 32 bits are used,
+ *   so seeds 1 and 2^32+1 share every grid position
  * @param {number} cellX cell coordinate, i.e. floor(chunkX / 200)
  * @param {number} cellZ
  * @returns {{cellX: number, cellZ: number, chunkX: number, chunkZ: number,
@@ -142,6 +158,7 @@ module.exports = {
   MUL_X,
   MUL_Z,
   GRID_ODDS,
+  seed32,
   cellCentre,
   cellSeed,
   strongholdInCell,

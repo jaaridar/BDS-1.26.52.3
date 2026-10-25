@@ -63,10 +63,16 @@ jobs:
             const fs = require("node:fs");
             const lines = [];
             for (const sweep of plan.sweeps) {
+              // A sweep either walks a rectangle or names its origins exactly,
+              // which is what probing one predicted position per origin needs.
               const origins = [];
-              for (let x = sweep.minX; x <= sweep.maxX; x += sweep.step) {
-                for (let z = sweep.minZ; z <= sweep.maxZ; z += sweep.step) {
-                  origins.push(`${x},${z}`);
+              if (Array.isArray(sweep.origins)) {
+                origins.push(...sweep.origins);
+              } else {
+                for (let x = sweep.minX; x <= sweep.maxX; x += sweep.step) {
+                  for (let z = sweep.minZ; z <= sweep.maxZ; z += sweep.step) {
+                    origins.push(`${x},${z}`);
+                  }
                 }
               }
               lines.push([sweep.slug, sweep.seeds.join(","), sweep.ids.join(","), origins.join(";")].join("\t"));

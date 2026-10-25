@@ -22,6 +22,15 @@ const path = require('node:path')
 
 const CAPTURE_ROOT = path.resolve(__dirname, '../../research/proprietary/bds-1.26.52.3/structures/captures')
 
+/** A capture's seed as both its exact decimal string and a BigInt. */
+function toSeedValue (text) {
+  try {
+    return BigInt(String(text).trim())
+  } catch {
+    return BigInt(Number(text))
+  }
+}
+
 function parseArgs (argv) {
   const args = { slug: null, json: false, id: null }
   for (let i = 0; i < argv.length; i++) {
@@ -47,8 +56,13 @@ function loadEnumeration (slug, onlyId = null) {
     if (!fs.existsSync(file)) continue
     files++
     const capture = JSON.parse(fs.readFileSync(file, 'utf8'))
-    const seed = Number(capture.seed)
-    if (!bySeed.has(seed)) bySeed.set(seed, { seed, origins: 0, answers: new Map() })
+    // Seeds are kept as the decimal string the capture recorded. Two of the
+    // probed seeds are beyond 2^53 (the int64 extremes), where a JS number is
+    // already wrong, so converting here would silently test the wrong world.
+    const seed = String(capture.seed)
+    if (!bySeed.has(seed)) {
+      bySeed.set(seed, { seed, seedValue: toSeedValue(seed), origins: 0, answers: new Map() })
+    }
     const bucket = bySeed.get(seed)
     for (const result of capture.results || []) {
       if (!result.found || !Array.isArray(result.at)) continue
@@ -67,7 +81,7 @@ function loadEnumeration (slug, onlyId = null) {
     }
   }
   const out = []
-  for (const seed of [...bySeed.keys()].sort((a, b) => a - b)) {
+  for (const seed of [...bySeed.keys()].sort((a, b) => (BigInt(a) < BigInt(b) ? -1 : BigInt(a) > BigInt(b) ? 1 : 0))) {
     const bucket = bySeed.get(seed)
     const answers = [...bucket.answers.values()].map((answer) => ({
       ...answer,
@@ -76,7 +90,7 @@ function loadEnumeration (slug, onlyId = null) {
       origins: answer.seenFrom.length
     }))
     answers.sort((a, b) => a.radiusChunks - b.radiusChunks)
-    out.push({ seed, files: bucket.origins, answers })
+    out.push({ seed, seedValue: bucket.seedValue, files: bucket.origins, answers })
   }
   return { files, seeds: out }
 }
