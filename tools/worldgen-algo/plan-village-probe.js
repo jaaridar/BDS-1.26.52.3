@@ -21,11 +21,12 @@ const { candidateStarts } = require('../../src/world/structure-placement')
 const { PLACEMENTS } = require('../../src/world/structures-data')
 
 function parseArgs (argv) {
-  const args = { seeds: ['1'], radius: 500, json: false, limit: 900 }
+  const args = { seeds: ['1'], radius: 500, minRadius: 0, json: false, limit: 900 }
   for (let i = 0; i < argv.length; i++) {
     switch (argv[i]) {
       case '--seed': args.seeds = String(argv[++i]).split(','); break
       case '--radius': args.radius = Number(argv[++i]); break
+      case '--min-radius': args.minRadius = Number(argv[++i]); break
       case '--limit': args.limit = Number(argv[++i]); break
       case '--json': args.json = true; break
       default: throw new Error(`unknown argument ${argv[i]}`)
@@ -35,17 +36,18 @@ function parseArgs (argv) {
 }
 
 /** Village chunks the model predicts within `radius` chunks of the origin. */
-function villagesFor (seed, radius) {
+function villagesFor (seed, radius, minRadius = 0) {
   const village = PLACEMENTS['minecraft:village']
   return candidateStarts(village, BigInt(seed), 0, 0, radius)
     .map((start) => ({ chunk: [start.chunkX, start.chunkZ], block: [start.blockX, start.blockZ] }))
+    .filter((entry) => Math.hypot(entry.chunk[0], entry.chunk[1]) >= minRadius)
     .sort((a, b) => Math.hypot(a.chunk[0], a.chunk[1]) - Math.hypot(b.chunk[0], b.chunk[1]))
 }
 
 function main () {
   const args = parseArgs(process.argv.slice(2))
   const sweeps = args.seeds.map((seed) => {
-    let villages = villagesFor(seed, args.radius)
+    let villages = villagesFor(seed, args.radius, args.minRadius)
     // Even thinning keeps the sample spread over the whole radius instead of
     // stopping at a distance cut.
     if (villages.length > args.limit) {
