@@ -160,13 +160,9 @@ function writeManifest (manifest, unavailable) {
  * labelled inputs that exist before any script runs, which is also what makes
  * them checkable by `tools/web/a11y-check.js`.
  */
-function writeFilterMarkup (available, unavailable) {
-  const page = path.join(PUBLIC, 'index.html')
-  const html = fs.readFileSync(page, 'utf8')
-  const begin = html.indexOf('<!-- FILTERS:BEGIN -->')
-  const end = html.indexOf('<!-- FILTERS:END -->')
-  if (begin < 0 || end < 0) throw new Error('index.html lost its FILTERS markers')
-  const out = [html.slice(0, begin), '<!-- FILTERS:BEGIN -->', '']
+/** The markup between the FILTERS markers: one row per filterable set, plus the withdrawn list. */
+function buildFilterBody (available, unavailable) {
+  const out = []
   const slug = (id) => id.replace(/^minecraft:/, '')
   const esc = (text) => String(text).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 
@@ -227,10 +223,34 @@ function writeFilterMarkup (available, unavailable) {
   out.push('  </ul>')
   out.push('  <p class="hint">Biomes and terrain are also absent, because the climate sampler is not recovered.</p>')
   out.push('</div>')
-  out.push('')
-  out.push('<!-- FILTERS:END -->')
-  out.push(html.slice(end + '<!-- FILTERS:END -->'.length))
-  fs.writeFileSync(page, out.join('\n'))
+  return out.join('\n')
+}
+
+/**
+ * One pass of the replacement, with the whitespace either side of the markers
+ * normalised. Without that normalisation the generator is not idempotent: each
+ * run would add blank lines, so a clean checkout would differ from the committed
+ * file and CI (which regenerates and diffs) would fail for no real reason.
+ */
+function applyFilterBody (html, available, unavailable) {
+  const begin = html.indexOf('<!-- FILTERS:BEGIN -->')
+  const end = html.indexOf('<!-- FILTERS:END -->')
+  if (begin < 0 || end < 0) throw new Error('index.html lost its FILTERS markers')
+  const head = html.slice(0, begin).replace(/\s*$/, '\n')
+  const tail = html.slice(end + '<!-- FILTERS:END -->'.length).replace(/^\s*\n/, '')
+  return head + '<!-- FILTERS:BEGIN -->\n\n' + buildFilterBody(available, unavailable) +
+    '\n<!-- FILTERS:END -->\n' + tail
+}
+
+function writeFilterMarkup (available, unavailable) {
+  const page = path.join(PUBLIC, 'index.html')
+  const html = fs.readFileSync(page, 'utf8')
+  const rebuilt = applyFilterBody(html, available, unavailable)
+  // Prove idempotency rather than hope for it: a second pass must be a no-op.
+  if (applyFilterBody(rebuilt, available, unavailable) !== rebuilt) {
+    throw new Error('filter markup is not idempotent: a second pass changed the document')
+  }
+  fs.writeFileSync(page, rebuilt)
 }
 
 /** The capture tally out of a row note, e.g. "77/77 captured positions" -> "77/77 captured". */
