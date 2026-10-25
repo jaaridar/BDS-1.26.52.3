@@ -403,12 +403,32 @@ Two further measurements fell out of the same captures:
   grid does not.
 
   `node tools/worldgen-algo/near-spawn-strongholds.js` counts them per seed and
-  finds **exactly three** for every seed probed, at radii of 58-662 chunks and
-  arbitrary angles — so it is a fixed small set near spawn, not a second grid.
-  A sweep with `village` and `stronghold` together shows part of the rule: of
-  five such strongholds, **two sit exactly on a village**, which is far above
-  chance (a village occupies about 1 chunk in 3855 of that area). Bedrock puts
-  some strongholds under villages, and the rest of the set is still open.
+  finds **exactly three** for every clean seed probed, at radii of 58-662
+  chunks and arbitrary angles — a fixed small set near spawn, not a second grid.
+
+  They are **all at villages**. Matching each one against the model's village
+  list gives a hit for every single case: 39 of 39 off-grid strongholds across
+  20 seeds sit exactly on a village chunk. The village grid is exact, so their
+  positions are known; what is not known is *which* villages are chosen.
+
+  A probe that put an origin on 800 modeled villages per seed settled the rate:
+  2400 labelled villages contained exactly **3 village strongholds per seed**,
+  all 7 that were re-probed answered their own chunk, and 2393 did not. Against
+  those labels these candidates are all refuted (no single cut separates the
+  positives from 2393 negatives):
+
+  * a threshold gate on 12 draws x 8 cell sizes x 15 salts of the village cell's
+    Mersenne stream, and of a per-chunk stream;
+  * "nearest village" to the cell's grid position, its centre, each corner, its
+    edges, and to 3 hidden points decoded from further draws of the same stream
+    (0-2 of 52 cases, i.e. chance);
+  * rank in generation order, radius, and chunk-coordinate residues.
+
+  So the selection is not a per-village gate and not a nearest-village snap. It
+  reads the full 64-bit seed (only the residue-driven part does not), and the
+  counts are fixed at three per world. That is the one gap left in stronghold
+  placement, and it is isolated to a 3-element set whose candidate positions are
+  already known exactly.
 
 `node tools/worldgen-algo/verify-locate.js` is the acceptance harness for this:
 it replays every captured `/locate` question and classifies the answer as
