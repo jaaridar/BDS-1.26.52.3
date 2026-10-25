@@ -73,6 +73,22 @@ PYADDR
   grep -nE "call +(4e9efc0|4e9f[a-f][0-9a-f]{2})" "$WORK/text.asm" | head -30 || true
   echo
 
+  echo "# who places strongholds: callers of the feature and of the start constructor"
+  grep -nE "call +(4ea01a0|4e9efc0|4e9f720|4fa3cb0|4fa4790|4fa4b20)" "$WORK/text.asm" | head -40 || true
+  echo
+
+  for line in $(grep -nE "call +(4ea01a0|4fa3cb0)" "$WORK/text.asm" | cut -d: -f1 | head -2); do
+    start=$((line - 150))
+    [ "$start" -lt 1 ] && start=1
+    echo "===== caller window around line $line"
+    sed -n "${start},$((line + 120))p" "$WORK/text.asm"
+    echo
+  done
+
+  echo "# village-side code that mentions a stronghold constant"
+  grep -n "0x5d534e7\|0x5d534e8" "$WORK/text.asm" | head -20 || true
+  echo
+
   echo "# .rodata looks like a trig table at its start; print the first 256 floats"
   python3 - "$BINARY" <<'PY'
 import struct, subprocess, sys
