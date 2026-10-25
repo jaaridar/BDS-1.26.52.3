@@ -915,6 +915,30 @@ grid position = (cellX*200 + 50 + dx, cellZ*200 + 50 + dz)
   gated; 0 of the 32 ungated cells are; 8 gated cells are still relocated.
   Held-out region `stronghold_enum3`: 22 of 23 exact.
 
+Measurements that pin the model down (all reproducible from the repository):
+
+* **The gate decides existence.** A capture whose origins are the model's own
+  predictions (`stronghold_probe_*`, 320 probes over 4 seeds) answers with the
+  origin chunk itself for **159/160 gated cells and 0/160 ungated cells**. The
+  gate threshold is exactly 0.25: the 69 exact grid hits in the corpus have gate
+  draws spanning `0.003 .. 0.2488`, so no smaller threshold fits.
+* **Only the low 32 bits reach the grid.** Seed `1` and seed `2^32+1` produce
+  the same grid positions (three of four identical, the fourth relocated), while
+  `2^32` is a different world. The reduction therefore has to be exact: a
+  `Number(seed) >>> 0` is wrong above 2^53, so `src/world/stronghold.js` reduces
+  in BigInt and accepts a decimal string.
+* **A second population sits near spawn and is not on the grid.** Of every
+  captured `/locate` answer, the fraction that is no cell's grid position is
+  100% inside 100 chunks of spawn, 69-75% at 100-300, 16% at 300-450, 13% at
+  450-600 and 0% past 900 chunks. Those positions lie inside a 200-chunk cell
+  but 50-350 chunks from its grid position, and they change when only the high
+  32 bits of the seed change, so that placement reads the full 64-bit seed --
+  i.e. it is biome-driven. It is *not* producible by the code below: both the
+  collector and the predicate emit `cell*200 + 50 + nextInt(100)` and nothing
+  else, so whatever places these is a different code path, still unidentified.
+  `verify-locate.js` reports them as `relocated` (1883 of 4708 queries) rather
+  than pretending they are misses of the grid.
+
 Relocation (why the other cells are off the 200-grid): at `0x4e9fca0` the
 collector loads `[[this+0x1a8]]`, calls **vtable slot 6** with `&position`, and
 the provider may (a) return true, which rejects the cell and advances the ring
