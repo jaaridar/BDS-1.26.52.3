@@ -22,6 +22,18 @@ const path = require('node:path')
 
 const CAPTURE_ROOT = path.resolve(__dirname, '../../research/proprietary/bds-1.26.52.3/structures/captures')
 
+/**
+ * A captured position as `[x, z]`.
+ *
+ * The captures are not consistent about this: `at` is `[x, y, z]` with a null
+ * y, while `from` is `[x, z]`. Reading `[2]` from both silently yields NaN for
+ * the origins, which is how a whole probe run can look empty.
+ */
+function xz (position) {
+  if (!Array.isArray(position)) return [NaN, NaN]
+  return position.length === 2 ? [position[0], position[1]] : [position[0], position[2]]
+}
+
 /** A capture's seed as both its exact decimal string and a BigInt. */
 function toSeedValue (text) {
   try {
@@ -121,4 +133,5 @@ function main () {
 
 if (require.main === module) main()
 
-module.exports = { loadEnumeration }
+module.exports = {
+  xz, loadEnumeration }

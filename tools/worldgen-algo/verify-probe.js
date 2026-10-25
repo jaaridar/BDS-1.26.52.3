@@ -19,6 +19,7 @@
 const fs = require('node:fs')
 const path = require('node:path')
 const { strongholdInCell, CELL } = require('../../src/world/stronghold')
+const { xz } = require('./structure-enumeration')
 
 const CAPTURE_ROOT = path.resolve(__dirname, '../../research/proprietary/bds-1.26.52.3/structures/captures')
 
@@ -33,7 +34,8 @@ function loadProbes (root) {
       const capture = JSON.parse(fs.readFileSync(file, 'utf8'))
       for (const result of capture.results || []) {
         if (!result.from) continue
-        const originChunk = [Math.floor(result.from[0] / 16), Math.floor(result.from[2] / 16)]
+        const [fromX, fromZ] = xz(result.from)
+        const originChunk = [Math.floor(fromX / 16), Math.floor(fromZ / 16)]
         const cell = [Math.floor(originChunk[0] / CELL), Math.floor(originChunk[1] / CELL)]
         const predicted = strongholdInCell(capture.seed, cell[0], cell[1])
         // The probe only touches model positions, so the origin is either the
@@ -46,7 +48,7 @@ function loadProbes (root) {
           gated: predicted.gated,
           gate: predicted.gate,
           found: Boolean(result.found),
-          answer: result.found ? [Math.floor(result.at[0] / 16), Math.floor(result.at[2] / 16)] : null
+          answer: result.found ? xz(result.at).map((v) => Math.floor(v / 16)) : null
         })
       }
     }

@@ -64,3 +64,24 @@ test('strongholdsNear returns cells nearest first and covers the radius', () => 
     assert.ok(Math.hypot(stronghold.chunkX, stronghold.chunkZ) > 10 || !stronghold.gated)
   }
 })
+
+test('the gate is existence, not just an offset: probed positions answer themselves', () => {
+  // The probe captures put an origin exactly on a predicted position, so a
+  // stronghold there makes `/locate` answer that chunk. This is the measurement
+  // that separates "gated cells hold strongholds" from "gated cells hold them
+  // somewhere else", and it is the strongest statement the model makes.
+  const { loadProbes } = require('../../tools/worldgen-algo/verify-probe')
+  const rows = loadProbes(require('node:path').resolve(__dirname,
+    '../../research/proprietary/bds-1.26.52.3/structures/captures'))
+  const gated = rows.filter((row) => row.gated)
+  const ungated = rows.filter((row) => !row.gated)
+  const selfAnswered = (list) => list.filter((row) => row.answer &&
+    row.answer[0] === row.origin[0] && row.answer[1] === row.origin[1]).length
+  assert.ok(gated.length >= 100, `only ${gated.length} gated probes`)
+  assert.ok(ungated.length >= 100, `only ${ungated.length} ungated probes`)
+  const gatedHits = selfAnswered(gated)
+  assert.ok(gatedHits >= gated.length * 0.95,
+    `gated probes answered themselves in only ${gatedHits}/${gated.length}`)
+  // The control has to stay at zero, or the first number means nothing.
+  assert.strictEqual(selfAnswered(ungated), 0)
+})

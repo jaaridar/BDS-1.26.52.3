@@ -348,6 +348,60 @@ and a quarter of them are pinned exactly.
 `tools/worldgen-algo/verify-strongholds.js` replays the captures and prints both
 numbers separately, so a relocated stronghold is never counted as a hit.
 
+### The gate decides existence, and that is measured (2026-10-25)
+
+A sweep that walks a rectangle only finds out what is nearest to a grid of
+origins. To test the model itself, `tools/worldgen-algo/plan-stronghold-probe.js`
+builds a plan whose origins *are* the model's predictions: 40 cells per seed
+whose gate draw is below 0.25 and which no capture had seen, plus 40 cells above
+it as controls. An origin sitting on a stronghold makes `/locate` answer that
+very chunk, so the answer is the model's own claim read back from the server.
+
+`node tools/worldgen-algo/verify-probe.js` over 4 seeds (320 probes):
+
+| cells | answered with the origin chunk itself |
+| --- | --- |
+| gated (draw < 0.25) | **159 / 160** (99.4%) |
+| ungated (draw >= 0.25) | **0 / 160** |
+
+So the gate is not a cosmetic flag: it is whether the cell holds a stronghold at
+its grid position. The one gated miss is reported rather than smoothed away.
+
+Two further measurements fell out of the same captures:
+
+* **Only the low 32 bits of the seed reach the grid.** Seeds `1` and `2^32+1`
+  produce the same four grid positions (three identical, one differing), while
+  `2^32` produces a different world entirely. That is what `seed32` in
+  `stronghold.js` implements, and why it is done in BigInt — a `Number() >>> 0`
+  is wrong above 2^53, which is where the int64 seeds live.
+* **A second, near-spawn population exists.** Of the strongholds `/locate`
+  answers with, some are not any cell's grid position. Grouping every captured
+  answer by distance from the origin shows they are not scattered:
+
+  | distance from spawn (chunks) | strongholds | not on the grid |
+  | --- | --- | --- |
+  | 0-100 | 7 | **7 (100%)** |
+  | 100-200 | 26 | 18 (69%) |
+  | 200-300 | 16 | 12 (75%) |
+  | 300-450 | 31 | 5 (16%) |
+  | 450-600 | 23 | 3 (13%) |
+  | 900-1500 | 12 | **0 (0%)** |
+
+  Those positions are inside a 200-chunk cell but 50-350 chunks from its grid
+  position, so no jitter explains them, and they change when only the high half
+  of the seed changes (`1` vs `2^32+1` differ exactly there) — so that placement
+  reads the full 64-bit seed, i.e. it is driven by the biome/climate data. The
+  grid does not. Modelling them is part of the biome milestone, and until then
+  they are reported as `relocated` rather than guessed at.
+
+`node tools/worldgen-algo/verify-locate.js` is the acceptance harness for this:
+it replays every captured `/locate` question and classifies the answer as
+`exact`, `relocated` (a position that is no cell's grid position) or `wrong`
+(the server named a grid position that was not the model's nearest). The current
+tally over 4708 queries is 2779 exact (59.0%), 1883 relocated, 46 wrong — the
+`wrong` count is the one that has to be driven to zero, and it is 1.6% of the
+queries whose answer is on the grid at all.
+
 ### Why the binary has to be read where it runs
 
 The release asset is on a host this working environment cannot reach
