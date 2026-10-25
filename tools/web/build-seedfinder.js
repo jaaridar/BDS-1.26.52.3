@@ -37,6 +37,7 @@ const PUBLIC = path.join(ROOT, 'web', 'public')
 const ASSEMBLY = path.join(ROOT, 'web', 'assembly')
 
 const { PLACEMENTS } = require(path.join(ROOT, 'src', 'world', 'structures-data.js'))
+const evidence = require(path.join(__dirname, 'evidence.js'))
 
 /**
  * Which rows the finder may filter on.
@@ -84,6 +85,21 @@ function toleranceOf (placement) {
   return 0
 }
 
+/** The current capture tally for one set, or null when the corpus is absent. */
+function tallyFor (id) {
+  const rows = evidence.collected.placements
+  if (!rows) return null
+  return rows.find((row) => row.id === id) || null
+}
+
+/** The stronghold tally in one line, from the verifier that produces it. */
+function strongholdBadge () {
+  const strongholds = evidence.collected.strongholds
+  if (!strongholds) return 'grid positions measured in the corpus'
+  const { gatedExact, gated } = strongholds.total
+  return `grid positions · ${gatedExact}/${gated} gated cells exact`
+}
+
 function writePlacements (available) {
   const lines = []
   lines.push('// GENERATED FILE -- do not edit.')
@@ -115,7 +131,12 @@ function writePlacements (available) {
     generatedBy: 'tools/web/build-seedfinder.js',
     source: 'src/world/structures-data.js',
     orderNote: 'index i in this file is index i in web/assembly/placements.gen.ts',
-    available: available.map((entry, index) => ({ index, ...entry }))
+    evidence: {
+      capturedBy: 'tools/worldgen-algo/verify-placements.js',
+      corpusPresent: Boolean(evidence.collected.placements),
+      strongholds: evidence.collected.strongholds ? evidence.collected.strongholds.total : null
+    },
+    available: available.map((entry, index) => ({ index, ...entry, tally: tallyFor(entry.id) }))
   }
 }
 
@@ -153,7 +174,7 @@ function writeFilterMarkup (available, unavailable) {
   out.push('  <p class="filter-head">')
   out.push('    <input type="checkbox" id="filter-stronghold" data-role="enable">')
   out.push('    <label for="filter-stronghold">strongholds</label>')
-  out.push('    <span class="badge badge-exact">grid positions exact · 159/160 probed</span>')
+  out.push(`    <span class="badge badge-exact">${esc(strongholdBadge())}</span>`)
   out.push('  </p>')
   out.push('  <p class="filter-body">')
   out.push('    <label for="filter-stronghold-count">Minimum</label>')
@@ -175,9 +196,11 @@ function writeFilterMarkup (available, unavailable) {
   for (const entry of available) {
     const name = slug(entry.id)
     const exact = entry.tolerance === 0
+    const tally = tallyFor(entry.id)
+    const captured = tally && tally.total ? `${tally.withinOne}/${tally.total} captured` : (entry.note ? tallyFromNote(entry.note) : 'confirmed')
     const badge = exact
-      ? `exact${entry.note ? ` · ${tally(entry.note)}` : ''}`
-      : `within ${entry.tolerance} chunk${entry.tolerance === 1 ? '' : 's'}`
+      ? `exact · ${captured}`
+      : `${tally && tally.total ? `${tally.withinOne}/${tally.total}` : captured} within ${entry.tolerance} chunk${entry.tolerance === 1 ? '' : 's'}`
     out.push(`<div class="filter" data-placement="${esc(name)}" data-index="${entry.index}">`)
     out.push('  <p class="filter-head">')
     out.push(`    <input type="checkbox" id="filter-${esc(name)}" data-role="enable">`)
@@ -210,8 +233,8 @@ function writeFilterMarkup (available, unavailable) {
   fs.writeFileSync(page, out.join('\n'))
 }
 
-/** The capture tally out of a row note, e.g. "98/98 captured positions" -> "98/98 captured". */
-function tally (note) {
+/** The capture tally out of a row note, e.g. "77/77 captured positions" -> "77/77 captured". */
+function tallyFromNote (note) {
   const match = /(\d+\/\d+) captured/.exec(note)
   return match ? `${match[1]} captured` : 'confirmed'
 }
@@ -331,6 +354,7 @@ function main () {
   fs.mkdirSync(PUBLIC, { recursive: true })
   fs.mkdirSync(ASSEMBLY, { recursive: true })
 
+  evidence.collected = evidence.collect()
   const { available, unavailable } = partition(PLACEMENTS)
   const manifest = writePlacements(available)
   writeManifest(manifest, unavailable)

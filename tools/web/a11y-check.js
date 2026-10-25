@@ -25,8 +25,27 @@ const fs = require('node:fs')
 const path = require('node:path')
 
 const PUBLIC = path.resolve(__dirname, '..', '..', 'web', 'public')
-const html = fs.readFileSync(path.join(PUBLIC, 'index.html'), 'utf8')
-const css = fs.readFileSync(path.join(PUBLIC, 'styles.css'), 'utf8')
+
+/**
+ * Audit either the seed finder page or a single self-contained file.
+ *
+ *   node tools/web/a11y-check.js                                   # web/public/index.html + styles.css
+ *   node tools/web/a11y-check.js --file web/seed-algorithm.html    # inline stylesheet
+ *
+ * The dossier has no separate stylesheet, so its colours come out of its own
+ * <style> blocks; everything else is checked the same way, which is the point of
+ * keeping both pages to one set of rules.
+ */
+const fileArgument = process.argv.indexOf('--file')
+const target = fileArgument >= 0 ? process.argv[fileArgument + 1] : null
+if (fileArgument >= 0 && !target) throw new Error('--file needs a path')
+
+const html = fs.readFileSync(target ? path.resolve(target) : path.join(PUBLIC, 'index.html'), 'utf8')
+const css = target
+  ? Array.from(html.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/gi)).map((match) => match[1]).join('\n')
+  : fs.readFileSync(path.join(PUBLIC, 'styles.css'), 'utf8')
+
+console.log(`auditing ${target || 'web/public/index.html'}`)
 
 let passed = 0
 const failures = []
@@ -130,13 +149,22 @@ const describedBy = Array.from(html.matchAll(/aria-describedby="([^"]+)"/g)).fla
 const dangling = [...labelledBy, ...describedBy].filter((id) => !idSet.has(id))
 check('aria-labelledby and aria-describedby point at real ids', dangling.length === 0, dangling.join(', '))
 
-check('progress bar has an accessible name', /<label[^>]*for="search-progress"/.test(html))
+const progressBars = tags('progress').map((tag) => attrs(tag))
+const unnamedProgress = progressBars.filter((attributes) =>
+  !attributes['aria-label'] && !attributes['aria-labelledby'] &&
+  !(attributes.id && new RegExp(`<label[^>]*\\sfor="${attributes.id}"`, 'i').test(html)))
+check('every progress bar has an accessible name', unnamedProgress.length === 0,
+  `${progressBars.length} progress element(s), ${unnamedProgress.length} unnamed`)
 check('a polite live region reports search state',
   /role="status"[^>]*aria-live="polite"|aria-live="polite"[^>]*role="status"/.test(html))
 check('an alert region exists for validation errors', /role="alert"/.test(html))
 check('scrollable table regions are named and focusable',
   Array.from(html.matchAll(/<div class="table-scroll"[^>]*>/g)).every((match) => /role="region"/.test(match[0]) && /tabindex="0"/.test(match[0]) && /aria-labelledby="/.test(match[0])))
 check('a <noscript> fallback explains the dependency', /<noscript>/.test(html))
+
+const anchors = Array.from(html.matchAll(/href="#([^"]+)"/g)).map((match) => match[1])
+const missingAnchors = anchors.filter((anchor) => !idSet.has(anchor))
+check('every in-page link points at an id that exists', missingAnchors.length === 0, missingAnchors.join(', '))
 
 // ---------------------------------------------------------------------------
 // Stylesheet: colour tokens and media queries
@@ -202,6 +230,7 @@ for (const [scheme, palette] of [['light', light], ['dark', dark]]) {
   }
 }
 
+check('there is exactly one stylesheet to reason about', target ? true : fs.existsSync(path.join(PUBLIC, 'styles.css')))
 check('focus styles are visible and never removed',
   /:focus-visible\s*\{[^}]*outline:\s*3px solid var\(--focus\)/.test(css) && !/outline:\s*(none|0)\s*;/i.test(css.replace(/\/\*[\s\S]*?\*\//g, '')))
 check('prefers-reduced-motion is honoured', /@media \(prefers-reduced-motion: reduce\)/.test(css))

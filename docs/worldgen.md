@@ -22,13 +22,16 @@ certain than its evidence.
 | Climate noise router | **not implemented** | the descriptor table is built at startup inside the binary |
 | Density / terrain height | **not implemented** | depends on the router |
 | Block prediction | **not implemented** | depends on density, surface rules and feature order |
-| Strongholds | **grid exact, near-spawn set open** | 200-chunk cell grid; the grid position is exact for the gated quarter (159/160 probed). Every world also has exactly three more strongholds at villages: the positions are known, the choice of village is not |
+| Strongholds | **grid exact, near-spawn set open** | 200-chunk cell grid; the grid position is exact for the gated cells (491 of 510 blind, 159 of 160 asked directly) and never for ungated ones (0 of 82). Every world also has exactly three more strongholds at villages: the positions are known, the choice of village is not |
 
 ## What you can run now
 
 ```
 # the browser seed finder: search seed ranges for structure requirements
 node web/server.js            # then open http://localhost:8787/
+
+# the whole algorithm as one downloadable file (code, evidence, gaps, self-tests)
+node tools/web/build-dossier.js   # writes web/seed-algorithm.html
 
 # area report for a seed: which structures, where, and how sure we are
 node tools/worldgen-algo/world.js --seed 12345
@@ -328,14 +331,17 @@ corpus):
 | `stronghold_enum` (fit) | 32 | 17 | 20 | 17 | **0** |
 | `stronghold_enum2` (fit, origin region) | 42 | 30 | 32 | 30 | **0** |
 | `stronghold_enum3` (held out, untouched region) | 23 | 22 | 23 | 22 | **0** |
-| all | 114 | 74 | 82 | 74 (90%) | **0** |
+| all, when this table was written | 114 | 74 | 82 | 74 (90%) | **0** |
+| all, current corpus (`verify-strongholds.js`) | **592** | **491** | **510** | **491 (96.3%)** | **0** |
 
-So the gate is a *necessary* condition, with no counter-example in 114 captures,
-and a *sufficient* one 90% of the time. The 8 exceptions are strongholds whose
+So the gate is a *necessary* condition, with no counter-example in 592 captures,
+and a *sufficient* one 96.3% of the time. The exceptions are strongholds whose
 cell was gated in but whose position the generator still moved, so they are
-reported as `gated: true` with a note rather than claimed as exact. The held-out
-region is where the model does best, which is what a terrain-dependent relocation
-should look like: the origin region is the one that has oceans in it.
+reported as `gated: true` with a note rather than claimed as exact -- the flag is
+the right answer for them, and `verify-strongholds.js` prints the running split
+so the table cannot go stale in one direction only. The held-out region is where
+the model does best, which is what a terrain-dependent relocation should look
+like: the origin region is the one that has oceans in it.
 
 What happens to the other three quarters of the cells is now readable in the
 binary too. `0x4e9fca0` loads a provider out of the feature's own state
@@ -346,7 +352,7 @@ That is a biome query, and it is why the relocated strongholds are not on the
 200-chunk grid at all: `(84, 9)` cannot be `cell * 200 + 50 + [0..100)` for any
 cell, on either axis, so no amount of jitter explains it. Predicting those
 positions needs the biome layer, which is the next milestone; what is known today
-is that each cell carries exactly one stronghold (42 captures, no cell holds two)
+is that each cell carries exactly one stronghold (592 captures, no cell holds two)
 and a quarter of them are pinned exactly.
 
 `src/world/stronghold.js` implements the grid, the mix and the gate, and
@@ -370,7 +376,10 @@ very chunk, so the answer is the model's own claim read back from the server.
 | ungated (draw >= 0.25) | **0 / 160** |
 
 So the gate is not a cosmetic flag: it is whether the cell holds a stronghold at
-its grid position. The one gated miss is reported rather than smoothed away.
+its grid position. The one gated miss is reported rather than smoothed away, and
+the blind corpus above finds 19 of them in 510 gated cells: same phenomenon, a
+larger sample, and the reason `gated` is offered as a necessary condition rather
+than as a guarantee.
 
 Two further measurements fell out of the same captures:
 

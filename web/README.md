@@ -36,7 +36,7 @@ against captured `locate structure` answers. The tally is in
 |---|---|
 | villages, pillager outposts, monuments, mansions, shipwrecks, ruined portals, ancient cities, buried treasure | exact — every captured position reproduced, and the parameters are the unique fit |
 | trail ruins, trial chambers | within one chunk — the pack-driven sets report a jigsaw origin that can sit a chunk back |
-| strongholds | exact for the cells that stay on the grid (159 of 160 probed); ungated cells carry a stronghold but the generator moves it |
+| strongholds | exact for the cells that stay on the grid — 491 of 510 gated cells in the captured corpus, 159 of 160 when asked directly; ungated cells carry a stronghold but the generator always moves it (0 of 82 exact) |
 
 Three things are deliberately absent:
 
@@ -95,6 +95,31 @@ the machine it is running on rather than quoting this paragraph.
 The hot loop never touches BigInt: a candidate seed is a pair of 32-bit halves
 advanced by hand. BigInt appears when a hit is reported, which is rare by design.
 
+## One file, everything in it: the dossier
+
+`web/seed-algorithm.html` is the whole thing in a single self-contained file — the
+algorithm as runnable code, the measurement behind every constant, the hypotheses that were
+falsified, the tallies, the gaps, a calculator, a finder and a self-test that all run
+offline with no network and no second file. It is the artifact to hand to someone who wants
+to check the work rather than read about it:
+
+```
+node tools/web/build-dossier.js          # writes web/seed-algorithm.html (~220 kB)
+```
+
+Its inputs are `web/dossier/page.html` (the prose, with placeholders), `web/dossier/style.css`
+and `web/dossier/runtime.js` (inlined), plus `src/world/*.js` (inlined verbatim),
+`web/public/seedfinder.wasm` (inlined as base64), `web/public/placements.json` and
+`docs/worldgen.md` (Appendix B). Section 10 of the file carries the SHA-256 of every one of
+those inputs, and the build is deterministic — no timestamps, no revision — so CI can
+regenerate it and compare bytes.
+
+What makes it more than a paper is §5: the checks recompute both sides in the browser, and
+one of them takes the four strongholds published in `docs/worldgen.md` and shows that the
+grid reproduces seed 1 exactly while the other three are *unreachable* by the grid formula
+and sit exactly on modelled village chunks. That is the open problem in the dossier's §8,
+demonstrated by the reader's own machine rather than asserted in prose.
+
 ## Rebuilding
 
 The wasm artifact is committed, so a fresh checkout runs without a compiler.
@@ -142,7 +167,12 @@ and the stress test — but it cannot tell you what any of it sounds like.
 ```
 npm install --prefix /tmp/domtest jsdom --no-save
 JSDOM_PATH=/tmp/domtest/node_modules/jsdom node tools/web/smoke-web.js
+JSDOM_PATH=/tmp/domtest/node_modules/jsdom node tools/web/smoke-dossier.js
 ```
+
+The dossier smoke test loads the file from disk with `fetch` replaced by a function that
+throws, so a self-contained file that quietly reaches for the network fails the test rather
+than looking fine on a machine that happens to be online.
 
 ## Limits worth stating plainly
 

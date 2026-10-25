@@ -28,14 +28,21 @@
  *   chunkZ = cellZ * 200 + 50 + draw2 % 100
  *
  * What the third draw gates is measured, and it is *not* existence: every cell
- * carries exactly one stronghold (114 captures, no cell holds two). It gates
- * whether the stronghold ends up on that grid position. Across 114 captured
- * strongholds, 74 sit exactly on the predicted position and every one of those
- * 74 is a gated cell, while 0 of the 32 ungated ones are. Of the 82 gated
- * cells, 74 are exact -- so the gate is necessary with no counter-example and
- * sufficient 90% of the time.
+ * carries exactly one stronghold (592 captures, no cell holds two). It gates
+ * whether the stronghold ends up on that grid position. Across the 592 captured
+ * strongholds, 491 sit exactly on the predicted position, every one of those 491
+ * is a gated cell, and 0 of the 82 ungated ones are. Of the 510 gated cells, 491
+ * are exact -- so the gate is necessary with no counter-example and sufficient
+ * 96.3% of the time. The other 19 are cells the generator moved for a reason
+ * that is not the gate (the biome query below), which is why `gated` is reported
+ * as a flag rather than as a promise of an exact position.
  *
- * The rest of the cells are relocated: the binary calls a biome provider with
+ * A separate probe run asks the server directly about the model's own
+ * predictions (`tools/worldgen-algo/verify-probe.js`, 320 probes): 159 of 160
+ * gated cells answer with the origin chunk itself, 0 of 160 ungated cells do.
+ * Both measurements say the same thing in different directions.
+ *
+ * The cells that are not exact are relocated: the binary calls a biome provider with
  * the candidate position (`0x4e9fca0`, virtual slot 6 of the object at
  * `+0x1a8`), which can reject the cell or rewrite the position, and the value it
  * leaves behind is what gets re-snapped. That is why relocated strongholds are

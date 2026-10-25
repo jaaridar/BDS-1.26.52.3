@@ -23,6 +23,18 @@ const fs = require('node:fs')
 const path = require('node:path')
 
 const ROOT = path.join(__dirname, 'public')
+
+/**
+ * Files that live next to `public/` but are part of the deliverable.
+ *
+ * The single-file dossier is generated into `web/` rather than `web/public/`,
+ * because it is a document to download, not a site asset. Mapping it explicitly
+ * keeps the static root narrow: there is still no directory traversal, one path
+ * in, one file out.
+ */
+const EXTRA_FILES = new Map([
+  ['/seed-algorithm.html', path.join(__dirname, 'seed-algorithm.html')]
+])
 const PORT = Number(process.env.PORT || 8787)
 const HOST = process.env.HOST || '0.0.0.0'
 
@@ -75,6 +87,21 @@ const server = http.createServer((request, response) => {
   const url = new URL(request.url, `http://${request.headers.host || 'localhost'}`)
   if (url.pathname === '/healthz') {
     send(response, 200, 'ok\n', { 'Content-Type': 'text/plain; charset=utf-8' })
+    return
+  }
+
+  const extra = EXTRA_FILES.get(url.pathname)
+  if (extra) {
+    if (!fs.existsSync(extra)) {
+      send(response, 404, 'the dossier has not been built yet: node tools/web/build-dossier.js\n',
+        { 'Content-Type': 'text/plain; charset=utf-8' })
+      return
+    }
+    const body = fs.readFileSync(extra)
+    send(response, 200, body, {
+      'Content-Type': 'text/html; charset=utf-8',
+      'Content-Length': body.length
+    })
     return
   }
 

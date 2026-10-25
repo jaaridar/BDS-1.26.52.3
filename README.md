@@ -123,7 +123,10 @@ node web/server.js            # http://localhost:8787
 
 The page computes everything locally — a WebAssembly transcription of
 `src/world/` in a pool of workers — so it needs no server, no captured worlds and
-no network once loaded. It also carries a stress test that checks the wasm core
+no network once loaded. If you want the whole algorithm in one downloadable file,
+including the measurements behind every constant and the hypotheses that were
+falsified, that is [web/seed-algorithm.html](web/seed-algorithm.html): one
+self-contained page with a calculator, a finder and a self-test, no network. It also carries a stress test that checks the wasm core
 against the JavaScript reference over every seed class and every structure type,
 in your browser, and tells you if they ever disagree. What it cannot place
 (biomes, terrain, ocean ruins and other unmeasured sets, and the three strongholds

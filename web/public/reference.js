@@ -344,7 +344,7 @@
       // --- measured: every captured position reproduced exactly ------------------
       'minecraft:village': row('minecraft:village', {
         spacing: 34, separation: 8, salt: 10387312, spreadType: 'triangular',
-        note: '98/98 captured positions, across 35 distinct (seed, chunk) answers'
+        note: '77/77 captured positions, across every seed in the corpus'
       }),
     
       'minecraft:pillager_outpost': row('minecraft:pillager_outpost', {
@@ -386,7 +386,7 @@
       'minecraft:trail_ruins': row('minecraft:trail_ruins', {
         spacing: 34, separation: 8, salt: 83469867, spreadType: 'linear', engine: 'java',
         evidence: 'pack',
-        note: 'pack placement replayed with the Java engine: 9/35 exact, 34/35 within one chunk. ' +
+        note: 'pack placement replayed with the Java engine: 9/27 exact, 26/27 within one chunk. ' +
           'The reported position is the jigsaw structure origin, which sits in the placement chunk ' +
           'or one chunk back on either axis'
       }),
@@ -682,14 +682,21 @@
      *   chunkZ = cellZ * 200 + 50 + draw2 % 100
      *
      * What the third draw gates is measured, and it is *not* existence: every cell
-     * carries exactly one stronghold (114 captures, no cell holds two). It gates
-     * whether the stronghold ends up on that grid position. Across 114 captured
-     * strongholds, 74 sit exactly on the predicted position and every one of those
-     * 74 is a gated cell, while 0 of the 32 ungated ones are. Of the 82 gated
-     * cells, 74 are exact -- so the gate is necessary with no counter-example and
-     * sufficient 90% of the time.
+     * carries exactly one stronghold (592 captures, no cell holds two). It gates
+     * whether the stronghold ends up on that grid position. Across the 592 captured
+     * strongholds, 491 sit exactly on the predicted position, every one of those 491
+     * is a gated cell, and 0 of the 82 ungated ones are. Of the 510 gated cells, 491
+     * are exact -- so the gate is necessary with no counter-example and sufficient
+     * 96.3% of the time. The other 19 are cells the generator moved for a reason
+     * that is not the gate (the biome query below), which is why `gated` is reported
+     * as a flag rather than as a promise of an exact position.
      *
-     * The rest of the cells are relocated: the binary calls a biome provider with
+     * A separate probe run asks the server directly about the model's own
+     * predictions (`tools/worldgen-algo/verify-probe.js`, 320 probes): 159 of 160
+     * gated cells answer with the origin chunk itself, 0 of 160 ungated cells do.
+     * Both measurements say the same thing in different directions.
+     *
+     * The cells that are not exact are relocated: the binary calls a biome provider with
      * the candidate position (`0x4e9fca0`, virtual slot 6 of the object at
      * `+0x1a8`), which can reject the cell or rewrite the position, and the value it
      * leaves behind is what gets re-snapped. That is why relocated strongholds are
@@ -888,7 +895,8 @@
             id: placement.id,
             status: 'measured',
             note: '200-chunk cells; a gate draw below 0.25 means the cell holds a stronghold ' +
-              'at its grid position (probed: 159 of 160 gated cells, 0 of 160 ungated). A ' +
+              'at its grid position (probed blind: 491 of 510 gated cells, 0 of 82 ungated; ' +
+              'asked directly: 159 of 160 gated, 0 of 160 ungated). A ' +
               'separate set of three strongholds per world is always at a village; their ' +
               'positions are exact village chunks but which villages are chosen is not ' +
               'recovered yet, so they are not reported here',

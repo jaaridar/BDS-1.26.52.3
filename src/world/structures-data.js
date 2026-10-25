@@ -67,7 +67,7 @@ const PLACEMENTS = {
   // --- measured: every captured position reproduced exactly ------------------
   'minecraft:village': row('minecraft:village', {
     spacing: 34, separation: 8, salt: 10387312, spreadType: 'triangular',
-    note: '98/98 captured positions, across 35 distinct (seed, chunk) answers'
+    note: '77/77 captured positions, across every seed in the corpus'
   }),
 
   'minecraft:pillager_outpost': row('minecraft:pillager_outpost', {
@@ -109,7 +109,7 @@ const PLACEMENTS = {
   'minecraft:trail_ruins': row('minecraft:trail_ruins', {
     spacing: 34, separation: 8, salt: 83469867, spreadType: 'linear', engine: 'java',
     evidence: 'pack',
-    note: 'pack placement replayed with the Java engine: 9/35 exact, 34/35 within one chunk. ' +
+    note: 'pack placement replayed with the Java engine: 9/27 exact, 26/27 within one chunk. ' +
       'The reported position is the jigsaw structure origin, which sits in the placement chunk ' +
       'or one chunk back on either axis'
   }),

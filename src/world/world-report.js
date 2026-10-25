@@ -65,7 +65,8 @@ function structuresNear (seed, { x = 0, z = 0, radiusChunks = 256, only = null }
         id: placement.id,
         status: 'measured',
         note: '200-chunk cells; a gate draw below 0.25 means the cell holds a stronghold ' +
-          'at its grid position (probed: 159 of 160 gated cells, 0 of 160 ungated). A ' +
+          'at its grid position (probed blind: 491 of 510 gated cells, 0 of 82 ungated; ' +
+          'asked directly: 159 of 160 gated, 0 of 160 ungated). A ' +
           'separate set of three strongholds per world is always at a village; their ' +
           'positions are exact village chunks but which villages are chosen is not ' +
           'recovered yet, so they are not reported here',

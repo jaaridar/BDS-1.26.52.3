@@ -15,7 +15,19 @@
       "evidence": "measured",
       "confirmed": true,
       "note": "24/24 captured positions; unique perfect fit",
-      "tolerance": 0
+      "tolerance": 0,
+      "tally": {
+        "id": "minecraft:ancient_city",
+        "engine": "mt",
+        "spacing": 24,
+        "separation": 8,
+        "salt": 20083232,
+        "spread": "triangular",
+        "exact": 24,
+        "withinOne": 24,
+        "total": 24,
+        "status": "exact"
+      }
     },
     {
       "index": 1,
@@ -29,7 +41,19 @@
       "evidence": "measured",
       "confirmed": true,
       "note": "24/24 captured positions. The set is grid-placed, not frequency-gated",
-      "tolerance": 0
+      "tolerance": 0,
+      "tally": {
+        "id": "minecraft:buried_treasure",
+        "engine": "mt",
+        "spacing": 4,
+        "separation": 2,
+        "salt": 16842397,
+        "spread": "triangular",
+        "exact": 24,
+        "withinOne": 24,
+        "total": 24,
+        "status": "exact"
+      }
     },
     {
       "index": 2,
@@ -43,7 +67,19 @@
       "evidence": "measured",
       "confirmed": true,
       "note": "13/13 captured positions; unique perfect fit",
-      "tolerance": 0
+      "tolerance": 0,
+      "tally": {
+        "id": "minecraft:mansion",
+        "engine": "mt",
+        "spacing": 80,
+        "separation": 20,
+        "salt": 10387319,
+        "spread": "triangular",
+        "exact": 13,
+        "withinOne": 13,
+        "total": 13,
+        "status": "exact"
+      }
     },
     {
       "index": 3,
@@ -57,7 +93,19 @@
       "evidence": "measured",
       "confirmed": true,
       "note": "22/22 captured positions; unique perfect fit",
-      "tolerance": 0
+      "tolerance": 0,
+      "tally": {
+        "id": "minecraft:monument",
+        "engine": "mt",
+        "spacing": 32,
+        "separation": 5,
+        "salt": 10387313,
+        "spread": "triangular",
+        "exact": 22,
+        "withinOne": 22,
+        "total": 22,
+        "status": "exact"
+      }
     },
     {
       "index": 4,
@@ -71,7 +119,19 @@
       "evidence": "measured",
       "confirmed": true,
       "note": "19/19 captured positions; the unique perfect fit over spacing 4..128 and every separation",
-      "tolerance": 0
+      "tolerance": 0,
+      "tally": {
+        "id": "minecraft:pillager_outpost",
+        "engine": "mt",
+        "spacing": 80,
+        "separation": 24,
+        "salt": 165745296,
+        "spread": "triangular",
+        "exact": 19,
+        "withinOne": 19,
+        "total": 19,
+        "status": "exact"
+      }
     },
     {
       "index": 5,
@@ -85,7 +145,19 @@
       "evidence": "measured",
       "confirmed": true,
       "note": "24/24 captured positions; unique perfect fit. Salt read from the binary (0x26ac727), not Java's 34222645",
-      "tolerance": 0
+      "tolerance": 0,
+      "tally": {
+        "id": "minecraft:ruined_portal",
+        "engine": "mt",
+        "spacing": 40,
+        "separation": 15,
+        "salt": 40552231,
+        "spread": "linear",
+        "exact": 24,
+        "withinOne": 24,
+        "total": 24,
+        "status": "exact"
+      }
     },
     {
       "index": 6,
@@ -99,7 +171,19 @@
       "evidence": "measured",
       "confirmed": true,
       "note": "24/24 captured positions; unique perfect fit",
-      "tolerance": 0
+      "tolerance": 0,
+      "tally": {
+        "id": "minecraft:shipwreck",
+        "engine": "mt",
+        "spacing": 24,
+        "separation": 4,
+        "salt": 165745295,
+        "spread": "linear",
+        "exact": 24,
+        "withinOne": 24,
+        "total": 24,
+        "status": "exact"
+      }
     },
     {
       "index": 7,
@@ -112,8 +196,20 @@
       "engine": "java",
       "evidence": "pack",
       "confirmed": true,
-      "note": "pack placement replayed with the Java engine: 9/35 exact, 34/35 within one chunk. The reported position is the jigsaw structure origin, which sits in the placement chunk or one chunk back on either axis",
-      "tolerance": 1
+      "note": "pack placement replayed with the Java engine: 9/27 exact, 26/27 within one chunk. The reported position is the jigsaw structure origin, which sits in the placement chunk or one chunk back on either axis",
+      "tolerance": 1,
+      "tally": {
+        "id": "minecraft:trail_ruins",
+        "engine": "java",
+        "spacing": 34,
+        "separation": 8,
+        "salt": 83469867,
+        "spread": "linear",
+        "exact": 9,
+        "withinOne": 26,
+        "total": 27,
+        "status": "MISS"
+      }
     },
     {
       "index": 8,
@@ -127,7 +223,19 @@
       "evidence": "measured",
       "confirmed": true,
       "note": "4/24 exact, 24/24 within one chunk: same Java engine as trail_ruins, same jigsaw-origin offset",
-      "tolerance": 1
+      "tolerance": 1,
+      "tally": {
+        "id": "minecraft:trial_chambers",
+        "engine": "java",
+        "spacing": 34,
+        "separation": 12,
+        "salt": 94251327,
+        "spread": "linear",
+        "exact": 4,
+        "withinOne": 24,
+        "total": 24,
+        "status": "within one chunk"
+      }
     },
     {
       "index": 9,
@@ -140,8 +248,20 @@
       "engine": "mt",
       "evidence": "measured",
       "confirmed": true,
-      "note": "98/98 captured positions, across 35 distinct (seed, chunk) answers",
-      "tolerance": 0
+      "note": "77/77 captured positions, across every seed in the corpus",
+      "tolerance": 0,
+      "tally": {
+        "id": "minecraft:village",
+        "engine": "mt",
+        "spacing": 34,
+        "separation": 8,
+        "salt": 10387312,
+        "spread": "triangular",
+        "exact": 77,
+        "withinOne": 77,
+        "total": 77,
+        "status": "exact"
+      }
     }
   ],
   "unavailable": [

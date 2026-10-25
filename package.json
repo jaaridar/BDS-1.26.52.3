@@ -46,6 +46,8 @@
     "web:build": "node tools/web/build-seedfinder.js",
     "web:a11y": "node tools/web/a11y-check.js",
     "web:smoke": "node tools/web/smoke-web.js",
+    "web:dossier": "node tools/web/build-dossier.js",
+    "web:smoke:dossier": "node tools/web/smoke-dossier.js",
     "test:web": "node --test test/unit/seedfinder-wasm.test.js",
     "palette:gen": "node tools/gen-block-palette.js"
   },

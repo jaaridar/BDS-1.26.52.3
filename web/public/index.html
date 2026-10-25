@@ -89,13 +89,17 @@
 
 
 
+
+
+
+
 <!-- FILTERS:BEGIN -->
 
 <div class="filter" data-kind="stronghold">
   <p class="filter-head">
     <input type="checkbox" id="filter-stronghold" data-role="enable">
     <label for="filter-stronghold">strongholds</label>
-    <span class="badge badge-exact">grid positions exact · 159/160 probed</span>
+    <span class="badge badge-exact">grid positions · 491/510 gated cells exact</span>
   </p>
   <p class="filter-body">
     <label for="filter-stronghold-count">Minimum</label>
@@ -208,7 +212,7 @@
   <p class="filter-head">
     <input type="checkbox" id="filter-trail_ruins" data-role="enable">
     <label for="filter-trail_ruins">trail ruins</label>
-    <span class="badge badge-approx">within 1 chunk</span>
+    <span class="badge badge-approx">26/27 within 1 chunk</span>
   </p>
   <p class="filter-body">
     <label for="filter-trail_ruins-count">Minimum</label>
@@ -221,7 +225,7 @@
   <p class="filter-head">
     <input type="checkbox" id="filter-trial_chambers" data-role="enable">
     <label for="filter-trial_chambers">trial chambers</label>
-    <span class="badge badge-approx">within 1 chunk</span>
+    <span class="badge badge-approx">24/24 within 1 chunk</span>
   </p>
   <p class="filter-body">
     <label for="filter-trial_chambers-count">Minimum</label>
@@ -234,7 +238,7 @@
   <p class="filter-head">
     <input type="checkbox" id="filter-village" data-role="enable">
     <label for="filter-village">village</label>
-    <span class="badge badge-exact">exact · 98/98 captured</span>
+    <span class="badge badge-exact">exact · 77/77 captured</span>
   </p>
   <p class="filter-body">
     <label for="filter-village-count">Minimum</label>
@@ -265,6 +269,10 @@
 
 
 
+
+
+
+
       </fieldset>
 
       <details class="group details">
@@ -272,9 +280,10 @@
         <p>
           Strongholds sit on a 200-chunk cell grid. A cell's third random draw against
           <code>0.25</code> decides whether the stronghold stays at the cell's grid position;
-          when it does, the position is exact — it was probed against the real server 159
-          times out of 160, and cells that fail the gate were never at their grid position
-          (0 of 160).
+          when it does, the position is exact — 491 of 510 gated cells in the captured
+          corpus, and 159 of 160 when the server was asked about the model's own
+          predictions — and cells that fail the gate were never at their grid position
+          (0 of 82, and 0 of 160).
         </p>
         <p>
           Every world also contains exactly three more strongholds, placed at villages, and
@@ -441,7 +450,7 @@
           <tr>
             <th scope="row">strongholds (on grid)</th>
             <td>Exact</td>
-            <td>159 of 160 gated cells matched; 0 of 160 ungated cells did</td>
+            <td>491 of 510 gated cells matched (159 of 160 when asked directly); 0 of 82 ungated cells did</td>
           </tr>
           <tr>
             <th scope="row">strongholds at villages</th>

@@ -512,7 +512,7 @@ function inspectSeed (event) {
     name: 'strongholds (on grid)',
     count: gated.length,
     nearest: gated[0] || null,
-    evidence: 'exact — 159 of 160 probed gated cells matched; ungated cells are moved by the generator'
+    evidence: 'exact for gated cells (491 of 510 in the captured corpus); ungated cells are moved by the generator'
   })
 
   const fragment = document.createDocumentFragment()
