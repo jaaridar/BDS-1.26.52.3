@@ -110,6 +110,26 @@ An existing copy can be used instead:
 The full picture and the plan for vanilla parity (redstone, entities,
 persistence, ...) is in [docs/roadmap.md](docs/roadmap.md).
 
+## Find seeds in your browser
+
+The structure half of world generation is modelled and measured, so it has a
+front end: give it a seed range and say what the world must contain (villages,
+monuments, ruined portals, ancient cities, on-grid strongholds, ...), and it
+returns the seeds that qualify with every position it counted.
+
+```bash
+node web/server.js            # http://localhost:8787
+```
+
+The page computes everything locally — a WebAssembly transcription of
+`src/world/` in a pool of workers — so it needs no server, no captured worlds and
+no network once loaded. It also carries a stress test that checks the wasm core
+against the JavaScript reference over every seed class and every structure type,
+in your browser, and tells you if they ever disagree. What it cannot place
+(biomes, terrain, ocean ruins and other unmeasured sets, and the three strongholds
+every world puts at villages) is listed on the page rather than guessed at. See
+[web/README.md](web/README.md) and [docs/worldgen.md](docs/worldgen.md).
+
 ## Why not just decompile the official server?
 
 Making the *proprietary* server binary "open source" is not possible in any

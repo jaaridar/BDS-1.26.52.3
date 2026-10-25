@@ -66,8 +66,9 @@ function structuresNear (seed, { x = 0, z = 0, radiusChunks = 256, only = null }
         status: 'measured',
         note: '200-chunk cells; a gate draw below 0.25 means the cell holds a stronghold ' +
           'at its grid position (probed: 159 of 160 gated cells, 0 of 160 ungated). A ' +
-          'separate set of three near-spawn strongholds per world is not on the grid and ' +
-          'is not modelled yet',
+          'separate set of three strongholds per world is always at a village; their ' +
+          'positions are exact village chunks but which villages are chosen is not ' +
+          'recovered yet, so they are not reported here',
         candidates: cells.map((cell) => ({
           block: [cell.blockX, cell.blockZ],
           chunk: [cell.chunkX, cell.chunkZ],

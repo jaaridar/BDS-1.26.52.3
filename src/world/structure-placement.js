@@ -52,6 +52,31 @@ function floorDiv (a, b) {
 }
 
 /**
+ * A world seed reduced to the 32 bits the Mersenne cell seed folds in.
+ *
+ * Seeds above 2^53 are legal (`-9223372036854775808` is a real world seed) and
+ * `Number(seed) >>> 0` reduces *those* incorrectly: it rounds to the nearest
+ * double first, so 2^63 - 1 arrives as 2^63 and reduces to 0 instead of
+ * 0xffffffff. The reduction therefore goes through BigInt whenever the seed is
+ * not a safe integer. Verified by `test/unit/world-placement-seed-width.test.js`:
+ * seed 2^63 - 1 must place structures exactly like seed -1.
+ */
+function seed32 (seed) {
+  if (typeof seed === 'bigint') return Number(BigInt.asUintN(32, seed))
+  if (typeof seed === 'string') return Number(BigInt.asUintN(32, BigInt(seed.trim())))
+  if (Number.isSafeInteger(seed)) return Number(BigInt.asUintN(32, BigInt(seed)))
+  return Number(BigInt.asUintN(32, BigInt(Math.trunc(seed))))
+}
+
+/** The low 48 bits, which is all the Java engine's LCG keeps. */
+function seed48 (seed) {
+  if (typeof seed === 'bigint') return BigInt.asUintN(48, seed)
+  if (typeof seed === 'string') return BigInt.asUintN(48, BigInt(seed.trim()))
+  if (Number.isSafeInteger(seed)) return BigInt.asUintN(48, BigInt(seed))
+  return BigInt.asUintN(48, BigInt(Math.trunc(seed)))
+}
+
+/**
  * The 32-bit cell seed the Mersenne engine consumes.
  *
  * The binary computes `cellZ * -0xea9a42b + cellX * -0x66c60af8 + salt + seed`
@@ -62,7 +87,7 @@ function floorDiv (a, b) {
 function cellSeed (seed, cellX, cellZ, salt) {
   return (Math.imul(cellX, CELL_MUL_X32) +
     Math.imul(cellZ, CELL_MUL_Z32) +
-    (Number(seed) >>> 0) +
+    seed32(seed) +
     (Number(salt) >>> 0)) >>> 0
 }
 
@@ -189,6 +214,8 @@ module.exports = {
   spanOf,
   cellSeed,
   javaCellSeed,
+  seed32,
+  seed48,
   structureInCell,
   candidateStarts,
   nearestStart,

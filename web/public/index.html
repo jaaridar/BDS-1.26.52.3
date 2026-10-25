@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bedrock seed finder — OpenBDS</title>
+<meta name="description" content="Find Minecraft Bedrock world seeds by the structures they contain. Villages, ruined portals, strongholds and more, computed from the recovered placement algorithm in your browser.">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#results">Skip to search results</a>
+
+<header class="banner">
+  <p class="eyebrow">OpenBDS · world generation</p>
+  <h1>Bedrock seed finder</h1>
+  <p class="lede">
+    Type a seed range and say what the world must contain. Every position is computed
+    from the placement algorithm recovered from the Bedrock dedicated server — no server,
+    no download of world data, no lookup table. The same algorithm is in this repository
+    as <code>src/world/</code>, and this page runs a WebAssembly copy of it that is checked
+    against that code before every search.
+  </p>
+</header>
+
+<main id="main">
+  <section class="panel" aria-labelledby="search-heading">
+    <h2 id="search-heading">Search</h2>
+    <form id="search-form" novalidate>
+
+      <fieldset class="group">
+        <legend>Seeds to test</legend>
+        <div class="field-row">
+          <p class="field">
+            <label for="seed-start">First seed</label>
+            <input id="seed-start" name="seed-start" type="text" inputmode="numeric" autocomplete="off"
+                   value="0" spellcheck="false" aria-describedby="seed-start-hint">
+            <span class="hint" id="seed-start-hint">
+              Any 64-bit whole number, negative allowed. Seeds are tested as whole 64-bit values,
+              so a long search carries past <code>2<sup>32</sup></code> on its own. Only the low
+              32 bits reach most of the placement engine, and the low 48 reach the two pack-driven
+              sets, so seeds that differ higher up produce the same structures.
+            </span>
+          </p>
+          <p class="field">
+            <label for="seed-count">How many seeds</label>
+            <input id="seed-count" name="seed-count" type="number" min="1" max="4000000" step="1" value="20000"
+                   aria-describedby="seed-count-hint">
+            <span class="hint" id="seed-count-hint">Up to 4,000,000. Larger ranges take longer.</span>
+          </p>
+          <p class="field">
+            <label for="seed-step">Step</label>
+            <input id="seed-step" name="seed-step" type="number" min="1" max="4294967295" step="1" value="1"
+                   aria-describedby="seed-step-hint">
+            <span class="hint" id="seed-step-hint">1 tests consecutive seeds; larger values sample.</span>
+          </p>
+          <p class="field field-button">
+            <button id="randomise-seed" type="button" aria-describedby="randomise-hint">Random start</button>
+            <span class="hint" id="randomise-hint">Fill the first seed with a random 64-bit value.</span>
+          </p>
+        </div>
+      </fieldset>
+
+      <fieldset class="group">
+        <legend>Where to look</legend>
+        <div class="field-row">
+          <p class="field">
+            <label for="origin-x">Origin X (blocks)</label>
+            <input id="origin-x" name="origin-x" type="number" step="16" value="0" aria-describedby="origin-hint">
+            <span class="hint" id="origin-hint">Spawn is at 0,0; distances are measured from this block.</span>
+          </p>
+          <p class="field">
+            <label for="origin-z">Origin Z (blocks)</label>
+            <input id="origin-z" name="origin-z" type="number" step="16" value="0">
+          </p>
+        </div>
+      </fieldset>
+
+      <!-- The filter controls below are written by tools/web/build-seedfinder.js, from
+           src/world/structures-data.js. Change the table there, not the markup here. -->
+      <fieldset class="group">
+        <legend>What the world must contain</legend>
+        <p class="hint" id="filters-hint">
+          Tick a structure to require it. Filters are checked in the order shown and the
+          first one a seed fails stops it, so put the rarest requirement first.
+        </p>
+        
+
+
+
+
+<!-- FILTERS:BEGIN -->
+
+<div class="filter" data-kind="stronghold">
+  <p class="filter-head">
+    <input type="checkbox" id="filter-stronghold" data-role="enable">
+    <label for="filter-stronghold">strongholds</label>
+    <span class="badge badge-exact">grid positions exact · 159/160 probed</span>
+  </p>
+  <p class="filter-body">
+    <label for="filter-stronghold-count">Minimum</label>
+    <input id="filter-stronghold-count" type="number" min="1" max="20" step="1" value="1" disabled>
+    <label for="filter-stronghold-radius">Radius (chunks)</label>
+    <input id="filter-stronghold-radius" type="number" min="16" max="4096" step="16" value="400" disabled>
+    <label for="filter-stronghold-nearest">Nearest within (blocks)</label>
+    <input id="filter-stronghold-nearest" type="number" min="0" max="100000" step="16" value="0" disabled aria-describedby="filter-stronghold-nearest-hint">
+    <label for="filter-stronghold-mode">Cells to count</label>
+    <select id="filter-stronghold-mode" disabled>
+      <option value="gated" selected>on-grid only (positions exact)</option>
+      <option value="any">every cell (ungated ones are moved)</option>
+    </select>
+  </p>
+  <p class="hint" id="filter-stronghold-nearest-hint">0 ignores the distance test. Each world also has exactly three strongholds at villages, which this cannot place yet.</p>
+</div>
+
+<div class="filter" data-placement="ancient_city" data-index="undefined">
+  <p class="filter-head">
+    <input type="checkbox" id="filter-ancient_city" data-role="enable">
+    <label for="filter-ancient_city">ancient city</label>
+    <span class="badge badge-exact">exact · 24/24 captured</span>
+  </p>
+  <p class="filter-body">
+    <label for="filter-ancient_city-count">Minimum</label>
+    <input id="filter-ancient_city-count" type="number" min="1" max="999" step="1" value="1" disabled>
+    <label for="filter-ancient_city-radius">Radius (chunks)</label>
+    <input id="filter-ancient_city-radius" type="number" min="16" max="2048" step="16" value="200" disabled>
+  </p>
+</div>
+<div class="filter" data-placement="buried_treasure" data-index="undefined">
+  <p class="filter-head">
+    <input type="checkbox" id="filter-buried_treasure" data-role="enable">
+    <label for="filter-buried_treasure">buried treasure</label>
+    <span class="badge badge-exact">exact · 24/24 captured</span>
+  </p>
+  <p class="filter-body">
+    <label for="filter-buried_treasure-count">Minimum</label>
+    <input id="filter-buried_treasure-count" type="number" min="1" max="999" step="1" value="1" disabled>
+    <label for="filter-buried_treasure-radius">Radius (chunks)</label>
+    <input id="filter-buried_treasure-radius" type="number" min="16" max="2048" step="16" value="200" disabled>
+  </p>
+</div>
+<div class="filter" data-placement="mansion" data-index="undefined">
+  <p class="filter-head">
+    <input type="checkbox" id="filter-mansion" data-role="enable">
+    <label for="filter-mansion">mansion</label>
+    <span class="badge badge-exact">exact · 13/13 captured</span>
+  </p>
+  <p class="filter-body">
+    <label for="filter-mansion-count">Minimum</label>
+    <input id="filter-mansion-count" type="number" min="1" max="999" step="1" value="1" disabled>
+    <label for="filter-mansion-radius">Radius (chunks)</label>
+    <input id="filter-mansion-radius" type="number" min="16" max="2048" step="16" value="200" disabled>
+  </p>
+</div>
+<div class="filter" data-placement="monument" data-index="undefined">
+  <p class="filter-head">
+    <input type="checkbox" id="filter-monument" data-role="enable">
+    <label for="filter-monument">monument</label>
+    <span class="badge badge-exact">exact · 22/22 captured</span>
+  </p>
+  <p class="filter-body">
+    <label for="filter-monument-count">Minimum</label>
+    <input id="filter-monument-count" type="number" min="1" max="999" step="1" value="1" disabled>
+    <label for="filter-monument-radius">Radius (chunks)</label>
+    <input id="filter-monument-radius" type="number" min="16" max="2048" step="16" value="200" disabled>
+  </p>
+</div>
+<div class="filter" data-placement="pillager_outpost" data-index="undefined">
+  <p class="filter-head">
+    <input type="checkbox" id="filter-pillager_outpost" data-role="enable">
+    <label for="filter-pillager_outpost">pillager outpost</label>
+    <span class="badge badge-exact">exact · 19/19 captured</span>
+  </p>
+  <p class="filter-body">
+    <label for="filter-pillager_outpost-count">Minimum</label>
+    <input id="filter-pillager_outpost-count" type="number" min="1" max="999" step="1" value="1" disabled>
+    <label for="filter-pillager_outpost-radius">Radius (chunks)</label>
+    <input id="filter-pillager_outpost-radius" type="number" min="16" max="2048" step="16" value="200" disabled>
+  </p>
+</div>
+<div class="filter" data-placement="ruined_portal" data-index="undefined">
+  <p class="filter-head">
+    <input type="checkbox" id="filter-ruined_portal" data-role="enable">
+    <label for="filter-ruined_portal">ruined portal</label>
+    <span class="badge badge-exact">exact · 24/24 captured</span>
+  </p>
+  <p class="filter-body">
+    <label for="filter-ruined_portal-count">Minimum</label>
+    <input id="filter-ruined_portal-count" type="number" min="1" max="999" step="1" value="1" disabled>
+    <label for="filter-ruined_portal-radius">Radius (chunks)</label>
+    <input id="filter-ruined_portal-radius" type="number" min="16" max="2048" step="16" value="200" disabled>
+  </p>
+</div>
+<div class="filter" data-placement="shipwreck" data-index="undefined">
+  <p class="filter-head">
+    <input type="checkbox" id="filter-shipwreck" data-role="enable">
+    <label for="filter-shipwreck">shipwreck</label>
+    <span class="badge badge-exact">exact · 24/24 captured</span>
+  </p>
+  <p class="filter-body">
+    <label for="filter-shipwreck-count">Minimum</label>
+    <input id="filter-shipwreck-count" type="number" min="1" max="999" step="1" value="1" disabled>
+    <label for="filter-shipwreck-radius">Radius (chunks)</label>
+    <input id="filter-shipwreck-radius" type="number" min="16" max="2048" step="16" value="200" disabled>
+  </p>
+</div>
+<div class="filter" data-placement="trail_ruins" data-index="undefined">
+  <p class="filter-head">
+    <input type="checkbox" id="filter-trail_ruins" data-role="enable">
+    <label for="filter-trail_ruins">trail ruins</label>
+    <span class="badge badge-approx">within 1 chunk</span>
+  </p>
+  <p class="filter-body">
+    <label for="filter-trail_ruins-count">Minimum</label>
+    <input id="filter-trail_ruins-count" type="number" min="1" max="999" step="1" value="1" disabled>
+    <label for="filter-trail_ruins-radius">Radius (chunks)</label>
+    <input id="filter-trail_ruins-radius" type="number" min="16" max="2048" step="16" value="200" disabled>
+  </p>
+</div>
+<div class="filter" data-placement="trial_chambers" data-index="undefined">
+  <p class="filter-head">
+    <input type="checkbox" id="filter-trial_chambers" data-role="enable">
+    <label for="filter-trial_chambers">trial chambers</label>
+    <span class="badge badge-approx">within 1 chunk</span>
+  </p>
+  <p class="filter-body">
+    <label for="filter-trial_chambers-count">Minimum</label>
+    <input id="filter-trial_chambers-count" type="number" min="1" max="999" step="1" value="1" disabled>
+    <label for="filter-trial_chambers-radius">Radius (chunks)</label>
+    <input id="filter-trial_chambers-radius" type="number" min="16" max="2048" step="16" value="200" disabled>
+  </p>
+</div>
+<div class="filter" data-placement="village" data-index="undefined">
+  <p class="filter-head">
+    <input type="checkbox" id="filter-village" data-role="enable">
+    <label for="filter-village">village</label>
+    <span class="badge badge-exact">exact · 98/98 captured</span>
+  </p>
+  <p class="filter-body">
+    <label for="filter-village-count">Minimum</label>
+    <input id="filter-village-count" type="number" min="1" max="999" step="1" value="1" disabled>
+    <label for="filter-village-radius">Radius (chunks)</label>
+    <input id="filter-village-radius" type="number" min="16" max="2048" step="16" value="200" disabled>
+  </p>
+</div>
+
+<div class="withdrawn">
+  <h3>Not available as filters</h3>
+  <p class="hint">These sets exist in the game but their placement is not measured, so a filter on them would guess.</p>
+  <ul>
+    <li><strong>abandoned camp</strong> — pack placement; no captured positions yet, so the engine is inferred from the other pack sets</li>
+    <li><strong>desert pyramid</strong> — placement parameters are placeholders, not measured</li>
+    <li><strong>igloo</strong> — placement parameters are placeholders, not measured</li>
+    <li><strong>jungle temple</strong> — placement parameters are placeholders, not measured</li>
+    <li><strong>mineshaft</strong> — per-chunk frequency placement; the gate threshold is not recovered yet</li>
+    <li><strong>ocean ruin</strong> — placement parameters are placeholders, not measured</li>
+    <li><strong>witch hut</strong> — placement parameters are placeholders, not measured</li>
+  </ul>
+  <p class="hint">Biomes and terrain are also absent, because the climate sampler is not recovered.</p>
+</div>
+
+<!-- FILTERS:END -->
+
+
+
+
+
+      </fieldset>
+
+      <details class="group details">
+        <summary>Stronghold placement, and the part of it that is still open</summary>
+        <p>
+          Strongholds sit on a 200-chunk cell grid. A cell's third random draw against
+          <code>0.25</code> decides whether the stronghold stays at the cell's grid position;
+          when it does, the position is exact — it was probed against the real server 159
+          times out of 160, and cells that fail the gate were never at their grid position
+          (0 of 160).
+        </p>
+        <p>
+          Every world also contains exactly three more strongholds, placed at villages, and
+          <strong>the rule that picks those three villages is not recovered yet</strong>.
+          This page therefore reports the grid strongholds only, and counts them as
+          “on-grid”. The villages those extra three use are known positions — only the choice
+          is missing. See <code>docs/worldgen.md</code>.
+        </p>
+      </details>
+
+      <details class="group details">
+        <summary>Why there is no biome filter</summary>
+        <p>
+          Biomes in Bedrock come out of a climate noise router, and its density function and
+          climate mapping have not been recovered yet, so no surface biome can be predicted
+          from a seed. The biome <em>data</em> (76 biomes with their climate targets) is
+          loaded in the repository, but data is not a sampler.
+        </p>
+        <p>
+          A biome checkbox would therefore have to invent answers, so there isn't one. The
+          filters offered here are the ones whose parameters were confirmed by asking the
+          server and matching every captured answer.
+        </p>
+      </details>
+
+      <div class="actions">
+        <button id="search-button" type="submit" class="primary">Search seeds</button>
+        <button id="stop-button" type="button" disabled>Stop</button>
+        <button id="reset-button" type="button">Reset filters</button>
+      </div>
+      <p class="error-summary" id="error-summary" role="alert" hidden></p>
+    </form>
+  </section>
+
+  <section class="panel" aria-labelledby="progress-heading">
+    <h2 id="progress-heading">Progress</h2>
+    <div class="status-line">
+      <p class="status" id="search-status" role="status" aria-live="polite">Ready.</p>
+      <p class="engine" id="engine-status">engine: not loaded</p>
+    </div>
+    <label class="progress-label" for="search-progress">Seeds tested</label>
+    <progress id="search-progress" max="100" value="0">0%</progress>
+    <dl class="stats">
+      <div><dt>Tested</dt><dd id="stat-tested">0</dd></div>
+      <div><dt>Matches</dt><dd id="stat-matches">0</dd></div>
+      <div><dt>Elapsed</dt><dd id="stat-elapsed">0.0 s</dd></div>
+      <div><dt>Rate</dt><dd id="stat-rate">&mdash;</dd></div>
+    </dl>
+  </section>
+
+  <section class="panel" aria-labelledby="results-heading" id="results">
+    <h2 id="results-heading">Results</h2>
+    <p class="hint" id="results-hint">
+      Seeds appear as they are found. Distances are in blocks from the origin. “Nearest” is
+      the closest accepted position of that structure type inside the radius you set.
+    </p>
+    <p class="empty" id="results-empty">No search has run yet.</p>
+    <div class="table-scroll" role="region" aria-labelledby="results-heading" tabindex="0">
+      <table id="results-table" hidden>
+        <caption id="results-caption">Matches</caption>
+        <thead><tr id="results-head"></tr></thead>
+        <tbody id="results-body"></tbody>
+      </table>
+    </div>
+    <div class="actions" id="results-actions" hidden>
+      <button id="copy-seeds" type="button">Copy seeds</button>
+      <button id="download-seeds" type="button">Download as JSON</button>
+    </div>
+  </section>
+
+  <section class="panel" aria-labelledby="inspect-heading">
+    <h2 id="inspect-heading">Inspect one seed</h2>
+    <p class="hint">Every structure the model places near one seed, with its evidence.</p>
+    <form id="inspect-form" class="field-row" novalidate>
+      <p class="field">
+        <label for="inspect-seed">Seed</label>
+        <input id="inspect-seed" name="inspect-seed" type="text" inputmode="numeric" value="0"
+               autocomplete="off" spellcheck="false" aria-describedby="inspect-hint">
+        <span class="hint" id="inspect-hint">Any 64-bit whole number.</span>
+      </p>
+      <p class="field">
+        <label for="inspect-radius">Radius (chunks)</label>
+        <input id="inspect-radius" name="inspect-radius" type="number" min="16" max="1024" step="16" value="256">
+      </p>
+      <p class="field field-button">
+        <button type="submit">Inspect</button>
+      </p>
+    </form>
+    <p class="status" id="inspect-status" role="status" aria-live="polite"></p>
+    <div class="table-scroll" role="region" aria-labelledby="inspect-heading" tabindex="0">
+      <table id="inspect-table" hidden>
+        <caption id="inspect-caption">Structures near this seed</caption>
+        <thead>
+          <tr>
+            <th scope="col">Structure</th>
+            <th scope="col">Count</th>
+            <th scope="col">Nearest block</th>
+            <th scope="col">Chunk</th>
+            <th scope="col">Distance</th>
+            <th scope="col">Evidence</th>
+          </tr>
+        </thead>
+        <tbody id="inspect-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="panel" aria-labelledby="stress-heading">
+    <h2 id="stress-heading">Stress test</h2>
+    <p class="hint">
+      Compares the WebAssembly core against the JavaScript reference in this page, over every
+      seed class the search accepts and every structure type in the table, then measures
+      throughput. Nothing here is a recorded answer: each row recomputes both sides now.
+    </p>
+    <div class="actions">
+      <button id="stress-button" type="button">Run stress test</button>
+    </div>
+    <p class="status" id="stress-status" role="status" aria-live="polite">Not run yet.</p>
+    <div class="table-scroll" role="region" aria-labelledby="stress-heading" tabindex="0">
+      <table id="stress-table" hidden>
+        <caption id="stress-caption">Stress test results</caption>
+        <thead>
+          <tr>
+            <th scope="col">Check</th>
+            <th scope="col">Cases</th>
+            <th scope="col">Result</th>
+            <th scope="col">Detail</th>
+          </tr>
+        </thead>
+        <tbody id="stress-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="panel" aria-labelledby="accuracy-heading">
+    <h2 id="accuracy-heading">What is exact, and what is not</h2>
+    <p class="hint">
+      A filter is offered only when its parameters were confirmed against captured server
+      answers. Confirmation means every captured position of that set was replayed and
+      matched; the tally is in <code>src/world/structures-data.js</code> and the method in
+      <code>docs/worldgen.md</code>.
+    </p>
+    <div class="table-scroll" role="region" aria-labelledby="accuracy-heading" tabindex="0">
+      <table id="accuracy-table">
+        <caption>Coverage of the structure model</caption>
+        <thead>
+          <tr>
+            <th scope="col">Structure</th>
+            <th scope="col">Status</th>
+            <th scope="col">Evidence</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">villages, outposts, monuments, mansions, shipwrecks, ruined portals, ancient cities, buried treasure</th>
+            <td>Exact</td>
+            <td>Every captured position reproduced; parameters unique over the fit</td>
+          </tr>
+          <tr>
+            <th scope="row">trail ruins, trial chambers</th>
+            <td>Within one chunk</td>
+            <td>Pack placement replayed on the Java engine; reported positions are structure origins</td>
+          </tr>
+          <tr>
+            <th scope="row">strongholds (on grid)</th>
+            <td>Exact</td>
+            <td>159 of 160 gated cells matched; 0 of 160 ungated cells did</td>
+          </tr>
+          <tr>
+            <th scope="row">strongholds at villages</th>
+            <td>Not modelled</td>
+            <td>Three per world, always on a village; the choice of village is open</td>
+          </tr>
+          <tr>
+            <th scope="row">ocean ruins, desert pyramids, jungle temples, witch huts, igloos, mineshafts, abandoned camps</th>
+            <td>Not offered</td>
+            <td>Parameters are placeholders or the set is gated per chunk</td>
+          </tr>
+          <tr>
+            <th scope="row">biomes and terrain</th>
+            <td>Not modelled</td>
+            <td>The climate sampler has not been recovered</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="hint">
+      Every block of every world is not predicted yet, so this is not a whole-world
+      generator: it is the structure half of one, with its gaps listed above rather than
+      filled in.
+    </p>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>
+    OpenBDS, MIT licensed. Algorithm and evidence:
+    <code>docs/worldgen.md</code>. Found a seed where a position is wrong?
+    That is the most useful bug report there is — include the seed, the structure and the
+    <code>locate</code> answer.
+  </p>
+</footer>
+
+<noscript>
+  <p class="panel">This page needs JavaScript: the search runs in your browser, so there is no server to fall back to.</p>
+</noscript>
+
+<script src="reference.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

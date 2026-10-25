@@ -1,0 +1,62 @@
+name: Seed finder (web)
+
+# The seed finder is generated code plus a wasm artifact, which is a combination
+# that rots quietly. This job keeps it honest:
+#
+#   1. regenerate every artifact and fail if the result differs from what is
+#      committed, so the page can never show an older table than src/world;
+#   2. run the static accessibility audit;
+#   3. run the wasm-against-reference parity test over every seed class;
+#   4. drive the real page end to end in jsdom (filters, search, results,
+#      inspector, stress test).
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'web/**'
+      - 'src/world/**'
+      - 'tools/web/**'
+      - 'test/unit/seedfinder-wasm.test.js'
+      - '.github/workflows/web.yml'
+  pull_request:
+    paths:
+      - 'web/**'
+      - 'src/world/**'
+      - 'tools/web/**'
+      - 'test/unit/seedfinder-wasm.test.js'
+      - '.github/workflows/web.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  web:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Generated artifacts match their sources
+        run: |
+          node tools/web/build-seedfinder.js --no-wasm
+          if ! git diff --exit-code -- web/assembly web/public; then
+            echo "::error::web artifacts are stale: run node tools/web/build-seedfinder.js and commit the result"
+            exit 1
+          fi
+
+      - name: Accessibility audit
+        run: node tools/web/a11y-check.js
+
+      - name: wasm core matches the JavaScript reference
+        run: node --test test/unit/seedfinder-wasm.test.js
+
+      - name: Page smoke test (jsdom)
+        run: |
+          npm install --prefix "$RUNNER_TEMP/jsdom" jsdom --no-save --no-audit --no-fund
+          JSDOM_PATH="$RUNNER_TEMP/jsdom/node_modules/jsdom" node tools/web/smoke-web.js

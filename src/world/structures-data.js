@@ -133,9 +133,15 @@ const PLACEMENTS = {
   'minecraft:witch_hut': placeholder('minecraft:witch_hut', 32, 8, 14357620),
   'minecraft:igloo': placeholder('minecraft:igloo', 32, 8, 14357618),
   'minecraft:mineshaft': frequency('minecraft:mineshaft', 0),
-  // Strongholds use a ring layout rather than a jittered grid; the ring
-  // parameters are a separate computation and are not modelled here yet.
-  'minecraft:stronghold': placeholder('minecraft:stronghold', 0, 0, 0)
+  // Strongholds are not a jittered grid of this kind: they use a 200-chunk cell
+  // grid whose cells carry one stronghold each, and the placement lives in
+  // `stronghold.js` rather than in this table. The row stays empty on purpose so
+  // nothing here can be mistaken for a spacing.
+  'minecraft:stronghold': row('minecraft:stronghold', {
+    spacing: 0, separation: 0, salt: 0x5d534e7, spreadType: 'linear',
+    evidence: 'binary', confirmed: false,
+    note: 'own code path: see src/world/stronghold.js; the spacing is 0 so no table-driven tool can mistake the row for a grid'
+  })
 }
 
 module.exports = { PLACEMENTS, PLACEMENT_SOURCE }

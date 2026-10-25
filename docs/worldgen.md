@@ -22,11 +22,14 @@ certain than its evidence.
 | Climate noise router | **not implemented** | the descriptor table is built at startup inside the binary |
 | Density / terrain height | **not implemented** | depends on the router |
 | Block prediction | **not implemented** | depends on density, surface rules and feature order |
-| Strongholds | **mostly exact** | 200-chunk cell grid, one stronghold per cell; the grid position is exact for the gated quarter, the rest need the biome layer (below) |
+| Strongholds | **grid exact, near-spawn set open** | 200-chunk cell grid; the grid position is exact for the gated quarter (159/160 probed). Every world also has exactly three more strongholds at villages: the positions are known, the choice of village is not |
 
 ## What you can run now
 
 ```
+# the browser seed finder: search seed ranges for structure requirements
+node web/server.js            # then open http://localhost:8787/
+
 # area report for a seed: which structures, where, and how sure we are
 node tools/worldgen-algo/world.js --seed 12345
 
@@ -114,6 +117,8 @@ src/world/world-report.js         composition + status labels for a seed
 tools/worldgen-algo/              CLI: world report, locate, fit; brarchive reader
 tools/binary-analysis/            static extraction: identifier scan, record scan
 tools/worldgen-golden/            oracle harness: block capture and verification
+web/                              browser seed finder (wasm core + accessible page)
+tools/web/                        build, accessibility audit, end-to-end page test
 ```
 
 ## Measured state of structure placement (2026-10-24)
